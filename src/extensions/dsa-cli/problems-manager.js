@@ -8,6 +8,7 @@ const constants = require('./constants');
 const { cloze_problems_list } = require('./cloze');
 
 const { getDirAbsoluteUri, openEditorPlatformAgnostic, get_random } = require('./functions');
+const { retrieve_dsa_problems_as_decks } = require('./md_dsa_parser');
 
 
 
@@ -166,6 +167,23 @@ class ProblemsManager {
 
         }
         // console.log("this.problems", this.problems)
+    }
+
+    /**
+     * Populates the problems manager with problems from external DSA modules.
+     */
+    async autoPopulateUsingDSAModules({ skip_non_markdown = false } = {}) {
+        const dsaDecks = retrieve_dsa_problems_as_decks();
+        
+        for (const [moduleKey, deckData] of Object.entries(dsaDecks)) {
+            console.log(`Loading DSA problems from module: ${deckData.title}`);
+            
+            for (const problem of deckData.items) {
+                this.addProblem(problem);
+            }
+        }
+        
+        console.log(`Loaded ${Object.keys(this.problems).length} DSA problems from external modules`);
     }
 
     /**
