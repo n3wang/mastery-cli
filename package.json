@@ -36,9 +36,7 @@
 		"markdown-to-json": "^0.5.4",
 		"marked": "^4.2.12",
 		"marked-terminal": "^5.1.1",
-		"meow": "^9.0.0",
-		"node-json-db": "file:custom_modules/node-json-db-1.0.1",
-		"terminal-charter": "file:custom_modules/terminal-charter-master"
+		"meow": "^9.0.0"
 	},
 	"devDependencies": {
 		"mocha": "^10.2.0"

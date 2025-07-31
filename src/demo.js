@@ -1,5 +1,5 @@
 
-const chart = require('terminal-charter')
+const chart = require('./local-modules/terminal-charts')
 const { bar, scatter, bg, fg, heatmap } = chart;
 
 const EDemo = {

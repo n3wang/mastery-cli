@@ -62,7 +62,7 @@ class LocalStorage {
 
     async load() {
         try {
-            const { JsonDB, Config } = await import('node-json-db');
+            const { JsonDB, Config } = require('./local-modules/json-db');
             const db = new JsonDB(new Config(this.absolute_uri, true, false, '/'));
             this.date_based_stats = await db.getData('/date_based_stats');
             this.skill_based_stats = await db.getData('/skills_stats');
@@ -73,7 +73,7 @@ class LocalStorage {
     }
 
     async save() {
-        const { JsonDB, Config } = await import('node-json-db');
+        const { JsonDB, Config } = require('./local-modules/json-db');
         const db = new JsonDB(new Config(this.absolute_uri, true, false, '/'));
         db.push('/date_based_stats', this.date_based_stats);
         db.push('/skills_stats', this.skill_based_stats);

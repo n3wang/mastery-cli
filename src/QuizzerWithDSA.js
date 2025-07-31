@@ -7,7 +7,7 @@ const DSAConstants = require('./extensions/dsa-cli/constants');
 
 const { TermScheduler } = require('./termScheduler');
 const settings = require('./settings');
-const utils = require('terminal-charter/lib/utils');
+const utils = require('./local-modules/terminal-charts').lib.utils;
 /**
  * This class also supports DSATrainer Implementation.
  */

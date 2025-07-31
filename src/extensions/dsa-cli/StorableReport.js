@@ -1,4 +1,4 @@
-const { JsonDB, Config } = require("node-json-db");
+const { JsonDB, Config } = require("../../local-modules/json-db");
 const { getCurrentDate, getDirAbsoluteUri } = require("./functions");
 const path = require('path');
 const fs = require('fs');

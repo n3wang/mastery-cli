@@ -14,7 +14,7 @@
 const chalk = require('chalk');
 const clipboard = require('copy-paste')
 
-const chart = require('terminal-charter')
+const chart = require('./local-modules/terminal-charts')
 const { exec } = require('node:child_process');
 const { Toggle, Confirm, prompt, AutoComplete, Survey, Input } = require('enquirer');
 

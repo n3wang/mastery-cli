@@ -1,4 +1,4 @@
-const { JsonDB, Config } = require("node-json-db");
+const { JsonDB, Config } = require("../../../local-modules/json-db");
 
 
 // Import from cloze_problem_list.json

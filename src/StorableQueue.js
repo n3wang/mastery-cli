@@ -9,7 +9,7 @@ class StorableQueue {
 
     async load() {
         try {
-            const { JsonDB, Config } = await import('node-json-db');
+            const { JsonDB, Config } = require('./local-modules/json-db');
 
             const db = new JsonDB(new Config(this.absolute_uri, true, false, '/'));
             this.elements = await db.getData('/elements');
@@ -22,7 +22,7 @@ class StorableQueue {
     }
 
     async save() {
-        const { JsonDB, Config } = await import('node-json-db');
+        const { JsonDB, Config } = require('./local-modules/json-db');
 
         const db = new JsonDB(new Config(this.absolute_uri, true, false, '/'));
         db.push('/elements', this.elements);
