@@ -51,7 +51,7 @@ class Quizzer {
      * OUT: 
      * - {form, replace}
      */
-    getYoungest = async (potential_questions, { limit = 3, account_id = Settings.account_id ?? 1, randomOffline = false } = {}) => {
+    getYoungest = async (potential_questions, { limit = Settings?.queue_configurations?.quizzer_repetitive_limit ?? 3, account_id = Settings.account_id ?? 1, randomOffline = false } = {}) => {
 
         if (randomOffline) {
             return get_random_of_size(potential_questions, { count: limit });
@@ -103,7 +103,7 @@ class Quizzer {
     forceLearnTermQuestions = async ({ exitMethod = () => { } } = {}) => {
         let potential_questions = this.terms;
 
-        potential_questions = await this.getYoungest(potential_questions, { limit: 2, randomOffline: true });
+        potential_questions = await this.getYoungest(potential_questions, { limit: Settings?.queue_configurations?.quizzer_force_learn_limit ?? 2, randomOffline: true });
         let attempts = 0;
         let attempts_timestamps = [];
 
@@ -120,10 +120,11 @@ class Quizzer {
         if (lgtermScheduler.length > 0) {
 
             // If larger than three assign the last three in the queue.
-            if (lgtermScheduler.length >= 3) {
-                const lastThree = lgtermScheduler.elements.slice(-3);
+            const lastThreeCount = Settings?.queue_configurations?.quizzer_force_learn_last_three ?? 3;
+            if (lgtermScheduler.length >= lastThreeCount) {
+                const lastThree = lgtermScheduler.elements.slice(-lastThreeCount);
                 // Remove the last three from the queue
-                lgtermScheduler.elements = lgtermScheduler.elements.slice(0, -3);
+                lgtermScheduler.elements = lgtermScheduler.elements.slice(0, -lastThreeCount);
                 potential_questions = lastThree;
 
             } else {
@@ -584,7 +585,7 @@ class Quizzer {
             }
 
 
-            const quiz_allow_reattempts = 3;
+            const quiz_allow_reattempts = Settings?.queue_configurations?.quiz_allow_reattempts ?? 3;
             let answerIsCorrect = false;
 
             for (let i = 0; i < quiz_allow_reattempts; i++) {

@@ -168,6 +168,28 @@ src/
 - `src/extensions/dsa-cli/` - All algorithm-related code
 - `src/user_data/settings.json` - User preferences
 
+### Queue Configuration
+
+You can customize queue lengths for various core features by modifying `src/user_data/settings.json`:
+
+```json
+{
+  "queue_configurations": {
+    "quizzer_repetitive_limit": 3,           // Max repetitive questions in Quizzer
+    "quizzer_force_learn_limit": 2,          // Force learn limit in Quizzer  
+    "quizzer_force_learn_last_three": 3,     // Last items to process in force learn mode
+    "term_scheduler_working_set_length": 5,  // Working set size for Terms Scheduler
+    "mini_term_scheduler_working_set_length": 3, // Working set size for Mini Term Scheduler
+    "quiz_allow_reattempts": 3               // Number of allowed reattempts for quiz questions
+  }
+}
+```
+
+These settings control the behavior of:
+- **Quizzer.js** (`src/Quizzer.js`): Controls repetitive questions and force learning modes
+- **TermScheduler** (`src/termScheduler.js`): Manages working set length for term learning
+- **MiniTermScheduler** (`src/MiniTermScheduler.js`): Controls working set for mini term sessions
+
 ### Adding New Features
 1. Create a new extension in `src/extensions/`
 2. Export your commands from the extension

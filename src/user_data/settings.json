@@ -7,6 +7,14 @@
   "external_term_modules": [],
   "dsa_language_mode": "PSEUDOCODE",
   "terms_force_mode_cards": 3,
+  "queue_configurations": {
+    "quizzer_repetitive_limit": 3,
+    "quizzer_force_learn_limit": 2,
+    "quizzer_force_learn_last_three": 3,
+    "term_scheduler_working_set_length": 5,
+    "mini_term_scheduler_working_set_length": 3,
+    "quiz_allow_reattempts": 3
+  },
   "blog_special_commits": true,
   "commit_categories": [
     {
