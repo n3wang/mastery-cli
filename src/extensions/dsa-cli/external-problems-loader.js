@@ -73,13 +73,7 @@ class ExternalProblemsLoader {
                 }
 
                 const parsedProblems = parseMarkdownProblemsFromFolder(folderPath);
-                const problemMetadata = convertToProblemsMetadata(parsedProblems, 'External Problems');
-                
-                // Add source folder information to each problem
-                problemMetadata.forEach(problem => {
-                    problem.source_folder = folderPath;
-                    problem.is_external = true;
-                });
+                const problemMetadata = convertToProblemsMetadata(parsedProblems, 'External Problems', folderPath);
 
                 allProblems.push(...problemMetadata);
                 this.loadedFolders.add(folderPath);
