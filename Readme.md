@@ -16,7 +16,7 @@ Mastery CLI is a comprehensive tool designed to boost your programming skills. I
 | ----------------------------------------------------------------------- | ------------------------------------- |
 | Convert your Markdown Notes into Flashcards                             | ![alt text](img/markdown-toimage.png) |
 | Upgrade your skills, and keep record of your progress with Mastery CLI. | ![alt text](img/progress-record.png)      |
-| **🧠 Smart Term Selection** - Hash-based memory system that remembers which flashcards you've practiced and prioritizes the ones you need to study most using "least practiced first" algorithm | 🎯 *Adaptive Learning* |
+| Auto flashcards deck sort algorithm that prioritizes the ones you need to study most using "least practiced first" algorithm | add image |
 | Pushing Code and Flashcards Hook - Taking a page from cd ci pipelines, upgrade your skills by doing 2-3 flashcards after every commit or push with `mcli coa "message"` (git add --all, git commit -m "message" ) or `mcli poh` (push origin HEAD)  | ![](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzYzYzU5NWJiMjNhNThkYzBkNTJlM2MxNjFjZjdiNzJiMTZhMGVmOSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/JavdJQ8YjfQyOq0Cfy/giphy.gif) | 
 `mcli dsa --all` - checkout over more than 150+ offline data structures and algorithms problems, with a built-in compiler and offline tests. | ![alt text](img/dsa-problems.png) |
 `cli dsa` - Use our algorithmic path to learn and master neetcode 150 problems one b one | ![alt text](img/dsa-path.png) |
@@ -112,7 +112,7 @@ The system uses content-based hashing to track your practice history:
 
 1. **Unique Term Identification**: Each flashcard gets a unique 8-character hash based on its content (term + description + example)
 2. **Completion Tracking**: Every time you successfully complete a flashcard, the system increments its completion count
-3. **Smart Selection**: When selecting terms for study, the system prioritizes cards with fewer completions
+3. **Smart Selection**: When selecting terms for study, the system prioritizes cards with fewer completions by randomnly choosing a sample of `sample_size` cards (configurale at `src/user_data/settings.json`) and selecting the one with the least completions. Can be enabled/disabled
 
 
  Run the tests:
