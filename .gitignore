@@ -86,3 +86,6 @@ utils/dsa-cli/user_files/temp_problem.js
 .gitignore/*
 .vscode/*
 src/extensions/dsa-cli/data/db.json
+**/db.json
+**/db.json.*
+
