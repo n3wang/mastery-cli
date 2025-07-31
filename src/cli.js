@@ -1,5 +1,5 @@
 const meow = require('meow');
-const meowHelp = require('cli-meow-help');
+const meowHelp = require('./local-modules/cli-help');
 
 const flags = {
 	clear: {
