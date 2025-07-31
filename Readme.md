@@ -118,6 +118,9 @@ mcli math
 
 ### Data Structures and Algorithms 
 
+By default we include a datastructure algorithms module with over 150+ problems, and a built-in compiler to test your code. For more information about how to use it please refer to `EXTERNAL_DSA_PROBLEMS.md`
+
+
 TODO Explain in depth the dsa system. And how to add new problems to the collection.
 
 TODO Explain the Cloze Demo, Cloze Sessions and others. 
