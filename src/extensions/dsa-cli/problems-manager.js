@@ -9,6 +9,7 @@ const { cloze_problems_list } = require('./cloze');
 
 const { getDirAbsoluteUri, openEditorPlatformAgnostic, get_random } = require('./functions');
 const { retrieve_dsa_problems_as_decks } = require('./md_dsa_parser');
+const { externalProblemsLoader } = require('./external-problems-loader');
 
 
 
@@ -187,6 +188,173 @@ class ProblemsManager {
     }
 
     /**
+     * Populates the problems manager with problems from external folders configured in temp_settings.json
+     */
+    async autoPopulateUsingExternalFolders({ skip_if_disabled = true } = {}) {
+        if (skip_if_disabled && !externalProblemsLoader.isAutoLoadEnabled()) {
+            console.log('External problems auto-loading is disabled in temp_settings.json');
+            return;
+        }
+
+        const externalProblems = externalProblemsLoader.loadExternalProblems();
+        
+        if (externalProblems.length === 0) {
+            console.log('No external problems found to load');
+            return;
+        }
+
+        console.log(`Loading ${externalProblems.length} problems from external folders...`);
+        
+        for (const problem of externalProblems) {
+            this.addProblem(problem);
+        }
+        
+        console.log(`Loaded ${externalProblems.length} problems from external folders`);
+    }
+
+    /**
+     * Populates the problems manager with all available problems (DSA modules + external folders)
+     */
+    async autoPopulateAllSources({ skip_non_markdown = false } = {}) {
+        // Load from DSA modules first
+        await this.autoPopulateUsingDSAModules({ skip_non_markdown });
+        
+        // Then load from external folders
+        await this.autoPopulateUsingExternalFolders();
+        
+        // Finally load from test dictionary if needed
+        await this.autoPopulateUsingTestDictionary({ skip_non_markdown });
+        
+        console.log(`Total problems loaded: ${Object.keys(this.problems).length}`);
+    }
+
+    /**
+     * Generates a template for external problems that don't have base code files
+     * @param {ProblemMetadata} problemMetadata - The external problem metadata
+     * @param {string} targetFilePath - The path where the template should be written
+     * @returns {boolean} Success status
+     */
+    generateExternalProblemTemplate(problemMetadata, targetFilePath) {
+        try {
+            // Load the external problem data from the markdown source
+            const { parseMarkdownProblemsFromFolder } = require('./md_dsa_parser');
+            const path = require('path');
+            
+            let problemData = null;
+            
+            // Find the problem data from the source folder
+            if (problemMetadata.source_folder && fs.existsSync(problemMetadata.source_folder)) {
+                const problems = parseMarkdownProblemsFromFolder(problemMetadata.source_folder);
+                problemData = problems.find(p => p.title.toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, '-') === problemMetadata.slug);
+            }
+            
+            let templateContent = '';
+            
+            if (problemData) {
+                // Generate rich template with problem data
+                templateContent = `# ${problemData.title}
+
+**Difficulty:** ${problemData.difficulty}  
+**Tags:** ${problemData.tags.join(', ')}  
+**Source:** External Problem
+
+## Description
+${problemData.description}
+
+${problemData.theory ? `## Theory\n${problemData.theory}\n` : ''}
+
+${problemData.pseudocode ? `## Pseudocode\n\`\`\`\n${problemData.pseudocode}\n\`\`\`\n` : ''}
+
+## Solutions
+
+${problemData.solution.javascript ? `### JavaScript\n\`\`\`javascript\n${problemData.solution.javascript}\n\`\`\`\n` : ''}
+
+${problemData.solution.python ? `### Python\n\`\`\`python\n${problemData.solution.python}\n\`\`\`\n` : ''}
+
+---
+
+## Your Solution
+Write your solution below:
+
+\`\`\`javascript
+// Your JavaScript solution here
+function solution() {
+    // TODO: Implement your solution
+}
+\`\`\`
+
+\`\`\`python
+# Your Python solution here
+def solution():
+    # TODO: Implement your solution
+    pass
+\`\`\`
+`;
+            } else {
+                // Generate basic template
+                templateContent = `# ${problemMetadata.name}
+
+**Difficulty:** ${problemMetadata.difficulty}  
+**Tags:** ${problemMetadata.tags.join(', ')}  
+**Source:** External Problem
+
+## Description
+${problemMetadata.description || 'Problem description not available.'}
+
+## Your Solution
+Write your solution below:
+
+\`\`\`javascript
+// Your JavaScript solution here
+function solution() {
+    // TODO: Implement your solution
+}
+\`\`\`
+
+\`\`\`python
+# Your Python solution here
+def solution():
+    # TODO: Implement your solution
+    pass
+\`\`\`
+`;
+            }
+            
+            // Write the template to the target file
+            fs.writeFileSync(targetFilePath, templateContent, 'utf8');
+            console.log(`Generated external problem template: ${targetFilePath}`);
+            return true;
+            
+        } catch (error) {
+            console.error('Error generating external problem template:', error.message);
+            
+            // Fallback: create a minimal template
+            const fallbackContent = `# ${problemMetadata.name}
+
+**Source:** External Problem  
+**Difficulty:** ${problemMetadata.difficulty}  
+
+## Description
+${problemMetadata.description || 'Problem description not available.'}
+
+## Your Solution
+\`\`\`javascript
+// TODO: Implement your solution
+\`\`\`
+`;
+            
+            try {
+                fs.writeFileSync(targetFilePath, fallbackContent, 'utf8');
+                console.log(`Generated fallback template for external problem: ${targetFilePath}`);
+                return true;
+            } catch (fallbackError) {
+                console.error('Failed to create fallback template:', fallbackError.message);
+                return false;
+            }
+        }
+    }
+
+    /**
      * Returns a random problem from the problems manager.
      * @returns {Problem} A random problem from the problems manager
      */
@@ -270,6 +438,17 @@ class ProblemsManager {
 
             const absolute_problem_file_path = getDirAbsoluteUri(problem_file_path, base);
             const absolute_temp_file_path = getDirAbsoluteUri(this.temp_problem_filepath, "./") + '.' + target_extension;
+
+            // Check if this is an external problem (no base code file exists)
+            if (!fs.existsSync(absolute_problem_file_path)) {
+                // Check if it's an external problem by looking up the problem metadata
+                const problemSlug = problem_file_path.replace('.js', '');
+                const problemMetadata = this.problems[problemSlug];
+                
+                if (problemMetadata && problemMetadata.is_external) {
+                    return this.generateExternalProblemTemplate(problemMetadata, absolute_temp_file_path);
+                }
+            }
 
             // Read the file content
             fs.readFile(absolute_problem_file_path, 'utf8', function (err, data) {

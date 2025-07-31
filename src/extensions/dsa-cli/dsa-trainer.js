@@ -53,7 +53,7 @@ class DSATrainer {
         this.settings_manager = new SettingsManager();
         this.problems_manager = new ProblemsManager({ skip_problems: skip_problems });
 
-        this.loaded_problem_manager = this.problems_manager.autoPopulateUsingTestDictionary();
+        this.loaded_problem_manager = this.problems_manager.autoPopulateAllSources();
         this.user_settings = this.settings_manager.settings;
         this.skip_problems = skip_problems;
 
