@@ -467,9 +467,22 @@ class Quizzer {
         let deck_selected = allTermsModules[deck_selected_key].name;
 
         let selected_terms = masterDeck.listTerms({ get_only: [deck_selected] });
-        // if (reverse) {
-            selected_terms = selected_terms.reverse();
-        // }   
+        
+        // Sort by hash completion count (least practiced first), then by reverse order as fallback
+        selected_terms.sort((a, b) => {
+            const hashA = this.generateTermHash(a);
+            const hashB = this.generateTermHash(b);
+            const countA = this.getTermCompletionCount(hashA);
+            const countB = this.getTermCompletionCount(hashB);
+            
+            // If hash counts are different, sort by count (ascending - least practiced first)
+            if (countA !== countB) {
+                return countA - countB;
+            }
+            
+            // If hash counts are the same, maintain reverse order as fallback
+            return selected_terms.indexOf(b) - selected_terms.indexOf(a);
+        });   
         const studyScheduler = new TermScheduler({ cards_category: deck_selected });
 
         await studyScheduler.setLearningCards(selected_terms); // Populate the right cards.
