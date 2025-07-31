@@ -1,3 +1,11 @@
+/**
+ * Standardized Utility Functions for Mastery CLI
+ * 
+ * This file contains all the shared utility functions used across the application.
+ * These functions handle file operations, user input validation, markdown rendering,
+ * and platform-specific operations.
+ */
+
 const path = require("path");
 const url = require('url');
 const fs = require('fs');
@@ -218,7 +226,28 @@ const openEditorPlatformAgnostic = async (editor_instruction, {absolute_temp_fil
 
 
 module.exports = {
-    getAbsoluteUri, getDirAbsoluteUri, getRandomMaidEmoji, appendQuotes, formatObjectFeatures, getRandomInt,
-    getRandomBool, countDecimals, getMaidDirectory, getFilesInDirectory, user_requests_exit,
-    user_requests_skip, user_requests_calc, printMarked, openEditorPlatformAgnostic
+    // File and path utilities
+    getAbsoluteUri, 
+    getDirAbsoluteUri, 
+    getMaidDirectory, 
+    getFilesInDirectory,
+    
+    // Random utilities
+    getRandomMaidEmoji, 
+    getRandomInt,
+    getRandomBool,
+    
+    // String and formatting utilities
+    appendQuotes, 
+    formatObjectFeatures, 
+    countDecimals,
+    
+    // User input validation
+    user_requests_exit,
+    user_requests_skip, 
+    user_requests_calc,
+    
+    // Display utilities
+    printMarked, 
+    openEditorPlatformAgnostic
 };

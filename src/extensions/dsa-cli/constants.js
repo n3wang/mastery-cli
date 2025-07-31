@@ -1,4 +1,4 @@
-// Enumerator indicating the status of the problem e.g. solved, unsolved, aborted.
+/**\n * DSA Extension Constants\n * \n * This file contains constants specific to the Data Structures and Algorithms\n * extension, including problem statuses, difficulty levels, and problem categories.\n */
 
 const constants = {
     PATHS: {

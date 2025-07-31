@@ -64,28 +64,15 @@ let CONSTANTS = {
 }
 
 
-/**
- * Gets clickeable path that could be printed on the console and clicked.
- * @param {str} fileimage : String containing the relative position of the image from utils directory
- * @returns {str} Formatted file:///C:/github/testing/mastery-cli/img/unicorn.png
- */
+// Path utilities - using direct implementation to avoid circular dependency
 const getAbsoluteUri = (fileimage = './img/unicorn.png', subdirectory = './data/') => {
-    // Note it should take from the root.
-    const absolutePath = path.resolve(path.join(__dirname, './data/', fileimage)); // Note the '../' because it is inside of constants
+    const absolutePath = path.resolve(path.join(__dirname, './data/', fileimage));
     const fileUrl = url.pathToFileURL(absolutePath);
     return (fileUrl.toString());
 }
 
-
-/**
- * Gets directory path
- * @param {str} fileimage : String containing the relative position of the image from utils directory
- * @returns {str} Formatted file:///C:/github/testing/mastery-cli/img/unicorn.png
- */
 const getDirAbsoluteUri = (fileimage = './img/unicorn.png', subdirectory = './data/') => {
-    // Note it should take from the root.
-    const absolutePath = path.resolve(path.join(__dirname, './data/', fileimage)); // Note the '../' because it is inside of constants
-    // const fileUrl = url.pathToFileURL(absolutePath);
+    const absolutePath = path.resolve(path.join(__dirname, './data/', fileimage));
     return (absolutePath.toString());
 }
 
@@ -93,14 +80,14 @@ const getDirAbsoluteUri = (fileimage = './img/unicorn.png', subdirectory = './da
 
 // External currency API removed for offline-only operation
 
+// Utility functions - using direct implementation to avoid circular dependency
 const getRandomMaidEmoji = () => {
     return `:${get_random(MAID_EMOJIS)}:`
 }
 
 const appendQuotes = (message) => {
-    return `"${message}"`;
+    return `"${message}";`
 }
-
 
 const formatLastTwoDecimals = (original) => {
     return (Math.round(original * 100) / 100);
@@ -113,18 +100,18 @@ const formatObjectFeatures = (userPerformanceData) => {
     return userPerformanceData;
 }
 
-
 const getRandomInt = (max) => {
     return Math.floor(Math.random() * max);
 }
 
-/**
- * @param: float ?= 0.05 #e.g. 0.5 The chances in favor of it being True
- * @returns Random Bool 
- */
 const getRandomBool = (chances = 0.5) => {
-    // 0.01 means 1% chance of being true
-    return random_boolean = Math.random() < chances;
+    return Math.random() < chances;
+}
+
+const countDecimals = (value) => {
+    if (Math.floor(value) !== value)
+        return value?.toString().split(".")[1].length ?? 0;
+    return 0;
 }
 
 function populateTerms(termJson) {
@@ -162,17 +149,32 @@ const getQmathEnabled = (listOfProblemSets, debugLast = false, lasts = 0) => {
 
 
 
-const countDecimals = (value) => {
-    if (Math.floor(value) !== value)
-        return value?.toString().split(".")[1].length ?? 0;
-    return 0;
-}
+// countDecimals moved to utils_functions.js
 
 module.exports = {
-    MAID_NAME: MASTERY_MANAGER_NAME, MAID_EMOJIS, getRandomMaidEmoji, get_random,
-    appendQuotes, APIDICT, CURRENCY_SIMBOLS, CONSTANTS, formatObjectFeatures,
-    qmathformulas, qmathenabled: qmathformulas, getRandomInt, countDecimals, termsEnabled, getRandomBool, getAbsoluteUri, getDirAbsoluteUri,
-    get_random_of_size
+    // Core constants and data
+    MAID_NAME: MASTERY_MANAGER_NAME, 
+    MAID_EMOJIS, 
+    APIDICT, 
+    CURRENCY_SIMBOLS, 
+    CONSTANTS,
+    qmathformulas, 
+    qmathenabled: qmathformulas, 
+    termsEnabled,
+    
+    // Core functions that belong in constants (not duplicated in utils)
+    get_random,
+    get_random_of_size,
+    
+    // Re-exported utility functions for backward compatibility
+    getRandomMaidEmoji, 
+    appendQuotes, 
+    formatObjectFeatures,
+    getRandomInt, 
+    countDecimals, 
+    getRandomBool, 
+    getAbsoluteUri, 
+    getDirAbsoluteUri
 };
 
 
