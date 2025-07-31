@@ -23,6 +23,8 @@ const {
 const { TermScheduler } = require('./termScheduler');
 const { MiniTermScheduler } = require('./MiniTermScheduler');
 const { StorableQueue } = require('./StorableQueue');
+const { HashStorage } = require('./HashStorage');
+const crypto = require('crypto');
 
 
 
@@ -40,6 +42,54 @@ class Quizzer {
         this.terms = terms;
         this.enabledqmathformulas = qmathenabled;
         this.masteryManager = masteryManager;
+        
+        // Initialize term completion tracker using HashStorage
+        this.termCompletionTracker = new HashStorage("term_completion_hashes");
+        this.termCompletionTracker.load();
+    }
+
+    /**
+     * Generates a hash for a term based on its content
+     * @param {Object} term - The term object
+     * @returns {string} - 8-character hash
+     */
+    generateTermHash(term) {
+        const hashLength = Settings?.queue_configurations?.hash_based_selection?.hash_length ?? 8;
+        
+        // Create content string from available term properties
+        const content = [
+            term.term || '',
+            term.description || '',
+            term.example || '',
+            term.prompt || ''
+        ].join('|');
+        
+        // Generate SHA256 hash and take first N characters
+        const hash = crypto.createHash('sha256').update(content).digest('hex');
+        return hash.substring(0, hashLength);
+    }
+
+    /**
+     * Gets the completion count for a term hash
+     * @param {string} termHash - The term hash
+     * @returns {number} - Number of times completed
+     */
+    getTermCompletionCount(termHash) {
+        return this.termCompletionTracker.getCount(termHash);
+    }
+
+    /**
+     * Increments the completion count for a term
+     * @param {Object} term - The term object
+     */
+    async recordTermCompletion(term) {
+        const termHash = this.generateTermHash(term);
+        const newCount = this.termCompletionTracker.incrementCount(termHash);
+        await this.termCompletionTracker.save();
+        
+        if (DEBUG) {
+            console.log(`Recorded completion for term "${term.term}" (hash: ${termHash}), count: ${newCount}`);
+        }
     }
 
 
@@ -54,10 +104,66 @@ class Quizzer {
     getYoungest = async (potential_questions, { limit = Settings?.queue_configurations?.quizzer_repetitive_limit ?? 3, account_id = Settings.account_id ?? 1, randomOffline = false } = {}) => {
 
         if (randomOffline) {
+            // Use hash-based selection if enabled
+            const hashSelectionEnabled = Settings?.queue_configurations?.hash_based_selection?.enabled ?? true;
+            
+            if (hashSelectionEnabled && potential_questions.length > 0) {
+                return this.selectLeastPracticedTerms(potential_questions, limit);
+            }
+            
             return get_random_of_size(potential_questions, { count: limit });
         }
 
         return potential_questions;
+    }
+
+    /**
+     * Selects the least practiced terms using hash-based completion tracking
+     * @param {Array} potential_questions - Array of potential terms
+     * @param {number} limit - Number of terms to return
+     * @returns {Array} - Selected terms prioritizing least practiced
+     */
+    selectLeastPracticedTerms(potential_questions, limit) {
+        const sampleSize = Settings?.queue_configurations?.hash_based_selection?.sample_size ?? 15;
+        
+        // If we have fewer questions than the sample size, use all of them
+        const actualSampleSize = Math.min(sampleSize, potential_questions.length);
+        
+        // Step 1: Get a random sample of terms
+        const randomSample = get_random_of_size(potential_questions, { count: actualSampleSize });
+        
+        // Step 2: Score each term based on completion count (lower count = higher priority)
+        const scoredTerms = randomSample.map(term => {
+            const termHash = this.generateTermHash(term);
+            const completionCount = this.getTermCompletionCount(termHash);
+            
+            return {
+                term: term,
+                hash: termHash,
+                completionCount: completionCount,
+                // Add small random factor to break ties
+                randomFactor: Math.random() * 0.1
+            };
+        });
+        
+        // Step 3: Sort by completion count (ascending) with random factor as tiebreaker
+        scoredTerms.sort((a, b) => {
+            const countDiff = a.completionCount - b.completionCount;
+            if (countDiff !== 0) return countDiff;
+            return a.randomFactor - b.randomFactor;
+        });
+        
+        // Step 4: Select the top N least practiced terms
+        const selectedTerms = scoredTerms.slice(0, limit).map(scored => scored.term);
+        
+        if (DEBUG) {
+            console.log('Hash-based selection results:');
+            scoredTerms.slice(0, limit).forEach((scored, index) => {
+                console.log(`${index + 1}. "${scored.term.term}" (${scored.hash}) - completed ${scored.completionCount} times`);
+            });
+        }
+        
+        return selectedTerms;
     }
 
     /**
@@ -539,6 +645,11 @@ class Quizzer {
                     }
                     );
 
+                }
+                
+                // Record term completion for hash-based tracking if answer is correct
+                if (ISANSWERCORRECT) {
+                    await this.recordTermCompletion(term_selected);
                 }
             }
 
