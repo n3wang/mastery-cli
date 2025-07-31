@@ -1,4 +1,4 @@
-# Two Sum
+# Two Sum Custom
 
 **Tags:** array, hashmap  
 **Difficulty:** Easy  

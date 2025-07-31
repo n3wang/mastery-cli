@@ -25,9 +25,9 @@ describe('DSA Markdown Parser', () => {
             assert(Array.isArray(problems));
             assert(problems.length >= 2); // Should have at least Two Sum and Valid Parentheses
             
-            const twoSum = problems.find(p => p.title === 'Two Sum');
+            const twoSum = problems.find(p => p.title === 'Two Sum Custom');
             assert(twoSum);
-            assert.strictEqual(twoSum.title, 'Two Sum');
+            assert.strictEqual(twoSum.title, 'Two Sum Custom');
             assert.deepStrictEqual(twoSum.tags, ['array', 'hashmap']);
             assert.strictEqual(twoSum.difficulty, 'Easy');
             assert(twoSum.description.includes('return indices'));
@@ -51,7 +51,7 @@ describe('DSA Markdown Parser', () => {
             assert(problems.length >= 3); // Should have multiple problems from both files
             
             // Check for problems from array-problems.md
-            const twoSum = problems.find(p => p.title === 'Two Sum');
+            const twoSum = problems.find(p => p.title === 'Two Sum Custom');
             assert(twoSum);
             
             // Check for problems from tree-problems.md

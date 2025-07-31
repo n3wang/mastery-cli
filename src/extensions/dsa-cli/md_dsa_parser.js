@@ -138,7 +138,7 @@ function parseMarkdownProblemsFromFolder(folderPath) {
  * @param {string} moduleTitle - Title of the module
  * @returns {ProblemMetadata[]} Array of ProblemMetadata objects
  */
-function convertToProblemsMetadata(problems, moduleTitle = 'External DSA Problems') {
+function convertToProblemsMetadata(problems, moduleTitle = 'External DSA Problems', folderPath = '') {
     return problems.map(problem => {
         const slug = problem.title.toLowerCase()
             .replace(/[^a-z0-9\s]/g, '')
@@ -149,7 +149,9 @@ function convertToProblemsMetadata(problems, moduleTitle = 'External DSA Problem
             description: problem.description,
             difficulty: problem.difficulty.toUpperCase(),
             tags: problem.tags,
-            hints: []
+            hints: [],
+            is_external: !!folderPath, // Mark as external if folderPath is provided
+            source_folder: folderPath
         });
     });
 }
@@ -180,7 +182,7 @@ function parseMarkdownProblemsFromModules(dsaModules, { useCacheIfNotFound = tru
             for (const folder of module.CONTENT_FOLDERS) {
                 const folderPath = getDirAbsoluteUri(`user_data/dsa_modules/${module.module_path}/${folder}`, '../../../');
                 const parsedProblems = parseMarkdownProblemsFromFolder(folderPath);
-                const problemMetadata = convertToProblemsMetadata(parsedProblems, module.ABOUT.title);
+                const problemMetadata = convertToProblemsMetadata(parsedProblems, module.ABOUT.title, folderPath);
                 problems.push(...problemMetadata);
             }
         }
@@ -200,7 +202,7 @@ function parseMarkdownProblemsFromModules(dsaModules, { useCacheIfNotFound = tru
                 }
                 
                 const parsedProblems = parseMarkdownProblemsFromFolder(folder);
-                const problemMetadata = convertToProblemsMetadata(parsedProblems, module.ABOUT.title);
+                const problemMetadata = convertToProblemsMetadata(parsedProblems, module.ABOUT.title, folder);
                 problems.push(...problemMetadata);
                 
                 // Cache the markdown files
@@ -266,7 +268,7 @@ function parseMarkdownProblemsFromModules(dsaModules, { useCacheIfNotFound = tru
             for (const file of module.CONTENT_FILES) {
                 const filePath = getDirAbsoluteUri(`user_data/dsa_modules/${module.module_path}/${file}`, '../../../');
                 const parsedProblems = parseMarkdownProblems(filePath);
-                const problemMetadata = convertToProblemsMetadata(parsedProblems, module.ABOUT.title);
+                const problemMetadata = convertToProblemsMetadata(parsedProblems, module.ABOUT.title, path.dirname(filePath));
                 problems.push(...problemMetadata);
             }
         }
