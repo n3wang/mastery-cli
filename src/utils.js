@@ -153,6 +153,10 @@ class Mastery {
 		this.clearOnTalk = clearOnTalk;
 		this.missing_features_today = []; // Features you haven't practiced today
 
+		// Terms data will be lazily loaded when needed
+		this.masterDeck = masterDeck;
+		this.termsLoaded = masterDeck !== null;
+
 		// The main quiz system that handles flashcards and algorithm problems
 		this.mQuizer = new QuizzerWithDSA(constants.qmathformulas, constants.qmathenabled, masterDeck, this);
 
@@ -164,7 +168,32 @@ class Mastery {
 		this.performanceReport = withOnlineCheck(this.performanceReport.bind(this));
 		this.services = withOnlineCheck(this.services.bind(this));
 
+		// Initialize command handlers after all setup
+		this.initializeCommandHandlers();
 
+	}
+
+	/**
+	 * Lazily loads terms data when first needed
+	 * @returns {Promise} Promise that resolves when terms are loaded
+	 */
+	async ensureTermsLoaded() {
+		if (!this.termsLoaded) {
+			console.log('Loading terms data...');
+			const { populateMasterDeck } = require('./terms_data/terms');
+			this.masterDeck = await populateMasterDeck();
+			this.mQuizer.masterDeck = this.masterDeck;
+			// Update the terms array in the quizzer
+			this.mQuizer.terms = [];
+			this.mQuizer.terms.push(...this.masterDeck.listTerms());
+			this.termsLoaded = true;
+			console.log('Terms data loaded successfully.');
+		}
+		return this.masterDeck;
+	}
+
+	// Initialize command handlers
+	initializeCommandHandlers() {
 		// Command handlers - these map command names to their functions
 		// For beginners: When you type 'mastery quiz', it calls the 'quiz' handler
 		this.commandHandlers = {
@@ -204,15 +233,23 @@ class Mastery {
 			},
 			'services': () => { this.services() },
 			'math': () => { this.mQuizer.ask_math_question() }, // Practice math problems
-			'quiz': () => { this.mQuizer.askQuestion() }, // Mixed quiz session
+			'quiz': async () => { 
+				await this.ensureTermsLoaded();
+				return this.mQuizer.askQuestion();
+			}, // Mixed quiz session
 			'imath': () => { this.increasePerformance('math_ss') }, // Increase math score
-			'term': () => { this.mQuizer.pick_and_ask_term_question() }, // Flashcard study
+			'term': async () => { 
+				await this.ensureTermsLoaded();
+				return this.mQuizer.pick_and_ask_term_question();
+			}, // Flashcard study
 			'clean': () => { this.askToClean() }, // Clear terminal screen
-			'ses': () => { this.mQuizer.study_session() }, // Study session
-			'lastses': () => { // Study session in reverse order
-				this.mQuizer.study_session(
-					{ reverse: true }
-				)
+			'ses': async () => { 
+				await this.ensureTermsLoaded();
+				return this.mQuizer.study_session();
+			}, // Study session
+			'lastses': async () => { // Study session in reverse order
+				await this.ensureTermsLoaded();
+				return this.mQuizer.study_session({ reverse: true });
 			},
 			'reset-queues': async () => { // Reset study session queues while preserving hash data
 				const { Input, Confirm } = require('enquirer');
@@ -240,11 +277,15 @@ class Mastery {
 				
 				await this.mQuizer.resetStudySessionQueues(categoryParam);
 			},
-			'cses': () => { this.mQuizer.cloze_study_session() }, // Fill-in-the-blank session
-			'mcses': () => { // Markdown cloze session (pseudocode mode)
-				this.mQuizer.cloze_study_session({
+			'cses': async () => { 
+				await this.ensureTermsLoaded();
+				return this.mQuizer.cloze_study_session();
+			}, // Fill-in-the-blank session
+			'mcses': async () => { // Markdown cloze session (pseudocode mode)
+				await this.ensureTermsLoaded();
+				return this.mQuizer.cloze_study_session({
 					md_pseudo_mode: true
-				})
+				});
 			},
 			'amses': () => { this.mQuizer.algorithmic_study_session() }, // Algorithm session
 			'mamses': () => { // Markdown algorithm session (pseudocode mode)

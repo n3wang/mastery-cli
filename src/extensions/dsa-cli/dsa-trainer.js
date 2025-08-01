@@ -53,7 +53,7 @@ class DSATrainer {
         this.settings_manager = new SettingsManager();
         this.problems_manager = new ProblemsManager({ skip_problems: skip_problems });
 
-        this.loaded_problem_manager = this.problems_manager.autoPopulateAllSources();
+        this.loaded_problem_manager = null; // Will be lazily loaded
         this.user_settings = this.settings_manager.settings;
         this.skip_problems = skip_problems;
 
@@ -61,10 +61,26 @@ class DSATrainer {
         this.order_categories = Object.values(constants.PROBLEM_CATEGORIES).map(category => category.slug);
 
 
-        this.first_non_completed_category_non_completed_problems = this.getFirstNonCompletedCategoryNonCompletedProblems();
-        this.first_non_only_hard_left_category_non_hard_problems = this.getFirstNonOnlyHardLeftCategoryNonHardProblems();
-        this.completed_problems_sorted_by_times_completed = this.getCompletedProblemsSortedByTimesCompleted();
+        // These will be populated when DSA problems are first accessed
+        this.first_non_completed_category_non_completed_problems = [];
+        this.first_non_only_hard_left_category_non_hard_problems = [];
+        this.completed_problems_sorted_by_times_completed = [];
 
+    }
+
+    /**
+     * Lazily loads DSA problems when first needed
+     * @returns {Promise} Promise that resolves when problems are loaded
+     */
+    async ensureProblemsLoaded() {
+        if (this.loaded_problem_manager === null) {
+            console.log('Loading DSA problems...');
+            this.loaded_problem_manager = this.problems_manager.autoPopulateAllSources();
+            await this.loaded_problem_manager;
+            this.populateRecommendationQueues();
+            console.log('DSA problems loaded successfully.');
+        }
+        return this.loaded_problem_manager;
     }
 
     /**
@@ -93,7 +109,7 @@ class DSATrainer {
 
         // Load the problems_manager problems
         // await this.problems_manager.loadProblems();
-        await this.loaded_problem_manager;
+        await this.ensureProblemsLoaded();
 
         if (refresh_recommendation_queues) {
             this.populateRecommendationQueues();
@@ -179,6 +195,7 @@ class DSATrainer {
      * @returns {ProblemStatus} The status of the problem
      */
     async openRandomProblem() {
+        await this.ensureProblemsLoaded();
         const problem = this.problems_manager.getRandomProblem();
         const problem_response = await this.solveProblem(problem);
 
@@ -187,7 +204,7 @@ class DSATrainer {
     }
 
     async openRandomClozeDSAProblem({ md_pseudo_mode = false } = {}) {
-        await this.loaded_problem_manager;
+        await this.ensureProblemsLoaded();
         const selectedClozeProblem = this.problems_manager.getRandomProblemSlugWithCloze();
         const problem = this.problems_manager.getProblem(selectedClozeProblem.problem_slug);
 
@@ -640,6 +657,7 @@ class DSATrainer {
      * @returns 
      */
     async showMenuOfProblems({ allow_continue_last = true, show_progress = true, show_tags = true, show_specific_problems = [], md_pseudo_mode = false } = {}) {
+        await this.ensureProblemsLoaded();
         const _ = await this.problemReport.getReport();
 
 
