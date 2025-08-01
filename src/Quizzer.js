@@ -118,6 +118,60 @@ class Quizzer {
     }
 
     /**
+     * Resets all study session completion queues while preserving hash completion data
+     * This clears learning progress but keeps track of term practice counts
+     * @param {string} category - Optional specific category to reset, if not provided resets all
+     */
+    async resetStudySessionQueues(category = null) {
+        const { glob } = require('glob');
+        const fs = require('fs');
+        const path = require('path');
+        const { getDirAbsoluteUri } = require('./utils_functions');
+        
+        try {
+            const tempDir = getDirAbsoluteUri('./user_data/temp/');
+            
+            // Define patterns for queue files (but not hash files)
+            const queuePatterns = [
+                'working_set*',
+                'learning_queue*', 
+                'learned_queue*',
+            ];
+            
+            let deletedFiles = [];
+            
+            for (const pattern of queuePatterns) {
+                const fullPattern = path.join(tempDir, pattern);
+                const files = glob.sync(fullPattern);
+                
+                for (const file of files) {
+                    // If category specified, only delete files with that category suffix
+                    if (category) {
+                        const fileName = path.basename(file, '.json');
+                        if (!fileName.endsWith('_' + category)) {
+                            continue;
+                        }
+                    }
+                    
+                    if (fs.existsSync(file)) {
+                        fs.unlinkSync(file);
+                        deletedFiles.push(path.basename(file));
+                    }
+                }
+            }
+            
+            console.log(`Reset study session queues. Deleted files: ${deletedFiles.join(', ')}`);
+            console.log('Hash completion data preserved for smart term selection.');
+            
+            return { success: true, deletedFiles };
+            
+        } catch (error) {
+            console.error('Failed to reset study session queues:', error.message);
+            return { success: false, error: error.message };
+        }
+    }
+
+    /**
      * Selects the least practiced terms using hash-based completion tracking
      * @param {Array} potential_questions - Array of potential terms
      * @param {number} limit - Number of terms to return
@@ -467,9 +521,22 @@ class Quizzer {
         let deck_selected = allTermsModules[deck_selected_key].name;
 
         let selected_terms = masterDeck.listTerms({ get_only: [deck_selected] });
-        // if (reverse) {
-            selected_terms = selected_terms.reverse();
-        // }   
+        
+        // Sort by hash completion count (least practiced first), then by reverse order as fallback
+        selected_terms.sort((a, b) => {
+            const hashA = this.generateTermHash(a);
+            const hashB = this.generateTermHash(b);
+            const countA = this.getTermCompletionCount(hashA);
+            const countB = this.getTermCompletionCount(hashB);
+            
+            // If hash counts are different, sort by count (ascending - least practiced first)
+            if (countA !== countB) {
+                return countA - countB;
+            }
+            
+            // If hash counts are the same, maintain reverse order as fallback
+            return selected_terms.indexOf(b) - selected_terms.indexOf(a);
+        });   
         const studyScheduler = new TermScheduler({ cards_category: deck_selected });
 
         await studyScheduler.setLearningCards(selected_terms); // Populate the right cards.
