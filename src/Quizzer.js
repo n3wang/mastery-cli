@@ -118,6 +118,62 @@ class Quizzer {
     }
 
     /**
+     * Resets all study session completion queues while preserving hash completion data
+     * This clears learning progress but keeps track of term practice counts
+     * @param {string} category - Optional specific category to reset, if not provided resets all
+     */
+    async resetStudySessionQueues(category = null) {
+        const { glob } = require('glob');
+        const fs = require('fs');
+        const path = require('path');
+        const { getDirAbsoluteUri } = require('./utils_functions');
+        
+        try {
+            const tempDir = getDirAbsoluteUri('./user_data/temp/');
+            
+            // Define patterns for queue files (but not hash files)
+            const queuePatterns = [
+                'working_set*.json',
+                'learning_queue*.json', 
+                'learned_queue*.json',
+                'learning_*.json', // Learning files
+                'lgterm_forced_terms.json' // Long term memory queue
+            ];
+            
+            let deletedFiles = [];
+            
+            for (const pattern of queuePatterns) {
+                const fullPattern = path.join(tempDir, pattern);
+                const files = glob.sync(fullPattern);
+                
+                for (const file of files) {
+                    // If category specified, only delete files with that category suffix
+                    if (category) {
+                        const fileName = path.basename(file, '.json');
+                        if (!fileName.endsWith('_' + category)) {
+                            continue;
+                        }
+                    }
+                    
+                    if (fs.existsSync(file)) {
+                        fs.unlinkSync(file);
+                        deletedFiles.push(path.basename(file));
+                    }
+                }
+            }
+            
+            console.log(`Reset study session queues. Deleted files: ${deletedFiles.join(', ')}`);
+            console.log('Hash completion data preserved for smart term selection.');
+            
+            return { success: true, deletedFiles };
+            
+        } catch (error) {
+            console.error('Failed to reset study session queues:', error.message);
+            return { success: false, error: error.message };
+        }
+    }
+
+    /**
      * Selects the least practiced terms using hash-based completion tracking
      * @param {Array} potential_questions - Array of potential terms
      * @param {number} limit - Number of terms to return

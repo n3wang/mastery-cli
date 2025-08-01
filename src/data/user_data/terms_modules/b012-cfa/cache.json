@@ -680,12 +680,42 @@
     "category": "MStatisticalMeasuresofAssetReturns"
   },
   {
-    "term": "11 - Submodulo 2",
-    "example": "",
-    "description": "",
-    "prompt": "Submodulo 2",
+    "term": "11 - Using a target of $24 \\%$, what is the target downside deviation?",
+    "example": "$$\n\\begin{aligned}\n& 30 \\%-24 \\%=6 \\% \\\\\n& 12 \\%-24 \\%=-12 \\% \\\\\n& 25 \\%-24 \\%=1 \\% \\\\\n& 20 \\%-24 \\%=-4 \\% \\\\\n& 23 \\%-24 \\%=-1 \\%\n\\end{aligned}\n$$",
+    "description": "Target Downside Deviation: Example\nAnnual returns data: $30 \\%, 12 \\%, 25 \\%, 20 \\%, 23 \\%$\nUsing a target of $24 \\%$, what is the target downside deviation?",
+    "prompt": "Using a target of $24 \\%$, what is the target downside deviation?",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M3 - Statistical Measures of Asset Returns.md",
-    "reference_line": 90,
+    "reference_line": 88,
+    "module_name": "CFA Modules",
+    "category": "MStatisticalMeasuresofAssetReturns"
+  },
+  {
+    "term": "12 - sample problem 1",
+    "example": "def",
+    "description": "sample problem 1",
+    "prompt": "sample problem 1",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M3 - Statistical Measures of Asset Returns.md",
+    "reference_line": 128,
+    "module_name": "CFA Modules",
+    "category": "MStatisticalMeasuresofAssetReturns"
+  },
+  {
+    "term": "13 - sample problem 2",
+    "example": "def",
+    "description": "sample problem 2",
+    "prompt": "sample problem 2",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M3 - Statistical Measures of Asset Returns.md",
+    "reference_line": 130,
+    "module_name": "CFA Modules",
+    "category": "MStatisticalMeasuresofAssetReturns"
+  },
+  {
+    "term": "14 - Skeweness",
+    "example": "",
+    "description": "Positive Skew = Right Skew\nPositive skew has outliers in the right tail.\nSkew absolute values > 0.5 are significant.\nMean is most affected by outliers.\n| Positive Skew\n| Negative Skew\n|\n| ------------------------------------ | ------------------------------------ |\n| ![[Pasted image 20250731203746.png]] | ![[Pasted image 20250731203754.png]] |\nWhat does Positive or Negative Skew mean?\nKurtosis\nThis measures the degree to which a distribution is more or less peaked than a normal distribution.\nLeptokurtic (kurtosis > 3) is more peaked with fatter tails (more extreme outliers).\n4\nsample problem 1::def\nsample problem 2::def\n\n\n\n\n",
+    "prompt": "Skeweness",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M3 - Statistical Measures of Asset Returns.md",
+    "reference_line": 106,
     "module_name": "CFA Modules",
     "category": "MStatisticalMeasuresofAssetReturns"
   },

@@ -63,6 +63,7 @@ class CommandsInformation {
 			quiz: new Command('Initiate a quiz using either a term or math prompt', 'quiz'),
 			clean: new Command('Prompt to confirm terminal cleanup', 'clean'),
 			ses: new Command('Start a study session', 'ses'),
+			'reset-queues': new Command('Reset study session progress queues while preserving hash-based term completion data', 'reset-queues'),
 			dsa: new Command('Select data structures and algorithms for practice', 'dsa'),
 			cloze: new Command('Run a cloze-type algorithm exercise', 'cloze'),
 			cses: new Command('Start a cloze algorithm-based study session', 'cses'),

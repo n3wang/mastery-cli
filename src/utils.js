@@ -214,6 +214,32 @@ class Mastery {
 					{ reverse: true }
 				)
 			},
+			'reset-queues': async () => { // Reset study session queues while preserving hash data
+				const { Input, Confirm } = require('enquirer');
+				
+				const confirmReset = new Confirm({
+					name: 'confirm',
+					message: 'Reset study session progress? (Hash completion data will be preserved)',
+					initial: false
+				});
+				
+				const shouldReset = await confirmReset.run();
+				if (!shouldReset) {
+					console.log('Queue reset cancelled.');
+					return;
+				}
+				
+				const categoryInput = new Input({
+					name: 'category',
+					message: 'Reset specific category (leave empty for all):',
+					initial: ''
+				});
+				
+				const category = await categoryInput.run();
+				const categoryParam = category.trim() === '' ? null : category.trim();
+				
+				await this.mQuizer.resetStudySessionQueues(categoryParam);
+			},
 			'cses': () => { this.mQuizer.cloze_study_session() }, // Fill-in-the-blank session
 			'mcses': () => { // Markdown cloze session (pseudocode mode)
 				this.mQuizer.cloze_study_session({
