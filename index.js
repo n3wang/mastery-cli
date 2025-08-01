@@ -34,8 +34,8 @@ const { ExtensionManager } = require('./src/extensions/ExtensionManager');
 
 (async () => {
 	try {
-		const masterDeck = await populateMasterDeck();
-		const mastery = new Mastery(Settings, masterDeck);
+		// Initialize with empty deck, will be lazily loaded when needed
+		const mastery = new Mastery(Settings, null);
 		
 		// Initialize extension manager
 		const extensionManager = new ExtensionManager(

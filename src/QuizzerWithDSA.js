@@ -100,7 +100,8 @@ class QuizzerWithDSA extends Quizzer {
     }
 
 
-    ask_algorithm_question = () => {
+    ask_algorithm_question = async () => {
+        await this.dsaTrainer.ensureProblemsLoaded();
         const problem_status = this.dsaTrainer.openRandomProblem();
         return problem_status;
     }
@@ -108,6 +109,7 @@ class QuizzerWithDSA extends Quizzer {
     ask_cloze_algorithm_question = async ({ exitMethod = () => { } } = {}) => {
         // TODO, create an openRandomProblem where it cleans and loads for you.
 
+        await this.dsaTrainer.ensureProblemsLoaded();
         const problem_status = this.dsaTrainer.openRandomClozeDSAProblem();
         return problem_status;
     }
@@ -119,7 +121,7 @@ class QuizzerWithDSA extends Quizzer {
 
         // Pick all the available string keys.
 
-        await this.dsaTrainer.loaded_problem_manager;
+        await this.dsaTrainer.ensureProblemsLoaded();
         const cloze_problems = cloze_problems_list;
         const clozeScheduler = new TermScheduler({
             cards_category: "cloze_study_sesssion"
@@ -163,7 +165,7 @@ class QuizzerWithDSA extends Quizzer {
 
         // Pick all the available string keys.
 
-        await this.dsaTrainer.loaded_problem_manager;
+        await this.dsaTrainer.ensureProblemsLoaded();
         const problems_list = this.dsaTrainer.problems_manager.getProblems();
 
 

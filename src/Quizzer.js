@@ -37,7 +37,9 @@ class Quizzer {
          masterDeck, masteryManager) {
 
         const terms = []
-        terms.push(...masterDeck.listTerms());
+        if (masterDeck) {
+            terms.push(...masterDeck.listTerms());
+        }
         this.masterDeck = masterDeck;
         this.terms = terms;
         this.enabledqmathformulas = qmathenabled;

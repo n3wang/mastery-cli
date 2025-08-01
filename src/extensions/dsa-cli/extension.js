@@ -159,7 +159,7 @@ class MasteryDSAExtension extends ExtensionModel {
 		return {
 			dsa: async () => {
 				// Wait for all problem sources to be loaded (including external folders)
-				await dsaTrainer.loaded_problem_manager;
+				await dsaTrainer.ensureProblemsLoaded();
 				
 				if (flags.all) {
 					const problem_response = await dsaTrainer.showMenuOfProblems({ md_pseudo_mode: true });
@@ -173,7 +173,7 @@ class MasteryDSAExtension extends ExtensionModel {
 			},
 			mdsa: async () => {
 				// Wait for all problem sources to be loaded (including external folders)
-				await dsaTrainer.loaded_problem_manager;
+				await dsaTrainer.ensureProblemsLoaded();
 				
 				if (flags.all) {
 					const problem_response = await dsaTrainer.showMenuOfProblems({
@@ -190,7 +190,7 @@ class MasteryDSAExtension extends ExtensionModel {
 			},
 			cloze: async () => {
 				// Wait for all problem sources to be loaded (including external folders)
-				await dsaTrainer.loaded_problem_manager;
+				await dsaTrainer.ensureProblemsLoaded();
 				
 				const problem_response = await dsaTrainer.openRandomClozeDSAProblem();
 			},
