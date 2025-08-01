@@ -133,11 +133,9 @@ class Quizzer {
             
             // Define patterns for queue files (but not hash files)
             const queuePatterns = [
-                'working_set*.json',
-                'learning_queue*.json', 
-                'learned_queue*.json',
-                'learning_*.json', // Learning files
-                'lgterm_forced_terms.json' // Long term memory queue
+                'working_set*',
+                'learning_queue*', 
+                'learned_queue*',
             ];
             
             let deletedFiles = [];
