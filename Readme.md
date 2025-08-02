@@ -7,7 +7,7 @@ compiled build: https://k00.fr/lak37m7l
 
 Mastery CLI: Your Command Line Assistant for Programmer Development"
 
-Mastery CLI is a comprehensive tool designed to boost your programming skills. It features flashcards, DSA practice, statistics, and habit hooks. For instance, every commit now triggers a random flashcard or suggests a DSA problem to solve, fostering continuous learning.
+Mastery CLI is a ghost tool* designed to boost your programming/engineering skills. It features flashcards, DSA practice, statistics, and habit hooks. For instance, every commit now triggers a random flashcard or suggests a DSA problem to solve, fostering continuous learning.
 
 
 
