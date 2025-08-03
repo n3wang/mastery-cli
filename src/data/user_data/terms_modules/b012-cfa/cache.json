@@ -132,10 +132,10 @@
   {
     "term": "11 - Example: For the last four semiannual perieds, the 6-month holding period returns on an investment were $2.0 \\%, 0.5 \\%,-1.0 \\%$, and $1.5 \\%$. Calculate the geometric mean and the annual rate of return.",
     "example": "Answer:\n$$\n\\begin{aligned}\n\\text { Geometric mean } & =\\sqrt[4]{(1+0.02)(1+0.005)(1-0.01)(1+0.015)}-1 \\\\\n& =0.007435=0.7435 \\% \\\\\n\\text { Annual return } & =\\sqrt[2]{(1+0.02)(1+0.005)(1-0.01)(1+0.015)}-1 \\\\\n& =0.0149=1.49 \\%\n\\end{aligned}\n$$\nGeometric mean only equals annual return if the periods are annual.\nFour Semianual: When something occurs in a \"semiannual period,\" it happens twice a year. Therefore, \"four semiannual periods\" would represent a time frame of 2 years (since each semiannual period is 6 months, and 4 periods make up 24 months or 2 years).",
-    "description": "#cfa-problem\nExample: For the last four semiannual perieds, the 6-month holding period returns on an investment were $2.0 \\%, 0.5 \\%,-1.0 \\%$, and $1.5 \\%$. Calculate the geometric mean and the annual rate of return.",
+    "description": "Investors may hld an investment for any chosen period, THE HPR is the return fromt he start to the end of this period\n- HPR no income = (end value / beginning value) - 1\n- HPR with income $=[($ end value + dividend $) /$ beginning value $]-1$",
     "prompt": "Example: For the last four semiannual perieds, the 6-month holding period returns on an investment were $2.0 \\%, 0.5 \\%,-1.0 \\%$, and $1.5 \\%$. Calculate the geometric mean and the annual rate of return.",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M1 - Interest Rates and Return Measurement.md",
-    "reference_line": 97,
+    "reference_line": 96,
     "module_name": "CFA Modules",
     "category": "MInterestRatesandReturnMeasurement"
   },
@@ -192,10 +192,10 @@
   {
     "term": "17 - An investor buys a share for $\\$ 100$ at TO. At the end of Year 1, she buys an additional share for $\\$ 120$. At the end of Year 2, she sells both shares for $\\$ 130$ each. The stock pays a dividend of $\\$ 2$ at the end of each year, which is not reinvested. Calculate the time-weighted rate of return.",
     "example": "1) $\\left(\\frac{120+0}{100}\\right)-1=0.22$\n2) $\\left(\\frac{130 \\times 2+2 \\times 2}{120 \\times 2}\\right)-1=0.1$\n3) $\\sqrt[2]{(1+0.22) \\times(1.1)}=15.84$",
-    "description": "The time-weighted return calculates a return for an individual subperiod (e.g., days or months). Subperiod returns can be compounded together to measure returns over longer periods.\n$$\nHolding Period Return = \\left(\\frac{P_1+c F_1}{P_0}\\right){-1}\n$$\nExample:\nAn investor buys a share for $\\$ 100$ at TO. At the end of Year 1, she buys an additional share for $\\$ 120$. At the end of Year 2, she sells both shares for $\\$ 130$ each. The stock pays a dividend of $\\$ 2$ at the end of each year, which is not reinvested. Calculate the time-weighted rate of return.",
+    "description": "Investors may hld an investment for any chosen period, THE HPR is the return fromt he start to the end of this period\n- HPR no income = (end value / beginning value) - 1\n- HPR with income $=[($ end value + dividend $) /$ beginning value $]-1$",
     "prompt": "An investor buys a share for $\\$ 100$ at TO. At the end of Year 1, she buys an additional share for $\\$ 120$. At the end of Year 2, she sells both shares for $\\$ 130$ each. The stock pays a dividend of $\\$ 2$ at the end of each year, which is not reinvested. Calculate the time-weighted rate of return.",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M1 - Interest Rates and Return Measurement.md",
-    "reference_line": 183,
+    "reference_line": 182,
     "module_name": "CFA Modules",
     "category": "MInterestRatesandReturnMeasurement"
   },
@@ -240,37 +240,17 @@
     "category": "MInterestRatesandReturnMeasurement"
   },
   {
-    "term": "22 - Example Annualized Rate of Return",
-    "example": "$$\n\\begin{aligned}\n\\text { HPR } & =(\\text { end } / \\text { beg. })-1 \\\\\n& =(100.75 / 100)-1 \\\\\n& =0.75 \\%\n\\end{aligned}\n$$\nAnnualized return\n$$\n\\begin{aligned}\n& =(1.0075)^{365 / 90}-1 \\\\\n& =3.08 \\%\n\\end{aligned}\n$$",
-    "description": "Interest rates and market returns are typically stated as annualized returns, regardless of the length of time period over which they occur.\n$$\n\\text { Annualized return }=(1+\\mathrm{HPR})^{365 / \\text { days }}-1\n$$\nExample: Annualized return, shorter than one year\nA saver deposits $\\$ 100$ into a bank account. After 90 days, the account balance is $\\$ 100.75$. Calculate the saver's annualized rate of return.\n$$\n\\text { Annualized return }=(1+\\mathrm{HPR})^{365 / \\text { days }}-1\n$$",
-    "prompt": "Calculate the saver's annualized rate of return.",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M1 - Interest Rates and Return Measurement.md",
-    "reference_line": 269,
-    "module_name": "CFA Modules",
-    "category": "MInterestRatesandReturnMeasurement"
-  },
-  {
     "term": "1 - 2.1 Present and Future Values",
     "example": "- $\\mathrm{FV}=\\mathrm{PV} \\times \\mathrm{e}^{\\mathrm{r} t}$\nreloa\n#### Example Zero Coupon Bond",
     "description": "Provide the\nformula for future value with continuous compounding:",
-    "prompt": "Calculate the price of the bond.",
+    "prompt": "2.1 Present and Future Values",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M2 - Discounted Cash Flow Valuation.md",
     "reference_line": 8,
     "module_name": "CFA Modules",
     "category": "MDiscountedCashFlowValuation"
   },
   {
-    "term": "2 - A zero-coupon bond has a face value of $\\$ 1,000$ and 15 years to maturity. The bond's yield is $4 \\%$ with annual compounding.",
-    "example": "Using the PV formula:\n$$\n\\begin{aligned}\nP V & =F V /(1+r)^t \\\\\n& =\\$ 1,000 /(1.04)^{15}=\\$ 555.26\n\\end{aligned}\n$$\nUsing the calculator:\nFV & $=1,000$ &\nN & $=15$ &\n$\\mathrm{I} / \\mathrm{Y}$ & $=4$ &\nPMT & $=0$ &\nCPT & PV $=\\$ 555.26$\n",
-    "description": "Example:\nA zero-coupon bond has a face value of $\\$ 1,000$ and 15 years to maturity. The bond's yield is $4 \\%$ with annual compounding.",
-    "prompt": "A zero-coupon bond has a face value of $\\$ 1,000$ and 15 years to maturity. The bond's yield is $4 \\%$ with annual compounding.",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M2 - Discounted Cash Flow Valuation.md",
-    "reference_line": 19,
-    "module_name": "CFA Modules",
-    "category": "MDiscountedCashFlowValuation"
-  },
-  {
-    "term": "3 - Zero Coupon Bond with a  Negative Yield",
+    "term": "2 - Zero Coupon Bond with a  Negative Yield",
     "example": "Using the calculator:\nFV & $=1,000$ & (future / face value) \\\\\nN & $=15$ & (bond maturity) \\\\\n$\\mathrm{I} / \\mathrm{Y}$ & $=-0.5$ & (annual yield) \\\\\nPMT & $=0$ & (no coupon payments) \\\\\nCPT PV & $=\\$ 1,078.09$\nUsing the PV formula:\n$$\n\\begin{aligned}\nP V & =F V /(1+r)^t \\\\\n& =\\$ 1,000 /(1-0.005)^{15}=\\$ 1,078.09\n\\end{aligned}\n$$",
     "description": "Example:\nA zero-coupon bond with 15 years to maturity has a face value of $\\$ 1,000$. Its yield is a -0.5\\% yield with annual compounding. Calculate the price of the bond.\n",
     "prompt": "Calculate the price of the bond.",
@@ -280,7 +260,7 @@
     "category": "MDiscountedCashFlowValuation"
   },
   {
-    "term": "4 - - If the coupon = yield",
+    "term": "3 - - If the coupon = yield",
     "example": "bond will trade at par",
     "description": "- If the coupon = yield",
     "prompt": "- If the coupon = yield",
@@ -290,7 +270,7 @@
     "category": "MDiscountedCashFlowValuation"
   },
   {
-    "term": "5 - - If the coupon > yield",
+    "term": "4 - - If the coupon > yield",
     "example": "bond will trade above par",
     "description": "- If the coupon > yield",
     "prompt": "- If the coupon > yield",
@@ -300,7 +280,7 @@
     "category": "MDiscountedCashFlowValuation"
   },
   {
-    "term": "6 - - If the coupon < yield",
+    "term": "5 - - If the coupon < yield",
     "example": "bond will trade at a discount to par",
     "description": "- If the coupon < yield",
     "prompt": "- If the coupon < yield",
@@ -310,7 +290,7 @@
     "category": "MDiscountedCashFlowValuation"
   },
   {
-    "term": "7 - Fixed Coupon Bond",
+    "term": "6 - Fixed Coupon Bond",
     "example": "Q1. Will the bond trade above, below, or at par?\nThe coupon ( $10 \\%$ ) is > the yield ( $8 \\%$ ), so the bond will trade above par.\n.\nQ2. Calculate the price of the bond.\n$$\n\\begin{aligned}\n& F V=1,000 \\\\\n& N \\quad=10 \\\\\n& I / Y=8 \\\\\n& P M T=100(10 \\% \\times \\$ 1,000) \\\\\n& C P T P V=\\$ 1,134.20\n\\end{aligned}\n$$",
     "description": "Fixed coupon\n- May be paid annually, semiannually, or quarterly\n- Fixed percentage of the bond's face value (par value)\n- Coupon remains fixed, but bond's yield may change\nFixed coupon vs. bond yield\n- If the coupon = yield:: bond will trade at par\n- If the coupon > yield:: bond will trade above par\n- If the coupon < yield:: bond will trade at a discount to par\nExample:\nConsider a 10-year, 10\\% coupon, annual-pay bond with \\$1,000 pa value and a yield to maturity of 8\\%.\nQ1. Determine if the bond will be priced above, below, or at par (without a calculation).\nQ2. Calculate the price of the bond.",
     "prompt": "Fixed Coupon Bond",
@@ -320,7 +300,7 @@
     "category": "MDiscountedCashFlowValuation"
   },
   {
-    "term": "8 - - Regular payments to investors include",
+    "term": "7 - - Regular payments to investors include",
     "example": "interest and principal",
     "description": "- Regular payments to investors include",
     "prompt": "- Regular payments to investors include",
@@ -330,7 +310,7 @@
     "category": "MDiscountedCashFlowValuation"
   },
   {
-    "term": "9 - Computing Loan Payments",
+    "term": "8 - Computing Loan Payments",
     "example": "$$\n\\begin{aligned}\n&\\text { Annual loan payment: }\\\\\n&\\begin{array}{lll}\n\\mathrm{PV} & =2,000 & \\\\\n\\mathrm{FV} & =0 & \\\\\n\\mathrm{I} / \\mathrm{Y} & =6 & \\\\\n\\mathrm{~N} & =13 & \\text { (fully amortizing) } \\\\\n& \\text { (years) }\n\\end{array}\\\\\n&\\text { CPT PMT }=-\\$ 225.92 \\text { is the annual payment }\n\\end{aligned}\n$$",
     "description": "Amortizing loan payments contain both interest and principal. This is also known as an annuity payment.\nExample:\nConsider a \\$2,000 loan over a 13-year period with annual loan payments at the end of each year. The annual interest rate is $6 \\%$. Calculate the annual loan payment.",
     "prompt": "Calculate the annual loan payment",
@@ -340,7 +320,7 @@
     "category": "MDiscountedCashFlowValuation"
   },
   {
-    "term": "10 - - Preferred stock pays a",
+    "term": "9 - - Preferred stock pays a",
     "example": "fixed dividend, assumed to be paid in perpetuity",
     "description": "- Preferred stock pays a",
     "prompt": "- Preferred stock pays a",
@@ -350,7 +330,7 @@
     "category": "MDiscountedCashFlowValuation"
   },
   {
-    "term": "11 - - Common stock is",
+    "term": "10 - - Common stock is",
     "example": "a residual claim to a company's assets, with uncertain cash flows",
     "description": "- Common stock is",
     "prompt": "- Common stock is",
@@ -360,7 +340,7 @@
     "category": "MDiscountedCashFlowValuation"
   },
   {
-    "term": "12 - - Required return",
+    "term": "11 - - Required return",
     "example": "is the discount rate used to bring future cash flows back to present values",
     "description": "- Required return",
     "prompt": "- Required return",
@@ -370,7 +350,7 @@
     "category": "MDiscountedCashFlowValuation"
   },
   {
-    "term": "13 - Example Value preferred Stock as a Perpetuity",
+    "term": "12 - Example Value preferred Stock as a Perpetuity",
     "example": "$$\n\\begin{aligned}\n\\text { Value } \\quad & =\\text { dividend } / \\text { required return } \\\\\n& =\\$ 5.00 / 0.08 \\\\\n& =\\$ 62.50 \\\\\n\\end{aligned}\n$$",
     "description": "Value preferred stock as a perpetuity\n- Preferred stock pays a fixed stream of dividends\n- Dividends are assumed to be infinite\n- PV of a perpetuity = dividend received / required return\nExample:\nA company's $\\$ 100$ par preferred stock pays a $\\$ 5.00$ annual dividend. The required return is $8 \\%$. Calculate the value of the preferred stock.",
     "prompt": "Example Value preferred Stock as a Perpetuity",
@@ -380,7 +360,7 @@
     "category": "MDiscountedCashFlowValuation"
   },
   {
-    "term": "14 - Required Rate of Return",
+    "term": "13 - Required Rate of Return",
     "example": "this should be 8.96\n$$\n\\begin{aligned}\nP V & =-1,085 \\\\\nF V & =1,000 \\\\\nN & =10 \\\\\nP M T & =100(=10 \\% \\times \\$ 1,000 \\text { par value })\n\\end{aligned}\n$$",
     "description": "Given a present value, a future value, a time period, and any interim cash flows, we can solve for the required return of a security.\nExample:\nA zero-coupon bond with a 15-year maturity has a face value of $\\$ 1,000$. The bond is priced at $\\$ 650$. Calculate the annualized return, assuming annual compounding.\nUsing the calculator: the result should be iY of 2.9\n$$\n\\begin{aligned}\n&\\text { Using the calculator: }\\\\\n&\\begin{aligned}\n\\mathrm{PV} & =-650 \\\\\n\\mathrm{FV} & =1,000 \\\\\n\\mathrm{~N} & =15 \\\\\n\\text { PMT } & =0\n\\end{aligned}\n\\end{aligned}\n$$\nNow, consider that this\nExample:\nConsider a 10-year, 10\\% coupon, annual-pay bond with a price of $\\$ 1,085.00$. Calculate the yield to maturity.",
     "prompt": "Required Rate of Return",
@@ -390,7 +370,7 @@
     "category": "MDiscountedCashFlowValuation"
   },
   {
-    "term": "15 - The cash flow additivity principle states that the PV of any stream of cash flows equals to what of the pv inidividual cashflows?",
+    "term": "14 - The cash flow additivity principle states that the PV of any stream of cash flows equals to what of the pv inidividual cashflows?",
     "example": "the sum of the PVs of the individual cash flows.",
     "description": "The cash flow additivity principle states that the PV of any stream of cash flows equals to what of the pv inidividual cashflows?",
     "prompt": "The cash flow additivity principle states that the PV of any stream of cash flows equals to what of the pv inidividual cashflows?",
@@ -400,7 +380,7 @@
     "category": "MDiscountedCashFlowValuation"
   },
   {
-    "term": "16 - Cash Flow Additivity Principle",
+    "term": "15 - Cash Flow Additivity Principle",
     "example": "In calculator to run the first one is:\nclear out usin 2nd CE|C\n1. CF\n2. Flecha abajo hasa que haya CF0 y inserta usando button enter al costado de la flecha\n3. cuando este listo apretas npv, insertas el discount rate y apretas cpt\nAnswer should be 542\nYou can also add them up like:\n>![[Pasted image 20250629161409.png]]\n>\nBy adding those two computations you get the same result. ",
     "description": "The cash flow additivity principle states that the PV of any stream of cash flows equals to what of the pv inidividual cashflows?:: the sum of the PVs of the individual cash flows.\nExample:\nA security makes payments of $\\$ 100, \\$ 100, \\$ 400$, and $\\$ 100$ over the next four years.\nQ1. Calculate the PV of the security, assuming a discount rate of $10 \\%$.\nQ2. Calculate the PV of a 4-year annuity paying \\$100 and a 3-year zero-coupon bond with a par value of $\\$ 300$, and a $10 \\%$ required return.",
     "prompt": "Cash Flow Additivity Principle",
@@ -410,47 +390,47 @@
     "category": "MDiscountedCashFlowValuation"
   },
   {
-    "term": "17 - To clear all work from the calculator press",
+    "term": "16 - To clear all work from the calculator press",
     "example": "2nd +fv (clr TVM)\n2nd CLE|C\n(CLWORK)",
-    "description": "To clear all work from the calculator press",
+    "description": "Example:\nA zero-coupon bond with 15 years to maturity has a face value of $\\$ 1,000$. Its yield is a -0.5\\% yield with annual compounding. Calculate the price of the bond.",
     "prompt": "To clear all work from the calculator press",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M2 - Discounted Cash Flow Valuation.md",
-    "reference_line": 229,
+    "reference_line": 228,
     "module_name": "CFA Modules",
     "category": "MDiscountedCashFlowValuation"
   },
   {
-    "term": "18 - No-Arbitrage Principle states thatn if two sets of cash flows are identical under all conditions...",
+    "term": "17 - No-Arbitrage Principle states thatn if two sets of cash flows are identical under all conditions...",
     "example": "The law of one price states that if two sets of cash flows are identical under all conditions, they will have the same price today.",
-    "description": "No-Arbitrage Principle states thatn if two sets of cash flows are identical under all conditions...",
+    "description": "Example:\nA zero-coupon bond with 15 years to maturity has a face value of $\\$ 1,000$. Its yield is a -0.5\\% yield with annual compounding. Calculate the price of the bond.",
     "prompt": "No-Arbitrage Principle states thatn if two sets of cash flows are identical under all conditions...",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M2 - Discounted Cash Flow Valuation.md",
-    "reference_line": 235,
+    "reference_line": 234,
     "module_name": "CFA Modules",
     "category": "MDiscountedCashFlowValuation"
   },
   {
-    "term": "19 - No-arbitrage condition states that If prices are not identical, investors will...",
+    "term": "18 - No-arbitrage condition states that If prices are not identical, investors will...",
     "example": "If prices are not identical, investors will buy the lower-priced asset, and sell the higher-priced asset, which drives the prices together.",
-    "description": "No-arbitrage condition states that If prices are not identical, investors will...",
+    "description": "Example:\nA zero-coupon bond with 15 years to maturity has a face value of $\\$ 1,000$. Its yield is a -0.5\\% yield with annual compounding. Calculate the price of the bond.",
     "prompt": "No-arbitrage condition states that If prices are not identical, investors will...",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M2 - Discounted Cash Flow Valuation.md",
-    "reference_line": 239,
+    "reference_line": 238,
     "module_name": "CFA Modules",
     "category": "MDiscountedCashFlowValuation"
   },
   {
-    "term": "20 - No-arbitrage valuation states that Forward interest rates, forward exchange rates, and option pricing ...",
+    "term": "19 - No-arbitrage valuation states that Forward interest rates, forward exchange rates, and option pricing ...",
     "example": "Forward interest rates, forward exchange rates, and option pricing all use the principle that equivalent cash flows must have the same value.",
-    "description": "No-arbitrage valuation states that Forward interest rates, forward exchange rates, and option pricing ...",
+    "description": "Example:\nA zero-coupon bond with 15 years to maturity has a face value of $\\$ 1,000$. Its yield is a -0.5\\% yield with annual compounding. Calculate the price of the bond.",
     "prompt": "No-arbitrage valuation states that Forward interest rates, forward exchange rates, and option pricing ...",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M2 - Discounted Cash Flow Valuation.md",
-    "reference_line": 243,
+    "reference_line": 242,
     "module_name": "CFA Modules",
     "category": "MDiscountedCashFlowValuation"
   },
   {
-    "term": "21 - Forward Interest Rates",
+    "term": "20 - Forward Interest Rates",
     "example": "at some future date, for a set time period.",
     "description": "A forward interest rate is a borrowing or lending rate that starts...",
     "prompt": "Forward Interest Rates",
@@ -460,27 +440,27 @@
     "category": "MDiscountedCashFlowValuation"
   },
   {
-    "term": "22 - A spot interest rate is a borrowing or lending rate that starts...",
+    "term": "21 - A spot interest rate is a borrowing or lending rate that starts...",
     "example": "today, for a set time period.",
-    "description": "A spot interest rate is a borrowing or lending rate that starts...",
+    "description": "Example:\nA zero-coupon bond with 15 years to maturity has a face value of $\\$ 1,000$. Its yield is a -0.5\\% yield with annual compounding. Calculate the price of the bond.",
     "prompt": "A spot interest rate is a borrowing or lending rate that starts...",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M2 - Discounted Cash Flow Valuation.md",
-    "reference_line": 259,
+    "reference_line": 258,
     "module_name": "CFA Modules",
     "category": "MDiscountedCashFlowValuation"
   },
   {
-    "term": "23 - Calculate the 1-year forward 1-year rate (1y1y).",
+    "term": "22 - Calculate the 1-year forward 1-year rate (1y1y).",
     "example": "$$\n1+1 y 1 y=\\frac{(1.08)^2}{1.04}=1 + 12.154 \\%\n$$",
-    "description": "Example:\nThe 2 -year spot rate is $8 \\%$ and the 1 -year spot rate is $4 \\%$.\nCalculate the 1-year forward 1-year rate (1y1y).",
+    "description": "Example:\nA zero-coupon bond with 15 years to maturity has a face value of $\\$ 1,000$. Its yield is a -0.5\\% yield with annual compounding. Calculate the price of the bond.",
     "prompt": "Calculate the 1-year forward 1-year rate (1y1y).",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M2 - Discounted Cash Flow Valuation.md",
-    "reference_line": 277,
+    "reference_line": 276,
     "module_name": "CFA Modules",
     "category": "MDiscountedCashFlowValuation"
   },
   {
-    "term": "24 - Questions",
+    "term": "23 - Questions",
     "example": "To calculate the Holding Period Return (HPR), use the formula:\n$$\n\\text { HPR }=\\frac{\\text { Income }+ \\text { Price Change }}{\\text { Initial Price }}=\\frac{\\left(\\text { Coupon Payments }+\\left(P_{\\text {final }}-P_{\\text {initial }}\\right)\\right)}{P_{\\text {initial }}}\n$$\nGiven:\n- $P_{\\text {initial }}=910$\n- $P_{\\text {final }}=1020$\n- Coupon payments $=2 \\times 30=60$\nPlug into the formula:\n$$\n\\mathrm{HPR}=\\frac{60+(1020-910)}{910}=\\frac{60+110}{910}=\\frac{170}{910} \\approx 0.1868=18.7 \\%\n$$",
     "description": "An asset manager's portfolio had the following annual rates of return:\n| Year | Return |\n| :--- | :--- |\n| $20 \\times 7$ | $+6 \\%$ |\n| $20 \\times 8$ | $-37 \\%$ |\n| $20 \\times 9$ | $+27 \\%$ |\nThe manager states that the return for the period is $-5.34 \\%$. The manager has reported the:\nA) arithmetic mean return.\nB) geometric mean return.\nC) holding period return.\nA bond was purchased exactly one year ago for $\\$ 910$ and was sold today for $\\$ 1,020$. During the year, the bond made two semi-annual coupon payments of $\\$ 30$. What is the holding period return?\nA) $12.1 \\%$.\nB) $18.7 \\%$.\nC) $6.0 \\%$.",
     "prompt": "Questions",
@@ -490,92 +470,32 @@
     "category": "MDiscountedCashFlowValuation"
   },
   {
-    "term": "25 - C) $9.0 \\% ; 15.0 \\%$.",
+    "term": "24 - C) $9.0 \\% ; 15.0 \\%$.",
     "example": "A) $10.8 \\% ; 9.4 \\%$.",
-    "description": "An investor buys a share of stock for $\\$ 200.00$ at time $t=0$. At time $t=1$, the investor buys an additional share for $\\$ 225.00$. At time $t=2$ the investor sells both shares for $\\$ 235.00$. During both years, the stock paid a per share dividend of $\\$ 5.00$. What are the approximate time-weighted and money-weighted returns respectively?\nA) $10.8 \\% ; 9.4 \\%$.\nВ) $7.7 \\% ; 7.7 \\%$.\nC) $9.0 \\% ; 15.0 \\%$.",
+    "description": "Example:\nA zero-coupon bond with 15 years to maturity has a face value of $\\$ 1,000$. Its yield is a -0.5\\% yield with annual compounding. Calculate the price of the bond.",
     "prompt": "C) $9.0 \\% ; 15.0 \\%$.",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M2 - Discounted Cash Flow Valuation.md",
-    "reference_line": 322,
+    "reference_line": 321,
     "module_name": "CFA Modules",
     "category": "MDiscountedCashFlowValuation"
   },
   {
-    "term": "26 - C) opportunity cost.",
+    "term": "25 - C) opportunity cost.",
     "example": "C) opportunity cost.\nThe return Wei gives up by using his money elsewhere\nOpportunity Cost\tThe return Wei gives up by using his money elsewhere\nDiscount Rate\tUsed to calculate present value of future cash flows\nFinancing Cost\tCost incurred when borrowing funds (e.g., loan interest)",
-    "description": "Wei Zhang has funds on deposit with Iron Range bank. The funds are currently earning 6\\% interest. If he withdraws $\\$ 15,000$ to purchase an automobile, the $6 \\%$ interest rate can be best thought of as a(n):\nA) discount rate.\nB) financing cost.\nC) opportunity cost.",
+    "description": "Example:\nA zero-coupon bond with 15 years to maturity has a face value of $\\$ 1,000$. Its yield is a -0.5\\% yield with annual compounding. Calculate the price of the bond.",
     "prompt": "C) opportunity cost.",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M2 - Discounted Cash Flow Valuation.md",
-    "reference_line": 330,
+    "reference_line": 329,
     "module_name": "CFA Modules",
     "category": "MDiscountedCashFlowValuation"
   },
   {
-    "term": "27 - An investor buys one share of stock for $100. At the end of year one she buys three more shares at $89 per share. At the end of year two she sells all four shares for $98 each. The stock paid a dividend of $1.00 per share at the end of year one and year two. What is the investor's time-weighted rate of return?",
-    "example": "A)0.06%.\nThe holding period return in year one is ($89.00 – $100.00 + $1.00) / $100.00 = -10.00%.\nThe holding period return in year two is ($98.00 – $89.00 + $1.00) / $89 = 11.24%.\nThe time-weighted return is [{1 + (-0.1000)}{1 + 0.1124}]1/2 – 1 = 0.06%.",
-    "description": "An investor buys one share of stock for $100. At the end of year one she buys three more shares at $89 per share. At the end of year two she sells all four shares for $98 each. The stock paid a dividend of $1.00 per share at the end of year one and year two. What is the investor's time-weighted rate of return?",
-    "prompt": "An investor buys one share of stock for $100. At the end of year one she buys three more shares at $89 per share. At the end of year two she sells all four shares for $98 each. The stock paid a dividend of $1.00 per share at the end of year one and year two. What is the investor's time-weighted rate of return?",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M2 - Discounted Cash Flow Valuation.md",
-    "reference_line": 339,
-    "module_name": "CFA Modules",
-    "category": "MDiscountedCashFlowValuation"
-  },
-  {
-    "term": "28 - C) $6.35 \\%$.",
+    "term": "26 - C) $6.35 \\%$.",
     "example": "C) $6.35 \\%$.\n1. Press CF (Cash Flow)\n2. Input initial cash flow:\n- $\\mathrm{CF} 0=-100 \\rightarrow$ press ENTER, then $\\downarrow$\n3. Input first year net cash flow:\n- $\\mathrm{C} 01=-266 \\rightarrow$ ENTER, then\n- $F 01=1 \\rightarrow$ ENTER, then $\\downarrow$\n4. Input second year cash flow:\n- $\\mathrm{C} 02=396 \\rightarrow$ ENTER, then $\\downarrow$\n- $\\mathrm{F} 02=1 \\rightarrow$ ENTER\n1. Press IRR, then CPT (Compute)",
-    "description": "An investor buys one share of stock for $\\$ 100$. At the end of year one she buys three more shares at $\\$ 89$ per share. At the end of year two she sells all four shares for $\\$ 98$ each. The stock paid a dividend of $\\$ 1.00$ per share at the end of year one and year two. What is the investor's money-weighted rate of return?\nA) $0.06 \\%$.\nB) $5.29 \\%$.\nC) $6.35 \\%$.",
+    "description": "Example:\nA zero-coupon bond with 15 years to maturity has a face value of $\\$ 1,000$. Its yield is a -0.5\\% yield with annual compounding. Calculate the price of the bond.",
     "prompt": "C) $6.35 \\%$.",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M2 - Discounted Cash Flow Valuation.md",
-    "reference_line": 353,
-    "module_name": "CFA Modules",
-    "category": "MDiscountedCashFlowValuation"
-  },
-  {
-    "term": "29 - C) required rate of return.",
-    "example": "\ndiscount rate.\n|Term|Meaning in Context|\n|---|---|\n|**Discount Rate**|✔ Used to find today's value of future money|\n|Opportunity Cost|The value of the best alternative use of funds|\n|Required Rate of Return|Used in investments to judge performance threshold|\n",
-    "description": "Selmer Jones has just inherited some money and wants to set some of it aside for a vacation in Hawaii one year from today. His bank will pay him 5\\% interest on any funds he deposits. In order to determine how much of the money must be set aside and held for the trip, he should use the $5 \\%$ as a:\nA) discount rate.\nB) opportunity cost.\nC) required rate of return.",
-    "prompt": "C) required rate of return.",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M2 - Discounted Cash Flow Valuation.md",
-    "reference_line": 371,
-    "module_name": "CFA Modules",
-    "category": "MDiscountedCashFlowValuation"
-  },
-  {
-    "term": "30 - C) $7.0 \\%$.",
-    "example": "a) $10.4 \\%$.\n|Date|Event|\n|---|---|\n|Jan 1|Invest $50,000|\n|Mar 31|Value = $51,000|\n|Apr 1|Add $10,000 (now total = $61,000)|\n|Jun 30|Value = $60,000|\n|Jul 1|Withdraw $30,000 → balance = $30,000|\n|Dec 31|Value = $33,000|\nPeriod 1: Jan $1 \\rightarrow$ Mar 31\n$$\nR_1=\\frac{51,000-50,000}{50,000}=2.00 \\%\n$$\nPeriod 2: Apr $1 \\rightarrow$ Jun 30\nStart $=51,000+10,000=61,000$ (accounting for April 1 deposit)\n$$\nR_2=\\frac{60,000-61,000}{61,000}=-1.639 \\%\n$$\nPeriod 3: Jul $1 \\rightarrow$ Dec 31\nStart $=\\$ 30,000$ (after $\\$ 30 \\mathrm{k}$ withdrawal)\n$$\nR_3=\\frac{33,000-30,000}{30,000}=10.00 \\%\n$$\n- Step 2: Chain the returns\n$$\n\\begin{gathered}\n\\mathrm{TWR}=\\left(1+R_1\\right)\\left(1+R_2\\right)\\left(1+R_3\\right)-1 \\\\\n=(1.02)(0.98361)(1.10) \\approx 1.1044-1=10.44 \\%\n\\end{gathered}\n$$\n",
-    "description": "On January 1, Jonathan Wood invests $\\$ 50,000$. At the end of March, his investment is worth $\\$ 51,000$. On April 1, Wood deposits \\$10,000 into his account, and by the end of June, his account is worth \\$60,000. Wood withdraws \\$30,000 on July 1 and makes no additional deposits or withdrawals the rest of the year. By the end of the year, his account is worth $\\$ 33,000$. The time-weighted return for the year is closest to:\nA) $10.4 \\%$.\nB) $5.5 \\%$.\nC) $7.0 \\%$.",
-    "prompt": "C) $7.0 \\%$.",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M2 - Discounted Cash Flow Valuation.md",
-    "reference_line": 388,
-    "module_name": "CFA Modules",
-    "category": "MDiscountedCashFlowValuation"
-  },
-  {
-    "term": "31 - C) $-7.5 \\%$.",
-    "example": "\n$48.9 \\%$.\n| Time (Years) | Event\n| Net Cash Flow\n|\n| ------------ | ------------------------------------------------------------- | ----------------- |\n| 0\n| Buy 1 share @ $50\n| **−50**\n|\n| 1\n| Receive $5 dividend, buy 1 share @ $75\n| **−70** = −75 + 5 |\n| 2\n| Receive $7.50 × 2 = $15, sell both shares @ $100 = $200 total | **+215**\n|\nPress CF\nCF0 = -50 → ENTER → ↓\nC01 = -70 → ENTER → ↓\nF01 = 1 → ENTER → ↓\nC02 = 215 → ENTER → ↓\nF02 = 1 → ENTER\nPress IRR, then CPT\n",
-    "description": "An investor makes the following investments:\n- She purchases a share of stock for $\\$ 50.00$.\n- After one year, she purchases an additional share for $\\$ 75.00$.\n- After one more year, she sells both shares for $\\$ 100.00$ each.\n- There are no transaction costs or taxes.\nDuring year one, the stock paid a $\\$ 5.00$ per share dividend. In year 2 , the stock paid a $\\$ 7.50$ per share dividend. The investor's required return is $35 \\%$. Her money-weighted return is closest to:\nA) $48.9 \\%$.\nB) $16.1 \\%$.\nC) $-7.5 \\%$.",
-    "prompt": "the continuously compounded rate  is...",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M2 - Discounted Cash Flow Valuation.md",
-    "reference_line": 441,
-    "module_name": "CFA Modules",
-    "category": "MDiscountedCashFlowValuation"
-  },
-  {
-    "term": "32 - C) $\\ln (1+R)-1$.",
-    "example": " $\\ln (1+R)$\n|Option|Expression|Meaning|\n|---|---|---|\n|A|eR−1e^R - 1|This converts **continuously compounded return to simple return**, not the other way around. ❌|\n|B|ln⁡(1+R)\\ln(1 + R)|✅ Correct formula for converting HPR to continuously compounded return|\n|C|ln⁡(1+R)−1\\ln(1 + R) - 1|This subtracts 1 unnecessarily. ❌|\n",
-    "description": "Given a holding period return of R , the continuously compounded rate of return is:\nA) $e^R-1$.\nB) $\\ln (1+R)$.\nC) $\\ln (1+R)-1$.",
-    "prompt": "C) $\\ln (1+R)-1$.",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M2 - Discounted Cash Flow Valuation.md",
-    "reference_line": 471,
-    "module_name": "CFA Modules",
-    "category": "MDiscountedCashFlowValuation"
-  },
-  {
-    "term": "33 - C) $\\ln (1+R)-1$.",
-    "example": " $\\ln (1+R)$\n|Option|Expression|Meaning|\n|---|---|---|\n|A|eR−1e^R - 1|This converts **continuously compounded return to simple return**, not the other way around. ❌|\n|B|ln⁡(1+R)\\ln(1 + R)|✅ Correct formula for converting HPR to continuously compounded return|\n|C|ln⁡(1+R)−1\\ln(1 + R) - 1|This subtracts 1 unnecessarily. ❌|\n",
-    "description": "Given a holding period return of R , the continuously compounded rate of return is:\nA) $e^R-1$.\nB) $\\ln (1+R)$.\nC) $\\ln (1+R)-1$.",
-    "prompt": "C) $\\ln (1+R)-1$.",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M2 - Discounted Cash Flow Valuation.md",
-    "reference_line": 471,
+    "reference_line": 352,
     "module_name": "CFA Modules",
     "category": "MDiscountedCashFlowValuation"
   },
@@ -592,7 +512,7 @@
   {
     "term": "2 - - less than the 6th decile",
     "example": "$60 \\%$ of the data points",
-    "description": "- less than the 6th decile",
+    "description": "Quartiles, how much of the data points the following represents ?",
     "prompt": "- less than the 6th decile",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M3 - Statistical Measures of Asset Returns.md",
     "reference_line": 30,
@@ -682,42 +602,112 @@
   {
     "term": "11 - Using a target of $24 \\%$, what is the target downside deviation?",
     "example": "$$\n\\begin{aligned}\n& 30 \\%-24 \\%=6 \\% \\\\\n& 12 \\%-24 \\%=-12 \\% \\\\\n& 25 \\%-24 \\%=1 \\% \\\\\n& 20 \\%-24 \\%=-4 \\% \\\\\n& 23 \\%-24 \\%=-1 \\%\n\\end{aligned}\n$$",
-    "description": "Target Downside Deviation: Example\nAnnual returns data: $30 \\%, 12 \\%, 25 \\%, 20 \\%, 23 \\%$\nUsing a target of $24 \\%$, what is the target downside deviation?",
+    "description": "![[Pasted image 20250717035601.png]]",
     "prompt": "Using a target of $24 \\%$, what is the target downside deviation?",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M3 - Statistical Measures of Asset Returns.md",
-    "reference_line": 88,
+    "reference_line": 87,
     "module_name": "CFA Modules",
     "category": "MStatisticalMeasuresofAssetReturns"
   },
   {
-    "term": "12 - sample problem 1",
-    "example": "def",
-    "description": "sample problem 1",
-    "prompt": "sample problem 1",
+    "term": "12 - Covariance",
+    "example": "It tells us how two variables move together:\n- Positive covariance → when one goes up, the other tends to go up.\n- Negative covariance → when one goes up, the other tends to go down.\n$$\ns_{X, Y}=\\frac{\\sum_{i=1}^n\\left[\\left(X_i-\\bar{X}\\right)\\left(Y_i-\\bar{Y}\\right)\\right]}{n-1}\n$$",
+    "description": "$$\ns_{X, Y}=\\frac{\\sum_{i=1}^n\\left[\\left(X_i-\\bar{X}\\right)\\left(Y_i-\\bar{Y}\\right)\\right]}{n-1}\n$$\n| Term\n| Meaning\n|\n| --------- | ----------------------------- |\n| $$X_i$$\n| Each value of variable X\n|\n| $\\bar{X}$ | Mean of variable X\n|\n| $Y_i$\n| Each value of variable Y\n|\n| $\\bar{Y}$ | Mean of variable Y\n|\n| n\n| Number of paired observations |",
+    "prompt": "What Is Sample Covariance? Which is the formula? what it means that is positive or negative? What letter is used to be denoted?",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M3 - Statistical Measures of Asset Returns.md",
-    "reference_line": 128,
+    "reference_line": 131,
     "module_name": "CFA Modules",
     "category": "MStatisticalMeasuresofAssetReturns"
   },
   {
-    "term": "13 - sample problem 2",
-    "example": "def",
-    "description": "sample problem 2",
-    "prompt": "sample problem 2",
+    "term": "13 - Correlation",
+    "example": "0.9842\n$$\n\\rho_{A B}=\\frac{s_{A B}}{s_A s_B}\n$$\n$$\n\\rho_{A B}=\\frac{s_{A B}}{s_A s_B}=\\frac{0.0058}{0.0529 \\times 0.1114}=0.9842\n$$",
+    "description": "- Correlation does not imply causation.\n- Variables with strong nonlinear relationships may have a correlation near zero.\n- Variables may exhibit spurious correlation:\n- Correlation may result from chance.\n- Both variables may be related to a third variable.\n$$\n\\rho_{X, Y}=\\frac{s_{X, Y}}{s_X s_Y}\n$$\n- No units-values range from +1 , perfect positive correlation, to -1 , perfect negative correlation\n- Correlation of zero indicates no linear relationship\nCalculate the correlation of returns between Stocks A and B ( $\\rho_{A B}$ ) given the following data:\n- $\\mathrm{s}^2{ }_{\\mathrm{A}}=0.0028$\n- $\\mathrm{s}^2{ }_{\\mathrm{B}}=0.0124$\n- $\\mathrm{s}_{\\mathrm{A}, \\mathrm{B}}=0.0058$",
+    "prompt": "Calculate the correlation of returns between Stocks A and B",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M3 - Statistical Measures of Asset Returns.md",
-    "reference_line": 130,
+    "reference_line": 154,
     "module_name": "CFA Modules",
     "category": "MStatisticalMeasuresofAssetReturns"
   },
   {
-    "term": "14 - Skeweness",
-    "example": "",
-    "description": "Positive Skew = Right Skew\nPositive skew has outliers in the right tail.\nSkew absolute values > 0.5 are significant.\nMean is most affected by outliers.\n| Positive Skew\n| Negative Skew\n|\n| ------------------------------------ | ------------------------------------ |\n| ![[Pasted image 20250731203746.png]] | ![[Pasted image 20250731203754.png]] |\nWhat does Positive or Negative Skew mean?\nKurtosis\nThis measures the degree to which a distribution is more or less peaked than a normal distribution.\nLeptokurtic (kurtosis > 3) is more peaked with fatter tails (more extreme outliers).\n4\nsample problem 1::def\nsample problem 2::def\n\n\n\n\n",
-    "prompt": "Skeweness",
+    "term": "14 - Expected Values Simple Excercise",
+    "example": "$$\n=0.10(1.80)+0.20(1.60)+0.40(1.20)+0.30(1.00)=£ 1.28\n$$",
+    "description": "Expected Value\nThe expected value of a random variable is the probability-weighted average of the possible outcomes of the variable.\n$$\n\\begin{aligned}\n& E(X)=\\sum P\\left(x_i\\right) x_i=P\\left(x_1\\right) x_1+P\\left(x_2\\right) x_2+\\ldots+P\\left(x_n\\right) x_n \\\\\n& P\\left(x_i\\right)=\\text { probability of outcome } x_i\n\\end{aligned}\n$$\nExpected Value\nExample: EPS for Ron's Stores\n- 10\\% probability EPS = £1.80\n- $20 \\%$ probability EPS = £1.60\n- 40\\% probability EPS = £1.20\n- $30 \\%$ probability EPS = £1.00\n",
+    "prompt": "What is the Expected EPS:?",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M3 - Statistical Measures of Asset Returns.md",
-    "reference_line": 106,
+    "reference_line": 188,
     "module_name": "CFA Modules",
     "category": "MStatisticalMeasuresofAssetReturns"
+  },
+  {
+    "term": "15 - Probability Tree",
+    "example": "![[Pasted image 20250803184053.png]]",
+    "description": "Expected Value\nA probability tree is used to show the probabilities of various outcomes. Conditional expected values are contingent on the outcome of some other event (e.g., on the arrival of new information).\nRon's Stores Example:\n- Probability of a good economy: 60\\%\n- If good: EPS \\$1.80 (30\\% probability) or \\$1.70 (70\\% probability)\n- Probability of a poor economy: $40 \\%$\n- If poor: EPS \\$1.30 (60\\% probability) or \\$1.00 (40\\% probability)",
+    "prompt": "Draw the Probability Tree of the thing above.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M3 - Statistical Measures of Asset Returns.md",
+    "reference_line": 213,
+    "module_name": "CFA Modules",
+    "category": "MStatisticalMeasuresofAssetReturns"
+  },
+  {
+    "term": "16 - Bayers Formula",
+    "example": "See above",
+    "description": "Bayes' formula is used to update a given set of prior probabilities for a given event in response to the arrival of new information.\n$$\nP(A \\mid B)=\\frac{P(B \\mid A)^{\\prime} P(A)}{P(B)}\n$$\nThe joint probability of A and B , divided by the unconditional probability of B\n- $P(B)=P(B \\mid A) \\times P(A)+P\\left(B \\mid A^C\\right) \\times P\\left(A^C\\right)$\n- $P(B \\mid A)=$ probability of $B$, given $A$ has occurred\n- $P\\left(B \\mid A^C\\right)=$ probability of $B$, given $A$ has not occurred\n",
+    "prompt": "Redraw the Bayers Formula and re explain what each item represents",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M3 - Statistical Measures of Asset Returns.md",
+    "reference_line": 226,
+    "module_name": "CFA Modules",
+    "category": "MStatisticalMeasuresofAssetReturns"
+  },
+  {
+    "term": "17 - Bayers Formula Excercise",
+    "example": "84%\n![[Pasted image 20250803184656.png]]\nProbability that it gained and outputermoed / Probability gained (aggregated)\nUsing the bayers formula then this is how it would look like:\n![[Pasted image 20250803185038.png]]",
+    "description": "Example:\n- 60\\% probability the economy will outperform\n- If it outperforms, there is $70 \\%$ probability the stock will go up and $30 \\%$ probability it will go down\n40\\% probability the economy will underperform\n- If it underperforms, there is $20 \\%$ probability the stock will go up and $80 \\%$ probability it will go down",
+    "prompt": "Given that the stock increased in value, calculate the probability that the economy outperformed.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M3 - Statistical Measures of Asset Returns.md",
+    "reference_line": 243,
+    "module_name": "CFA Modules",
+    "category": "MStatisticalMeasuresofAssetReturns"
+  },
+  {
+    "term": "1 - Shortfall risk is",
+    "example": "the probability that a portfolio will fall below a particular target value or return over a given period.",
+    "description": "Shortfall Risk and Roy's Safety-First Ratio",
+    "prompt": "Shortfall risk is",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M5 - Portfolio Mathematics.md",
+    "reference_line": 9,
+    "module_name": "CFA Modules",
+    "category": "MPortfolioMathematics"
+  },
+  {
+    "term": "2 - Roy's safety-first criterion specifies",
+    "example": "a minimum acceptable level of return, called the threshold level return.",
+    "description": "Roy's safety-first criterion specifies",
+    "prompt": "Roy's safety-first criterion specifies",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M5 - Portfolio Mathematics.md",
+    "reference_line": 10,
+    "module_name": "CFA Modules",
+    "category": "MPortfolioMathematics"
+  },
+  {
+    "term": "3 - Module 5.1: Probability Models for Portfolio Return and Risk",
+    "example": "“What’s the chance I’ll earn **less than 3%**?”",
+    "description": ":d Shortfall Risk and Roy's Safety-First Ratio\nShortfall risk is:: the probability that a portfolio will fall below a particular target value or return over a given period.\nRoy's safety-first criterion specifies:: a minimum acceptable level of return, called the threshold level return.\n$$\nR S F=\\frac{E\\left(R_P\\right)-R_L}{\\sigma_P} \\quad R_L=\\text { threshold return }\n$$\n- The higher the RSF value, the lower the probability of shortfall.\n- Assuming normally distributed returns, RSF is a $z$-value.\n- If you need **at least 3% return**, shortfall risk tells you:\nWhat is Shortfall Risk?\nIt's the probability that a portfolio’s return will fall below a threshold level (like a minimum acceptable return).\nFor example: If you need at least 3% return, shortfall risk tells you:",
+    "prompt": "Module 5.1: Probability Models for Portfolio Return and Risk",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M5 - Portfolio Mathematics.md",
+    "reference_line": 7,
+    "module_name": "CFA Modules",
+    "category": "MPortfolioMathematics"
+  },
+  {
+    "term": "4 - Example Portfolio A",
+    "example": "$$\n\\mathrm{RSF}_A=\\frac{9-3}{12}=\\frac{6}{12}=0.5\n$$\nThat means Portfolio A is half a standard deviation above the shortfall threshold.",
+    "description": "Used to compare portfolios on how well they protect against shortfalls.\n$$\n\\mathrm{RSF}=\\frac{E\\left(R_P\\right)-R_L}{\\sigma_P}\n$$\nWhere:\n- $E\\left(R_P\\right)$ : Expected return of the portfolio\n- $R_L$ : Minimum acceptable return (threshold)\n- $\\sigma_P$ : Standard deviation of the portfolio\n* Bigger RSF $\\rightarrow$ less chance of shortfall $\\rightarrow$ better\n| Portfolio | Expected Return | Std Dev | RSF |\n| --------- | --------------- | ------- | --- |\n| A\n| 9%\n| 12%\n| ?\n|\n| B\n| 11%\n| 20%\n| ?\n|\n| C\n| 6.6%\n| 8.2%\n| ?\n|",
+    "prompt": "The threshold is **3%**. Can you calculate RSF for **Portfolio A**?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M5 - Portfolio Mathematics.md",
+    "reference_line": 25,
+    "module_name": "CFA Modules",
+    "category": "MPortfolioMathematics"
   },
   {
     "term": "1 - Questions",
