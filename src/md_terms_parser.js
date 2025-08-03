@@ -20,6 +20,9 @@ function parseMarkdownCards(filePath) {
     let last_connected_paragraph = '';
     let last_line = '';
     let last_connected_paragraph_line = 0;
+    let has_header = false;
+    let last_obtained_description = '';
+    let count_of_blank_lines = 0;
 
     while (i < lines.length) {
         const line = lines[i].trim();
@@ -35,6 +38,9 @@ function parseMarkdownCards(filePath) {
         if (line.startsWith('####') || line.startsWith('###') || line.startsWith('##')) {
 
             const header = line.replace(/^#+/, '').trim()
+            if(line.startsWith('####')) {
+                has_header = true;
+            }
             currentEntry = {
                 header: header,
                 description: '',
@@ -44,6 +50,10 @@ function parseMarkdownCards(filePath) {
             };
             i++;
             continue;
+        }
+
+        if (line.startsWith(':d') || line.startsWith('?d')) {
+            last_obtained_description = line.slice(2).trim();
         }
 
         if (line.startsWith('?x')) {
@@ -66,8 +76,13 @@ function parseMarkdownCards(filePath) {
             if (parts.length >= 2) {
                 let singleLineEntry = {}
                 let term = parts[0].trim();
+                let description = parts[0].trim();
+                if (last_obtained_description !== '') {
+                    description = last_obtained_description;
+                    last_obtained_description = '';
+                }
                 singleLineEntry.header = term;
-                singleLineEntry.description = term;
+                singleLineEntry.description = description;
                 singleLineEntry.answer = parts[parts.length - 1].trim();
                 singleLineEntry.prompt = term;
                 singleLineEntry.reference_line = i + 1;
@@ -111,6 +126,7 @@ function parseMarkdownCards(filePath) {
             }
             currentEntry.answer = answerLines.join('\n');
             result.entries.push(currentEntry);
+            currentEntry = null; // Reset to prevent duplicate at end of file
             continue;
         }
 
@@ -121,9 +137,16 @@ function parseMarkdownCards(filePath) {
         }
 
         // if line is empty, finish the connected paragraph
-        if (line === '') {
-            last_connected_paragraph = '';
-            last_connected_paragraph_line = i;
+        if (line === '' || (has_header && count_of_blank_lines >= 2)) {
+            last_obtained_description = '';
+            if(has_header) {
+                // if we have a header and only one blank line, we can keep the last connected paragraph
+                count_of_blank_lines++;
+            }else{
+                
+                last_connected_paragraph = '';
+                last_connected_paragraph_line = i;
+            }
 
         } else {
             // if the line is not empty, we can connect it to the last paragraph
