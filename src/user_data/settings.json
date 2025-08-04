@@ -1,13 +1,8 @@
 {
-  "show_http_errors": false,
   "online": false,
   "quiz_enabled": [
     "term"
   ],
-  "external_term_modules": [],
-  "dsa_language_mode": "PSEUDOCODE",
-  "terms_force_mode_cards": 3,
-  "blog_special_commits": true,
   "commit_categories": [
     {
       "code": "feat",
@@ -27,25 +22,7 @@
     }
   ],
   "ask_quiz_when_commit": true,
-  "ask_if_algo_missing_when_commit": true,
-  "show_past_commits_features_after_quiz": true,
   "journal_notes": "Focus on continuous learning and skill improvement. Master your current projects before taking on new ones.",
-  "report_show": {
-    "performance_summary": true,
-    "weather": false,
-    "missing_report": true,
-    "obj_ournal": true,
-    "ask_if_algo_missing": true
-  },
-  "week_is_since_today": true,
-  "table_feat_show": [
-    "commits",
-    "feat",
-    "algo_w",
-    "pro",
-    "math_ss",
-    "terms"
-  ],
   "objectives_features": [
     {
       "feature_key": "commits",
