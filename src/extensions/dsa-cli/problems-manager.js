@@ -382,11 +382,15 @@ ${problemMetadata.description || 'Problem description not available.'}
      * Populates the template with the code inside of problem.file_path
      * @param {dict<problem>} problem The problem to populate the template with
      */
-    populateTemplate(problem, { base = "base_code" } = {}) {
+    populateTemplate(problem, { base = "base_code", md_pseudo_mode = false } = {}) {
+        // When md_pseudo_mode is false (real code), we want to use original extension (do_all_markdown = true)
+        // When md_pseudo_mode is true (pseudo mode), we want to use .md extension (do_all_markdown = false)
+        const use_original_extension = !md_pseudo_mode;
+        
         if (base != "") {
-            return this.copyFileToTemp(problem.file_path, { base: base });
+            return this.copyFileToTemp(problem.file_path, { base: base, do_all_markdown: use_original_extension });
         }
-        this.copyFileToTemp(problem.file_path);
+        this.copyFileToTemp(problem.file_path, { do_all_markdown: use_original_extension });
     }
 
     /**
@@ -396,6 +400,23 @@ ${problemMetadata.description || 'Problem description not available.'}
      */
     selectTest(problem_metadata) {
         return TEST_DICTIONARY[problem_metadata.test_slug];
+    }
+
+    /**
+     * Gets the total number of tests for a problem without running them
+     * @param {ProblemMetadata} problemMetadata Information of the problem
+     * @returns {number} Total number of tests
+     */
+    getTestCount(problemMetadata) {
+        try {
+            const ProblemTestsObject = this.selectTest(problemMetadata);
+            // Create a temporary instance to get test count
+            const problemTests = new ProblemTestsObject(() => {}); // Dummy problem function
+            return problemTests.getTestCount();
+        } catch (error) {
+            console.log(`[DEBUG] Could not get test count: ${error.message}`);
+            return 0;
+        }
     }
 
     /**
@@ -413,8 +434,17 @@ ${problemMetadata.description || 'Problem description not available.'}
         // const { ProblemTests } = require(this.temp_test_filepath);
         const ProblemTestsObject = this.selectTest(problemMetadata);
         const problemTests = new ProblemTestsObject(Problem);
-        const is_correct = problemTests.runTests();
-        return is_correct;
+        const test_results = problemTests.runTests();
+        
+        // Return both boolean (for backward compatibility) and metadata
+        return {
+            passed: test_results.passed,
+            passed_count: test_results.passed_count,
+            total_count: test_results.total_count,
+            failed_count: test_results.failed_count,
+            // Legacy boolean for backward compatibility
+            success: test_results.passed
+        };
 
 
     }

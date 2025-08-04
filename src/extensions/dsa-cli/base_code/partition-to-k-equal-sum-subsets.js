@@ -1,6 +1,7 @@
-class Solution {	// Your code here
-
+class PartitionToKEqualSumSubsets {
+	solve(arr, k) {
+		// TODO: Implement your solution
 	}
+}
 
-
-module.exports = { Problem: Solution };
+module.exports = { Problem: PartitionToKEqualSumSubsets };

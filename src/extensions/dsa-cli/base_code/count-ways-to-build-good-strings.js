@@ -1,7 +1,6 @@
 class Solution {
 	solve(low, high, zero, one) {
-	// Your code here
-
+		// TODO: Implement your solution
 	}
 }
 

@@ -1,9 +1,7 @@
-class Solution {
+class MaximumValueOfKCoinsFromPiles {
 	solve(piles, k) {
-	// Your code here
-
+		// TODO: Implement your solution
 	}
 }
 
-
-module.exports = { Problem: Solution };
+module.exports = { Problem: MaximumValueOfKCoinsFromPiles };

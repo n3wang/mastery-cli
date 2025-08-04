@@ -60,6 +60,8 @@ class DSATrainer {
         this.problemReport = new StorableReport({ filename: 'problem_report' });
         this.order_categories = Object.values(constants.PROBLEM_CATEGORIES).map(category => category.slug);
 
+        // Add last_test_results property
+        this.last_test_results = null;
 
         // These will be populated when DSA problems are first accessed
         this.first_non_completed_category_non_completed_problems = [];
@@ -260,10 +262,10 @@ class DSATrainer {
         if (populate_problem) {
             if (populate_with_cloze_filepath != "") {
 
-                this.problems_manager.populateTemplate(problem, { base: base });
+                this.problems_manager.populateTemplate(problem, { base: base, md_pseudo_mode: md_pseudo_mode });
             } else {
 
-                this.problems_manager.populateTemplate(problem);
+                this.problems_manager.populateTemplate(problem, { md_pseudo_mode: md_pseudo_mode });
 
             }
         }
@@ -308,7 +310,7 @@ class DSATrainer {
                 this.updateProblemStatus(problem, results, statusMetadata);
             }
         }
-        
+
         // If we exit the loop without solving, set the final status
         if (!statusMetadata.status) {
             statusMetadata.status = status;
@@ -329,6 +331,12 @@ class DSATrainer {
     async openProblemMetadataInTerminal(problem, { copy_to_clipboard = true, open_problem_temporal = true,
         open_solution = false, open_basecode = false, open_markdown = false, open_test_cases = false, md_pseudo_mode = false } = {}) {
 
+        
+        console.log(`  - problem.slug: ${problem.slug}`);
+        console.log(`  - md_pseudo_mode: ${md_pseudo_mode}`);
+        console.log(`  - open_problem_temporal: ${open_problem_temporal}`);
+        console.log(`  - copy_to_clipboard: ${copy_to_clipboard}`);
+
         let problem_extension = ''
 
         let problem_details = this.problems_manager.getProblem(problem.slug);
@@ -343,34 +351,43 @@ class DSATrainer {
             }
         */
 
+        
         let promblem_prompt = await getPromptDict(problem.slug);
+        
 
-
-
+        
         renderPromptDescription(promblem_prompt, problem_details, { is_cloze: problem.is_cloze ?? false });
+        
 
         const editor_instruction = this.user_settings.common_editors[this.user_settings.editor];
+        
 
         if (copy_to_clipboard) {
+            
             // Copy base problem 
             const _ = await this.problems_manager.copyTempToClipboard();
             const copyResults = this.problems_manager.copySolutionToSol(problem.slug);
             problem_extension = copyResults?.["problem_extension"] ?? '.js';
-
+            
         }
 
         if (open_problem_temporal) {
+            
             if (md_pseudo_mode) {
+                
                 const _ = await this.problems_manager.openTemporalProblemFile({ editor_instruction: editor_instruction, force_extension: '.md' });
-
+                
             }
             else if (problem_extension != "") {
+                
                 const _ = await this.problems_manager.openTemporalProblemFile({ editor_instruction: editor_instruction, force_extension: problem_extension });
+                
             }
             else {
+                
                 const _ = await this.problems_manager.openTemporalProblemFile({ editor_instruction: editor_instruction });
+                
             }
-
         }
 
 
@@ -400,18 +417,26 @@ class DSATrainer {
      * @param {ProblemMetadata} problem The problem to open and test
      * @returns {constants.ProblemStatus} The status of the problem (aborted | solved | unsolved)
      */
-    async openAndTest(problem, { failed_attempts = 0, attempts_timestamp = [], comments = [], hintsGiven = [], copyProblemToTempInstead = true, md_pseudo_mode = false, store_to_stash = true } = {}) {
-        // if (DEBUG) console.log(
-        //     "Opening problem: ", problem.slug,
-        // );
+    async openAndTest(problem, { failed_attempts = 0, attempts_timestamp = [], comments = [],
+        hintsGiven = [], copyProblemToTempInstead = true,
+        md_pseudo_mode = false, store_to_stash = true } = {}) {
+
+        
+        
+        
+        
+
         let problem_details = this.problems_manager.getProblem(problem.slug);
+        
+
+        
         await this.openProblemMetadataInTerminal(problem, {
             md_pseudo_mode: md_pseudo_mode
         });
-
-        // }
+        
 
         const stash_current_temp = (res) => {
+            
             let extension = 'md';
             // get the extension of the problem file
             if (res.problem_details.file_path) {
@@ -423,11 +448,28 @@ class DSATrainer {
             this.problems_manager.copyTempToStash(
                 { stash_file_name: stash_file_name });
             res.problem_details.stash_file_name = stash_file_name;
+            
         }
+
+        
 
         let hints = problem
         let question_state_flag = true;
         let did_pass_all_tests_before = false;
+        
+        
+        // Function to get dynamic test menu text
+        const getTestMenuText = () => {
+            const total_tests = this.problems_manager.getTestCount(problem);
+            if (total_tests === 0) {
+                return 'run tests - No tests available';
+            }
+            if (this.last_test_results) {
+                return `run tests - ${this.last_test_results.passed_count}/${this.last_test_results.total_count} passed`;
+            } else {
+                return `run tests - 0/${total_tests} tests`;
+            }
+        };
 
         let cloze_problem_list = this.problems_manager.getProblemClozes(problem.slug);
         const choices = {
@@ -447,15 +489,17 @@ class DSATrainer {
                         failed_attempts: failed_attempts
                     },
                     problem_details: problem_details,
-                    is_pseudocode: true,
+                    is_pseudocode: md_pseudo_mode,
                 };
                 stash_current_temp(res);
+                this.last_test_results = null; // Reset last test results
 
                 return res;
             },
             "pass - Re enqueue at the end": async () => {
                 // same as quit. just renaming.
                 question_state_flag = false;
+                this.last_test_results = null; // Reset last test results
                 return { status: constants.ProblemStatus.aborted, problem_details: problem_details, details: { failed_attempts: failed_attempts } };
             },
 
@@ -485,7 +529,7 @@ class DSATrainer {
                 question_state_flag = true;
                 // Repopulates the 
                 // this.problems_manager.repopulateCode(problem.slug);
-                this.problems_manager.populateTemplate(problem);
+                this.problems_manager.populateTemplate(problem, { md_pseudo_mode: md_pseudo_mode });
                 return { status: constants.ProblemStatus.unsolved, details: { failed_attempts: failed_attempts }, problem_details: problem_details };
             },
 
@@ -519,40 +563,74 @@ class DSATrainer {
 
 
 
+        
+        
+
         Object.assign(choices, choices_dev_mode); // Add dev mode choices
+        
+
         if (!md_pseudo_mode) {
-            Object.assign(choices, {
+            
+        } else {
+            
+        }
 
-
-                'execute test cases - Only works for JS problems': async () => {
+        // Create a function to rebuild the menu with dynamic test results
+        const buildDynamicChoices = () => {
+            let dynamicChoices = {}
+            // Object.assign({}, choices);
+            
+            if (!md_pseudo_mode) {
+                const testMenuText = getTestMenuText();
+                dynamicChoices[testMenuText] = async () => {
                     try {
                         // Sometimes errors can occur.
-                        const did_pass_all_tests = await this.problems_manager.runProblem(problem);
-                        if (did_pass_all_tests) {
+                        const test_results = await this.problems_manager.runProblem(problem);
+                        
+                        // Show detailed test results to user
+                        if (test_results.passed) {
+                            console.log(`All tests passed! (${test_results.passed_count}/${test_results.total_count})`);
                             did_pass_all_tests_before = true;
-
                         } else {
+                            console.log(`Tests failed: ${test_results.passed_count}/${test_results.total_count} passed, ${test_results.failed_count} failed`);
                             failed_attempts += 1;
                             attempts_timestamp.push(getCurrentDateTimeIso());
                         }
-                        return { status: constants.ProblemStatus.unsolved, problem_details: problem_details, details: { failed_attempts: failed_attempts } };
+                        
+                        // Store test results for next menu display
+                        this.last_test_results = test_results;
+                        
+                        return { 
+                            status: constants.ProblemStatus.unsolved, 
+                            problem_details: problem_details, 
+                            details: { 
+                                failed_attempts: failed_attempts,
+                                test_results: test_results
+                            } 
+                        };
                     }
                     catch (e) {
                         console.log("Error running tests: ", e);
-                        return false;
+                        return { 
+                            status: constants.ProblemStatus.unsolved, 
+                            problem_details: problem_details, 
+                            details: { failed_attempts: failed_attempts } 
+                        };
                     }
-                },
-            });
-        }
+                };
+            }
+            
+            // Add the choices to dynamicChoices
+            dynamicChoices = { ...dynamicChoices, ...choices };
+            return dynamicChoices;
+        };
         if (cloze_problem_list.length > 0) {
 
             Object.assign(choices, {
                 cloze: async () => {
                     // Choose a random cloze problem to be solved
                     question_state_flag = true;
-                    console.log("Populating the base prompt with a cloze problem");
                     const cloze_problems = cloze_problem_list;
-                    // console.log("DEBUG | Cloze problems: ", cloze_problems);
                     if (cloze_problems.length == 0) {
                         console.log("No cloze problems found for this problem");
                         return { status: constants.ProblemStatus.unsolved, details: { failed_attempts: failed_attempts }, problem_details: problem_details };
@@ -561,7 +639,6 @@ class DSATrainer {
                     const selected_cloze_problem = get_random(cloze_problems);
                     // console.log("DEBUG | Selected cloze problem: ", selected_cloze_problem);
                     this.problems_manager.copyFileToTemp(selected_cloze_problem.file_path, { base: constants.PATHS.base_cloze });
-                    console.log(" ==> CLOZE PROBLEM HAS BEEN COPIED TO  CURRENT PROBLEM <==");
                     // Open using modify to update the version
                     await this.openProblemMetadataInTerminal(problem, { open_problem_temporal: true });
                     return { status: constants.ProblemStatus.unsolved, details: { failed_attempts: failed_attempts }, problem_details: problem_details };
@@ -569,22 +646,28 @@ class DSATrainer {
             });
         }
 
-        let res = { 
-            status: constants.ProblemStatus.unsolved, 
-            details: { failed_attempts: failed_attempts }, 
-            problem_details: problem_details 
+        let res = {
+            status: constants.ProblemStatus.unsolved,
+            details: { failed_attempts: failed_attempts },
+            problem_details: problem_details
         };
+
+        
+        
+        
 
         const selectable_choices_prompt = {};
         // Remove Submit, if test never passed before
-        if (did_pass_all_tests_before || md_pseudo_mode) {
+        if (this.last_test_results && this.last_test_results.success || md_pseudo_mode) {
+            
+            
 
             Object.assign(selectable_choices_prompt, {
                 'Submit': async () => {
                     if (md_pseudo_mode) {
                         console.log("Storing in stash");
                     }
-                    if (!did_pass_all_tests_before) {
+                    if (this.last_test_results && this.last_test_results.success) {
                         console.log("You must pass all tests before submitting!");
                         this.postProblemSolution(problem, { attempts_timestamp: attempts_timestamp, comments: comments });
                         return { status: constants.ProblemStatus.unsolved, details: { failed_attempts: failed_attempts }, problem_details: problem_details };
@@ -594,20 +677,38 @@ class DSATrainer {
                         return { status: constants.ProblemStatus.solved, details: { failed_attempts: failed_attempts }, problem_details: problem_details };
                     }
                 }
-            })
-
-            Object.assign(selectable_choices_prompt, choices)
-            // New prompt has to 
-            let selectable_choices = Object.keys(selectable_choices_prompt);
-
-            const prommpt_problem_menu = new AutoComplete({
-                name: 'problem_menu',
-                message: `Select action:`,
-                choices: selectable_choices,
             });
-            const choice_selected = await prommpt_problem_menu.run();
-            res = await selectable_choices_prompt[choice_selected](); //Run the selected choice.
+
+            Object.assign(selectable_choices_prompt, buildDynamicChoices());
+        } else {
+            // Even if condition not met, show basic choices
+            Object.assign(selectable_choices_prompt, buildDynamicChoices());
         }
+        // New prompt has to 
+        let selectable_choices = Object.keys(selectable_choices_prompt);
+
+        
+        
+        
+        
+
+        const prommpt_problem_menu = new AutoComplete({
+            name: 'problem_menu',
+            message: `Select action:`,
+            choices: selectable_choices,
+        });
+
+        
+        const choice_selected = await prommpt_problem_menu.run();
+        
+
+        
+        res = await selectable_choices_prompt[choice_selected](); //Run the selected choice.
+        
+
+
+        
+        
         return res;
     }
 
@@ -740,7 +841,7 @@ class DSATrainer {
         let is_new_problem = true;
         try {
 
-             is_new_problem = problem_selected != current_problem_prompt;
+            is_new_problem = problem_selected != current_problem_prompt;
         } catch (e) {
             console.log("Error getting problem", e);
         }

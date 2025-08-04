@@ -1,6 +1,7 @@
-class Solution {	// Your code here
-
+class NumberOfWaysToReorderArrayToGetSameBST {
+	solve(nums) {
+		// TODO: Implement your solution
 	}
+}
 
-
-module.exports = { Problem: Solution };
+module.exports = { Problem: NumberOfWaysToReorderArrayToGetSameBST };
