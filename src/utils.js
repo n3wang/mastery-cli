@@ -287,11 +287,15 @@ class Mastery {
 					md_pseudo_mode: true
 				});
 			},
-			'amses': () => { this.mQuizer.algorithmic_study_session() }, // Algorithm session
-			'mamses': () => { // Markdown algorithm session (pseudocode mode)
-				this.mQuizer.algorithmic_study_session({
+			'amses': async () => { 
+				await this.ensureTermsLoaded();
+				return this.mQuizer.algorithmic_study_session();
+			}, // Algorithm session
+			'mamses': async () => { // Markdown algorithm session (pseudocode mode)
+				await this.ensureTermsLoaded();
+				return this.mQuizer.algorithmic_study_session({
 					md_pseudo_mode: true
-				})
+				});
 			},
 			'report': () => { // Generate comprehensive progress report
 				this.getSkillReports();

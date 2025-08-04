@@ -146,6 +146,12 @@ class QuizzerWithDSA extends Quizzer {
                     md_pseudo_mode: md_pseudo_mode
                  });
 
+            // Check if user wants to exit
+            if (solution_metadata.status == DSAConstants.ProblemStatus.aborted) {
+                exit = true;
+                break;
+            }
+
             const answerIsCorrect = solution_metadata.status == DSAConstants.ProblemStatus.solved;
             clozeScheduler.solveCard(answerIsCorrect);
             await clozeScheduler.saveCards();
@@ -189,6 +195,12 @@ class QuizzerWithDSA extends Quizzer {
             const solution_metadata = await this.dsaTrainer.solveProblem(card, { base: DSAConstants.PATHS.base,
                 md_pseudo_mode: md_pseudo_mode
              });
+
+            // Check if user wants to exit
+            if (solution_metadata.status == DSAConstants.ProblemStatus.aborted) {
+                exit = true;
+                break;
+            }
 
             const answerIsCorrect = solution_metadata.status == DSAConstants.ProblemStatus.solved;
             dsaScheduler.solveCard(answerIsCorrect);
