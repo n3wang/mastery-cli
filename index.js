@@ -28,7 +28,7 @@ const input = cli_meow.input;
 
 
 
-const { Mastery } = utils;
+const { Mastery } = require('./src/Mastery');
 const { ExtensionManager } = require('./src/extensions/ExtensionManager');
 
 
