@@ -13,22 +13,6 @@
 const { TermStorage, DeckMask } = require('../structures.js');
 
 
-
-const engineerMask = new DeckMask(
-    "engineer-prep",
-    {
-        decksToEnableStrings: [
-            "design patterns",
-            "dsa",
-            "system design",
-            "coder terms",
-            "unit testing",
-            "js advanced",
-            "best practices"
-        ]
-    }
-);
-
 const cloudMask = new DeckMask(
     "cloud-prep",
     {
@@ -88,12 +72,12 @@ async function populateMasterDeck() {
     let decks = new TermStorage([], "Academic Terms");
 
 
-    const { discrete_math, probability } = require('./math_theory.js');
+    const { discrete_math, probability } = require('./sample_terms/math_theory.js');
     decks.addDeck(new TermStorage(discrete_math, "discrete_math"));
     decks.addDeck(new TermStorage(probability, "probability"));
 
 
-    const { react_terms, apex, flutter, IDE_S, chrome_extensions, python_frameworks, react_typescript, dotNet, angular } = require('./frameworks.js');
+    const { react_terms, apex, flutter, IDE_S, chrome_extensions, python_frameworks, react_typescript, dotNet, angular } = require('./sample_terms/frameworks.js');
     decks.addDeck(new TermStorage(react_terms, "react terms"));
     decks.addDeck(new TermStorage(apex, "apex"));
     decks.addDeck(new TermStorage(flutter, "flutter"));
@@ -106,7 +90,7 @@ async function populateMasterDeck() {
 
 
 
-    const { network, network_midterm, artificialIntelligence, artificialIntelligence_2, algebra, calculousOne, network_final } = require("./spring-senior.js");
+    const { network, network_midterm, artificialIntelligence, artificialIntelligence_2, algebra, calculousOne, network_final } = require("./sample_terms/spring-senior.js");
     decks.addDeck(new TermStorage(network, "network"));
     decks.addDeck(new TermStorage(network_midterm, "network midterm"));
     decks.addDeck(new TermStorage(artificialIntelligence, "artificial intelligence"));
@@ -118,16 +102,16 @@ async function populateMasterDeck() {
 
 
     const { pragmatic_programmer, life_game_lessons, survival_game_lessons,
-        life_lessons, hackathon_lessons, experiments_lessons } = require('./soft_skill_book_game.js');
+        life_lessons, hackathon_lessons, experiments_lessons } = require('./sample_terms/soft_skill_book_game.js');
     decks.addDeck(new TermStorage(pragmatic_programmer, "pragmatic programmer"));
     decks.addDeck(new TermStorage(life_game_lessons, "life game lessons"));
 
-    const { designPatterns, dsa, system_design } = require('./dsa.js');
+    const { designPatterns, dsa, system_design } = require('./sample_terms/dsa.js');
     decks.addDeck(new TermStorage(designPatterns, "design patterns"));
     decks.addDeck(new TermStorage(dsa, "dsa")),
         decks.addDeck(new TermStorage(system_design, "system design"));
 
-    const { aws_services, aws_glossary, coderTerms, unit_testing, docker, js_advanced, best_practices } = require('./programmer_experience.js');
+    const { aws_services, aws_glossary, coderTerms, unit_testing, docker, js_advanced, best_practices } = require('./sample_terms/programmer_experience.js');
     decks.addDeck(new TermStorage(aws_glossary, "aws glossary"));
     decks.addDeck(new TermStorage(aws_services, "aws services"));
     decks.addDeck(new TermStorage(coderTerms, "coder terms"));
@@ -138,21 +122,21 @@ async function populateMasterDeck() {
 
 
     // Includes UX, system Design
-    const { system_design_project } = require('./design.js');
+    const { system_design_project } = require('./sample_terms/design.js');
     decks.addDeck(new TermStorage(system_design_project, "system design"));
 
 
     // Includes Marketing, Accounting.
-    const { accounting } = require('./business_terms.js');
+    const { accounting } = require('./sample_terms/business_terms.js');
     decks.addDeck(new TermStorage(accounting, "accounting"));
 
 
-    const { interview, interview_filter_frequent, run_when_job } = require('./interview.js');
+    const { interview, interview_filter_frequent, run_when_job } = require('./sample_terms/interview.js');
     decks.addDeck(new TermStorage(interview, "interview"));
     decks.addDeck(new TermStorage(interview_filter_frequent, "interview filter frequent"));
     decks.addDeck(new TermStorage(run_when_job, "run when job"));
 
-    const { pytorch_machine_learning_course, machine_learning_pandas_visualization, machine_learning_scikit_learn, ai_theory } = require('./ai_machine.js');
+    const { pytorch_machine_learning_course, machine_learning_pandas_visualization, machine_learning_scikit_learn, ai_theory } = require('./sample_terms/ai_machine.js');
     decks.addDeck(new TermStorage(pytorch_machine_learning_course, "pytorch machine learning course"));
     decks.addDeck(new TermStorage(machine_learning_pandas_visualization, "machine learning pandas"));
     decks.addDeck(new TermStorage(machine_learning_scikit_learn, "machine learning scikit learn"));
@@ -160,21 +144,21 @@ async function populateMasterDeck() {
 
 
 
-    const { designing_good_charts, sql } = require('./data-science.js');
+    const { designing_good_charts, sql } = require('./sample_terms/data-science.js');
     decks.addDeck(new TermStorage(designing_good_charts, "designing good charts"));
     decks.addDeck(new TermStorage(sql, "sql"));
 
-    const { aws_certification_associate_developer, aws_localstack, aws_certification_cloud_practitioner } = require('./aws_certifications.js');
+    const { aws_certification_associate_developer, aws_localstack, aws_certification_cloud_practitioner } = require('./sample_terms/aws_certifications.js');
     decks.addDeck(new TermStorage(aws_certification_associate_developer, "aws associate dev"));
     decks.addDeck(new TermStorage(aws_localstack, "aws localstack"));
     decks.addDeck(new TermStorage(aws_certification_cloud_practitioner, "aws cloud practitioner"));
 
 
     // decks.addDeck(new TermStorage(test, "test", {is_active: true}));
-    const { salesforce_experience } = require('./salesforce_certification.js');
+    const { salesforce_experience } = require('./sample_terms/salesforce_certification.js');
     decks.addDeck(new TermStorage(salesforce_experience, "salesforce experience"));
 
-    const { python, swift, js, dart, php, java, csharp, cpp, typescript, r, matlab, kotlin } = require('./languages.js');
+    const { python, swift, js, dart, php, java, csharp, cpp, typescript, r, matlab, kotlin } = require('./sample_terms/languages.js');
     decks.addDeck(new TermStorage(python, "python"));
     decks.addDeck(new TermStorage(swift, "swift"));
     decks.addDeck(new TermStorage(js, "js"));
@@ -188,7 +172,7 @@ async function populateMasterDeck() {
     decks.addDeck(new TermStorage(matlab, "matlab"));
     decks.addDeck(new TermStorage(kotlin, "kotlin"));
 
-    const { analysisAlgorithmClass } = require('./spring-senior-2024.js');
+    const { analysisAlgorithmClass } = require('./sample_terms/spring-senior-2024.js');
     decks.addDeck(new TermStorage(analysisAlgorithmClass, "analysisAlgorithmClass"));
 
 
