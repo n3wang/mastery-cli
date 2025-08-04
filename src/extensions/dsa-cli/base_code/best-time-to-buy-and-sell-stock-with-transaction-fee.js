@@ -1,6 +1,7 @@
-class Solution {	// Your code here
-
+class BestTImeToBuyAndSellStockWithTransactionFee {
+	solve(prices, fee) {
+		// TODO: Implement your solution
 	}
+}
 
-
-module.exports = { Problem: Solution };
+module.exports = { Problem: BestTImeToBuyAndSellStockWithTransactionFee };

@@ -1,6 +1,7 @@
-class Solution {	// Your code here
-
+class ShortestPathVisitingAllNodes {
+	solve(graph) {
+		// TODO: Implement your solution
 	}
+}
 
-
-module.exports = { Problem: Solution };
+module.exports = { Problem: ShortestPathVisitingAllNodes };

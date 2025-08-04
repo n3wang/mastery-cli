@@ -1,9 +1,8 @@
-class Solution {
+class KeysKeyboard4 {
 	solve(n) {
-	// Your code here
-
+		// TODO: Implement your solution
 	}
 }
 
 
-module.exports = { Problem: Solution };
+module.exports = { Problem: KeysKeyboard4 };

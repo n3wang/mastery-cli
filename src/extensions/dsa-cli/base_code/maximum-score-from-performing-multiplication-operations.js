@@ -1,9 +1,7 @@
-class Solution {
+class MaximumScoreFromPerformingMultiplication {
 	solve(nums, multipliers) {
-	// Your code here
-
+		// TODO: Implement your solution
 	}
 }
 
-
-module.exports = { Problem: Solution };
+module.exports = { Problem: MaximumScoreFromPerformingMultiplication };

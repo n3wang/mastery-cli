@@ -1,9 +1,7 @@
-class Solution {
+class PaintHouseIII {
 	solve(houses, cost, m, n, target) {
-	// Your code here
-
+		// TODO: Implement your solution
 	}
 }
 
-
-module.exports = { Problem: Solution };
+module.exports = { Problem: PaintHouseIII };

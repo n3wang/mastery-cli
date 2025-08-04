@@ -1,9 +1,7 @@
-class Solution {
+class FrogJump {
 	solve(stones) {
-	// Your code here
-
+		// TODO: Implement your solution
 	}
 }
 
-
-module.exports = { Problem: Solution };
+module.exports = { Problem: FrogJump };

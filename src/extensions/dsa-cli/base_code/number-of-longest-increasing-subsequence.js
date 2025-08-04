@@ -1,7 +1,6 @@
 class Solution {
 	solve(nums) {
-	// Your code here
-
+		// TODO: Implement your solution
 	}
 }
 
