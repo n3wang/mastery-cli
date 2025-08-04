@@ -1,4 +1,4 @@
-class CoinChnage {
+class CoinChange {
 	solve(coins) {
 	// Your code here
 
@@ -6,4 +6,4 @@ class CoinChnage {
 }
 
 
-module.exports = { Problem: CoinChnage };
+module.exports = { Problem: CoinChange };
