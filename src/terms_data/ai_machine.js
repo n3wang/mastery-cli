@@ -312,13 +312,6 @@ const machine_learning_scikit_learn = [
 
 ]
 
-// TODO https://www.youtube.com/watch?v=lG7Uxts9SXs
-// Would be cool to tweak langchain for this prompt asking problems.
-const langchain = [
-    {
-
-    }
-]
 
 
 const ai_theory = [

@@ -139,7 +139,6 @@ const renderPromptDescription = (prompt, prompt_details, { is_cloze = false } = 
 };
 
 
-// console.log("CURRENCY_SIMBOLS", CURRENCY_SIMBOLS);
 /**
  * 
  * @param {List: any} list A lit of any object

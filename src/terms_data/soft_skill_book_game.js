@@ -163,5 +163,5 @@ const experiments_lessons = [
 
 module.exports = {
     pragmatic_programmer, life_game_lessons,
-    survival_game_lessons, life_lessons, hackathon_lessons, experiments_lessons
+    life_lessons, hackathon_lessons
 };

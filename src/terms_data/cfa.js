@@ -66,4 +66,4 @@ const cfa_interest_rates = [
 
 
 
-module.exports = { discrete_math };
+module.exports = { cfa_interest_rates };

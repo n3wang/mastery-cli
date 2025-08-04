@@ -31,13 +31,6 @@ const accounting = [
 
 ]
 
-const business_law = [
-
-]
-
-const business_management = [
-]
-
 const business_terms = [
     {
         term: "Kryder's Law",
@@ -81,5 +74,5 @@ const business_terms = [
     }
 ]
 
-module.exports = { accounting, business_law, business_management, business_terms }
+module.exports = { accounting, business_terms }
 

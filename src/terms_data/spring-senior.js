@@ -2478,15 +2478,5 @@ const calculousOne = [
 
 ];
 
-const student_wisdom = [
-    {
-        term: "studying prioritization",
-        prompt: "How you should start studying in what order from?",
-        example: "You should always start from:\n\
-        1. The homework: Start from latest (most recent homework) \n\
-        2. The past exams\n\
-        3. The Slides"
-    }
-]
 
 module.exports = { network, artificialIntelligence, artificialIntelligence_2, algebra, calculousOne, network_midterm, network_final };
