@@ -114,7 +114,12 @@ describe('Problem integrity', function () {
 			// console.log("solvedProblemPath", solvedProblemPath);
 			const problemTests = new ProblemTestObject(Problem);
 			const testResults = problemTests.runTests();
-			const didPassAllTests = testResults.passed || testResults.success || testResults;
+			let didPassAllTests = false;
+			if (typeof testResults === 'object' && testResults !== null) {
+				didPassAllTests = !!testResults.passed || !!testResults.success;
+			} else if (typeof testResults === 'boolean') {
+				didPassAllTests = testResults;
+			}
 			if (!didPassAllTests) {
 				console.log('Problem failed: ', problemMetadata);
 				console.log('Test results: ', testResults);
