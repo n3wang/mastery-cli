@@ -179,6 +179,11 @@ mcli dsa --all
 Feel free to take a card at: https://github.com/users/n3wang/projects/3/views/2
 And contribute
 
+
+```
+git update-index --assume-unchanged src\extensions\dsa-cli\user_files\
+```
+
 ### Project Structure
 ```
 src/

@@ -69,15 +69,15 @@ class ProblemsManager {
 
 	doesProblemHasCloze(problemSlug) {
 		/**
-         * List format:
-         * [
-                {
-                    filepath: "simple-sum-c1.js",
-                    difficulty: 1, // 1 - 5 
-                    problem_slug: "simple-sum"
-                },
-            ]
-         */
+		 * List format:
+		 * [
+				{
+					filepath: "simple-sum-c1.js",
+					difficulty: 1, // 1 - 5 
+					problem_slug: "simple-sum"
+				},
+			]
+		 */
 		return cloze_problems_list.some(
 			cloze_problem => cloze_problem.problem_slug == problemSlug
 		);
@@ -196,8 +196,7 @@ class ProblemsManager {
 		}
 
 		console.log(
-			`Loaded ${
-				Object.keys(this.problems).length
+			`Loaded ${Object.keys(this.problems).length
 			} DSA problems from external modules`
 		);
 	}
@@ -299,25 +298,22 @@ ${problemData.description}
 
 ${problemData.theory ? `## Theory\n${problemData.theory}\n` : ''}
 
-${
-	problemData.pseudocode
-		? `## Pseudocode\n\`\`\`\n${problemData.pseudocode}\n\`\`\`\n`
-		: ''
-}
+${problemData.pseudocode
+						? `## Pseudocode\n\`\`\`\n${problemData.pseudocode}\n\`\`\`\n`
+						: ''
+					}
 
 ## Solutions
 
-${
-	problemData.solution.javascript
-		? `### JavaScript\n\`\`\`javascript\n${problemData.solution.javascript}\n\`\`\`\n`
-		: ''
-}
+${problemData.solution.javascript
+						? `### JavaScript\n\`\`\`javascript\n${problemData.solution.javascript}\n\`\`\`\n`
+						: ''
+					}
 
-${
-	problemData.solution.python
-		? `### Python\n\`\`\`python\n${problemData.solution.python}\n\`\`\`\n`
-		: ''
-}
+${problemData.solution.python
+						? `### Python\n\`\`\`python\n${problemData.solution.python}\n\`\`\`\n`
+						: ''
+					}
 
 ---
 
@@ -432,6 +428,7 @@ ${problemMetadata.description || 'Problem description not available.'}
 		return get_random(cloze_problems_list);
 	}
 
+
 	/**
 	 * Populates the template with the code inside of problem.file_path
 	 * @param {dict<problem>} problem The problem to populate the template with
@@ -440,10 +437,11 @@ ${problemMetadata.description || 'Problem description not available.'}
 		problem,
 		{ base = 'base_code', md_pseudo_mode = false } = {}
 	) {
-		// When md_pseudo_mode is false (real code), we want to use original extension (do_all_markdown = true)
-		// When md_pseudo_mode is true (pseudo mode), we want to use .md extension (do_all_markdown = false)
-		const use_original_extension = !md_pseudo_mode;
-
+		// Smart fallback logic:
+		// 1. If md_pseudo_mode is true, always use MD (pseudocode mode)
+		// 2. If md_pseudo_mode is false, try to use JS if available, otherwise fallback to MD
+		let use_original_extension = !md_pseudo_mode;
+		
 		if (base != '') {
 			return this.copyFileToTemp(problem.file_path, {
 				base: base,
@@ -473,7 +471,7 @@ ${problemMetadata.description || 'Problem description not available.'}
 		try {
 			const ProblemTestsObject = this.selectTest(problemMetadata);
 			// Create a temporary instance to get test count
-			const problemTests = new ProblemTestsObject(() => {}); // Dummy problem function
+			const problemTests = new ProblemTestsObject(() => { }); // Dummy problem function
 			return problemTests.getTestCount();
 		} catch (error) {
 			console.log(`[DEBUG] Could not get test count: ${error.message}`);
@@ -731,14 +729,14 @@ ${problemMetadata.description || 'Problem description not available.'}
 			}
 			try {
 				clipboard.copy(data);
-			} catch (err) {}
+			} catch (err) { }
 		});
 	}
 
 	/**
 	 * Copies the prompt to the clipboard
 	 */
-	copyPromptToCliboard() {}
+	copyPromptToCliboard() { }
 
 	/**
 	 * Opens the temporal problem file in the editor (Can be customized which to use).
@@ -942,8 +940,8 @@ ${problemMetadata.description || 'Problem description not available.'}
 		if (category_slug_detected === '') {
 			throw (
 				('No category detected, Doesnt open any',
-				'categories',
-				categories)
+					'categories',
+					categories)
 			);
 		}
 
