@@ -456,7 +456,6 @@ class DSATrainer {
 					problem_details.description || 'No description available',
 				preview: problem_details.theory || ''
 			};
-			console.log('Using external problem description from metadata');
 		} else {
 			// For regular problems, use the prompt dictionary
 			promblem_prompt = await getPromptDict(problem.slug);
