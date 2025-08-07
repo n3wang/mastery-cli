@@ -266,7 +266,6 @@ class DSATrainer {
 
 	isMarkdownOrExternalProblem(problem) {
 		console.log('======================');
-		console.log(problem);
 		if (problem?.is_external ?? false) {
 			return true;
 		}
