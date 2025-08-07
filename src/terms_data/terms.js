@@ -7,38 +7,80 @@
 
 const { TermStorage, DeckMask } = require('../structures.js');
 
-const engineerMask = new DeckMask('engineer-prep', {
-	decksToEnableStrings: [
-		'design patterns',
-		'dsa',
-		'system design',
-		'coder terms',
-		'unit testing',
-		'js advanced',
-		'best practices'
-	]
-});
+/**
+ * Helper function to create a new mask configuration object
+ * @param {string} title - The mask title/identifier
+ * @param {string[]} decks_to_enable - Array of deck names to enable
+ * @returns {object} Mask configuration object for settings.json
+ * 
+ * @example
+ * // Usage example for settings.json:
+ * // const newMask = createMaskConfig('my-study-plan', ['react terms', 'js advanced']);
+ * // Add this to settings.json under quiz_decks_configuration.masks
+ */
+function createMaskConfig(title, decks_to_enable) {
+	return {
+		title: title,
+		decks_to_enable: decks_to_enable
+	};
+}
 
-const cloudMask = new DeckMask('cloud-prep', {
-	decksToEnableStrings: ['aws cloud practitioner'],
-	enabled: false
-});
-
-const longTermCareer = new DeckMask('long-term-engineer', {
-	decksToEnableStrings: ['discrete_math', 'probability', 'sql']
-});
-
-const Spring2024Related = new DeckMask('spring-2024', {
-	decksToEnableStrings: [
-		// Algorithms Class + Algorithms Classifications
-		// Interview Questions for Pandas, Numpy, Matplotlib, Seaborn, Scikit Learn + Data algorithms and Tools
-		// Data Science Interview Prompts
-		// Swift Experience + Swift UI + Swift Interview Questions + Some Swift Lirbaries implementations
-	]
-});
-
+/**
+ * Dynamically creates deck masks based on settings.json configuration
+ * @returns {DeckMask[]} Array of DeckMask objects based on settings
+ */
 function getMasksByAlgorithm() {
-	return [cloudMask, longTermCareer];
+	try {
+		// Load settings dynamically
+		const settings = require('../user_data/settings.json');
+		const quizDecksConfig = settings.quiz_decks_configuration || {};
+		const masks = quizDecksConfig.masks || [];
+		const useMasks = quizDecksConfig.use_masks || [];
+
+		// Create DeckMask objects for each mask configuration
+		const deckMasks = [];
+
+		for (const maskConfig of masks) {
+			const { title, decks_to_enable } = maskConfig;
+			
+			if (!title || !decks_to_enable) {
+				console.warn(`Skipping invalid mask configuration:`, maskConfig);
+				continue;
+			}
+
+			// Check if this mask is in the use_masks list
+			const enabled = useMasks.includes(title);
+
+			const deckMask = new DeckMask(title, {
+				decksToEnableStrings: decks_to_enable,
+				enabled: enabled
+			});
+
+			deckMasks.push(deckMask);
+			
+			console.log(`Created mask "${title}" with decks: [${decks_to_enable.join(', ')}], enabled: ${enabled}`);
+		}
+
+		console.log(`Loaded ${deckMasks.length} masks from settings.json`);
+		return deckMasks;
+
+	} catch (error) {
+		console.error('Error loading masks from settings.json:', error.message);
+		console.log('Falling back to default masks');
+		
+		// Fallback to default masks if settings can't be loaded
+		const cloudMask = new DeckMask('cloud-prep', {
+			decksToEnableStrings: ['aws cloud practitioner'],
+			enabled: false
+		});
+
+		const longTermCareer = new DeckMask('long-term-engineer', {
+			decksToEnableStrings: ['discrete_math', 'probability', 'sql'],
+			enabled: false
+		});
+
+		return [cloudMask, longTermCareer];
+	}
 }
 
 /**
@@ -248,4 +290,4 @@ async function populateMasterDeck() {
 
 const termJson = [];
 
-module.exports = { termJson, populateMasterDeck };
+module.exports = { termJson, populateMasterDeck, createMaskConfig, getMasksByAlgorithm };
