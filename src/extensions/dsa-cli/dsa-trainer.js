@@ -228,14 +228,50 @@ class DSATrainer {
 	 * Populates and opens a random problem, tests it, and returns the status of the problem.
 	 * @returns {ProblemStatus} The status of the problem
 	 */
-	async openRandomProblem() {
+	async openRandomProblem({ md_pseudo_mode = false } = {}) {
 		await this.ensureProblemsLoaded();
 		const problem = this.problems_manager.getRandomProblem();
-		const problem_response = await this.solveProblem(problem);
+		
+		// Check if we should use markdown mode for this problem
+		if (this.isMarkdownOrExternalProblem(problem)) {
+			md_pseudo_mode = true;
+		}
+		
+		const problem_response = await this.solveProblem(problem, {
+			md_pseudo_mode: md_pseudo_mode
+		});
 
 		problem_response.is_problem_solved =
 			problem_response.problem_status == constants.ProblemStatus.solved;
 		return problem_response;
+	}
+
+	/**
+	 * Checks if a JS file exists for the given problem
+	 * @param {string} problem_file_path The path to the problem file
+	 * @param {string} base The base directory to check in
+	 * @returns {boolean} True if JS file exists, false otherwise
+	 */
+	hasJavaScriptFile(problem_file_path, base = './base_code/') {
+		try {
+			const absolute_problem_file_path = getDirAbsoluteUri(
+				problem_file_path,
+				base
+			);
+			return fs.existsSync(absolute_problem_file_path);
+		} catch (error) {
+			return false;
+		}
+	}
+
+
+	isMarkdownOrExternalProblem(problem){
+		console.log("======================")
+		console.log(problem)
+		if ( problem?.is_external ?? false ) {
+			return true;
+		}
+		return false;
 	}
 
 	async openRandomClozeDSAProblem({ md_pseudo_mode = false } = {}) {
@@ -247,6 +283,9 @@ class DSATrainer {
 		);
 
 		problem.is_cloze = true;
+		if( this.isMarkdownOrExternalProblem(problem) ){
+			md_pseudo_mode = true;
+		}
 		const problem_response = await this.solveProblem(problem, {
 			base: constants.PATHS.base_cloze,
 			populate_with_cloze_filepath: selectedClozeProblem.file_path,
@@ -991,9 +1030,16 @@ class DSATrainer {
 		} catch (e) {
 			console.log('Error getting problem', e);
 		}
+		
+		// Check if we should use markdown mode for this specific problem
+		let final_md_pseudo_mode = md_pseudo_mode;
+		if (this.isMarkdownOrExternalProblem(problem)) {
+			final_md_pseudo_mode = true;
+		}
+		
 		const problem_response = await this.solveProblem(problem, {
 			populate_problem: is_new_problem,
-			md_pseudo_mode: md_pseudo_mode
+			md_pseudo_mode: final_md_pseudo_mode
 		});
 
 		problem_response.is_problem_solved =
