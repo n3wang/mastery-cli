@@ -1,9 +1,7 @@
 class CheckValidString {
 	solve(s) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: CheckValidString };

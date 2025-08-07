@@ -1,6 +1,5 @@
-class Calculate {	// Your code here
-
-	}
-
+class Calculate {
+	// Your code here
+}
 
 module.exports = { Problem: Calculate };

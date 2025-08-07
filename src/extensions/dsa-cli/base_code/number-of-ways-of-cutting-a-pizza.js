@@ -1,9 +1,7 @@
 class NumberOfWaysOfCuttingAPizza {
 	solve(pizza, k) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: NumberOfWaysOfCuttingAPizza };

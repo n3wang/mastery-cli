@@ -1,9 +1,7 @@
 class DecodeWays {
 	solve(str) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: DecodeWays };

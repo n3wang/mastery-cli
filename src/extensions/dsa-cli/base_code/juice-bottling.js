@@ -1,9 +1,7 @@
 class JuiceBottling {
 	solve(prices) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: JuiceBottling };

@@ -1,24 +1,20 @@
-
-
 const dfs = (str, index, memo) => {
-    let count = numDecodings(str, (index + 1), memo);
+	let count = numDecodings(str, index + 1, memo);
 
-    if (isTwoDigit(str, index)) {
-        count += numDecodings(str, (index + 2), memo);
-    }
+	if (isTwoDigit(str, index)) {
+		count += numDecodings(str, index + 2, memo);
+	}
 
-    memo.set(index, count);
+	memo.set(index, count);
 
-    return count;
-}
+	return count;
+};
 
 var isTwoDigit = (str, index) => {
-    const twoDigit = Number(str.slice(index, (index + 2)));
+	const twoDigit = Number(str.slice(index, index + 2));
 
-    return (10 <= twoDigit) && (twoDigit <= 26);
-}
-
-
+	return 10 <= twoDigit && twoDigit <= 26;
+};
 
 /**
  * DP - Top Down
@@ -29,25 +25,21 @@ var isTwoDigit = (str, index) => {
  * @return {number}
  */
 const numDecodings = (str, index = 0, memo = new Map()) => {
+	const caseThereIsNoLeftOrZero = !str.length || str[index] === '0';
+	if (caseThereIsNoLeftOrZero) return 0;
 
+	const isCaseReachedEnd = index === str.length;
+	if (isCaseReachedEnd) return 1;
 
-    const caseThereIsNoLeftOrZero = !str.length || (str[index] === '0');
-    if (caseThereIsNoLeftOrZero) return 0;
+	if (memo.has(index)) return memo.get(index);
 
-    const isCaseReachedEnd = index === str.length;
-    if (isCaseReachedEnd) return 1;
-
-    if (memo.has(index)) return memo.get(index);
-
-    return dfs(str, index, memo);
+	return dfs(str, index, memo);
 };
 
 class DecodeWays {
-
-
-    solve(str) {
-        return numDecodings(str);
-    }
+	solve(str) {
+		return numDecodings(str);
+	}
 }
 
 module.exports = { Problem: DecodeWays };

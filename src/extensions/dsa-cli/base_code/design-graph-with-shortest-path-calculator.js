@@ -1,6 +1,5 @@
-class DesignGraphWithShortestPathCalculator {	// Your code here
-
-	}
-
+class DesignGraphWithShortestPathCalculator {
+	// Your code here
+}
 
 module.exports = { Problem: DesignGraphWithShortestPathCalculator };

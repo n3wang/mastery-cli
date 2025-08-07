@@ -5,143 +5,146 @@
 const ProblemsManager = require('../problems-manager');
 const assert = require('assert');
 
-
 const to_test = {
-    'printable': false, //Also updates the metadata for all.
-    'category': false,
-    'exact-category': false, // Tests that the number of categories available are exact, which means, that no porblem should have a tag from another category.
-    'basic': true,
-    'runnable': true,
-    'cloze': true, // Test that cloze cards are populable. Also that the solution exists.
-}
+	printable: false, //Also updates the metadata for all.
+	category: false,
+	'exact-category': false, // Tests that the number of categories available are exact, which means, that no porblem should have a tag from another category.
+	basic: true,
+	runnable: true,
+	cloze: true // Test that cloze cards are populable. Also that the solution exists.
+};
 
 describe('Problem integrity', function () {
+	it('Test that cloze cards are populable', async function () {
+		if (!to_test.cloze) return;
 
-    it("Test that cloze cards are populable", async function () {
-        if (!to_test.cloze) return
-        
-        const cloze_problem_list = require('../cloze/cloze_problem_list.json');
-        // console.log("cloze_problem_list", cloze_problem_list);
-        
-        const problemManager = new ProblemsManager();
-        await problemManager.autoPopulateUsingTestDictionary();
-        const problems_found = {};
+		const cloze_problem_list = require('../cloze/cloze_problem_list.json');
+		// console.log("cloze_problem_list", cloze_problem_list);
 
-        for(const cloze_card of cloze_problem_list){
-            const problem = problemManager.getProblem(cloze_card.problem_slug);
-            
-            prev_count = problems_found[cloze_card.problem_slug] || 0;
-            problems_found[cloze_card.problem_slug] = prev_count + 1;
+		const problemManager = new ProblemsManager();
+		await problemManager.autoPopulateUsingTestDictionary();
+		const problems_found = {};
 
-            if(problem == null || problem == undefined || true){
-                console.log("_____________ Problem found at _____________")
-                console.log("cloze_card.problem_slug", cloze_card.problem_slug);
-                console.log("cloze_card.file_path", cloze_card.file_path);
-                console.log("problem", problem);
-            }
-            assert(problem != null && problem != undefined);
-        }
+		for (const cloze_card of cloze_problem_list) {
+			const problem = problemManager.getProblem(cloze_card.problem_slug);
 
-        const problems_count = Object.keys(problems_found).length;
-        const problems = Object.keys(problemManager.problems);
-        console.log(`Cloze created for ${problems_count} out ${problems.length} of problems.`)
-        console.log(`With a total of ${cloze_problem_list.length} cloze cards.`)
+			prev_count = problems_found[cloze_card.problem_slug] || 0;
+			problems_found[cloze_card.problem_slug] = prev_count + 1;
 
-    });
+			if (problem == null || problem == undefined || true) {
+				console.log('_____________ Problem found at _____________');
+				console.log('cloze_card.problem_slug', cloze_card.problem_slug);
+				console.log('cloze_card.file_path', cloze_card.file_path);
+				console.log('problem', problem);
+			}
+			assert(problem != null && problem != undefined);
+		}
 
-    it("Test that all problems have printable prompts", async function () {
-        if (!to_test.printable) return
-        const problemManager = new ProblemsManager();
-        await problemManager.autoPopulateUsingTestDictionary();
+		const problems_count = Object.keys(problems_found).length;
+		const problems = Object.keys(problemManager.problems);
+		console.log(
+			`Cloze created for ${problems_count} out ${problems.length} of problems.`
+		);
+		console.log(
+			`With a total of ${cloze_problem_list.length} cloze cards.`
+		);
+	});
 
-        const { getPromptDict } = require('../prompt');
-        const { renderPromptDescription } = require('../functions');
+	it('Test that all problems have printable prompts', async function () {
+		if (!to_test.printable) return;
+		const problemManager = new ProblemsManager();
+		await problemManager.autoPopulateUsingTestDictionary();
 
-        const allProblemsMetadata = problemManager.problems;
-        for (let problemMetadata of Object.values(allProblemsMetadata)) {
+		const { getPromptDict } = require('../prompt');
+		const { renderPromptDescription } = require('../functions');
 
-            const promblem_prompt = await getPromptDict(problemMetadata.slug);
-            const problem_details = problemManager.getProblem(problemMetadata.slug);
-            console.log("testing:", problemMetadata.slug);
-            assert(promblem_prompt != null || promblem_prompt != undefined);
-            console.log("passed:", problemMetadata.slug);
+		const allProblemsMetadata = problemManager.problems;
+		for (let problemMetadata of Object.values(allProblemsMetadata)) {
+			const promblem_prompt = await getPromptDict(problemMetadata.slug);
+			const problem_details = problemManager.getProblem(
+				problemMetadata.slug
+			);
+			console.log('testing:', problemMetadata.slug);
+			assert(promblem_prompt != null || promblem_prompt != undefined);
+			console.log('passed:', problemMetadata.slug);
 
-            // It might be too hard to find out where the error is whithout commenting the following lines.
-            const success_at_print = renderPromptDescription(promblem_prompt, problem_details);
-            assert(success_at_print);
-        }
+			// It might be too hard to find out where the error is whithout commenting the following lines.
+			const success_at_print = renderPromptDescription(
+				promblem_prompt,
+				problem_details
+			);
+			assert(success_at_print);
+		}
+	});
 
-    });
+	it('Test that all problems have basic prompts', async function () {
+		if (!to_test.basic) return;
+		const problemManager = new ProblemsManager();
+		await problemManager.autoPopulateUsingTestDictionary();
+		// if this test fails, make sure you can run func_create_empty_base_codes to populate with a basic template of them all.
+		// Or just run it here just in case everytime this test is run:
+		const {
+			createEmptyBaseCodes
+		} = require('./func_create_empty_base_codes');
+		await createEmptyBaseCodes();
 
-    it("Test that all problems have basic prompts", async function () {
-        if (!to_test.basic) return
-        const problemManager = new ProblemsManager();
-        await problemManager.autoPopulateUsingTestDictionary();
-        // if this test fails, make sure you can run func_create_empty_base_codes to populate with a basic template of them all.
-        // Or just run it here just in case everytime this test is run:
-        const { createEmptyBaseCodes } = require('./func_create_empty_base_codes');
-        await createEmptyBaseCodes();
+		const allProblemsMetadata = problemManager.problems;
+		for (let problemMetadata of Object.values(allProblemsMetadata)) {
+			// console.log(problemMetadata);
+			assert(
+				problemManager.copyFileToTemp(problemMetadata.file_path) == true
+			);
+		}
+	});
 
-        const allProblemsMetadata = problemManager.problems;
-        for (let problemMetadata of Object.values(allProblemsMetadata)) {
-            // console.log(problemMetadata);
-            assert(problemManager.copyFileToTemp(problemMetadata.file_path) == true)
-        }
-    });
+	// Run and test test available
+	it('Should run and test the problem', async function () {
+		if (!to_test.runnable) return;
+		const problemManager = new ProblemsManager();
+		await problemManager.autoPopulateUsingTestDictionary();
 
+		const allProblemsMetadata = problemManager.problems;
+		for (let problemMetadata of Object.values(allProblemsMetadata)) {
+			// Grab the solved solution by joining paths?
+			const solvedProblemPath = problemMetadata.absolute_solution_path;
+			const { Problem } = require(solvedProblemPath);
+			console.log('ProblemSolutionObject', Problem);
+			const ProblemTestObject =
+				problemManager.selectTest(problemMetadata);
+			// console.log("solvedProblemPath", solvedProblemPath);
+			const problemTests = new ProblemTestObject(Problem);
+			const didPassAllTests = problemTests.runTests();
+			if (!didPassAllTests) {
+				console.log('Problem failed: ', problemMetadata);
+			}
+			assert(didPassAllTests);
+		}
+	});
 
+	it('Categories matches ', async function () {
+		if (!to_test.category) return;
 
+		const problemManager = new ProblemsManager();
 
-    // Run and test test available
-    it('Should run and test the problem', async function () {
-        if (!to_test.runnable) return
-        const problemManager = new ProblemsManager();
-        await problemManager.autoPopulateUsingTestDictionary();
+		// Populates the metdatas
+		await problemManager.autoPopulateUsingTestDictionary();
+		const allProblemsMetadata = problemManager.problems;
 
-        const allProblemsMetadata = problemManager.problems;
-        for (let problemMetadata of Object.values(allProblemsMetadata)) {
-            // Grab the solved solution by joining paths?
-            const solvedProblemPath = problemMetadata.absolute_solution_path;
-            const { Problem } = require(solvedProblemPath);
-            console.log("ProblemSolutionObject", Problem);
-            const ProblemTestObject = problemManager.selectTest(problemMetadata);
-            // console.log("solvedProblemPath", solvedProblemPath);
-            const problemTests = new ProblemTestObject(Problem);
-            const didPassAllTests = problemTests.runTests();
-            if (!didPassAllTests) {
-                console.log("Problem failed: ", problemMetadata);
-            }
-            assert(didPassAllTests);
-        }
+		// Fetch the expected count using the tests index count of problems.
+		const { PROBLEM_COUNT_PER_CATEGORY_TEST_NAME } = require('../tests');
 
-    });
+		const problems_per_category_slug = {};
 
-    it("Categories matches ", async function () {
-        if (!to_test.category) return
+		for (let problemMetadata of Object.values(allProblemsMetadata)) {
+			// Increase based on the tests for each category slug.
+			for (const category_tag of problemMetadata.tags) {
+				problems_per_category_slug[category_tag] =
+					(problems_per_category_slug[category_tag] || 0) + 1;
+			}
+		}
 
-        const problemManager = new ProblemsManager();
-
-
-        // Populates the metdatas
-        await problemManager.autoPopulateUsingTestDictionary();
-        const allProblemsMetadata = problemManager.problems;
-
-        // Fetch the expected count using the tests index count of problems.
-        const { PROBLEM_COUNT_PER_CATEGORY_TEST_NAME } = require('../tests')
-
-        const problems_per_category_slug = {};
-
-        for (let problemMetadata of Object.values(allProblemsMetadata)) {
-
-            // Increase based on the tests for each category slug.
-            for (const category_tag of problemMetadata.tags) {
-                problems_per_category_slug[category_tag] = (problems_per_category_slug[category_tag] || 0) + 1;
-            }
-
-        }
-
-        // console.log("problems_per_category_slug", problems_per_category_slug);
-        /**
+		// console.log("problems_per_category_slug", problems_per_category_slug);
+		/**
          * problems_per_category_slug {
             neetcode: 109,
             sample: 4,
@@ -150,52 +153,60 @@ describe('Problem integrity', function () {
             ...
          */
 
-        // Loop over the categories from constatns
-        const constants = require('../constants');
+		// Loop over the categories from constatns
+		const constants = require('../constants');
 
-        for (const category of Object.values(constants.PROBLEM_CATEGORIES)) {
-            if (category.order == null || category.order == undefined) continue; // Skip the ones that are not ordered, or don't even have an order.
-            if (category?.order <= 0) continue; // Skip the ones that are not ordered, or don't even have an order.
+		for (const category of Object.values(constants.PROBLEM_CATEGORIES)) {
+			if (category.order == null || category.order == undefined) continue; // Skip the ones that are not ordered, or don't even have an order.
+			if (category?.order <= 0) continue; // Skip the ones that are not ordered, or don't even have an order.
 
+			const category_test_slug = category.test_problem_slug; // The slug in the tests (expected)
+			const category_slug_in_md = category.slug; // The slug in the metadata (markdown)
 
-            const category_test_slug = category.test_problem_slug; // The slug in the tests (expected)
-            const category_slug_in_md = category.slug; // The slug in the metadata (markdown)
+			console.log(
+				'_______________________________________________________'
+			);
+			console.log(
+				'category_test_slug',
+				category_test_slug,
+				PROBLEM_COUNT_PER_CATEGORY_TEST_NAME[category_test_slug]
+			);
+			console.log(
+				'category_slug_in_md',
+				category_slug_in_md,
+				problems_per_category_slug[category_slug_in_md]
+			);
+			assert(
+				PROBLEM_COUNT_PER_CATEGORY_TEST_NAME[category_test_slug] <=
+					problems_per_category_slug[category_slug_in_md]
+			);
+		}
+	});
 
-            console.log("_______________________________________________________");
-            console.log("category_test_slug", category_test_slug, PROBLEM_COUNT_PER_CATEGORY_TEST_NAME[category_test_slug])
-            console.log("category_slug_in_md", category_slug_in_md, problems_per_category_slug[category_slug_in_md])
-            assert(PROBLEM_COUNT_PER_CATEGORY_TEST_NAME[category_test_slug] <= problems_per_category_slug[category_slug_in_md]);
-        }
+	it('Categories matches Exactly ', async function () {
+		if (!to_test.category) return;
 
-    });
+		const problemManager = new ProblemsManager();
 
+		// Populates the metdatas
+		await problemManager.autoPopulateUsingTestDictionary();
+		const allProblemsMetadata = problemManager.problems;
 
-    it("Categories matches Exactly ", async function () {
-        if (!to_test.category) return
+		// Fetch the expected count using the tests index count of problems.
+		const { PROBLEM_COUNT_PER_CATEGORY_TEST_NAME } = require('../tests');
 
-        const problemManager = new ProblemsManager();
+		const problems_per_category_slug = {};
 
+		for (let problemMetadata of Object.values(allProblemsMetadata)) {
+			// Increase based on the tests for each category slug.
+			for (const category_tag of problemMetadata.tags) {
+				problems_per_category_slug[category_tag] =
+					(problems_per_category_slug[category_tag] || 0) + 1;
+			}
+		}
 
-        // Populates the metdatas
-        await problemManager.autoPopulateUsingTestDictionary();
-        const allProblemsMetadata = problemManager.problems;
-
-        // Fetch the expected count using the tests index count of problems.
-        const { PROBLEM_COUNT_PER_CATEGORY_TEST_NAME } = require('../tests')
-
-        const problems_per_category_slug = {};
-
-        for (let problemMetadata of Object.values(allProblemsMetadata)) {
-
-            // Increase based on the tests for each category slug.
-            for (const category_tag of problemMetadata.tags) {
-                problems_per_category_slug[category_tag] = (problems_per_category_slug[category_tag] || 0) + 1;
-            }
-
-        }
-
-        // console.log("problems_per_category_slug", problems_per_category_slug);
-        /**
+		// console.log("problems_per_category_slug", problems_per_category_slug);
+		/**
          * problems_per_category_slug {
             neetcode: 109,
             sample: 4,
@@ -204,29 +215,20 @@ describe('Problem integrity', function () {
             ...
          */
 
-        // Loop over the categories from constatns
-        const constants = require('../constants');
+		// Loop over the categories from constatns
+		const constants = require('../constants');
 
-        for (const category of Object.values(constants.PROBLEM_CATEGORIES)) {
-            if (category.order == null || category.order == undefined) continue; // Skip the ones that are not ordered, or don't even have an order.
-            if (category?.order <= 0) continue; // Skip the ones that are not ordered, or don't even have an order.
+		for (const category of Object.values(constants.PROBLEM_CATEGORIES)) {
+			if (category.order == null || category.order == undefined) continue; // Skip the ones that are not ordered, or don't even have an order.
+			if (category?.order <= 0) continue; // Skip the ones that are not ordered, or don't even have an order.
 
+			const category_test_slug = category.test_problem_slug; // The slug in the tests (expected)
+			const category_slug_in_md = category.slug; // The slug in the metadata (markdown)
 
-            const category_test_slug = category.test_problem_slug; // The slug in the tests (expected)
-            const category_slug_in_md = category.slug; // The slug in the metadata (markdown)
-
-            assert.equal(PROBLEM_COUNT_PER_CATEGORY_TEST_NAME[category_test_slug], problems_per_category_slug[category_slug_in_md]);
-
-
-        }
-
-
-    })
-
-
-    
-
-
+			assert.equal(
+				PROBLEM_COUNT_PER_CATEGORY_TEST_NAME[category_test_slug],
+				problems_per_category_slug[category_slug_in_md]
+			);
+		}
+	});
 });
-
-

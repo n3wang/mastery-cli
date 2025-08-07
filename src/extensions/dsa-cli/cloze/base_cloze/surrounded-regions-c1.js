@@ -1,63 +1,76 @@
 class SurroundedRegions {
-    /**
-     * https://leetcode.com/problems/surrounded-regions/
-     * Time O(ROWS * COLS) | Space O(ROWS * COLS)
-     * @param {character[][]} board
-     * @return {void} Do not return anything, modify board in-place instead.
-     */
-    solve = function solve(board) {
+	/**
+	 * https://leetcode.com/problems/surrounded-regions/
+	 * Time O(ROWS * COLS) | Space O(ROWS * COLS)
+	 * @param {character[][]} board
+	 * @return {void} Do not return anything, modify board in-place instead.
+	 */
+	solve = function solve(board) {
+		var searchRows = board => {
+			const [rows, cols] = [board.length, board[0].length];
+			// TODO Search the first and last row and expire the neighbors.
+		};
 
+		var searchCols = board => {
+			const [rows, cols] = [board.length, board[0].length];
 
-        var searchRows = (board) => {
-            const [rows, cols] = [board.length, board[0].length];
-            // TODO Search the first and last row and expire the neighbors.
-            
-        }
+			for (let col = 1; col < cols - 1; col++) {
+				/* Time O(COLS) */
+				dfs(board, 0, rows, col, cols); /* Space O(COLS) */
+				dfs(board, rows - 1, rows, col, cols); /* Space O(COLS) */
+			}
+		};
 
-        var searchCols = (board) => {
-            const [rows, cols] = [board.length, board[0].length];
+		var searchGrid = board => {
+			const [rows, cols] = [board.length, board[0].length];
 
-            for (let col = 1; col < (cols - 1); col++) {/* Time O(COLS) */
-                dfs(board, 0, rows, col, cols);         /* Space O(COLS) */
-                dfs(board, (rows - 1), rows, col, cols);/* Space O(COLS) */
-            }
-        }
+			for (let row = 0; row < rows; row++) {
+				/* Time O(ROWS) */
+				for (let col = 0; col < cols; col++) {
+					/* Time O(COLS) */
+					const isO = board[row][col] === 'O';
+					if (isO) board[row][col] = 'X';
 
-        var searchGrid = (board) => {
-            const [rows, cols] = [board.length, board[0].length];
+					const isStar = board[row][col] === '*';
+					if (isStar) board[row][col] = 'O';
+				}
+			}
+		};
 
-            for (let row = 0; row < rows; row++) {/* Time O(ROWS) */
-                for (let col = 0; col < cols; col++) {/* Time O(COLS) */
-                    const isO = board[row][col] === 'O';
-                    if (isO) board[row][col] = 'X';
+		const dfs = (board, row, rows, col, cols) => {
+			const isBaseCase = board[row][col] !== 'O';
+			if (isBaseCase) return;
 
-                    const isStar = board[row][col] === '*';
-                    if (isStar) board[row][col] = 'O';
-                }
-            }
-        }
+			board[row][col] = '*';
 
-        const dfs = (board, row, rows, col, cols) => {
-            const isBaseCase = board[row][col] !== 'O';
-            if (isBaseCase) return;
+			for (const [_row, _col] of getNeighbors(row, rows, col, cols)) {
+				dfs(
+					board,
+					_row,
+					rows,
+					_col,
+					cols
+				); /* Time O(HEIGHT) | Space O(HEIGHT) */
+			}
+		};
 
-            board[row][col] = '*';
+		var getNeighbors = (row, rows, col, cols) =>
+			[
+				[0, 1],
+				[0, -1],
+				[1, 0],
+				[-1, 0]
+			]
+				.map(([_row, _col]) => [row + _row, col + _col])
+				.filter(
+					([_row, _col]) =>
+						0 <= _row && _row < rows && 0 <= _col && _col < cols
+				);
 
-            for (const [_row, _col] of getNeighbors(row, rows, col, cols)) {
-                dfs(board, _row, rows, _col, cols);/* Time O(HEIGHT) | Space O(HEIGHT) */
-            }
-        }
-
-        var getNeighbors = (row, rows, col, cols) => [[0, 1], [0, -1], [1, 0], [-1, 0]]
-            .map(([_row, _col]) => [(row + _row), (col + _col)])
-            .filter(([_row, _col]) => (0 <= _row) && (_row < rows) && (0 <= _col) && (_col < cols))
-
-
-        searchRows(board);/* Time O(ROWS * COLS) | Space O(ROWS * COLS) */
-        searchCols(board);/* Time O(ROWS * COLS) | Space O(ROWS * COLS) */
-        searchGrid(board);/* Time O(ROWS * COLS) | Space O(ROWS * COLS) */
-    }
+		searchRows(board); /* Time O(ROWS * COLS) | Space O(ROWS * COLS) */
+		searchCols(board); /* Time O(ROWS * COLS) | Space O(ROWS * COLS) */
+		searchGrid(board); /* Time O(ROWS * COLS) | Space O(ROWS * COLS) */
+	};
 }
-
 
 module.exports = { Problem: SurroundedRegions };

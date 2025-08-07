@@ -1,532 +1,532 @@
 [
-  {
-    "term": "1 - Properties of Random Variable",
-    "example": "Think of **expectation** as the **center of mass**:\nYou're **weighing each value xxx** by how likely it is (its **density** fX(x)f_X(x)fX​(x)).\n> _\"Expectation = weighted average of outcomes\"_\n>\n>\n$$\n\\mu=E[X]=\\int^x x f_X(x) d x\n$$",
-    "description": "For any given random variable X, the following properties hold true (below we assume X is continuous, but it also holds true for discrete random variables). The expectation (average value, or mean) of a random variable is given by the integral of the value\nThe expectation (average value, or mean) of a random variable is given by the integral of the value of $X$ with its probability density function (PDF) $f x(x)$ :",
-    "prompt": "Properties of Random Variable",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6 - Statistics.md",
-    "reference_line": 5,
-    "module_name": "Data Science",
-    "category": "Statistics"
-  },
-  {
-    "term": "2 - :p Provide the formula of the variance using expectancy and mean",
-    "example": "$$\n\\operatorname{Var}(X)=E\\left[(X-E[X])^2\\right]=E\\left[X^2\\right]-(E[X])^2\n$$",
-    "description": "For any given random variable X, the following properties hold true (below we assume X is continuous, but it also holds true for discrete random variables). The expectation (average value, or mean) of a random variable is given by the integral of the value",
-    "prompt": ":p Provide the formula of the variance using expectancy and mean",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6 - Statistics.md",
-    "reference_line": 22,
-    "module_name": "Data Science",
-    "category": "Statistics"
-  },
-  {
-    "term": "3 - :p Provide the formula of the standard deviation using variance, or expectancy and mean",
-    "example": "$$\n\\sigma=\\sqrt{\\operatorname{Var}(X)}=\\sqrt{E\\left[(X-E[X])^2\\right]}=\\sqrt{E\\left[X^2\\right]-(E[X])^2}\n$$",
-    "description": "For any given random variable X, the following properties hold true (below we assume X is continuous, but it also holds true for discrete random variables). The expectation (average value, or mean) of a random variable is given by the integral of the value",
-    "prompt": ":p Provide the formula of the standard deviation using variance, or expectancy and mean",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6 - Statistics.md",
-    "reference_line": 32,
-    "module_name": "Data Science",
-    "category": "Statistics"
-  },
-  {
-    "term": "4 - :p provide the formula for calculating the Covariance between X and Y given Expectation of them",
-    "example": "$$\n\\operatorname{Cov}(X, Y)=E[(X-E[X])(Y-E[Y])]=E[X Y]-E[X] E[Y]\n$$",
-    "description": "For any given random variable X, the following properties hold true (below we assume X is continuous, but it also holds true for discrete random variables). The expectation (average value, or mean) of a random variable is given by the integral of the value",
-    "prompt": ":p provide the formula for calculating the Covariance between X and Y given Expectation of them",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6 - Statistics.md",
-    "reference_line": 51,
-    "module_name": "Data Science",
-    "category": "Statistics"
-  },
-  {
-    "term": "5 - and the normalization of covariance, represented by the Greek letter $\\rho$, is the correlation between $X$ and $Y$ :",
-    "example": "$$\n\\rho(X, Y)=\\frac{\\operatorname{Cov}(X, Y)}{\\sqrt{\\operatorname{Var}(X) \\operatorname{Var}(Y)}}\n$$",
-    "description": "For any given random variable X, the following properties hold true (below we assume X is continuous, but it also holds true for discrete random variables). The expectation (average value, or mean) of a random variable is given by the integral of the value",
-    "prompt": "and the normalization of covariance, represented by the Greek letter $\\rho$, is the correlation between $X$ and $Y$ :",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6 - Statistics.md",
-    "reference_line": 57,
-    "module_name": "Data Science",
-    "category": "Statistics"
-  },
-  {
-    "term": "6 - Hypothesis Testing",
-    "example": "1. State a null hypothesis and an alternative hypothesis. Either the null hypothesis will be rejected (in favor of the alternative hypothesis), or it will fail to be rejected (although failing to reject the null hypothesis does not necessarily mean it is true, but rather that there is not sufficient evidence to reject it).\n2. Use a particular test statistic of the null hypothesis to calculate the corresponding $\\rho$-value.\n3. Compare the p -value to a certain significance level $\\alpha$.",
-    "description": "**General Setup**\nThe process of testing whether or not a sample of data supports a particular hypothesis is called hypothesis testing. Generally, hypotheses concern particular properties of interest for a given population, such as its parameters, like $\\mu$ (for example, the mean conversion rate among a set of users).\nThe steps in testing a hypothesis are as follows:",
-    "prompt": "provide the 3 steps to create the hypothesis testing",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6 - Statistics.md",
-    "reference_line": 90,
-    "module_name": "Data Science",
-    "category": "Statistics"
-  },
-  {
-    "term": "7 - Z-Test",
-    "example": "$$\nz=\\frac{\\bar{x}-\\mu_0}{\\sigma / \\sqrt{n}} \\sim N(0,1)\n$$\nin the case where the population variance $\\sigma^2$ is known.\n$z=\\frac{\\text { sample mean }- \\text { expected mean }}{\\text { standard deviation } / \\sqrt{n}}$",
-    "description": "Generally the Z-test is used when the sample size is large (to invoke the CLT) or when the population variance is known, and a $t$-test is used when the sample size is small and when the population variance is unknown. The $Z$-test for a population mean is formulated as:\nYou're comparing your **sample mean** to a known **population mean**, and you **know how spread out the population is (σ)**.\n“How many standard errors away is my sample mean from what I expected?”\n- You **know** the population standard deviation σ\\sigmaσ\n- Your **sample size is large** (usually n≥30n \\geq 30n≥30)",
-    "prompt": "Provide the Z test population formula, When does it make sense to use z-tests?",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6 - Statistics.md",
-    "reference_line": 109,
-    "module_name": "Data Science",
-    "category": "Statistics"
-  },
-  {
-    "term": "8 - $t$-Test",
-    "example": "$$\nt=\\frac{\\bar{x}-\\mu_0}{s / \\sqrt{n}} \\sim t_n\n$$\n$$\nt=\\frac{\\text { sample mean }- \\text { expected mean }}{\\text { sample standard deviation } / \\sqrt{n}}\n$$",
-    "description": "The $t$-test is structured similarly to the $Z$-test, but uses the sample variance $s^2$ in place of population variance. The $t$-test is parametrized by the degrees of freedom, which refers to the number of independent observations in a dataset, denoted below by $n-1$ :\n“Given that I’m estimating the standard deviation, is my sample mean far enough from the expected mean?”\n- You **do NOT know σ**\n- Sample size is **small**\n- You assume the underlying data is **roughly normal**",
-    "prompt": "Provide the T test formula given ean, the sample, Whend does it make sense to use t-tests?",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6 - Statistics.md",
-    "reference_line": 124,
-    "module_name": "Data Science",
-    "category": "Statistics"
-  },
-  {
-    "term": "9 - Chi-Squared Test",
-    "example": "$$\n\\chi^2=\\sum_i \\frac{\\left(O_i-E_i\\right)^2}{E_i}\n$$\n$$\n\\chi^2=\\sum \\frac{(\\text { observed }- \\text { expected })^2}{\\text { expected }}\n$$\nwhere $O_i$ is the observed value of interest and $E_i$ is its expected value. A Chi-squared test statistic takes on a particular number of degrees of freedom, which is based on the number of categories in the distribution.\n.\nTo use the squared test to check whether two categorical variables are independent, create a table of counts (called a contingency table), with the values of one variable forming the rows of the table and the values of the other variable forming its columns, and check for intersections. It uses the same style of Chi-squared test statistic as given above.",
-    "description": "The Chi-squared test statistic is used to assess goodness of fit, and is calculated as follows:\n“Are the differences between what I saw and what I expected **too big to be random**?”\n- Data is **counts** or **frequencies**\n- You want to test **how well the data fits** an expected pattern (or independence)",
-    "prompt": "Provide Chi Squared Test Formula, When does it make sense to use Chi Squared Tests?",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6 - Statistics.md",
-    "reference_line": 144,
-    "module_name": "Data Science",
-    "category": "Statistics"
-  },
-  {
-    "term": "10 - p-values and Confidence Intervals",
-    "example": "“The p-value tells you how surprised you should be if the null hypothesis were true.”\n- Imagine flipping a coin that’s supposed to be fair. If you get 95 heads out of 100 flips, the **p-value** is the chance of getting that result **by luck** — and if it’s really low, you **start doubting the coin is fair**.\n> “The confidence interval gives you a smart guess range for where the **true value** might be.”\n- If you build a 95% confidence interval around your sample result, you're saying:\n> “If I repeated this many times, 95 out of 100 intervals would catch the real answer.”",
-    "description": "In conducting a hypothesis test, an $\\alpha$, or measure of the acceptable probability of rejecting a true null hypothesis, is typically chosen prior to conducting the test. Then, a confidence interval can also be calculated to assess the test statistic. This is a range of values that, if a large sample were taken, would contain the parameter value of interest $(1-\\alpha) \\%$ of the time. For instance, a $95 \\%$ confidence interval would contain the true value $95 \\%$ of the time. If 0 is included in the confidence intervals, then we cannot reject the null hypothesis (and vice versa).\nThe general form for a confidence interval around the population mean looks like the following, where the term is the critical value (for the standard normal distribution):\n.\n$$\n\\mu \\pm z_{i, v / 2} \\frac{\\sigma}{\\sqrt{n}}\n$$\n.\nIn the prior example with the $\\mathrm{A} / \\mathrm{B}$ testing on conversion rates, we see that the confidence interval for a population proportion would be\n-\n$$\n\\hat{p} \\pm z_{\\mathrm{a} / 2} \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}\n$$\n.\nsince our estimate of the true proportion will have the following parameters when estimated as approximately Gaussian:\n.\n$$\n\\mu=\\frac{n p}{n}=p, \\sigma^2=\\frac{n p(1-p)}{n^2}=\\frac{p(1-p)}{n}\n$$\n.\nAs long as the sampling distribution of a random variable is known, the appropriate p -values and confidence intervals can be assessed.",
-    "prompt": "Explain p-values and confidence intervals in nontechical terms",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6 - Statistics.md",
-    "reference_line": 173,
-    "module_name": "Data Science",
-    "category": "Statistics"
-  },
-  {
-    "term": "11 - Type I and II Errors",
-    "example": "Usually $1-\\alpha$ is referred to as the confidence level, whereas $1-\\beta$ is referred to as the power. If you plot sample size versus power, generally you should see a larger sample size corresponding to a larger power. It can be useful to look at power in order to gauge the sample size needed for detecting a significant effect. Generally, tests are set up in such a way as to have both $1-\\alpha$ and $1-\\beta$ relatively high (say at 0.95 and 0.8 , respectively).\nIn testing multiple hypotheses, it is possible that if you ran many experiments --- even if a particular outcome for one experiment is very unlikely - you would see a statistically significant outcome at least once. So, for example, if you set $\\alpha=0.05$ and run 100 hypothesis tests, then by pure chance you would expect 5 of the tests to be statistically significant. However, a more desirable outcome is to have the overall $\\alpha$ of the 100 tests be 0.05 , and this can be done by setting the new $\\alpha$ to $\\alpha / n$, where $n$ is the number of hypothesis tests (in this case, $\\alpha / n=0.05 / 100=0.0005$ ). This is known as Bonferroni correction, and using it helps make sure that the overall rate of false positives is controlled within a multiple testing framework.",
-    "description": "There are two errors that are frequently assessed: type I error, which is also known as a \"false positive.\" and type II error, which is also known as a \"false negative.\" Specifically, a type I error is when one rejects the null hypothesis when it is correct, and a type II error is when the null hypothesis is not rejected when it is incorrect.\n![[Pasted image 20250701154755.png]]",
-    "prompt": "What is a type I and type II in a example situation?",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6 - Statistics.md",
-    "reference_line": 203,
-    "module_name": "Data Science",
-    "category": "Statistics"
-  },
-  {
-    "term": "12 - MLE and MAP",
-    "example": "**MLE**\nYou’ve collected some data — like seeing the results of 100 coin flips — and now you're asking:\n“What’s the most likely setting (parameter) that explains what I saw?”\nMLE says: “Pick the parameter that makes the data you observed the most likely.”\n**MAP**\n“Pick the parameter that is most likely given both the data and what you believed before.”\n“Choose the recipe that both explains the flavor **and** matches what you already thought the baker probably used.”",
-    "description": "Any probability distribution has parameters, so fitting parameters is an extremely crucial part of data analysis. There are two general methods for doing so. In maximum likelihood estimation (MLE), the goal is to estimate the most likely parameters given a likelihood function: $\\theta_{M L E}=\\arg \\max L(\\theta)$, where $L(\\theta)=f_n\\left(x_1 \\ldots x_n \\mid \\theta\\right)$.\nSince the values of $X$ are assumed to be i.i.d., then the likelihood function becomes the following:\n-\n$$\nL(\\theta)=\\prod_{i+1}^n f\\left(x_i \\mid \\theta\\right)\n$$\n> Multiply the probability of each data point, assuming the parameter is $θ$. The higher the product, the more likely it is that θ is the correct setting.\nThe natural $\\log$ of $L(\\theta)$ is then taken prior to calculating the maximum; since log is a monotonically increasing function, maximizing the $\\log$-likelihood $\\log L(\\theta)$ is equivalent to maximizing the likelihood:\n$$\n\\log L(\\theta)=\\sum_{i=1}^n \\log f\\left(x_i \\mid \\theta\\right)\n$$\n> - **Products** are hard to work with, **sums** are easier.The **log doesn’t change the maximum**, because it’s a **monotonic function** (order stays the same). This version is called the **log-likelihood**, and it simplifies the math.\nAnother way of fitting parameters is through maximum a posteriori estimation (MAP), which assumes a \"prior distribution:\"\n$$\n\\theta_{M U P}=\\arg \\max g(\\theta) f\\left(x_1 \\ldots x_n \\mid \\theta\\right)\n$$\n> MAP estimation finds the value of θ that is most **probable given the data**, not just most likely to produce the data.\nwhere the similar log-likelihood is again employed, and $g(\\theta)$ is a density function of $\\theta$.\nBoth MLE and MAP are especially relevant in statistics and machine learning, and knowing these is recommended, especially for more technical interviews. For instance, a common question in such interviews is to derive the MLE for a particular probability distribution. Thus, understanding the above steps, along with the details of the relevant probability distributions, is crucial.\n\n",
-    "prompt": "Explain Maximum Likelihood Estimation and Maxium A Posteriri estimation ideas and formulas in non technical way",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6 - Statistics.md",
-    "reference_line": 211,
-    "module_name": "Data Science",
-    "category": "Statistics"
-  },
-  {
-    "term": "1 - Easy",
-    "example": "Solution \\#6.1\nThe Central Limit Theorem (CLT) states that if any random variable, regardless of distribution, is sampled a large enough number of times, the sample mean will be approximately normally distributed. This allows for studying of the properties for any statistical distribution as long as there is a large enough sample size.\nThe mathematical definition of the CLT is as follows: for any given random variable $X$, as n approaches infinity,\n$$\n\\bar{X}_n=\\frac{X_1+\\ldots+X_n}{n} \\rightarrow \\sim N\\left(\\mu, \\frac{\\sigma^2}{n}\\right)\n$$\nAt any company with a lot of data, like Uber, this concept is core to the various experimentation platforms used in the product. For a real-world example, consider testing whether adding a new feature increases rides booked in the Uber platform, where each X is an individual ride and is a Bernoulli random variable (i.e., the rider books or does not book a ride). Then, if the sample size is sufficiently large, we can assess the statistical properties of the total number of bookings, as well as the booking rate (rides booked / rides opened on app). These statistical properties play a key role in hypothesis testing. allowing companies like Uber to decide whether or not to add new features in a data-driven manner.",
-    "description": "6.1. Uber: Explain the Central Limit Theorem. Why it is useful? Provide the mathematical Definition of the CLT",
-    "prompt": "Easy",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
-    "reference_line": 5,
-    "module_name": "Data Science",
-    "category": "aStatisticsPractice"
-  },
-  {
-    "term": "2 - 6.2. Facebook: How would you explain a confidence interval to a non-technical audience?",
-    "example": "Suppose we want to estimate some parameters of a population. For example, we might want to estimate the average height of males in the U.S. Given some data from a sample, we can compute a sample mean for what we think the value is, as well as a range of values around that mean. Following the previous example, we could obtain the heights of 1,000 random males in the U.S. and compute the average height, or the sample mean. This sample mean is a type of point estimate and, while useful, will vary from sample to sample. Thus, we can't tell anything about the variation in the data around this estimate, which is why we need a range of values through a confidence interval.\nConfidence intervals are a range of values with a lower and an upper bound such that if you were to sample the parameter of interest a large number of times, the $95 \\%$ confidence interval would contain the true value of this parameter $95 \\%$ of the time. We can construct a confidence interval using the sample standard deviation and sample mean. The level of confidence is determined by a margin of error that is set beforehand. The narrower the confidence interval, the more precise the estimate, since there is less uncertainty associated with the point estimate of the mean.",
-    "description": "6.2. Facebook: How would you explain a confidence interval to a non-technical audience?",
-    "prompt": "6.2. Facebook: How would you explain a confidence interval to a non-technical audience?",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
-    "reference_line": 18,
-    "module_name": "Data Science",
-    "category": "aStatisticsPractice"
-  },
-  {
-    "term": "3 - 6.3. Twitter: What are some common pitfalls encountered in $\\mathrm{A} / \\mathrm{B}$ testing?",
-    "example": "A/B testing has many possible pitfalls that depend on the particular experiment and setup employed. One common drawback is that groups may not be balanced, possibly resulting in highly skewed results. Note that balance is needed for all dimensions of the groups - like user demographics or device used because, otherwise, the potentially statistically significant results from the test may simply be due to specific factors that were not controlled for. Two types of errors are frequently assessed: Type I error, which is also known as a \"false positive,\" and Type II error, also known as a \"false negative.\" Specifically, Type I error is rejecting a null hypothesis when that hypothesis is correct, whereas Type II error is failing to reject a null hypothesis when its alternative hypothesis is correct.\n.\nAnother common pitfall is not running an experiment for long enough. Generally speaking, experiments are run with a particular power threshold and significance threshold; however, they often do not stop immediately upon detecting an effect. For an extreme example, assume you're at either Uber or Lyft and running a test for two days, when the metric of interest (e.g., rides booked) is subject to weekly seasonality.\n.\nLastly, dealing with multiple tests is important because there may be interactions between results of tests you are running and so attributing results may be difficult. In addition, as the number of variations you run increases, so does the sample size needed. In practice, while it seems technically feasible to test 1.000 variations of a button when optimizing for click-through rate, variations in tests are usually based on some intuitive hypothesis concerning core behavior.",
-    "description": "6.3. Twitter: What are some common pitfalls encountered in $\\mathrm{A} / \\mathrm{B}$ testing?",
-    "prompt": "6.3. Twitter: What are some common pitfalls encountered in $\\mathrm{A} / \\mathrm{B}$ testing?",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
-    "reference_line": 25,
-    "module_name": "Data Science",
-    "category": "aStatisticsPractice"
-  },
-  {
-    "term": "4 - 6.4. Lyft: Explain both covariance and correlation formulaically, and compare and contrast them.",
-    "example": "Solution \\#6.4\nFor any given random variables $X$ and $Y$, the covariance, a linear measure of relationship, is defined by the following: $\\operatorname{Cov}(X, Y)=E[(X-E[X])(Y-E[Y])]=E[X Y]-E[X] E[Y]$\nSpecifically, covariance indicates the direction of the linear relationship between $X$ and $Y$ and can take on any potential value from negative infinity to infinity. The units of covariance are based on the units of $X$ and $Y$, which may differ.\nThe correlation between $X$ and $Y$ is the normalized version of covariance that takes into account the variances of $X$ and $Y$ :",
-    "description": "6.4. Lyft: Explain both covariance and correlation formulaically, and compare and contrast them.",
-    "prompt": "6.4. Lyft: Explain both covariance and correlation formulaically, and compare and contrast them.",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
-    "reference_line": 35,
-    "module_name": "Data Science",
-    "category": "aStatisticsPractice"
-  },
-  {
-    "term": "5 - 6.5. Facebook: Say you flip a coin 10 times and observe only one heads. What would be your null hypothesis and p -value for testing whether the coin is fair or not?",
-    "example": "Solution \\#6.5\nThe null hypothesis is that the coin is fair, and the alternative hypothesis is that the coin is biased towards tails (note this is a one-sided test):",
-    "description": "6.5. Facebook: Say you flip a coin 10 times and observe only one heads. What would be your null hypothesis and p -value for testing whether the coin is fair or not?",
-    "prompt": "6.5. Facebook: Say you flip a coin 10 times and observe only one heads. What would be your null hypothesis and p -value for testing whether the coin is fair or not?",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
-    "reference_line": 51,
-    "module_name": "Data Science",
-    "category": "aStatisticsPractice"
-  },
-  {
-    "term": "6 - 6.7. Groupon: Describe what Type I and Type II errors are, and the trade-offs between them.",
-    "example": "Solution \\#6.7\nBoth errors are relevant in the context of hypothesis testing. Type I error is when one rejects the null hypothesis when it is correct, and is known as a false positive. Type II error is when the null hypothesis is not rejected when the alternative hypothesis is correct; this is known as a false negative. In layman's terms, a type I error is when we detect a difference, when in reality there is no significant difference in an experiment. Similarly, a type II error occurs when we fail to detect a difference, when in reality there is a significant difference in an experiment.\nType 1 error is given by the level of significance $\\alpha$, whereas the type II error is given by $\\beta$. Usually, $1-\\alpha$ is referred to as the confidence level, whereas $1-\\beta$ is referred to as the statistical power of the test being conducted. Note that, in any well-conducted statistical procedure, we want to have both $\\alpha$ and $\\beta$ be small. However, based on the definition of the two, it is impossible to make both errors small simultaneously: the larger a is, the smaller B is. Based on the experiment and the relative importance of false positives and false negatives, a data scientist must decide what thresholds to adopt for any given experiment. Note that experiments are set up so as to have both |-a and 1-6 relatively high (say at .95, and .8, respectively).",
-    "description": "6.7. Groupon: Describe what Type I and Type II errors are, and the trade-offs between them.",
-    "prompt": "6.7. Groupon: Describe what Type I and Type II errors are, and the trade-offs between them.",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
-    "reference_line": 73,
-    "module_name": "Data Science",
-    "category": "aStatisticsPractice"
-  },
-  {
-    "term": "7 - 6.8. Microsoft: Explain the statistical background behind power.",
-    "example": "Solution \\#6.8\nPower is the probability of rejecting the null hypothesis when, in fact, it is false. It is also the probability of avoiding a Type II error. A Type II error occurs when the null hypothesis is not rejected when the alternative hypothesis is correct. This is important because we want to detect significant effects during experiments. That is, the higher the statistical power of the test, the higher the probability of detecting a genuine effect (i.e, accepting the alternative hypothesis and rejecting the null hypothesis). A minimum sample size can be calculated for any given level of power - for example, say a power level of 0.8 .\nAn analysis of the statistical power of a test is usually performed with respect to the test's level of significance $(\\alpha)$ and effect size (ie., the magnitude of the results).",
-    "description": "6.8. Microsoft: Explain the statistical background behind power.",
-    "prompt": "6.8. Microsoft: Explain the statistical background behind power.",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
-    "reference_line": 81,
-    "module_name": "Data Science",
-    "category": "aStatisticsPractice"
-  },
-  {
-    "term": "8 - 6.9. Facebook: What is a Z-test and when would you use it versus a t-test?",
-    "example": "Solution \\#6.9\nIn a Z-test, your test statistic follows a normal distribution under the null hypothesis. Alternatively, in a t-test, you employ a student's t-distribution rather than a normal distribution as your sampling distribution.\nConsidering the population mean, we can use either Z-test or t-test only if the mean is normally distributed, which is possible in two cases: the initial population is normally distributed, or the sample size is large enough ( $n \\geq 30$ ) that we can apply the Central Limit Theorem.\nIf the condition above is satisfied, then we need to decide which type of test is more appropriate to use. In general, we use $Z$-tests if the population variation is $k n o w n$, and vice versa: we use $t$-test if the population variation is unknown.\nAdditionally, if the sample size is very large ( $n>200$ ), we can use the $Z$-test in any case, since for such large degrees of freedom, $t$-distribution coincides with $z$-distribution up to thousands.\nConsidering the population proportion, we can use a $Z$-test (but not $t$-test) where $n p_0 \\geq 10$ and $n\\left(1-p_0\\right) \\geq$ 10. i.e., when each of the number of successes and the number of failures is at least 10 .",
-    "description": "6.9. Facebook: What is a Z-test and when would you use it versus a t-test?",
-    "prompt": "6.9. Facebook: What is a Z-test and when would you use it versus a t-test?",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
-    "reference_line": 89,
-    "module_name": "Data Science",
-    "category": "aStatisticsPractice"
-  },
-  {
-    "term": "9 - Medium",
-    "example": "Solution \\#6.10\nThe primary consideration is that, as the number of tests increases, the chance that a stand-alone p -value for any of the t-lests is statistically significant becomes very high due to chance alone. As an example, with 100 tests performed and a significance threshold of $\\alpha=0.05$. you would expect five of the experiments to be statistically significant due only to chance. That is, you have a very high probability of observing at least one significant outcome. Therefore, the chance of incorrectly rejecting a null hypothesis (i.e., committing Type I error) increases.\nTo correct for this effect. we can use a method called the Bonferroni correction, wherein we set the significance threshold to $\\omega / m$, where $m$ is the number of tests being performed. In the above scenario with 100 tests, we can set the significance threshold to instead be $0.05 / 100=0.0005$. While this correction helps to protect from Type I error. it is still prone to Type II error (i.e., failing to reject the null hypothesis when it should be rejected). In general, the Bonferroni correction is mostly useful when there is a smaller number of multiple comparisons of which a few are significant. If the number of tests becomes sufficiently high such that many tests yield statistically significant results. the number of Type II errors may also increase significantly.",
-    "description": "6.10. Amazon: Say you are testing hundreds of hypotheses, each with t-test. What considerations would you take into account when doing this?\nMedium",
-    "prompt": "Medium",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
-    "reference_line": 101,
-    "module_name": "Data Science",
-    "category": "aStatisticsPractice"
-  },
-  {
-    "term": "10 - Medium",
-    "example": "Solution \\#6.11\nThe confidence interval (CI) for a population proportion is an interval that includes a true population proportion with a certain degree of confidence $1-\\alpha$.\nFor the case of flipping heads from a series of coin tosses, the proportion follows the binomial distribution. If the series size is large enough (each of the number of successes and the number of failures is at least 10), we can utilize the Central Limit Theorem and use the normal approximation for the binomial distribution as follows:\n$$\nN\\left(\\hat{p}, \\frac{\\hat{p}(1-\\hat{p})}{n}\\right)\n$$\nwhere $\\hat{p}$ is the proportion of heads tossed in series, and $n$ is the series size. The Cl is centered at the series proportion, and plus or minus a margin of error:\n$$\n\\hat{p} \\pm z_{\\mathrm{a} / 2} \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}\n$$where $z_{\\mathrm{a} / 2}$ is the appropriate value from the standard normal distribution for the desired confidence level.\nFor example, for the most commonly used level of confidence, $95 \\%, z_{0 / 2}=1.96$.",
-    "description": "6.11. Google: How would you derive a confidence interval for the probability of flipping heads from a series of coin tosses?",
-    "prompt": "Medium",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
-    "reference_line": 108,
-    "module_name": "Data Science",
-    "category": "aStatisticsPractice"
-  },
-  {
-    "term": "11 - 6.12. Two Sigma: What is the expected number of coin flips needed to get two consecutive heads?",
-    "example": "Solution \\#6.12\nLet $X$ be the number of coin flips needed to obtain two consecutive heads. We then want to solve for $E[X]$. Let H denote a flip that results in heads, and T denote a flip that results in tails. Note that $\\mathrm{E}[X]$ can be written in terms of $\\mathrm{E}[X \\mid \\mathrm{H}]$ and $\\mathrm{E}[X \\mid \\mathrm{T}]$, i.e., the expected number of flips needed, conditioned on a flip being either heads or tails, respectively.\nConditioning on the first flip, we have: $E[X]=\\frac{1}{2}(1+E[X \\mid H])+\\frac{1}{2}(1+E[X \\mid T])$\nNote that $\\mathrm{E}[X \\mid \\mathrm{T}]=\\mathrm{E}[X]$ since if a tail is flipped, we need to start over in getting two heads in a row.\nTo solve for $\\mathrm{E}[X \\mid \\mathrm{H}]$, we can condition it further on the next outcome: either heads (HH) or tails (HT).\nTherefore, we have: $E[X \\mid H]=\\frac{1}{2}(1+E[X \\mid H H])+\\frac{1}{2}(1+E[X \\mid H T])$\nNote that if the result is HH , then $\\mathrm{E}[X \\mid \\mathrm{HH}]=0$, since the outcome has been achieved. If a tail was flipped, then $\\mathrm{E}[X \\mid \\mathrm{HT}]=\\mathrm{E}[X]$, and we need to start over in attempting to get two heads in a row. Thus:\n$$\nE[X \\mid H]=\\frac{1}{2}(1+0)+\\frac{1}{2}(1+E[X])=1+\\frac{1}{2} E[X]\n$$\nPlugging this into the original equation yields:\n$$\nE[X]=\\frac{1}{2}\\left(1+1+\\frac{1}{2} E[X]\\right)+\\frac{1}{2}(1+E[X])\n$$and after solving we get: $E[X]=6$. Therefore, we would expect 6 flips.",
-    "description": "6.12. Two Sigma: What is the expected number of coin flips needed to get two consecutive heads?",
-    "prompt": "6.12. Two Sigma: What is the expected number of coin flips needed to get two consecutive heads?",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
-    "reference_line": 127,
-    "module_name": "Data Science",
-    "category": "aStatisticsPractice"
-  },
-  {
-    "term": "12 - 6.13. Citadel: What is the expected number of rolls needed to see all six sides of a fair die?",
-    "example": "Let k denote the number of distinct sides seen from rolls. The first roll will always result in a new side being seen. If you have seen k sides. where& < 6, then the probability of rolling an unseen value will be (6 — &)/6, since there are 6 — k values you have not seen, and 6 possible outcomes of each roll.\nNote that each roll is independent of previous rolls. Therefore, for the second roll $(k=1)$, the time until a side not seen appears has a geometric distribution with $p=5 / 6$, since there are five of the six sides left to be seen. Likewise, after two sides $(k=2)$, the time taken is a geometric distribution, with $p=4 / 6$. This continues until all sides have been seen.\nRecall that the mean for a geometric distribution is given by $1 / p$, and let $X$ be the number of rolls needed to show all six sides. Then, we have the following:\n$$\nE[X]=1+\\frac{6}{5}+\\frac{6}{4}+\\frac{6}{3}+\\frac{6}{2}+\\frac{6}{1}=6 \\sum_{p=1}^6 \\frac{1}{p}=14.7 \\text { rolls }\n$$",
-    "description": "6.13. Citadel: What is the expected number of rolls needed to see all six sides of a fair die?",
-    "prompt": "6.13. Citadel: What is the expected number of rolls needed to see all six sides of a fair die?",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
-    "reference_line": 147,
-    "module_name": "Data Science",
-    "category": "aStatisticsPractice"
-  },
-  {
-    "term": "13 - 6.14. Akuna Capital: Say you're rolling a fair six-sided die. What is the expected number of rolls until you roll two consecutive 5 s ?",
-    "example": "",
-    "description": "6.14. Akuna Capital: Say you're rolling a fair six-sided die. What is the expected number of rolls until you roll two consecutive 5 s ?",
-    "prompt": "6.14. Akuna Capital: Say you're rolling a fair six-sided die. What is the expected number of rolls until you roll two consecutive 5 s ?",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
-    "reference_line": 159,
-    "module_name": "Data Science",
-    "category": "aStatisticsPractice"
-  },
-  {
-    "term": "14 - 6.15. D.E. Shaw: A coin was flipped 1,000 times, and 550 times it showed heads. Do you think the coin is biased? Why or why not?",
-    "example": "Solution \\#6.15\nBecause the sample size of flips is large ( 1,000 ), we can apply the Central Limit Theorem. Since each individual flip is a Bernoulli random variable, we can assume that $p$ is the probability of getting heads. We want to test whether p is .5 (i.e., whether it is a fair coin or not). The Central Limit Theorem allows us to approximate the total number of heads seen as being normally distributed.\nMore specifically, the number of heads seen out of $n$ total rolls follows a binomial distribution since it a sum of Bernoulli random variables. If the coin is not biased $(p=.5)$, then the expected number of heads is as follows: $\\mu=n p=1000 \\star 0.5=500$, and the variance of the number of heads is given by:\n$$\n\\sigma^2=n p(1-p)=1000 * 0.5 * 0.5=250, \\sigma=\\sqrt{250} \\approx 16\n$$Since this mean and standard deviation specify the normal distribution, we can calculate the corresponding $z$-score for 550 heads as follows:\n$$\nz=\\frac{550-500}{16}=3.16\n$$This means that, if the coin were fair, the event of seeing 550 heads should occur with a $<0.1 \\%$ chance under normality assumptions. Therefore, the coin is likely biased.",
-    "description": "6.15. D.E. Shaw: A coin was flipped 1,000 times, and 550 times it showed heads. Do you think the coin is biased? Why or why not?",
-    "prompt": "6.15. D.E. Shaw: A coin was flipped 1,000 times, and 550 times it showed heads. Do you think the coin is biased? Why or why not?",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
-    "reference_line": 176,
-    "module_name": "Data Science",
-    "category": "aStatisticsPractice"
-  },
-  {
-    "term": "15 - 6.16. Quora: You are drawing from a normally distributed random variable $X \\sim \\mathrm{~N}(0,1)$ once a day. What is the approximate expected number of days until you get a value greater than 2 ?",
-    "example": "Solution \\#6.16\nSince $X$ is normally distributed. we can employ the cumulative distribution function (CDF) of the normal distribution: $\\Phi(2)=P(X \\leq 2)=P(X \\leq \\mu+2 \\sigma)=0.9772$\nTherefore, $P(X>2)=1-0.977=0.023$ for any given day. Since each day's draws are independent. the expected time until drawing an $X>2$ follows a geometric distribution, with $p=0.023$. Letting $T$ be a random variable denoting the number of days, we have the following:\n$$\nE[T]=\\frac{1}{p}=\\frac{1}{.02272} \\approx 44 \\text { days }\n$$\n---",
-    "description": "6.16. Quora: You are drawing from a normally distributed random variable $X \\sim \\mathrm{~N}(0,1)$ once a day. What is the approximate expected number of days until you get a value greater than 2 ?",
-    "prompt": "6.16. Quora: You are drawing from a normally distributed random variable $X \\sim \\mathrm{~N}(0,1)$ once a day. What is the approximate expected number of days until you get a value greater than 2 ?",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
-    "reference_line": 192,
-    "module_name": "Data Science",
-    "category": "aStatisticsPractice"
-  },
-  {
-    "term": "16 - 6.17. Akuna Capital: Say you have two random variables $X$ and $Y$, each with a standard deviation. What is the variance of $a X+b Y$ for constants $a$ and $b$ ?",
-    "example": "Let the variances for $X$ and $Y$ be denoted by $\\operatorname{Var}(X)$ and $\\operatorname{Var}(Y)$.\nThen, recalling that the variance of a sum of variables is expressed as follows:\n$$\n\\operatorname{Var}(X+Y)=\\operatorname{Var}(X)+\\operatorname{Var}(Y)+2 \\operatorname{Cov}(X, Y)\n$$\nand that a constant coefficient of a random variable is assessed as follows: $\\operatorname{Var}(a X)=a^2 \\operatorname{Var}(X)$ We have $\\operatorname{Var}(a X+b Y)=a^2 \\operatorname{Var}(X)+b^2 \\operatorname{Var}(Y)+2 a b \\operatorname{Cov}(X, Y)$, which would provide the bounds on the designated variance; the range will depend on the covariance between $X$ and $Y$.",
-    "description": "6.17. Akuna Capital: Say you have two random variables $X$ and $Y$, each with a standard deviation. What is the variance of $a X+b Y$ for constants $a$ and $b$ ?",
-    "prompt": "6.17. Akuna Capital: Say you have two random variables $X$ and $Y$, each with a standard deviation. What is the variance of $a X+b Y$ for constants $a$ and $b$ ?",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
-    "reference_line": 202,
-    "module_name": "Data Science",
-    "category": "aStatisticsPractice"
-  },
-  {
-    "term": "17 - 6.18. Google: Say we have $X \\sim \\operatorname{Uniform}(0,1)$ and $Y \\sim \\operatorname{Uniform}(0,1)$ and the two are independent. What is the expected value of the minimum of $X$ and $Y$ ?",
-    "example": "Solution \\#6.18\nLet $Z=\\min (X, Y)$. Then we know the following: $P(Z \\leq z)=P(\\min (X, Y) \\leq z)=1-P(X>z, Y>z)$ For a uniform distribution, the following is true for a value of $z$ between 0 and 1 :",
-    "description": "6.18. Google: Say we have $X \\sim \\operatorname{Uniform}(0,1)$ and $Y \\sim \\operatorname{Uniform}(0,1)$ and the two are independent. What is the expected value of the minimum of $X$ and $Y$ ?",
-    "prompt": "6.18. Google: Say we have $X \\sim \\operatorname{Uniform}(0,1)$ and $Y \\sim \\operatorname{Uniform}(0,1)$ and the two are independent. What is the expected value of the minimum of $X$ and $Y$ ?",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
-    "reference_line": 213,
-    "module_name": "Data Science",
-    "category": "aStatisticsPractice"
-  },
-  {
-    "term": "18 - 6.19. Morgan Stanley: Say you have an unfair coin which lands on heads $60 \\%$ of the time. How many coin flips are needed to detect that the coin is unfair?",
-    "example": "Solution \\#6.19\nSay we flip the unfair coin $n$ times. Each flip is a Bernoulli trial with a success probability of $p$ :",
-    "description": "6.19. Morgan Stanley: Say you have an unfair coin which lands on heads $60 \\%$ of the time. How many coin flips are needed to detect that the coin is unfair?",
-    "prompt": "6.19. Morgan Stanley: Say you have an unfair coin which lands on heads $60 \\%$ of the time. How many coin flips are needed to detect that the coin is unfair?",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
-    "reference_line": 236,
-    "module_name": "Data Science",
-    "category": "aStatisticsPractice"
-  },
-  {
-    "term": "19 - 6.20. Uber: Say you have $n$ numbers $1 \\ldots n$, and you uniformly sample from this distribution with replacement $n$ times. What is the expected number of distinct values you would draw?",
-    "example": "Solution \\#6.20\nLet the following be an indicator random variable: $X_i=1$ if $i$ is drawn in $n$ turns\nWe would then want to find the following: $\\sum_{i=1}^n E\\left[X_i\\right]$\nWe know that $p\\left(X_i=1\\right)=1-p\\left(X_i=0\\right)$, so the probability of a number not being drawn (where each draw is independent) is the following:",
-    "description": "6.20. Uber: Say you have $n$ numbers $1 \\ldots n$, and you uniformly sample from this distribution with replacement $n$ times. What is the expected number of distinct values you would draw?",
-    "prompt": "6.20. Uber: Say you have $n$ numbers $1 \\ldots n$, and you uniformly sample from this distribution with replacement $n$ times. What is the expected number of distinct values you would draw?",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
-    "reference_line": 267,
-    "module_name": "Data Science",
-    "category": "aStatisticsPractice"
-  },
-  {
-    "term": "20 - 6.21. Goldman Sachs: There are 100 noodles in a bowl. At each step, you randomly select two noodle ends from the bowl and tie them together. What is the expectation on the number of loops formed?",
-    "example": "",
-    "description": "6.21. Goldman Sachs: There are 100 noodles in a bowl. At each step, you randomly select two noodle ends from the bowl and tie them together. What is the expectation on the number of loops formed?",
-    "prompt": "6.21. Goldman Sachs: There are 100 noodles in a bowl. At each step, you randomly select two noodle ends from the bowl and tie them together. What is the expectation on the number of loops formed?",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
-    "reference_line": 289,
-    "module_name": "Data Science",
-    "category": "aStatisticsPractice"
-  },
-  {
-    "term": "21 - 6.23. Lyft: Derive the mean and variance of the uniform distribution $\\mathrm{U}(a, b)$.",
-    "example": "For $X \\sim \\mathrm{U}(\\mathrm{a}, \\mathrm{b})$, we have the following: $f_X(x)=\\frac{1}{b-a}$\nTherefore, we can calculate the mean as:\n$$\nE[X]=\\int_a^b x f_x(x) d x=\\int_a^b \\frac{x}{b-a} d x=\\left.\\frac{x^2}{2(a-b)}\\right|_a ^b=\\frac{a+b}{2}\n$$\nSimilarly, the variance can be as expressed as follows: $\\operatorname{Var}(X)=E\\left[X^2\\right]-E[X]^2$\nGiving us:\n$$\nE\\left[X^2\\right]=\\int_a^b x^2 f_X(x) d x=\\int_a^b \\frac{x^2}{b-a} d x=\\left.\\frac{x^3}{3(a-b)}\\right|_a ^b=\\frac{a^2+a b+b^2}{3}\n$$Therefore: $\\operatorname{Var}(X)=\\frac{a^2+a b^2+b^2}{3}-\\left(\\frac{a+b}{2}\\right)^2=\\frac{(b-a)^2}{12}$",
-    "description": "6.23. Lyft: Derive the mean and variance of the uniform distribution $\\mathrm{U}(a, b)$.",
-    "prompt": "6.23. Lyft: Derive the mean and variance of the uniform distribution $\\mathrm{U}(a, b)$.",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
-    "reference_line": 350,
-    "module_name": "Data Science",
-    "category": "aStatisticsPractice"
-  },
-  {
-    "term": "22 - 6.24. Citadel: How many cards would you expect to draw from a standard deck before seeing the first ace?",
-    "example": "Although one can enumerate all the probabilities, this can get a bit messy from an algebraic standpoint, so obtaining the following intuitive answer is more preferable. Imagine we have aces A1, A2, A3, A4. We can then draw a line in between them to represent an arbitrary number (including 0 ) of cards between each ace, with a line before the first ace and after the last.\n$$\n|\\mathrm{A} 1| \\mathrm{A} 2|\\mathrm{~A} 3| \\mathrm{A} 4 \\mid\n$$There are $52-4=48$ non-ace cards in a deck. Each of these cards is equally likely to be in any of the five lines. Therefore, there should be $48 / 5=9.6$ cards drawn prior to the first ace being drawn. Hence, the expected number of cards drawn until the first ace is seen is $9.6+1=10.6$ cards we can't forget to add 1 , because we need to include drawing the ace card itself.",
-    "description": "6.24. Citadel: How many cards would you expect to draw from a standard deck before seeing the first ace?",
-    "prompt": "6.24. Citadel: How many cards would you expect to draw from a standard deck before seeing the first ace?",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
-    "reference_line": 365,
-    "module_name": "Data Science",
-    "category": "aStatisticsPractice"
-  },
-  {
-    "term": "23 - 6.25. Spotify: Say you draw n samples from a uniform distribution $\\mathrm{U}(a, b)$. What are the MLE estimates of $a$ and $b$ ?",
-    "example": "Note that for a uniform distribution, the probability density is $\\frac{1}{b-a}$ for any value on the interval $[a$, $b$ ]. The likelihood function is therefore as follows:\n$$\nf\\left(x_1, \\ldots, x_n \\mid a, b\\right)=\\left(\\frac{1}{b-a}\\right)^n\n$$\nTo obtain the MLE, we maximize this likelihood function, which is clearly maximized if $b$ is the largest of the samples and $a$ is the smallest of the samples. Therefore, we have the following:\n$$\n\\hat{a}=\\min \\left(x_1, \\ldots, x_n\\right),=\\hat{b} \\max \\left(x_1, \\ldots, x_n\\right)\n$$",
-    "description": "6.25. Spotify: Say you draw n samples from a uniform distribution $\\mathrm{U}(a, b)$. What are the MLE estimates of $a$ and $b$ ?",
-    "prompt": "6.25. Spotify: Say you draw n samples from a uniform distribution $\\mathrm{U}(a, b)$. What are the MLE estimates of $a$ and $b$ ?",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
-    "reference_line": 374,
-    "module_name": "Data Science",
-    "category": "aStatisticsPractice"
-  },
-  {
-    "term": "24 - Hard",
-    "example": "",
-    "description": "Hard questiosnare to be continued\n\n",
-    "prompt": "Hard",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
-    "reference_line": 385,
-    "module_name": "Data Science",
-    "category": "aStatisticsPractice"
-  },
-  {
-    "term": "1 - Linear Algebra",
-    "example": "for some n x n matrix A, x is an eigenvector of A if: Ax = Ax, where > is a scalar. A matrix can represent a linear transformation and, when applied to a vector x, results in another vector called an eigenvector, which has the same direction as x and is in fact x multiplied by a scaling factor i. known as an eigenvalue.",
-    "description": "What is eigenvectors and what is eigen values?",
-    "prompt": "Linear Algebra",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\7 - Machine Learning.md",
-    "reference_line": 12,
-    "module_name": "Data Science",
-    "category": "MachineLearning"
-  },
-  {
-    "term": "2 - Bias - Variance Trade-off",
-    "example": "Pause and read above",
-    "description": "The bias-variance trade-off is an interview classic, and is a key framework for understanding different kinds of models. With any model, we are usually trying to estimate a function $f(x)$, which predicts our target variable $y$ based on our input $x$. This relationship can be described as follows:\n$$\ny=f(x)+w\n$$\nwhere $w$ is noise, not captured by $f(x)$, and is assumed to be distributed as a zero-mean Gaussian random variable for certain regression problems. To assess how well the model fits, we can decompose the error of $y$ into the following:\n1 Bias: how close the model's predicted values come to the true underlying $f(x)$ values, with smaller being better\n2 Variance: the extent to which model prediction error changes based on training inputs, with smaller being better\n3 Irreducible error: variation due to inherently noisy observation processes",
-    "prompt": "Explain bias, Variance and Irreducible error in simple terms -What is w in the formula?",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\7 - Machine Learning.md",
-    "reference_line": 42,
-    "module_name": "Data Science",
-    "category": "MachineLearning"
-  },
-  {
-    "term": "3 - Model Complexity and Overfitting",
-    "example": "Pause and read above\n![[Pasted image 20250701180408.png]]",
-    "description": "Suggests that simpler models are generally more useful and correct than more complicated models. That’s because simpler, more parsimonious models tend to generalize better. Said another way, simpler, smaller models are less likely to overfit (fit too closely to the training data). Overtit models tend not to generalize well out of sample. That’s because during overfitting, the models pick up too much noise or random fluctuations using the training data, which hinders performance on data the model has never seen before.",
-    "prompt": "Explain what does the model complxity and overfitting suggest",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\7 - Machine Learning.md",
-    "reference_line": 58,
-    "module_name": "Data Science",
-    "category": "MachineLearning"
-  },
-  {
-    "term": "4 - Regularization",
-    "example": "Specifically, L1, also known as lasso, uses the absolute value of a coefficient to the objective function as a penalty. On the other hand, L2, also known as ridge, uses the squared magnitude of a coefficient to the objective function. The L1 and L2 penalties can also be linearly combined, resulting in the popular form of regularization called elastic net. Since having models overfit is a prevalent problem in machine learning, it`s important to understand when to use each type of regularization. For example, Ll serves as a feature selection method, since many coefficients shrink to 0 (are zeroed out), and hence, are removed from the model. L2 is less likely to shrink any coefficients to 0 . Therefore, L1 regularization leads to sparser models, and is thus considered a more strict shrinkage operation.",
-    "description": "Regularization aims to reduce the complexity of models. In relation to the bias-variance trade-off, regularization aims to decrease complexity in a way that significantly reduces variance while only slightly increasing bias. The most widely used forms of regularization are L1 and L2. Both methods add a simple penalty term to the objective function. The penalty helps shrink coefficients of features, which reduces overfitting. This is why, not surprisingly, they are also known as shrinkage methods.",
-    "prompt": "Explain the process of regularization in simple terms, Explain the L1 and L2 form of regularization",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\7 - Machine Learning.md",
-    "reference_line": 67,
-    "module_name": "Data Science",
-    "category": "MachineLearning"
-  },
-  {
-    "term": "5 - Inerpretabiliy & Explainability",
-    "example": "Stop, read above, and explain",
-    "description": "linear models have weights which can be visualized and analyzed to interpret the decision making. Similarly, random forests have feature importance readily available to identify what the model is using and learning. There are also some general frameworks that can help with more “black-box” models. One is SHAP (SHapley Additive exPlanation), which uses “Shapley” values to denote the average marginal contribution of a feature over all possible combinations of inputs. Another technique 1S LIME (Local Interpretable Model-agnostic Explanations), which uses sparse linear models built around various predictions to understand how any model performs in that local vicinity.",
-    "prompt": "explain ways in which you cna make your models easier to explain.",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\7 - Machine Learning.md",
-    "reference_line": 74,
-    "module_name": "Data Science",
-    "category": "MachineLearning"
-  },
-  {
-    "term": "6 - Model Trainning",
-    "example": "Stop, read abve, and explain",
-    "description": "Recall the basics: we first train models on a training dataset and then test the models ona testing dataset. Normally, 80% of the data will go towards training data, and 20% serves as the test set. But as we soon cover, there’s much more to model training than the 80/20 train vs. test split.",
-    "prompt": "What is the basics on training datasets and testing models?",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\7 - Machine Learning.md",
-    "reference_line": 80,
-    "module_name": "Data Science",
-    "category": "MachineLearning"
-  },
-  {
-    "term": "7 - Cross Validation",
-    "example": "One popular way to do cross-validation is called $k$-fold cross-validation. The process is as follows:\n1. Randomly shuffle data into equally-sized blocks (folds).\n2. For each fold $k$, train the model on all the data except for fold $i$, and evaluate the validation error using block $i$.\n3. Average the $k$ validation errors from step 2 to get an estimate of the true error.\n| Dataset $\\wedge$ |\n|\n|\n|\n|\n|\n| :--- | :--- | :--- | :--- | :--- | :--- |\n| Estimation 1 | Test 1 | Train | Train | Train | Train |\n| Estimation 2 | Train | Test 2 | Train | Train | Train |\n| Estimation 3 | Train | Train | Test 3 | Train | Train |\n| Estimation 4 | Train | Train | Train | Test 4 | Train |\n| Estimation 5 | Train | Train | Train | Train | Test 5 |\nExample of 5-Fold Cross Validation\nAnother form of cross-validation you're expected to know for the interview is leave-one-out crossvalidation. L.OOCV is a special case of $k$-fold cross-validation where $k$ is equal to the size of the dataset (n). That is, it is where the model is testing on every single data point during the crossvalidation.\n",
-    "description": "assesses the performance of an algorithm in several subsamples of training data. It consists of running the algorithm on subsamples of the training data, such as the original data without some of the original observations, and evaluating model performance on the portion of the data that was excluded from the subsample. This process is repeated many times for the different subsamples, and the results are combined at the end.\nCross-validation helps you avoid training and testing on the same subsets of data points, which would lead to overfitting.",
-    "prompt": "What is cross validation  and how does this process work, Provide an example of a popular way to do cross-validation?",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\7 - Machine Learning.md",
-    "reference_line": 86,
-    "module_name": "Data Science",
-    "category": "MachineLearning"
-  },
-  {
-    "term": "8 - how to apply cross-validation for time series data?",
-    "example": "Standard k-fold CV can’t be applied, since the time-series data is not randomly distributed but instead is already in chronological order. Therefore, you should not be using data “in the future” for predicting data “from the past.” Instead, you should use historical data up until a given point in time, and vary that point in time from the beginning till the end",
-    "description": "Regularization aims to reduce the complexity of models. In relation to the bias-variance trade-off, regularization aims to decrease complexity in a way that significantly reduces variance while only slightly increasing bias. The most widely used forms of regularization are L1 and L2. Both methods add a simple penalty term to the objective function. The penalty helps shrink coefficients of features, which reduces overfitting. This is why, not surprisingly, they are also known as shrinkage methods.",
-    "prompt": "how to apply cross-validation for time series data?",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\7 - Machine Learning.md",
-    "reference_line": 110,
-    "module_name": "Data Science",
-    "category": "MachineLearning"
-  },
-  {
-    "term": "9 - Bootstrapping and Bagging",
-    "example": "Stop, read and answer",
-    "description": "The process of bootstrapping is simply drawing observations from a large data sample repeatedly (sampling with replacement) and estimating some quantity of a population by averaging estimates from multiple smaller samples. Besides being useful in cases where the dataset is small, bootstrapping is also useful for helping deal with **class imbalance**: for the classes that are rare, we can generate new samples via bootstrapping. Another common application of bootstrapping is in **ensemble learning**: the process of averaging estimates from many smaller models into a main model. Each individual model is produced using a particular sample from the process. This process of bootstrap aggregation is also known as **bagging**.",
-    "prompt": "What is bootstrapping useful for? What applications?",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\7 - Machine Learning.md",
-    "reference_line": 114,
-    "module_name": "Data Science",
-    "category": "MachineLearning"
-  },
-  {
-    "term": "10 - Hyperparameter Tuning",
-    "example": "Please read and continue",
-    "description": "Hyperparameters are important because they impact a model’s training time, compute resources needed (and hence cost), and, ultimately, performance. One popular method for tuning hyperparameters is grid search, which involves forminga grid that is the Cartesian product of those parameters and then sequentially trying all such combinations and seeing which yields the best results. While comprehensive, this method can take a long time to run since the cost increases exponentially with the number of hyperparameters. Another popular hyperparameter tuning method is **random search**, where we define a distribution for each parameter and randomly sample from the joint distribution over all parameters. This solves the problem of exploring an exponentially increasing search space, but is not necessarily guaranteed to achieve an optimal result.",
-    "prompt": "What is Hyperparaeters tuning important for? Provide an example of hypeparametertuning method?",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\7 - Machine Learning.md",
-    "reference_line": 120,
-    "module_name": "Data Science",
-    "category": "MachineLearning"
-  },
-  {
-    "term": "11 - Linear Regression",
-    "example": "In linear regression, the goal is to estimate a function $f(x)$, such that each feature has a linear relationship to the target variable $y$, or:\n$$\ny=X \\beta\n$$\nwhere $X$ is a matrix of predictor variables and $\\beta$ is a vector of parameters that determines the weight of each variable in predicting the target variable. So, how do you compare the performance of two linear regression models?",
-    "description": "What is the goal of linear regressions?",
-    "prompt": "Explain whats the goal using the formula",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\7 - Machine Learning.md",
-    "reference_line": 129,
-    "module_name": "Data Science",
-    "category": "MachineLearning"
-  },
-  {
-    "term": "12 - Evaluating Linear Regression",
-    "example": "Evaluation of a regression model is built on the concept of a residual: the distance between what the model predicted versus the actual value. Linear regression estimates $\\beta$ by minimizing the residual sum of squares (RSS), which is given by the following:\n$$\nR S S(\\beta)=(y-X \\beta)^T(y-X \\beta)\n$$",
-    "description": "",
-    "prompt": "On what is built the concept of linear regression evaluation? What is the sum of squares formula?",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\7 - Machine Learning.md",
-    "reference_line": 141,
-    "module_name": "Data Science",
-    "category": "MachineLearning"
-  },
-  {
-    "term": "13 - MAE and MSE? in RSS",
-    "example": "![[Pasted image 20250701213729.png]]",
-    "description": "Two other sum of squares concepts to know besides the RSS are the total sum of squares (TSS) and explained sum of squares (ESS). The total sum of squares is the combined variation in the data ( $E S S+R S S$ ). The explained sum of squares is the difference between TSS and RSS. $R^2$, a popular metric for assessing goodness-of-fit, is given by $R^2=1-\\frac{R S S}{T S S}$. It ranges between zero and one, and represents the proportion of variability in the data explained by the model. Other prominent error metrics to measure the goodness-of-fit of linear regression are MSE (mean squared error) and MAE (mean absolute error). MSE measures the variance of the residuals, whereas MAE measures the average of the residuals; hence, MSE penalizes larger errors more than MAE, making it more sensitive to outliers.",
-    "prompt": "When it comes to measuring RSS What is the difrference between MSE and MAE?",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\7 - Machine Learning.md",
-    "reference_line": 149,
-    "module_name": "Data Science",
-    "category": "MachineLearning"
-  },
-  {
-    "term": "14 - Subset Selection",
-    "example": "tries each model with & predictors, out ofp possible ones, where k < p. Then, you choose the best subset model using a regression metric like R?. While this guarantees the best result, it can be computationally infeasible as p increases (due to the exponential number of combinations to try).",
-    "description": "Subset selection. By default, we use all the predictors in a linear model. However, in practice, it’s important to narrow down the number of features, and only include the most important features. One way is best subset selection, which tries each model with & predictors, out of possible ones, where k < p. Then, you choose the best subset model using a regression metric like R?. While this guarantees the best result, it can be computationally infeasible as p increases (due to the exponential number of combinations to try). Additionally, by trying every option in a large search space, you're likely to get model that overfits with a high variance in coefficient estimates",
-    "prompt": "How does subset selection work to reduce models complexity of a regression model?",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\7 - Machine Learning.md",
-    "reference_line": 156,
-    "module_name": "Data Science",
-    "category": "MachineLearning"
-  },
-  {
-    "term": "15 - What is stepwise selection and how does it work? What it solves? Whats the difference with backward stepwise selection?",
-    "example": "we start with an empty model and iteratively add the most useful predictor. In backward stepwise selection, we start with the full model and iteratively remove the least useful predictor. While doing stepwise selection, we aim to find a model with high R? and low RSS, while considering the number of predictors using metnics like AIC or adjusted R?.",
-    "description": "Regularization aims to reduce the complexity of models. In relation to the bias-variance trade-off, regularization aims to decrease complexity in a way that significantly reduces variance while only slightly increasing bias. The most widely used forms of regularization are L1 and L2. Both methods add a simple penalty term to the objective function. The penalty helps shrink coefficients of features, which reduces overfitting. This is why, not surprisingly, they are also known as shrinkage methods.",
-    "prompt": "What is stepwise selection and how does it work? What it solves? Whats the difference with backward stepwise selection?",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\7 - Machine Learning.md",
-    "reference_line": 163,
-    "module_name": "Data Science",
-    "category": "MachineLearning"
-  },
-  {
-    "term": "16 - Linear Regression Assumptions",
-    "example": "- **Linearity**: The effect of each input (feature) on the result (output) is consistent. If one feature increases, the result increases or decreases in a straight-line way, not in a curve or zigzag.\n- **Homoscedasticity**: The amount of error or noise in the predictions stays about the same no matter what the input values are. It doesn’t get bigger or smaller depending on the situation.\n- **Independence**: Each data point is separate and doesn’t influence the others. For example, one person’s income doesn’t affect another’s in your dataset.\n- **Normality**: The results (outputs) follow a bell-shaped curve. Most values are around the average, and very high or low values are rare.",
-    "description": "Before you can use this technique, you must validate its four main assumptions to prevent erroneous results.\n- Linearity: The relationship between the feature set and the target variable is linear.\n- Homoscedasticity: The variance of the residuals is constant.\n- Independence: All observations are independent of one another.\n- Normality: The distribution of Y is assumed to be normal.",
-    "prompt": "explain each point in non technical manner",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\7 - Machine Learning.md",
-    "reference_line": 168,
-    "module_name": "Data Science",
-    "category": "MachineLearning"
-  },
-  {
-    "term": "17 - Heteroscedasticity",
-    "example": "",
-    "description": "p103\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
-    "prompt": "Heteroscedasticity",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\7 - Machine Learning.md",
-    "reference_line": 183,
-    "module_name": "Data Science",
-    "category": "MachineLearning"
-  }
+	{
+		"term": "1 - Properties of Random Variable",
+		"example": "Think of **expectation** as the **center of mass**:\nYou're **weighing each value xxx** by how likely it is (its **density** fX(x)f_X(x)fX​(x)).\n> _\"Expectation = weighted average of outcomes\"_\n>\n>\n$$\n\\mu=E[X]=\\int^x x f_X(x) d x\n$$",
+		"description": "For any given random variable X, the following properties hold true (below we assume X is continuous, but it also holds true for discrete random variables). The expectation (average value, or mean) of a random variable is given by the integral of the value\nThe expectation (average value, or mean) of a random variable is given by the integral of the value of $X$ with its probability density function (PDF) $f x(x)$ :",
+		"prompt": "Properties of Random Variable",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6 - Statistics.md",
+		"reference_line": 5,
+		"module_name": "Data Science",
+		"category": "Statistics"
+	},
+	{
+		"term": "2 - :p Provide the formula of the variance using expectancy and mean",
+		"example": "$$\n\\operatorname{Var}(X)=E\\left[(X-E[X])^2\\right]=E\\left[X^2\\right]-(E[X])^2\n$$",
+		"description": "For any given random variable X, the following properties hold true (below we assume X is continuous, but it also holds true for discrete random variables). The expectation (average value, or mean) of a random variable is given by the integral of the value",
+		"prompt": ":p Provide the formula of the variance using expectancy and mean",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6 - Statistics.md",
+		"reference_line": 22,
+		"module_name": "Data Science",
+		"category": "Statistics"
+	},
+	{
+		"term": "3 - :p Provide the formula of the standard deviation using variance, or expectancy and mean",
+		"example": "$$\n\\sigma=\\sqrt{\\operatorname{Var}(X)}=\\sqrt{E\\left[(X-E[X])^2\\right]}=\\sqrt{E\\left[X^2\\right]-(E[X])^2}\n$$",
+		"description": "For any given random variable X, the following properties hold true (below we assume X is continuous, but it also holds true for discrete random variables). The expectation (average value, or mean) of a random variable is given by the integral of the value",
+		"prompt": ":p Provide the formula of the standard deviation using variance, or expectancy and mean",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6 - Statistics.md",
+		"reference_line": 32,
+		"module_name": "Data Science",
+		"category": "Statistics"
+	},
+	{
+		"term": "4 - :p provide the formula for calculating the Covariance between X and Y given Expectation of them",
+		"example": "$$\n\\operatorname{Cov}(X, Y)=E[(X-E[X])(Y-E[Y])]=E[X Y]-E[X] E[Y]\n$$",
+		"description": "For any given random variable X, the following properties hold true (below we assume X is continuous, but it also holds true for discrete random variables). The expectation (average value, or mean) of a random variable is given by the integral of the value",
+		"prompt": ":p provide the formula for calculating the Covariance between X and Y given Expectation of them",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6 - Statistics.md",
+		"reference_line": 51,
+		"module_name": "Data Science",
+		"category": "Statistics"
+	},
+	{
+		"term": "5 - and the normalization of covariance, represented by the Greek letter $\\rho$, is the correlation between $X$ and $Y$ :",
+		"example": "$$\n\\rho(X, Y)=\\frac{\\operatorname{Cov}(X, Y)}{\\sqrt{\\operatorname{Var}(X) \\operatorname{Var}(Y)}}\n$$",
+		"description": "For any given random variable X, the following properties hold true (below we assume X is continuous, but it also holds true for discrete random variables). The expectation (average value, or mean) of a random variable is given by the integral of the value",
+		"prompt": "and the normalization of covariance, represented by the Greek letter $\\rho$, is the correlation between $X$ and $Y$ :",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6 - Statistics.md",
+		"reference_line": 57,
+		"module_name": "Data Science",
+		"category": "Statistics"
+	},
+	{
+		"term": "6 - Hypothesis Testing",
+		"example": "1. State a null hypothesis and an alternative hypothesis. Either the null hypothesis will be rejected (in favor of the alternative hypothesis), or it will fail to be rejected (although failing to reject the null hypothesis does not necessarily mean it is true, but rather that there is not sufficient evidence to reject it).\n2. Use a particular test statistic of the null hypothesis to calculate the corresponding $\\rho$-value.\n3. Compare the p -value to a certain significance level $\\alpha$.",
+		"description": "**General Setup**\nThe process of testing whether or not a sample of data supports a particular hypothesis is called hypothesis testing. Generally, hypotheses concern particular properties of interest for a given population, such as its parameters, like $\\mu$ (for example, the mean conversion rate among a set of users).\nThe steps in testing a hypothesis are as follows:",
+		"prompt": "provide the 3 steps to create the hypothesis testing",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6 - Statistics.md",
+		"reference_line": 90,
+		"module_name": "Data Science",
+		"category": "Statistics"
+	},
+	{
+		"term": "7 - Z-Test",
+		"example": "$$\nz=\\frac{\\bar{x}-\\mu_0}{\\sigma / \\sqrt{n}} \\sim N(0,1)\n$$\nin the case where the population variance $\\sigma^2$ is known.\n$z=\\frac{\\text { sample mean }- \\text { expected mean }}{\\text { standard deviation } / \\sqrt{n}}$",
+		"description": "Generally the Z-test is used when the sample size is large (to invoke the CLT) or when the population variance is known, and a $t$-test is used when the sample size is small and when the population variance is unknown. The $Z$-test for a population mean is formulated as:\nYou're comparing your **sample mean** to a known **population mean**, and you **know how spread out the population is (σ)**.\n“How many standard errors away is my sample mean from what I expected?”\n- You **know** the population standard deviation σ\\sigmaσ\n- Your **sample size is large** (usually n≥30n \\geq 30n≥30)",
+		"prompt": "Provide the Z test population formula, When does it make sense to use z-tests?",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6 - Statistics.md",
+		"reference_line": 109,
+		"module_name": "Data Science",
+		"category": "Statistics"
+	},
+	{
+		"term": "8 - $t$-Test",
+		"example": "$$\nt=\\frac{\\bar{x}-\\mu_0}{s / \\sqrt{n}} \\sim t_n\n$$\n$$\nt=\\frac{\\text { sample mean }- \\text { expected mean }}{\\text { sample standard deviation } / \\sqrt{n}}\n$$",
+		"description": "The $t$-test is structured similarly to the $Z$-test, but uses the sample variance $s^2$ in place of population variance. The $t$-test is parametrized by the degrees of freedom, which refers to the number of independent observations in a dataset, denoted below by $n-1$ :\n“Given that I’m estimating the standard deviation, is my sample mean far enough from the expected mean?”\n- You **do NOT know σ**\n- Sample size is **small**\n- You assume the underlying data is **roughly normal**",
+		"prompt": "Provide the T test formula given ean, the sample, Whend does it make sense to use t-tests?",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6 - Statistics.md",
+		"reference_line": 124,
+		"module_name": "Data Science",
+		"category": "Statistics"
+	},
+	{
+		"term": "9 - Chi-Squared Test",
+		"example": "$$\n\\chi^2=\\sum_i \\frac{\\left(O_i-E_i\\right)^2}{E_i}\n$$\n$$\n\\chi^2=\\sum \\frac{(\\text { observed }- \\text { expected })^2}{\\text { expected }}\n$$\nwhere $O_i$ is the observed value of interest and $E_i$ is its expected value. A Chi-squared test statistic takes on a particular number of degrees of freedom, which is based on the number of categories in the distribution.\n.\nTo use the squared test to check whether two categorical variables are independent, create a table of counts (called a contingency table), with the values of one variable forming the rows of the table and the values of the other variable forming its columns, and check for intersections. It uses the same style of Chi-squared test statistic as given above.",
+		"description": "The Chi-squared test statistic is used to assess goodness of fit, and is calculated as follows:\n“Are the differences between what I saw and what I expected **too big to be random**?”\n- Data is **counts** or **frequencies**\n- You want to test **how well the data fits** an expected pattern (or independence)",
+		"prompt": "Provide Chi Squared Test Formula, When does it make sense to use Chi Squared Tests?",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6 - Statistics.md",
+		"reference_line": 144,
+		"module_name": "Data Science",
+		"category": "Statistics"
+	},
+	{
+		"term": "10 - p-values and Confidence Intervals",
+		"example": "“The p-value tells you how surprised you should be if the null hypothesis were true.”\n- Imagine flipping a coin that’s supposed to be fair. If you get 95 heads out of 100 flips, the **p-value** is the chance of getting that result **by luck** — and if it’s really low, you **start doubting the coin is fair**.\n> “The confidence interval gives you a smart guess range for where the **true value** might be.”\n- If you build a 95% confidence interval around your sample result, you're saying:\n> “If I repeated this many times, 95 out of 100 intervals would catch the real answer.”",
+		"description": "In conducting a hypothesis test, an $\\alpha$, or measure of the acceptable probability of rejecting a true null hypothesis, is typically chosen prior to conducting the test. Then, a confidence interval can also be calculated to assess the test statistic. This is a range of values that, if a large sample were taken, would contain the parameter value of interest $(1-\\alpha) \\%$ of the time. For instance, a $95 \\%$ confidence interval would contain the true value $95 \\%$ of the time. If 0 is included in the confidence intervals, then we cannot reject the null hypothesis (and vice versa).\nThe general form for a confidence interval around the population mean looks like the following, where the term is the critical value (for the standard normal distribution):\n.\n$$\n\\mu \\pm z_{i, v / 2} \\frac{\\sigma}{\\sqrt{n}}\n$$\n.\nIn the prior example with the $\\mathrm{A} / \\mathrm{B}$ testing on conversion rates, we see that the confidence interval for a population proportion would be\n-\n$$\n\\hat{p} \\pm z_{\\mathrm{a} / 2} \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}\n$$\n.\nsince our estimate of the true proportion will have the following parameters when estimated as approximately Gaussian:\n.\n$$\n\\mu=\\frac{n p}{n}=p, \\sigma^2=\\frac{n p(1-p)}{n^2}=\\frac{p(1-p)}{n}\n$$\n.\nAs long as the sampling distribution of a random variable is known, the appropriate p -values and confidence intervals can be assessed.",
+		"prompt": "Explain p-values and confidence intervals in nontechical terms",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6 - Statistics.md",
+		"reference_line": 173,
+		"module_name": "Data Science",
+		"category": "Statistics"
+	},
+	{
+		"term": "11 - Type I and II Errors",
+		"example": "Usually $1-\\alpha$ is referred to as the confidence level, whereas $1-\\beta$ is referred to as the power. If you plot sample size versus power, generally you should see a larger sample size corresponding to a larger power. It can be useful to look at power in order to gauge the sample size needed for detecting a significant effect. Generally, tests are set up in such a way as to have both $1-\\alpha$ and $1-\\beta$ relatively high (say at 0.95 and 0.8 , respectively).\nIn testing multiple hypotheses, it is possible that if you ran many experiments --- even if a particular outcome for one experiment is very unlikely - you would see a statistically significant outcome at least once. So, for example, if you set $\\alpha=0.05$ and run 100 hypothesis tests, then by pure chance you would expect 5 of the tests to be statistically significant. However, a more desirable outcome is to have the overall $\\alpha$ of the 100 tests be 0.05 , and this can be done by setting the new $\\alpha$ to $\\alpha / n$, where $n$ is the number of hypothesis tests (in this case, $\\alpha / n=0.05 / 100=0.0005$ ). This is known as Bonferroni correction, and using it helps make sure that the overall rate of false positives is controlled within a multiple testing framework.",
+		"description": "There are two errors that are frequently assessed: type I error, which is also known as a \"false positive.\" and type II error, which is also known as a \"false negative.\" Specifically, a type I error is when one rejects the null hypothesis when it is correct, and a type II error is when the null hypothesis is not rejected when it is incorrect.\n![[Pasted image 20250701154755.png]]",
+		"prompt": "What is a type I and type II in a example situation?",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6 - Statistics.md",
+		"reference_line": 203,
+		"module_name": "Data Science",
+		"category": "Statistics"
+	},
+	{
+		"term": "12 - MLE and MAP",
+		"example": "**MLE**\nYou’ve collected some data — like seeing the results of 100 coin flips — and now you're asking:\n“What’s the most likely setting (parameter) that explains what I saw?”\nMLE says: “Pick the parameter that makes the data you observed the most likely.”\n**MAP**\n“Pick the parameter that is most likely given both the data and what you believed before.”\n“Choose the recipe that both explains the flavor **and** matches what you already thought the baker probably used.”",
+		"description": "Any probability distribution has parameters, so fitting parameters is an extremely crucial part of data analysis. There are two general methods for doing so. In maximum likelihood estimation (MLE), the goal is to estimate the most likely parameters given a likelihood function: $\\theta_{M L E}=\\arg \\max L(\\theta)$, where $L(\\theta)=f_n\\left(x_1 \\ldots x_n \\mid \\theta\\right)$.\nSince the values of $X$ are assumed to be i.i.d., then the likelihood function becomes the following:\n-\n$$\nL(\\theta)=\\prod_{i+1}^n f\\left(x_i \\mid \\theta\\right)\n$$\n> Multiply the probability of each data point, assuming the parameter is $θ$. The higher the product, the more likely it is that θ is the correct setting.\nThe natural $\\log$ of $L(\\theta)$ is then taken prior to calculating the maximum; since log is a monotonically increasing function, maximizing the $\\log$-likelihood $\\log L(\\theta)$ is equivalent to maximizing the likelihood:\n$$\n\\log L(\\theta)=\\sum_{i=1}^n \\log f\\left(x_i \\mid \\theta\\right)\n$$\n> - **Products** are hard to work with, **sums** are easier.The **log doesn’t change the maximum**, because it’s a **monotonic function** (order stays the same). This version is called the **log-likelihood**, and it simplifies the math.\nAnother way of fitting parameters is through maximum a posteriori estimation (MAP), which assumes a \"prior distribution:\"\n$$\n\\theta_{M U P}=\\arg \\max g(\\theta) f\\left(x_1 \\ldots x_n \\mid \\theta\\right)\n$$\n> MAP estimation finds the value of θ that is most **probable given the data**, not just most likely to produce the data.\nwhere the similar log-likelihood is again employed, and $g(\\theta)$ is a density function of $\\theta$.\nBoth MLE and MAP are especially relevant in statistics and machine learning, and knowing these is recommended, especially for more technical interviews. For instance, a common question in such interviews is to derive the MLE for a particular probability distribution. Thus, understanding the above steps, along with the details of the relevant probability distributions, is crucial.\n\n",
+		"prompt": "Explain Maximum Likelihood Estimation and Maxium A Posteriri estimation ideas and formulas in non technical way",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6 - Statistics.md",
+		"reference_line": 211,
+		"module_name": "Data Science",
+		"category": "Statistics"
+	},
+	{
+		"term": "1 - Easy",
+		"example": "Solution \\#6.1\nThe Central Limit Theorem (CLT) states that if any random variable, regardless of distribution, is sampled a large enough number of times, the sample mean will be approximately normally distributed. This allows for studying of the properties for any statistical distribution as long as there is a large enough sample size.\nThe mathematical definition of the CLT is as follows: for any given random variable $X$, as n approaches infinity,\n$$\n\\bar{X}_n=\\frac{X_1+\\ldots+X_n}{n} \\rightarrow \\sim N\\left(\\mu, \\frac{\\sigma^2}{n}\\right)\n$$\nAt any company with a lot of data, like Uber, this concept is core to the various experimentation platforms used in the product. For a real-world example, consider testing whether adding a new feature increases rides booked in the Uber platform, where each X is an individual ride and is a Bernoulli random variable (i.e., the rider books or does not book a ride). Then, if the sample size is sufficiently large, we can assess the statistical properties of the total number of bookings, as well as the booking rate (rides booked / rides opened on app). These statistical properties play a key role in hypothesis testing. allowing companies like Uber to decide whether or not to add new features in a data-driven manner.",
+		"description": "6.1. Uber: Explain the Central Limit Theorem. Why it is useful? Provide the mathematical Definition of the CLT",
+		"prompt": "Easy",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
+		"reference_line": 5,
+		"module_name": "Data Science",
+		"category": "aStatisticsPractice"
+	},
+	{
+		"term": "2 - 6.2. Facebook: How would you explain a confidence interval to a non-technical audience?",
+		"example": "Suppose we want to estimate some parameters of a population. For example, we might want to estimate the average height of males in the U.S. Given some data from a sample, we can compute a sample mean for what we think the value is, as well as a range of values around that mean. Following the previous example, we could obtain the heights of 1,000 random males in the U.S. and compute the average height, or the sample mean. This sample mean is a type of point estimate and, while useful, will vary from sample to sample. Thus, we can't tell anything about the variation in the data around this estimate, which is why we need a range of values through a confidence interval.\nConfidence intervals are a range of values with a lower and an upper bound such that if you were to sample the parameter of interest a large number of times, the $95 \\%$ confidence interval would contain the true value of this parameter $95 \\%$ of the time. We can construct a confidence interval using the sample standard deviation and sample mean. The level of confidence is determined by a margin of error that is set beforehand. The narrower the confidence interval, the more precise the estimate, since there is less uncertainty associated with the point estimate of the mean.",
+		"description": "6.2. Facebook: How would you explain a confidence interval to a non-technical audience?",
+		"prompt": "6.2. Facebook: How would you explain a confidence interval to a non-technical audience?",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
+		"reference_line": 18,
+		"module_name": "Data Science",
+		"category": "aStatisticsPractice"
+	},
+	{
+		"term": "3 - 6.3. Twitter: What are some common pitfalls encountered in $\\mathrm{A} / \\mathrm{B}$ testing?",
+		"example": "A/B testing has many possible pitfalls that depend on the particular experiment and setup employed. One common drawback is that groups may not be balanced, possibly resulting in highly skewed results. Note that balance is needed for all dimensions of the groups - like user demographics or device used because, otherwise, the potentially statistically significant results from the test may simply be due to specific factors that were not controlled for. Two types of errors are frequently assessed: Type I error, which is also known as a \"false positive,\" and Type II error, also known as a \"false negative.\" Specifically, Type I error is rejecting a null hypothesis when that hypothesis is correct, whereas Type II error is failing to reject a null hypothesis when its alternative hypothesis is correct.\n.\nAnother common pitfall is not running an experiment for long enough. Generally speaking, experiments are run with a particular power threshold and significance threshold; however, they often do not stop immediately upon detecting an effect. For an extreme example, assume you're at either Uber or Lyft and running a test for two days, when the metric of interest (e.g., rides booked) is subject to weekly seasonality.\n.\nLastly, dealing with multiple tests is important because there may be interactions between results of tests you are running and so attributing results may be difficult. In addition, as the number of variations you run increases, so does the sample size needed. In practice, while it seems technically feasible to test 1.000 variations of a button when optimizing for click-through rate, variations in tests are usually based on some intuitive hypothesis concerning core behavior.",
+		"description": "6.3. Twitter: What are some common pitfalls encountered in $\\mathrm{A} / \\mathrm{B}$ testing?",
+		"prompt": "6.3. Twitter: What are some common pitfalls encountered in $\\mathrm{A} / \\mathrm{B}$ testing?",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
+		"reference_line": 25,
+		"module_name": "Data Science",
+		"category": "aStatisticsPractice"
+	},
+	{
+		"term": "4 - 6.4. Lyft: Explain both covariance and correlation formulaically, and compare and contrast them.",
+		"example": "Solution \\#6.4\nFor any given random variables $X$ and $Y$, the covariance, a linear measure of relationship, is defined by the following: $\\operatorname{Cov}(X, Y)=E[(X-E[X])(Y-E[Y])]=E[X Y]-E[X] E[Y]$\nSpecifically, covariance indicates the direction of the linear relationship between $X$ and $Y$ and can take on any potential value from negative infinity to infinity. The units of covariance are based on the units of $X$ and $Y$, which may differ.\nThe correlation between $X$ and $Y$ is the normalized version of covariance that takes into account the variances of $X$ and $Y$ :",
+		"description": "6.4. Lyft: Explain both covariance and correlation formulaically, and compare and contrast them.",
+		"prompt": "6.4. Lyft: Explain both covariance and correlation formulaically, and compare and contrast them.",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
+		"reference_line": 35,
+		"module_name": "Data Science",
+		"category": "aStatisticsPractice"
+	},
+	{
+		"term": "5 - 6.5. Facebook: Say you flip a coin 10 times and observe only one heads. What would be your null hypothesis and p -value for testing whether the coin is fair or not?",
+		"example": "Solution \\#6.5\nThe null hypothesis is that the coin is fair, and the alternative hypothesis is that the coin is biased towards tails (note this is a one-sided test):",
+		"description": "6.5. Facebook: Say you flip a coin 10 times and observe only one heads. What would be your null hypothesis and p -value for testing whether the coin is fair or not?",
+		"prompt": "6.5. Facebook: Say you flip a coin 10 times and observe only one heads. What would be your null hypothesis and p -value for testing whether the coin is fair or not?",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
+		"reference_line": 51,
+		"module_name": "Data Science",
+		"category": "aStatisticsPractice"
+	},
+	{
+		"term": "6 - 6.7. Groupon: Describe what Type I and Type II errors are, and the trade-offs between them.",
+		"example": "Solution \\#6.7\nBoth errors are relevant in the context of hypothesis testing. Type I error is when one rejects the null hypothesis when it is correct, and is known as a false positive. Type II error is when the null hypothesis is not rejected when the alternative hypothesis is correct; this is known as a false negative. In layman's terms, a type I error is when we detect a difference, when in reality there is no significant difference in an experiment. Similarly, a type II error occurs when we fail to detect a difference, when in reality there is a significant difference in an experiment.\nType 1 error is given by the level of significance $\\alpha$, whereas the type II error is given by $\\beta$. Usually, $1-\\alpha$ is referred to as the confidence level, whereas $1-\\beta$ is referred to as the statistical power of the test being conducted. Note that, in any well-conducted statistical procedure, we want to have both $\\alpha$ and $\\beta$ be small. However, based on the definition of the two, it is impossible to make both errors small simultaneously: the larger a is, the smaller B is. Based on the experiment and the relative importance of false positives and false negatives, a data scientist must decide what thresholds to adopt for any given experiment. Note that experiments are set up so as to have both |-a and 1-6 relatively high (say at .95, and .8, respectively).",
+		"description": "6.7. Groupon: Describe what Type I and Type II errors are, and the trade-offs between them.",
+		"prompt": "6.7. Groupon: Describe what Type I and Type II errors are, and the trade-offs between them.",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
+		"reference_line": 73,
+		"module_name": "Data Science",
+		"category": "aStatisticsPractice"
+	},
+	{
+		"term": "7 - 6.8. Microsoft: Explain the statistical background behind power.",
+		"example": "Solution \\#6.8\nPower is the probability of rejecting the null hypothesis when, in fact, it is false. It is also the probability of avoiding a Type II error. A Type II error occurs when the null hypothesis is not rejected when the alternative hypothesis is correct. This is important because we want to detect significant effects during experiments. That is, the higher the statistical power of the test, the higher the probability of detecting a genuine effect (i.e, accepting the alternative hypothesis and rejecting the null hypothesis). A minimum sample size can be calculated for any given level of power - for example, say a power level of 0.8 .\nAn analysis of the statistical power of a test is usually performed with respect to the test's level of significance $(\\alpha)$ and effect size (ie., the magnitude of the results).",
+		"description": "6.8. Microsoft: Explain the statistical background behind power.",
+		"prompt": "6.8. Microsoft: Explain the statistical background behind power.",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
+		"reference_line": 81,
+		"module_name": "Data Science",
+		"category": "aStatisticsPractice"
+	},
+	{
+		"term": "8 - 6.9. Facebook: What is a Z-test and when would you use it versus a t-test?",
+		"example": "Solution \\#6.9\nIn a Z-test, your test statistic follows a normal distribution under the null hypothesis. Alternatively, in a t-test, you employ a student's t-distribution rather than a normal distribution as your sampling distribution.\nConsidering the population mean, we can use either Z-test or t-test only if the mean is normally distributed, which is possible in two cases: the initial population is normally distributed, or the sample size is large enough ( $n \\geq 30$ ) that we can apply the Central Limit Theorem.\nIf the condition above is satisfied, then we need to decide which type of test is more appropriate to use. In general, we use $Z$-tests if the population variation is $k n o w n$, and vice versa: we use $t$-test if the population variation is unknown.\nAdditionally, if the sample size is very large ( $n>200$ ), we can use the $Z$-test in any case, since for such large degrees of freedom, $t$-distribution coincides with $z$-distribution up to thousands.\nConsidering the population proportion, we can use a $Z$-test (but not $t$-test) where $n p_0 \\geq 10$ and $n\\left(1-p_0\\right) \\geq$ 10. i.e., when each of the number of successes and the number of failures is at least 10 .",
+		"description": "6.9. Facebook: What is a Z-test and when would you use it versus a t-test?",
+		"prompt": "6.9. Facebook: What is a Z-test and when would you use it versus a t-test?",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
+		"reference_line": 89,
+		"module_name": "Data Science",
+		"category": "aStatisticsPractice"
+	},
+	{
+		"term": "9 - Medium",
+		"example": "Solution \\#6.10\nThe primary consideration is that, as the number of tests increases, the chance that a stand-alone p -value for any of the t-lests is statistically significant becomes very high due to chance alone. As an example, with 100 tests performed and a significance threshold of $\\alpha=0.05$. you would expect five of the experiments to be statistically significant due only to chance. That is, you have a very high probability of observing at least one significant outcome. Therefore, the chance of incorrectly rejecting a null hypothesis (i.e., committing Type I error) increases.\nTo correct for this effect. we can use a method called the Bonferroni correction, wherein we set the significance threshold to $\\omega / m$, where $m$ is the number of tests being performed. In the above scenario with 100 tests, we can set the significance threshold to instead be $0.05 / 100=0.0005$. While this correction helps to protect from Type I error. it is still prone to Type II error (i.e., failing to reject the null hypothesis when it should be rejected). In general, the Bonferroni correction is mostly useful when there is a smaller number of multiple comparisons of which a few are significant. If the number of tests becomes sufficiently high such that many tests yield statistically significant results. the number of Type II errors may also increase significantly.",
+		"description": "6.10. Amazon: Say you are testing hundreds of hypotheses, each with t-test. What considerations would you take into account when doing this?\nMedium",
+		"prompt": "Medium",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
+		"reference_line": 101,
+		"module_name": "Data Science",
+		"category": "aStatisticsPractice"
+	},
+	{
+		"term": "10 - Medium",
+		"example": "Solution \\#6.11\nThe confidence interval (CI) for a population proportion is an interval that includes a true population proportion with a certain degree of confidence $1-\\alpha$.\nFor the case of flipping heads from a series of coin tosses, the proportion follows the binomial distribution. If the series size is large enough (each of the number of successes and the number of failures is at least 10), we can utilize the Central Limit Theorem and use the normal approximation for the binomial distribution as follows:\n$$\nN\\left(\\hat{p}, \\frac{\\hat{p}(1-\\hat{p})}{n}\\right)\n$$\nwhere $\\hat{p}$ is the proportion of heads tossed in series, and $n$ is the series size. The Cl is centered at the series proportion, and plus or minus a margin of error:\n$$\n\\hat{p} \\pm z_{\\mathrm{a} / 2} \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}\n$$where $z_{\\mathrm{a} / 2}$ is the appropriate value from the standard normal distribution for the desired confidence level.\nFor example, for the most commonly used level of confidence, $95 \\%, z_{0 / 2}=1.96$.",
+		"description": "6.11. Google: How would you derive a confidence interval for the probability of flipping heads from a series of coin tosses?",
+		"prompt": "Medium",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
+		"reference_line": 108,
+		"module_name": "Data Science",
+		"category": "aStatisticsPractice"
+	},
+	{
+		"term": "11 - 6.12. Two Sigma: What is the expected number of coin flips needed to get two consecutive heads?",
+		"example": "Solution \\#6.12\nLet $X$ be the number of coin flips needed to obtain two consecutive heads. We then want to solve for $E[X]$. Let H denote a flip that results in heads, and T denote a flip that results in tails. Note that $\\mathrm{E}[X]$ can be written in terms of $\\mathrm{E}[X \\mid \\mathrm{H}]$ and $\\mathrm{E}[X \\mid \\mathrm{T}]$, i.e., the expected number of flips needed, conditioned on a flip being either heads or tails, respectively.\nConditioning on the first flip, we have: $E[X]=\\frac{1}{2}(1+E[X \\mid H])+\\frac{1}{2}(1+E[X \\mid T])$\nNote that $\\mathrm{E}[X \\mid \\mathrm{T}]=\\mathrm{E}[X]$ since if a tail is flipped, we need to start over in getting two heads in a row.\nTo solve for $\\mathrm{E}[X \\mid \\mathrm{H}]$, we can condition it further on the next outcome: either heads (HH) or tails (HT).\nTherefore, we have: $E[X \\mid H]=\\frac{1}{2}(1+E[X \\mid H H])+\\frac{1}{2}(1+E[X \\mid H T])$\nNote that if the result is HH , then $\\mathrm{E}[X \\mid \\mathrm{HH}]=0$, since the outcome has been achieved. If a tail was flipped, then $\\mathrm{E}[X \\mid \\mathrm{HT}]=\\mathrm{E}[X]$, and we need to start over in attempting to get two heads in a row. Thus:\n$$\nE[X \\mid H]=\\frac{1}{2}(1+0)+\\frac{1}{2}(1+E[X])=1+\\frac{1}{2} E[X]\n$$\nPlugging this into the original equation yields:\n$$\nE[X]=\\frac{1}{2}\\left(1+1+\\frac{1}{2} E[X]\\right)+\\frac{1}{2}(1+E[X])\n$$and after solving we get: $E[X]=6$. Therefore, we would expect 6 flips.",
+		"description": "6.12. Two Sigma: What is the expected number of coin flips needed to get two consecutive heads?",
+		"prompt": "6.12. Two Sigma: What is the expected number of coin flips needed to get two consecutive heads?",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
+		"reference_line": 127,
+		"module_name": "Data Science",
+		"category": "aStatisticsPractice"
+	},
+	{
+		"term": "12 - 6.13. Citadel: What is the expected number of rolls needed to see all six sides of a fair die?",
+		"example": "Let k denote the number of distinct sides seen from rolls. The first roll will always result in a new side being seen. If you have seen k sides. where& < 6, then the probability of rolling an unseen value will be (6 — &)/6, since there are 6 — k values you have not seen, and 6 possible outcomes of each roll.\nNote that each roll is independent of previous rolls. Therefore, for the second roll $(k=1)$, the time until a side not seen appears has a geometric distribution with $p=5 / 6$, since there are five of the six sides left to be seen. Likewise, after two sides $(k=2)$, the time taken is a geometric distribution, with $p=4 / 6$. This continues until all sides have been seen.\nRecall that the mean for a geometric distribution is given by $1 / p$, and let $X$ be the number of rolls needed to show all six sides. Then, we have the following:\n$$\nE[X]=1+\\frac{6}{5}+\\frac{6}{4}+\\frac{6}{3}+\\frac{6}{2}+\\frac{6}{1}=6 \\sum_{p=1}^6 \\frac{1}{p}=14.7 \\text { rolls }\n$$",
+		"description": "6.13. Citadel: What is the expected number of rolls needed to see all six sides of a fair die?",
+		"prompt": "6.13. Citadel: What is the expected number of rolls needed to see all six sides of a fair die?",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
+		"reference_line": 147,
+		"module_name": "Data Science",
+		"category": "aStatisticsPractice"
+	},
+	{
+		"term": "13 - 6.14. Akuna Capital: Say you're rolling a fair six-sided die. What is the expected number of rolls until you roll two consecutive 5 s ?",
+		"example": "",
+		"description": "6.14. Akuna Capital: Say you're rolling a fair six-sided die. What is the expected number of rolls until you roll two consecutive 5 s ?",
+		"prompt": "6.14. Akuna Capital: Say you're rolling a fair six-sided die. What is the expected number of rolls until you roll two consecutive 5 s ?",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
+		"reference_line": 159,
+		"module_name": "Data Science",
+		"category": "aStatisticsPractice"
+	},
+	{
+		"term": "14 - 6.15. D.E. Shaw: A coin was flipped 1,000 times, and 550 times it showed heads. Do you think the coin is biased? Why or why not?",
+		"example": "Solution \\#6.15\nBecause the sample size of flips is large ( 1,000 ), we can apply the Central Limit Theorem. Since each individual flip is a Bernoulli random variable, we can assume that $p$ is the probability of getting heads. We want to test whether p is .5 (i.e., whether it is a fair coin or not). The Central Limit Theorem allows us to approximate the total number of heads seen as being normally distributed.\nMore specifically, the number of heads seen out of $n$ total rolls follows a binomial distribution since it a sum of Bernoulli random variables. If the coin is not biased $(p=.5)$, then the expected number of heads is as follows: $\\mu=n p=1000 \\star 0.5=500$, and the variance of the number of heads is given by:\n$$\n\\sigma^2=n p(1-p)=1000 * 0.5 * 0.5=250, \\sigma=\\sqrt{250} \\approx 16\n$$Since this mean and standard deviation specify the normal distribution, we can calculate the corresponding $z$-score for 550 heads as follows:\n$$\nz=\\frac{550-500}{16}=3.16\n$$This means that, if the coin were fair, the event of seeing 550 heads should occur with a $<0.1 \\%$ chance under normality assumptions. Therefore, the coin is likely biased.",
+		"description": "6.15. D.E. Shaw: A coin was flipped 1,000 times, and 550 times it showed heads. Do you think the coin is biased? Why or why not?",
+		"prompt": "6.15. D.E. Shaw: A coin was flipped 1,000 times, and 550 times it showed heads. Do you think the coin is biased? Why or why not?",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
+		"reference_line": 176,
+		"module_name": "Data Science",
+		"category": "aStatisticsPractice"
+	},
+	{
+		"term": "15 - 6.16. Quora: You are drawing from a normally distributed random variable $X \\sim \\mathrm{~N}(0,1)$ once a day. What is the approximate expected number of days until you get a value greater than 2 ?",
+		"example": "Solution \\#6.16\nSince $X$ is normally distributed. we can employ the cumulative distribution function (CDF) of the normal distribution: $\\Phi(2)=P(X \\leq 2)=P(X \\leq \\mu+2 \\sigma)=0.9772$\nTherefore, $P(X>2)=1-0.977=0.023$ for any given day. Since each day's draws are independent. the expected time until drawing an $X>2$ follows a geometric distribution, with $p=0.023$. Letting $T$ be a random variable denoting the number of days, we have the following:\n$$\nE[T]=\\frac{1}{p}=\\frac{1}{.02272} \\approx 44 \\text { days }\n$$\n---",
+		"description": "6.16. Quora: You are drawing from a normally distributed random variable $X \\sim \\mathrm{~N}(0,1)$ once a day. What is the approximate expected number of days until you get a value greater than 2 ?",
+		"prompt": "6.16. Quora: You are drawing from a normally distributed random variable $X \\sim \\mathrm{~N}(0,1)$ once a day. What is the approximate expected number of days until you get a value greater than 2 ?",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
+		"reference_line": 192,
+		"module_name": "Data Science",
+		"category": "aStatisticsPractice"
+	},
+	{
+		"term": "16 - 6.17. Akuna Capital: Say you have two random variables $X$ and $Y$, each with a standard deviation. What is the variance of $a X+b Y$ for constants $a$ and $b$ ?",
+		"example": "Let the variances for $X$ and $Y$ be denoted by $\\operatorname{Var}(X)$ and $\\operatorname{Var}(Y)$.\nThen, recalling that the variance of a sum of variables is expressed as follows:\n$$\n\\operatorname{Var}(X+Y)=\\operatorname{Var}(X)+\\operatorname{Var}(Y)+2 \\operatorname{Cov}(X, Y)\n$$\nand that a constant coefficient of a random variable is assessed as follows: $\\operatorname{Var}(a X)=a^2 \\operatorname{Var}(X)$ We have $\\operatorname{Var}(a X+b Y)=a^2 \\operatorname{Var}(X)+b^2 \\operatorname{Var}(Y)+2 a b \\operatorname{Cov}(X, Y)$, which would provide the bounds on the designated variance; the range will depend on the covariance between $X$ and $Y$.",
+		"description": "6.17. Akuna Capital: Say you have two random variables $X$ and $Y$, each with a standard deviation. What is the variance of $a X+b Y$ for constants $a$ and $b$ ?",
+		"prompt": "6.17. Akuna Capital: Say you have two random variables $X$ and $Y$, each with a standard deviation. What is the variance of $a X+b Y$ for constants $a$ and $b$ ?",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
+		"reference_line": 202,
+		"module_name": "Data Science",
+		"category": "aStatisticsPractice"
+	},
+	{
+		"term": "17 - 6.18. Google: Say we have $X \\sim \\operatorname{Uniform}(0,1)$ and $Y \\sim \\operatorname{Uniform}(0,1)$ and the two are independent. What is the expected value of the minimum of $X$ and $Y$ ?",
+		"example": "Solution \\#6.18\nLet $Z=\\min (X, Y)$. Then we know the following: $P(Z \\leq z)=P(\\min (X, Y) \\leq z)=1-P(X>z, Y>z)$ For a uniform distribution, the following is true for a value of $z$ between 0 and 1 :",
+		"description": "6.18. Google: Say we have $X \\sim \\operatorname{Uniform}(0,1)$ and $Y \\sim \\operatorname{Uniform}(0,1)$ and the two are independent. What is the expected value of the minimum of $X$ and $Y$ ?",
+		"prompt": "6.18. Google: Say we have $X \\sim \\operatorname{Uniform}(0,1)$ and $Y \\sim \\operatorname{Uniform}(0,1)$ and the two are independent. What is the expected value of the minimum of $X$ and $Y$ ?",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
+		"reference_line": 213,
+		"module_name": "Data Science",
+		"category": "aStatisticsPractice"
+	},
+	{
+		"term": "18 - 6.19. Morgan Stanley: Say you have an unfair coin which lands on heads $60 \\%$ of the time. How many coin flips are needed to detect that the coin is unfair?",
+		"example": "Solution \\#6.19\nSay we flip the unfair coin $n$ times. Each flip is a Bernoulli trial with a success probability of $p$ :",
+		"description": "6.19. Morgan Stanley: Say you have an unfair coin which lands on heads $60 \\%$ of the time. How many coin flips are needed to detect that the coin is unfair?",
+		"prompt": "6.19. Morgan Stanley: Say you have an unfair coin which lands on heads $60 \\%$ of the time. How many coin flips are needed to detect that the coin is unfair?",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
+		"reference_line": 236,
+		"module_name": "Data Science",
+		"category": "aStatisticsPractice"
+	},
+	{
+		"term": "19 - 6.20. Uber: Say you have $n$ numbers $1 \\ldots n$, and you uniformly sample from this distribution with replacement $n$ times. What is the expected number of distinct values you would draw?",
+		"example": "Solution \\#6.20\nLet the following be an indicator random variable: $X_i=1$ if $i$ is drawn in $n$ turns\nWe would then want to find the following: $\\sum_{i=1}^n E\\left[X_i\\right]$\nWe know that $p\\left(X_i=1\\right)=1-p\\left(X_i=0\\right)$, so the probability of a number not being drawn (where each draw is independent) is the following:",
+		"description": "6.20. Uber: Say you have $n$ numbers $1 \\ldots n$, and you uniformly sample from this distribution with replacement $n$ times. What is the expected number of distinct values you would draw?",
+		"prompt": "6.20. Uber: Say you have $n$ numbers $1 \\ldots n$, and you uniformly sample from this distribution with replacement $n$ times. What is the expected number of distinct values you would draw?",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
+		"reference_line": 267,
+		"module_name": "Data Science",
+		"category": "aStatisticsPractice"
+	},
+	{
+		"term": "20 - 6.21. Goldman Sachs: There are 100 noodles in a bowl. At each step, you randomly select two noodle ends from the bowl and tie them together. What is the expectation on the number of loops formed?",
+		"example": "",
+		"description": "6.21. Goldman Sachs: There are 100 noodles in a bowl. At each step, you randomly select two noodle ends from the bowl and tie them together. What is the expectation on the number of loops formed?",
+		"prompt": "6.21. Goldman Sachs: There are 100 noodles in a bowl. At each step, you randomly select two noodle ends from the bowl and tie them together. What is the expectation on the number of loops formed?",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
+		"reference_line": 289,
+		"module_name": "Data Science",
+		"category": "aStatisticsPractice"
+	},
+	{
+		"term": "21 - 6.23. Lyft: Derive the mean and variance of the uniform distribution $\\mathrm{U}(a, b)$.",
+		"example": "For $X \\sim \\mathrm{U}(\\mathrm{a}, \\mathrm{b})$, we have the following: $f_X(x)=\\frac{1}{b-a}$\nTherefore, we can calculate the mean as:\n$$\nE[X]=\\int_a^b x f_x(x) d x=\\int_a^b \\frac{x}{b-a} d x=\\left.\\frac{x^2}{2(a-b)}\\right|_a ^b=\\frac{a+b}{2}\n$$\nSimilarly, the variance can be as expressed as follows: $\\operatorname{Var}(X)=E\\left[X^2\\right]-E[X]^2$\nGiving us:\n$$\nE\\left[X^2\\right]=\\int_a^b x^2 f_X(x) d x=\\int_a^b \\frac{x^2}{b-a} d x=\\left.\\frac{x^3}{3(a-b)}\\right|_a ^b=\\frac{a^2+a b+b^2}{3}\n$$Therefore: $\\operatorname{Var}(X)=\\frac{a^2+a b^2+b^2}{3}-\\left(\\frac{a+b}{2}\\right)^2=\\frac{(b-a)^2}{12}$",
+		"description": "6.23. Lyft: Derive the mean and variance of the uniform distribution $\\mathrm{U}(a, b)$.",
+		"prompt": "6.23. Lyft: Derive the mean and variance of the uniform distribution $\\mathrm{U}(a, b)$.",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
+		"reference_line": 350,
+		"module_name": "Data Science",
+		"category": "aStatisticsPractice"
+	},
+	{
+		"term": "22 - 6.24. Citadel: How many cards would you expect to draw from a standard deck before seeing the first ace?",
+		"example": "Although one can enumerate all the probabilities, this can get a bit messy from an algebraic standpoint, so obtaining the following intuitive answer is more preferable. Imagine we have aces A1, A2, A3, A4. We can then draw a line in between them to represent an arbitrary number (including 0 ) of cards between each ace, with a line before the first ace and after the last.\n$$\n|\\mathrm{A} 1| \\mathrm{A} 2|\\mathrm{~A} 3| \\mathrm{A} 4 \\mid\n$$There are $52-4=48$ non-ace cards in a deck. Each of these cards is equally likely to be in any of the five lines. Therefore, there should be $48 / 5=9.6$ cards drawn prior to the first ace being drawn. Hence, the expected number of cards drawn until the first ace is seen is $9.6+1=10.6$ cards we can't forget to add 1 , because we need to include drawing the ace card itself.",
+		"description": "6.24. Citadel: How many cards would you expect to draw from a standard deck before seeing the first ace?",
+		"prompt": "6.24. Citadel: How many cards would you expect to draw from a standard deck before seeing the first ace?",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
+		"reference_line": 365,
+		"module_name": "Data Science",
+		"category": "aStatisticsPractice"
+	},
+	{
+		"term": "23 - 6.25. Spotify: Say you draw n samples from a uniform distribution $\\mathrm{U}(a, b)$. What are the MLE estimates of $a$ and $b$ ?",
+		"example": "Note that for a uniform distribution, the probability density is $\\frac{1}{b-a}$ for any value on the interval $[a$, $b$ ]. The likelihood function is therefore as follows:\n$$\nf\\left(x_1, \\ldots, x_n \\mid a, b\\right)=\\left(\\frac{1}{b-a}\\right)^n\n$$\nTo obtain the MLE, we maximize this likelihood function, which is clearly maximized if $b$ is the largest of the samples and $a$ is the smallest of the samples. Therefore, we have the following:\n$$\n\\hat{a}=\\min \\left(x_1, \\ldots, x_n\\right),=\\hat{b} \\max \\left(x_1, \\ldots, x_n\\right)\n$$",
+		"description": "6.25. Spotify: Say you draw n samples from a uniform distribution $\\mathrm{U}(a, b)$. What are the MLE estimates of $a$ and $b$ ?",
+		"prompt": "6.25. Spotify: Say you draw n samples from a uniform distribution $\\mathrm{U}(a, b)$. What are the MLE estimates of $a$ and $b$ ?",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
+		"reference_line": 374,
+		"module_name": "Data Science",
+		"category": "aStatisticsPractice"
+	},
+	{
+		"term": "24 - Hard",
+		"example": "",
+		"description": "Hard questiosnare to be continued\n\n",
+		"prompt": "Hard",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\6a - Statistics Practice.md",
+		"reference_line": 385,
+		"module_name": "Data Science",
+		"category": "aStatisticsPractice"
+	},
+	{
+		"term": "1 - Linear Algebra",
+		"example": "for some n x n matrix A, x is an eigenvector of A if: Ax = Ax, where > is a scalar. A matrix can represent a linear transformation and, when applied to a vector x, results in another vector called an eigenvector, which has the same direction as x and is in fact x multiplied by a scaling factor i. known as an eigenvalue.",
+		"description": "What is eigenvectors and what is eigen values?",
+		"prompt": "Linear Algebra",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\7 - Machine Learning.md",
+		"reference_line": 12,
+		"module_name": "Data Science",
+		"category": "MachineLearning"
+	},
+	{
+		"term": "2 - Bias - Variance Trade-off",
+		"example": "Pause and read above",
+		"description": "The bias-variance trade-off is an interview classic, and is a key framework for understanding different kinds of models. With any model, we are usually trying to estimate a function $f(x)$, which predicts our target variable $y$ based on our input $x$. This relationship can be described as follows:\n$$\ny=f(x)+w\n$$\nwhere $w$ is noise, not captured by $f(x)$, and is assumed to be distributed as a zero-mean Gaussian random variable for certain regression problems. To assess how well the model fits, we can decompose the error of $y$ into the following:\n1 Bias: how close the model's predicted values come to the true underlying $f(x)$ values, with smaller being better\n2 Variance: the extent to which model prediction error changes based on training inputs, with smaller being better\n3 Irreducible error: variation due to inherently noisy observation processes",
+		"prompt": "Explain bias, Variance and Irreducible error in simple terms -What is w in the formula?",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\7 - Machine Learning.md",
+		"reference_line": 42,
+		"module_name": "Data Science",
+		"category": "MachineLearning"
+	},
+	{
+		"term": "3 - Model Complexity and Overfitting",
+		"example": "Pause and read above\n![[Pasted image 20250701180408.png]]",
+		"description": "Suggests that simpler models are generally more useful and correct than more complicated models. That’s because simpler, more parsimonious models tend to generalize better. Said another way, simpler, smaller models are less likely to overfit (fit too closely to the training data). Overtit models tend not to generalize well out of sample. That’s because during overfitting, the models pick up too much noise or random fluctuations using the training data, which hinders performance on data the model has never seen before.",
+		"prompt": "Explain what does the model complxity and overfitting suggest",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\7 - Machine Learning.md",
+		"reference_line": 58,
+		"module_name": "Data Science",
+		"category": "MachineLearning"
+	},
+	{
+		"term": "4 - Regularization",
+		"example": "Specifically, L1, also known as lasso, uses the absolute value of a coefficient to the objective function as a penalty. On the other hand, L2, also known as ridge, uses the squared magnitude of a coefficient to the objective function. The L1 and L2 penalties can also be linearly combined, resulting in the popular form of regularization called elastic net. Since having models overfit is a prevalent problem in machine learning, it`s important to understand when to use each type of regularization. For example, Ll serves as a feature selection method, since many coefficients shrink to 0 (are zeroed out), and hence, are removed from the model. L2 is less likely to shrink any coefficients to 0 . Therefore, L1 regularization leads to sparser models, and is thus considered a more strict shrinkage operation.",
+		"description": "Regularization aims to reduce the complexity of models. In relation to the bias-variance trade-off, regularization aims to decrease complexity in a way that significantly reduces variance while only slightly increasing bias. The most widely used forms of regularization are L1 and L2. Both methods add a simple penalty term to the objective function. The penalty helps shrink coefficients of features, which reduces overfitting. This is why, not surprisingly, they are also known as shrinkage methods.",
+		"prompt": "Explain the process of regularization in simple terms, Explain the L1 and L2 form of regularization",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\7 - Machine Learning.md",
+		"reference_line": 67,
+		"module_name": "Data Science",
+		"category": "MachineLearning"
+	},
+	{
+		"term": "5 - Inerpretabiliy & Explainability",
+		"example": "Stop, read above, and explain",
+		"description": "linear models have weights which can be visualized and analyzed to interpret the decision making. Similarly, random forests have feature importance readily available to identify what the model is using and learning. There are also some general frameworks that can help with more “black-box” models. One is SHAP (SHapley Additive exPlanation), which uses “Shapley” values to denote the average marginal contribution of a feature over all possible combinations of inputs. Another technique 1S LIME (Local Interpretable Model-agnostic Explanations), which uses sparse linear models built around various predictions to understand how any model performs in that local vicinity.",
+		"prompt": "explain ways in which you cna make your models easier to explain.",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\7 - Machine Learning.md",
+		"reference_line": 74,
+		"module_name": "Data Science",
+		"category": "MachineLearning"
+	},
+	{
+		"term": "6 - Model Trainning",
+		"example": "Stop, read abve, and explain",
+		"description": "Recall the basics: we first train models on a training dataset and then test the models ona testing dataset. Normally, 80% of the data will go towards training data, and 20% serves as the test set. But as we soon cover, there’s much more to model training than the 80/20 train vs. test split.",
+		"prompt": "What is the basics on training datasets and testing models?",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\7 - Machine Learning.md",
+		"reference_line": 80,
+		"module_name": "Data Science",
+		"category": "MachineLearning"
+	},
+	{
+		"term": "7 - Cross Validation",
+		"example": "One popular way to do cross-validation is called $k$-fold cross-validation. The process is as follows:\n1. Randomly shuffle data into equally-sized blocks (folds).\n2. For each fold $k$, train the model on all the data except for fold $i$, and evaluate the validation error using block $i$.\n3. Average the $k$ validation errors from step 2 to get an estimate of the true error.\n| Dataset $\\wedge$ |\n|\n|\n|\n|\n|\n| :--- | :--- | :--- | :--- | :--- | :--- |\n| Estimation 1 | Test 1 | Train | Train | Train | Train |\n| Estimation 2 | Train | Test 2 | Train | Train | Train |\n| Estimation 3 | Train | Train | Test 3 | Train | Train |\n| Estimation 4 | Train | Train | Train | Test 4 | Train |\n| Estimation 5 | Train | Train | Train | Train | Test 5 |\nExample of 5-Fold Cross Validation\nAnother form of cross-validation you're expected to know for the interview is leave-one-out crossvalidation. L.OOCV is a special case of $k$-fold cross-validation where $k$ is equal to the size of the dataset (n). That is, it is where the model is testing on every single data point during the crossvalidation.\n",
+		"description": "assesses the performance of an algorithm in several subsamples of training data. It consists of running the algorithm on subsamples of the training data, such as the original data without some of the original observations, and evaluating model performance on the portion of the data that was excluded from the subsample. This process is repeated many times for the different subsamples, and the results are combined at the end.\nCross-validation helps you avoid training and testing on the same subsets of data points, which would lead to overfitting.",
+		"prompt": "What is cross validation  and how does this process work, Provide an example of a popular way to do cross-validation?",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\7 - Machine Learning.md",
+		"reference_line": 86,
+		"module_name": "Data Science",
+		"category": "MachineLearning"
+	},
+	{
+		"term": "8 - how to apply cross-validation for time series data?",
+		"example": "Standard k-fold CV can’t be applied, since the time-series data is not randomly distributed but instead is already in chronological order. Therefore, you should not be using data “in the future” for predicting data “from the past.” Instead, you should use historical data up until a given point in time, and vary that point in time from the beginning till the end",
+		"description": "Regularization aims to reduce the complexity of models. In relation to the bias-variance trade-off, regularization aims to decrease complexity in a way that significantly reduces variance while only slightly increasing bias. The most widely used forms of regularization are L1 and L2. Both methods add a simple penalty term to the objective function. The penalty helps shrink coefficients of features, which reduces overfitting. This is why, not surprisingly, they are also known as shrinkage methods.",
+		"prompt": "how to apply cross-validation for time series data?",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\7 - Machine Learning.md",
+		"reference_line": 110,
+		"module_name": "Data Science",
+		"category": "MachineLearning"
+	},
+	{
+		"term": "9 - Bootstrapping and Bagging",
+		"example": "Stop, read and answer",
+		"description": "The process of bootstrapping is simply drawing observations from a large data sample repeatedly (sampling with replacement) and estimating some quantity of a population by averaging estimates from multiple smaller samples. Besides being useful in cases where the dataset is small, bootstrapping is also useful for helping deal with **class imbalance**: for the classes that are rare, we can generate new samples via bootstrapping. Another common application of bootstrapping is in **ensemble learning**: the process of averaging estimates from many smaller models into a main model. Each individual model is produced using a particular sample from the process. This process of bootstrap aggregation is also known as **bagging**.",
+		"prompt": "What is bootstrapping useful for? What applications?",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\7 - Machine Learning.md",
+		"reference_line": 114,
+		"module_name": "Data Science",
+		"category": "MachineLearning"
+	},
+	{
+		"term": "10 - Hyperparameter Tuning",
+		"example": "Please read and continue",
+		"description": "Hyperparameters are important because they impact a model’s training time, compute resources needed (and hence cost), and, ultimately, performance. One popular method for tuning hyperparameters is grid search, which involves forminga grid that is the Cartesian product of those parameters and then sequentially trying all such combinations and seeing which yields the best results. While comprehensive, this method can take a long time to run since the cost increases exponentially with the number of hyperparameters. Another popular hyperparameter tuning method is **random search**, where we define a distribution for each parameter and randomly sample from the joint distribution over all parameters. This solves the problem of exploring an exponentially increasing search space, but is not necessarily guaranteed to achieve an optimal result.",
+		"prompt": "What is Hyperparaeters tuning important for? Provide an example of hypeparametertuning method?",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\7 - Machine Learning.md",
+		"reference_line": 120,
+		"module_name": "Data Science",
+		"category": "MachineLearning"
+	},
+	{
+		"term": "11 - Linear Regression",
+		"example": "In linear regression, the goal is to estimate a function $f(x)$, such that each feature has a linear relationship to the target variable $y$, or:\n$$\ny=X \\beta\n$$\nwhere $X$ is a matrix of predictor variables and $\\beta$ is a vector of parameters that determines the weight of each variable in predicting the target variable. So, how do you compare the performance of two linear regression models?",
+		"description": "What is the goal of linear regressions?",
+		"prompt": "Explain whats the goal using the formula",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\7 - Machine Learning.md",
+		"reference_line": 129,
+		"module_name": "Data Science",
+		"category": "MachineLearning"
+	},
+	{
+		"term": "12 - Evaluating Linear Regression",
+		"example": "Evaluation of a regression model is built on the concept of a residual: the distance between what the model predicted versus the actual value. Linear regression estimates $\\beta$ by minimizing the residual sum of squares (RSS), which is given by the following:\n$$\nR S S(\\beta)=(y-X \\beta)^T(y-X \\beta)\n$$",
+		"description": "",
+		"prompt": "On what is built the concept of linear regression evaluation? What is the sum of squares formula?",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\7 - Machine Learning.md",
+		"reference_line": 141,
+		"module_name": "Data Science",
+		"category": "MachineLearning"
+	},
+	{
+		"term": "13 - MAE and MSE? in RSS",
+		"example": "![[Pasted image 20250701213729.png]]",
+		"description": "Two other sum of squares concepts to know besides the RSS are the total sum of squares (TSS) and explained sum of squares (ESS). The total sum of squares is the combined variation in the data ( $E S S+R S S$ ). The explained sum of squares is the difference between TSS and RSS. $R^2$, a popular metric for assessing goodness-of-fit, is given by $R^2=1-\\frac{R S S}{T S S}$. It ranges between zero and one, and represents the proportion of variability in the data explained by the model. Other prominent error metrics to measure the goodness-of-fit of linear regression are MSE (mean squared error) and MAE (mean absolute error). MSE measures the variance of the residuals, whereas MAE measures the average of the residuals; hence, MSE penalizes larger errors more than MAE, making it more sensitive to outliers.",
+		"prompt": "When it comes to measuring RSS What is the difrference between MSE and MAE?",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\7 - Machine Learning.md",
+		"reference_line": 149,
+		"module_name": "Data Science",
+		"category": "MachineLearning"
+	},
+	{
+		"term": "14 - Subset Selection",
+		"example": "tries each model with & predictors, out ofp possible ones, where k < p. Then, you choose the best subset model using a regression metric like R?. While this guarantees the best result, it can be computationally infeasible as p increases (due to the exponential number of combinations to try).",
+		"description": "Subset selection. By default, we use all the predictors in a linear model. However, in practice, it’s important to narrow down the number of features, and only include the most important features. One way is best subset selection, which tries each model with & predictors, out of possible ones, where k < p. Then, you choose the best subset model using a regression metric like R?. While this guarantees the best result, it can be computationally infeasible as p increases (due to the exponential number of combinations to try). Additionally, by trying every option in a large search space, you're likely to get model that overfits with a high variance in coefficient estimates",
+		"prompt": "How does subset selection work to reduce models complexity of a regression model?",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\7 - Machine Learning.md",
+		"reference_line": 156,
+		"module_name": "Data Science",
+		"category": "MachineLearning"
+	},
+	{
+		"term": "15 - What is stepwise selection and how does it work? What it solves? Whats the difference with backward stepwise selection?",
+		"example": "we start with an empty model and iteratively add the most useful predictor. In backward stepwise selection, we start with the full model and iteratively remove the least useful predictor. While doing stepwise selection, we aim to find a model with high R? and low RSS, while considering the number of predictors using metnics like AIC or adjusted R?.",
+		"description": "Regularization aims to reduce the complexity of models. In relation to the bias-variance trade-off, regularization aims to decrease complexity in a way that significantly reduces variance while only slightly increasing bias. The most widely used forms of regularization are L1 and L2. Both methods add a simple penalty term to the objective function. The penalty helps shrink coefficients of features, which reduces overfitting. This is why, not surprisingly, they are also known as shrinkage methods.",
+		"prompt": "What is stepwise selection and how does it work? What it solves? Whats the difference with backward stepwise selection?",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\7 - Machine Learning.md",
+		"reference_line": 163,
+		"module_name": "Data Science",
+		"category": "MachineLearning"
+	},
+	{
+		"term": "16 - Linear Regression Assumptions",
+		"example": "- **Linearity**: The effect of each input (feature) on the result (output) is consistent. If one feature increases, the result increases or decreases in a straight-line way, not in a curve or zigzag.\n- **Homoscedasticity**: The amount of error or noise in the predictions stays about the same no matter what the input values are. It doesn’t get bigger or smaller depending on the situation.\n- **Independence**: Each data point is separate and doesn’t influence the others. For example, one person’s income doesn’t affect another’s in your dataset.\n- **Normality**: The results (outputs) follow a bell-shaped curve. Most values are around the average, and very high or low values are rare.",
+		"description": "Before you can use this technique, you must validate its four main assumptions to prevent erroneous results.\n- Linearity: The relationship between the feature set and the target variable is linear.\n- Homoscedasticity: The variance of the residuals is constant.\n- Independence: All observations are independent of one another.\n- Normality: The distribution of Y is assumed to be normal.",
+		"prompt": "explain each point in non technical manner",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\7 - Machine Learning.md",
+		"reference_line": 168,
+		"module_name": "Data Science",
+		"category": "MachineLearning"
+	},
+	{
+		"term": "17 - Heteroscedasticity",
+		"example": "",
+		"description": "p103\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+		"prompt": "Heteroscedasticity",
+		"reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b013-datascience\\cache_md\\7 - Machine Learning.md",
+		"reference_line": 183,
+		"module_name": "Data Science",
+		"category": "MachineLearning"
+	}
 ]

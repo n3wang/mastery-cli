@@ -1,9 +1,7 @@
 class BalanceBinaryTree {
 	solve(root) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: BalanceBinaryTree };

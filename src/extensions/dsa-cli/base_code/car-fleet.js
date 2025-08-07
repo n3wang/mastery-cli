@@ -1,9 +1,7 @@
 class CarFleet {
 	solve(target, position, speed) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: CarFleet };

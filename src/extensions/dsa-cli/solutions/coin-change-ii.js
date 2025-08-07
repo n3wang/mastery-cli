@@ -1,46 +1,43 @@
 class Problem {
+	/**
+	 * DP - Bottom Up
+	 * Array - Tabulation
+	 * Time O(N * AMOUNT) | Space O(AMOUNT)
+	 * https://leetcode.com/problems/coin-change-ii/
+	 * @param {number} amount
+	 * @param {number[]} coins
+	 * @return {number}
+	 */
+	change = (amount, coins) => {
+		var initTabu = amount => {
+			var tabu = new Array(amount + 1).fill(0);
 
+			tabu[0] = 1;
 
-    /**
-     * DP - Bottom Up
-     * Array - Tabulation
-     * Time O(N * AMOUNT) | Space O(AMOUNT)
-     * https://leetcode.com/problems/coin-change-ii/
-     * @param {number} amount
-     * @param {number[]} coins
-     * @return {number}
-     */
-    change = (amount, coins) => {
+			return tabu;
+		};
 
-        var initTabu = (amount) => {
-            var tabu = new Array((amount + 1)).fill(0);
+		var search = (amount, coins, tabu) => {
+			for (const coin of coins) {
+				for (let _amount = 0; _amount < amount + 1; _amount++) {
+					const canUpdate = coin <= _amount;
+					if (!canUpdate) continue;
 
-            tabu[0] = 1;
+					tabu[_amount] += tabu[_amount - coin];
+				}
+			}
+		};
 
-            return tabu;
-        }
+		const tabu = initTabu(amount);
 
-        var search = (amount, coins, tabu) => {
-            for (const coin of coins) {
-                for (let _amount = 0; (_amount < (amount + 1)); _amount++) {
-                    const canUpdate = (coin <= _amount);
-                    if (!canUpdate) continue;
+		search(amount, coins, tabu);
 
-                    tabu[_amount] += tabu[(_amount - coin)];
-                }
-            }
-        }
+		return tabu[amount];
+	};
 
-        const tabu = initTabu(amount);
-
-        search(amount, coins, tabu);
-
-        return tabu[amount];
-    };
-
-    solve(amount, coins) {
-        return this.change(amount, coins);
-    }
+	solve(amount, coins) {
+		return this.change(amount, coins);
+	}
 }
 
 module.exports = { Problem };

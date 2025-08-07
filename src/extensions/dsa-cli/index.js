@@ -5,6 +5,5 @@
  * @requires dsa-trainer
  */
 
-const DSATrainer = require("./dsa-trainer");
-module.exports = { };
-
+const DSATrainer = require('./dsa-trainer');
+module.exports = {};

@@ -3,26 +3,24 @@
  */
 
 class FlattenTree {
-  solve(root) {
+	solve(root) {
+		lastVisitedNode;
+		function flatten(node) {
+			// TODO Return if base case found. Flatte right and left on that order(reverse.)
 
-    lastVisitedNode;
-    function flatten(node) {
-      // TODO Return if base case found. Flatte right and left on that order(reverse.)
-      
+			node.right = lastVisitedNode;
+			node.left = null;
+			lastVisitedNode = node;
+		}
 
-      node.right = lastVisitedNode;
-      node.left = null;
-      lastVisitedNode = node;
-    }
-
-    flatten(root);
-  }
+		flatten(root);
+	}
 }
 
 function TreeNode(val) {
-  this.val = val;
-  this.left = null;
-  this.right = null;
+	this.val = val;
+	this.left = null;
+	this.right = null;
 }
 
 module.exports = { Problem: FlattenTree, TreeNode };

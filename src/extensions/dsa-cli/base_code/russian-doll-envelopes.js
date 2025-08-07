@@ -1,6 +1,5 @@
-class RussianDollEnvelopers {	// Your code here
-
-	}
-
+class RussianDollEnvelopers {
+	// Your code here
+}
 
 module.exports = { Problem: RussianDollEnvelopers };

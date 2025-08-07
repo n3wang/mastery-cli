@@ -1,51 +1,41 @@
-
 class Queue {
+	constructor() {
+		this.queue = [];
+	}
 
-    constructor() {
-        this.queue = []
-    }
+	enqueue(element) {
+		this.queue.push(element);
+	}
 
-    enqueue(element) {
-        this.queue.push(element)
-    }
+	dequeue() {
+		return this.queue.shift();
+	}
 
-    dequeue() {
-        return this.queue.shift()
-    }
+	front() {
+		return this.queue[0];
+	}
 
-    front() {
-        return this.queue[0]
-    }
+	size() {
+		return this.queue.length;
+	}
 
-    size() {
-        return this.queue.length
-    }
-
-    isEmpty() {
-        return this.size() === 0
-    }
-
+	isEmpty() {
+		return this.size() === 0;
+	}
 }
-
 
 class RottingOranges {
+	/**
+	 * https://leetcode.com/problems/rotting-oranges/
+	 * Time O(ROWS * COLS) | Space O(ROWS * COLS)
+	 * @param {number[][]} grid
+	 * @return {number}
+	 */
+	orangesRotting = function (grid) {};
 
-
-    /**
-     * https://leetcode.com/problems/rotting-oranges/
-     * Time O(ROWS * COLS) | Space O(ROWS * COLS)
-     * @param {number[][]} grid
-     * @return {number}
-     */
-    orangesRotting = function (grid) {
-		
-    };
-
-
-    solve(grid) {
-        return this.orangesRotting(grid);
-    }
+	solve(grid) {
+		return this.orangesRotting(grid);
+	}
 }
-
 
 module.exports = { Problem: RottingOranges };

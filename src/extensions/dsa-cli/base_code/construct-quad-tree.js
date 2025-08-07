@@ -5,5 +5,4 @@ class ConstructQuadTree {
 	}
 }
 
-
 module.exports = { Problem: ConstructQuadTree };

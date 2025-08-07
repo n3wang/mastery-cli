@@ -1,9 +1,7 @@
 class TossStrangeCoins {
 	solve(prob, target) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: TossStrangeCoins };

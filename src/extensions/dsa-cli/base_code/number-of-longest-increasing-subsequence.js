@@ -4,5 +4,4 @@ class Solution {
 	}
 }
 
-
 module.exports = { Problem: Solution };

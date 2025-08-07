@@ -1,9 +1,7 @@
 class GameOfLife {
 	solve() {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: GameOfLife };

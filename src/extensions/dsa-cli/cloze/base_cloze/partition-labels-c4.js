@@ -1,56 +1,50 @@
 class PartitionLabels {
+	/**
+	 * https://leetcode.com/problems/partition-labels/
+	 * Time O(N) | Space(1)
+	 * @param {string} S
+	 * @return {number[]}
+	 */
+	partitionLabels = function (S) {
+		const getLast = (S, lastSeen = []) => {
+			for (const index in S) {
+				/* Time O(N) */
+				const code = getCode(S[Number(index)]);
 
-    /**
-     * https://leetcode.com/problems/partition-labels/
-     * Time O(N) | Space(1)
-     * @param {string} S
-     * @return {number[]}
-     */
-    partitionLabels = function (S) {
+				lastSeen[code] = Number(index); /* Space O(1) */
+			}
 
+			return lastSeen;
+		};
 
-        const getLast = (S, lastSeen = []) => {
-            for (const index in S) {/* Time O(N) */
-                const code = getCode(S[Number(index)]);
+		const getCode = char => char.charCodeAt(0) - 'a'.charCodeAt(0);
 
-                lastSeen[code] = Number(index);/* Space O(1) */
-            }
+		const getAns = (S, lastSeen, left = 0, right = 0, labels = []) => {
+			for (const index in S) {
+				/* Time O(N) */
+				const code = getCode(S[Number(index)]);
+				const lastSeenAt = lastSeen[code];
 
-            return lastSeen;
-        };
+				right = Math.max(right, lastSeenAt);
 
-        const getCode = (char) => char.charCodeAt(0) - 'a'.charCodeAt(0);
+				const isEqual = Number(index) === right;
+				if (!isEqual) continue;
 
-        const getAns = (S, lastSeen, left = 0, right = 0, labels = []) => {
-            for (const index in S) {/* Time O(N) */
-                const code = getCode(S[Number(index)]);
-                const lastSeenAt = lastSeen[code];
+				const placement = Number(index) - left + 1;
 
-                right = Math.max(right, lastSeenAt);
+				labels.push(placement);
+				left = Number(index) + 1;
+			}
 
-                const isEqual = Number(index) === right;
-                if (!isEqual) continue;
+			return labels;
+		};
 
-                const placement = (Number(index) - left) + 1;
+		// TODO Implement the last seen and getAns functions.
+	};
 
-                labels.push(placement);
-                left = Number(index) + 1;
-            };
-
-            return labels;
-        }
-
-
-        // TODO Implement the last seen and getAns functions.
-        
-        
-    };
-
-
-    solve(s) {
-        return this.partitionLabels(s);
-    }
+	solve(s) {
+		return this.partitionLabels(s);
+	}
 }
-
 
 module.exports = { Problem: PartitionLabels };

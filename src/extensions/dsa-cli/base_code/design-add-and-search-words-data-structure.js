@@ -1,4 +1,3 @@
-
 /**
  * Your WordDictionary object will be instantiated and called as such:
  * var obj = new WordDictionary()
@@ -7,35 +6,25 @@
  */
 
 class TrieNode {
-    constructor() {
-        this.children = {};
-        this.isWord = false;
-    }
+	constructor() {
+		this.children = {};
+		this.isWord = false;
+	}
 }
-
 
 class WordDictionary {
-    constructor() {
-        this.root = new TrieNode();
-    }
-
-    addWord(word, node = this.root) {
-        
-    }
-
-    /* Time O(N) | Space O(N) */
-    search(word) {
-
+	constructor() {
+		this.root = new TrieNode();
 	}
 
-    dfs(word, node, level) {
+	addWord(word, node = this.root) {}
 
-	}
+	/* Time O(N) | Space O(N) */
+	search(word) {}
 
-    hasWildCard(word, node, level) {
+	dfs(word, node, level) {}
 
-	}
+	hasWildCard(word, node, level) {}
 }
-
 
 module.exports = { Problem: WordDictionary };

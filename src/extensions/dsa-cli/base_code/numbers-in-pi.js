@@ -1,9 +1,7 @@
 class NumbersInPi {
 	solve(pi, numbers) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: NumbersInPi };

@@ -1,6 +1,5 @@
-class MaximumProductOfSplittedBinaryTree {	// Your code here
-
-	}
-
+class MaximumProductOfSplittedBinaryTree {
+	// Your code here
+}
 
 module.exports = { Problem: MaximumProductOfSplittedBinaryTree };

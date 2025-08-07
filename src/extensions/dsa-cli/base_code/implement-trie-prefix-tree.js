@@ -1,33 +1,22 @@
-
 class TrieNode {
-    constructor() {
-        this.children = {};
-        this.isWord = false;
-    }
+	constructor() {
+		this.children = {};
+		this.isWord = false;
+	}
 }
-
 
 class Trie {
-    constructor() {
-        this.root = new TrieNode();
-    }
+	constructor() {
+		this.root = new TrieNode();
+	}
 
-    
-	insert(word, node = this.root) {
-        
-    }
+	insert(word, node = this.root) {}
 
-    
-	search(word, node = this.root) {
-        
-    }
+	search(word, node = this.root) {}
 
-    
 	startsWith(prefix, node = this.root) {
-    
-        return true;
-    }
+		return true;
+	}
 }
-
 
 module.exports = { Problem: Trie };

@@ -1,9 +1,7 @@
 class ShiftLinkedList {
 	solve(head, k) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: ShiftLinkedList };

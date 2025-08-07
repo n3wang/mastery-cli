@@ -1,42 +1,43 @@
 class MaximumNUmberOfEventsTHatCanBeAttentedII {
-    solve(events, k) {
-        return this.maxValue(events, k);
-    }
+	solve(events, k) {
+		return this.maxValue(events, k);
+	}
 
-    maxValue(events, k) {
-        const n = events.length;
-        const dp = Array.from({ length: k + 1 }, () => Array(n + 1).fill(0));
-        events.sort((a, b) => a[0] - b[0]);
-        const starts = events.map(event => event[0]);
+	maxValue(events, k) {
+		const n = events.length;
+		const dp = Array.from({ length: k + 1 }, () => Array(n + 1).fill(0));
+		events.sort((a, b) => a[0] - b[0]);
+		const starts = events.map(event => event[0]);
 
-        for (let curIndex = n - 1; curIndex >= 0; curIndex--) {
-            const nextIndex = this.bisectRight(starts, events[curIndex][1]);
-            for (let count = 1; count <= k; count++) {
-                dp[count][curIndex] = Math.max(dp[count][curIndex + 1], events[curIndex][2] + dp[count - 1][nextIndex]);
-            }
-        }
+		for (let curIndex = n - 1; curIndex >= 0; curIndex--) {
+			const nextIndex = this.bisectRight(starts, events[curIndex][1]);
+			for (let count = 1; count <= k; count++) {
+				dp[count][curIndex] = Math.max(
+					dp[count][curIndex + 1],
+					events[curIndex][2] + dp[count - 1][nextIndex]
+				);
+			}
+		}
 
-        return dp[k][0];
-    }
+		return dp[k][0];
+	}
 
-    bisectRight(arr, target) {
-        let left = 0;
-        let right = arr.length;
+	bisectRight(arr, target) {
+		let left = 0;
+		let right = arr.length;
 
-        while (left < right) {
-            const mid = Math.floor((left + right) / 2);
-            if (arr[mid] <= target) {
-                left = mid + 1;
-            } else {
-                right = mid;
-            }
-        }
+		while (left < right) {
+			const mid = Math.floor((left + right) / 2);
+			if (arr[mid] <= target) {
+				left = mid + 1;
+			} else {
+				right = mid;
+			}
+		}
 
-        return left;
-    }
+		return left;
+	}
 }
-
-
 
 // function maxValue(events, k) {
 //     events.sort((a, b) => a[0] - b[0]);
@@ -94,7 +95,5 @@ class MaximumNUmberOfEventsTHatCanBeAttentedII {
 //     }
 //     return left;
 // }
-
-
 
 module.exports = { Problem: MaximumNUmberOfEventsTHatCanBeAttentedII };

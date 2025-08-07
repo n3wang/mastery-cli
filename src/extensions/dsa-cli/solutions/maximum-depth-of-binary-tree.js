@@ -1,61 +1,52 @@
 class MaximumDepthOfBinaryTree {
+	/**
+	 * https://leetcode.com/problems/maximum-depth-of-binary-tree/
+	 * TIme O(N) | Space O(N)
+	 * @param {TreeNode} root
+	 * @return {number}
+	 */
+	solve(root) {
+		const dfs = root => {
+			const left = this.maxDepth(root.left);
+			const right = this.maxDepth(root.right);
 
-    /**
-     * https://leetcode.com/problems/maximum-depth-of-binary-tree/
-     * TIme O(N) | Space O(N)
-     * @param {TreeNode} root
-     * @return {number}
-     */
-    solve(root) {
+			const height = Math.max(left, right);
 
-        const dfs = (root) => {
-            const left = this.maxDepth(root.left);
-            const right = this.maxDepth(root.right);
+			return height + 1;
+		};
+		const isBaseCase = root === null;
+		if (isBaseCase) return 0;
 
-            const height = Math.max(left, right);
+		return dfs(root);
+	}
 
-            return height + 1;
-        }
-        const isBaseCase = root === null;
-        if (isBaseCase) return 0;
+	/**
+	 * https://leetcode.com/problems/maximum-depth-of-binary-tree/
+	 * TIme O(N) | Space O(N)
+	 * @param {TreeNode} root
+	 * @return {number}
+	 */
+	maxDepth(root) {
+		const bfs = (queue, height = 0) => {
+			while (queue.length) {
+				for (let i = queue.length - 1; 0 <= i; i--) {
+					const [root, depth] = queue.shift();
 
-        return dfs(root);
-    };
+					height = Math.max(height, depth + 1);
 
+					if (root.left) queue.push([root.left, depth + 1]);
+					if (root.right) queue.push([root.right, depth + 1]);
+				}
+			}
 
+			return height;
+		};
 
-    /**
-     * https://leetcode.com/problems/maximum-depth-of-binary-tree/
-     * TIme O(N) | Space O(N)
-     * @param {TreeNode} root
-     * @return {number}
-     */
-    maxDepth(root) {
+		const isBaseCase = root === null;
+		if (isBaseCase) return 0;
 
-
-        const bfs = (queue, height = 0) => {
-            while (queue.length) {
-                for (let i = (queue.length - 1); 0 <= i; i--) {
-                    const [root, depth] = queue.shift();
-
-                    height = Math.max(height, (depth + 1));
-
-                    if (root.left) queue.push([root.left, (depth + 1)]);
-                    if (root.right) queue.push([root.right, (depth + 1)]);
-                }
-            }
-
-            return height;
-        }
-
-
-        const isBaseCase = root === null;
-        if (isBaseCase) return 0;
-
-        return bfs([[root, 0]]);
-    }
-
+		return bfs([[root, 0]]);
+	}
 }
-
 
 module.exports = { Problem: MaximumDepthOfBinaryTree };

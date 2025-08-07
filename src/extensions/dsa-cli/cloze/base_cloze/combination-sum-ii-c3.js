@@ -1,51 +1,59 @@
 class CombinationSumII {
+	/**
+	 * https://leetcode.com/problems/combination-sum-ii/
+	 * Time O(2^N) | Space O(N)
+	 * @param {number[]} candidates
+	 * @param {number} target
+	 * @return {number[][]}
+	 */
+	combinationSum2 = function (candidates, target) {
+		const dfs = (
+			candidates,
+			target,
+			index = 0,
+			combination = [],
+			combinations = []
+		) => {
+			const isBaseCase = target < 0;
+			if (isBaseCase) return combinations;
 
-    /**
-     * https://leetcode.com/problems/combination-sum-ii/
-     * Time O(2^N) | Space O(N)
-     * @param {number[]} candidates
-     * @param {number} target
-     * @return {number[][]}
-     */
-    combinationSum2 = function (candidates, target) {
+			const isTarget = target === 0;
+			if (isTarget) {
+				if (combination.length) combinations.push(combination.slice());
 
+				return combinations;
+			}
 
-        const dfs = (candidates, target, index = 0, combination = [], combinations = []) => {
-            const isBaseCase = target < 0;
-            if (isBaseCase) return combinations;
+			for (let i = index; i < candidates.length; i++) {
+				const isDuplicate =
+					index < i && candidates[i - 1] === candidates[i];
+				if (isDuplicate) continue;
 
-            const isTarget = target === 0;
-            if (isTarget) {
-                if (combination.length) combinations.push(combination.slice());
+				backTrack(candidates, target, i, combination, combinations);
+			}
 
-                return combinations
-            }
+			return combinations;
+		};
 
-            for (let i = index; i < candidates.length; i++) {
-                const isDuplicate = (index < i) && (candidates[i - 1] === candidates[i]);
-                if (isDuplicate) continue;
+		const backTrack = (
+			candidates,
+			target,
+			i,
+			combination,
+			combinations
+		) => {
+			// TODO Complete the backTrack function which adds the current element to the combination and then calls the dfs function.
+			// Pops it from the combiantion if found.
+		};
 
-                backTrack(candidates, target, i, combination, combinations);
-            }
+		candidates.sort((a, b) => a - b);
 
-            return combinations;
-        }
+		return dfs(candidates, target);
+	};
 
-        const backTrack = (candidates, target, i, combination, combinations) => {
-            // TODO Complete the backTrack function which adds the current element to the combination and then calls the dfs function.
-            // Pops it from the combiantion if found.
-            
-        }
-
-        candidates.sort((a, b) => a - b)
-
-        return dfs(candidates, target)
-    };
-
-    solve(candidates, target) {
-        return this.combinationSum2(candidates, target);
-    }
+	solve(candidates, target) {
+		return this.combinationSum2(candidates, target);
+	}
 }
-
 
 module.exports = { Problem: CombinationSumII };

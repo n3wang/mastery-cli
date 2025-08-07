@@ -1,37 +1,33 @@
 class Permutations {
+	/**
+	 * https://leetcode.com/problems/permutations/solution/
+	 * Time O(N!) | Space(N!)
+	 * @param {number[]} nums
+	 * @return {number[][]}
+	 */
+	permute = function (nums) {
+		var dfs = function (nums, permutation = [], permutations = []) {
+			const isBaseCase = nums.length === permutation.length;
+			if (isBaseCase) return permutations.push(permutation.slice());
 
-    /**
-     * https://leetcode.com/problems/permutations/solution/
-     * Time O(N!) | Space(N!)
-     * @param {number[]} nums
-     * @return {number[][]}
-     */
-    permute = function (nums) {
+			for (let i = 0; i < nums.length; i++) {
+				if (permutation.includes(nums[i])) continue;
 
-        var dfs = function (nums, permutation = [], permutations = []) {
-            const isBaseCase = nums.length === permutation.length
-            if (isBaseCase) return permutations.push(permutation.slice())
+				backTrack(nums, i, permutation, permutations);
+			}
 
-            for (let i = 0; i < nums.length; i++) {
-                if (permutation.includes(nums[i])) continue;
+			return permutations;
+		};
 
-                backTrack(nums, i, permutation, permutations);
-            }
+		const backTrack = (nums, i, permutation, permutations) => {
+			// TODO Push the permutaitons to the stack, run the dfs, then pop the permutation
+		};
+		return dfs(nums);
+	};
 
-            return permutations;
-        }
-
-        const backTrack = (nums, i, permutation, permutations) => {
-            // TODO Push the permutaitons to the stack, run the dfs, then pop the permutation
-
-        }
-        return dfs(nums)
-    }
-
-    solve(nums) {
-        return this.permute(nums);
-    }
+	solve(nums) {
+		return this.permute(nums);
+	}
 }
-
 
 module.exports = { Problem: Permutations };

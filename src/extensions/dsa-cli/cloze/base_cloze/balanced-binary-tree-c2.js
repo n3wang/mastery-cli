@@ -1,56 +1,51 @@
 class BalanceBinaryTree {
+	isBalanced = function (root) {
+		const isChildBalanced = root => {
+			const left = this.isBalanced(root.left);
+			const right = this.isBalanced(root.right);
 
-    isBalanced = function (root) {
+			return left && right;
+		};
 
-        const isChildBalanced = (root) => {
-            const left = this.isBalanced(root.left);
-            const right = this.isBalanced(root.right);
+		const isAcceptableHeight = root => {
+			const left = getHeight(root.left);
+			const right = getHeight(root.right);
 
-            return left && right
-        }
+			const difference = Math.abs(left - right);
 
-        const isAcceptableHeight = (root) => {
-            const left = getHeight(root.left);
-            const right = getHeight(root.right);
+			return difference <= 1;
+		};
 
-            const difference = Math.abs(left - right);
+		const getHeight = root => {
+			// TODO Complete the getHeight function, which obtains the height of the tree.
+		};
 
-            return difference <= 1;
-        }
+		var dfs = root => {
+			const left = getHeight(root.left);
+			const right = getHeight(root.right);
 
-        const getHeight = (root) => {
+			const height = Math.max(left, right);
 
-            // TODO Complete the getHeight function, which obtains the height of the tree.
-        }
+			return height + 1;
+		};
 
-        var dfs = (root) => {
-            const left = getHeight(root.left)
-            const right = getHeight(root.right);
+		const isBaseCase = root === null;
+		if (isBaseCase) return true;
+		if (!isAcceptableHeight(root)) return false;
+		if (!isChildBalanced(root)) return false;
 
-            const height = Math.max(left, right);
+		return true;
+	};
 
-            return height + 1;
-        }
-
-        const isBaseCase = root === null;
-        if (isBaseCase) return true;
-        if (!isAcceptableHeight(root)) return false;
-        if (!isChildBalanced(root)) return false;
-
-        return true;
-    }
-
-
-    /**
-     * https://leetcode.com/problems/balanced-binary-tree/
-     * TIme O(N) | Space O(H)
-     * @param {TreeNode} root
-     * @return {boolean}
-     */
-    solve(root) {
-        return this.isBalanced(root);
-    }
+	/**
+	 * https://leetcode.com/problems/balanced-binary-tree/
+	 * TIme O(N) | Space O(H)
+	 * @param {TreeNode} root
+	 * @return {boolean}
+	 */
+	solve(root) {
+		return this.isBalanced(root);
+	}
 }
-
 
 module.exports = { Problem: BalanceBinaryTree };

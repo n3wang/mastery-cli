@@ -1,41 +1,36 @@
 class NonOverlappingIntervals {
+	/**
+	 * https://leetcode.com/problems/non-overlapping-intervals/
+	 * Time O(N * logN) | Space O(1)
+	 * @param {number[][]} intervals
+	 * @return {number}
+	 */
+	eraseOverlapIntervals = function (intervals) {
+		const getGaps = (intervals, gaps = 1) => {
+			const prev = intervals.shift();
 
-    /**
-     * https://leetcode.com/problems/non-overlapping-intervals/
-     * Time O(N * logN) | Space O(1)
-     * @param {number[][]} intervals
-     * @return {number}
-     */
-    eraseOverlapIntervals = function (intervals) {
+			for (const curr of intervals) {
+				const [prevStart, prevEnd] = prev;
+				const [currStart, currEnd] = curr;
 
+				const hasGap = prevEnd <= currStart;
+				if (!hasGap) continue;
 
-        const getGaps = (intervals, gaps = 1) => {
-            const prev = intervals.shift();
+				prev[1] = curr[1];
+				gaps++;
+			}
 
-            for (const curr of intervals) {
-                const [prevStart, prevEnd] = prev;
-                const [currStart, currEnd] = curr;
+			return intervals.length + 1 - gaps;
+		};
 
-                const hasGap = prevEnd <= currStart;
-                if (!hasGap) continue;
+		// TODO Sort the intervals by start time if they have the same start time then sort by end time
 
-                prev[1] = curr[1];
-                gaps++;
-            }
+		return getGaps(intervals);
+	};
 
-            return intervals.length + 1 - gaps;
-        };
-
-        // TODO Sort the intervals by start time if they have the same start time then sort by end time
-        
-
-        return getGaps(intervals);
-    };
-
-    solve(intervals) {
-        return this.eraseOverlapIntervals(intervals);
-    }
+	solve(intervals) {
+		return this.eraseOverlapIntervals(intervals);
+	}
 }
-
 
 module.exports = { Problem: NonOverlappingIntervals };

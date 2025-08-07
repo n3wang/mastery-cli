@@ -1,9 +1,7 @@
 class KnacksackProblem {
 	solve(capacity, items) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: KnacksackProblem };

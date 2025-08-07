@@ -1,50 +1,45 @@
 class PartitionLabels {
+	/**
+	 * https://leetcode.com/problems/partition-labels/
+	 * Time O(N) | Space(1)
+	 * @param {string} S
+	 * @return {number[]}
+	 */
+	partitionLabels = function (S) {
+		const getLast = (S, lastSeen = []) => {
+			// TODO Update the last seen index of each character.
+		};
 
-    /**
-     * https://leetcode.com/problems/partition-labels/
-     * Time O(N) | Space(1)
-     * @param {string} S
-     * @return {number[]}
-     */
-    partitionLabels = function (S) {
+		const getCode = char => char.charCodeAt(0) - 'a'.charCodeAt(0);
 
+		const getAns = (S, lastSeen, left = 0, right = 0, labels = []) => {
+			for (const index in S) {
+				/* Time O(N) */
+				const code = getCode(S[Number(index)]);
+				const lastSeenAt = lastSeen[code];
 
-        const getLast = (S, lastSeen = []) => {
-            // TODO Update the last seen index of each character.
-            
-        };
+				right = Math.max(right, lastSeenAt);
 
-        const getCode = (char) => char.charCodeAt(0) - 'a'.charCodeAt(0);
+				const isEqual = Number(index) === right;
+				if (!isEqual) continue;
 
-        const getAns = (S, lastSeen, left = 0, right = 0, labels = []) => {
-            for (const index in S) {/* Time O(N) */
-                const code = getCode(S[Number(index)]);
-                const lastSeenAt = lastSeen[code];
+				const placement = Number(index) - left + 1;
 
-                right = Math.max(right, lastSeenAt);
+				labels.push(placement);
+				left = Number(index) + 1;
+			}
 
-                const isEqual = Number(index) === right;
-                if (!isEqual) continue;
+			return labels;
+		};
 
-                const placement = (Number(index) - left) + 1;
+		const lastSeen = getLast(S);
 
-                labels.push(placement);
-                left = Number(index) + 1;
-            };
+		return getAns(S, lastSeen);
+	};
 
-            return labels;
-        }
-
-        const lastSeen = getLast(S);
-
-        return getAns(S, lastSeen);
-    };
-
-
-    solve(s) {
-        return this.partitionLabels(s);
-    }
+	solve(s) {
+		return this.partitionLabels(s);
+	}
 }
-
 
 module.exports = { Problem: PartitionLabels };

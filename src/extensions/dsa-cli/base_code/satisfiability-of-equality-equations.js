@@ -1,9 +1,7 @@
 class SatisfiabilityOfEqualityEquations {
 	solve(equations) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: SatisfiabilityOfEqualityEquations };

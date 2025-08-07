@@ -1,9 +1,7 @@
 class RemoveDuplicatesFromLinkedList {
 	solve(linkedList) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: RemoveDuplicatesFromLinkedList };

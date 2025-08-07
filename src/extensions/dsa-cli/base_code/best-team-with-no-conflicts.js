@@ -1,9 +1,7 @@
 class BestTeamWithNoConflicts {
 	solve(scores, ages) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: BestTeamWithNoConflicts };

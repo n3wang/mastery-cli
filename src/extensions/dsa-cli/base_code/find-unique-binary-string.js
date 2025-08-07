@@ -1,9 +1,7 @@
 class FindUniqueBinaryStrings {
 	solve(nums) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: FindUniqueBinaryStrings };

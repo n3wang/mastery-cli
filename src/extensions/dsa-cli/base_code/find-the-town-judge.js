@@ -1,9 +1,7 @@
 class FindTheTownJudge {
 	solve(mat) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: FindTheTownJudge };

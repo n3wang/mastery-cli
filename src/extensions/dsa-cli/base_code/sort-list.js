@@ -1,6 +1,5 @@
-class SortList {	// Your code here
-
-	}
-
+class SortList {
+	// Your code here
+}
 
 module.exports = { Problem: SortList };

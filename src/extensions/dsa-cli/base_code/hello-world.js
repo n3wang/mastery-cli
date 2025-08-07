@@ -1,9 +1,7 @@
 class Problem {
 	solve() {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: Problem };

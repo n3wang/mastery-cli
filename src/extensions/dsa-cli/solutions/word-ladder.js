@@ -1,97 +1,97 @@
-
-
 class Queue {
+	constructor(init) {
+		this.queue = init || [];
+	}
 
-    constructor(init) {
-        this.queue = init || []
-    }
+	enqueue(element) {
+		this.queue.push(element);
+	}
 
-    enqueue(element) {
-        this.queue.push(element)
-    }
+	dequeue() {
+		return this.queue.shift();
+	}
 
-    dequeue() {
-        return this.queue.shift()
-    }
+	front() {
+		return this.queue[0];
+	}
 
-    front() {
-        return this.queue[0]
-    }
+	size() {
+		return this.queue.length;
+	}
 
-    size() {
-        return this.queue.length
-    }
-
-    isEmpty() {
-        return this.size() === 0
-    }
-
+	isEmpty() {
+		return this.size() === 0;
+	}
 }
 
 class WordLadder {
+	/**
+	 * https://leetcode.com/problems/word-ladder/
+	 * Time O(ROWS * COLS) | Space O(ROWS * COLS)
+	 * @param {string} beginWord
+	 * @param {string} endWord
+	 * @param {string[]} wordList
+	 * @return {number}
+	 */
+	ladderLength = function (beginWord, endWord, wordList) {
+		const bfs = (queue, wordSet, seen, endWord) => {
+			while (!queue.isEmpty()) {
+				for (let i = queue.size() - 1; 0 <= i; i--) {
+					const [word, depth] = queue.dequeue();
+					// console.log("looping on the queue", word, depth, endWord);
 
+					const isTarget = word === endWord;
+					if (isTarget) return depth;
 
-    /**
-     * https://leetcode.com/problems/word-ladder/
-     * Time O(ROWS * COLS) | Space O(ROWS * COLS)
-     * @param {string} beginWord
-     * @param {string} endWord
-     * @param {string[]} wordList
-     * @return {number}
-     */
-    ladderLength = function (beginWord, endWord, wordList) {
+					transform(queue, wordSet, seen, word, depth);
+				}
+			}
 
-        const bfs = (queue, wordSet, seen, endWord) => {
-            while (!queue.isEmpty()) {
-                for (let i = (queue.size() - 1); 0 <= i; i--) {
-                    const [word, depth] = queue.dequeue();
-                    // console.log("looping on the queue", word, depth, endWord);
+			return 0;
+		};
+		const transform = (queue, wordSet, seen, word, depth) => {
+			for (const index in word) {
+				for (const char of 'abcdefghijklmnopqrstuvwxyz') {
+					const neighbor = getNeighbor(word, index, char);
 
-                    const isTarget = word === endWord
-                    if (isTarget) return depth
+					const hasSeen =
+						!wordSet.has(neighbor) || seen.has(neighbor);
+					if (hasSeen) continue;
 
-                    transform(queue, wordSet, seen, word, depth)
-                }
-            }
+					queue.enqueue([neighbor, depth + 1]);
+					seen.add(neighbor);
+				}
+			}
+		};
 
-            return 0
-        }
-        const transform = (queue, wordSet, seen, word, depth) => {
-            for (const index in word) {
-                for (const char of 'abcdefghijklmnopqrstuvwxyz') {
-                    const neighbor = getNeighbor(word, index, char);
+		const getNeighbor = (word, index, char) => {
+			const neighbor = word.split('');
 
-                    const hasSeen = !wordSet.has(neighbor) || seen.has(neighbor);
-                    if (hasSeen) continue;
+			neighbor[index] = char;
 
-                    queue.enqueue([neighbor, (depth + 1)]);
-                    seen.add(neighbor);
-                }
-            }
-        }
+			return neighbor.join('');
+		};
 
-        const getNeighbor = (word, index, char) => {
-            const neighbor = word.split('');
+		const [queue, wordSet, seen] = [
+			new Queue([[beginWord, 1]]),
+			new Set(wordList),
+			new Set([beginWord])
+		];
+		// console.log('queue', queue);
+		// console.log('wordSet', wordSet);
+		// console.log('seen', seen);
 
-            neighbor[index] = char;
+		return bfs(
+			queue,
+			wordSet,
+			seen,
+			endWord
+		); /* Time O(ROWS * COLS) | Space O(ROWS * COLS) */
+	};
 
-            return neighbor.join('');
-        }
-
-        const [queue, wordSet, seen] = [new Queue([[beginWord, 1]]), new Set(wordList), new Set([beginWord])];
-        // console.log('queue', queue);
-        // console.log('wordSet', wordSet);
-        // console.log('seen', seen);
-
-
-        return bfs(queue, wordSet, seen, endWord); /* Time O(ROWS * COLS) | Space O(ROWS * COLS) */
-    };
-
-
-    solve(beingWord, endWord, wordList) {
-        return this.ladderLength(beingWord, endWord, wordList);
-    }
+	solve(beingWord, endWord, wordList) {
+		return this.ladderLength(beingWord, endWord, wordList);
+	}
 }
-
 
 module.exports = { Problem: WordLadder };

@@ -1,9 +1,7 @@
 class RotateImage {
 	solve(matrix) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: RotateImage };

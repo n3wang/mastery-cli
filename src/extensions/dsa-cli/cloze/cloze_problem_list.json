@@ -1,1906 +1,1902 @@
 [
-    {
-        "file_path": "container-with-most-water-c1.js",
-        "difficulty": 2,
-        "problem_slug": "container-with-most-water"
-    },
-    {
-        "file_path": "container-with-most-water-c2.js",
-        "difficulty": 2,
-        "problem_slug": "container-with-most-water"
-    },
-    {
-        "file_path": "three-number-sum-c1.js",
-        "difficulty": 2,
-        "problem_slug": "three-number-sum"
-    },
-    {
-        "file_path": "three-number-sum-c2.js",
-        "difficulty": 2,
-        "problem_slug": "three-number-sum"
-    },
-    {
-        "file_path": "container-with-most-water-c1.js",
-        "difficulty": 2,
-        "problem_slug": "container-with-most-water"
-    },
-    {
-        "file_path": "container-with-most-water-c2.js",
-        "difficulty": 2,
-        "problem_slug": "container-with-most-water"
-    },
-    {
-        "file_path": "trapping-rain-water-c1.js",
-        "difficulty": 2,
-        "problem_slug": "trapping-rain-water"
-    },
-    {
-        "file_path": "trapping-rain-water-c2.js",
-        "difficulty": 2,
-        "problem_slug": "trapping-rain-water"
-    },
-    {
-        "file_path": "trapping-rain-water-c3.js",
-        "difficulty": 2,
-        "problem_slug": "trapping-rain-water"
-    },
-    {
-        "file_path": "character-replacement-c1.js",
-        "difficulty": 2,
-        "problem_slug": "character-replacement"
-    },
-    {
-        "file_path": "character-replacement-c2.js",
-        "difficulty": 4,
-        "problem_slug": "character-replacement"
-    },
-    {
-        "file_path": "character-replacement-c2.js",
-        "difficulty": 2,
-        "problem_slug": "character-replacement"
-    },
-    {
-        "file_path": "daily-temperatures-c1.js",
-        "difficulty": 2,
-        "problem_slug": "daily-temperatures"
-    },
-    {
-        "file_path": "daily-temperatures-c2.js",
-        "difficulty": 2,
-        "problem_slug": "daily-temperatures"
-    },
-    {
-        "file_path": "daily-temperatures-c3.js",
-        "difficulty": 2,
-        "problem_slug": "daily-temperatures"
-    },
-    {
-        "file_path": "max-profit-c1.js",
-        "difficulty": 2,
-        "problem_slug": "max-profit"
-    },
-    {
-        "file_path": "max-profit-c2.js",
-        "difficulty": 2,
-        "problem_slug": "max-profit"
-    },
-    {
-        "file_path": "max-profit-c3.js",
-        "difficulty": 2,
-        "problem_slug": "max-profit"
-    },
-    {
-        "file_path": "min-window-c1.js",
-        "difficulty": 2,
-        "problem_slug": "min-window"
-    },
-    {
-        "file_path": "min-window-c2.js",
-        "difficulty": 2,
-        "problem_slug": "min-window"
-    },
-    {
-        "file_path": "min-window-c3.js",
-        "difficulty": 2,
-        "problem_slug": "min-window"
-    },
-    {
-        "file_path": "min-window-c4.js",
-        "difficulty": 2,
-        "problem_slug": "min-window"
-    },
-    {
-        "file_path": "max-sliding-window-c1.js",
-        "difficulty": 2,
-        "problem_slug": "max-sliding-window"
-    },
-    {
-        "file_path": "max-sliding-window-c2.js",
-        "difficulty": 2,
-        "problem_slug": "max-sliding-window"
-    },
-    {
-        "file_path": "max-sliding-window-c3.js",
-        "difficulty": 2,
-        "problem_slug": "max-sliding-window"
-    },
-    {
-        "file_path": "max-sliding-window-c4.js",
-        "difficulty": 2,
-        "problem_slug": "max-sliding-window"
-    },
-    {
-        "file_path": "max-sliding-window-c5.js",
-        "difficulty": 2,
-        "problem_slug": "max-sliding-window"
-    },
-    {
-        "file_path": "car-fleet-c1.js",
-        "difficulty": 2,
-        "problem_slug": "car-fleet"
-    },
-    {
-        "file_path": "car-fleet-c2.js",
-        "difficulty": 2,
-        "problem_slug": "car-fleet"
-    },
-    {
-        "file_path": "car-fleet-c3.js",
-        "difficulty": 2,
-        "problem_slug": "car-fleet"
-    },
-    {
-        "file_path": "largest-rectangle-area-c1.js",
-        "difficulty": 2,
-        "problem_slug": "largest-rectangle-area"
-    },
-    {
-        "file_path": "largest-rectangle-area-c2.js",
-        "difficulty": 2,
-        "problem_slug": "largest-rectangle-area"
-    },
-    {
-        "file_path": "largest-rectangle-area-c3.js",
-        "difficulty": 2,
-        "problem_slug": "largest-rectangle-area"
-    },
-    {
-        "file_path": "min-stack-c1.js",
-        "difficulty": 1,
-        "problem_slug": "min-stack"
-    },
-    {
-        "file_path": "min-stack-c2.js",
-        "difficulty": 1,
-        "problem_slug": "min-stack"
-    },
-    {
-        "file_path": "min-stack-c3.js",
-        "difficulty": 1,
-        "problem_slug": "min-stack"
-    },
-    {
-        "file_path": "min-stack-c4.js",
-        "difficulty": 1,
-        "problem_slug": "min-stack"
-    },
-    {
-        "file_path": "valid-parentheses-c1.js",
-        "difficulty": 1,
-        "problem_slug": "valid-parentheses"
-    },
-    {
-        "file_path": "valid-parentheses-c2.js",
-        "difficulty": 1,
-        "problem_slug": "valid-parentheses"
-    },
-    {
-        "file_path": "valid-parentheses-c3.js",
-        "difficulty": 1,
-        "problem_slug": "valid-parentheses"
-    },
-    {
-        "file_path": "generate-parenthesis-c1.js",
-        "difficulty": 1,
-        "problem_slug": "generate-parenthesis"
-    },
-    {
-        "file_path": "generate-parenthesis-c2.js",
-        "difficulty": 1,
-        "problem_slug": "generate-parenthesis"
-    },
-    {
-        "file_path": "generate-parenthesis-c3.js",
-        "difficulty": 1,
-        "problem_slug": "generate-parenthesis"
-    },
-    {
-        "file_path": "letter-combinations-of-a-phone-number-c1.js",
-        "difficulty": 1,
-        "problem_slug": "letter-combinations-of-a-phone-number"
-    },
-    {
-        "file_path": "letter-combinations-of-a-phone-number-c2.js",
-        "difficulty": 1,
-        "problem_slug": "letter-combinations-of-a-phone-number"
-    },
-    {
-        "file_path": "letter-combinations-of-a-phone-number-c3.js",
-        "difficulty": 1,
-        "problem_slug": "letter-combinations-of-a-phone-number"
-    },
-    {
-        "file_path": "n-queens-c1.js",
-        "difficulty": 1,
-        "problem_slug": "n-queens"
-    },
-    {
-        "file_path": "n-queens-c2.js",
-        "difficulty": 1,
-        "problem_slug": "n-queens"
-    },
-    {
-        "file_path": "n-queens-c3.js",
-        "difficulty": 1,
-        "problem_slug": "n-queens"
-    },
-    {
-        "file_path": "permutations-c1.js",
-        "difficulty": 1,
-        "problem_slug": "permutations"
-    },
-    {
-        "file_path": "permutations-c2.js",
-        "difficulty": 1,
-        "problem_slug": "permutations"
-    },
-    {
-        "file_path": "permutations-c3.js",
-        "difficulty": 1,
-        "problem_slug": "permutations"
-    },
-    {
-        "file_path": "binary-search-c1.js",
-        "difficulty": 1,
-        "problem_slug": "binary-search"
-    },
-    {
-        "file_path": "binary-search-c2.js",
-        "difficulty": 1,
-        "problem_slug": "binary-search"
-    },
-    {
-        "file_path": "binary-search-c3.js",
-        "difficulty": 1,
-        "problem_slug": "binary-search"
-    },
-    {
-        "file_path": "find-min-c1.js",
-        "difficulty": 1,
-        "problem_slug": "find-min"
-    },
-    {
-        "file_path": "find-min-c2.js",
-        "difficulty": 1,
-        "problem_slug": "find-min"
-    },
-    {
-        "file_path": "find-min-c3.js",
-        "difficulty": 1,
-        "problem_slug": "find-min"
-    },
-    {
-        "file_path": "key-based-value-store-c1.js",
-        "difficulty": 1,
-        "problem_slug": "key-based-value-store"
-    },
-    {
-        "file_path": "key-based-value-store-c2.js",
-        "difficulty": 1,
-        "problem_slug": "key-based-value-store"
-    },
-    {
-        "file_path": "key-based-value-store-c3.js",
-        "difficulty": 1,
-        "problem_slug": "key-based-value-store"
-    },
-    {
-        "file_path": "koko-eating-bananas-c1.js",
-        "difficulty": 1,
-        "problem_slug": "koko-eating-bananas"
-    },
-    {
-        "file_path": "koko-eating-bananas-c2.js",
-        "difficulty": 1,
-        "problem_slug": "koko-eating-bananas"
-    },
-    {
-        "file_path": "koko-eating-bananas-c3.js",
-        "difficulty": 1,
-        "problem_slug": "koko-eating-bananas"
-    },
-    {
-        "file_path": "median-sorted-arrays-c1.js",
-        "difficulty": 1,
-        "problem_slug": "median-sorted-arrays"
-    },
-    {
-        "file_path": "median-sorted-arrays-c2.js",
-        "difficulty": 1,
-        "problem_slug": "median-sorted-arrays"
-    },
-    {
-        "file_path": "median-sorted-arrays-c3.js",
-        "difficulty": 1,
-        "problem_slug": "median-sorted-arrays"
-    },
-    {
-        "file_path": "median-sorted-arrays-c4.js",
-        "difficulty": 1,
-        "problem_slug": "median-sorted-arrays"
-    },
-    {
-        "file_path": "search-matrix-c1.js",
-        "difficulty": 1,
-        "problem_slug": "search-matrix"
-    },
-    {
-        "file_path": "search-matrix-c2.js",
-        "difficulty": 1,
-        "problem_slug": "search-matrix"
-    },
-    {
-        "file_path": "search-matrix-c3.js",
-        "difficulty": 1,
-        "problem_slug": "search-matrix"
-    },
-    {
-        "file_path": "search-rotated-array-c1.js",
-        "difficulty": 1,
-        "problem_slug": "search-rotated-array"
-    },
-    {
-        "file_path": "search-rotated-array-c2.js",
-        "difficulty": 1,
-        "problem_slug": "search-rotated-array"
-    },
-    {
-        "file_path": "search-rotated-array-c3.js",
-        "difficulty": 1,
-        "problem_slug": "search-rotated-array"
-    },
-    {
-        "file_path": "search-rotated-array-c4.js",
-        "difficulty": 1,
-        "problem_slug": "search-rotated-array"
-    },
-    {
-        "file_path": "search-rotated-array-c4.js",
-        "difficulty": 1,
-        "problem_slug": "search-rotated-array"
-    },
-    {
-        "file_path": "search-rotated-array-c4.js",
-        "difficulty": 1,
-        "problem_slug": "search-rotated-array"
-    },
-    {
-        "file_path": "search-rotated-array-c4.js",
-        "difficulty": 1,
-        "problem_slug": "search-rotated-array"
-    },
-    {
-        "file_path": "add-two-numbers-c1.js",
-        "difficulty": 1,
-        "problem_slug": "add-two-numbers"
-    },
-    {
-        "file_path": "add-two-numbers-c2.js",
-        "difficulty": 1,
-        "problem_slug": "add-two-numbers"
-    },
-    {
-        "file_path": "add-two-numbers-c3.js",
-        "difficulty": 1,
-        "problem_slug": "add-two-numbers"
-    },
-    {
-        "file_path": "find-duplicate-c1.js",
-        "difficulty": 1,
-        "problem_slug": "find-duplicate"
-    },
-    {
-        "file_path": "find-duplicate-c2.js",
-        "difficulty": 1,
-        "problem_slug": "find-duplicate"
-    },
-    {
-        "file_path": "find-duplicate-c3.js",
-        "difficulty": 1,
-        "problem_slug": "find-duplicate"
-    },
-    {
-        "file_path": "linked-list-cycle-c1.js",
-        "difficulty": 1,
-        "problem_slug": "linked-list-cycle"
-    },
-    {
-        "file_path": "linked-list-cycle-c2.js",
-        "difficulty": 1,
-        "problem_slug": "linked-list-cycle"
-    },
-    {
-        "file_path": "lru-cache-c1.js",
-        "difficulty": 1,
-        "problem_slug": "lru-cache"
-    },
-    {
-        "file_path": "lru-cache-c2.js",
-        "difficulty": 1,
-        "problem_slug": "lru-cache"
-    },
-    {
-        "file_path": "lru-cache-c3.js",
-        "difficulty": 1,
-        "problem_slug": "lru-cache"
-    },
-    {
-        "file_path": "lru-cache-c4.js",
-        "difficulty": 1,
-        "problem_slug": "lru-cache"
-    },
-    {
-        "file_path": "lru-cache-c5.js",
-        "difficulty": 1,
-        "problem_slug": "lru-cache"
-    },
-    {
-        "file_path": "lru-cache-c5.js",
-        "difficulty": 1,
-        "problem_slug": "lru-cache"
-    },
-    {
-        "file_path": "merge-k-sorted-list-c1.js",
-        "difficulty": 1,
-        "problem_slug": "merge-k-sorted-list"
-    },
-    {
-        "file_path": "merge-k-sorted-list-c2.js",
-        "difficulty": 1,
-        "problem_slug": "merge-k-sorted-list"
-    },
-    {
-        "file_path": "merge-k-sorted-list-c3.js",
-        "difficulty": 1,
-        "problem_slug": "merge-k-sorted-list"
-    },
-    {
-        "file_path": "merge-two-sorted-list-c1.js",
-        "difficulty": 1,
-        "problem_slug": "merge-two-sorted-list"
-    },
-    {
-        "file_path": "merge-two-sorted-list-c2.js",
-        "difficulty": 1,
-        "problem_slug": "merge-two-sorted-list"
-    },
-    {
-        "file_path": "merge-two-sorted-list-c3.js",
-        "difficulty": 1,
-        "problem_slug": "merge-two-sorted-list"
-    },
-    {
-        "file_path": "remove-from-nth-c1.js",
-        "difficulty": 1,
-        "problem_slug": "remove-from-nth"
-    },
-    {
-        "file_path": "remove-from-nth-c2.js",
-        "difficulty": 1,
-        "problem_slug": "remove-from-nth"
-    },
-    {
-        "file_path": "remove-from-nth-c3.js",
-        "difficulty": 1,
-        "problem_slug": "remove-from-nth"
-    },
-    {
-        "file_path": "reorder-list-c1.js",
-        "difficulty": 1,
-        "problem_slug": "reorder-list"
-    },
-    {
-        "file_path": "reorder-list-c2.js",
-        "difficulty": 1,
-        "problem_slug": "reorder-list"
-    },
-    {
-        "file_path": "reorder-list-c3.js",
-        "difficulty": 1,
-        "problem_slug": "reorder-list"
-    },
-    {
-        "file_path": "reverse-nodes-in-k-group-c1.js",
-        "difficulty": 1,
-        "problem_slug": "reverse-nodes-in-k-group"
-    },
-    {
-        "file_path": "reverse-nodes-in-k-group-c2.js",
-        "difficulty": 1,
-        "problem_slug": "reverse-nodes-in-k-group"
-    },
-    {
-        "file_path": "reverse-nodes-in-k-group-c3.js",
-        "difficulty": 1,
-        "problem_slug": "reverse-nodes-in-k-group"
-    },
-    {
-        "file_path": "balanced-binary-tree-c1.js",
-        "difficulty": 1,
-        "problem_slug": "balanced-binary-tree"
-    },
-    {
-        "file_path": "balanced-binary-tree-c2.js",
-        "difficulty": 1,
-        "problem_slug": "balanced-binary-tree"
-    },
-    {
-        "file_path": "balanced-binary-tree-c3.js",
-        "difficulty": 1,
-        "problem_slug": "balanced-binary-tree"
-    },
-    {
-        "file_path": "balanced-binary-tree-c4.js",
-        "difficulty": 1,
-        "problem_slug": "balanced-binary-tree"
-    },
-    {
-        "file_path": "balanced-binary-tree-c5.js",
-        "difficulty": 1,
-        "problem_slug": "balanced-binary-tree"
-    },
-    {
-        "file_path": "binary-tree-level-order-traversal-c1.js",
-        "difficulty": 1,
-        "problem_slug": "binary-tree-level-order-traversal"
-    },
-    {
-        "file_path": "binary-tree-level-order-traversal-c2.js",
-        "difficulty": 1,
-        "problem_slug": "binary-tree-level-order-traversal"
-    },
-    {
-        "file_path": "binary-tree-level-order-traversal-c3.js",
-        "difficulty": 1,
-        "problem_slug": "binary-tree-level-order-traversal"
-    },
-    {
-        "file_path": "binary-tree-maximum-path-sum-c1.js",
-        "difficulty": 1,
-        "problem_slug": "binary-tree-maximum-path-sum"
-    },
-    {
-        "file_path": "binary-tree-maximum-path-sum-c2.js",
-        "difficulty": 1,
-        "problem_slug": "binary-tree-maximum-path-sum"
-    },
-    {
-        "file_path": "binary-tree-maximum-path-sum-c3.js",
-        "difficulty": 1,
-        "problem_slug": "binary-tree-maximum-path-sum"
-    },
-    {
-        "file_path": "binary-tree-right-side-view-c1.js",
-        "difficulty": 1,
-        "problem_slug": "binary-tree-right-side-view"
-    },
-    {
-        "file_path": "binary-tree-right-side-view-c2.js",
-        "difficulty": 1,
-        "problem_slug": "binary-tree-right-side-view"
-    },
-    {
-        "file_path": "binary-tree-right-side-view-c3.js",
-        "difficulty": 1,
-        "problem_slug": "binary-tree-right-side-view"
-    },
-    {
-        "file_path": "construct-binary-tree-from-preorder-and-inorder-traversal-c1",
-        "difficulty": 1,
-        "problem_slug": "construct-binary-tree-from-preorder-and-inorder-traversal"
-    },
-    {
-        "file_path": "construct-binary-tree-from-preorder-and-inorder-traversal-c2",
-        "difficulty": 1,
-        "problem_slug": "construct-binary-tree-from-preorder-and-inorder-traversal"
-    },
-    {
-        "file_path": "construct-binary-tree-from-preorder-and-inorder-traversal-c3",
-        "difficulty": 1,
-        "problem_slug": "construct-binary-tree-from-preorder-and-inorder-traversal"
-    },
-    {
-        "file_path": "count-good-nodes-in-binary-tree-c1.js",
-        "difficulty": 1,
-        "problem_slug": "count-good-nodes-in-binary-tree"
-    },
-    {
-        "file_path": "count-good-nodes-in-binary-tree-c2.js",
-        "difficulty": 1,
-        "problem_slug": "count-good-nodes-in-binary-tree"
-    },
-    {
-        "file_path": "count-good-nodes-in-binary-tree-c3.js",
-        "difficulty": 1,
-        "problem_slug": "count-good-nodes-in-binary-tree"
-    },
-    {
-        "file_path": "diameter-of-binary-tree-c1.js",
-        "difficulty": 1,
-        "problem_slug": "diameter-of-binary-tree"
-    },
-    {
-        "file_path": "diameter-of-binary-tree-c2.js",
-        "difficulty": 1,
-        "problem_slug": "diameter-of-binary-tree"
-    },
-    {
-        "file_path": "diameter-of-binary-tree-c3.js",
-        "difficulty": 1,
-        "problem_slug": "diameter-of-binary-tree"
-    },
-    {
-        "file_path": "serialize-and-deserialize-binary-tree-c1.js",
-        "difficulty": 1,
-        "problem_slug": "serialize-and-deserialize-binary-tree"
-    },
-    {
-        "file_path": "serialize-and-deserialize-binary-tree-c2.js",
-        "difficulty": 1,
-        "problem_slug": "serialize-and-deserialize-binary-tree"
-    },
-    {
-        "file_path": "serialize-and-deserialize-binary-tree-c3.js",
-        "difficulty": 1,
-        "problem_slug": "serialize-and-deserialize-binary-tree"
-    },
-    {
-        "file_path": "design-add-and-search-words-data-structure-c1.js",
-        "difficulty": 1,
-        "problem_slug": "design-add-and-search-words-data-structure"
-    },
-    {
-        "file_path": "design-add-and-search-words-data-structure-c2.js",
-        "difficulty": 1,
-        "problem_slug": "design-add-and-search-words-data-structure"
-    },
-    {
-        "file_path": "design-add-and-search-words-data-structure-c3.js",
-        "difficulty": 1,
-        "problem_slug": "design-add-and-search-words-data-structure"
-    },
-    {
-        "file_path": "design-add-and-search-words-data-structure-c4.js",
-        "difficulty": 1,
-        "problem_slug": "design-add-and-search-words-data-structure"
-    },
-    {
-        "file_path": "word-search-c1.js",
-        "difficulty": 1,
-        "problem_slug": "word-search"
-    },
-    {
-        "file_path": "word-search-c2.js",
-        "difficulty": 1,
-        "problem_slug": "word-search"
-    },
-    {
-        "file_path": "word-search-c3.js",
-        "difficulty": 1,
-        "problem_slug": "word-search"
-    },
-    {
-        "file_path": "word-search-c4.js",
-        "difficulty": 1,
-        "problem_slug": "word-search"
-    },
-    {
-        "file_path": "design-twitter-c1.js",
-        "difficulty": 1,
-        "problem_slug": "design-twitter"
-    },
-    {
-        "file_path": "design-twitter-c2.js",
-        "difficulty": 1,
-        "problem_slug": "design-twitter"
-    },
-    {
-        "file_path": "design-twitter-c3.js",
-        "difficulty": 1,
-        "problem_slug": "design-twitter"
-    },
-    {
-        "file_path": "design-twitter-c4.js",
-        "difficulty": 1,
-        "problem_slug": "design-twitter"
-    },
-    {
-        "file_path": "k-closest-c1.js",
-        "difficulty": 1,
-        "problem_slug": "k-closest"
-    },
-    {
-        "file_path": "k-closest-c2.js",
-        "difficulty": 1,
-        "problem_slug": "k-closest"
-    },
-    {
-        "file_path": "kth-largest-element-in-an-array-c1.js",
-        "difficulty": 1,
-        "problem_slug": "kth-largest-element-in-an-array"
-    },
-    {
-        "file_path": "kth-largest-element-in-an-array-c2.js",
-        "difficulty": 1,
-        "problem_slug": "kth-largest-element-in-an-array"
-    },
-    {
-        "file_path": "kth-largest-element-in-an-array-c3.js",
-        "difficulty": 1,
-        "problem_slug": "kth-largest-element-in-an-array"
-    },
-    {
-        "file_path": "kth-largest-element-in-an-array-c4.js",
-        "difficulty": 1,
-        "problem_slug": "kth-largest-element-in-an-array"
-    },
-    {
-        "file_path": "word-search-ii-c1.js",
-        "difficulty": 1,
-        "problem_slug": "word-search-ii"
-    },
-    {
-        "file_path": "word-search-ii-c2.js",
-        "difficulty": 1,
-        "problem_slug": "word-search-ii"
-    },
-    {
-        "file_path": "word-search-ii-c3.js",
-        "difficulty": 1,
-        "problem_slug": "word-search-ii"
-    },
-    {
-        "file_path": "word-search-ii-c4.js",
-        "difficulty": 1,
-        "problem_slug": "word-search-ii"
-    },
-    {
-        "file_path": "word-search-ii-c5.js",
-        "difficulty": 1,
-        "problem_slug": "word-search-ii"
-    },
-    {
-        "file_path": "kth-largest-element-in-an-array-c1.js",
-        "difficulty": 1,
-        "problem_slug": "kth-largest-element-in-an-array"
-    },
-    {
-        "file_path": "kth-largest-element-in-an-array-c2.js",
-        "difficulty": 1,
-        "problem_slug": "kth-largest-element-in-an-array"
-    },
-    {
-        "file_path": "kth-largest-element-in-an-array-c3.js",
-        "difficulty": 1,
-        "problem_slug": "kth-largest-element-in-an-array"
-    },
-    {
-        "file_path": "kth-largest-element-in-an-array-c4.js",
-        "difficulty": 1,
-        "problem_slug": "kth-largest-element-in-an-array"
-    },
-    {
-        "file_path": "last-stone-weight-c1.js",
-        "difficulty": 1,
-        "problem_slug": "last-stone-weight"
-    },
-    {
-        "file_path": "last-stone-weight-c2.js",
-        "difficulty": 1,
-        "problem_slug": "last-stone-weight"
-    },
-    {
-        "file_path": "last-stone-weight-c3.js",
-        "difficulty": 1,
-        "problem_slug": "last-stone-weight"
-    },
-    {
-        "file_path": "find-median-from-data-stream-c1.js",
-        "difficulty": 1,
-        "problem_slug": "find-median-from-data-stream"
-    },
-    {
-        "file_path": "find-median-from-data-stream-c2.js",
-        "difficulty": 1,
-        "problem_slug": "find-median-from-data-stream"
-    },
-    {
-        "file_path": "find-median-from-data-stream-c3.js",
-        "difficulty": 1,
-        "problem_slug": "find-median-from-data-stream"
-    },
-    {
-        "file_path": "find-median-from-data-stream-c4.js",
-        "difficulty": 1,
-        "problem_slug": "find-median-from-data-stream"
-    },
-    {
-        "file_path": "find-median-from-data-stream-c5.js",
-        "difficulty": 1,
-        "problem_slug": "find-median-from-data-stream"
-    },
-    {
-        "file_path": "combination-sum-ii-c1.js",
-        "difficulty": 1,
-        "problem_slug": "combination-sum-ii"
-    },
-    {
-        "file_path": "combination-sum-ii-c2.js",
-        "difficulty": 1,
-        "problem_slug": "combination-sum-ii"
-    },
-    {
-        "file_path": "combination-sum-ii-c3.js",
-        "difficulty": 1,
-        "problem_slug": "combination-sum-ii"
-    },
-    {
-        "file_path": "combination-sum-ii-c4.js",
-        "difficulty": 1,
-        "problem_slug": "combination-sum-ii"
-    },
-    {
-        "file_path": "subsets-ii-c1.js",
-        "difficulty": 1,
-        "problem_slug": "subsets-ii"
-    },
-    {
-        "file_path": "subsets-ii-c2.js",
-        "difficulty": 1,
-        "problem_slug": "subsets-ii"
-    },
-    {
-        "file_path": "subsets-ii-c3.js",
-        "difficulty": 1,
-        "problem_slug": "subsets-ii"
-    },
-    {
-        "file_path": "clone-graph-c1.js",
-        "difficulty": 1,
-        "problem_slug": "clone-graph"
-    },
-    {
-        "file_path": "clone-graph-c2.js",
-        "difficulty": 1,
-        "problem_slug": "clone-graph"
-    },
-    {
-        "file_path": "clone-graph-c3.js",
-        "difficulty": 1,
-        "problem_slug": "clone-graph"
-    },
-    {
-        "file_path": "course-schedule-c1.js",
-        "difficulty": 1,
-        "problem_slug": "course-schedule"
-    },
-    {
-        "file_path": "course-schedule-c2.js",
-        "difficulty": 1,
-        "problem_slug": "course-schedule"
-    },
-    {
-        "file_path": "course-schedule-c3.js",
-        "difficulty": 1,
-        "problem_slug": "course-schedule"
-    },
-    {
-        "file_path": "course-schedule-c4.js",
-        "difficulty": 1,
-        "problem_slug": "course-schedule"
-    },
-    {
-        "file_path": "course-schedule-c5.js",
-        "difficulty": 1,
-        "problem_slug": "course-schedule"
-    },
-    {
-        "file_path": "max-area-of-island-c1.js",
-        "difficulty": 1,
-        "problem_slug": "max-area-of-island"
-    },
-    {
-        "file_path": "max-area-of-island-c2.js",
-        "difficulty": 1,
-        "problem_slug": "max-area-of-island"
-    },
-    {
-        "file_path": "max-area-of-island-c3.js",
-        "difficulty": 1,
-        "problem_slug": "max-area-of-island"
-    },
-    {
-        "file_path": "number-of-islands-c1.js",
-        "difficulty": 1,
-        "problem_slug": "number-of-islands"
-    },
-    {
-        "file_path": "number-of-islands-c2.js",
-        "difficulty": 1,
-        "problem_slug": "number-of-islands"
-    },
-    {
-        "file_path": "number-of-islands-c3.js",
-        "difficulty": 1,
-        "problem_slug": "number-of-islands"
-    },
-    {
-        "file_path": "pacific-atlantic-water-flow-c1.js",
-        "difficulty": 1,
-        "problem_slug": "pacific-atlantic-water-flow"
-    },
-    {
-        "file_path": "pacific-atlantic-water-flow-c2.js",
-        "difficulty": 1,
-        "problem_slug": "pacific-atlantic-water-flow"
-    },
-    {
-        "file_path": "pacific-atlantic-water-flow-c3.js",
-        "difficulty": 1,
-        "problem_slug": "pacific-atlantic-water-flow"
-    },
-    {
-        "file_path": "pacific-atlantic-water-flow-c4.js",
-        "difficulty": 1,
-        "problem_slug": "pacific-atlantic-water-flow"
-    },
-    {
-        "file_path": "pacific-atlantic-water-flow-c5.js",
-        "difficulty": 1,
-        "problem_slug": "pacific-atlantic-water-flow"
-    },
-    {
-        "file_path": "redundant-connection-c1.js",
-        "difficulty": 1,
-        "problem_slug": "redundant-connection"
-    },
-    {
-        "file_path": "redundant-connection-c2.js",
-        "difficulty": 1,
-        "problem_slug": "redundant-connection"
-    },
-    {
-        "file_path": "redundant-connection-c3.js",
-        "difficulty": 1,
-        "problem_slug": "redundant-connection"
-    },
-    {
-        "file_path": "redundant-connection-c4.js",
-        "difficulty": 1,
-        "problem_slug": "redundant-connection"
-    },
-    {
-        "file_path": "redundant-connection-c5.js",
-        "difficulty": 1,
-        "problem_slug": "redundant-connection"
-    },
-    {
-        "file_path": "redundant-connection-c6.js",
-        "difficulty": 1,
-        "problem_slug": "redundant-connection"
-    },
-    {
-        "file_path": "redundant-connection-c7.js",
-        "difficulty": 1,
-        "problem_slug": "redundant-connection"
-    },
-    {
-        "file_path": "rotting-oranges-c1.js",
-        "difficulty": 1,
-        "problem_slug": "rotting-oranges"
-    },
-    {
-        "file_path": "rotting-oranges-c2.js",
-        "difficulty": 1,
-        "problem_slug": "rotting-oranges"
-    },
-    {
-        "file_path": "rotting-oranges-c3.js",
-        "difficulty": 1,
-        "problem_slug": "rotting-oranges"
-    },
-    {
-        "file_path": "rotting-oranges-c4.js",
-        "difficulty": 1,
-        "problem_slug": "rotting-oranges"
-    },
-    {
-        "file_path": "surrounded-regions-c1.js",
-        "difficulty": 1,
-        "problem_slug": "surrounded-regions"
-    },
-    {
-        "file_path": "surrounded-regions-c2.js",
-        "difficulty": 1,
-        "problem_slug": "surrounded-regions"
-    },
-    {
-        "file_path": "surrounded-regions-c3.js",
-        "difficulty": 1,
-        "problem_slug": "surrounded-regions"
-    },
-    {
-        "file_path": "surrounded-regions-c4.js",
-        "difficulty": 1,
-        "problem_slug": "surrounded-regions"
-    },
-    {
-        "file_path": "walls-and-gates-c1.js",
-        "difficulty": 1,
-        "problem_slug": "walls-and-gates"
-    },
-    {
-        "file_path": "walls-and-gates-c2.js",
-        "difficulty": 1,
-        "problem_slug": "walls-and-gates"
-    },
-    {
-        "file_path": "walls-and-gates-c3.js",
-        "difficulty": 1,
-        "problem_slug": "walls-and-gates"
-    },
-    {
-        "file_path": "word-ladder-c1.js",
-        "difficulty": 1,
-        "problem_slug": "word-ladder"
-    },
-    {
-        "file_path": "word-ladder-c2.js",
-        "difficulty": 1,
-        "problem_slug": "word-ladder"
-    },
-    {
-        "file_path": "word-ladder-c3.js",
-        "difficulty": 1,
-        "problem_slug": "word-ladder"
-    },
-    {
-        "file_path": "climbing-stairs-c1.js",
-        "difficulty": 1,
-        "problem_slug": "climbing-stairs"
-    },
-    {
-        "file_path": "climbing-stairs-c2.js",
-        "difficulty": 1,
-        "problem_slug": "climbing-stairs"
-    },
-    {
-        "file_path": "climbing-stairs-c3.js",
-        "difficulty": 1,
-        "problem_slug": "climbing-stairs"
-    },
-    {
-        "file_path": "coin-change-c1.js",
-        "difficulty": 1,
-        "problem_slug": "coin-change"
-    },
-    {
-        "file_path": "coin-change-c2.js",
-        "difficulty": 1,
-        "problem_slug": "coin-change"
-    },
-    {
-        "file_path": "coin-change-c3.js",
-        "difficulty": 1,
-        "problem_slug": "coin-change"
-    },
-    {
-        "file_path": "decode-ways-c1.js",
-        "difficulty": 1,
-        "problem_slug": "decode-ways"
-    },
-    {
-        "file_path": "decode-ways-c2.js",
-        "difficulty": 1,
-        "problem_slug": "decode-ways"
-    },
-    {
-        "file_path": "decode-ways-c3.js",
-        "difficulty": 1,
-        "problem_slug": "decode-ways"
-    },
-    {
-        "file_path": "house-robber-c1.js",
-        "difficulty": 1,
-        "problem_slug": "house-robber"
-    },
-    {
-        "file_path": "house-robber-c2.js",
-        "difficulty": 1,
-        "problem_slug": "house-robber"
-    },
-    {
-        "file_path": "house-robber-ii-c1.js",
-        "difficulty": 1,
-        "problem_slug": "house-robber-ii"
-    },
-    {
-        "file_path": "house-robber-ii-c2.js",
-        "difficulty": 1,
-        "problem_slug": "house-robber-ii"
-    },
-    {
-        "file_path": "house-robber-ii-c3.js",
-        "difficulty": 1,
-        "problem_slug": "house-robber-ii"
-    },
-    {
-        "file_path": "detect-squares-c1.js",
-        "difficulty": 1,
-        "problem_slug": "detect-squares"
-    },
-    {
-        "file_path": "detect-squares-c2.js",
-        "difficulty": 1,
-        "problem_slug": "detect-squares"
-    },
-    {
-        "file_path": "detect-squares-c3.js",
-        "difficulty": 1,
-        "problem_slug": "detect-squares"
-    },
-    {
-        "file_path": "detect-squares-c4.js",
-        "difficulty": 1,
-        "problem_slug": "detect-squares"
-    },
-    {
-        "file_path": "longest-common-sequence-c1.js",
-        "difficulty": 1,
-        "problem_slug": "longest-common-sequence"
-    },
-    {
-        "file_path": "longest-common-sequence-c2.js",
-        "difficulty": 1,
-        "problem_slug": "longest-common-sequence"
-    },
-    {
-        "file_path": "longest-common-sequence-c3.js",
-        "difficulty": 1,
-        "problem_slug": "longest-common-sequence"
-    },
-    {
-        "file_path": "maximum-product-subarray-c1.js",
-        "difficulty": 1,
-        "problem_slug": "maximum-product-subarray"
-    },
-    {
-        "file_path": "maximum-product-subarray-c2.js",
-        "difficulty": 1,
-        "problem_slug": "maximum-product-subarray"
-    },
-    {
-        "file_path": "maximum-subarray-c1.js",
-        "difficulty": 1,
-        "problem_slug": "maximum-subarray"
-    },
-    {
-        "file_path": "maximum-subarray-c2.js",
-        "difficulty": 1,
-        "problem_slug": "maximum-subarray"
-    },
-    {
-        "file_path": "min-cost-climbing-stairs-c1.js",
-        "difficulty": 1,
-        "problem_slug": "min-cost-climbing-stairs"
-    },
-    {
-        "file_path": "min-cost-climbing-stairs-c2.js",
-        "difficulty": 1,
-        "problem_slug": "min-cost-climbing-stairs"
-    },
-    {
-        "file_path": "palindromic-substrings-c1.js",
-        "difficulty": 1,
-        "problem_slug": "palindromic-substrings"
-    },
-    {
-        "file_path": "palindromic-substrings-c2.js",
-        "difficulty": 1,
-        "problem_slug": "palindromic-substrings"
-    },
-    {
-        "file_path": "palindromic-substrings-c3.js",
-        "difficulty": 1,
-        "problem_slug": "palindromic-substrings"
-    },
-    {
-        "file_path": "partition-equal-subset-sum-c1.js",
-        "difficulty": 1,
-        "problem_slug": "partition-equal-subset-sum"
-    },
-    {
-        "file_path": "partition-equal-subset-sum-c2.js",
-        "difficulty": 1,
-        "problem_slug": "partition-equal-subset-sum"
-    },
-    {
-        "file_path": "partition-equal-subset-sum-c3.js",
-        "difficulty": 1,
-        "problem_slug": "partition-equal-subset-sum"
-    },
-    {
-        "file_path": "partition-equal-subset-sum-c4.js",
-        "difficulty": 1,
-        "problem_slug": "partition-equal-subset-sum"
-    },
-    {
-        "file_path": "partition-equal-subset-sum-c5.js",
-        "difficulty": 1,
-        "problem_slug": "partition-equal-subset-sum"
-    },
-    {
-        "file_path": "partition-equal-subset-sum-c6.js",
-        "difficulty": 1,
-        "problem_slug": "partition-equal-subset-sum"
-    },
-    {
-        "file_path": "word-break-c1.js",
-        "difficulty": 1,
-        "problem_slug": "word-break"
-    },
-    {
-        "file_path": "word-break-c2.js",
-        "difficulty": 1,
-        "problem_slug": "word-break"
-    },
-    {
-        "file_path": "word-break-c3.js",
-        "difficulty": 1,
-        "problem_slug": "word-break"
-    },
-    {
-        "file_path": "meeting-rooms-c1.js",
-        "difficulty": 1,
-        "problem_slug": "meeting-rooms"
-    },
-    {
-        "file_path": "meeting-rooms-c2.js",
-        "difficulty": 1,
-        "problem_slug": "meeting-rooms"
-    },
-    {
-        "file_path": "non-overlapping-intervals-c1.js",
-        "difficulty": 1,
-        "problem_slug": "non-overlapping-intervals"
-    },
-    {
-        "file_path": "non-overlapping-intervals-c2.js",
-        "difficulty": 1,
-        "problem_slug": "non-overlapping-intervals"
-    },
-    {
-        "file_path": "non-overlapping-intervals-c3.js",
-        "difficulty": 1,
-        "problem_slug": "non-overlapping-intervals"
-    },
-    {
-        "file_path": "gas-station-c1.js",
-        "difficulty": 1,
-        "problem_slug": "gas-station"
-    },
-    {
-        "file_path": "gas-station-c2.js",
-        "difficulty": 1,
-        "problem_slug": "gas-station"
-    },
-    {
-        "file_path": "gas-station-c3.js",
-        "difficulty": 1,
-        "problem_slug": "gas-station"
-    },
-    {
-        "file_path": "hand-of-straights-c1.js",
-        "difficulty": 1,
-        "problem_slug": "hand-of-straights"
-    },
-    {
-        "file_path": "hand-of-straights-c2.js",
-        "difficulty": 1,
-        "problem_slug": "hand-of-straights"
-    },
-    {
-        "file_path": "hand-of-straights-c3.js",
-        "difficulty": 1,
-        "problem_slug": "hand-of-straights"
-    },
-    {
-        "file_path": "partition-labels-c1",
-        "difficulty": 1,
-        "problem_slug": "partition-labels"
-    },
-    {
-        "file_path": "partition-labels-c2",
-        "difficulty": 1,
-        "problem_slug": "partition-labels"
-    },
-    {
-        "file_path": "partition-labels-c3",
-        "difficulty": 1,
-        "problem_slug": "partition-labels"
-    },
-    {
-        "file_path": "valid-parenthesis-string-c1.js",
-        "difficulty": 1,
-        "problem_slug": "valid-parenthesis-string"
-    },
-    {
-        "file_path": "valid-parenthesis-string-c2.js",
-        "difficulty": 1,
-        "problem_slug": "valid-parenthesis-string"
-    },
-    {
-        "file_path": "multiply-strings-c1.js",
-        "difficulty": 1,
-        "problem_slug": "multiply-strings"
-    },
-    {
-        "file_path": "multiply-strings-c2.js",
-        "difficulty": 1,
-        "problem_slug": "multiply-strings"
-    },
-    {
-        "file_path": "multiply-strings-c3.js",
-        "difficulty": 1,
-        "problem_slug": "multiply-strings"
-    },
-    {
-        "file_path": "multiply-strings-c4.js",
-        "difficulty": 1,
-        "problem_slug": "multiply-strings"
-    },
-    {
-        "file_path": "plus-one-c1.js",
-        "difficulty": 1,
-        "problem_slug": "plus-one"
-    },
-    {
-        "file_path": "plus-one-c2.js",
-        "difficulty": 1,
-        "problem_slug": "plus-one"
-    },
-    {
-        "file_path": "plus-one-c3.js",
-        "difficulty": 1,
-        "problem_slug": "plus-one"
-    },
-    {
-        "file_path": "powx-n-c1.js",
-        "difficulty": 1,
-        "problem_slug": "powx-n"
-    },
-    {
-        "file_path": "powx-n-c2.js",
-        "difficulty": 1,
-        "problem_slug": "powx-n"
-    },
-    {
-        "file_path": "powx-n-c3.js",
-        "difficulty": 1,
-        "problem_slug": "powx-n"
-    },
-    {
-        "file_path": "powx-n-c4.js",
-        "difficulty": 1,
-        "problem_slug": "powx-n"
-    },
-    {
-        "file_path": "rotate-image-c1.js",
-        "difficulty": 1,
-        "problem_slug": "rotate-image"
-    },
-    {
-        "file_path": "rotate-image-c2.js",
-        "difficulty": 1,
-        "problem_slug": "rotate-image"
-    },
-    {
-        "file_path": "rotate-image-c3.js",
-        "difficulty": 1,
-        "problem_slug": "rotate-image"
-    },
-    {
-        "file_path": "rotate-image-c4.js",
-        "difficulty": 1,
-        "problem_slug": "rotate-image"
-    },
-    {
-        "file_path": "set-matrix-zeroes-c1.js",
-        "difficulty": 1,
-        "problem_slug": "set-matrix-zeroes"
-    },
-    {
-        "file_path": "set-matrix-zeroes-c2.js",
-        "difficulty": 1,
-        "problem_slug": "set-matrix-zeroes"
-    },
-    {
-        "file_path": "set-matrix-zeroes-c3.js",
-        "difficulty": 1,
-        "problem_slug": "set-matrix-zeroes"
-    },
-    {
-        "file_path": "set-matrix-zeroes-c4.js",
-        "difficulty": 1,
-        "problem_slug": "set-matrix-zeroes"
-    },
-    {
-        "file_path": "set-matrix-zeroes-c5.js",
-        "difficulty": 1,
-        "problem_slug": "set-matrix-zeroes"
-    },
-    {
-        "file_path": "spiral-matrix-c1.js",
-        "difficulty": 1,
-        "problem_slug": "spiral-matrix"
-    },
-    {
-        "file_path": "spiral-matrix-c2.js",
-        "difficulty": 1,
-        "problem_slug": "spiral-matrix"
-    },
-    {
-        "file_path": "spiral-matrix-c3.js",
-        "difficulty": 1,
-        "problem_slug": "spiral-matrix"
-    },
-    {
-        "file_path": "spiral-matrix-c1.js",
-        "difficulty": 1,
-        "problem_slug": "spiral-matrix"
-    },
-    {
-        "file_path": "spiral-matrix-c2.js",
-        "difficulty": 1,
-        "problem_slug": "spiral-matrix"
-    },
-    {
-        "file_path": "spiral-matrix-c3.js",
-        "difficulty": 1,
-        "problem_slug": "spiral-matrix"
-    },
-    {
-        "file_path": "counting-bits-c1.js",
-        "difficulty": 1,
-        "problem_slug": "counting-bits"
-    },
-    {
-        "file_path": "counting-bits-c2.js",
-        "difficulty": 1,
-        "problem_slug": "counting-bits"
-    },
-    {
-        "file_path": "missing-number-c1.js",
-        "difficulty": 1,
-        "problem_slug": "missing-number"
-    },
-    {
-        "file_path": "missing-number-c2.js",
-        "difficulty": 1,
-        "problem_slug": "missing-number"
-    },
-    {
-        "file_path": "number-of-1-bits-c1.js",
-        "difficulty": 1,
-        "problem_slug": "number-of-1-bits"
-    },
-    {
-        "file_path": "number-of-1-bits-c2.js",
-        "difficulty": 1,
-        "problem_slug": "number-of-1-bits"
-    },
-    {
-        "file_path": "candy-c1.js",
-        "difficulty": 1,
-        "problem_slug": "candy"
-    },
-    {
-        "file_path": "candy-c2.js",
-        "difficulty": 1,
-        "problem_slug": "candy"
-    },
-    {
-        "file_path": "candy-c3.js",
-        "difficulty": 1,
-        "problem_slug": "candy"
-    },
-    {
-        "file_path": "simplify-path-c1.js",
-        "difficulty": 1,
-        "problem_slug": "simplify-path"
-    },
-    {
-        "file_path": "simplify-path-c2.js",
-        "difficulty": 1,
-        "problem_slug": "simplify-path"
-    },
-    {
-        "file_path": "basic-calculator-c1.js",
-        "difficulty": 3,
-        "problem_slug": "basic-calculator"
-    },
-    {
-        "file_path": "basic-calculator-c2.js",
-        "difficulty": 3,
-        "problem_slug": "basic-calculator"
-    },
-    {
-        "file_path": "basic-calculator-c3.js",
-        "difficulty": 3,
-        "problem_slug": "basic-calculator"
-    },
-    {
-        "file_path": "copy-list-with-random-pointer-c1.js",
-        "difficulty": 2,
-        "problem_slug": "copy-list-with-random-pointer"
-    },
-    {
-        "file_path": "copy-list-with-random-pointer-c2.js",
-        "difficulty": 2,
-        "problem_slug": "copy-list-with-random-pointer"
-    },
-    {
-        "file_path": "copy-list-with-random-pointer-c3.js",
-        "difficulty": 2,
-        "problem_slug": "copy-list-with-random-pointer"
-    },
-    {
-        "file_path": "reverse-linked-list-c1.js",
-        "difficulty": 2,
-        "problem_slug": "reverse-linked-list"
-    },
-    {
-        "file_path": "remove-nth-node-from-end-of-list-c1.js",
-        "difficulty": 1,
-        "problem_slug": "remove-nth-node-from-end-of-list"
-    },
-    {
-        "file_path": "remove-nth-node-from-end-of-list-c2.js",
-        "difficulty": 1,
-        "problem_slug": "remove-nth-node-from-end-of-list"
-    },
-    {
-        "file_path": "remove-nth-node-from-end-of-list-c3.js",
-        "difficulty": 1,
-        "problem_slug": "remove-nth-node-from-end-of-list"
-    },
-    {
-        "file_path": "rotate-list-c1.js",
-        "difficulty": 1,
-        "problem_slug": "rotate-list"
-    },
-    {
-        "file_path": "rotate-list-c2.js",
-        "difficulty": 1,
-        "problem_slug": "rotate-list"
-    },
-    {
-        "file_path": "rotate-list-c3.js",
-        "difficulty": 1,
-        "problem_slug": "rotate-list"
-    },
-    {
-        "file_path": "same-tree-c1.js",
-        "difficulty": 1,
-        "problem_slug": "same-tree"
-    },
-    {
-        "file_path": "same-tree-c2.js",
-        "difficulty": 1,
-        "problem_slug": "same-tree"
-    },
-    {
-        "file_path": "same-tree-c3.js",
-        "difficulty": 1,
-        "problem_slug": "same-tree"
-    },
-    {
-        "file_path": "symmetric-tree-c1.js",
-        "difficulty": 1,
-        "problem_slug": "symmetric-tree"
-    },
-    {
-        "file_path": "symmetric-tree-c2.js",
-        "difficulty": 1,
-        "problem_slug": "symmetric-tree"
-    },
-    {
-        "file_path": "symmetric-tree-c3.js",
-        "difficulty": 1,
-        "problem_slug": "symmetric-tree"
-    },
-    {
-        "file_path": "flatten-binary-tree-to-linked-list-c1",
-        "difficulty": 2,
-        "problem_slug": "flatten-binary-tree-to-linked-list"
-    },
-    {
-        "file_path": "flatten-binary-tree-to-linked-list-c2",
-        "difficulty": 2,
-        "problem_slug": "flatten-binary-tree-to-linked-list"
-    },
-    {
-        "file_path": "flatten-binary-tree-to-linked-list-c3",
-        "difficulty": 2,
-        "problem_slug": "flatten-binary-tree-to-linked-list"
-    },
-    {
-        "file_path": "flatten-binary-tree-to-linked-list-c4",
-        "difficulty": 2,
-        "problem_slug": "flatten-binary-tree-to-linked-list"
-    },
-    {
-        "file_path": "flatten-binary-tree-to-linked-list-c5",
-        "difficulty": 2,
-        "problem_slug": "flatten-binary-tree-to-linked-list"
-    },
-    {
-        "file_path": "sum-root-to-leaf-numbers-c1.js",
-        "difficulty": 1,
-        "problem_slug": "sum-root-to-leaf-numbers"
-    },
-    {
-        "file_path": "sum-root-to-leaf-numbers-c2.js",
-        "difficulty": 1,
-        "problem_slug": "sum-root-to-leaf-numbers"
-    },
-    {
-        "file_path": "sum-root-to-leaf-numbers-c3.js",
-        "difficulty": 1,
-        "problem_slug": "sum-root-to-leaf-numbers"
-    },
-    {
-        "file_path": "kth-smallest-element-in-a-bst-c1.js",
-        "difficulty": 1,
-        "problem_slug": "kth-smallest-element-in-a-bst"
-    },
-    {
-        "file_path": "kth-smallest-element-in-a-bst-c2.js",
-        "difficulty": 1,
-        "problem_slug": "kth-smallest-element-in-a-bst"
-    },
-    {
-        "file_path": "kth-smallest-element-in-a-bst-c3.js",
-        "difficulty": 1,
-        "problem_slug": "kth-smallest-element-in-a-bst"
-    },
-    {
-        "file_path": "evaluate-division-c1.js",
-        "difficulty": 1,
-        "problem_slug": "evaluate-division"
-    },
-    {
-        "file_path": "evaluate-division-c2.js",
-        "difficulty": 1,
-        "problem_slug": "evaluate-division"
-    },
-    {
-        "file_path": "evaluate-division-c3.js",
-        "difficulty": 1,
-        "problem_slug": "evaluate-division"
-    },
-    {
-        "file_path": "evaluate-division-c4.js",
-        "difficulty": 1,
-        "problem_slug": "evaluate-division"
-    },
-    {
-        "file_path": "course-schedule-ii-c1.js",
-        "difficulty": 2,
-        "problem_slug": "course-schedule-ii"
-    },
-    {
-        "file_path": "course-schedule-ii-c2.js",
-        "difficulty": 2,
-        "problem_slug": "course-schedule-ii"
-    },
-    {
-        "file_path": "course-schedule-ii-c3.js",
-        "difficulty": 2,
-        "problem_slug": "course-schedule-ii"
-    },
-    {
-        "file_path": "course-schedule-ii-c4.js",
-        "difficulty": 2,
-        "problem_slug": "course-schedule-ii"
-    },
-    {
-        "file_path": "course-schedule-ii-c5.js",
-        "difficulty": 2,
-        "problem_slug": "course-schedule-ii"
-    },
-    {
-        "file_path": "snakes-and-ladders-c1.js",
-        "difficulty": 2,
-        "problem_slug": "snakes-and-ladders"
-    },
-    {
-        "file_path": "snakes-and-ladders-c2.js",
-        "difficulty": 2,
-        "problem_slug": "snakes-and-ladders"
-    },
-    {
-        "file_path": "snakes-and-ladders-c3.js",
-        "difficulty": 2,
-        "problem_slug": "snakes-and-ladders"
-    },
-    {
-        "file_path": "minimum-genetic-mutation-c1.js",
-        "difficulty": 1,
-        "problem_slug": "minimum-genetic-mutation"
-    },
-    {
-        "file_path": "minimum-genetic-mutation-c2.js",
-        "difficulty": 1,
-        "problem_slug": "minimum-genetic-mutation"
-    },
-    {
-        "file_path": "minimum-genetic-mutation-c3.js",
-        "difficulty": 1,
-        "problem_slug": "minimum-genetic-mutation"
-    },
-    {
-        "file_path": "sort-list-c1.js",
-        "difficulty": 1,
-        "problem_slug": "sort-list"
-    },
-    {
-        "file_path": "sort-list-c2.js",
-        "difficulty": 1,
-        "problem_slug": "sort-list"
-    },
-    {
-        "file_path": "sort-list-c3.js",
-        "difficulty": 1,
-        "problem_slug": "sort-list"
-    },
-    {
-        "file_path": "construct-quad-tree-c1.js",
-        "difficulty": 1,
-        "problem_slug": "construct-quad-tree"
-    },
-    {
-        "file_path": "construct-quad-tree-c2.js",
-        "difficulty": 1,
-        "problem_slug": "construct-quad-tree"
-    },
-    {
-        "file_path": "search-insert-position-c1.js",
-        "difficulty": 1,
-        "problem_slug": "search-insert-position"
-    },
-    {
-    "file_path": "search-insert-position-c2.js",
-        "difficulty": 1,
-        "problem_slug": "search-insert-position"
-    },
-    {
-        "file_path": "find-peak-element-c1.js", 
-        "difficulty": 1,
-        "problem_slug": "find-peak-element"
-    },
-    {
-        "file_path": "median-of-two-sorted-arrays-c1.js",
-        "difficulty": 2,
-        "problem_slug": "median-of-two-sorted-arrays"
-    },
-    {
-        "file_path": "median-of-two-sorted-arrays-c2.js",
-        "difficulty": 2,
-        "problem_slug": "median-of-two-sorted-arrays"
-    },
-    {
-        "file_path": "median-of-two-sorted-arrays-c3.js",
-        "difficulty": 2,
-        "problem_slug": "median-of-two-sorted-arrays"
-    },
-    {
-        "file_path": "median-of-two-sorted-arrays-c4.js",
-        "difficulty": 2,
-        "problem_slug": "median-of-two-sorted-arrays"
-    },
-    {
-        "file_path": "median-of-two-sorted-arrays-c5.js",
-        "difficulty": 2,
-        "problem_slug": "median-of-two-sorted-arrays"
-    },
-    {
-        "file_path": "count-nice-pairs-in-an-array-c1.js",
-        "difficulty": 2,
-        "problem_slug": "count-nice-pairs-in-an-array"
-    },
-    {
-        "file_path": "single-number-c1.js",
-        "difficulty": 1,
-        "problem_slug": "single-number"
-    },
-    {
-        "file_path": "single-number-ii-c1.js",
-        "difficulty": 1,
-        "problem_slug": "single-number-ii"
-    },
-    {
-        "file_path": "factorial-trailing-zeroes-c1.js",
-        "difficulty": 1,
-        "problem_slug": "factorial-trailing-zeroes"
-    },
-    {
-        "file_path": "sqrtx-c1.js",
-        "difficulty": 1,
-        "problem_slug": "sqrtx"
-    },
-    {
-        "file_path": "sqrtx-c2.js",
-        "difficulty": 1,
-        "problem_slug": "sqrtx"
-    },
-    {
-        "file_path": "sqrtx-c3.js",
-        "difficulty": 1,
-        "problem_slug": "sqrtx"
-    },
-    {
-        "file_path": "triangle-c1.js",
-        "difficulty": 1,
-        "problem_slug": "triangle"
-    },
-    {
-        "file_path": "triangle-c2.js",
-        "difficulty": 1,
-        "problem_slug": "triangle"
-    },
-    {
-        "file_path": "triangle-c3.js",
-        "difficulty": 1,
-        "problem_slug": "triangle"
-    },
-    {
-        "file_path": "edit-distance-c1.js",
-        "difficulty": 1,
-        "problem_slug": "edit-distance"
-    },
-    {
-        "file_path": "perfect-squares-c1.js",
-        "difficulty": 1,
-        "problem_slug": "perfect-squares"
-    },
-    {
-        "file_path": "perfect-squares-c2.js",
-        "difficulty": 1,
-        "problem_slug": "perfect-squares"
-    },
-    {
-        "file_path": "perfect-squares-c3.js",
-        "difficulty": 1,
-        "problem_slug": "perfect-squares"
-    },
-    {
-        "file_path": "longest-palindromic-subsequence-c1.md",
-        "difficulty": 1,
-        "problem_slug": "longest-palindromic-subsequence"
-    }
-
-    
-
-
+	{
+		"file_path": "container-with-most-water-c1.js",
+		"difficulty": 2,
+		"problem_slug": "container-with-most-water"
+	},
+	{
+		"file_path": "container-with-most-water-c2.js",
+		"difficulty": 2,
+		"problem_slug": "container-with-most-water"
+	},
+	{
+		"file_path": "three-number-sum-c1.js",
+		"difficulty": 2,
+		"problem_slug": "three-number-sum"
+	},
+	{
+		"file_path": "three-number-sum-c2.js",
+		"difficulty": 2,
+		"problem_slug": "three-number-sum"
+	},
+	{
+		"file_path": "container-with-most-water-c1.js",
+		"difficulty": 2,
+		"problem_slug": "container-with-most-water"
+	},
+	{
+		"file_path": "container-with-most-water-c2.js",
+		"difficulty": 2,
+		"problem_slug": "container-with-most-water"
+	},
+	{
+		"file_path": "trapping-rain-water-c1.js",
+		"difficulty": 2,
+		"problem_slug": "trapping-rain-water"
+	},
+	{
+		"file_path": "trapping-rain-water-c2.js",
+		"difficulty": 2,
+		"problem_slug": "trapping-rain-water"
+	},
+	{
+		"file_path": "trapping-rain-water-c3.js",
+		"difficulty": 2,
+		"problem_slug": "trapping-rain-water"
+	},
+	{
+		"file_path": "character-replacement-c1.js",
+		"difficulty": 2,
+		"problem_slug": "character-replacement"
+	},
+	{
+		"file_path": "character-replacement-c2.js",
+		"difficulty": 4,
+		"problem_slug": "character-replacement"
+	},
+	{
+		"file_path": "character-replacement-c2.js",
+		"difficulty": 2,
+		"problem_slug": "character-replacement"
+	},
+	{
+		"file_path": "daily-temperatures-c1.js",
+		"difficulty": 2,
+		"problem_slug": "daily-temperatures"
+	},
+	{
+		"file_path": "daily-temperatures-c2.js",
+		"difficulty": 2,
+		"problem_slug": "daily-temperatures"
+	},
+	{
+		"file_path": "daily-temperatures-c3.js",
+		"difficulty": 2,
+		"problem_slug": "daily-temperatures"
+	},
+	{
+		"file_path": "max-profit-c1.js",
+		"difficulty": 2,
+		"problem_slug": "max-profit"
+	},
+	{
+		"file_path": "max-profit-c2.js",
+		"difficulty": 2,
+		"problem_slug": "max-profit"
+	},
+	{
+		"file_path": "max-profit-c3.js",
+		"difficulty": 2,
+		"problem_slug": "max-profit"
+	},
+	{
+		"file_path": "min-window-c1.js",
+		"difficulty": 2,
+		"problem_slug": "min-window"
+	},
+	{
+		"file_path": "min-window-c2.js",
+		"difficulty": 2,
+		"problem_slug": "min-window"
+	},
+	{
+		"file_path": "min-window-c3.js",
+		"difficulty": 2,
+		"problem_slug": "min-window"
+	},
+	{
+		"file_path": "min-window-c4.js",
+		"difficulty": 2,
+		"problem_slug": "min-window"
+	},
+	{
+		"file_path": "max-sliding-window-c1.js",
+		"difficulty": 2,
+		"problem_slug": "max-sliding-window"
+	},
+	{
+		"file_path": "max-sliding-window-c2.js",
+		"difficulty": 2,
+		"problem_slug": "max-sliding-window"
+	},
+	{
+		"file_path": "max-sliding-window-c3.js",
+		"difficulty": 2,
+		"problem_slug": "max-sliding-window"
+	},
+	{
+		"file_path": "max-sliding-window-c4.js",
+		"difficulty": 2,
+		"problem_slug": "max-sliding-window"
+	},
+	{
+		"file_path": "max-sliding-window-c5.js",
+		"difficulty": 2,
+		"problem_slug": "max-sliding-window"
+	},
+	{
+		"file_path": "car-fleet-c1.js",
+		"difficulty": 2,
+		"problem_slug": "car-fleet"
+	},
+	{
+		"file_path": "car-fleet-c2.js",
+		"difficulty": 2,
+		"problem_slug": "car-fleet"
+	},
+	{
+		"file_path": "car-fleet-c3.js",
+		"difficulty": 2,
+		"problem_slug": "car-fleet"
+	},
+	{
+		"file_path": "largest-rectangle-area-c1.js",
+		"difficulty": 2,
+		"problem_slug": "largest-rectangle-area"
+	},
+	{
+		"file_path": "largest-rectangle-area-c2.js",
+		"difficulty": 2,
+		"problem_slug": "largest-rectangle-area"
+	},
+	{
+		"file_path": "largest-rectangle-area-c3.js",
+		"difficulty": 2,
+		"problem_slug": "largest-rectangle-area"
+	},
+	{
+		"file_path": "min-stack-c1.js",
+		"difficulty": 1,
+		"problem_slug": "min-stack"
+	},
+	{
+		"file_path": "min-stack-c2.js",
+		"difficulty": 1,
+		"problem_slug": "min-stack"
+	},
+	{
+		"file_path": "min-stack-c3.js",
+		"difficulty": 1,
+		"problem_slug": "min-stack"
+	},
+	{
+		"file_path": "min-stack-c4.js",
+		"difficulty": 1,
+		"problem_slug": "min-stack"
+	},
+	{
+		"file_path": "valid-parentheses-c1.js",
+		"difficulty": 1,
+		"problem_slug": "valid-parentheses"
+	},
+	{
+		"file_path": "valid-parentheses-c2.js",
+		"difficulty": 1,
+		"problem_slug": "valid-parentheses"
+	},
+	{
+		"file_path": "valid-parentheses-c3.js",
+		"difficulty": 1,
+		"problem_slug": "valid-parentheses"
+	},
+	{
+		"file_path": "generate-parenthesis-c1.js",
+		"difficulty": 1,
+		"problem_slug": "generate-parenthesis"
+	},
+	{
+		"file_path": "generate-parenthesis-c2.js",
+		"difficulty": 1,
+		"problem_slug": "generate-parenthesis"
+	},
+	{
+		"file_path": "generate-parenthesis-c3.js",
+		"difficulty": 1,
+		"problem_slug": "generate-parenthesis"
+	},
+	{
+		"file_path": "letter-combinations-of-a-phone-number-c1.js",
+		"difficulty": 1,
+		"problem_slug": "letter-combinations-of-a-phone-number"
+	},
+	{
+		"file_path": "letter-combinations-of-a-phone-number-c2.js",
+		"difficulty": 1,
+		"problem_slug": "letter-combinations-of-a-phone-number"
+	},
+	{
+		"file_path": "letter-combinations-of-a-phone-number-c3.js",
+		"difficulty": 1,
+		"problem_slug": "letter-combinations-of-a-phone-number"
+	},
+	{
+		"file_path": "n-queens-c1.js",
+		"difficulty": 1,
+		"problem_slug": "n-queens"
+	},
+	{
+		"file_path": "n-queens-c2.js",
+		"difficulty": 1,
+		"problem_slug": "n-queens"
+	},
+	{
+		"file_path": "n-queens-c3.js",
+		"difficulty": 1,
+		"problem_slug": "n-queens"
+	},
+	{
+		"file_path": "permutations-c1.js",
+		"difficulty": 1,
+		"problem_slug": "permutations"
+	},
+	{
+		"file_path": "permutations-c2.js",
+		"difficulty": 1,
+		"problem_slug": "permutations"
+	},
+	{
+		"file_path": "permutations-c3.js",
+		"difficulty": 1,
+		"problem_slug": "permutations"
+	},
+	{
+		"file_path": "binary-search-c1.js",
+		"difficulty": 1,
+		"problem_slug": "binary-search"
+	},
+	{
+		"file_path": "binary-search-c2.js",
+		"difficulty": 1,
+		"problem_slug": "binary-search"
+	},
+	{
+		"file_path": "binary-search-c3.js",
+		"difficulty": 1,
+		"problem_slug": "binary-search"
+	},
+	{
+		"file_path": "find-min-c1.js",
+		"difficulty": 1,
+		"problem_slug": "find-min"
+	},
+	{
+		"file_path": "find-min-c2.js",
+		"difficulty": 1,
+		"problem_slug": "find-min"
+	},
+	{
+		"file_path": "find-min-c3.js",
+		"difficulty": 1,
+		"problem_slug": "find-min"
+	},
+	{
+		"file_path": "key-based-value-store-c1.js",
+		"difficulty": 1,
+		"problem_slug": "key-based-value-store"
+	},
+	{
+		"file_path": "key-based-value-store-c2.js",
+		"difficulty": 1,
+		"problem_slug": "key-based-value-store"
+	},
+	{
+		"file_path": "key-based-value-store-c3.js",
+		"difficulty": 1,
+		"problem_slug": "key-based-value-store"
+	},
+	{
+		"file_path": "koko-eating-bananas-c1.js",
+		"difficulty": 1,
+		"problem_slug": "koko-eating-bananas"
+	},
+	{
+		"file_path": "koko-eating-bananas-c2.js",
+		"difficulty": 1,
+		"problem_slug": "koko-eating-bananas"
+	},
+	{
+		"file_path": "koko-eating-bananas-c3.js",
+		"difficulty": 1,
+		"problem_slug": "koko-eating-bananas"
+	},
+	{
+		"file_path": "median-sorted-arrays-c1.js",
+		"difficulty": 1,
+		"problem_slug": "median-sorted-arrays"
+	},
+	{
+		"file_path": "median-sorted-arrays-c2.js",
+		"difficulty": 1,
+		"problem_slug": "median-sorted-arrays"
+	},
+	{
+		"file_path": "median-sorted-arrays-c3.js",
+		"difficulty": 1,
+		"problem_slug": "median-sorted-arrays"
+	},
+	{
+		"file_path": "median-sorted-arrays-c4.js",
+		"difficulty": 1,
+		"problem_slug": "median-sorted-arrays"
+	},
+	{
+		"file_path": "search-matrix-c1.js",
+		"difficulty": 1,
+		"problem_slug": "search-matrix"
+	},
+	{
+		"file_path": "search-matrix-c2.js",
+		"difficulty": 1,
+		"problem_slug": "search-matrix"
+	},
+	{
+		"file_path": "search-matrix-c3.js",
+		"difficulty": 1,
+		"problem_slug": "search-matrix"
+	},
+	{
+		"file_path": "search-rotated-array-c1.js",
+		"difficulty": 1,
+		"problem_slug": "search-rotated-array"
+	},
+	{
+		"file_path": "search-rotated-array-c2.js",
+		"difficulty": 1,
+		"problem_slug": "search-rotated-array"
+	},
+	{
+		"file_path": "search-rotated-array-c3.js",
+		"difficulty": 1,
+		"problem_slug": "search-rotated-array"
+	},
+	{
+		"file_path": "search-rotated-array-c4.js",
+		"difficulty": 1,
+		"problem_slug": "search-rotated-array"
+	},
+	{
+		"file_path": "search-rotated-array-c4.js",
+		"difficulty": 1,
+		"problem_slug": "search-rotated-array"
+	},
+	{
+		"file_path": "search-rotated-array-c4.js",
+		"difficulty": 1,
+		"problem_slug": "search-rotated-array"
+	},
+	{
+		"file_path": "search-rotated-array-c4.js",
+		"difficulty": 1,
+		"problem_slug": "search-rotated-array"
+	},
+	{
+		"file_path": "add-two-numbers-c1.js",
+		"difficulty": 1,
+		"problem_slug": "add-two-numbers"
+	},
+	{
+		"file_path": "add-two-numbers-c2.js",
+		"difficulty": 1,
+		"problem_slug": "add-two-numbers"
+	},
+	{
+		"file_path": "add-two-numbers-c3.js",
+		"difficulty": 1,
+		"problem_slug": "add-two-numbers"
+	},
+	{
+		"file_path": "find-duplicate-c1.js",
+		"difficulty": 1,
+		"problem_slug": "find-duplicate"
+	},
+	{
+		"file_path": "find-duplicate-c2.js",
+		"difficulty": 1,
+		"problem_slug": "find-duplicate"
+	},
+	{
+		"file_path": "find-duplicate-c3.js",
+		"difficulty": 1,
+		"problem_slug": "find-duplicate"
+	},
+	{
+		"file_path": "linked-list-cycle-c1.js",
+		"difficulty": 1,
+		"problem_slug": "linked-list-cycle"
+	},
+	{
+		"file_path": "linked-list-cycle-c2.js",
+		"difficulty": 1,
+		"problem_slug": "linked-list-cycle"
+	},
+	{
+		"file_path": "lru-cache-c1.js",
+		"difficulty": 1,
+		"problem_slug": "lru-cache"
+	},
+	{
+		"file_path": "lru-cache-c2.js",
+		"difficulty": 1,
+		"problem_slug": "lru-cache"
+	},
+	{
+		"file_path": "lru-cache-c3.js",
+		"difficulty": 1,
+		"problem_slug": "lru-cache"
+	},
+	{
+		"file_path": "lru-cache-c4.js",
+		"difficulty": 1,
+		"problem_slug": "lru-cache"
+	},
+	{
+		"file_path": "lru-cache-c5.js",
+		"difficulty": 1,
+		"problem_slug": "lru-cache"
+	},
+	{
+		"file_path": "lru-cache-c5.js",
+		"difficulty": 1,
+		"problem_slug": "lru-cache"
+	},
+	{
+		"file_path": "merge-k-sorted-list-c1.js",
+		"difficulty": 1,
+		"problem_slug": "merge-k-sorted-list"
+	},
+	{
+		"file_path": "merge-k-sorted-list-c2.js",
+		"difficulty": 1,
+		"problem_slug": "merge-k-sorted-list"
+	},
+	{
+		"file_path": "merge-k-sorted-list-c3.js",
+		"difficulty": 1,
+		"problem_slug": "merge-k-sorted-list"
+	},
+	{
+		"file_path": "merge-two-sorted-list-c1.js",
+		"difficulty": 1,
+		"problem_slug": "merge-two-sorted-list"
+	},
+	{
+		"file_path": "merge-two-sorted-list-c2.js",
+		"difficulty": 1,
+		"problem_slug": "merge-two-sorted-list"
+	},
+	{
+		"file_path": "merge-two-sorted-list-c3.js",
+		"difficulty": 1,
+		"problem_slug": "merge-two-sorted-list"
+	},
+	{
+		"file_path": "remove-from-nth-c1.js",
+		"difficulty": 1,
+		"problem_slug": "remove-from-nth"
+	},
+	{
+		"file_path": "remove-from-nth-c2.js",
+		"difficulty": 1,
+		"problem_slug": "remove-from-nth"
+	},
+	{
+		"file_path": "remove-from-nth-c3.js",
+		"difficulty": 1,
+		"problem_slug": "remove-from-nth"
+	},
+	{
+		"file_path": "reorder-list-c1.js",
+		"difficulty": 1,
+		"problem_slug": "reorder-list"
+	},
+	{
+		"file_path": "reorder-list-c2.js",
+		"difficulty": 1,
+		"problem_slug": "reorder-list"
+	},
+	{
+		"file_path": "reorder-list-c3.js",
+		"difficulty": 1,
+		"problem_slug": "reorder-list"
+	},
+	{
+		"file_path": "reverse-nodes-in-k-group-c1.js",
+		"difficulty": 1,
+		"problem_slug": "reverse-nodes-in-k-group"
+	},
+	{
+		"file_path": "reverse-nodes-in-k-group-c2.js",
+		"difficulty": 1,
+		"problem_slug": "reverse-nodes-in-k-group"
+	},
+	{
+		"file_path": "reverse-nodes-in-k-group-c3.js",
+		"difficulty": 1,
+		"problem_slug": "reverse-nodes-in-k-group"
+	},
+	{
+		"file_path": "balanced-binary-tree-c1.js",
+		"difficulty": 1,
+		"problem_slug": "balanced-binary-tree"
+	},
+	{
+		"file_path": "balanced-binary-tree-c2.js",
+		"difficulty": 1,
+		"problem_slug": "balanced-binary-tree"
+	},
+	{
+		"file_path": "balanced-binary-tree-c3.js",
+		"difficulty": 1,
+		"problem_slug": "balanced-binary-tree"
+	},
+	{
+		"file_path": "balanced-binary-tree-c4.js",
+		"difficulty": 1,
+		"problem_slug": "balanced-binary-tree"
+	},
+	{
+		"file_path": "balanced-binary-tree-c5.js",
+		"difficulty": 1,
+		"problem_slug": "balanced-binary-tree"
+	},
+	{
+		"file_path": "binary-tree-level-order-traversal-c1.js",
+		"difficulty": 1,
+		"problem_slug": "binary-tree-level-order-traversal"
+	},
+	{
+		"file_path": "binary-tree-level-order-traversal-c2.js",
+		"difficulty": 1,
+		"problem_slug": "binary-tree-level-order-traversal"
+	},
+	{
+		"file_path": "binary-tree-level-order-traversal-c3.js",
+		"difficulty": 1,
+		"problem_slug": "binary-tree-level-order-traversal"
+	},
+	{
+		"file_path": "binary-tree-maximum-path-sum-c1.js",
+		"difficulty": 1,
+		"problem_slug": "binary-tree-maximum-path-sum"
+	},
+	{
+		"file_path": "binary-tree-maximum-path-sum-c2.js",
+		"difficulty": 1,
+		"problem_slug": "binary-tree-maximum-path-sum"
+	},
+	{
+		"file_path": "binary-tree-maximum-path-sum-c3.js",
+		"difficulty": 1,
+		"problem_slug": "binary-tree-maximum-path-sum"
+	},
+	{
+		"file_path": "binary-tree-right-side-view-c1.js",
+		"difficulty": 1,
+		"problem_slug": "binary-tree-right-side-view"
+	},
+	{
+		"file_path": "binary-tree-right-side-view-c2.js",
+		"difficulty": 1,
+		"problem_slug": "binary-tree-right-side-view"
+	},
+	{
+		"file_path": "binary-tree-right-side-view-c3.js",
+		"difficulty": 1,
+		"problem_slug": "binary-tree-right-side-view"
+	},
+	{
+		"file_path": "construct-binary-tree-from-preorder-and-inorder-traversal-c1",
+		"difficulty": 1,
+		"problem_slug": "construct-binary-tree-from-preorder-and-inorder-traversal"
+	},
+	{
+		"file_path": "construct-binary-tree-from-preorder-and-inorder-traversal-c2",
+		"difficulty": 1,
+		"problem_slug": "construct-binary-tree-from-preorder-and-inorder-traversal"
+	},
+	{
+		"file_path": "construct-binary-tree-from-preorder-and-inorder-traversal-c3",
+		"difficulty": 1,
+		"problem_slug": "construct-binary-tree-from-preorder-and-inorder-traversal"
+	},
+	{
+		"file_path": "count-good-nodes-in-binary-tree-c1.js",
+		"difficulty": 1,
+		"problem_slug": "count-good-nodes-in-binary-tree"
+	},
+	{
+		"file_path": "count-good-nodes-in-binary-tree-c2.js",
+		"difficulty": 1,
+		"problem_slug": "count-good-nodes-in-binary-tree"
+	},
+	{
+		"file_path": "count-good-nodes-in-binary-tree-c3.js",
+		"difficulty": 1,
+		"problem_slug": "count-good-nodes-in-binary-tree"
+	},
+	{
+		"file_path": "diameter-of-binary-tree-c1.js",
+		"difficulty": 1,
+		"problem_slug": "diameter-of-binary-tree"
+	},
+	{
+		"file_path": "diameter-of-binary-tree-c2.js",
+		"difficulty": 1,
+		"problem_slug": "diameter-of-binary-tree"
+	},
+	{
+		"file_path": "diameter-of-binary-tree-c3.js",
+		"difficulty": 1,
+		"problem_slug": "diameter-of-binary-tree"
+	},
+	{
+		"file_path": "serialize-and-deserialize-binary-tree-c1.js",
+		"difficulty": 1,
+		"problem_slug": "serialize-and-deserialize-binary-tree"
+	},
+	{
+		"file_path": "serialize-and-deserialize-binary-tree-c2.js",
+		"difficulty": 1,
+		"problem_slug": "serialize-and-deserialize-binary-tree"
+	},
+	{
+		"file_path": "serialize-and-deserialize-binary-tree-c3.js",
+		"difficulty": 1,
+		"problem_slug": "serialize-and-deserialize-binary-tree"
+	},
+	{
+		"file_path": "design-add-and-search-words-data-structure-c1.js",
+		"difficulty": 1,
+		"problem_slug": "design-add-and-search-words-data-structure"
+	},
+	{
+		"file_path": "design-add-and-search-words-data-structure-c2.js",
+		"difficulty": 1,
+		"problem_slug": "design-add-and-search-words-data-structure"
+	},
+	{
+		"file_path": "design-add-and-search-words-data-structure-c3.js",
+		"difficulty": 1,
+		"problem_slug": "design-add-and-search-words-data-structure"
+	},
+	{
+		"file_path": "design-add-and-search-words-data-structure-c4.js",
+		"difficulty": 1,
+		"problem_slug": "design-add-and-search-words-data-structure"
+	},
+	{
+		"file_path": "word-search-c1.js",
+		"difficulty": 1,
+		"problem_slug": "word-search"
+	},
+	{
+		"file_path": "word-search-c2.js",
+		"difficulty": 1,
+		"problem_slug": "word-search"
+	},
+	{
+		"file_path": "word-search-c3.js",
+		"difficulty": 1,
+		"problem_slug": "word-search"
+	},
+	{
+		"file_path": "word-search-c4.js",
+		"difficulty": 1,
+		"problem_slug": "word-search"
+	},
+	{
+		"file_path": "design-twitter-c1.js",
+		"difficulty": 1,
+		"problem_slug": "design-twitter"
+	},
+	{
+		"file_path": "design-twitter-c2.js",
+		"difficulty": 1,
+		"problem_slug": "design-twitter"
+	},
+	{
+		"file_path": "design-twitter-c3.js",
+		"difficulty": 1,
+		"problem_slug": "design-twitter"
+	},
+	{
+		"file_path": "design-twitter-c4.js",
+		"difficulty": 1,
+		"problem_slug": "design-twitter"
+	},
+	{
+		"file_path": "k-closest-c1.js",
+		"difficulty": 1,
+		"problem_slug": "k-closest"
+	},
+	{
+		"file_path": "k-closest-c2.js",
+		"difficulty": 1,
+		"problem_slug": "k-closest"
+	},
+	{
+		"file_path": "kth-largest-element-in-an-array-c1.js",
+		"difficulty": 1,
+		"problem_slug": "kth-largest-element-in-an-array"
+	},
+	{
+		"file_path": "kth-largest-element-in-an-array-c2.js",
+		"difficulty": 1,
+		"problem_slug": "kth-largest-element-in-an-array"
+	},
+	{
+		"file_path": "kth-largest-element-in-an-array-c3.js",
+		"difficulty": 1,
+		"problem_slug": "kth-largest-element-in-an-array"
+	},
+	{
+		"file_path": "kth-largest-element-in-an-array-c4.js",
+		"difficulty": 1,
+		"problem_slug": "kth-largest-element-in-an-array"
+	},
+	{
+		"file_path": "word-search-ii-c1.js",
+		"difficulty": 1,
+		"problem_slug": "word-search-ii"
+	},
+	{
+		"file_path": "word-search-ii-c2.js",
+		"difficulty": 1,
+		"problem_slug": "word-search-ii"
+	},
+	{
+		"file_path": "word-search-ii-c3.js",
+		"difficulty": 1,
+		"problem_slug": "word-search-ii"
+	},
+	{
+		"file_path": "word-search-ii-c4.js",
+		"difficulty": 1,
+		"problem_slug": "word-search-ii"
+	},
+	{
+		"file_path": "word-search-ii-c5.js",
+		"difficulty": 1,
+		"problem_slug": "word-search-ii"
+	},
+	{
+		"file_path": "kth-largest-element-in-an-array-c1.js",
+		"difficulty": 1,
+		"problem_slug": "kth-largest-element-in-an-array"
+	},
+	{
+		"file_path": "kth-largest-element-in-an-array-c2.js",
+		"difficulty": 1,
+		"problem_slug": "kth-largest-element-in-an-array"
+	},
+	{
+		"file_path": "kth-largest-element-in-an-array-c3.js",
+		"difficulty": 1,
+		"problem_slug": "kth-largest-element-in-an-array"
+	},
+	{
+		"file_path": "kth-largest-element-in-an-array-c4.js",
+		"difficulty": 1,
+		"problem_slug": "kth-largest-element-in-an-array"
+	},
+	{
+		"file_path": "last-stone-weight-c1.js",
+		"difficulty": 1,
+		"problem_slug": "last-stone-weight"
+	},
+	{
+		"file_path": "last-stone-weight-c2.js",
+		"difficulty": 1,
+		"problem_slug": "last-stone-weight"
+	},
+	{
+		"file_path": "last-stone-weight-c3.js",
+		"difficulty": 1,
+		"problem_slug": "last-stone-weight"
+	},
+	{
+		"file_path": "find-median-from-data-stream-c1.js",
+		"difficulty": 1,
+		"problem_slug": "find-median-from-data-stream"
+	},
+	{
+		"file_path": "find-median-from-data-stream-c2.js",
+		"difficulty": 1,
+		"problem_slug": "find-median-from-data-stream"
+	},
+	{
+		"file_path": "find-median-from-data-stream-c3.js",
+		"difficulty": 1,
+		"problem_slug": "find-median-from-data-stream"
+	},
+	{
+		"file_path": "find-median-from-data-stream-c4.js",
+		"difficulty": 1,
+		"problem_slug": "find-median-from-data-stream"
+	},
+	{
+		"file_path": "find-median-from-data-stream-c5.js",
+		"difficulty": 1,
+		"problem_slug": "find-median-from-data-stream"
+	},
+	{
+		"file_path": "combination-sum-ii-c1.js",
+		"difficulty": 1,
+		"problem_slug": "combination-sum-ii"
+	},
+	{
+		"file_path": "combination-sum-ii-c2.js",
+		"difficulty": 1,
+		"problem_slug": "combination-sum-ii"
+	},
+	{
+		"file_path": "combination-sum-ii-c3.js",
+		"difficulty": 1,
+		"problem_slug": "combination-sum-ii"
+	},
+	{
+		"file_path": "combination-sum-ii-c4.js",
+		"difficulty": 1,
+		"problem_slug": "combination-sum-ii"
+	},
+	{
+		"file_path": "subsets-ii-c1.js",
+		"difficulty": 1,
+		"problem_slug": "subsets-ii"
+	},
+	{
+		"file_path": "subsets-ii-c2.js",
+		"difficulty": 1,
+		"problem_slug": "subsets-ii"
+	},
+	{
+		"file_path": "subsets-ii-c3.js",
+		"difficulty": 1,
+		"problem_slug": "subsets-ii"
+	},
+	{
+		"file_path": "clone-graph-c1.js",
+		"difficulty": 1,
+		"problem_slug": "clone-graph"
+	},
+	{
+		"file_path": "clone-graph-c2.js",
+		"difficulty": 1,
+		"problem_slug": "clone-graph"
+	},
+	{
+		"file_path": "clone-graph-c3.js",
+		"difficulty": 1,
+		"problem_slug": "clone-graph"
+	},
+	{
+		"file_path": "course-schedule-c1.js",
+		"difficulty": 1,
+		"problem_slug": "course-schedule"
+	},
+	{
+		"file_path": "course-schedule-c2.js",
+		"difficulty": 1,
+		"problem_slug": "course-schedule"
+	},
+	{
+		"file_path": "course-schedule-c3.js",
+		"difficulty": 1,
+		"problem_slug": "course-schedule"
+	},
+	{
+		"file_path": "course-schedule-c4.js",
+		"difficulty": 1,
+		"problem_slug": "course-schedule"
+	},
+	{
+		"file_path": "course-schedule-c5.js",
+		"difficulty": 1,
+		"problem_slug": "course-schedule"
+	},
+	{
+		"file_path": "max-area-of-island-c1.js",
+		"difficulty": 1,
+		"problem_slug": "max-area-of-island"
+	},
+	{
+		"file_path": "max-area-of-island-c2.js",
+		"difficulty": 1,
+		"problem_slug": "max-area-of-island"
+	},
+	{
+		"file_path": "max-area-of-island-c3.js",
+		"difficulty": 1,
+		"problem_slug": "max-area-of-island"
+	},
+	{
+		"file_path": "number-of-islands-c1.js",
+		"difficulty": 1,
+		"problem_slug": "number-of-islands"
+	},
+	{
+		"file_path": "number-of-islands-c2.js",
+		"difficulty": 1,
+		"problem_slug": "number-of-islands"
+	},
+	{
+		"file_path": "number-of-islands-c3.js",
+		"difficulty": 1,
+		"problem_slug": "number-of-islands"
+	},
+	{
+		"file_path": "pacific-atlantic-water-flow-c1.js",
+		"difficulty": 1,
+		"problem_slug": "pacific-atlantic-water-flow"
+	},
+	{
+		"file_path": "pacific-atlantic-water-flow-c2.js",
+		"difficulty": 1,
+		"problem_slug": "pacific-atlantic-water-flow"
+	},
+	{
+		"file_path": "pacific-atlantic-water-flow-c3.js",
+		"difficulty": 1,
+		"problem_slug": "pacific-atlantic-water-flow"
+	},
+	{
+		"file_path": "pacific-atlantic-water-flow-c4.js",
+		"difficulty": 1,
+		"problem_slug": "pacific-atlantic-water-flow"
+	},
+	{
+		"file_path": "pacific-atlantic-water-flow-c5.js",
+		"difficulty": 1,
+		"problem_slug": "pacific-atlantic-water-flow"
+	},
+	{
+		"file_path": "redundant-connection-c1.js",
+		"difficulty": 1,
+		"problem_slug": "redundant-connection"
+	},
+	{
+		"file_path": "redundant-connection-c2.js",
+		"difficulty": 1,
+		"problem_slug": "redundant-connection"
+	},
+	{
+		"file_path": "redundant-connection-c3.js",
+		"difficulty": 1,
+		"problem_slug": "redundant-connection"
+	},
+	{
+		"file_path": "redundant-connection-c4.js",
+		"difficulty": 1,
+		"problem_slug": "redundant-connection"
+	},
+	{
+		"file_path": "redundant-connection-c5.js",
+		"difficulty": 1,
+		"problem_slug": "redundant-connection"
+	},
+	{
+		"file_path": "redundant-connection-c6.js",
+		"difficulty": 1,
+		"problem_slug": "redundant-connection"
+	},
+	{
+		"file_path": "redundant-connection-c7.js",
+		"difficulty": 1,
+		"problem_slug": "redundant-connection"
+	},
+	{
+		"file_path": "rotting-oranges-c1.js",
+		"difficulty": 1,
+		"problem_slug": "rotting-oranges"
+	},
+	{
+		"file_path": "rotting-oranges-c2.js",
+		"difficulty": 1,
+		"problem_slug": "rotting-oranges"
+	},
+	{
+		"file_path": "rotting-oranges-c3.js",
+		"difficulty": 1,
+		"problem_slug": "rotting-oranges"
+	},
+	{
+		"file_path": "rotting-oranges-c4.js",
+		"difficulty": 1,
+		"problem_slug": "rotting-oranges"
+	},
+	{
+		"file_path": "surrounded-regions-c1.js",
+		"difficulty": 1,
+		"problem_slug": "surrounded-regions"
+	},
+	{
+		"file_path": "surrounded-regions-c2.js",
+		"difficulty": 1,
+		"problem_slug": "surrounded-regions"
+	},
+	{
+		"file_path": "surrounded-regions-c3.js",
+		"difficulty": 1,
+		"problem_slug": "surrounded-regions"
+	},
+	{
+		"file_path": "surrounded-regions-c4.js",
+		"difficulty": 1,
+		"problem_slug": "surrounded-regions"
+	},
+	{
+		"file_path": "walls-and-gates-c1.js",
+		"difficulty": 1,
+		"problem_slug": "walls-and-gates"
+	},
+	{
+		"file_path": "walls-and-gates-c2.js",
+		"difficulty": 1,
+		"problem_slug": "walls-and-gates"
+	},
+	{
+		"file_path": "walls-and-gates-c3.js",
+		"difficulty": 1,
+		"problem_slug": "walls-and-gates"
+	},
+	{
+		"file_path": "word-ladder-c1.js",
+		"difficulty": 1,
+		"problem_slug": "word-ladder"
+	},
+	{
+		"file_path": "word-ladder-c2.js",
+		"difficulty": 1,
+		"problem_slug": "word-ladder"
+	},
+	{
+		"file_path": "word-ladder-c3.js",
+		"difficulty": 1,
+		"problem_slug": "word-ladder"
+	},
+	{
+		"file_path": "climbing-stairs-c1.js",
+		"difficulty": 1,
+		"problem_slug": "climbing-stairs"
+	},
+	{
+		"file_path": "climbing-stairs-c2.js",
+		"difficulty": 1,
+		"problem_slug": "climbing-stairs"
+	},
+	{
+		"file_path": "climbing-stairs-c3.js",
+		"difficulty": 1,
+		"problem_slug": "climbing-stairs"
+	},
+	{
+		"file_path": "coin-change-c1.js",
+		"difficulty": 1,
+		"problem_slug": "coin-change"
+	},
+	{
+		"file_path": "coin-change-c2.js",
+		"difficulty": 1,
+		"problem_slug": "coin-change"
+	},
+	{
+		"file_path": "coin-change-c3.js",
+		"difficulty": 1,
+		"problem_slug": "coin-change"
+	},
+	{
+		"file_path": "decode-ways-c1.js",
+		"difficulty": 1,
+		"problem_slug": "decode-ways"
+	},
+	{
+		"file_path": "decode-ways-c2.js",
+		"difficulty": 1,
+		"problem_slug": "decode-ways"
+	},
+	{
+		"file_path": "decode-ways-c3.js",
+		"difficulty": 1,
+		"problem_slug": "decode-ways"
+	},
+	{
+		"file_path": "house-robber-c1.js",
+		"difficulty": 1,
+		"problem_slug": "house-robber"
+	},
+	{
+		"file_path": "house-robber-c2.js",
+		"difficulty": 1,
+		"problem_slug": "house-robber"
+	},
+	{
+		"file_path": "house-robber-ii-c1.js",
+		"difficulty": 1,
+		"problem_slug": "house-robber-ii"
+	},
+	{
+		"file_path": "house-robber-ii-c2.js",
+		"difficulty": 1,
+		"problem_slug": "house-robber-ii"
+	},
+	{
+		"file_path": "house-robber-ii-c3.js",
+		"difficulty": 1,
+		"problem_slug": "house-robber-ii"
+	},
+	{
+		"file_path": "detect-squares-c1.js",
+		"difficulty": 1,
+		"problem_slug": "detect-squares"
+	},
+	{
+		"file_path": "detect-squares-c2.js",
+		"difficulty": 1,
+		"problem_slug": "detect-squares"
+	},
+	{
+		"file_path": "detect-squares-c3.js",
+		"difficulty": 1,
+		"problem_slug": "detect-squares"
+	},
+	{
+		"file_path": "detect-squares-c4.js",
+		"difficulty": 1,
+		"problem_slug": "detect-squares"
+	},
+	{
+		"file_path": "longest-common-sequence-c1.js",
+		"difficulty": 1,
+		"problem_slug": "longest-common-sequence"
+	},
+	{
+		"file_path": "longest-common-sequence-c2.js",
+		"difficulty": 1,
+		"problem_slug": "longest-common-sequence"
+	},
+	{
+		"file_path": "longest-common-sequence-c3.js",
+		"difficulty": 1,
+		"problem_slug": "longest-common-sequence"
+	},
+	{
+		"file_path": "maximum-product-subarray-c1.js",
+		"difficulty": 1,
+		"problem_slug": "maximum-product-subarray"
+	},
+	{
+		"file_path": "maximum-product-subarray-c2.js",
+		"difficulty": 1,
+		"problem_slug": "maximum-product-subarray"
+	},
+	{
+		"file_path": "maximum-subarray-c1.js",
+		"difficulty": 1,
+		"problem_slug": "maximum-subarray"
+	},
+	{
+		"file_path": "maximum-subarray-c2.js",
+		"difficulty": 1,
+		"problem_slug": "maximum-subarray"
+	},
+	{
+		"file_path": "min-cost-climbing-stairs-c1.js",
+		"difficulty": 1,
+		"problem_slug": "min-cost-climbing-stairs"
+	},
+	{
+		"file_path": "min-cost-climbing-stairs-c2.js",
+		"difficulty": 1,
+		"problem_slug": "min-cost-climbing-stairs"
+	},
+	{
+		"file_path": "palindromic-substrings-c1.js",
+		"difficulty": 1,
+		"problem_slug": "palindromic-substrings"
+	},
+	{
+		"file_path": "palindromic-substrings-c2.js",
+		"difficulty": 1,
+		"problem_slug": "palindromic-substrings"
+	},
+	{
+		"file_path": "palindromic-substrings-c3.js",
+		"difficulty": 1,
+		"problem_slug": "palindromic-substrings"
+	},
+	{
+		"file_path": "partition-equal-subset-sum-c1.js",
+		"difficulty": 1,
+		"problem_slug": "partition-equal-subset-sum"
+	},
+	{
+		"file_path": "partition-equal-subset-sum-c2.js",
+		"difficulty": 1,
+		"problem_slug": "partition-equal-subset-sum"
+	},
+	{
+		"file_path": "partition-equal-subset-sum-c3.js",
+		"difficulty": 1,
+		"problem_slug": "partition-equal-subset-sum"
+	},
+	{
+		"file_path": "partition-equal-subset-sum-c4.js",
+		"difficulty": 1,
+		"problem_slug": "partition-equal-subset-sum"
+	},
+	{
+		"file_path": "partition-equal-subset-sum-c5.js",
+		"difficulty": 1,
+		"problem_slug": "partition-equal-subset-sum"
+	},
+	{
+		"file_path": "partition-equal-subset-sum-c6.js",
+		"difficulty": 1,
+		"problem_slug": "partition-equal-subset-sum"
+	},
+	{
+		"file_path": "word-break-c1.js",
+		"difficulty": 1,
+		"problem_slug": "word-break"
+	},
+	{
+		"file_path": "word-break-c2.js",
+		"difficulty": 1,
+		"problem_slug": "word-break"
+	},
+	{
+		"file_path": "word-break-c3.js",
+		"difficulty": 1,
+		"problem_slug": "word-break"
+	},
+	{
+		"file_path": "meeting-rooms-c1.js",
+		"difficulty": 1,
+		"problem_slug": "meeting-rooms"
+	},
+	{
+		"file_path": "meeting-rooms-c2.js",
+		"difficulty": 1,
+		"problem_slug": "meeting-rooms"
+	},
+	{
+		"file_path": "non-overlapping-intervals-c1.js",
+		"difficulty": 1,
+		"problem_slug": "non-overlapping-intervals"
+	},
+	{
+		"file_path": "non-overlapping-intervals-c2.js",
+		"difficulty": 1,
+		"problem_slug": "non-overlapping-intervals"
+	},
+	{
+		"file_path": "non-overlapping-intervals-c3.js",
+		"difficulty": 1,
+		"problem_slug": "non-overlapping-intervals"
+	},
+	{
+		"file_path": "gas-station-c1.js",
+		"difficulty": 1,
+		"problem_slug": "gas-station"
+	},
+	{
+		"file_path": "gas-station-c2.js",
+		"difficulty": 1,
+		"problem_slug": "gas-station"
+	},
+	{
+		"file_path": "gas-station-c3.js",
+		"difficulty": 1,
+		"problem_slug": "gas-station"
+	},
+	{
+		"file_path": "hand-of-straights-c1.js",
+		"difficulty": 1,
+		"problem_slug": "hand-of-straights"
+	},
+	{
+		"file_path": "hand-of-straights-c2.js",
+		"difficulty": 1,
+		"problem_slug": "hand-of-straights"
+	},
+	{
+		"file_path": "hand-of-straights-c3.js",
+		"difficulty": 1,
+		"problem_slug": "hand-of-straights"
+	},
+	{
+		"file_path": "partition-labels-c1",
+		"difficulty": 1,
+		"problem_slug": "partition-labels"
+	},
+	{
+		"file_path": "partition-labels-c2",
+		"difficulty": 1,
+		"problem_slug": "partition-labels"
+	},
+	{
+		"file_path": "partition-labels-c3",
+		"difficulty": 1,
+		"problem_slug": "partition-labels"
+	},
+	{
+		"file_path": "valid-parenthesis-string-c1.js",
+		"difficulty": 1,
+		"problem_slug": "valid-parenthesis-string"
+	},
+	{
+		"file_path": "valid-parenthesis-string-c2.js",
+		"difficulty": 1,
+		"problem_slug": "valid-parenthesis-string"
+	},
+	{
+		"file_path": "multiply-strings-c1.js",
+		"difficulty": 1,
+		"problem_slug": "multiply-strings"
+	},
+	{
+		"file_path": "multiply-strings-c2.js",
+		"difficulty": 1,
+		"problem_slug": "multiply-strings"
+	},
+	{
+		"file_path": "multiply-strings-c3.js",
+		"difficulty": 1,
+		"problem_slug": "multiply-strings"
+	},
+	{
+		"file_path": "multiply-strings-c4.js",
+		"difficulty": 1,
+		"problem_slug": "multiply-strings"
+	},
+	{
+		"file_path": "plus-one-c1.js",
+		"difficulty": 1,
+		"problem_slug": "plus-one"
+	},
+	{
+		"file_path": "plus-one-c2.js",
+		"difficulty": 1,
+		"problem_slug": "plus-one"
+	},
+	{
+		"file_path": "plus-one-c3.js",
+		"difficulty": 1,
+		"problem_slug": "plus-one"
+	},
+	{
+		"file_path": "powx-n-c1.js",
+		"difficulty": 1,
+		"problem_slug": "powx-n"
+	},
+	{
+		"file_path": "powx-n-c2.js",
+		"difficulty": 1,
+		"problem_slug": "powx-n"
+	},
+	{
+		"file_path": "powx-n-c3.js",
+		"difficulty": 1,
+		"problem_slug": "powx-n"
+	},
+	{
+		"file_path": "powx-n-c4.js",
+		"difficulty": 1,
+		"problem_slug": "powx-n"
+	},
+	{
+		"file_path": "rotate-image-c1.js",
+		"difficulty": 1,
+		"problem_slug": "rotate-image"
+	},
+	{
+		"file_path": "rotate-image-c2.js",
+		"difficulty": 1,
+		"problem_slug": "rotate-image"
+	},
+	{
+		"file_path": "rotate-image-c3.js",
+		"difficulty": 1,
+		"problem_slug": "rotate-image"
+	},
+	{
+		"file_path": "rotate-image-c4.js",
+		"difficulty": 1,
+		"problem_slug": "rotate-image"
+	},
+	{
+		"file_path": "set-matrix-zeroes-c1.js",
+		"difficulty": 1,
+		"problem_slug": "set-matrix-zeroes"
+	},
+	{
+		"file_path": "set-matrix-zeroes-c2.js",
+		"difficulty": 1,
+		"problem_slug": "set-matrix-zeroes"
+	},
+	{
+		"file_path": "set-matrix-zeroes-c3.js",
+		"difficulty": 1,
+		"problem_slug": "set-matrix-zeroes"
+	},
+	{
+		"file_path": "set-matrix-zeroes-c4.js",
+		"difficulty": 1,
+		"problem_slug": "set-matrix-zeroes"
+	},
+	{
+		"file_path": "set-matrix-zeroes-c5.js",
+		"difficulty": 1,
+		"problem_slug": "set-matrix-zeroes"
+	},
+	{
+		"file_path": "spiral-matrix-c1.js",
+		"difficulty": 1,
+		"problem_slug": "spiral-matrix"
+	},
+	{
+		"file_path": "spiral-matrix-c2.js",
+		"difficulty": 1,
+		"problem_slug": "spiral-matrix"
+	},
+	{
+		"file_path": "spiral-matrix-c3.js",
+		"difficulty": 1,
+		"problem_slug": "spiral-matrix"
+	},
+	{
+		"file_path": "spiral-matrix-c1.js",
+		"difficulty": 1,
+		"problem_slug": "spiral-matrix"
+	},
+	{
+		"file_path": "spiral-matrix-c2.js",
+		"difficulty": 1,
+		"problem_slug": "spiral-matrix"
+	},
+	{
+		"file_path": "spiral-matrix-c3.js",
+		"difficulty": 1,
+		"problem_slug": "spiral-matrix"
+	},
+	{
+		"file_path": "counting-bits-c1.js",
+		"difficulty": 1,
+		"problem_slug": "counting-bits"
+	},
+	{
+		"file_path": "counting-bits-c2.js",
+		"difficulty": 1,
+		"problem_slug": "counting-bits"
+	},
+	{
+		"file_path": "missing-number-c1.js",
+		"difficulty": 1,
+		"problem_slug": "missing-number"
+	},
+	{
+		"file_path": "missing-number-c2.js",
+		"difficulty": 1,
+		"problem_slug": "missing-number"
+	},
+	{
+		"file_path": "number-of-1-bits-c1.js",
+		"difficulty": 1,
+		"problem_slug": "number-of-1-bits"
+	},
+	{
+		"file_path": "number-of-1-bits-c2.js",
+		"difficulty": 1,
+		"problem_slug": "number-of-1-bits"
+	},
+	{
+		"file_path": "candy-c1.js",
+		"difficulty": 1,
+		"problem_slug": "candy"
+	},
+	{
+		"file_path": "candy-c2.js",
+		"difficulty": 1,
+		"problem_slug": "candy"
+	},
+	{
+		"file_path": "candy-c3.js",
+		"difficulty": 1,
+		"problem_slug": "candy"
+	},
+	{
+		"file_path": "simplify-path-c1.js",
+		"difficulty": 1,
+		"problem_slug": "simplify-path"
+	},
+	{
+		"file_path": "simplify-path-c2.js",
+		"difficulty": 1,
+		"problem_slug": "simplify-path"
+	},
+	{
+		"file_path": "basic-calculator-c1.js",
+		"difficulty": 3,
+		"problem_slug": "basic-calculator"
+	},
+	{
+		"file_path": "basic-calculator-c2.js",
+		"difficulty": 3,
+		"problem_slug": "basic-calculator"
+	},
+	{
+		"file_path": "basic-calculator-c3.js",
+		"difficulty": 3,
+		"problem_slug": "basic-calculator"
+	},
+	{
+		"file_path": "copy-list-with-random-pointer-c1.js",
+		"difficulty": 2,
+		"problem_slug": "copy-list-with-random-pointer"
+	},
+	{
+		"file_path": "copy-list-with-random-pointer-c2.js",
+		"difficulty": 2,
+		"problem_slug": "copy-list-with-random-pointer"
+	},
+	{
+		"file_path": "copy-list-with-random-pointer-c3.js",
+		"difficulty": 2,
+		"problem_slug": "copy-list-with-random-pointer"
+	},
+	{
+		"file_path": "reverse-linked-list-c1.js",
+		"difficulty": 2,
+		"problem_slug": "reverse-linked-list"
+	},
+	{
+		"file_path": "remove-nth-node-from-end-of-list-c1.js",
+		"difficulty": 1,
+		"problem_slug": "remove-nth-node-from-end-of-list"
+	},
+	{
+		"file_path": "remove-nth-node-from-end-of-list-c2.js",
+		"difficulty": 1,
+		"problem_slug": "remove-nth-node-from-end-of-list"
+	},
+	{
+		"file_path": "remove-nth-node-from-end-of-list-c3.js",
+		"difficulty": 1,
+		"problem_slug": "remove-nth-node-from-end-of-list"
+	},
+	{
+		"file_path": "rotate-list-c1.js",
+		"difficulty": 1,
+		"problem_slug": "rotate-list"
+	},
+	{
+		"file_path": "rotate-list-c2.js",
+		"difficulty": 1,
+		"problem_slug": "rotate-list"
+	},
+	{
+		"file_path": "rotate-list-c3.js",
+		"difficulty": 1,
+		"problem_slug": "rotate-list"
+	},
+	{
+		"file_path": "same-tree-c1.js",
+		"difficulty": 1,
+		"problem_slug": "same-tree"
+	},
+	{
+		"file_path": "same-tree-c2.js",
+		"difficulty": 1,
+		"problem_slug": "same-tree"
+	},
+	{
+		"file_path": "same-tree-c3.js",
+		"difficulty": 1,
+		"problem_slug": "same-tree"
+	},
+	{
+		"file_path": "symmetric-tree-c1.js",
+		"difficulty": 1,
+		"problem_slug": "symmetric-tree"
+	},
+	{
+		"file_path": "symmetric-tree-c2.js",
+		"difficulty": 1,
+		"problem_slug": "symmetric-tree"
+	},
+	{
+		"file_path": "symmetric-tree-c3.js",
+		"difficulty": 1,
+		"problem_slug": "symmetric-tree"
+	},
+	{
+		"file_path": "flatten-binary-tree-to-linked-list-c1",
+		"difficulty": 2,
+		"problem_slug": "flatten-binary-tree-to-linked-list"
+	},
+	{
+		"file_path": "flatten-binary-tree-to-linked-list-c2",
+		"difficulty": 2,
+		"problem_slug": "flatten-binary-tree-to-linked-list"
+	},
+	{
+		"file_path": "flatten-binary-tree-to-linked-list-c3",
+		"difficulty": 2,
+		"problem_slug": "flatten-binary-tree-to-linked-list"
+	},
+	{
+		"file_path": "flatten-binary-tree-to-linked-list-c4",
+		"difficulty": 2,
+		"problem_slug": "flatten-binary-tree-to-linked-list"
+	},
+	{
+		"file_path": "flatten-binary-tree-to-linked-list-c5",
+		"difficulty": 2,
+		"problem_slug": "flatten-binary-tree-to-linked-list"
+	},
+	{
+		"file_path": "sum-root-to-leaf-numbers-c1.js",
+		"difficulty": 1,
+		"problem_slug": "sum-root-to-leaf-numbers"
+	},
+	{
+		"file_path": "sum-root-to-leaf-numbers-c2.js",
+		"difficulty": 1,
+		"problem_slug": "sum-root-to-leaf-numbers"
+	},
+	{
+		"file_path": "sum-root-to-leaf-numbers-c3.js",
+		"difficulty": 1,
+		"problem_slug": "sum-root-to-leaf-numbers"
+	},
+	{
+		"file_path": "kth-smallest-element-in-a-bst-c1.js",
+		"difficulty": 1,
+		"problem_slug": "kth-smallest-element-in-a-bst"
+	},
+	{
+		"file_path": "kth-smallest-element-in-a-bst-c2.js",
+		"difficulty": 1,
+		"problem_slug": "kth-smallest-element-in-a-bst"
+	},
+	{
+		"file_path": "kth-smallest-element-in-a-bst-c3.js",
+		"difficulty": 1,
+		"problem_slug": "kth-smallest-element-in-a-bst"
+	},
+	{
+		"file_path": "evaluate-division-c1.js",
+		"difficulty": 1,
+		"problem_slug": "evaluate-division"
+	},
+	{
+		"file_path": "evaluate-division-c2.js",
+		"difficulty": 1,
+		"problem_slug": "evaluate-division"
+	},
+	{
+		"file_path": "evaluate-division-c3.js",
+		"difficulty": 1,
+		"problem_slug": "evaluate-division"
+	},
+	{
+		"file_path": "evaluate-division-c4.js",
+		"difficulty": 1,
+		"problem_slug": "evaluate-division"
+	},
+	{
+		"file_path": "course-schedule-ii-c1.js",
+		"difficulty": 2,
+		"problem_slug": "course-schedule-ii"
+	},
+	{
+		"file_path": "course-schedule-ii-c2.js",
+		"difficulty": 2,
+		"problem_slug": "course-schedule-ii"
+	},
+	{
+		"file_path": "course-schedule-ii-c3.js",
+		"difficulty": 2,
+		"problem_slug": "course-schedule-ii"
+	},
+	{
+		"file_path": "course-schedule-ii-c4.js",
+		"difficulty": 2,
+		"problem_slug": "course-schedule-ii"
+	},
+	{
+		"file_path": "course-schedule-ii-c5.js",
+		"difficulty": 2,
+		"problem_slug": "course-schedule-ii"
+	},
+	{
+		"file_path": "snakes-and-ladders-c1.js",
+		"difficulty": 2,
+		"problem_slug": "snakes-and-ladders"
+	},
+	{
+		"file_path": "snakes-and-ladders-c2.js",
+		"difficulty": 2,
+		"problem_slug": "snakes-and-ladders"
+	},
+	{
+		"file_path": "snakes-and-ladders-c3.js",
+		"difficulty": 2,
+		"problem_slug": "snakes-and-ladders"
+	},
+	{
+		"file_path": "minimum-genetic-mutation-c1.js",
+		"difficulty": 1,
+		"problem_slug": "minimum-genetic-mutation"
+	},
+	{
+		"file_path": "minimum-genetic-mutation-c2.js",
+		"difficulty": 1,
+		"problem_slug": "minimum-genetic-mutation"
+	},
+	{
+		"file_path": "minimum-genetic-mutation-c3.js",
+		"difficulty": 1,
+		"problem_slug": "minimum-genetic-mutation"
+	},
+	{
+		"file_path": "sort-list-c1.js",
+		"difficulty": 1,
+		"problem_slug": "sort-list"
+	},
+	{
+		"file_path": "sort-list-c2.js",
+		"difficulty": 1,
+		"problem_slug": "sort-list"
+	},
+	{
+		"file_path": "sort-list-c3.js",
+		"difficulty": 1,
+		"problem_slug": "sort-list"
+	},
+	{
+		"file_path": "construct-quad-tree-c1.js",
+		"difficulty": 1,
+		"problem_slug": "construct-quad-tree"
+	},
+	{
+		"file_path": "construct-quad-tree-c2.js",
+		"difficulty": 1,
+		"problem_slug": "construct-quad-tree"
+	},
+	{
+		"file_path": "search-insert-position-c1.js",
+		"difficulty": 1,
+		"problem_slug": "search-insert-position"
+	},
+	{
+		"file_path": "search-insert-position-c2.js",
+		"difficulty": 1,
+		"problem_slug": "search-insert-position"
+	},
+	{
+		"file_path": "find-peak-element-c1.js",
+		"difficulty": 1,
+		"problem_slug": "find-peak-element"
+	},
+	{
+		"file_path": "median-of-two-sorted-arrays-c1.js",
+		"difficulty": 2,
+		"problem_slug": "median-of-two-sorted-arrays"
+	},
+	{
+		"file_path": "median-of-two-sorted-arrays-c2.js",
+		"difficulty": 2,
+		"problem_slug": "median-of-two-sorted-arrays"
+	},
+	{
+		"file_path": "median-of-two-sorted-arrays-c3.js",
+		"difficulty": 2,
+		"problem_slug": "median-of-two-sorted-arrays"
+	},
+	{
+		"file_path": "median-of-two-sorted-arrays-c4.js",
+		"difficulty": 2,
+		"problem_slug": "median-of-two-sorted-arrays"
+	},
+	{
+		"file_path": "median-of-two-sorted-arrays-c5.js",
+		"difficulty": 2,
+		"problem_slug": "median-of-two-sorted-arrays"
+	},
+	{
+		"file_path": "count-nice-pairs-in-an-array-c1.js",
+		"difficulty": 2,
+		"problem_slug": "count-nice-pairs-in-an-array"
+	},
+	{
+		"file_path": "single-number-c1.js",
+		"difficulty": 1,
+		"problem_slug": "single-number"
+	},
+	{
+		"file_path": "single-number-ii-c1.js",
+		"difficulty": 1,
+		"problem_slug": "single-number-ii"
+	},
+	{
+		"file_path": "factorial-trailing-zeroes-c1.js",
+		"difficulty": 1,
+		"problem_slug": "factorial-trailing-zeroes"
+	},
+	{
+		"file_path": "sqrtx-c1.js",
+		"difficulty": 1,
+		"problem_slug": "sqrtx"
+	},
+	{
+		"file_path": "sqrtx-c2.js",
+		"difficulty": 1,
+		"problem_slug": "sqrtx"
+	},
+	{
+		"file_path": "sqrtx-c3.js",
+		"difficulty": 1,
+		"problem_slug": "sqrtx"
+	},
+	{
+		"file_path": "triangle-c1.js",
+		"difficulty": 1,
+		"problem_slug": "triangle"
+	},
+	{
+		"file_path": "triangle-c2.js",
+		"difficulty": 1,
+		"problem_slug": "triangle"
+	},
+	{
+		"file_path": "triangle-c3.js",
+		"difficulty": 1,
+		"problem_slug": "triangle"
+	},
+	{
+		"file_path": "edit-distance-c1.js",
+		"difficulty": 1,
+		"problem_slug": "edit-distance"
+	},
+	{
+		"file_path": "perfect-squares-c1.js",
+		"difficulty": 1,
+		"problem_slug": "perfect-squares"
+	},
+	{
+		"file_path": "perfect-squares-c2.js",
+		"difficulty": 1,
+		"problem_slug": "perfect-squares"
+	},
+	{
+		"file_path": "perfect-squares-c3.js",
+		"difficulty": 1,
+		"problem_slug": "perfect-squares"
+	},
+	{
+		"file_path": "longest-palindromic-subsequence-c1.md",
+		"difficulty": 1,
+		"problem_slug": "longest-palindromic-subsequence"
+	}
 ]

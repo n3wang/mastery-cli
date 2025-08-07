@@ -1,9 +1,7 @@
 class HIndex {
 	solve(citations) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: HIndex };

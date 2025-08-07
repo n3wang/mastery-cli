@@ -1,9 +1,7 @@
 class CountNumberOfHomogenousSubstrings {
 	solve(s) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: CountNumberOfHomogenousSubstrings };

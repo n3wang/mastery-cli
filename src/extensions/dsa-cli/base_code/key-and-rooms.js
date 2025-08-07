@@ -1,9 +1,7 @@
 class KeyAndRooms {
 	solve(rooms) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: KeyAndRooms };

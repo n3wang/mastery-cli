@@ -1,9 +1,6 @@
+const { getDirAbsoluteUri } = require('./functions');
 
-
-const {getDirAbsoluteUri} = require('./functions');
-
-const SOLUTION_DIR = 'solutions'
-
+const SOLUTION_DIR = 'solutions';
 
 /**
  * Represents the metadata of a problem
@@ -25,37 +22,47 @@ const SOLUTION_DIR = 'solutions'
  * @type {ProblemMetadata}
  */
 class ProblemMetadata {
-    constructor(slug, { name = "", description = "", difficulty = "EASY", tags = [], link = "", hints = [], is_external = false, source_folder = "" } = {}) {
-        this.slug = slug;
-        this.file_path = `${slug}.js`;
-        this.test_slug = slug;
-        this.name = name;
-        this.description = description;
-        this.difficulty = difficulty;
-        this.tags = tags;
-        this.link = link;
-        this.absolute_solution_path = getDirAbsoluteUri(`./${SOLUTION_DIR}/${slug}.js`);
-        this.hints = hints;
-        this.is_external = is_external;
-        this.source_folder = source_folder;
-    }
+	constructor(
+		slug,
+		{
+			name = '',
+			description = '',
+			difficulty = 'EASY',
+			tags = [],
+			link = '',
+			hints = [],
+			is_external = false,
+			source_folder = ''
+		} = {}
+	) {
+		this.slug = slug;
+		this.file_path = `${slug}.js`;
+		this.test_slug = slug;
+		this.name = name;
+		this.description = description;
+		this.difficulty = difficulty;
+		this.tags = tags;
+		this.link = link;
+		this.absolute_solution_path = getDirAbsoluteUri(
+			`./${SOLUTION_DIR}/${slug}.js`
+		);
+		this.hints = hints;
+		this.is_external = is_external;
+		this.source_folder = source_folder;
+	}
 
-    get asJson() {
-        return {
-            slug: this.slug,
-            file_path: this.file_path,
-            test_slug: this.test_slug,
-            name: this.name,
-            description: this.description,
-            difficulty: this.difficulty,
-            tags: this.tags,
-            link: this.link,
-        }
-    }
+	get asJson() {
+		return {
+			slug: this.slug,
+			file_path: this.file_path,
+			test_slug: this.test_slug,
+			name: this.name,
+			description: this.description,
+			difficulty: this.difficulty,
+			tags: this.tags,
+			link: this.link
+		};
+	}
 }
 
-
-
 module.exports = { ProblemMetadata };
-
-

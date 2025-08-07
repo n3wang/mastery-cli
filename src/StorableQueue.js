@@ -1,74 +1,75 @@
 const { getDirAbsoluteUri } = require('./utils_functions');
 
 class StorableQueue {
-    constructor({ name = "" } = {}) {
-        this.elements = [];
-        this.name = name;
-        this.absolute_uri = getDirAbsoluteUri(`./user_data/temp/${this.name}`);
-    }
+	constructor({ name = '' } = {}) {
+		this.elements = [];
+		this.name = name;
+		this.absolute_uri = getDirAbsoluteUri(`./user_data/temp/${this.name}`);
+	}
 
-    async load() {
-        try {
-            const { JsonDB, Config } = require('./local-modules/json-db');
+	async load() {
+		try {
+			const { JsonDB, Config } = require('./local-modules/json-db');
 
-            const db = new JsonDB(new Config(this.absolute_uri, true, false, '/'));
-            this.elements = await db.getData('/elements');
-            
-            // console.log(`Loaded ${this.length} from ${this.name} | ${this.absolute_uri}`);
-            return true;
-        } catch {
-            return false;
-        }
-    }
+			const db = new JsonDB(
+				new Config(this.absolute_uri, true, false, '/')
+			);
+			this.elements = await db.getData('/elements');
 
-    async save() {
-        const { JsonDB, Config } = require('./local-modules/json-db');
+			// console.log(`Loaded ${this.length} from ${this.name} | ${this.absolute_uri}`);
+			return true;
+		} catch {
+			return false;
+		}
+	}
 
-        const db = new JsonDB(new Config(this.absolute_uri, true, false, '/'));
-        db.push('/elements', this.elements);
-    }
+	async save() {
+		const { JsonDB, Config } = require('./local-modules/json-db');
 
-    cleanQueue() {
-        this.elements = [];
-    }
+		const db = new JsonDB(new Config(this.absolute_uri, true, false, '/'));
+		db.push('/elements', this.elements);
+	}
 
-    has(element) {
-        return this.elements.includes(element);
-    }
+	cleanQueue() {
+		this.elements = [];
+	}
 
-    enqueue(element) {
-        // If not undefined
-        if (element)
-            this.elements.push(element);
-    }
+	has(element) {
+		return this.elements.includes(element);
+	}
 
-    enqueueMultiple(elements) {
-        for (const element of elements) {
-            this.enqueue(element);
-        }
-    }
+	enqueue(element) {
+		// If not undefined
+		if (element) this.elements.push(element);
+	}
 
-    dequeue() {
-        const item = this.elements.shift();
-        this.head = 0;
-        return item;
-    }
+	enqueueMultiple(elements) {
+		for (const element of elements) {
+			this.enqueue(element);
+		}
+	}
 
-    peek() {
-        return this.elements[0];
-    }
+	dequeue() {
+		const item = this.elements.shift();
+		this.head = 0;
+		return item;
+	}
 
-    get lastElement() {
-        return this.elements[this.length - 1];
-    }
+	peek() {
+		return this.elements[0];
+	}
 
-    get length() {
-        return this.elements.length;
-    }
+	get lastElement() {
+		return this.elements[this.length - 1];
+	}
 
-    get isEmpty() {
-        return this.length === 0;
-    }
+	get length() {
+		return this.elements.length;
+	}
+
+	get isEmpty() {
+		return this.length === 0;
+	}
 }
 
 module.exports = { StorableQueue };

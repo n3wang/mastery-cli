@@ -1,9 +1,7 @@
 class CountGoodNodesInBinaryTree {
-	solve(root){
-	// Your code here
-
+	solve(root) {
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: CountGoodNodesInBinaryTree };

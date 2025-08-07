@@ -4,5 +4,4 @@ class KeysKeyboard4 {
 	}
 }
 
-
 module.exports = { Problem: KeysKeyboard4 };

@@ -1,5 +1,3 @@
-
-
 /**
  * https://leetcode.com/problems/merge-k-sorted-lists/
  * Time O(N) | Space O(N)
@@ -8,44 +6,37 @@
  */
 
 class ListNode {
-    constructor(value) {
-        this.value = value;
-        this.next = null;
-    }
+	constructor(value) {
+		this.value = value;
+		this.next = null;
+	}
 }
-
-
 
 class MergeKSortedLists {
-    solve(lists) {
+	solve(lists) {
+		var mergeTwoLists = function (list1, list2) {
+			let tail;
+			let sentinel = (tail = new ListNode(0));
 
-        var mergeTwoLists = function (list1, list2) {
-            let tail;
-            let sentinel = tail = new ListNode(0);
+			while (list1 && list2) {
+				// TODO Check if the list1 is less than the list2 and add it depending on which is smaller
 
-            while (list1 && list2) {
+				tail = tail.next;
+			}
 
-                // TODO Check if the list1 is less than the list2 and add it depending on which is smaller
+			tail.next = list1 || list2;
 
-                tail = tail.next;
-            }
+			return sentinel.next;
+		};
 
-            tail.next = list1 || list2;
+		let previous = null;
 
-            return sentinel.next;
-        };
+		for (let i = 0; i < lists.length; i++) {
+			previous = mergeTwoLists(previous, lists[i]);
+		}
 
-        let previous = null;
-
-        for (let i = 0; i < lists.length; i++) {
-            previous = mergeTwoLists(previous, lists[i]);
-        }
-
-        return previous;
-    };
-
-
+		return previous;
+	}
 }
-
 
 module.exports = { Problem: MergeKSortedLists };

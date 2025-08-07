@@ -1,9 +1,7 @@
 class AllPathsFromSourceToTarget {
 	solve(graphs) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: AllPathsFromSourceToTarget };

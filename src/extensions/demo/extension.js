@@ -3,11 +3,11 @@ const { ExtensionModel, Command } = require('../models');
 class DemoExtension extends ExtensionModel {
 	constructor(options = {}) {
 		super(
-			"DemoExtension",
-			"1.0.0",
-			"Demo Extension showcasing the extension system capabilities",
-			"Mastery CLI Team",
-			"MIT",
+			'DemoExtension',
+			'1.0.0',
+			'Demo Extension showcasing the extension system capabilities',
+			'Mastery CLI Team',
+			'MIT',
 			options
 		);
 	}
@@ -19,7 +19,7 @@ class DemoExtension extends ExtensionModel {
 
 	getCommands() {
 		return {
-			'sample': new Command(
+			sample: new Command(
 				'Execute a sample command to test the extension system',
 				'sample',
 				{
@@ -41,8 +41,8 @@ class DemoExtension extends ExtensionModel {
 
 	getHandles({ flags, masteryManager, settings } = {}) {
 		return {
-			'sample': this.handleSampleCommand.bind(this),
-			'demo-info': this.handleDemoInfoCommand.bind(this),
+			sample: this.handleSampleCommand.bind(this),
+			'demo-info': this.handleDemoInfoCommand.bind(this)
 		};
 	}
 
@@ -56,11 +56,11 @@ class DemoExtension extends ExtensionModel {
 	async handleSampleCommand() {
 		console.log('🎉 Sample command executed successfully!');
 		console.log('This demonstrates the new extension system is working.');
-		
+
 		if (this.masteryManager) {
 			console.log('✓ Extension has access to Mastery Manager');
 		}
-		
+
 		return { success: true, message: 'Sample command completed' };
 	}
 
@@ -73,10 +73,10 @@ class DemoExtension extends ExtensionModel {
 		console.log(`License: ${this.license}`);
 		console.log(`Initialized: ${this.isInitialized}`);
 		console.log(`Enabled: ${this.isEnabled}`);
-		
+
 		const commands = Object.keys(this.getCommands());
 		console.log(`Available Commands: ${commands.join(', ')}`);
-		
+
 		return { success: true, extensionInfo: this.getInfo() };
 	}
 

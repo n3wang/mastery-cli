@@ -1,9 +1,7 @@
 class MaximumSubSubmatrix {
 	solve(matrix, size) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: MaximumSubSubmatrix };

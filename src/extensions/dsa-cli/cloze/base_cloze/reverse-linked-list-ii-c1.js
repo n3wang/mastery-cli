@@ -1,45 +1,42 @@
 class ReverseLinkedListII {
-    solve(head, m, n) {
-        if (!head) {
-            return null;
-        }
-        
-        let cur = head;
-        let prev = null;
-        // TODO Loop through the list until until left is reached
-        while (m > 1) {
-            
-        }
+	solve(head, m, n) {
+		if (!head) {
+			return null;
+		}
 
-        const tail = cur;
-        const con = prev;
+		let cur = head;
+		let prev = null;
+		// TODO Loop through the list until until left is reached
+		while (m > 1) {}
 
-        while (n > 0) {
-            const third = cur.next;
-            cur.next = prev;
-            prev = cur;
-            cur = third;
-            n--;
-        }
+		const tail = cur;
+		const con = prev;
 
-        if (con) {
-            con.next = prev;
-        } else {
-            head = prev;
-        }
+		while (n > 0) {
+			const third = cur.next;
+			cur.next = prev;
+			prev = cur;
+			cur = third;
+			n--;
+		}
 
-        tail.next = cur;
+		if (con) {
+			con.next = prev;
+		} else {
+			head = prev;
+		}
 
-        return head;
-    }
+		tail.next = cur;
+
+		return head;
+	}
 }
 
 class ListNode {
-    constructor(val) {
-        this.val = val;
-        this.next = null;
-    }
+	constructor(val) {
+		this.val = val;
+		this.next = null;
+	}
 }
-
 
 module.exports = { Problem: ReverseLinkedListII };

@@ -1,9 +1,7 @@
 class SimpleLoopProblem {
 	solve(head) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: SimpleLoopProblem };

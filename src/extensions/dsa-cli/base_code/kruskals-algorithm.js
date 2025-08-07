@@ -1,9 +1,7 @@
 class KruskalsAlgorithms {
 	solve(edges) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: KruskalsAlgorithms };

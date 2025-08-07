@@ -7,12 +7,9 @@ class TreeNode {
 }
 
 class SerializeAndDeserialize {
-
 	solve(root) {
 		// Your code here
-
 	}
 }
-
 
 module.exports = { Problem: SerializeAndDeserialize };

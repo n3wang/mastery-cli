@@ -1,47 +1,45 @@
-
 class ReorderList {
-    solve(head) {
+	solve(head) {
+		const getMid = head => {
+			let [slow, fast] = [head, head];
 
-        const getMid = (head) => {
-            let [slow, fast] = [head, head];
+			while (fast && fast.next) {
+				/* Time O(N) */
+				slow = slow.next;
+				fast = fast.next.next;
+			}
 
-            while (fast && fast.next) {         /* Time O(N) */
-                slow = slow.next;
-                fast = fast.next.next;
-            }
+			return slow;
+		};
 
-            return slow;
-        }
+		const reverse = head => {
+			let [prev, curr, next] = [null, head, null];
 
-        const reverse = (head) => {
-            let [prev, curr, next] = [null, head, null];
-            
-            // TODO Complete the reverse function, which reverses the linked list.
-            
+			// TODO Complete the reverse function, which reverses the linked list.
 
-            return prev;
-        }
+			return prev;
+		};
 
-        const reorder = (l1, l2) => {
-            let [first, next, second] = [l1, null, l2];
+		const reorder = (l1, l2) => {
+			let [first, next, second] = [l1, null, l2];
 
-            while (second.next) {              /* Time O(N) */
-                next = first.next;
-                first.next = second;
-                first = next;
+			while (second.next) {
+				/* Time O(N) */
+				next = first.next;
+				first.next = second;
+				first = next;
 
-                next = second.next;
-                second.next = first;
-                second = next;
-            }
-        }
+				next = second.next;
+				second.next = first;
+				second = next;
+			}
+		};
 
-        const mid = getMid(head);           /* Time O(N) */
-        const reveredFromMid = reverse(mid);/* Time O(N) */
+		const mid = getMid(head); /* Time O(N) */
+		const reveredFromMid = reverse(mid); /* Time O(N) */
 
-        reorder(head, reveredFromMid);      /* Time O(N) */
-    }
+		reorder(head, reveredFromMid); /* Time O(N) */
+	}
 }
-
 
 module.exports = { Problem: ReorderList };
