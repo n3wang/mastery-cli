@@ -161,13 +161,13 @@ class MasteryDSAExtension extends ExtensionModel {
 				if (flags.all) {
 					const problem_response =
 						await dsaTrainer.showMenuOfProblems({
-							md_pseudo_mode: true
+							md_pseudo_mode: false
 						});
 					this.updateAlgorithmPerformance(problem_response);
 				} else {
 					const problem_response =
 						await dsaTrainer.showRecommendedProblems({
-							md_pseudo_mode: true
+							md_pseudo_mode: false
 						});
 					this.updateAlgorithmPerformance(problem_response);
 				}

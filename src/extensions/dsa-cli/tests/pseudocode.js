@@ -7,8 +7,9 @@ class Pseudocode extends ProblemTests {
 	}
 
 	runTests() {
-		super.runTests();
+		const result = super.runTests();
 		//  console.log("No tests ");
+		return result;
 	}
 }
 

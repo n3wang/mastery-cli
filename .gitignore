@@ -1,8 +1,11 @@
 */archive/*
 .claude/**
+**/user_data/*.md
+**/user_files/**
+
 claude.md
 utils/dsa-cli/user_files/temp_settings.json
-utils/dsa-cli/user_files/temp_problem.js
+utils/dsa-cli/user_files/*
 # NPM #
 ##########
 # Ignore all directories called node_modules in current folder and any subfolders.

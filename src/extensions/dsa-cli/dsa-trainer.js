@@ -228,14 +228,48 @@ class DSATrainer {
 	 * Populates and opens a random problem, tests it, and returns the status of the problem.
 	 * @returns {ProblemStatus} The status of the problem
 	 */
-	async openRandomProblem() {
+	async openRandomProblem({ md_pseudo_mode = false } = {}) {
 		await this.ensureProblemsLoaded();
 		const problem = this.problems_manager.getRandomProblem();
-		const problem_response = await this.solveProblem(problem);
+
+		// Check if we should use markdown mode for this problem
+		if (this.isMarkdownOrExternalProblem(problem)) {
+			md_pseudo_mode = true;
+		}
+
+		const problem_response = await this.solveProblem(problem, {
+			md_pseudo_mode: md_pseudo_mode
+		});
 
 		problem_response.is_problem_solved =
 			problem_response.problem_status == constants.ProblemStatus.solved;
 		return problem_response;
+	}
+
+	/**
+	 * Checks if a JS file exists for the given problem
+	 * @param {string} problem_file_path The path to the problem file
+	 * @param {string} base The base directory to check in
+	 * @returns {boolean} True if JS file exists, false otherwise
+	 */
+	hasJavaScriptFile(problem_file_path, base = './base_code/') {
+		try {
+			const absolute_problem_file_path = getDirAbsoluteUri(
+				problem_file_path,
+				base
+			);
+			return fs.existsSync(absolute_problem_file_path);
+		} catch (error) {
+			return false;
+		}
+	}
+
+	isMarkdownOrExternalProblem(problem) {
+		console.log('======================');
+		if (problem?.is_external ?? false) {
+			return true;
+		}
+		return false;
 	}
 
 	async openRandomClozeDSAProblem({ md_pseudo_mode = false } = {}) {
@@ -247,6 +281,9 @@ class DSATrainer {
 		);
 
 		problem.is_cloze = true;
+		if (this.isMarkdownOrExternalProblem(problem)) {
+			md_pseudo_mode = true;
+		}
 		const problem_response = await this.solveProblem(problem, {
 			base: constants.PATHS.base_cloze,
 			populate_with_cloze_filepath: selectedClozeProblem.file_path,
@@ -390,11 +427,7 @@ class DSATrainer {
 			md_pseudo_mode = false
 		} = {}
 	) {
-		console.log(`  - problem.slug: ${problem.slug}`);
-		console.log(`  - md_pseudo_mode: ${md_pseudo_mode}`);
-		console.log(`  - open_problem_temporal: ${open_problem_temporal}`);
-		console.log(`  - copy_to_clipboard: ${copy_to_clipboard}`);
-
+		
 		let problem_extension = '';
 
 		let problem_details = this.problems_manager.getProblem(problem.slug);
@@ -409,7 +442,24 @@ class DSATrainer {
             }
         */
 
-		let promblem_prompt = await getPromptDict(problem.slug);
+		// Handle external problems differently - they have description in metadata
+		let promblem_prompt;
+
+		if (problem_details?.is_external ?? false) {
+			// For external problems, create prompt object from the metadata
+			promblem_prompt = {
+				title:
+					problem_details.title ||
+					problem_details.name ||
+					problem.slug,
+				description:
+					problem_details.description || 'No description available',
+				preview: problem_details.theory || ''
+			};
+		} else {
+			// For regular problems, use the prompt dictionary
+			promblem_prompt = await getPromptDict(problem.slug);
+		}
 
 		renderPromptDescription(promblem_prompt, problem_details, {
 			is_cloze: problem.is_cloze ?? false
@@ -991,9 +1041,16 @@ class DSATrainer {
 		} catch (e) {
 			console.log('Error getting problem', e);
 		}
+
+		// Check if we should use markdown mode for this specific problem
+		let final_md_pseudo_mode = md_pseudo_mode;
+		if (this.isMarkdownOrExternalProblem(problem)) {
+			final_md_pseudo_mode = true;
+		}
+
 		const problem_response = await this.solveProblem(problem, {
 			populate_problem: is_new_problem,
-			md_pseudo_mode: md_pseudo_mode
+			md_pseudo_mode: final_md_pseudo_mode
 		});
 
 		problem_response.is_problem_solved =

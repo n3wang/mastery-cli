@@ -113,9 +113,16 @@ describe('Problem integrity', function () {
 				problemManager.selectTest(problemMetadata);
 			// console.log("solvedProblemPath", solvedProblemPath);
 			const problemTests = new ProblemTestObject(Problem);
-			const didPassAllTests = problemTests.runTests();
+			const testResults = problemTests.runTests();
+			let didPassAllTests = false;
+			if (typeof testResults === 'object' && testResults !== null) {
+				didPassAllTests = !!testResults.passed || !!testResults.success;
+			} else if (typeof testResults === 'boolean') {
+				didPassAllTests = testResults;
+			}
 			if (!didPassAllTests) {
 				console.log('Problem failed: ', problemMetadata);
+				console.log('Test results: ', testResults);
 			}
 			assert(didPassAllTests);
 		}

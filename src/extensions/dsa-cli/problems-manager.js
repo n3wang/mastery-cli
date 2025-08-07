@@ -69,15 +69,15 @@ class ProblemsManager {
 
 	doesProblemHasCloze(problemSlug) {
 		/**
-         * List format:
-         * [
-                {
-                    filepath: "simple-sum-c1.js",
-                    difficulty: 1, // 1 - 5 
-                    problem_slug: "simple-sum"
-                },
-            ]
-         */
+		 * List format:
+		 * [
+				{
+					filepath: "simple-sum-c1.js",
+					difficulty: 1, // 1 - 5 
+					problem_slug: "simple-sum"
+				},
+			]
+		 */
 		return cloze_problems_list.some(
 			cloze_problem => cloze_problem.problem_slug == problemSlug
 		);
@@ -440,9 +440,10 @@ ${problemMetadata.description || 'Problem description not available.'}
 		problem,
 		{ base = 'base_code', md_pseudo_mode = false } = {}
 	) {
-		// When md_pseudo_mode is false (real code), we want to use original extension (do_all_markdown = true)
-		// When md_pseudo_mode is true (pseudo mode), we want to use .md extension (do_all_markdown = false)
-		const use_original_extension = !md_pseudo_mode;
+		// Smart fallback logic:
+		// 1. If md_pseudo_mode is true, always use MD (pseudocode mode)
+		// 2. If md_pseudo_mode is false, try to use JS if available, otherwise fallback to MD
+		let use_original_extension = !md_pseudo_mode;
 
 		if (base != '') {
 			return this.copyFileToTemp(problem.file_path, {
@@ -498,15 +499,8 @@ ${problemMetadata.description || 'Problem description not available.'}
 		const problemTests = new ProblemTestsObject(Problem);
 		const test_results = problemTests.runTests();
 
-		// Return both boolean (for backward compatibility) and metadata
-		return {
-			passed: test_results.passed,
-			passed_count: test_results.passed_count,
-			total_count: test_results.total_count,
-			failed_count: test_results.failed_count,
-			// Legacy boolean for backward compatibility
-			success: test_results.passed
-		};
+		// Return the test results object directly
+		return test_results;
 	}
 
 	/**
