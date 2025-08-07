@@ -196,7 +196,8 @@ class ProblemsManager {
 		}
 
 		console.log(
-			`Loaded ${Object.keys(this.problems).length
+			`Loaded ${
+				Object.keys(this.problems).length
 			} DSA problems from external modules`
 		);
 	}
@@ -298,22 +299,25 @@ ${problemData.description}
 
 ${problemData.theory ? `## Theory\n${problemData.theory}\n` : ''}
 
-${problemData.pseudocode
-						? `## Pseudocode\n\`\`\`\n${problemData.pseudocode}\n\`\`\`\n`
-						: ''
-					}
+${
+	problemData.pseudocode
+		? `## Pseudocode\n\`\`\`\n${problemData.pseudocode}\n\`\`\`\n`
+		: ''
+}
 
 ## Solutions
 
-${problemData.solution.javascript
-						? `### JavaScript\n\`\`\`javascript\n${problemData.solution.javascript}\n\`\`\`\n`
-						: ''
-					}
+${
+	problemData.solution.javascript
+		? `### JavaScript\n\`\`\`javascript\n${problemData.solution.javascript}\n\`\`\`\n`
+		: ''
+}
 
-${problemData.solution.python
-						? `### Python\n\`\`\`python\n${problemData.solution.python}\n\`\`\`\n`
-						: ''
-					}
+${
+	problemData.solution.python
+		? `### Python\n\`\`\`python\n${problemData.solution.python}\n\`\`\`\n`
+		: ''
+}
 
 ---
 
@@ -428,7 +432,6 @@ ${problemMetadata.description || 'Problem description not available.'}
 		return get_random(cloze_problems_list);
 	}
 
-
 	/**
 	 * Populates the template with the code inside of problem.file_path
 	 * @param {dict<problem>} problem The problem to populate the template with
@@ -441,7 +444,7 @@ ${problemMetadata.description || 'Problem description not available.'}
 		// 1. If md_pseudo_mode is true, always use MD (pseudocode mode)
 		// 2. If md_pseudo_mode is false, try to use JS if available, otherwise fallback to MD
 		let use_original_extension = !md_pseudo_mode;
-		
+
 		if (base != '') {
 			return this.copyFileToTemp(problem.file_path, {
 				base: base,
@@ -471,7 +474,7 @@ ${problemMetadata.description || 'Problem description not available.'}
 		try {
 			const ProblemTestsObject = this.selectTest(problemMetadata);
 			// Create a temporary instance to get test count
-			const problemTests = new ProblemTestsObject(() => { }); // Dummy problem function
+			const problemTests = new ProblemTestsObject(() => {}); // Dummy problem function
 			return problemTests.getTestCount();
 		} catch (error) {
 			console.log(`[DEBUG] Could not get test count: ${error.message}`);
@@ -729,14 +732,14 @@ ${problemMetadata.description || 'Problem description not available.'}
 			}
 			try {
 				clipboard.copy(data);
-			} catch (err) { }
+			} catch (err) {}
 		});
 	}
 
 	/**
 	 * Copies the prompt to the clipboard
 	 */
-	copyPromptToCliboard() { }
+	copyPromptToCliboard() {}
 
 	/**
 	 * Opens the temporal problem file in the editor (Can be customized which to use).
@@ -940,8 +943,8 @@ ${problemMetadata.description || 'Problem description not available.'}
 		if (category_slug_detected === '') {
 			throw (
 				('No category detected, Doesnt open any',
-					'categories',
-					categories)
+				'categories',
+				categories)
 			);
 		}
 
