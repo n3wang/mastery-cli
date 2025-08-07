@@ -428,11 +428,7 @@ class DSATrainer {
 			md_pseudo_mode = false
 		} = {}
 	) {
-		console.log(`  - problem.slug: ${problem.slug}`);
-		console.log(`  - md_pseudo_mode: ${md_pseudo_mode}`);
-		console.log(`  - open_problem_temporal: ${open_problem_temporal}`);
-		console.log(`  - copy_to_clipboard: ${copy_to_clipboard}`);
-
+		
 		let problem_extension = '';
 
 		let problem_details = this.problems_manager.getProblem(problem.slug);

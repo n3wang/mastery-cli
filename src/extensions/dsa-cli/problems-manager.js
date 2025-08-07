@@ -499,15 +499,8 @@ ${problemMetadata.description || 'Problem description not available.'}
 		const problemTests = new ProblemTestsObject(Problem);
 		const test_results = problemTests.runTests();
 
-		// Return both boolean (for backward compatibility) and metadata
-		return {
-			passed: test_results.passed,
-			passed_count: test_results.passed_count,
-			total_count: test_results.total_count,
-			failed_count: test_results.failed_count,
-			// Legacy boolean for backward compatibility
-			success: test_results.passed
-		};
+		// Return the test results object directly
+		return test_results;
 	}
 
 	/**
