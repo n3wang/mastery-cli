@@ -1,69 +1,72 @@
 class TargetSum {
+	/**
+	 * DP - Top Down
+	 * Array - Tabulation
+	 * Time O(N * M) | Space O(M)
+	 * https://leetcode.com/problems/target-sum/
+	 * @param {number[]} nums
+	 * @param {number} target
+	 * @return {number}
+	 */
+	findTargetSumWays = (nums, target) => {
+		var initTabu = total =>
+			new Array((total + 1) << 1).fill(0); /* Time O(M) | Space O(M) */
 
+		var getTabu = (nums, total) => {
+			const tabu = initTabu(total); /* Time O(M) | Space O(M) */
+			const [left, right] = [total + nums[0], total - nums[0]];
 
-    /**
-     * DP - Top Down
-     * Array - Tabulation
-     * Time O(N * M) | Space O(M)
-     * https://leetcode.com/problems/target-sum/
-     * @param {number[]} nums
-     * @param {number} target
-     * @return {number}
-     */
-    findTargetSumWays = (nums, target) => {
+			tabu[left] = 1; /*           | Space O(M) */
+			tabu[right] += 1; /*           | Space O(M) */
 
-        var initTabu = (total) => new Array((total + 1) << 1).fill(0);/* Time O(M) | Space O(M) */
+			return tabu;
+		};
 
-        var getTabu = (nums, total) => {
-            const tabu = initTabu(total);/* Time O(M) | Space O(M) */
-            const [left, right] = [(total + nums[0]), (total - nums[0])];
+		var search = (nums, total, tabu) => {
+			for (let i = 1; i < nums.length; i++) {
+				/* Time O(N) */
+				const num = nums[i];
+				const temp = initTabu(total); /* Time O(M) | Space O(M) */
 
-            tabu[left] = 1;              /*           | Space O(M) */
-            tabu[right] += 1;            /*           | Space O(M) */
+				tabu = update(
+					num,
+					total,
+					tabu,
+					temp
+				); /* Time O(M) | Space O(M) */
+			}
 
-            return tabu;
-        }
+			return tabu;
+		};
 
-        var search = (nums, total, tabu) => {
-            for (let i = 1; (i < nums.length); i++) {        /* Time O(N) */
-                const num = nums[i];
-                const temp = initTabu(total);                    /* Time O(M) | Space O(M) */
+		var update = (num, total, tabu, temp) => {
+			for (let sum = -total; sum <= total; sum++) {
+				/* Time O(M) */
+				const isInvalid = tabu[sum + total] <= 0;
+				if (isInvalid) continue;
 
-                tabu = update(num, total, tabu, temp);           /* Time O(M) | Space O(M) */
-            }
+				const dpSum = tabu[sum + total];
+				const left = sum + num + total;
+				const right = sum - num + total;
 
-            return tabu;
-        }
+				temp[left] += dpSum; /* Space O(M) */
+				temp[right] += dpSum; /* Space O(M) */
+			}
 
-        var update = (num, total, tabu, temp) => {
-            for (let sum = (-total); (sum <= total); sum++) {/* Time O(M) */
-                const isInvalid = (tabu[sum + total] <= 0);
-                if (isInvalid) continue;
+			return temp;
+		};
 
-                const dpSum = tabu[sum + total];
-                const left = ((sum + num) + total);
-                const right = ((sum - num) + total);
+		const total = nums.reduce((sum, num) => sum + num, 0); /* Time O(N) */
+		let tabu = getTabu(nums, total); /* Time O(M)     | Space O(M) */
 
-                temp[left] += dpSum;                              /* Space O(M) */
-                temp[right] += dpSum;                             /* Space O(M) */
-            }
+		tabu = search(nums, total, tabu); /* Time O(N * M) | Space O(M) */
 
-            return temp;
-        }
+		return Math.abs(target) <= total ? tabu[target + total] : 0;
+	};
 
-        const total = nums.reduce((sum, num) => (sum + num), 0);/* Time O(N) */
-        let tabu = getTabu(nums, total);                        /* Time O(M)     | Space O(M) */
-
-        tabu = search(nums, total, tabu);                       /* Time O(N * M) | Space O(M) */
-
-        return (Math.abs(target) <= total)
-            ? tabu[(target + total)]
-            : 0
-    }
-
-    solve(nums, target) {
-        return this.findTargetSumWays(nums, target);
-    }
+	solve(nums, target) {
+		return this.findTargetSumWays(nums, target);
+	}
 }
 
 module.exports = { Problem: TargetSum };

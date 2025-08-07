@@ -1,35 +1,35 @@
 class RemoveNthFromEnd {
-    solve(head, n) {
+	solve(head, n) {
+		const moveFast = (fast, n) => {
+			for (let i = 1; i <= n + 1; i++) {
+				/* Time O(N) */
+				fast = fast.next;
+			}
 
-        const moveFast = (fast, n) => {
-            for (let i = 1; i <= (n + 1); i++) {/* Time O(N) */
-                fast = fast.next;
-            }
+			return fast;
+		};
 
-            return fast;
-        }
+		const moveSlow = (slow, fast) => {
+			while (fast) {
+				/* Time O(N) */
+				slow = slow.next;
+				fast = fast.next;
+			}
 
-        const moveSlow = (slow, fast) => {
-            while (fast) {                     /* Time O(N) */
-                slow = slow.next;
-                fast = fast.next;
-            }
+			return slow;
+		};
 
-            return slow;
-        }
+		const sentinel = new ListNode();
 
-        const sentinel = new ListNode();
+		sentinel.next = head;
 
-        sentinel.next = head;
+		const fast = moveFast(sentinel, n); /* Time O(N) */
+		const slow = moveSlow(sentinel, fast); /* Time O(N) */
 
-        const fast = moveFast(sentinel, n);   /* Time O(N) */
-        const slow = moveSlow(sentinel, fast);/* Time O(N) */
+		slow.next = slow.next.next || null;
 
-        slow.next = slow.next.next || null;
-
-        return sentinel.next;
-    };
+		return sentinel.next;
+	}
 }
-
 
 module.exports = { Problem: RemoveNthFromEnd };

@@ -1,13 +1,11 @@
-class SumNumbers {	// Your code here
-
+class SumNumbers {
+	// Your code here
 }
 
-
 function TreeNode(val) {
-    this.val = val;
-    this.left = null;
-    this.right = null;
-  }
-  
+	this.val = val;
+	this.left = null;
+	this.right = null;
+}
 
 module.exports = { Problem: SumNumbers };

@@ -1,77 +1,73 @@
 class CheapestFlights {
+	/**
+	 * @param {number} n
+	 * @param {number[][]} flights
+	 * @param {number} src
+	 * @param {number} dst
+	 * @param {number} k
+	 * @return {number}
+	 */
+	findCheapestPrice = function (n, flights, src, dst, K) {
+		var initGraph = n => ({
+			graph: new Array(n).fill().map(() => []),
+			seen: new Map(),
+			minHeap: new MinPriorityQueue()
+		});
 
-    /**
-     * @param {number} n
-     * @param {number[][]} flights
-     * @param {number} src
-     * @param {number} dst
-     * @param {number} k
-     * @return {number}
-     */
-    findCheapestPrice = function (n, flights, src, dst, K) {
+		var buildGraph = (n, flights, src, dst, K) => {
+			const { graph, seen, minHeap } = initGraph(n);
 
+			for (const [src, dst, cost] of flights) {
+				graph[src].push([dst, cost]);
+			}
 
-        var initGraph = (n) => ({
-            graph: new Array(n).fill().map(() => []),
-            seen: new Map(),
-            minHeap: new MinPriorityQueue(),
-        })
+			const priority = 0;
+			const node = [priority, src, K + 1];
 
-        var buildGraph = (n, flights, src, dst, K) => {
-            const { graph, seen, minHeap } = initGraph(n);
+			minHeap.enqueue(node, priority);
 
-            for (const [src, dst, cost] of flights) {
-                graph[src].push([dst, cost]);
-            }
+			return { graph, seen, minHeap };
+		};
 
-            const priority = 0;
-            const node = [priority, src, (K + 1)];
+		const search = (graph, src, dst, seen, minHeap) => {
+			while (!minHeap.isEmpty()) {
+				const [cost, city, stops] = minHeap.dequeue().element;
 
-            minHeap.enqueue(node, priority);
+				seen.set(city, stops);
 
-            return { graph, seen, minHeap };
-        }
+				const isTarget = city === dst;
+				if (isTarget) return cost;
 
-        const search = (graph, src, dst, seen, minHeap) => {
-            while (!minHeap.isEmpty()) {
-                const [cost, city, stops] = minHeap.dequeue().element;
+				const canSkip = stops <= 0;
+				if (canSkip) continue;
 
-                seen.set(city, stops);
+				checkNeighbors(graph, cost, city, stops, seen, minHeap);
+			}
 
-                const isTarget = (city === dst);
-                if (isTarget) return cost;
+			return -1;
+		};
 
-                const canSkip = (stops <= 0);
-                if (canSkip) continue;
+		var checkNeighbors = (graph, cost, city, stops, seen, minHeap) => {
+			for (let [nextCity, nextCost] of graph[city]) {
+				const hasSeen =
+					seen.has(nextCity) && stops - 1 <= seen.get(nextCity);
+				if (hasSeen) continue;
 
-                checkNeighbors(graph, cost, city, stops, seen, minHeap);
-            }
+				const priority = cost + nextCost;
+				const node = [priority, nextCity, stops - 1];
 
-            return -1;
-        }
+				minHeap.enqueue(node, priority);
+			}
+		};
 
-        var checkNeighbors = (graph, cost, city, stops, seen, minHeap) => {
-            for (let [nextCity, nextCost] of graph[city]) {
-                const hasSeen = (seen.has(nextCity) && ((stops - 1) <= seen.get(nextCity)));
-                if (hasSeen) continue;
+		const { graph, seen, minHeap } = buildGraph(n, flights, src, dst, K);
 
-                const priority = (cost + nextCost)
-                const node = [priority, nextCity, (stops - 1)];
+		return search(graph, src, dst, seen, minHeap);
+	};
 
-                minHeap.enqueue(node, priority);
-            }
-        }
-
-        const { graph, seen, minHeap } = buildGraph(n, flights, src, dst, K);
-
-        return search(graph, src, dst, seen, minHeap);
-    };
-
-
-    solve() {
-        console.log("Hello World!");
-    }
+	solve() {
+		console.log('Hello World!');
+	}
 }
-
 
 module.exports = { Problem: CheapestFlights };

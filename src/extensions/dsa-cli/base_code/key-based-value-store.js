@@ -1,14 +1,10 @@
-class TimeMap {	// Your code here
-    constructor() {
-    }
+class TimeMap {
+	// Your code here
+	constructor() {}
 
-    set(key, value, timestamp) {
-    }
+	set(key, value, timestamp) {}
 
-    get(key, timestamp) {
-    }
-
+	get(key, timestamp) {}
 }
-
 
 module.exports = { Problem: TimeMap };

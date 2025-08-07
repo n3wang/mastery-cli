@@ -1,9 +1,7 @@
 class RearestExitFromEntranceInMaze {
 	solve(maze, entrance) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: RearestExitFromEntranceInMaze };

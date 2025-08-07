@@ -1,61 +1,63 @@
 class SwimInRisingWater {
+	/**
+	 * https://leetcode.com/problems/swim-in-rising-water/
+	 * @param {number[][]} grid
+	 * @return {number}
+	 */
+	swimInWater = grid => {
+		const getHeap = (grid, minHeap = new MinPriorityQueue()) => {
+			minHeap.enqueue([0, 0], grid[0][0]);
 
+			return minHeap;
+		};
 
-    /**
-     * https://leetcode.com/problems/swim-in-rising-water/
-     * @param {number[][]} grid
-     * @return {number}
-     */
-    swimInWater = (grid) => {
+		var getTime = (grid, seen, minHeap, maxTime = 0) => {
+			const [rows, cols] = [grid.length - 1, grid[0].length - 1];
 
+			while (!minHeap.isEmpty()) {
+				const { element, priority: cost } = minHeap.dequeue();
+				const [row, col] = element;
 
-        const getHeap = (grid, minHeap = new MinPriorityQueue()) => {
-            minHeap.enqueue([0, 0], grid[0][0]);
+				seen.add(grid[row][col]);
+				maxTime = Math.max(maxTime, cost);
 
-            return minHeap;
-        }
+				const isEnd = row === rows && col === cols;
+				if (isEnd) return maxTime;
 
-        var getTime = (grid, seen, minHeap, maxTime = 0) => {
-            const [rows, cols] = [(grid.length - 1), (grid[0].length - 1)];
+				checkNeighbors(grid, row, rows, col, cols, seen, minHeap);
+			}
+		};
 
-            while (!minHeap.isEmpty()) {
-                const { element, priority: cost } = minHeap.dequeue();
-                const [row, col] = element;
+		var checkNeighbors = (grid, row, rows, col, cols, seen, minHeap) => {
+			for (const [_row, _col] of getNeighbors(row, rows, col, cols)) {
+				if (seen.has(grid[_row][_col])) continue;
 
-                seen.add(grid[row][col]);
-                maxTime = Math.max(maxTime, cost);
+				minHeap.enqueue([_row, _col], grid[_row][_col]);
+			}
+		};
 
-                const isEnd = (row === rows) && (col === cols);
-                if (isEnd) return maxTime;
+		const getNeighbors = (row, rows, col, cols) =>
+			[
+				[1, 0],
+				[-1, 0],
+				[0, 1],
+				[0, -1]
+			]
+				.map(([_row, _col]) => [row + _row, col + _col])
+				.filter(
+					([_row, _col]) =>
+						0 <= _row && _row <= rows && 0 <= _col && _col <= cols
+				);
 
-                checkNeighbors(grid, row, rows, col, cols, seen, minHeap);
-            }
-        }
+		const seen = new Set();
+		const minHeap = getHeap(grid);
 
-        var checkNeighbors = (grid, row, rows, col, cols, seen, minHeap) => {
-            for (const [_row, _col] of getNeighbors(row, rows, col, cols)) {
-                if (seen.has(grid[_row][_col])) continue;
+		return getTime(grid, seen, minHeap);
+	};
 
-                minHeap.enqueue([_row, _col], grid[_row][_col]);
-            }
-        }
-
-        const getNeighbors = (row, rows, col, cols) => [[1, 0], [-1, 0], [0, 1], [0, -1]]
-            .map(([_row, _col]) => [(row + _row), (col + _col)])
-            .filter(([_row, _col]) => ((0 <= _row) && (_row <= rows) && (0 <= _col) && (_col <= cols)))
-
-        const seen = new Set();
-        const minHeap = getHeap(grid);
-
-        return getTime(grid, seen, minHeap);
-    };
-
-
-
-    solve(grid) {
-        return this.swimInWater(grid);
-    }
+	solve(grid) {
+		return this.swimInWater(grid);
+	}
 }
-
 
 module.exports = { Problem: SwimInRisingWater };

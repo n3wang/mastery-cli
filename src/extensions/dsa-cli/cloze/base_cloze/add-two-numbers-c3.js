@@ -1,67 +1,66 @@
 class ListNode {
-    constructor(val = 0, next = null) {
-        this.val = val;
-        this.next = next;
-    }
+	constructor(val = 0, next = null) {
+		this.val = val;
+		this.next = next;
+	}
 }
 
-
 class AddTwoNumbers {
-    /**
-     * https://leetcode.com/problems/copy-list-with-random-pointer/
-     * Time O(N) | Space O(1)
-     * @param {Node} head
-     * @return {Node}
-     */
-    solve(l1Arr, l2Arr) {
-        const createLinkedList = (arr) => {
-            // TODO Create a linked list from an array. Use sentinel to keep track of the first node.
-            
-            return sentinel.next;
-        };
+	/**
+	 * https://leetcode.com/problems/copy-list-with-random-pointer/
+	 * Time O(N) | Space O(1)
+	 * @param {Node} head
+	 * @return {Node}
+	 */
+	solve(l1Arr, l2Arr) {
+		const createLinkedList = arr => {
+			// TODO Create a linked list from an array. Use sentinel to keep track of the first node.
 
-        const convertToArray = (list) => {
-            const arr = [];
-            while (list) {
-                arr.push(list.val);
-                list = list.next;
-            }
-            return arr;
-        };
+			return sentinel.next;
+		};
 
-        const l1 = createLinkedList(l1Arr);
-        const l2 = createLinkedList(l2Arr);
+		const convertToArray = list => {
+			const arr = [];
+			while (list) {
+				arr.push(list.val);
+				list = list.next;
+			}
+			return arr;
+		};
 
-        const result = this.addTwoNumbers(l1, l2);
+		const l1 = createLinkedList(l1Arr);
+		const l2 = createLinkedList(l2Arr);
 
-        return convertToArray(result);
-    }
+		const result = this.addTwoNumbers(l1, l2);
 
-    /**
-     * https://leetcode.com/problems/add-two-numbers/
-     * Time O(MAX(N, M)) | Space O(MAX(N, M))
-     * @param {ListNode} l1
-     * @param {ListNode} l2
-     * @return {ListNode}
-     */
-    addTwoNumbers(l1, l2, carry = 0) {
-        let tail;
-        let sentinel = (tail = new ListNode());
+		return convertToArray(result);
+	}
 
-        while (l1 || l2 || carry) {
-            const sum = (l1?.val || 0) + (l2?.val || 0) + carry;
-            const val = sum % 10;
-            carry = Math.floor(sum / 10);
+	/**
+	 * https://leetcode.com/problems/add-two-numbers/
+	 * Time O(MAX(N, M)) | Space O(MAX(N, M))
+	 * @param {ListNode} l1
+	 * @param {ListNode} l2
+	 * @return {ListNode}
+	 */
+	addTwoNumbers(l1, l2, carry = 0) {
+		let tail;
+		let sentinel = (tail = new ListNode());
 
-            tail.next = new ListNode(val);
-            tail = tail.next;
+		while (l1 || l2 || carry) {
+			const sum = (l1?.val || 0) + (l2?.val || 0) + carry;
+			const val = sum % 10;
+			carry = Math.floor(sum / 10);
 
-            l1 = l1?.next || null;
-            l2 = l2?.next || null;
-        }
+			tail.next = new ListNode(val);
+			tail = tail.next;
 
-        return sentinel.next;
-    }
+			l1 = l1?.next || null;
+			l2 = l2?.next || null;
+		}
+
+		return sentinel.next;
+	}
 }
 
 module.exports = { Problem: AddTwoNumbers };

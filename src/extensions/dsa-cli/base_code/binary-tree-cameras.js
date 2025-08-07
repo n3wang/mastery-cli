@@ -1,6 +1,5 @@
-class BinaryTreeCameras {	// Your code here
-
-	}
-
+class BinaryTreeCameras {
+	// Your code here
+}
 
 module.exports = { Problem: BinaryTreeCameras };

@@ -1,9 +1,7 @@
 class SingleNumber {
 	solve(nums) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: SingleNumber };

@@ -1,84 +1,80 @@
 class EvalRPN {
+	/**
+	 * https://leetcode.com/problems/evaluate-reverse-polish-notation
+	 * Time O(N^2) | Space(1)
+	 * @param {string[]} tokens
+	 * @return {number}
+	 */
+	solve(tokens, index = 0) {
+		var OPERATORS = {
+			'+': (a, b) => a + b,
+			'-': (a, b) => a - b,
+			'*': (a, b) => a * b,
+			'/': (a, b) => Math.trunc(a / b)
+		};
 
-    /**
-     * https://leetcode.com/problems/evaluate-reverse-polish-notation
-     * Time O(N^2) | Space(1)
-     * @param {string[]} tokens
-     * @return {number}
-     */
-    solve(tokens, index = 0) {
+		var performOperation = (tokens, index) => {
+			const [rightNum, leftNum] = [
+				Number(tokens[index - 1]),
+				Number(tokens[index - 2])
+			];
+			const operation = OPERATORS[tokens[index]];
 
-        var OPERATORS = {
-            '+': (a, b) => a + b,
-            '-': (a, b) => a - b,
-            '*': (a, b) => a * b,
-            '/': (a, b) => Math.trunc(a / b),
-        };
+			return operation(leftNum, rightNum);
+		};
 
+		while (1 < tokens.length) {
+			/* Time O(N) */
+			const isOperation = () => tokens[index] in OPERATORS;
+			while (!isOperation()) index++; /* Time O(N) */
 
-        var performOperation = (tokens, index) => {
-            const [rightNum, leftNum] = [Number(tokens[index - 1]), Number(tokens[index - 2])]
-            const operation = OPERATORS[tokens[index]];
+			const value = performOperation(tokens, index);
 
-            return operation(leftNum, rightNum);
-        }
+			tokens[index] = value;
+			tokens.splice(index - 2, 2); /* Time O(N) */
+			index--;
+		}
 
-        while (1 < tokens.length) {/* Time O(N) */
-            const isOperation = () => tokens[index] in OPERATORS;
-            while (!isOperation()) index++;/* Time O(N) */
+		return tokens[0];
+	}
 
-            const value = performOperation(tokens, index);
+	/**
+	 * https://leetcode.com/problems/evaluate-reverse-polish-notation
+	 * Time O(N) | Space(N)
+	 * @param {string[]} tokens
+	 * @return {number}
+	 */
+	solve2(tokens, stack = []) {
+		var OPERATORS = {
+			'+': (a, b) => a + b,
+			'-': (a, b) => a - b,
+			'*': (a, b) => a * b,
+			'/': (a, b) => Math.trunc(a / b)
+		};
 
-            tokens[index] = value;
-            tokens.splice((index - 2), 2);/* Time O(N) */
-            index--;
-        }
+		var performOperation = (char, stack) => {
+			const [rightNum, leftNum] = [stack.pop(), stack.pop()];
+			const operation = OPERATORS[char];
 
-        return tokens[0];
-    }
+			return operation(leftNum, rightNum);
+		};
 
+		for (const char of tokens) {
+			/* Time O(N) */
+			const isOperation = char in OPERATORS;
+			if (isOperation) {
+				const value = performOperation(char, stack);
 
-    /**
-     * https://leetcode.com/problems/evaluate-reverse-polish-notation
-     * Time O(N) | Space(N)
-     * @param {string[]} tokens
-     * @return {number}
-     */
-    solve2(tokens, stack = []) {
-        var OPERATORS = {
-            '+': (a, b) => a + b,
-            '-': (a, b) => a - b,
-            '*': (a, b) => a * b,
-            '/': (a, b) => Math.trunc(a / b),
-        };
+				stack.push(value); /* Space O(N) */
 
+				continue;
+			}
 
-        var performOperation = (char, stack) => {
-            const [rightNum, leftNum] = [stack.pop(), stack.pop()];
-            const operation = OPERATORS[char];
+			stack.push(Number(char)); /* Space O(N) */
+		}
 
-            return operation(leftNum, rightNum);
-        }
-
-        for (const char of tokens) {/* Time O(N) */
-            const isOperation = char in OPERATORS;
-            if (isOperation) {
-                const value = performOperation(char, stack);
-
-                stack.push(value);      /* Space O(N) */
-
-                continue;
-            }
-
-            stack.push(Number(char));   /* Space O(N) */
-        }
-
-        return stack.pop();
-    }
+		return stack.pop();
+	}
 }
-
-
-
-
 
 module.exports = { Problem: EvalRPN };

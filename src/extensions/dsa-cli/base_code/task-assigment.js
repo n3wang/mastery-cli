@@ -1,9 +1,7 @@
 class TaskAssigment {
 	solve(tasks, k) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: TaskAssigment };

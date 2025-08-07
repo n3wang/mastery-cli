@@ -1,9 +1,7 @@
 class LenghtOfLongestSubString {
 	solve(s) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: LenghtOfLongestSubString };

@@ -1,9 +1,7 @@
 class ContainsDuplicate {
 	solve(nums, k) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: ContainsDuplicate };

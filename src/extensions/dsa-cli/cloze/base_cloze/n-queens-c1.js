@@ -1,50 +1,78 @@
 class NQueens {
+	solveNQueens(
+		n,
+		colSet = new Set(),
+		posDiagSet = new Set(),
+		negDiagSet = new Set()
+	) {
+		const dfs = (
+			board,
+			n,
+			colSet,
+			posDiagSet,
+			negDiagSet,
+			row = 0,
+			moves = []
+		) => {
+			const isBaseCase = row === n;
+			if (isBaseCase) {
+				const rows = board.map(_row => _row.join(''));
 
-    solveNQueens(n, colSet = new Set(), posDiagSet = new Set(), negDiagSet = new Set()) {
+				moves.push(rows);
 
+				return moves;
+			}
 
-        const dfs = (board, n, colSet, posDiagSet, negDiagSet, row = 0, moves = []) => {
-            const isBaseCase = row === n;
-            if (isBaseCase) {
-                const rows = board.map((_row) => _row.join(''))
+			for (let col = 0; col < n; col++) {
+				const hasQueen =
+					colSet.has(col) ||
+					posDiagSet.has(row + col) ||
+					negDiagSet.has(row - col);
+				if (hasQueen) continue;
 
-                moves.push(rows);
+				backTrack(
+					board,
+					n,
+					row,
+					col,
+					colSet,
+					posDiagSet,
+					negDiagSet,
+					moves
+				);
+			}
 
-                return moves;
-            }
+			return moves;
+		};
 
-            for (let col = 0; col < n; col++) {
-                const hasQueen = colSet.has(col) || posDiagSet.has(row + col) || negDiagSet.has(row - col)
-                if (hasQueen) continue;
+		const backTrack = (
+			board,
+			n,
+			row,
+			col,
+			colSet,
+			posDiagSet,
+			negDiagSet,
+			moves
+		) => {
+			// TODO Adds the queen to the board
 
-                backTrack(board, n, row, col, colSet, posDiagSet, negDiagSet, moves);
-            }
+			dfs(board, n, colSet, posDiagSet, negDiagSet, row + 1, moves);
 
-            return moves
-        }
+			colSet.delete(col);
+			posDiagSet.delete(row + col);
+			negDiagSet.delete(row - col);
+			board[row][col] = '.';
+		};
 
-        const backTrack = (board, n, row, col, colSet, posDiagSet, negDiagSet, moves) => {
-            
-            // TODO Adds the queen to the board
+		const board = new Array(n).fill().map(() => new Array(n).fill('.'));
 
-            
-            dfs(board, n, colSet, posDiagSet, negDiagSet, (row + 1), moves);
+		return dfs(board, n, colSet, posDiagSet, negDiagSet);
+	}
 
-            colSet.delete(col);
-            posDiagSet.delete(row + col);
-            negDiagSet.delete(row - col);
-            board[row][col] = ".";
-        }
-    
-        const board = new Array(n).fill().map(() => new Array(n).fill('.'));
-
-        return dfs(board, n, colSet, posDiagSet, negDiagSet);
-    }
-
-    solve(n) {
-        return this.solveNQueens(n);
-    }
+	solve(n) {
+		return this.solveNQueens(n);
+	}
 }
-
 
 module.exports = { Problem: NQueens };

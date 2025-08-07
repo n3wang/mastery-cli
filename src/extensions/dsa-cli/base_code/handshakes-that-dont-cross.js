@@ -1,9 +1,7 @@
 class HandshaksesThatDontCross {
 	solve(numPeople) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: HandshaksesThatDontCross };

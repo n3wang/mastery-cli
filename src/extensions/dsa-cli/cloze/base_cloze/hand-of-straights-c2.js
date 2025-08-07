@@ -1,57 +1,57 @@
 class HandOfStraights {
+	/**
+	 * https://leetcode.com/problems/hand-of-straights/
+	 * Time O(N * K) | Space O(N)
+	 * @param {number[]} hand
+	 * @param {number} groupSize
+	 * @return {boolean}
+	 */
+	isNStraightHand = function (hand, groupSize, count = new Map()) {
+		// TODO Create a frequency map of the hand
+		const getFrequencyMap = (hand, map = new Map()) => {};
 
-    /**
-     * https://leetcode.com/problems/hand-of-straights/
-     * Time O(N * K) | Space O(N)
-     * @param {number[]} hand
-     * @param {number} groupSize
-     * @return {boolean}
-     */
-    isNStraightHand = function (hand, groupSize, count = new Map()) {
+		const getUniqueHand = hand =>
+			[...new Set(hand)] /* Time O(N) | Space O(N) */
+				.sort(
+					(a, b) => b - a
+				); /* Time O(N * Log(N)) | Space HeapSort O(1) | Space QuickSort O(log(N)) */
 
-        // TODO Create a frequency map of the hand
-        const getFrequencyMap = (hand, map = new Map()) => {
-            
-        }
+		const search = (groupSize, map, sortUniqHand) => {
+			while (sortUniqHand.length) {
+				/* Time O(N) */
+				const smallest = sortUniqHand[sortUniqHand.length - 1];
 
-        const getUniqueHand = (hand) => [...new Set(hand)]/* Time O(N) | Space O(N) */
-            .sort((a, b) => b - a);/* Time O(N * Log(N)) | Space HeapSort O(1) | Space QuickSort O(log(N)) */
+				for (let i = smallest; i < smallest + groupSize; i++) {
+					/* Time O(K) */
+					if (!map.has(i)) return false;
 
-        const search = (groupSize, map, sortUniqHand) => {
-            while (sortUniqHand.length) {/* Time O(N) */
-                const smallest = sortUniqHand[sortUniqHand.length - 1];
+					const val = map.get(i) - 1;
 
-                for (let i = smallest; i < smallest + groupSize; i++) {/* Time O(K) */
-                    if (!map.has(i)) return false;
+					map.set(i, val);
 
-                    const val = map.get(i) - 1;
+					let isEqual = map.get(i) === 0;
+					if (!isEqual) continue;
 
-                    map.set(i, val);
+					isEqual = i === sortUniqHand[sortUniqHand.length - 1];
+					if (!isEqual) return false;
 
-                    let isEqual = map.get(i) === 0;
-                    if (!isEqual) continue;
+					sortUniqHand.pop();
+				}
+			}
 
-                    isEqual = i === sortUniqHand[sortUniqHand.length - 1];
-                    if (!isEqual) return false;
+			return true;
+		};
 
-                    sortUniqHand.pop();
-                }
-            }
+		const map = getFrequencyMap(hand); /* Time O(N) | Space O(N) */
+		const sortUniqHand =
+			getUniqueHand(hand); /* Time O(N * Log(N)) | Space O(N) */
 
-            return true;
-        }
+		return search(groupSize, map, sortUniqHand); /* Time O(N * K) */
+	};
 
-        const map = getFrequencyMap(hand);/* Time O(N) | Space O(N) */
-        const sortUniqHand = getUniqueHand(hand);/* Time O(N * Log(N)) | Space O(N) */
-
-        return search(groupSize, map, sortUniqHand);/* Time O(N * K) */
-    };
-
-
-    solve(hand, groupSize) {
-        return this.isNStraightHand(hand, groupSize);
-    }
+	solve(hand, groupSize) {
+		return this.isNStraightHand(hand, groupSize);
+	}
 }
-
 
 module.exports = { Problem: HandOfStraights };

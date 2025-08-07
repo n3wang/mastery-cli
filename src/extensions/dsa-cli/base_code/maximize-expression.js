@@ -1,9 +1,7 @@
 class MaximizeExpression {
 	solve(array) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: MaximizeExpression };

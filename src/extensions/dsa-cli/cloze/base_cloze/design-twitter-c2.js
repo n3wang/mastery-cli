@@ -1,6 +1,4 @@
-
-
-/** 
+/**
  * https://leetcode.com/problems/design-twitter/
  * Your Twitter object will be instantiated and called as such:
  * var obj = new Twitter()
@@ -10,31 +8,31 @@
  * obj.unfollow(followerId,followeeId)
  */
 class Twitter {
-    constructor() {
-        this.tweets = [];
-        this.following = new Map();
-    }
+	constructor() {
+		this.tweets = [];
+		this.following = new Map();
+	}
 
-    postTweet(userId, tweetId, { tweets } = this) {
-        tweets.push({ authorId: userId, id: tweetId });
-    }
+	postTweet(userId, tweetId, { tweets } = this) {
+		tweets.push({ authorId: userId, id: tweetId });
+	}
 
-    getNewsFeed(userId, newsIDs = [], { tweets, following } = this) {
-        // Get the last 10 news feed for the user if is author or is being follwoed by them.
-        
-        return newsIDs;
-    }
+	getNewsFeed(userId, newsIDs = [], { tweets, following } = this) {
+		// Get the last 10 news feed for the user if is author or is being follwoed by them.
 
-    follow(followerId, followeeId, { following } = this) {
-        if (!following.has(followerId)) following.set(followerId, new Set());
+		return newsIDs;
+	}
 
-        following.get(followerId).add(followeeId);
-    }
+	follow(followerId, followeeId, { following } = this) {
+		if (!following.has(followerId)) following.set(followerId, new Set());
 
-    unfollow(followerId, followeeId, { following } = this) {
-        if (following.has(followerId)) following.get(followerId).delete(followeeId);
-    }
+		following.get(followerId).add(followeeId);
+	}
+
+	unfollow(followerId, followeeId, { following } = this) {
+		if (following.has(followerId))
+			following.get(followerId).delete(followeeId);
+	}
 }
-
 
 module.exports = { Problem: Twitter };

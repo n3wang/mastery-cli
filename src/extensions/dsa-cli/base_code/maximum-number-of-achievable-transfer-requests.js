@@ -1,9 +1,7 @@
 class MaximumNumberOfAchievableTransferRequests {
 	solve(n, requests) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: MaximumNumberOfAchievableTransferRequests };

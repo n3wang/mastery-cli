@@ -1,4 +1,4 @@
-/** 
+/**
  * https://leetcode.com/problems/lru-cache/
  * Time O(1) | Space O(N)
  * Your LRUCache object will be instantiated and called as such:
@@ -7,67 +7,70 @@
  * obj.put(key,value)
  */
 class LRUCache {
-    constructor(capacity) {
-        this.capacity = capacity;
-        this.map = new Map();
+	constructor(capacity) {
+		this.capacity = capacity;
+		this.map = new Map();
 
-        this.head = {};
-        this.tail = {};
+		this.head = {};
+		this.tail = {};
 
-        this.head.next = this.tail;
-        this.tail.prev = this.head;
-    }
+		this.head.next = this.tail;
+		this.tail.prev = this.head;
+	}
 
-    removeLastUsed() {
-        const [key, next, prev] = [this.head.next.key, this.head.next.next, this.head];
+	removeLastUsed() {
+		const [key, next, prev] = [
+			this.head.next.key,
+			this.head.next.next,
+			this.head
+		];
 
-        this.map.delete(key);
-        this.head.next = next;
-        this.head.next.prev = prev;
-    }
+		this.map.delete(key);
+		this.head.next = next;
+		this.head.next.prev = prev;
+	}
 
-    put(key, value) {
-        const hasKey = this.get(key) !== -1;
-        const isAtCapacity = this.map.size === this.capacity;
+	put(key, value) {
+		const hasKey = this.get(key) !== -1;
+		const isAtCapacity = this.map.size === this.capacity;
 
-        if (hasKey) return (this.tail.prev.value = value);
-        if (isAtCapacity) this.removeLastUsed();
+		if (hasKey) return (this.tail.prev.value = value);
+		if (isAtCapacity) this.removeLastUsed();
 
-        const node = { key, value };
-        this.map.set(key, node);
-        this.moveToFront(node);
-    }
+		const node = { key, value };
+		this.map.set(key, node);
+		this.moveToFront(node);
+	}
 
-    moveToFront(node) {
-        const [prev, next] = [this.tail.prev, this.tail];
+	moveToFront(node) {
+		const [prev, next] = [this.tail.prev, this.tail];
 
-        this.tail.prev.next = node;
-        this.connectNode(node, { prev, next });
-        this.tail.prev = node;
-    }
+		this.tail.prev.next = node;
+		this.connectNode(node, { prev, next });
+		this.tail.prev = node;
+	}
 
-    connectNode(node, top) {
-        node.prev = top.prev;
-        node.next = top.next;
-    }
+	connectNode(node, top) {
+		node.prev = top.prev;
+		node.next = top.next;
+	}
 
-    get(key) {
-        const hasKey = this.map.has(key);
-        if (!hasKey) return -1;
+	get(key) {
+		const hasKey = this.map.has(key);
+		if (!hasKey) return -1;
 
-        const node = this.map.get(key);
+		const node = this.map.get(key);
 
-        this.disconnectNode(node);
-        this.moveToFront(node);
+		this.disconnectNode(node);
+		this.moveToFront(node);
 
-        return node.value;
-    }
+		return node.value;
+	}
 
-    disconnectNode(node) {
-        //TODO  Disconnects the node.
-        // By having prev.next as node.next and node.next.prev as node.prev
-    }
+	disconnectNode(node) {
+		//TODO  Disconnects the node.
+		// By having prev.next as node.next and node.next.prev as node.prev
+	}
 }
-
 
 module.exports = { Problem: LRUCache };

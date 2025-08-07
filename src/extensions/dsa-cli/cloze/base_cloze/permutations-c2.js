@@ -1,37 +1,34 @@
 class Permutations {
+	/**
+	 * https://leetcode.com/problems/permutations/solution/
+	 * Time O(N!) | Space(N!)
+	 * @param {number[]} nums
+	 * @return {number[][]}
+	 */
+	permute = function (nums) {
+		var dfs = function (nums, permutation = [], permutations = []) {
+			// TODO if base case, push the permutation to the permutations array. And return it.
 
-    /**
-     * https://leetcode.com/problems/permutations/solution/
-     * Time O(N!) | Space(N!)
-     * @param {number[]} nums
-     * @return {number[][]}
-     */
-    permute = function (nums) {
+			for (let i = 0; i < nums.length; i++) {
+				if (permutation.includes(nums[i])) continue;
 
-        var dfs = function (nums, permutation = [], permutations = []) {
-            // TODO if base case, push the permutation to the permutations array. And return it.
+				backTrack(nums, i, permutation, permutations);
+			}
 
-            for (let i = 0; i < nums.length; i++) {
-                if (permutation.includes(nums[i])) continue;
+			return permutations;
+		};
 
-                backTrack(nums, i, permutation, permutations);
-            }
+		const backTrack = (nums, i, permutation, permutations) => {
+			permutation.push(nums[i]);
+			dfs(nums, permutation, permutations);
+			permutation.pop();
+		};
+		return dfs(nums);
+	};
 
-            return permutations;
-        }
-
-        const backTrack = (nums, i, permutation, permutations) => {
-            permutation.push(nums[i])
-            dfs(nums, permutation, permutations)
-            permutation.pop()
-        }
-        return dfs(nums)
-    }
-
-    solve(nums) {
-        return this.permute(nums);
-    }
+	solve(nums) {
+		return this.permute(nums);
+	}
 }
-
 
 module.exports = { Problem: Permutations };

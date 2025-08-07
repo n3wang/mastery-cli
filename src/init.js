@@ -1,5 +1,4 @@
 // const welcome = require('cli-welcome');
 const pkg = require('./../package.json');
 
-module.exports = ({ clear = true }) => {
-};
+module.exports = ({ clear = true }) => {};

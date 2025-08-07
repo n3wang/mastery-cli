@@ -1,5 +1,3 @@
-
-
 /**
  * https://leetcode.com/problems/merge-k-sorted-lists/
  * Time O(N) | Space O(N)
@@ -8,21 +6,14 @@
  */
 
 class ListNode {
-    constructor(value) {
-        this.value = value;
-        this.next = null;
-    }
+	constructor(value) {
+		this.value = value;
+		this.next = null;
+	}
 }
-
-
 
 class MergeKSortedLists {
-    solve(lists) {
-
-    };
-
-
+	solve(lists) {}
 }
-
 
 module.exports = { Problem: MergeKSortedLists };

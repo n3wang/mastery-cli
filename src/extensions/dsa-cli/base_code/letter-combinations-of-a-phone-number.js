@@ -1,9 +1,7 @@
 class LetterCombinations {
 	solve(digitals) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: LetterCombinations };

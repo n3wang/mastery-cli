@@ -1,58 +1,56 @@
 class InsertInterval {
+	/**
+	 * https://leetcode.com/problems/insert-interval/
+	 * Time O(N) | Space O(N)
+	 * @param {number[][]} intervals
+	 * @param {number[]} newInterval
+	 * @return {number[][]}
+	 */
+	insert = function (intervals, newInterval) {
+		const getBefore = (intervals, newInterval, index = 0, before = []) => {
+			const hasGap = ([prevStart, prevEnd], [currStart, currEnd]) =>
+				prevEnd < currStart;
 
-    /**
-     * https://leetcode.com/problems/insert-interval/
-     * Time O(N) | Space O(N)
-     * @param {number[][]} intervals
-     * @param {number[]} newInterval
-     * @return {number[][]}
-     */
-    insert = function (intervals, newInterval) {
+			while (
+				index < intervals.length &&
+				hasGap(intervals[index], newInterval)
+			) {
+				const current = intervals[index];
 
+				before.push(current);
+				index++;
+			}
 
-        const getBefore = (intervals, newInterval, index = 0, before = []) => {
-            const hasGap = ([prevStart, prevEnd], [currStart, currEnd]) =>
-                prevEnd < currStart;
+			return { beforeIndex: index, before };
+		};
 
-            while (index < intervals.length && hasGap(intervals[index], newInterval)) {
-                const current = intervals[index];
+		const mergeIntervals = (intervals, newInterval, index) => {
+			const hasOverlap = ([prevStart, prevEnd], [currStart, currEnd]) =>
+				currStart <= prevEnd;
 
-                before.push(current);
-                index++;
-            }
+			while (
+				index < intervals.length &&
+				hasOverlap(newInterval, intervals[index])
+			) {
+				const current = intervals[index];
 
-            return { beforeIndex: index, before };
-        };
+				newInterval[0] = Math.min(newInterval[0], current[0]);
+				newInterval[1] = Math.max(newInterval[1], current[1]);
+				index++;
+			}
 
-        const mergeIntervals = (intervals, newInterval, index) => {
-            const hasOverlap = ([prevStart, prevEnd], [currStart, currEnd]) =>
-                currStart <= prevEnd;
+			return index;
+		};
 
-            while (
-                index < intervals.length &&
-                hasOverlap(newInterval, intervals[index])
-            ) {
-                const current = intervals[index];
+		const { beforeIndex, before } = getBefore(intervals, newInterval);
+		const afterIndex = mergeIntervals(intervals, newInterval, beforeIndex);
+		const after = intervals.slice(afterIndex);
 
-                newInterval[0] = Math.min(newInterval[0], current[0]);
-                newInterval[1] = Math.max(newInterval[1], current[1]);
-                index++;
-            }
+		return [...before, newInterval, ...after];
+	};
 
-            return index;
-        }
-
-        const { beforeIndex, before } = getBefore(intervals, newInterval);
-        const afterIndex = mergeIntervals(intervals, newInterval, beforeIndex);
-        const after = intervals.slice(afterIndex);
-
-        return [...before, newInterval, ...after];
-    };
-
-
-    solve(intervals, newInterval) {
-        return this.insert(intervals, newInterval);
-    }
-
+	solve(intervals, newInterval) {
+		return this.insert(intervals, newInterval);
+	}
 }
 module.exports = { Problem: InsertInterval };

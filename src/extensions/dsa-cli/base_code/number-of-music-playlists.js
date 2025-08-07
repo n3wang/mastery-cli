@@ -1,6 +1,5 @@
-class NumberOfMusicPlaylist {	// Your code here
-
-	}
-
+class NumberOfMusicPlaylist {
+	// Your code here
+}
 
 module.exports = { Problem: NumberOfMusicPlaylist };

@@ -1,6 +1,5 @@
-class MaxPoints {	// Your code here
-
-	}
-
+class MaxPoints {
+	// Your code here
+}
 
 module.exports = { Problem: MaxPoints };

@@ -1,76 +1,97 @@
 class SpiralOrder {
+	/**
+	 * Matrix - Spiral Traversal Pre Update
+	 * Array - Ignore Auxilary Space O(ROWS * COLS)
+	 * Time O(ROWS * COLS) | Space O(1)
+	 * https://leetcode.com/problems/spiral-matrix/
+	 * @param {number[][]} matrix
+	 * @return {number[]}
+	 */
+	spiralOrder = function (matrix, order = []) {
+		var addTop = (matrix, top, bot, left, right, order) => {
+			// TODO For each row in the top, add the top row to the order
+		};
 
-    /**
-     * Matrix - Spiral Traversal Pre Update
-     * Array - Ignore Auxilary Space O(ROWS * COLS)
-     * Time O(ROWS * COLS) | Space O(1)
-     * https://leetcode.com/problems/spiral-matrix/
-     * @param {number[][]} matrix
-     * @return {number[]}
-     */
-    spiralOrder = function (matrix, order = []) {
+		var addRight = (matrix, top, bot, left, right, order) => {
+			// TODO For each col in the right, add the right col to the order
+		};
 
-        var addTop = (matrix, top, bot, left, right, order) => {
-            // TODO For each row in the top, add the top row to the order
-            
-        }
+		var addBot = (matrix, top, bot, left, right, order) => {
+			for (let col = right; left <= col; col--) {
+				/* Time O(COLS) */
+				order.push(
+					matrix[bot][col]
+				); /* Ignore Auxilary Spsace O(ROWS * COLS) */
+			}
+		};
 
-        var addRight = (matrix, top, bot, left, right, order) => {
-            // TODO For each col in the right, add the right col to the order
-            
-        }
+		var addLeft = (matrix, top, bot, left, right, order) => {
+			for (let row = bot; top <= row; row--) {
+				/* Time O(ROWS) */
+				order.push(
+					matrix[row][left]
+				); /* Ignore Auxilary Spsace O(ROWS * COLS) */
+			}
+		};
+		const [rows, cols] = [matrix.length - 1, matrix[0].length - 1];
+		let [top, bot, left, right] = [0, rows, 0, cols];
 
-        var addBot = (matrix, top, bot, left, right, order) => {
-            for (let col = right; left <= col; col--) {/* Time O(COLS) */
-                order.push(matrix[bot][col]);              /* Ignore Auxilary Spsace O(ROWS * COLS) */
-            }
-        }
+		const isInBounds = () => left <= right && top <= bot;
+		while (isInBounds()) {
+			/* Time O(ROWS * COLS) */
+			addTop(
+				matrix,
+				top,
+				bot,
+				left,
+				right,
+				order
+			); /* Time O(COLS)        | Ignore Auxilary Spsace O(ROWS * COLS) */
+			top++;
 
-        var addLeft = (matrix, top, bot, left, right, order) => {
-            for (let row = bot; top <= row; row--) {/* Time O(ROWS) */
-                order.push(matrix[row][left]);          /* Ignore Auxilary Spsace O(ROWS * COLS) */
-            }
-        }
-        const [rows, cols] = [(matrix.length - 1), (matrix[0].length - 1)];
-        let [top, bot, left, right] = [0, rows, 0, cols];
+			addRight(
+				matrix,
+				top,
+				bot,
+				left,
+				right,
+				order
+			); /* Time O(ROWS)        | Ignore Auxilary Spsace O(ROWS * COLS) */
+			right--;
 
-        const isInBounds = () => ((left <= right) && (top <= bot));
-        while (isInBounds()) {/* Time O(ROWS * COLS) */
-            addTop(
-                matrix, top, bot, left, right, order
-            );                /* Time O(COLS)        | Ignore Auxilary Spsace O(ROWS * COLS) */
-            top++;
+			const hasRow = top <= bot;
+			if (hasRow) {
+				addBot(
+					matrix,
+					top,
+					bot,
+					left,
+					right,
+					order
+				); /* Time O(COLS)         | Ignore Auxilary Spsace O(ROWS * COLS) */
+				bot--;
+			}
 
-            addRight(
-                matrix, top, bot, left, right, order
-            );                /* Time O(ROWS)        | Ignore Auxilary Spsace O(ROWS * COLS) */
-            right--;
+			const hasCol = left <= right;
+			if (hasCol) {
+				addLeft(
+					matrix,
+					top,
+					bot,
+					left,
+					right,
+					order
+				); /* Time O(ROWS)        | Ignore Auxilary Spsace O(ROWS * COLS) */
+				left++;
+			}
+		}
 
-            const hasRow = (top <= bot);
-            if (hasRow) {
-                addBot(
-                    matrix, top, bot, left, right, order
-                );           /* Time O(COLS)         | Ignore Auxilary Spsace O(ROWS * COLS) */
-                bot--;
-            }
+		return order;
+	};
 
-            const hasCol = (left <= right);
-            if (hasCol) {
-                addLeft(
-                    matrix, top, bot, left, right, order
-                );            /* Time O(ROWS)        | Ignore Auxilary Spsace O(ROWS * COLS) */
-                left++;
-            }
-        }
-
-        return order;
-    };
-
-
-    solve(matrix) {
-        return this.spiralOrder(matrix);
-    }
+	solve(matrix) {
+		return this.spiralOrder(matrix);
+	}
 }
-
 
 module.exports = { Problem: SpiralOrder };

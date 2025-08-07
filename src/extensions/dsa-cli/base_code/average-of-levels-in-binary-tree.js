@@ -1,13 +1,11 @@
-class AverageOfLevels {	// Your code here
-
+class AverageOfLevels {
+	// Your code here
 }
 
-
-
 function TreeNode(val) {
-    this.val = val;
-    this.left = null;
-    this.right = null;
-  }
+	this.val = val;
+	this.left = null;
+	this.right = null;
+}
 
 module.exports = { Problem: AverageOfLevels };

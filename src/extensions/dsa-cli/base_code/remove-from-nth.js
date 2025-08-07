@@ -1,17 +1,12 @@
 class ListNode {
-    constructor(val = 0, next = null) {
-        this.val = val;
-        this.next = next;
-    }
+	constructor(val = 0, next = null) {
+		this.val = val;
+		this.next = next;
+	}
 }
-
-
 
 class RemoveFromNth {
-	 solve(head, n) {
-
-    }
+	solve(head, n) {}
 }
-
 
 module.exports = { Problem: RemoveFromNth };

@@ -1,9 +1,7 @@
 class MultiStringSearch {
 	solve(bigString, smallStrings) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: MultiStringSearch };

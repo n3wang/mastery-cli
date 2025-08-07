@@ -1,4 +1,3 @@
-
 /**
  * Your WordDictionary object will be instantiated and called as such:
  * var obj = new WordDictionary()
@@ -7,59 +6,56 @@
  */
 
 class TrieNode {
-    constructor() {
-        this.children = {};
-        this.isWord = false;
-    }
+	constructor() {
+		this.children = {};
+		this.isWord = false;
+	}
 }
-
 
 class WordDictionary {
-    constructor() {
-        this.root = new TrieNode();
-    }
+	constructor() {
+		this.root = new TrieNode();
+	}
 
-    /* Time O(N) | Space O(N) */
-    addWord(word, node = this.root) {
-        for (const char of word) {
-            const child = node.children[char] || new TrieNode();
+	/* Time O(N) | Space O(N) */
+	addWord(word, node = this.root) {
+		for (const char of word) {
+			const child = node.children[char] || new TrieNode();
 
-            node.children[char] = child;
+			node.children[char] = child;
 
-            node = child;
-        }
+			node = child;
+		}
 
-        node.isWord = true;
-    }
+		node.isWord = true;
+	}
 
-    /* Time O(N) | Space O(N) */
-    search(word) {
-        return this.dfs(word, this.root, 0);
-    }
+	/* Time O(N) | Space O(N) */
+	search(word) {
+		return this.dfs(word, this.root, 0);
+	}
 
-    dfs(word, node, level) {
-        if (!node) return false;
+	dfs(word, node, level) {
+		if (!node) return false;
 
-        const isWord = level === word.length;
-        if (isWord) return node.isWord;
+		const isWord = level === word.length;
+		if (isWord) return node.isWord;
 
-        // TODO Complete the isWildcase occurence.
-        
-        // TODO Complete the dfs with the next level and the next level.
-        
-    }
+		// TODO Complete the isWildcase occurence.
 
-    hasWildCard(word, node, level) {
-        for (const char of Object.keys(node.children)) {
-            const child = node.children[char];
+		// TODO Complete the dfs with the next level and the next level.
+	}
 
-            const hasWord = this.dfs(word, child, level + 1);
-            if (hasWord) return true;
-        }
+	hasWildCard(word, node, level) {
+		for (const char of Object.keys(node.children)) {
+			const child = node.children[char];
 
-        return false;
-    }
+			const hasWord = this.dfs(word, child, level + 1);
+			if (hasWord) return true;
+		}
+
+		return false;
+	}
 }
-
 
 module.exports = { Problem: WordDictionary };

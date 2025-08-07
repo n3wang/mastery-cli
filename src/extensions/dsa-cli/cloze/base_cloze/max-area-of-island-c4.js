@@ -1,59 +1,71 @@
 class MaxAreaOfIsland {
+	/**
+	 * https://leetcode.com/problems/max-area-of-island
+	 * Time O(ROWS * COLS) | Space O(ROWS * COLS)
+	 * @param {number[][]} grid
+	 * @return {number}
+	 */
+	maxAreaOfIsland = function (grid, maxArea = 0) {
+		var getArea = (grid, row, rows, col, cols, seen) => {
+			const isBaseCase = grid[row][col] === 0;
+			if (isBaseCase) return 0;
 
+			if (seen[row][col]) return 0;
+			seen[row][col] = true; /* Space O(ROWS * COLS) */
 
-    /**
-     * https://leetcode.com/problems/max-area-of-island
-     * Time O(ROWS * COLS) | Space O(ROWS * COLS)
-     * @param {number[][]} grid
-     * @return {number}
-     */
-    maxAreaOfIsland = function (grid, maxArea = 0) {
+			return (
+				dfs(grid, row, rows, col, cols, seen) + 1
+			); /* Space O(ROWS * COLS) */
+		};
 
+		const dfs = (grid, row, rows, col, cols, seen, area = 0) => {
+			for (const [_row, _col] of getNeighbors(row, rows, col, cols)) {
+				area += getArea(grid, _row, rows, _col, cols, seen);
+			}
 
-        var getArea = (grid, row, rows, col, cols, seen) => {
-            const isBaseCase = grid[row][col] === 0;
-            if (isBaseCase) return 0;
+			return area;
+		};
 
-            if (seen[row][col]) return 0;
-            seen[row][col] = true;                                          /* Space O(ROWS * COLS) */
+		var getNeighbors = (row, rows, col, cols) =>
+			[
+				[0, 1],
+				[0, -1],
+				[1, 0],
+				[-1, 0]
+			]
+				.map(([_row, _col]) => [row + _row, col + _col])
+				.filter(
+					([_row, _col]) =>
+						0 <= _row && _row < rows && 0 <= _col && _col < cols
+				);
 
-            return dfs(grid, row, rows, col, cols, seen) + 1;               /* Space O(ROWS * COLS) */
-        }
+		// TODO Get the rows and cols which counts the size of the grid
 
-        const dfs = (grid, row, rows, col, cols, seen, area = 0) => {
-            for (const [_row, _col] of getNeighbors(row, rows, col, cols)) {
-                area += getArea(grid, _row, rows, _col, cols, seen);
-            }
+		// TODO Create the seen arrays
 
-            return area
-        }
+		for (let row = 0; row < rows; row++) {
+			/* Time O(ROWS) */
+			for (let col = 0; col < cols; col++) {
+				/* Time O(COLS) */
+				const area = getArea(
+					grid,
+					row,
+					rows,
+					col,
+					cols,
+					seen
+				); /* Space O(ROWS * COLS) */
 
-        var getNeighbors = (row, rows, col, cols) => [[0, 1], [0, -1], [1, 0], [-1, 0]]
-            .map(([_row, _col]) => [(row + _row), (col + _col)])
-            .filter(([_row, _col]) => (0 <= _row) && (_row < rows) && (0 <= _col) && (_col < cols))
+				maxArea = Math.max(maxArea, area);
+			}
+		}
 
+		return maxArea;
+	};
 
-        // TODO Get the rows and cols which counts the size of the grid
-        
-
-        // TODO Create the seen arrays
-        
-        for (let row = 0; row < rows; row++) {/* Time O(ROWS) */
-            for (let col = 0; col < cols; col++) {/* Time O(COLS) */
-                const area = getArea(grid, row, rows, col, cols, seen);/* Space O(ROWS * COLS) */
-
-                maxArea = Math.max(maxArea, area);
-            }
-        }
-
-        return maxArea;
-    };
-
-    
-    solve(grid) {
-        return this.maxAreaOfIsland(grid);
-    }
+	solve(grid) {
+		return this.maxAreaOfIsland(grid);
+	}
 }
-
 
 module.exports = { Problem: MaxAreaOfIsland };

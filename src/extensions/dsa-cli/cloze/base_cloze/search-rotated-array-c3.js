@@ -1,48 +1,44 @@
 class SearchRotatedArray {
+	search(nums, target) {
+		let [left, right] = [0, nums.length - 1];
 
-    search(nums, target) {
-        let [left, right] = [0, nums.length - 1];
+		while (left <= right) {
+			const mid = (left + right) >> 1;
+			const guess = nums[mid];
+			const [leftNum, rightNum] = [nums[left], nums[right]];
 
-        while (left <= right) {
+			const isTarget = guess === target;
+			if (isTarget) return mid;
 
-            const mid = (left + right) >> 1;
-            const guess = nums[mid];
-            const [leftNum, rightNum] = [nums[left], nums[right]];
-            
-            const isTarget = guess === target;
-            if (isTarget) return mid;
+			const isAscending = leftNum <= guess;
+			if (isAscending) {
+				const isInRange = leftNum <= target;
+				const isLess = target < guess;
 
-            const isAscending = leftNum <= guess;
-            if (isAscending) {
-                const isInRange = leftNum <= target;
-                const isLess = target < guess;
+				// TODO Move the left as mid + 1 if the target is greater than the guess and the target is not in range.
 
-                // TODO Move the left as mid + 1 if the target is greater than the guess and the target is not in range.
-                
-                // TODO Move the right as mid - 1 if the target is less than the guess and the target is in range or not.
-                
-            }
+				// TODO Move the right as mid - 1 if the target is less than the guess and the target is in range or not.
+			}
 
-            const isDescending = guess < leftNum;
-            if (isDescending) {
-                const isGreater = guess < target;
-                const isInRange = target <= rightNum;
+			const isDescending = guess < leftNum;
+			if (isDescending) {
+				const isGreater = guess < target;
+				const isInRange = target <= rightNum;
 
-                const isTargetGreater = isGreater && isInRange;
-                if (isTargetGreater) left = mid + 1;
+				const isTargetGreater = isGreater && isInRange;
+				if (isTargetGreater) left = mid + 1;
 
-                const isTargetLess = !(isGreater && isInRange);
-                if (isTargetLess) right = mid - 1;
-            }
-        }
+				const isTargetLess = !(isGreater && isInRange);
+				if (isTargetLess) right = mid - 1;
+			}
+		}
 
-        return -1;
-    }
+		return -1;
+	}
 
-    solve(nums, target) {
-        return this.search(nums, target);
-    }
+	solve(nums, target) {
+		return this.search(nums, target);
+	}
 }
-
 
 module.exports = { Problem: SearchRotatedArray };

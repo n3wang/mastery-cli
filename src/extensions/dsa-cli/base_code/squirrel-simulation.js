@@ -1,9 +1,7 @@
 class SquirelSiimulation {
 	solve(height, width, tree, squirrel, nuts) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: SquirelSiimulation };

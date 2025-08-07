@@ -1,55 +1,65 @@
 class WordBreak {
+	/**
+	 * DP - Top Down
+	 * Array - Memoization
+	 * Hash Set - Distinct Keys
+	 * Time O(N^3) | Space O(N)
+	 * https://leetcode.com/problems/word-break/
+	 * @param {string} s
+	 * @param {string[]} wordDict
+	 * @return {boolean}
+	 */
+	wordBreak = (s, wordDict) => {
+		var canBreak = (s, wordSet, start, memo) => {
+			const isBaseCase1 = s.length === start;
+			if (isBaseCase1) return true;
 
-    /**
-     * DP - Top Down
-     * Array - Memoization
-     * Hash Set - Distinct Keys
-     * Time O(N^3) | Space O(N)
-     * https://leetcode.com/problems/word-break/
-     * @param {string} s
-     * @param {string[]} wordDict
-     * @return {boolean}
-     */
-    wordBreak = (s, wordDict) => {
+			const hasSeen = memo[start] !== null;
+			if (hasSeen) return memo[start];
 
-        var canBreak = (s, wordSet, start, memo) => {
-            const isBaseCase1 = (s.length === start);
-            if (isBaseCase1) return true;
+			return dfs(
+				s,
+				wordSet,
+				start,
+				memo
+			); /* Time O(N * N * N) | Space O(N) */
+		};
 
-            const hasSeen = (memo[start] !== null);
-            if (hasSeen) return memo[start];
+		var dfs = (s, wordSet, start, memo) => {
+			for (let end = start + 1; end <= s.length; end++) {
+				/* Time O(N) */
+				const word = s.slice(start, end); /* Time O(N) | Space O(N) */
 
-            return dfs(s, wordSet, start, memo);/* Time O(N * N * N) | Space O(N) */
-        }
+				const _canBreak =
+					wordSet.has(word) &&
+					canBreak(s, wordSet, end, memo); /* Time O(N * N) */
+				if (_canBreak) {
+					memo[start] = true;
+					return true;
+				}
+			}
 
-        var dfs = (s, wordSet, start, memo) => {
-            for (let end = (start + 1); (end <= s.length); end++) {/* Time O(N) */
-                const word = s.slice(start, end);                      /* Time O(N) | Space O(N) */
+			memo[start] = false;
+			return false;
+		};
 
-                const _canBreak = wordSet.has(word)
-                    && canBreak(s, wordSet, end, memo);                /* Time O(N * N) */
-                if (_canBreak) {
-                    memo[start] = true;
-                    return true;
-                }
-            }
+		const wordSet = new Set(wordDict); /* Time O(N)         | Space O(N) */
+		const memo = new Array(s.length).fill(
+			null
+		); /*                   | Space O(N) */
+		const start = 0;
 
-            memo[start] = false;
-            return false;
-        }
+		return canBreak(
+			s,
+			wordSet,
+			start,
+			memo
+		); /* Time O(N * N * N) | Space O(N) */
+	};
 
-        const wordSet = new Set(wordDict);           /* Time O(N)         | Space O(N) */
-        const memo = new Array(s.length).fill(null); /*                   | Space O(N) */
-        const start = 0;
-
-        return canBreak(s, wordSet, start, memo);    /* Time O(N * N * N) | Space O(N) */
-    }
-
-
-
-    solve(s, wordDict) {
-        return this.wordBreak(s, wordDict);
-    }
+	solve(s, wordDict) {
+		return this.wordBreak(s, wordDict);
+	}
 }
 
 module.exports = { Problem: WordBreak };

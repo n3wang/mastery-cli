@@ -1,41 +1,34 @@
 class CountGoodNodesInBinaryTree {
+	/**
+	 * https://leetcode.com/problems/count-good-nodes-in-binary-tree/
+	 * Time O(N) | Space O(H)
+	 * @param {TreeNode} root
+	 * @return {number}
+	 */
+	goodNodes(root, max = -Infinity, total = [0]) {
+		const count = (root, max, total) => {
+			const isBaseCase = root === null;
+			if (isBaseCase) return 0;
 
+			return dfs(root, max, total);
+		};
 
-    /**
-     * https://leetcode.com/problems/count-good-nodes-in-binary-tree/
-     * Time O(N) | Space O(H)
-     * @param {TreeNode} root
-     * @return {number}
-     */
-    goodNodes(root, max = -Infinity, total = [0]) {
+		const dfs = (root, max, total) => {
+			const isGood = max <= root.val;
+			if (isGood) total[0]++;
 
-        const count = (root, max, total) => {
-            const isBaseCase = root === null;
-            if (isBaseCase) return 0;
+			max = Math.max(max, root.val);
 
-            return dfs(root, max, total);
-        }
+			count(root.left, max, total);
+			count(root.right, max, total);
+		};
 
-        const dfs = (root, max, total) => {
-            const isGood = max <= root.val
-            if (isGood) total[0]++;
+		// TODO Count and return the total
+	}
 
-            max = Math.max(max, root.val);
-
-            count(root.left, max, total);
-            count(root.right, max, total);
-        }
-
-
-        // TODO Count and return the total
-
-    };
-
-
-    solve(root){
-        return this.goodNodes(root);
-    }
+	solve(root) {
+		return this.goodNodes(root);
+	}
 }
-
 
 module.exports = { Problem: CountGoodNodesInBinaryTree };

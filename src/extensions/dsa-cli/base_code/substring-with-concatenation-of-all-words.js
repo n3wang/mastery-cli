@@ -1,9 +1,7 @@
 class SubstringWithConcatenationOfAllWords {
 	solve(s, words) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: SubstringWithConcatenationOfAllWords };

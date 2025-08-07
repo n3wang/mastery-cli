@@ -1,9 +1,7 @@
 class CriticalConnectionsInANetwork {
 	solve(n, connections) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: CriticalConnectionsInANetwork };

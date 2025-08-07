@@ -1,9 +1,7 @@
 class IsValidParenthesis {
 	solve(s, stack = []) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: IsValidParenthesis };

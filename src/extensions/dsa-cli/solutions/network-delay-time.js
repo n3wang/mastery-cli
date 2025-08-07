@@ -1,76 +1,72 @@
 class NetworkDelayTime {
+	/**
+	 * Graph - BFS
+	 * Queue - Space (WIDTH)
+	 * Array - Greedy
+	 * https://leetcode.com/problems/network-delay-time/
+	 * @param {number[][]} times
+	 * @param {number} n
+	 * @param {number} k
+	 * @return {number}
+	 */
+	networkDelayTime = (times, n, k) => {
+		var initGraph = (n, k) => ({
+			graph: Array.from({ length: n + 1 })
+				.fill()
+				.map(() => []),
+			maxTime: Array.from({ length: n + 1 }).fill(Infinity),
+			queue: new Queue([[k, 0]])
+		});
 
-    /**
-     * Graph - BFS
-     * Queue - Space (WIDTH)
-     * Array - Greedy
-     * https://leetcode.com/problems/network-delay-time/
-     * @param {number[][]} times
-     * @param {number} n
-     * @param {number} k
-     * @return {number}
-     */
-    networkDelayTime = (times, n, k) => {
+		var buildGraph = (times, n, k) => {
+			const { graph, maxTime, queue } = initGraph(n, k);
 
+			for (const [src, dst, weight] of times) {
+				graph[src].push([dst, weight]);
+			}
 
-        var initGraph = (n, k) => ({
-            graph: Array.from({ length: n + 1 }).fill().map(() => []),
-            maxTime: Array.from({ length: n + 1 }).fill(Infinity),
-            queue: new Queue([[k, 0]])
-        })
+			maxTime[0] = 0;
 
-        var buildGraph = (times, n, k) => {
-            const { graph, maxTime, queue } = initGraph(n, k);
+			return { graph, maxTime, queue };
+		};
 
-            for (const [src, dst, weight] of times) {
-                graph[src].push([dst, weight]);
-            };
+		var bfs = (queue, graph, maxTime) => {
+			while (!queue.isEmpty()) {
+				for (let level = queue.size() - 1; 0 <= level; level--) {
+					checkNeighbors(queue, graph, maxTime);
+				}
+			}
+		};
 
-            maxTime[0] = 0;
+		var checkNeighbors = (queue, graph, maxTime) => {
+			const [node, time] = queue.dequeue();
 
-            return { graph, maxTime, queue };
-        }
+			const canUpdate = time < maxTime[node];
+			if (!canUpdate) return;
 
-        var bfs = (queue, graph, maxTime) => {
-            while (!queue.isEmpty()) {
-                for (let level = (queue.size() - 1); (0 <= level); level--) {
-                    checkNeighbors(queue, graph, maxTime);
-                }
-            }
-        }
+			maxTime[node] = time;
 
-        var checkNeighbors = (queue, graph, maxTime) => {
-            const [node, time] = queue.dequeue();
+			for (const [dst, weight] of graph[node]) {
+				queue.enqueue([dst, weight + time]);
+			}
+		};
 
-            const canUpdate = (time < maxTime[node]);
-            if (!canUpdate) return;
+		var checkAns = maxTime => {
+			const max = Math.max(...maxTime);
 
-            maxTime[node] = time;
+			return max < Infinity ? max : -1;
+		};
 
-            for (const [dst, weight] of graph[node]) {
-                queue.enqueue([dst, (weight + time)]);
-            }
-        }
+		const { graph, maxTime, queue } = buildGraph(times, n, k);
 
-        var checkAns = (maxTime) => {
-            const max = Math.max(...maxTime);
+		bfs(queue, graph, maxTime, k);
 
-            return (max < Infinity)
-                ? max
-                : (-1);
-        }
+		return checkAns(maxTime);
+	};
 
-        const { graph, maxTime, queue } = buildGraph(times, n, k);
-
-        bfs(queue, graph, maxTime, k);
-
-        return checkAns(maxTime);
-    };
-
-    solve(times, n, k) {
-        return this.networkDelayTime(times, n, k);
-    }
+	solve(times, n, k) {
+		return this.networkDelayTime(times, n, k);
+	}
 }
-
 
 module.exports = { Problem: NetworkDelayTime };

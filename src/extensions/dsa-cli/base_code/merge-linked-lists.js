@@ -1,9 +1,7 @@
 class MergeLinkedList {
 	solve(headOne, headTwo) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: MergeLinkedList };

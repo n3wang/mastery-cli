@@ -1,8 +1,7 @@
 class Problem {
-    solve(a, b) {
-        return 1;
-    }
+	solve(a, b) {
+		return 1;
+	}
 }
-
 
 module.exports = { Problem };

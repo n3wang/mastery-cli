@@ -1,9 +1,7 @@
 class Combinations {
 	solve(n, k) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: Combinations };

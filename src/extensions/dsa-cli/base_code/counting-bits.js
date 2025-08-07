@@ -1,9 +1,7 @@
 class CountBits {
 	solve(n) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: CountBits };

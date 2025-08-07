@@ -1,79 +1,73 @@
 class CourseSchedule {
+	/**
+	 * https://leetcode.com/problems/course-schedule/
+	 * Time O((V)^2 + E) | Space O(V + E)
+	 * @param {number} numCourses
+	 * @param {number[][]} prerequisites
+	 * @return {boolean}
+	 */
+	canFinish = function (numCourses, prerequisites) {
+		var initGraph = numCourses => ({
+			graph: new Array(numCourses).fill().map(() => []),
+			path: new Array(numCourses).fill(false)
+		});
 
-    /**
-     * https://leetcode.com/problems/course-schedule/
-     * Time O((V)^2 + E) | Space O(V + E)
-     * @param {number} numCourses
-     * @param {number[][]} prerequisites
-     * @return {boolean}
-     */
-    canFinish = function (numCourses, prerequisites) {
+		var buildGraph = (numCourses, prerequisites) => {
+			const { graph, path } = initGraph(numCourses);
 
+			for (const [src, dst] of prerequisites) {
+				const neighbors = graph[dst] || [];
 
-        var initGraph = (numCourses) => ({
-            graph: new Array(numCourses).fill().map(() => []),
-            path: new Array(numCourses).fill(false)
-        })
+				neighbors.push(src);
 
-        var buildGraph = (numCourses, prerequisites) => {
-            const { graph, path } = initGraph(numCourses);
+				graph[dst] = neighbors;
+			}
 
-            for (const [src, dst] of prerequisites) {
-                const neighbors = (graph[dst] || []);
+			return { graph, path };
+		};
 
-                neighbors.push(src);
+		var hasPath = (numCourses, graph, path) => {
+			for (let course = 0; course < numCourses; course++) {
+				if (isCyclic(course, graph, path)) return false;
+			}
 
-                graph[dst] = neighbors;
-            }
+			return true;
+		};
 
-            return { graph, path };
-        }
+		var isCyclic = (currCourse, graph, path) => {
+			const hasSeen = path[currCourse];
+			if (hasSeen) return true;
 
-        var hasPath = (numCourses, graph, path) => {
-            for (let course = 0; course < numCourses; course++) {
-                if (isCyclic(course, graph, path)) return false;
-            }
+			const isMissingNext = !(currCourse in graph);
+			if (isMissingNext) return false;
 
-            return true;
-        }
+			return backTrack(currCourse, graph, path);
+		};
 
-        var isCyclic = (currCourse, graph, path) => {
-            const hasSeen = path[currCourse]
-            if (hasSeen) return true
+		var backTrack = (currCourse, graph, path) => {
+			path[currCourse] = true;
+			const _hasCycle = hasCycle(currCourse, graph, path);
+			path[currCourse] = false;
 
-            const isMissingNext = !(currCourse in graph)
-            if (isMissingNext) return false;
+			return _hasCycle;
+		};
 
-            return backTrack(currCourse, graph, path);
-        }
+		var hasCycle = (currCourse, graph, path) => {
+			for (const neighbor of graph[currCourse]) {
+				if (isCyclic(neighbor, graph, path)) return true;
+			}
 
-        var backTrack = (currCourse, graph, path) => {
-            path[currCourse] = true;
-            const _hasCycle = hasCycle(currCourse, graph, path)
-            path[currCourse] = false;
+			return false;
+		};
 
-            return _hasCycle
-        }
+		const { graph, path } = buildGraph(numCourses, prerequisites);
 
-        var hasCycle = (currCourse, graph, path) => {
-            for (const neighbor of graph[currCourse]) {
-                if (isCyclic(neighbor, graph, path)) return true;
-            }
+		return hasPath(numCourses, graph, path);
+	};
 
-            return false
-        }
-
-        const { graph, path } = buildGraph(numCourses, prerequisites);
-
-        return hasPath(numCourses, graph, path);
-    }
-
-
-
-    solve(numCourses, prerequisistes) {
-        return this.canFinish(numCourses, prerequisistes);
-    }
+	solve(numCourses, prerequisistes) {
+		return this.canFinish(numCourses, prerequisistes);
+	}
 }
-
 
 module.exports = { Problem: CourseSchedule };

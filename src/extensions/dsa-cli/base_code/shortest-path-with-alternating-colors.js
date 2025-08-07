@@ -1,9 +1,7 @@
 class ShortestPathWithAlternatingColors {
 	solve(board) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: ShortestPathWithAlternatingColors };

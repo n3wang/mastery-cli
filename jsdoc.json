@@ -1,18 +1,24 @@
 {
-  "source": {
-    "include": ["utils"],
-    "exclude": ["utils/data", "utils/dsa-cli/cloze", "utils/dsa-cli/solutions", "utils/dsa-cli/base_code", "utils/data-science-cli"],
-    "includePattern": ".js$",
-    "excludePattern": "(node_modules/|docs|utils/(docs|dsa-cli|schedule-assistant|data)/)"
-  },
-  "plugins": ["plugins/markdown"],
-  "templates": {
-    "cleverLinks": true,
-    "monospaceLinks": true
-  },
-  "opts": {
-    "recurse": true,
-    "destination": "./docs/",
-    "template": "./custom_modules/custom-template"
-  }
+	"source": {
+		"include": ["utils"],
+		"exclude": [
+			"utils/data",
+			"utils/dsa-cli/cloze",
+			"utils/dsa-cli/solutions",
+			"utils/dsa-cli/base_code",
+			"utils/data-science-cli"
+		],
+		"includePattern": ".js$",
+		"excludePattern": "(node_modules/|docs|utils/(docs|dsa-cli|schedule-assistant|data)/)"
+	},
+	"plugins": ["plugins/markdown"],
+	"templates": {
+		"cleverLinks": true,
+		"monospaceLinks": true
+	},
+	"opts": {
+		"recurse": true,
+		"destination": "./docs/",
+		"template": "./custom_modules/custom-template"
+	}
 }

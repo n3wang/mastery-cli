@@ -1,9 +1,7 @@
 class PowX {
 	solve(x, n) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: PowX };

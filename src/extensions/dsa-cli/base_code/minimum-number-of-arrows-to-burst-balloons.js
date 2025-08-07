@@ -1,9 +1,7 @@
 class MinimumNumberOfArrowsToBurstBalloons {
 	solve(points) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: MinimumNumberOfArrowsToBurstBalloons };

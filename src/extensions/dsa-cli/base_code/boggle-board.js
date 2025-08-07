@@ -1,9 +1,7 @@
 class BoggleBoard {
 	solve(board, words) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: BoggleBoard };

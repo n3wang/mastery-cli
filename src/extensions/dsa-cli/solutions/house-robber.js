@@ -1,33 +1,31 @@
 class HouseRobber {
+	/**
+	 * DP - Bottom Up
+	 * Time O(N) | Space O(1)
+	 * https://leetcode.com/problems/house-robber/
+	 * @param {number[]} nums
+	 * @return {number}
+	 */
+	rob = nums => {
+		if (!nums.length) return 0;
 
+		let [left, maxAndPrev] = [0, 0];
 
-    /**
-     * DP - Bottom Up
-     * Time O(N) | Space O(1)
-     * https://leetcode.com/problems/house-robber/
-     * @param {number[]} nums
-     * @return {number}
-     */
-    rob = (nums) => {
-        if (!nums.length) return 0;
+		for (const right of nums) {
+			/* Time O(N) */
+			const leftForNextHouse = maxAndPrev;
+			const currentHouseMax = left + right;
 
-        let [left, maxAndPrev] = [0, 0];
+			maxAndPrev = Math.max(maxAndPrev, currentHouseMax);
+			left = leftForNextHouse;
+		}
 
-        for (const right of nums) {/* Time O(N) */
-            const leftForNextHouse = maxAndPrev;
-            const currentHouseMax = left + right;
+		return maxAndPrev;
+	};
 
-            maxAndPrev = Math.max(maxAndPrev, currentHouseMax);
-            left = leftForNextHouse;
-        }
-
-        return maxAndPrev;
-    };
-
-    solve(nums) {
-        return this.rob(nums);
-    }
+	solve(nums) {
+		return this.rob(nums);
+	}
 }
-
 
 module.exports = { Problem: HouseRobber };

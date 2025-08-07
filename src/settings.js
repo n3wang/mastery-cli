@@ -1,17 +1,17 @@
 /**
  * Settings Loader for Mastery CLI
- * 
+ *
  * This file loads your personal settings from the settings.json file.
  * For beginners: This is where the app gets your preferences like:
  * - Which code editor you prefer
  * - Study session lengths
  * - Progress tracking options
  * - Custom learning paths
- * 
+ *
  * The settings.json file is created automatically when you first run the app!
  */
 
-const path = require("path");
+const path = require('path');
 
 /**
  * Helper function to get absolute file paths
@@ -19,10 +19,13 @@ const path = require("path");
  * @param {string} fileimage - The file you want to find
  * @returns {string} - The complete path to that file
  */
-const getDirAbsoluteUri = (fileimage = './img/unicorn.png', subdirectory = './terms_data/') => {
-    // Build the complete path from the current directory
-    const absolutePath = path.resolve(path.join(__dirname, './', fileimage));
-    return (absolutePath.toString());
+const getDirAbsoluteUri = (
+	fileimage = './img/unicorn.png',
+	subdirectory = './terms_data/'
+) => {
+	// Build the complete path from the current directory
+	const absolutePath = path.resolve(path.join(__dirname, './', fileimage));
+	return absolutePath.toString();
 };
 
 // Get the path to your personal settings file

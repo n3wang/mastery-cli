@@ -1,8 +1,5 @@
 class ContainerWithMostWater {
-    solve(heights) {
-        
-    }
+	solve(heights) {}
 }
-
 
 module.exports = { Problem: ContainerWithMostWater };

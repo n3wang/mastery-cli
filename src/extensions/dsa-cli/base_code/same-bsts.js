@@ -1,9 +1,7 @@
 class SameBstsProblem {
 	solve(arrayOne, arrayTwo) {
-	// Your code here
-
+		// Your code here
 	}
 }
-
 
 module.exports = { Problem: SameBstsProblem };

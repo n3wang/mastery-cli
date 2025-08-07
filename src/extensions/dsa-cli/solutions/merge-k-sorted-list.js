@@ -1,5 +1,3 @@
-
-
 /**
  * https://leetcode.com/problems/merge-k-sorted-lists/
  * Time O(N) | Space O(N)
@@ -8,92 +6,84 @@
  */
 
 class ListNode {
-    constructor(value) {
-        this.value = value;
-        this.next = null;
-    }
+	constructor(value) {
+		this.value = value;
+		this.next = null;
+	}
 }
-
-
 
 class MergeKSortedLists {
-    solve(lists) {
+	solve(lists) {
+		var mergeTwoLists = function (list1, list2) {
+			let tail;
+			let sentinel = (tail = new ListNode(0));
 
-        var mergeTwoLists = function (list1, list2) {
-            let tail;
-            let sentinel = tail = new ListNode(0);
+			while (list1 && list2) {
+				const canAddL1 = list1.val <= list2.val;
+				if (canAddL1) {
+					tail.next = list1;
+					list1 = list1.next;
+				} else {
+					tail.next = list2;
+					list2 = list2.next;
+				}
 
-            while (list1 && list2) {
-                const canAddL1 = list1.val <= list2.val;
-                if (canAddL1) {
-                    tail.next = list1;
-                    list1 = list1.next;
-                } else {
-                    tail.next = list2;
-                    list2 = list2.next;
-                }
+				tail = tail.next;
+			}
 
-                tail = tail.next;
-            }
+			tail.next = list1 || list2;
 
-            tail.next = list1 || list2;
+			return sentinel.next;
+		};
 
-            return sentinel.next;
-        };
+		let previous = null;
 
-        let previous = null;
+		for (let i = 0; i < lists.length; i++) {
+			previous = mergeTwoLists(previous, lists[i]);
+		}
 
-        for (let i = 0; i < lists.length; i++) {
-            previous = mergeTwoLists(previous, lists[i]);
-        }
+		return previous;
+	}
 
-        return previous;
-    };
+	/**
+	 * https://leetcode.com/problems/merge-k-sorted-lists/
+	 * Time O(N * log(K)) | Space O(N + K)
+	 * @param {ListNode[]} lists
+	 * @return {ListNode}
+	 */
+	mergeKLists(lists) {
+		const getMinHeap = lists => {
+			const heap = new MinPriorityQueue({ priority: ({ val }) => val });
 
+			for (const node of lists) {
+				if (!node) continue;
 
-    /**
-     * https://leetcode.com/problems/merge-k-sorted-lists/
-     * Time O(N * log(K)) | Space O(N + K)
-     * @param {ListNode[]} lists
-     * @return {ListNode}
-     */
-    mergeKLists(lists) {
+				heap.enqueue(node);
+			}
 
+			return heap;
+		};
 
-        const getMinHeap = (lists) => {
-            const heap = new MinPriorityQueue({ priority: ({ val }) => val });
+		const mergeLists = minHeap => {
+			let sentinel = (tail = new ListNode());
 
-            for (const node of lists) {
-                if (!node) continue;
+			while (!minHeap.isEmpty()) {
+				const node = minHeap.dequeue().element;
 
-                heap.enqueue(node);
-            }
+				tail.next = node;
+				tail = tail.next;
 
-            return heap;
-        }
+				if (!node.next) continue;
 
+				minHeap.enqueue(node.next);
+			}
 
-        const mergeLists = (minHeap) => {
-            let sentinel = tail = new ListNode();
+			return sentinel.next;
+		};
 
-            while (!minHeap.isEmpty()) {
-                const node = minHeap.dequeue().element;
-
-                tail.next = node;
-                tail = tail.next;
-
-                if (!node.next) continue;
-
-                minHeap.enqueue(node.next);
-            }
-
-            return sentinel.next;
-        }
-
-        const minHeap = getMinHeap(lists);
-        return mergeLists(minHeap)
-    };
+		const minHeap = getMinHeap(lists);
+		return mergeLists(minHeap);
+	}
 }
-
 
 module.exports = { Problem: MergeKSortedLists };
