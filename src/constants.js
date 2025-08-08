@@ -13,11 +13,6 @@ const { qmathformulas } = require('./terms_data/math_formulas.js');
 const { termJson } = require('./terms_data/terms.js');
 const { Term, Terminology, TermStorage } = require('./structures.js');
 
-// Lazy load CURRENCY_SIMBOLS to avoid early terms loading
-function getCurrencySymbols() {
-	const { CURRENCY_SIMBOLS } = require('./terms_data/sample_terms.js');
-	return CURRENCY_SIMBOLS;
-}
 
 const path = require('path');
 const url = require('url');
@@ -175,9 +170,6 @@ module.exports = {
 	MAID_NAME: MASTERY_MANAGER_NAME,
 	MAID_EMOJIS,
 	APIDICT,
-	get CURRENCY_SIMBOLS() {
-		return getCurrencySymbols();
-	},
 	CONSTANTS,
 	qmathformulas,
 	qmathenabled: qmathformulas,

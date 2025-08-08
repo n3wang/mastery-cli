@@ -704,7 +704,6 @@ class Mastery {
 			// 'get_credential',
 			// 'forecast_costs',
 			// 'usd_to_ars',
-			// 'currency_exchange',
 			// 'create_credential',
 			'swap_double_single_quotes'
 		];
@@ -712,9 +711,8 @@ class Mastery {
 		const CHOICE_CREDENTIAL = 0,
 			CHOICE_COSTS = 1,
 			CHOICE_USD_TO_ARS = 2,
-			CHOICE_CURRENCY_EXCHANGE = 3,
-			CHOICE_CREATE_CREDENTIAL = 4,
-			CHOICE_SWAP_QUOTES = 5;
+			CHOICE_CREATE_CREDENTIAL = 3,
+			CHOICE_SWAP_QUOTES = 4;
 
 		const multiselect = new AutoComplete({
 			name: 'ServiceOption',
@@ -732,23 +730,6 @@ class Mastery {
 		) {
 			// Show credentials available
 		} else if (serviceSelected == choices[CHOICE_USD_TO_ARS].value) {
-		} else if (serviceSelected == choices[CHOICE_CURRENCY_EXCHANGE].value) {
-			// Prompt from what to what to exchange.
-
-			const fromCurrency = new AutoComplete({
-				name: 'fromCurrency',
-				message: 'Which Currency from?',
-				choices: Object.keys(constants.CURRENCY_SIMBOLS)
-			});
-
-			const toCurrency = new AutoComplete({
-				name: 'toCurrency',
-				message: 'Which Currency to?',
-				choices: Object.keys(constants.CURRENCY_SIMBOLS)
-			});
-
-			let fromCurrencySelected = await fromCurrency.run();
-			let toCurrencySelected = await toCurrency.run();
 		} else if (serviceSelected == choices[CHOICE_CREATE_CREDENTIAL].value) {
 		} else if (serviceSelected == choices[CHOICE_SWAP_QUOTES].value) {
 			let input = await Input({
