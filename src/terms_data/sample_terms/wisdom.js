@@ -65,4 +65,6 @@ const collective_wisdom = [
 	}
 ];
 
-module.exports = { wisdom_studies };
+const wisdom = collective_wisdom;
+
+module.exports = { wisdom };
