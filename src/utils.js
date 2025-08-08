@@ -44,7 +44,6 @@ const {
 const { getMaidDirectory } = require('./utils_functions.js');
 
 const Settings = require('./settings.js');
-const SettingsManager = require('./SettingsManager.js');
 
 const { Quizzer: FlashQuizzer } = require('./Quizzer.js');
 
@@ -240,6 +239,9 @@ class Mastery {
 			code: () => {
 				this.tellCurrentDirectory();
 			},
+			setting: () => {
+				this.displaySettingsPaths();
+			},
 			coa: () => {
 				// Commit, add, and push code changes
 
@@ -396,6 +398,53 @@ class Mastery {
 		const projectDirectory = getMaidDirectory();
 		this.say(projectDirectory);
 		clipboard.copy(projectDirectory);
+	};
+	displaySettingsPaths = () => {
+		const path = require('path');
+		const fs = require('fs');
+		const { ExtensionManager } = require('./extensions/ExtensionManager');
+
+		console.log('\n=== Available Settings Files ===\n');
+		
+		// Main settings file
+		const mainSettingsPath = path.resolve(__dirname, 'user_data', 'settings.json');
+		if (fs.existsSync(mainSettingsPath)) {
+			console.log(`📁 Main Settings: ${mainSettingsPath}`);
+		} else {
+			console.log(`📁 Main Settings: ${mainSettingsPath} (not found)`);
+		}
+		
+		// Extension settings
+		console.log('\n--- Extension Settings ---');
+		try {
+			const extensionManager = new ExtensionManager(
+				path.join(__dirname, 'extensions'),
+				{ info: () => {}, error: () => {}, warn: () => {} }
+			);
+			
+			const context = { flags: {}, masteryManager: this, settings: this.Settings };
+			extensionManager.loadAllExtensions(context);
+			
+			const extensions = extensionManager.getStatus().extensions;
+			
+			if (extensions.length === 0) {
+				console.log('No extensions found.');
+			} else {
+				extensions.forEach(ext => {
+					if (ext.settingsPath) {
+						const fullPath = path.resolve(__dirname, ext.settingsPath);
+						const exists = fs.existsSync(fullPath);
+						console.log(`📄 ${ext.name}: ${fullPath}${exists ? '' : ' (not found)'}`);
+					} else {
+						console.log(`📄 ${ext.name}: No settings file configured`);
+					}
+				});
+			}
+		} catch (error) {
+			console.log('Error loading extensions:', error.message);
+		}
+		
+		console.log('\nUse these paths to modify application and extension settings.');
 	};
 
 	runServer = () => {
