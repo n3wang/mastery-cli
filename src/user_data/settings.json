@@ -87,16 +87,16 @@
 	"quiz_decks_configuration": {
 		"masks": [
 			{
-				"title": "cloud-prep",
+				"title": "cert-focus",
 				"decks_to_enable": [
-					"aws cloud practitioner"
+					"cfa"
 				]
 
 			}
 
 		],
 		"use_masks": [
-			"cloud-prep"
+			"cert-focus"
 		]
 
 	}
