@@ -1827,7 +1827,7 @@ const network_final = [
 	}
 ];
 
-const artificialIntelligence = [
+const artificial_intelligence = [
 	{
 		term: 'Backpropagation Neural Network',
 		description:
@@ -1911,7 +1911,7 @@ const artificialIntelligence = [
 ];
 
 // Things that I research by my own
-const artificialIntelligence_2 = [
+const artificial_intelligence_2 = [
 	// Agents
 	{
 		term: 'Rule-based agents',
@@ -2825,7 +2825,7 @@ const algebra = [
 	}
 ];
 
-const calculousOne = [
+const calculous_one = [
 	{
 		term: 'multiplication functions',
 		prompt: 'Find the product of f(x) = (1-x) and g(x) = x^2 using calculus.',
@@ -2883,10 +2883,10 @@ const student_wisdom = [
 
 module.exports = {
 	network,
-	artificialIntelligence,
-	artificialIntelligence_2,
+	artificial_intelligence,
+	artificial_intelligence_2,
 	algebra,
-	calculousOne,
+	calculous_one,
 	network_midterm,
 	network_final
 };
