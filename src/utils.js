@@ -249,7 +249,8 @@ class Mastery {
 					commitpush();
 					this.increasePerformance('feat', { score: 1 });
 					if (Settings.ask_quiz_when_commit) {
-						await this.mQuizer.askQuestion();
+						await this.ensureTermsLoaded();
+						await this.mQuizer.study_session();
 					}
 				};
 
@@ -260,7 +261,8 @@ class Mastery {
 					pushOriginHead();
 					this.increasePerformance('feat', { score: 1 });
 					if (Settings.ask_quiz_when_commit) {
-						await this.mQuizer.askQuestion();
+						await this.ensureTermsLoaded();
+						await this.mQuizer.study_session();
 					}
 				};
 				run();
