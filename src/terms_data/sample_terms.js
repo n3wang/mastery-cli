@@ -42,7 +42,6 @@ function loadTermsLazy() {
                 // Merge all exports from this file into our consolidated exports
                 Object.assign(consolidatedExports, moduleExports);
                 
-                console.log(`✓ Loaded ${Object.keys(moduleExports).length} exports from ${file}`);
             } catch (error) {
                 console.warn(`⚠ Failed to load ${file}:`, error.message);
             }
