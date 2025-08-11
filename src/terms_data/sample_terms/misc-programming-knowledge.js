@@ -213,7 +213,7 @@ const aws_services = [
 	}
 ];
 
-const coderTerms = [
+const coder_terms = [
 	{
 		term: 'Business Logic Modules Overview',
 		description:
@@ -1354,7 +1354,7 @@ const regex = [
 module.exports = {
 	aws_glossary,
 	aws_services,
-	coderTerms,
+	coder_terms,
 	docker,
 	unit_testing,
 	js_advanced,

@@ -314,7 +314,7 @@ const system_design = [
 	}
 ];
 
-const designPatterns = [
+const design_patterns = [
 	{
 		term: 'solid',
 		prompt: 'What are the SOLID principles? Mention at least 3',
@@ -476,4 +476,4 @@ const designPatterns = [
 	}
 ];
 
-module.exports = { designPatterns, dsa, system_design };
+module.exports = { design_patterns, dsa, system_design };

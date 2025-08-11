@@ -2,7 +2,7 @@
 .claude/**
 **/user_data/*.md
 **/user_files/**
-
+src\extensions\dsa-cli\user_files\temp_problem.js
 claude.md
 utils/dsa-cli/user_files/temp_settings.json
 utils/dsa-cli/user_files/*

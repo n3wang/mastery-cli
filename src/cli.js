@@ -101,9 +101,9 @@ class CommandsInformation {
 				'Output the root directory of the mastery CLI and copy the path to clipboard',
 				'code'
 			),
-			settings: new Command(
-				'Output the root directory of the settings file and copy the path to clipboard',
-				'code'
+			setting: new Command(
+				'Display paths to available settings files including main and extension settings',
+				'setting'
 			),
 			help: new Command(
 				'Display available commands and usage hints',
