@@ -250,7 +250,7 @@ class Mastery {
 					this.increasePerformance('feat', { score: 1 });
 					if (Settings.ask_quiz_when_commit) {
 						await this.ensureTermsLoaded();
-						await this.mQuizer.study_session();
+						return this.mQuizer.askQuestion();
 					}
 				};
 
@@ -262,7 +262,7 @@ class Mastery {
 					this.increasePerformance('feat', { score: 1 });
 					if (Settings.ask_quiz_when_commit) {
 						await this.ensureTermsLoaded();
-						await this.mQuizer.study_session();
+						return this.mQuizer.askQuestion();
 					}
 				};
 				run();
@@ -407,7 +407,7 @@ class Mastery {
 		const { ExtensionManager } = require('./extensions/ExtensionManager');
 
 		console.log('\n=== Available Settings Files ===\n');
-		
+
 		// Main settings file
 		const mainSettingsPath = path.resolve(__dirname, 'user_data', 'settings.json');
 		if (fs.existsSync(mainSettingsPath)) {
@@ -415,20 +415,20 @@ class Mastery {
 		} else {
 			console.log(`📁 Main Settings: ${mainSettingsPath} (not found)`);
 		}
-		
+
 		// Extension settings
 		console.log('\n--- Extension Settings ---');
 		try {
 			const extensionManager = new ExtensionManager(
 				path.join(__dirname, 'extensions'),
-				{ info: () => {}, error: () => {}, warn: () => {} }
+				{ info: () => { }, error: () => { }, warn: () => { } }
 			);
-			
+
 			const context = { flags: {}, masteryManager: this, settings: this.Settings };
 			extensionManager.loadAllExtensions(context);
-			
+
 			const extensions = extensionManager.getStatus().extensions;
-			
+
 			if (extensions.length === 0) {
 				console.log('No extensions found.');
 			} else {
@@ -445,7 +445,7 @@ class Mastery {
 		} catch (error) {
 			console.log('Error loading extensions:', error.message);
 		}
-		
+
 		console.log('\nUse these paths to modify application and extension settings.');
 	};
 
@@ -552,7 +552,7 @@ class Mastery {
 	/**
 	 *  precalculated asynchronous at the start, since usually the missing Feat report is to be shown at the end of the math thing.
 	 *  */
-	populateMissingReport = async () => {};
+	populateMissingReport = async () => { };
 
 	async generateOfflinePerformanceReport({
 		localStorageInstance,
@@ -604,9 +604,8 @@ class Mastery {
 				const total = week_scores[feat].value;
 				const today = userPerformanceData.today[feat] ?? 0;
 				userPerformanceData.today[feat] = today;
-				userPerformanceData.week_sum[feat] = `${
-					total - today
-				} -> ${total}`;
+				userPerformanceData.week_sum[feat] = `${total - today
+					} -> ${total}`;
 				userPerformanceData.week_average[feat] = `${roundDec(
 					(total - today) / 6
 				)} -> ${roundDec(total / 7)}`;
@@ -650,7 +649,7 @@ class Mastery {
 		}
 	}
 
-	performanceReport = async ({ version = 'tables' } = {}) => {};
+	performanceReport = async ({ version = 'tables' } = {}) => { };
 
 	printUserPerformanceDataSummary(userPerformanceData) {
 		// Print this month
@@ -883,7 +882,7 @@ updateConcept = withOnlineCheck(
 		problem_name,
 		success = true,
 		account_id = Settings.account_id ?? 1
-	) => {}
+	) => { }
 );
 
 /**
@@ -1059,8 +1058,7 @@ const printComments = comments => {
 		console.log(
 			`${chalk
 				.hex(CONSTANTS.CUTEBLUE)
-				.inverse(`${Object.keys(obj)?.[0]} ` ?? 'date')} ${
-				Object.values(obj)?.[0] ?? '1'
+				.inverse(`${Object.keys(obj)?.[0]} ` ?? 'date')} ${Object.values(obj)?.[0] ?? '1'
 			}`
 		);
 	}
@@ -1098,7 +1096,7 @@ const autorelease = () => {
 	}
 };
 
-const inreasePerformanceOffline = (feature_name, increaseBY = 1) => {};
+const inreasePerformanceOffline = (feature_name, increaseBY = 1) => { };
 
 module.exports = {
 	commitpush,
