@@ -1,5 +1,4 @@
-
-## Artificial Intelligence
+# Artificial Intelligence
 
 #### backpropagation-neural-network
 A backpropagation neural network is a supervised learning approach that trains neural networks using input-output pairs, adjusting weights and biases through backpropagation when outputs are incorrect.
