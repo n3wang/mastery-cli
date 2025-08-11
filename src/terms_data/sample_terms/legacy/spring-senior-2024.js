@@ -1,4 +1,4 @@
-const analysisAlgorithmClass = [
+const analysis_algorithm_class = [
 	{
 		term: 'logarithms practice',
 		description:
@@ -273,5 +273,5 @@ const analysisAlgorithmClass = [
 ];
 
 module.exports = {
-	analysisAlgorithmClass
+	analysis_algorithm_class
 };

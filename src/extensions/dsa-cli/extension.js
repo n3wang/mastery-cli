@@ -39,7 +39,10 @@ class MasteryDSAExtension extends ExtensionModel {
 			'Data Structures and Algorithms practice extension for coding interviews',
 			'Mastery CLI Team',
 			'MIT',
-			options
+			{
+				...options,
+				settingsPath: 'extensions/dsa-cli/user_files/temp_settings.json'
+			}
 		);
 	}
 

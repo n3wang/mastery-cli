@@ -44,7 +44,6 @@ const {
 const { getMaidDirectory } = require('./utils_functions.js');
 
 const Settings = require('./settings.js');
-const SettingsManager = require('./SettingsManager.js');
 
 const { Quizzer: FlashQuizzer } = require('./Quizzer.js');
 
@@ -240,6 +239,9 @@ class Mastery {
 			code: () => {
 				this.tellCurrentDirectory();
 			},
+			setting: () => {
+				this.displaySettingsPaths();
+			},
 			coa: () => {
 				// Commit, add, and push code changes
 
@@ -247,7 +249,8 @@ class Mastery {
 					commitpush();
 					this.increasePerformance('feat', { score: 1 });
 					if (Settings.ask_quiz_when_commit) {
-						await this.mQuizer.askQuestion();
+						await this.ensureTermsLoaded();
+						return this.mQuizer.askQuestion();
 					}
 				};
 
@@ -258,7 +261,8 @@ class Mastery {
 					pushOriginHead();
 					this.increasePerformance('feat', { score: 1 });
 					if (Settings.ask_quiz_when_commit) {
-						await this.mQuizer.askQuestion();
+						await this.ensureTermsLoaded();
+						return this.mQuizer.askQuestion();
 					}
 				};
 				run();
@@ -397,6 +401,53 @@ class Mastery {
 		this.say(projectDirectory);
 		clipboard.copy(projectDirectory);
 	};
+	displaySettingsPaths = () => {
+		const path = require('path');
+		const fs = require('fs');
+		const { ExtensionManager } = require('./extensions/ExtensionManager');
+
+		console.log('\n=== Available Settings Files ===\n');
+
+		// Main settings file
+		const mainSettingsPath = path.resolve(__dirname, 'user_data', 'settings.json');
+		if (fs.existsSync(mainSettingsPath)) {
+			console.log(`📁 Main Settings: ${mainSettingsPath}`);
+		} else {
+			console.log(`📁 Main Settings: ${mainSettingsPath} (not found)`);
+		}
+
+		// Extension settings
+		console.log('\n--- Extension Settings ---');
+		try {
+			const extensionManager = new ExtensionManager(
+				path.join(__dirname, 'extensions'),
+				{ info: () => { }, error: () => { }, warn: () => { } }
+			);
+
+			const context = { flags: {}, masteryManager: this, settings: this.Settings };
+			extensionManager.loadAllExtensions(context);
+
+			const extensions = extensionManager.getStatus().extensions;
+
+			if (extensions.length === 0) {
+				console.log('No extensions found.');
+			} else {
+				extensions.forEach(ext => {
+					if (ext.settingsPath) {
+						const fullPath = path.resolve(__dirname, ext.settingsPath);
+						const exists = fs.existsSync(fullPath);
+						console.log(`📄 ${ext.name}: ${fullPath}${exists ? '' : ' (not found)'}`);
+					} else {
+						console.log(`📄 ${ext.name}: No settings file configured`);
+					}
+				});
+			}
+		} catch (error) {
+			console.log('Error loading extensions:', error.message);
+		}
+
+		console.log('\nUse these paths to modify application and extension settings.');
+	};
 
 	runServer = () => {
 		const projectDirectory = getMaidDirectory();
@@ -501,7 +552,7 @@ class Mastery {
 	/**
 	 *  precalculated asynchronous at the start, since usually the missing Feat report is to be shown at the end of the math thing.
 	 *  */
-	populateMissingReport = async () => {};
+	populateMissingReport = async () => { };
 
 	async generateOfflinePerformanceReport({
 		localStorageInstance,
@@ -553,9 +604,8 @@ class Mastery {
 				const total = week_scores[feat].value;
 				const today = userPerformanceData.today[feat] ?? 0;
 				userPerformanceData.today[feat] = today;
-				userPerformanceData.week_sum[feat] = `${
-					total - today
-				} -> ${total}`;
+				userPerformanceData.week_sum[feat] = `${total - today
+					} -> ${total}`;
 				userPerformanceData.week_average[feat] = `${roundDec(
 					(total - today) / 6
 				)} -> ${roundDec(total / 7)}`;
@@ -599,7 +649,7 @@ class Mastery {
 		}
 	}
 
-	performanceReport = async ({ version = 'tables' } = {}) => {};
+	performanceReport = async ({ version = 'tables' } = {}) => { };
 
 	printUserPerformanceDataSummary(userPerformanceData) {
 		// Print this month
@@ -655,7 +705,6 @@ class Mastery {
 			// 'get_credential',
 			// 'forecast_costs',
 			// 'usd_to_ars',
-			// 'currency_exchange',
 			// 'create_credential',
 			'swap_double_single_quotes'
 		];
@@ -663,9 +712,8 @@ class Mastery {
 		const CHOICE_CREDENTIAL = 0,
 			CHOICE_COSTS = 1,
 			CHOICE_USD_TO_ARS = 2,
-			CHOICE_CURRENCY_EXCHANGE = 3,
-			CHOICE_CREATE_CREDENTIAL = 4,
-			CHOICE_SWAP_QUOTES = 5;
+			CHOICE_CREATE_CREDENTIAL = 3,
+			CHOICE_SWAP_QUOTES = 4;
 
 		const multiselect = new AutoComplete({
 			name: 'ServiceOption',
@@ -683,23 +731,6 @@ class Mastery {
 		) {
 			// Show credentials available
 		} else if (serviceSelected == choices[CHOICE_USD_TO_ARS].value) {
-		} else if (serviceSelected == choices[CHOICE_CURRENCY_EXCHANGE].value) {
-			// Prompt from what to what to exchange.
-
-			const fromCurrency = new AutoComplete({
-				name: 'fromCurrency',
-				message: 'Which Currency from?',
-				choices: Object.keys(constants.CURRENCY_SIMBOLS)
-			});
-
-			const toCurrency = new AutoComplete({
-				name: 'toCurrency',
-				message: 'Which Currency to?',
-				choices: Object.keys(constants.CURRENCY_SIMBOLS)
-			});
-
-			let fromCurrencySelected = await fromCurrency.run();
-			let toCurrencySelected = await toCurrency.run();
 		} else if (serviceSelected == choices[CHOICE_CREATE_CREDENTIAL].value) {
 		} else if (serviceSelected == choices[CHOICE_SWAP_QUOTES].value) {
 			let input = await Input({
@@ -716,45 +747,6 @@ class Mastery {
 		}
 	};
 
-	ask = async () => {
-		// Asking some random fnction
-
-		const choices = [
-			'currency symbol for...'
-			// 'forecast_costs',
-			// 'usd_to_ars',
-			// 'currency_exchange'
-		];
-
-		const CHOICE_CURRENCY = 0;
-
-		const multiselect = new AutoComplete({
-			name: 'question',
-			message: 'What do you want to know?',
-			choices: choices
-		});
-
-		let serviceSelected = await multiselect.run();
-
-		// if services == get_credi
-
-		console.log('service Selected', serviceSelected);
-		if (serviceSelected == choices[CHOICE_CURRENCY].value) {
-			const currencySelect = new AutoComplete({
-				name: 'currency',
-				message: 'Which currency?',
-				choices: Object.values(constants.CURRENCY_SIMBOLS)
-			});
-
-			let currencySelected = await currencySelect.run();
-			this.say(
-				`${currencySelected} => ${getKeyByValue(
-					constants.CURRENCY_SIMBOLS,
-					currencySelected
-				)}`
-			);
-		}
-	};
 
 	increasePerformance(feature_name, feature_key = 'feat', value = 1) {
 		/**
@@ -890,7 +882,7 @@ updateConcept = withOnlineCheck(
 		problem_name,
 		success = true,
 		account_id = Settings.account_id ?? 1
-	) => {}
+	) => { }
 );
 
 /**
@@ -947,9 +939,6 @@ function getObjectiveFeatures() {
 	return feat_map;
 }
 
-function getKeyByValue(object, value) {
-	return Object.keys(object).find(key => object[key] === value);
-}
 
 const getCredentialNames = credentialDict => {
 	return credentialDict.map(cred => {
@@ -1069,8 +1058,7 @@ const printComments = comments => {
 		console.log(
 			`${chalk
 				.hex(CONSTANTS.CUTEBLUE)
-				.inverse(`${Object.keys(obj)?.[0]} ` ?? 'date')} ${
-				Object.values(obj)?.[0] ?? '1'
+				.inverse(`${Object.keys(obj)?.[0]} ` ?? 'date')} ${Object.values(obj)?.[0] ?? '1'
 			}`
 		);
 	}
@@ -1108,7 +1096,7 @@ const autorelease = () => {
 	}
 };
 
-const inreasePerformanceOffline = (feature_name, increaseBY = 1) => {};
+const inreasePerformanceOffline = (feature_name, increaseBY = 1) => { };
 
 module.exports = {
 	commitpush,

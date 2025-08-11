@@ -18,7 +18,6 @@ const log = require('./src/log');
 const utils = require('./src/utils');
 const demos = require('./src/demo');
 const Settings = require('./src/settings');
-const { populateMasterDeck } = require('./src/terms_data/terms');
 
 const cli_meow = cli[0];
 const cmInfo = cli[1];

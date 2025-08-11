@@ -83,5 +83,20 @@
 			"req_type": "week",
 			"requirement": 100
 		}
-	]
+	],
+	"quiz_decks_configuration": {
+		"masks": [
+			{
+				"title": "cert-focus",
+				"decks_to_enable": [
+					"cfa"
+				]
+			}
+
+		],
+		"use_masks": [
+			"cert-focus"
+		]
+
+	}
 }

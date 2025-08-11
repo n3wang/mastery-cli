@@ -31,6 +31,7 @@ class ExtensionModel {
 		this.masteryManager = options.masteryManager || null;
 		this.config = options.config || {};
 		this.dependencies = options.dependencies || [];
+		this.settingsPath = options.settingsPath || null;
 
 		// Extension lifecycle state
 		this.isInitialized = false;
@@ -58,7 +59,8 @@ class ExtensionModel {
 			license: this.license,
 			dependencies: this.dependencies,
 			isInitialized: this.isInitialized,
-			isEnabled: this.isEnabled
+			isEnabled: this.isEnabled,
+			settingsPath: this.settingsPath
 		};
 	}
 

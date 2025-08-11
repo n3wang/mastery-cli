@@ -41,8 +41,15 @@ class ProblemTests {
 			this.printAllTestsSuccess();
 		}
 
-		// Return True if all tests passed, False otherwise
-		return count_test_succeed == count_of_tests;
+		// Return detailed test results object
+		const passed = count_test_succeed == count_of_tests;
+		return {
+			passed: passed,
+			passed_count: count_test_succeed,
+			total_count: count_of_tests,
+			failed_count: count_of_tests - count_test_succeed,
+			success: passed // For backward compatibility
+		};
 	}
 
 	printAllTestsSuccess() {
@@ -61,6 +68,10 @@ class ProblemTests {
 		console.log(
 			`Test ${test_number}/${count_of_tests}: ${this.current_test_name}`
 		);
+	}
+
+	getTestCount() {
+		return this.tests.length;
 	}
 }
 

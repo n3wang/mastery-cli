@@ -322,7 +322,8 @@ class ExtensionManager {
 				name: ext.name,
 				version: ext.version,
 				description: ext.description,
-				author: ext.author
+				author: ext.author,
+				settingsPath: ext.settingsPath
 			}))
 		};
 	}

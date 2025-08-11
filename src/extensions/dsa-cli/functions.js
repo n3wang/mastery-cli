@@ -157,7 +157,6 @@ const renderPromptDescription = (
 	}
 };
 
-// console.log("CURRENCY_SIMBOLS", CURRENCY_SIMBOLS);
 /**
  *
  * @param {List: any} list A lit of any object

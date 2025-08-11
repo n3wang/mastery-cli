@@ -653,7 +653,7 @@ const apex = [
 	}
 ];
 
-const IDE_S = [
+const ide_s = [
 	// Android Studio Shortcuts
 	{
 		term: 'Android Studio | navigation keys | class search',
@@ -1572,7 +1572,7 @@ const python_frameworks = [
 	}
 ];
 
-const dotNet = [
+const dot_net = [
 	{
 		term: 'orm',
 		prompt: 'What is Object Relational Mapping (ORM)?',
@@ -2316,7 +2316,7 @@ const postgresql = [
 	}
 ];
 
-const xcodeIOS = [
+const xcode_ios = [
 	{
 		term: 'Shortcut Commit Files in XCODE',
 		prompt: '(1) Shortcut Commit Files in XCODE \n\
@@ -2370,11 +2370,11 @@ module.exports = {
 	react_terms,
 	apex,
 	flutter: flutter_dart,
-	IDE_S,
+	ide_s,
 	chrome_extensions,
 	python_frameworks,
 	react_typescript,
-	dotNet,
+	dot_net,
 	angular,
-	xcodeIOS
+	xcode_ios
 };

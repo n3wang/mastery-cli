@@ -19,7 +19,7 @@ function parseMarkdownCards(filePath) {
 	let last_line = '';
 	let last_connected_paragraph_line = 0;
 	let has_header = false;
-	let last_obtained_description = '';
+	let single_line_last_obtained_description = '';
 	let count_of_blank_lines = 0;
 
 	while (i < lines.length) {
@@ -39,13 +39,15 @@ function parseMarkdownCards(filePath) {
 			line.startsWith('##')
 		) {
 			const header = line.replace(/^#+/, '').trim();
+			single_line_last_obtained_description = '';
+			
 			if (line.startsWith('####')) {
 				has_header = true;
 			}
 			currentEntry = {
 				header: header,
 				description: '',
-				prompt: header,
+				prompt: '',
 				answer: '',
 				reference_line: i + 1
 			};
@@ -54,7 +56,7 @@ function parseMarkdownCards(filePath) {
 		}
 
 		if (line.startsWith(':d') || line.startsWith('?d')) {
-			last_obtained_description = line.slice(2).trim();
+			single_line_last_obtained_description = line;
 		}
 
 		if (line.startsWith('?x')) {
@@ -78,9 +80,8 @@ function parseMarkdownCards(filePath) {
 				let singleLineEntry = {};
 				let term = parts[0].trim();
 				let description = parts[0].trim();
-				if (last_obtained_description !== '') {
-					description = last_obtained_description;
-					last_obtained_description = '';
+				if (single_line_last_obtained_description !== '') {
+					description = single_line_last_obtained_description;
 				}
 				singleLineEntry.header = term;
 				singleLineEntry.description = description;
@@ -99,6 +100,7 @@ function parseMarkdownCards(filePath) {
 			currentEntry
 		) {
 			currentEntry.prompt = line.slice(3).trim();
+			single_line_last_obtained_description = '';
 			i++;
 			continue;
 		}
@@ -130,6 +132,8 @@ function parseMarkdownCards(filePath) {
 				answerLines.push(answerLine);
 				i++;
 			}
+			
+			single_line_last_obtained_description = '';
 			currentEntry.answer = answerLines.join('\n');
 			result.entries.push(currentEntry);
 			currentEntry = null; // Reset to prevent duplicate at end of file
@@ -149,8 +153,7 @@ function parseMarkdownCards(filePath) {
 		}
 
 		// if line is empty, finish the connected paragraph
-		if (line === '' || (has_header && count_of_blank_lines >= 2)) {
-			last_obtained_description = '';
+		if ((line === '' && !has_header) || (line === '' && has_header && count_of_blank_lines >= 2)) {
 			if (has_header) {
 				// if we have a header and only one blank line, we can keep the last connected paragraph
 				count_of_blank_lines++;
@@ -171,7 +174,7 @@ function parseMarkdownCards(filePath) {
 		last_line = line;
 	}
 
-	if (currentEntry) {
+	if (currentEntry && currentEntry.answer !== '' && currentEntry.prompt !== '') {
 		result.entries.push(currentEntry);
 	}
 
