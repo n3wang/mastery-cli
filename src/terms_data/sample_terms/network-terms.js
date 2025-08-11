@@ -1,4 +1,4 @@
-const network_final = [
+const network_terms = [
 	{
 		term: 'switches-router',
 		prompt: 'What is the difference between switches and routers?',
@@ -505,3 +505,6 @@ Access Agent (AA):\n\
   - Generally, SMTP uses port 25. However, many ISPs block port 25 to prevent spam, so port 587 is often used for email submission from email clients, and port 465 is used for SMTP over SSL.'
 	}
 ];
+
+
+module.exports = {network_terms};

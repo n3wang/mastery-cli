@@ -24,7 +24,7 @@ x??
 
 #### Calgulate frequency
 Use bincount() to calculate the frequency of a Numpy array
-:m ```py
+```py
 import numpy as np
 arr = np.array([1, 2, 1, 3, 5, 0, 0, 0, 2, 3])
 
@@ -98,7 +98,7 @@ print("After vstack: \n",c)
 # hstack arrays
 d = np.hstack((a,b))
 print("After hstack: \n",d)
-
+```
 :p Main difference is that the hstack method combines arrays horizontally whereas the vstack method combines arrays vertically.
 What will the following print?
 ??x

@@ -5,7 +5,7 @@ const ABOUT = {
 };
 
 const EXTERNAL_CONTENT_FOLDERS = [
-	'src\\terms_data\\sample_terms\\markdown_terms\\'
+	// 'src\\terms_data\\sample_terms\\markdown_terms\\'
 ];
 
 module.exports = {

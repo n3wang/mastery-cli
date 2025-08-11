@@ -294,16 +294,15 @@ const obj = { a: 1, b: 2, c: 3 };
 ??x const clone = { ...obj }; | const clone = Object.assign({}, obj); ??
 
 #### function arguments - marry
-:m
+
 ```js
 function marry(person1, person2) {
-		console.log(arguments);
-		console.log(Array.from(arguments));
-		return `${person1} is now married to ${person2}`;
-
-    marry('Tim', 'Tina');
-    }
-  ```
+	console.log(arguments);
+	console.log(Array.from(arguments));
+	return `${person1} is now married to ${person2}`;
+}
+marry('Tim', 'Tina');
+```
 
 :p What will the following print?
 
@@ -315,7 +314,7 @@ Tim is now married to Tina ??
 :m
 This will create a shallow clone
 ```js
-let output = let obj = {a: 'a', b: 'b', c: {
+let obj = {a: 'a', b: 'b', c: {
 	deep: 'try and copy me'
 }};
 let clone = Object.assign({}, obj);
