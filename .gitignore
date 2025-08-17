@@ -4,6 +4,8 @@
 **/user_files/**
 src\extensions\dsa-cli\user_files\temp_problem.js
 claude.md
+current-quiz.md
+
 utils/dsa-cli/user_files/temp_settings.json
 utils/dsa-cli/user_files/*
 # NPM #
@@ -12,7 +14,6 @@ utils/dsa-cli/user_files/*
 node_modules/
 /node_modules/
 temp/
-
 */db.json
 
 # Packages #
