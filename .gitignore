@@ -14,7 +14,7 @@ node_modules/
 temp/
 
 */db.json
-
+current-quiz.md
 # Packages #
 ############
 *.7z
