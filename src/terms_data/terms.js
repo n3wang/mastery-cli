@@ -61,7 +61,6 @@ function getMasksByAlgorithm() {
 			console.log(`Created mask "${title}" with decks: [${decks_to_enable.join(', ')}], enabled: ${enabled}`);
 		}
 
-		console.log(`Loaded ${deckMasks.length} masks from settings.json`);
 		return deckMasks;
 
 	} catch (error) {
@@ -103,9 +102,20 @@ async function populateMasterDeck() {
 		
 		// Convert term key to display name: underscores to spaces, lowercase
 		const deckDisplayName = termKey.replace(/_/g, ' ').toLowerCase();
+		console.log(`➕ Adding deck: "${deckDisplayName}" with ${termData.length} terms`);
 		decks.addDeck(new TermStorage(termData, deckDisplayName));
 	});
 
+	// Add terms_modules (like cfa, datascience, etc.)
+	try {
+		const { retrieve_terms_as_decks } = require('../md_terms_parser');
+		const termsModules = retrieve_terms_as_decks();
+		for (const key of Object.keys(termsModules)) {
+			decks.addDeck(termsModules[key]);
+		}
+	} catch (error) {
+		console.warn('⚠ Failed to load terms modules:', error.message);
+	}
 
 	// decks.applyMasks([engineerMask]);
 	const masks = getMasksByAlgorithm();

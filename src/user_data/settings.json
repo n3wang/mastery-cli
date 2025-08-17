@@ -89,7 +89,7 @@
 			{
 				"title": "cert-focus",
 				"decks_to_enable": [
-					"cfa"
+					"cfa", "datascience-statistics"
 				]
 			}
 
@@ -98,5 +98,6 @@
 			"cert-focus"
 		]
 
-	}
+	},
+	"flashcard_markdown_file": "current-quiz.md"
 }

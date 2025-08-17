@@ -76,12 +76,12 @@ function parseMarkdownProblems(filePath) {
 				if (inCodeBlock) {
 					// End of code block
 					if (currentSection === 'pseudocode') {
-						problem.pseudocode = currentCode.trim();
+						problem.pseudocode = currentCode.replace(/^\n+/, '').replace(/\n+$/, '');
 					} else if (
 						currentSection === 'solution' &&
 						currentLanguage
 					) {
-						problem.solution[currentLanguage] = currentCode.trim();
+						problem.solution[currentLanguage] = currentCode.replace(/^\n+/, '').replace(/\n+$/, '');
 					}
 					currentCode = '';
 					inCodeBlock = false;
@@ -105,9 +105,9 @@ function parseMarkdownProblems(filePath) {
 			}
 		}
 
-		// Clean up trailing whitespace
-		problem.description = problem.description.trim();
-		problem.theory = problem.theory.trim();
+		// Clean up excessive whitespace while preserving table formatting
+		problem.description = problem.description.replace(/^\n+/, '').replace(/\n+$/, '');
+		problem.theory = problem.theory.replace(/^\n+/, '').replace(/\n+$/, '');
 
 		problems.push(problem);
 	}

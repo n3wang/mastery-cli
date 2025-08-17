@@ -30,5 +30,38 @@ $$
 - **Independently distributed** past returns are not useful for predicting future returns.
 
 Many pricing models in the CFA Program assume that returns are both independently and identically distributed.
+:p Whats the difference of both distributions?
+?x
+see above
 
+
+#### Monte Carlo Simulation
+**Monte Carlo simulation** is a technique based on the repeated generation of one or more risk factors to generate a distribution of security values.
+
+Example: stock options
+1. Specify the probability distributions of stock prices, interest rates, and the distribution parameters (e.g., mean, variance, skewness)
+2. Random generation of stock price values and interest rates
+3. Value the stock options for each pair of risk factor values
+4. After many iterations, calculate the mean option value
+
+Uses of Monte Carlo Simulation
+Monte Carlo simulation is used to do the following:
+- Value complex securities
+- Simulate the profits/losses from a trading strategy
+- Calculate estimates of value at risk (VaR)
+- Simulate pension fund assets and liabilities over time
+- Value portfolios of assets that have nonnormal return distributions
+
+Key advantage: inputs are not limited to historical data
+Key disadvantage: complexity; garbage in, garbage out
+
+
+#### Bootstrap Resampling
+Resampling is another method for generating data inputs to use in a simulation; used with sample data
+- Start with an observed sample
+- Repeatedly draw samples of size $n$, replacing the data each time
+- From the sample data, we infer population parameters (e.g., mean and variance)
+
+Bootstrap resampling
+- Using the same technique as above, bootstrap data provides the inputs to a simulation; relies on actual past returns
 
