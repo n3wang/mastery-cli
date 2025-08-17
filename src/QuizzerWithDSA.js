@@ -53,9 +53,10 @@ class QuizzerWithDSA extends Quizzer {
 		// Core random question dispatcher
 		const askQuestionRandom = async ({
 			exitMethod = () => {},
-			force_mode = true
+			force_mode = false
 		} = {}) => {
 			const problem_type_selected = constants.get_random(problem_types);
+			console.log(`Selected problem type: ${problem_type_selected}`);
 
 			switch (problem_type_selected) {
 				case 'math': {
@@ -105,33 +106,84 @@ class QuizzerWithDSA extends Quizzer {
 		};
 
 		let answerIsCorrect = false;
+		let consecutiveFailures = 0;
+		const maxConsecutiveFailures = 3;
 
 		if (ask_until_one_is_correct) {
 			while (!answerIsCorrect && !exit) {
-				if (DEBUG)
-					console.log(
-						'Answer is correct',
-						answerIsCorrect,
-						'exit',
-						exit
-					);
 				const { answered_correctly, type_of_problem } =
 					await askQuestionRandom({ exitMethod });
 				answerIsCorrect = answered_correctly;
 
-				if (DEBUG)
-					console.log(
-						'Answer is correct',
-						answerIsCorrect,
-						'type of problem',
-						type_of_problem
-					);
+				// Track consecutive failures to prevent infinite loops when no terms are available
+				if (!answered_correctly) {
+					consecutiveFailures++;
+					if (type_of_problem === 'term') {
+						console.log(`Attempt failed - no terms available (${consecutiveFailures}/${maxConsecutiveFailures})`);
+					}
+					
+					if (consecutiveFailures >= maxConsecutiveFailures) {
+						console.error('Maximum consecutive failures reached. Exiting quiz to prevent infinite loop.');
+						console.error('Please check your term configuration and masks in settings.json');
+						exit = true;
+						break;
+					}
+				} else {
+					// Reset failure counter on success
+					consecutiveFailures = 0;
+				}
 			}
 		} else {
 			await askQuestionRandom({ exitMethod });
 		}
 
 		return { success: answerIsCorrect, exited: exit };
+	}
+
+	async smallTermsSession({to_answer_correctly = 3, loop_max = 20} = {}) {
+		let remaining = to_answer_correctly;
+		let loops = loop_max;
+		let exit = false;
+		
+		const exitMethod = () => {
+			if (DEBUG) console.log('Exit method requested');
+			exit = true;
+			return false;
+		};
+
+		while (remaining > 0 && loops > 0 && !exit) {
+			console.log(`Remaining correct answers needed: ${remaining} | attempts left: ${loops}`);
+			
+			const { answered_correctly, exited } = await this.askQuestion({
+				ask_until_one_is_correct: false,
+				exitMethod
+			});
+			
+			if (exited || exit) {
+				console.log('Session exited by user.');
+				break;
+			}
+			
+			if (answered_correctly) {
+				remaining--;
+				console.log(`✓ Correct answer! Remaining: ${remaining}`);
+			} else {
+				console.log(`✗ Incorrect answer. Keep trying!`);
+			}
+
+			loops--;
+		}
+
+		if (remaining === 0) {
+			console.log(`🎉 Session complete! All ${to_answer_correctly} terms answered correctly.`);
+			return true;
+		} else if (loops === 0) {
+			console.log(`⏰ Session ended. Maximum attempts reached. Terms remaining: ${remaining}`);
+			return false;
+		} else {
+			console.log(`👋 Session ended by user. Terms remaining: ${remaining}`);
+			return false;
+		}
 	}
 
 	ask_algorithm_question = async () => {

@@ -24,6 +24,7 @@ function parseMarkdownCards(filePath) {
 
 	while (i < lines.length) {
 		const line = lines[i].trim();
+		const originalLine = lines[i]; // Preserve original line for content that needs formatting
 
 		// Title
 		if (!result.title && line.startsWith('# ')) {
@@ -99,7 +100,7 @@ function parseMarkdownCards(filePath) {
 				line.startsWith(':p')) &&
 			currentEntry
 		) {
-			currentEntry.prompt = line.slice(3).trim();
+			currentEntry.prompt = line.replace(/^(\?p:|p:|:p)/, '').trim();
 			single_line_last_obtained_description = '';
 			i++;
 			continue;
@@ -123,13 +124,20 @@ function parseMarkdownCards(filePath) {
 
 			i++;
 			while (i < lines.length) {
-				const answerLine = lines[i];
+				let answerLine = lines[i];
 				if (isMultiLine && answerLine.trim() === 'x??') {
 					i++;
 					break;
 				}
 				if (!isMultiLine && answerLine.trim() === '') break;
+				
+				if(answerLine.trim() === '') {
+					if (isMultiLine) {
+						answerLines.push('\n\n');
+					}
+				}
 				answerLines.push(answerLine);
+				
 				i++;
 			}
 			
@@ -149,7 +157,7 @@ function parseMarkdownCards(filePath) {
 		) {
 			if (currentEntry.description !== '')
 				currentEntry.description += '\n';
-			currentEntry.description += line;
+			currentEntry.description += originalLine;
 		}
 
 		// if line is empty, finish the connected paragraph
@@ -157,6 +165,7 @@ function parseMarkdownCards(filePath) {
 			if (has_header) {
 				// if we have a header and only one blank line, we can keep the last connected paragraph
 				count_of_blank_lines++;
+				last_connected_paragraph += '\n' + originalLine;
 			} else {
 				last_connected_paragraph = '';
 				last_connected_paragraph_line = i;
@@ -164,9 +173,9 @@ function parseMarkdownCards(filePath) {
 		} else {
 			// if the line is not empty, we can connect it to the last paragraph
 			if (last_connected_paragraph !== '') {
-				last_connected_paragraph += '\n' + line;
+				last_connected_paragraph += '\n' + originalLine;
 			} else {
-				last_connected_paragraph = line;
+				last_connected_paragraph = originalLine;
 			}
 		}
 
@@ -176,6 +185,16 @@ function parseMarkdownCards(filePath) {
 
 	if (currentEntry && currentEntry.answer !== '' && currentEntry.prompt !== '') {
 		result.entries.push(currentEntry);
+	}
+
+	// clean up.
+	for (const entry of result.entries) {
+		if (entry.description) {
+			entry.description = ":m " + entry.description.replace(/ {1,}/g, ' ');
+		}
+		if (entry.answer) {
+			entry.answer = ":m " + entry.answer.replace(/ {1,}/g, ' ');
+		}
 	}
 
 	return result;
@@ -372,6 +391,9 @@ function parseMarkdownCardsFromTermsModules(
 				} else {
 					// save the terms to a cache file
 					const cacheFilePath = targetCacheLocation;
+					// v
+					// remove where more than 2 spaces convert into 1 spaces
+					// answerLine = answerLine.replace(/ {2,}/g, ' ');
 					const cachedTerms = terms.map(term => ({
 						term: term.term,
 						example: term.example,

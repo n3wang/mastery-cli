@@ -221,9 +221,10 @@ class Mastery {
 			this.mQuizer.masterDeck = this.masterDeck;
 			// Update the terms array in the quizzer
 			this.mQuizer.terms = [];
-			this.mQuizer.terms.push(...this.masterDeck.listTerms());
+			const allTerms = this.masterDeck.listTerms();
+			this.mQuizer.terms.push(...allTerms);
 			this.termsLoaded = true;
-			console.log('Terms data loaded successfully.');
+			console.log(`Terms data loaded successfully. Total terms available: ${allTerms.length}`);
 		}
 		return this.masterDeck;
 	}
@@ -250,7 +251,10 @@ class Mastery {
 					this.increasePerformance('feat', { score: 1 });
 					if (Settings.ask_quiz_when_commit) {
 						await this.ensureTermsLoaded();
-						return this.mQuizer.askQuestion();
+						return this.mQuizer.smallTermsSession({
+							to_answer_correctly: 3,
+							loop_max: 20
+						});
 					}
 				};
 
@@ -262,7 +266,10 @@ class Mastery {
 					this.increasePerformance('feat', { score: 1 });
 					if (Settings.ask_quiz_when_commit) {
 						await this.ensureTermsLoaded();
-						return this.mQuizer.askQuestion();
+						return this.mQuizer.smallTermsSession({
+							to_answer_correctly: 3,
+							loop_max: 20
+						});
 					}
 				};
 				run();
@@ -283,7 +290,10 @@ class Mastery {
 			}, // Practice math problems
 			quiz: async () => {
 				await this.ensureTermsLoaded();
-				return this.mQuizer.askQuestion();
+				return this.mQuizer.smallTermsSession({
+					to_answer_correctly: 3,
+					loop_max: 20
+				});
 			}, // Mixed quiz session
 			imath: () => {
 				this.increasePerformance('math_ss');
