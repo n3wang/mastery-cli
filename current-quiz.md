@@ -1,10 +1,18 @@
-# 1 - Easy
+# 8 - $t$-Test
 
-**Category:** aStatisticsPractice > datascience-statistics
+**Category:** Statistics > datascience-statistics
 
 ## Description
 
-:m 6.1. Uber: Explain the Central Limit Theorem. Why it is useful? Provide the mathematical Definition of the CLT
+:m The $t$-test is structured similarly to the $Z$-test, but uses the sample variance $s^2$ in place of population variance. The $t$-test is parametrized by the degrees of freedom, which refers to the number of independent observations in a dataset, denoted below by $n-1$ :
+“Given that I’m estimating the standard deviation, is my sample mean far enough from the expected mean?”
+- You **do NOT know σ**
+- Sample size is **small**
+- You assume the underlying data is **roughly normal**
+
+## Question
+
+:p Provide the T test formula given ean, the sample, Whend does it make sense to use t-tests?
 
 ## Answer
 
@@ -12,5 +20,5 @@
 
 ## Reference
 
-E:\Documents\obsidian\general-docs-public\content\1 - software-engineering\P11 - Data Science/6a - Statistics Practice.md#5
+E:\Documents\obsidian\general-docs-public\content\1 - software-engineering\P11 - Data Science/6 - Statistics.md#124
 

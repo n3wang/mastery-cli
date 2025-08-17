@@ -850,7 +850,6 @@ class Quizzer {
 						name: 'incorrectAnswerOption',
 						message: 'What would you like to do?',
 						choices: [
-							
 							{
 								name: 'next',
 								message: 'Continue to next question'
@@ -862,6 +861,10 @@ class Quizzer {
 							{
 								name: 'providefeedback',
 								message: 'Provide feedback about this term'
+							},
+							{
+								name: 'quit',
+								message: 'Quit the entire session'
 							}
 						]
 					});
@@ -874,6 +877,9 @@ class Quizzer {
 							exitMethod,
 							try_question_again: true
 						});
+					} else if (selectedOption === 'quit') {
+						exitMethod();
+						return false;
 					} else if (selectedOption === 'providefeedback') {
 						const feedbackPrompt = new Input({
 							name: 'feedback',
