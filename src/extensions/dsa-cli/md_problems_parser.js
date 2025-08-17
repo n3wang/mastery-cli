@@ -16,7 +16,12 @@ function parseMarkdownProblems(filePath) {
 	const flushBuffer = () => {
 		if (!current || !currentField) return;
 
-		const content = buffer.join('\n').trim();
+		// Join lines and preserve formatting, but only trim excessive whitespace
+		let content = buffer.join('\n');
+		
+		// Remove leading/trailing empty lines but preserve internal structure
+		content = content.replace(/^\n+/, '').replace(/\n+$/, '');
+		
 		if (currentField === 'Solution') {
 			if (!current.solution) current.solution = {};
 			current.solution[codeLang.toLowerCase()] = content;

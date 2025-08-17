@@ -11,10 +11,8 @@ tags:
 
 details
 
-?p: prompt
-?x
-answer
-##  Submodulo 2
+
+modulo 2
 
 
 

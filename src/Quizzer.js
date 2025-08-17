@@ -303,11 +303,21 @@ class Quizzer {
      * @returns {TermStructure} term_selected
      */
 	pick_term_question = async () => {
-		if (DEBUG) console.log('Picking terms from:', this.terms);
+		console.log('Picking terms from:', this.terms?.length || 0, 'total terms');
+		if (!this.terms || this.terms.length === 0) {
+			console.error('No terms available for quiz. Terms array is empty or undefined.');
+			return null;
+		}
+		
 		let potential_questions = this.terms;
 		potential_questions = await this.getYoungest(potential_questions, {
 			randomOffline: true
 		});
+
+		if (!potential_questions || potential_questions.length === 0) {
+			console.error('No potential questions returned from getYoungest');
+			return null;
+		}
 
 		return get_random(potential_questions);
 	};
@@ -693,6 +703,12 @@ class Quizzer {
 
 		const term_selected = await this.pick_term_question();
 		if (DEBUG) console.log('term_selected', term_selected);
+		
+		if (!term_selected) {
+			console.error('No term could be selected for quiz. Check if terms are loaded properly.');
+			return false;
+		}
+		
 		return await this.ask_term_question(term_selected, {
 			exitMethod: exitMethod
 		});
@@ -700,7 +716,7 @@ class Quizzer {
 
 	async ask_term_question(
 		term_selected,
-		{ ask_if_correct = true, exitMethod = () => {} } = {}
+		{ ask_if_correct = true, exitMethod = () => {}, is_try_questin_again: is_try_question_again=false } = {}
 	) {
 		try {
 			// Start running the question_attempt
@@ -736,6 +752,9 @@ class Quizzer {
 				// Bad data for term testing
 				throw ('isInvalidData: term_selected:', term_selected);
 			}
+
+			// Create flashcard markdown file before showing the question
+			await this.createFlashcardMarkdown(term_selected, false);
 
 			const isOfflineMessage = Settings?.online
 				? ''
@@ -793,9 +812,11 @@ class Quizzer {
 
 			if (user_requests_skip(user_res)) {
 				this.printExample(term_selected); //You want to print the example as if it didn't know the answer for the next time.
+				// Update markdown with example after skipping
 				return false;
 			}
-
+			
+			await this.createFlashcardMarkdown(term_selected, true);
 			let ISANSWERCORRECT = true;
 			// Print the correct example term if exists
 
@@ -811,11 +832,12 @@ class Quizzer {
 				const response = await is_correct.run();
 				ISANSWERCORRECT = response;
 
+				// Update markdown with answer revealed
 				if (response) {
 					const _ = await this.masteryManager.logSkillExperience(
 						term_selected.category,
 						{
-							score: ISANSWERCORRECT ? 1 : 0,
+							score: ISANSWERCORRECT && !is_try_question_again ? 1 : 0,
 							deck_id: term_selected.category,
 							deck_term: term_selected.term,
 							comment: user_res,
@@ -829,6 +851,10 @@ class Quizzer {
 						message: 'What would you like to do?',
 						choices: [
 							{
+								name: 'next',
+								message: 'Continue to next question'
+							},
+							{
 								name: 'repractice',
 								message: 'Try the question again'
 							},
@@ -837,8 +863,8 @@ class Quizzer {
 								message: 'Provide feedback about this term'
 							},
 							{
-								name: 'next',
-								message: 'Continue to next question'
+								name: 'quit',
+								message: 'Quit the entire session'
 							}
 						]
 					});
@@ -848,8 +874,12 @@ class Quizzer {
 					if (selectedOption === 'repractice') {
 						return await this.ask_term_question(term_selected, {
 							ask_if_correct,
-							exitMethod
+							exitMethod,
+							try_question_again: true
 						});
+					} else if (selectedOption === 'quit') {
+						exitMethod();
+						return false;
 					} else if (selectedOption === 'providefeedback') {
 						const feedbackPrompt = new Input({
 							name: 'feedback',
@@ -869,12 +899,12 @@ class Quizzer {
 				}
 
 				// Record term completion for hash-based tracking if answer is correct
-				if (ISANSWERCORRECT) {
+				if (ISANSWERCORRECT && !is_try_question_again ) {
 					await this.recordTermCompletion(term_selected);
 				}
 			}
 
-			return ISANSWERCORRECT;
+			return ISANSWERCORRECT && !is_try_question_again;
 		} catch (err) {
 			console.log(
 				'Failed at: ask_term_question |  term_selected',
@@ -1045,6 +1075,62 @@ class Quizzer {
 			console.log(`Feedback saved to ${annotationFile}`);
 		} catch (error) {
 			console.error('Failed to create annotation:', error.message);
+		}
+	}
+
+	/**
+	 * Creates or updates a targeted markdown file for flashcard quiz
+	 * @param {Object} term_selected - The term that is being quizzed
+	 * @param {boolean} showAnswer - Whether to reveal the answer/solution
+	 */
+	async createFlashcardMarkdown(term_selected, showAnswer = false) {
+		try {
+			const markdownFileName = Settings?.flashcard_markdown_file || 'current-quiz.md';
+			const fullPath = path.resolve(markdownFileName);
+
+			// Create markdown content based on whether answer should be shown
+			let markdownContent = `# ${term_selected.term}\n\n`;
+			markdownContent += `**Category:** ${term_selected.category}\n\n`;
+			
+			// Always show description and prompt
+			if (term_selected.description) {
+				markdownContent += `## Description\n\n${term_selected.description}\n\n`;
+			}
+			
+			if (term_selected.prompt) {
+				markdownContent += `## Question\n\n:p ${term_selected.prompt}\n\n`;
+			}
+
+			// Show answer only if requested
+			if (showAnswer && term_selected.example) {
+				markdownContent += `## Answer\n\n??${term_selected.example}??\n\n`;
+			} else if (!showAnswer) {
+				markdownContent += `## Answer\n\n*[Answer will be revealed after you respond]*\n\n`;
+				// markdownContent+= term_selected.example;
+			}
+
+			// Add reference if available
+			if (term_selected.reference_page) {
+				markdownContent += `## Reference\n\n${term_selected.reference_page}`;
+				if (term_selected.reference_line) {
+					markdownContent += `#${term_selected.reference_line}`;
+				}
+				markdownContent += '\n\n';
+			}
+
+			// Add attachment info if available
+			if (term_selected.attachment) {
+				markdownContent += `## Attachment\n\n${term_selected.attachment}\n\n`;
+			}
+
+			// Write to file
+			fs.writeFileSync(fullPath, markdownContent);
+
+			if (DEBUG) {
+				console.log(`Flashcard markdown updated: ${fullPath}`);
+			}
+		} catch (error) {
+			console.error('Failed to create flashcard markdown:', error.message);
 		}
 	}
 }
