@@ -1086,7 +1086,7 @@ class Quizzer {
 	async createFlashcardMarkdown(term_selected, showAnswer = false) {
 		try {
 			const markdownFileName = Settings?.flashcard_markdown_file || 'current-quiz.md';
-			const fullPath = path.resolve(markdownFileName);
+			const fullPath = path.resolve(__dirname, '../', markdownFileName);
 
 			// Create markdown content based on whether answer should be shown
 			let markdownContent = `# ${term_selected.term}\n\n`;

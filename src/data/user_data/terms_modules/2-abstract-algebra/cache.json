@@ -1,0 +1,322 @@
+[
+  {
+    "term": "1 - Tautologias basicas practicas I",
+    "example": ":m - Dominancia: $p \\vee V \\Longleftrightarrow V, \\quad p \\wedge F \\Longleftrightarrow F$.\n- Identidad: $p \\wedge V \\Longleftrightarrow p, \\quad p \\vee F \\Longleftrightarrow p$.\n- Idempotencia: $p \\wedge p \\Longleftrightarrow p, \\quad p \\vee p \\Longleftrightarrow p$.\n- Doble negación: $\\neg(\\neg p) \\Longleftrightarrow p$ (recuerde que $\\neg p$ es lo mismo que $\\bar{p}$ ).",
+    "description": ":m Proposición 1.9 (Tautologías básicas) Las siguientes son tautologías:\nComplete the following:\n- Dominancia: $p \\vee V \\Longleftrightarrow ..., \\quad p \\wedge F \\Longleftrightarrow ...$.\n- Identidad: $p \\wedge V \\Longleftrightarrow p, \\quad p \\vee F \\Longleftrightarrow p$.\n- Idempotencia: $p \\wedge p \\Longleftrightarrow ..., \\quad p \\vee p \\Longleftrightarrow ...$.\n- Doble negación: $\\neg(\\neg p) \\Longleftrightarrow ...$ (recuerde que $\\neg p$ es lo mismo que $\\bar{p}$ ).",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\1-boolearn-algebra.md",
+    "reference_line": 20,
+    "module_name": "2-abstract-algebra",
+    "category": "boolearnalgebra"
+  },
+  {
+    "term": "2 - Tautologias basicas practicas II",
+    "example": ":m - Tercio excluso: $p \\vee \\bar{p} \\Longleftrightarrow V$.\n- Consistencia: $p \\wedge \\bar{p} \\Longleftrightarrow F$.\n- Absorción: $p \\vee(p \\wedge q) \\Longleftrightarrow p, \\quad p \\wedge(p \\vee q) \\Longleftrightarrow p$.\n- Relajación: $p \\wedge q \\Longrightarrow p, \\quad p \\Rightarrow p \\vee q$.\n- Caracterización de la implicancia: $(p \\Rightarrow q) \\Longleftrightarrow \\bar{p} \\vee q$.",
+    "description": ":m Proposición 1.9 (Tautologías básicas) Las siguientes son tautologías:\nComplete the following:\n- Tercio excluso: $p \\vee \\bar{p} \\Longleftrightarrow ...$.\n- Consistencia: $p \\wedge \\bar{p} \\Longleftrightarrow ...$.\n- Absorción: $p \\vee(p \\wedge q) \\Longleftrightarrow ..., \\quad p \\wedge(p \\vee q) \\Longleftrightarrow ...$.\n- Relajación: $p \\wedge q \\Longrightarrow ..., \\quad p \\Rightarrow p \\vee q$.\n- Caracterización de la implicancia: $(p \\Rightarrow q) \\Longleftrightarrow ... \\vee ...$.",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\1-boolearn-algebra.md",
+    "reference_line": 35,
+    "module_name": "2-abstract-algebra",
+    "category": "boolearnalgebra"
+  },
+  {
+    "term": "3 - :p completa lo faltante dando ejemplo la ley de Morgan",
+    "example": ":m - $\\overline{p \\wedge q} \\Longleftrightarrow \\bar{p} \\vee \\bar{q}, \\quad \\overline{p \\vee q} \\Longleftrightarrow \\bar{p} \\wedge \\bar{q}$.",
+    "description": ":m Proposición 1.9 (Tautologías básicas) Las siguientes son tautologías:\nComplete the following:\n- Dominancia: $p \\vee V \\Longleftrightarrow ..., \\quad p \\wedge F \\Longleftrightarrow ...$.\n- Identidad: $p \\wedge V \\Longleftrightarrow p, \\quad p \\vee F \\Longleftrightarrow p$.\n- Idempotencia: $p \\wedge p \\Longleftrightarrow ..., \\quad p \\vee p \\Longleftrightarrow ...$.\n- Doble negación: $\\neg(\\neg p) \\Longleftrightarrow ...$ (recuerde que $\\neg p$ es lo mismo que $\\bar{p}$ ).\nProposición 1.9 (Tautologías básicas) Las siguientes son tautologías:\nComplete the following:\n- Tercio excluso: $p \\vee \\bar{p} \\Longleftrightarrow ...$.\n- Consistencia: $p \\wedge \\bar{p} \\Longleftrightarrow ...$.\n- Absorción: $p \\vee(p \\wedge q) \\Longleftrightarrow ..., \\quad p \\wedge(p \\vee q) \\Longleftrightarrow ...$.\n- Relajación: $p \\wedge q \\Longrightarrow ..., \\quad p \\Rightarrow p \\vee q$.\n- Caracterización de la implicancia: $(p \\Rightarrow q) \\Longleftrightarrow ... \\vee ...$.\nProposición 1.10 Las siguientes son tautologías:\nLeyes de De Morgan: Mostra un ejemplo de ley de morgan en los siguientes caos\n- $\\overline{p \\wedge q} \\Longleftrightarrow ...., \\quad \\overline{p \\vee q} \\Longleftrightarrow ...$.\n:p completa lo faltante dando ejemplo la ley de Morgan",
+    "prompt": ":p completa lo faltante dando ejemplo la ley de Morgan",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\1-boolearn-algebra.md",
+    "reference_line": 57,
+    "module_name": "2-abstract-algebra",
+    "category": "boolearnalgebra"
+  },
+  {
+    "term": "4 - :p completa lo faltante dando ejemplo la ley de commutatividad",
+    "example": ":m $$\n\\begin{aligned}\n& -\\operatorname{del} \\vee: p \\vee q \\Longleftrightarrow q \\vee p . \\\\\n& -\\operatorname{del} \\wedge: p \\wedge q \\Longleftrightarrow q \\wedge p .\n\\end{aligned}\n$$",
+    "description": ":m Proposición 1.9 (Tautologías básicas) Las siguientes son tautologías:\nComplete the following:\n- Dominancia: $p \\vee V \\Longleftrightarrow ..., \\quad p \\wedge F \\Longleftrightarrow ...$.\n- Identidad: $p \\wedge V \\Longleftrightarrow p, \\quad p \\vee F \\Longleftrightarrow p$.\n- Idempotencia: $p \\wedge p \\Longleftrightarrow ..., \\quad p \\vee p \\Longleftrightarrow ...$.\n- Doble negación: $\\neg(\\neg p) \\Longleftrightarrow ...$ (recuerde que $\\neg p$ es lo mismo que $\\bar{p}$ ).\nProposición 1.9 (Tautologías básicas) Las siguientes son tautologías:\nComplete the following:\n- Tercio excluso: $p \\vee \\bar{p} \\Longleftrightarrow ...$.\n- Consistencia: $p \\wedge \\bar{p} \\Longleftrightarrow ...$.\n- Absorción: $p \\vee(p \\wedge q) \\Longleftrightarrow ..., \\quad p \\wedge(p \\vee q) \\Longleftrightarrow ...$.\n- Relajación: $p \\wedge q \\Longrightarrow ..., \\quad p \\Rightarrow p \\vee q$.\n- Caracterización de la implicancia: $(p \\Rightarrow q) \\Longleftrightarrow ... \\vee ...$.\nProposición 1.10 Las siguientes son tautologías:\nLeyes de De Morgan: Mostra un ejemplo de ley de morgan en los siguientes caos\n- $\\overline{p \\wedge q} \\Longleftrightarrow ...., \\quad \\overline{p \\vee q} \\Longleftrightarrow ...$.\n:p completa lo faltante dando ejemplo la ley de Morgan\n- Conmutatividad.\n:p completa lo faltante dando ejemplo la ley de commutatividad",
+    "prompt": ":p completa lo faltante dando ejemplo la ley de commutatividad",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\1-boolearn-algebra.md",
+    "reference_line": 63,
+    "module_name": "2-abstract-algebra",
+    "category": "boolearnalgebra"
+  },
+  {
+    "term": "5 - Distributividad.",
+    "example": ":m - del $\\wedge$ con respecto al $\\vee$ :\n$$\np \\wedge(q \\vee r) \\Longleftrightarrow(p \\wedge q) \\vee(p \\wedge r), \\quad(q \\vee r) \\wedge p \\Longleftrightarrow(q \\wedge p) \\vee(r \\wedge p) .\n$$\n- del $\\vee$ con respecto al $\\wedge$ :\n$$\np \\vee(q \\wedge r) \\Longleftrightarrow(p \\vee q) \\wedge(p \\vee r), \\quad(q \\wedge r) \\vee p \\Longleftrightarrow(q \\vee p) \\wedge(r \\vee p) .\n$$",
+    "description": ":m - del $\\wedge$ con respecto al $\\vee$ :\n$$\np \\wedge(q \\vee r) \\Longleftrightarrow...., \\quad(q \\vee r) \\wedge p \\Longleftrightarrow.... .\n$$\n- del $\\vee$ con respecto al $\\wedge$ :\n$$\np \\vee(q \\wedge r) \\Longleftrightarrow..., \\quad(q \\wedge r) \\vee p \\Longleftrightarrow.....\n$$",
+    "prompt": "completa lo faltante dando ejemplo la ley de Distributividad",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\1-boolearn-algebra.md",
+    "reference_line": 83,
+    "module_name": "2-abstract-algebra",
+    "category": "boolearnalgebra"
+  },
+  {
+    "term": "6 - Transitividad.",
+    "example": ":m del $\\Rightarrow$ :\n$$\n(p \\Rightarrow q) \\wedge(q \\Rightarrow r) \\Longrightarrow ....\n$$\n- de la $\\Longleftrightarrow$ :\n$$\n(p \\Longleftrightarrow q) \\wedge(q \\Longleftrightarrow r) \\Longrightarrow ....\n$$",
+    "description": ":m - del $\\Rightarrow$ :\n$$\n(p \\Rightarrow q) \\wedge(q \\Rightarrow r) \\Longrightarrow(p \\Rightarrow r)\n$$\n- de la $\\Longleftrightarrow$ :\n$$\n(p \\Longleftrightarrow q) \\wedge(q \\Longleftrightarrow r) \\Longrightarrow(p \\Longleftrightarrow r)\n$$",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\1-boolearn-algebra.md",
+    "reference_line": 104,
+    "module_name": "2-abstract-algebra",
+    "category": "boolearnalgebra"
+  },
+  {
+    "term": "7 - Preoposiciones",
+    "example": ":m $(p∧q)∨p(p\\land q)\\lor p es pp (absorción).$\nSi es falsa ⇒ pp es falsa; nada fuerza a qq. **Falso**.",
+    "description": ":m Si la proposicion (p ∧ q) ∨ p es falsa, necesariamente q es falsa.",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\1-boolearn-algebra.md",
+    "reference_line": 125,
+    "module_name": "2-abstract-algebra",
+    "category": "boolearnalgebra"
+  },
+  {
+    "term": "8 - La proposici´on p =⇒ F es siempre falsa.",
+    "example": ":m $p⇒F≡¬pp\\Rightarrow F \\equiv \\neg p$. No es “siempre falsa”; es verdadera cuando pp es falsa. **Falso**.",
+    "description": ":m Proposición 1.9 (Tautologías básicas) Las siguientes son tautologías:\nComplete the following:\n- Dominancia: $p \\vee V \\Longleftrightarrow ..., \\quad p \\wedge F \\Longleftrightarrow ...$.\n- Identidad: $p \\wedge V \\Longleftrightarrow p, \\quad p \\vee F \\Longleftrightarrow p$.\n- Idempotencia: $p \\wedge p \\Longleftrightarrow ..., \\quad p \\vee p \\Longleftrightarrow ...$.\n- Doble negación: $\\neg(\\neg p) \\Longleftrightarrow ...$ (recuerde que $\\neg p$ es lo mismo que $\\bar{p}$ ).\nProposición 1.9 (Tautologías básicas) Las siguientes son tautologías:\nComplete the following:\n- Tercio excluso: $p \\vee \\bar{p} \\Longleftrightarrow ...$.\n- Consistencia: $p \\wedge \\bar{p} \\Longleftrightarrow ...$.\n- Absorción: $p \\vee(p \\wedge q) \\Longleftrightarrow ..., \\quad p \\wedge(p \\vee q) \\Longleftrightarrow ...$.\n- Relajación: $p \\wedge q \\Longrightarrow ..., \\quad p \\Rightarrow p \\vee q$.\n- Caracterización de la implicancia: $(p \\Rightarrow q) \\Longleftrightarrow ... \\vee ...$.\nProposición 1.10 Las siguientes son tautologías:\nLeyes de De Morgan: Mostra un ejemplo de ley de morgan en los siguientes caos\n- $\\overline{p \\wedge q} \\Longleftrightarrow ...., \\quad \\overline{p \\vee q} \\Longleftrightarrow ...$.\n:p completa lo faltante dando ejemplo la ley de Morgan\n- Conmutatividad.\n:p completa lo faltante dando ejemplo la ley de commutatividad\n- Asociatividad.\n$$\n\\begin{aligned}\n& -\\operatorname{del} \\vee: p \\vee(q \\vee r) \\Longleftrightarrow(p \\vee q) \\vee r . \\\\\n& -\\operatorname{del} \\wedge: p \\wedge(q \\wedge r) \\Longleftrightarrow(p \\wedge q) \\wedge r .\n\\end{aligned}\n$$\n- del $\\wedge$ con respecto al $\\vee$ :\n$$\np \\wedge(q \\vee r) \\Longleftrightarrow...., \\quad(q \\vee r) \\wedge p \\Longleftrightarrow.... .\n$$\n- del $\\vee$ con respecto al $\\wedge$ :\n$$\np \\vee(q \\wedge r) \\Longleftrightarrow..., \\quad(q \\wedge r) \\vee p \\Longleftrightarrow.....\n$$\n- del $\\Rightarrow$ :\n$$\n(p \\Rightarrow q) \\wedge(q \\Rightarrow r) \\Longrightarrow(p \\Rightarrow r)\n$$\n- de la $\\Longleftrightarrow$ :\n$$\n(p \\Longleftrightarrow q) \\wedge(q \\Longleftrightarrow r) \\Longrightarrow(p \\Longleftrightarrow r)\n$$\nSi la proposicion (p ∧ q) ∨ p es falsa, necesariamente q es falsa.\nLa proposici´on p =⇒ F es siempre falsa.",
+    "prompt": "La proposici´on p =⇒ F es siempre falsa.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\1-boolearn-algebra.md",
+    "reference_line": 131,
+    "module_name": "2-abstract-algebra",
+    "category": "boolearnalgebra"
+  },
+  {
+    "term": "1 - Negations Problems",
+    "example": ":m 4. If not all x accomplish function then exists one x where not returns functions\n5. If not exists one that accomplishes P(x) then all x doesnt accomplish F(x)\n6. Means there is a unique x such that p(x) holds",
+    "description": ":m Given the following\n1. $\\neg \\forall x P(x, y) \\equiv \\exists x \\neg P(x, y)$\n2. $\\neg \\exists x P(x) \\equiv \\forall x \\neg P(x)$\n3. $\\exists!x P(x)$ ",
+    "prompt": "translate the equations above into human words of what they mean",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\2-prepositional-logic.md",
+    "reference_line": 37,
+    "module_name": "2-abstract-algebra",
+    "category": "prepositionallogic"
+  },
+  {
+    "term": "2 - Equivalences Problems",
+    "example": ":m - **$\\forall x [P(x) \\wedge Q(x)] \\equiv (\\forall x P(x)) \\wedge (\\forall x Q(x))$**\n→ If **everything** has both property P and property Q, then everything has property P **and** everything has property Q separately.\n- **$\\exists x [P(x) \\vee Q(x)] \\equiv (\\exists x P(x)) \\vee (\\exists x Q(x))$**\n→ If there is **something** that has property P or property Q, then either there is something with property P, or there is something with property Q (or both).\n- **$\\forall x [P(x) \\vee Q(x)] \\equiv (\\forall x P(x)) \\vee (\\forall x Q(x))$ → False**\n→ Just because **everything** has property P or property Q doesn’t mean that **all** have P or **all** have Q — they could be mixed.",
+    "description": ":m 1. $\\forall x[P(x) \\wedge Q(x)] \\equiv(\\forall x P(x)) \\wedge(\\forall x Q(x))$ (Distribution of $\\forall$ over $\\wedge$ )\n2. $\\exists x[P(x) \\vee Q(x)] \\equiv(\\exists x P(x)) \\vee(\\exists x Q(x))$ (Distribution of $\\exists$ over $\\vee$ )\n3. $\\forall x[P(x) \\vee Q(x)] \\equiv(\\forall x P(x)) \\vee(\\forall x Q(x)) \\rightarrow$ False (Not always valid)",
+    "prompt": "given the equivalences above explain in human terms what they mean",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\2-prepositional-logic.md",
+    "reference_line": 50,
+    "module_name": "2-abstract-algebra",
+    "category": "prepositionallogic"
+  },
+  {
+    "term": "3 - Order of quantifiers",
+    "example": ":m Order of Quantifiers – Human Meaning\n- $\\forall x \\forall y P(x, y) \\equiv \\forall y \\forall x P(x, y)$\n- → If something is true for all x and all y, the order doesn’t matter — “for every x and every y” is the same as “for every y and every x.”\n- $\\exists x \\exists y P(x, y) \\equiv \\exists y \\exists x P(x, y)$\n- → If there exists some x and some y that make the statement true, it doesn’t matter which one you mention first.\n- $\\forall x \\exists y P(x, y) \\not\\equiv \\exists y \\forall x P(x, y)$\n- → Saying “for every x, there is a y” is not the same as “there is one y that works for every x.” The first allows a different y for each x; the second demands the same y for all x.",
+    "description": ":m 1. $\\forall x \\forall y P(x, y) \\equiv \\forall y \\forall x P(x, y)$ (Only changes the order of $\\forall$ )\n2. $\\exists x \\exists y P(x, y) \\equiv \\exists y \\exists x P(x, y)$\n3. $\\forall x \\exists y P(x, y) \\not \\equiv \\exists y \\forall x P(x, y)$",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\2-prepositional-logic.md",
+    "reference_line": 64,
+    "module_name": "2-abstract-algebra",
+    "category": "prepositionallogic"
+  },
+  {
+    "term": "4 - :p Translate in human terms",
+    "example": ":m Example translation\n\"For every non-zero real number, there exists a multiplicative inverse.\"",
+    "description": ":m 1. $\\neg \\forall x P(x, y) \\equiv \\exists x \\neg P(x, y)$\n(It becomes \"there exists\" and negates the statement)\n2. $\\neg \\exists x P(x) \\equiv \\forall x \\neg P(x)$\n3. $\\exists!x P(x)$ means \"there exists a unique $x$ such that $P(x)$ holds\".\n1. $\\forall x[P(x) \\wedge Q(x)] \\equiv(\\forall x P(x)) \\wedge(\\forall x Q(x))$ (Distribution of $\\forall$ over $\\wedge$ )\n2. $\\exists x[P(x) \\vee Q(x)] \\equiv(\\exists x P(x)) \\vee(\\exists x Q(x))$ (Distribution of $\\exists$ over $\\vee$ )\n3. $\\forall x[P(x) \\vee Q(x)] \\equiv(\\forall x P(x)) \\vee(\\forall x Q(x)) \\rightarrow$ False (Not always valid)\nOrder of quantifiers\n1. $\\forall x \\forall y P(x, y) \\equiv \\forall y \\forall x P(x, y)$ (Only changes the order of $\\forall$ )\n2. $\\exists x \\exists y P(x, y) \\equiv \\exists y \\exists x P(x, y)$\n3. $\\forall x \\exists y P(x, y) \\not \\equiv \\exists y \\forall x P(x, y)$\nExample translation\n\"For every non-zero real number, there exists a multiplicative inverse.\"\n$$\n\\forall x(x \\neq 0 \\rightarrow \\exists y(x \\cdot y=1))\n$$\n---\nGiven the following\n1. $\\neg \\forall x P(x, y) \\equiv \\exists x \\neg P(x, y)$\n2. $\\neg \\exists x P(x) \\equiv \\forall x \\neg P(x)$\n3. $\\exists!x P(x)$\n1. $\\forall x[P(x) \\wedge Q(x)] \\equiv(\\forall x P(x)) \\wedge(\\forall x Q(x))$ (Distribution of $\\forall$ over $\\wedge$ )\n2. $\\exists x[P(x) \\vee Q(x)] \\equiv(\\exists x P(x)) \\vee(\\exists x Q(x))$ (Distribution of $\\exists$ over $\\vee$ )\n3. $\\forall x[P(x) \\vee Q(x)] \\equiv(\\forall x P(x)) \\vee(\\forall x Q(x)) \\rightarrow$ False (Not always valid)\n1. $\\forall x \\forall y P(x, y) \\equiv \\forall y \\forall x P(x, y)$ (Only changes the order of $\\forall$ )\n2. $\\exists x \\exists y P(x, y) \\equiv \\exists y \\exists x P(x, y)$\n3. $\\forall x \\exists y P(x, y) \\not \\equiv \\exists y \\forall x P(x, y)$\n$$\n\\forall x(x \\neq 0 \\rightarrow \\exists y(x \\cdot y=1))\n$$\n:p Translate in human terms",
+    "prompt": ":p Translate in human terms",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\2-prepositional-logic.md",
+    "reference_line": 81,
+    "module_name": "2-abstract-algebra",
+    "category": "prepositionallogic"
+  },
+  {
+    "term": "5 - **Negation of a universal conditional**",
+    "example": ":m If it is **not true** that “for every x, P(x) implies Q(x),” then there must be **at least one x** for which P(x) is true **and** Q(x) is false.\n_(One counterexample breaks a “for all” statement.)_",
+    "description": ":m $\\neg[\\forall x(P(x) \\rightarrow Q(x))] \\equiv \\exists x[P(x) \\wedge \\neg Q(x)]$",
+    "prompt": "**Meaning in words:**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\2-prepositional-logic.md",
+    "reference_line": 111,
+    "module_name": "2-abstract-algebra",
+    "category": "prepositionallogic"
+  },
+  {
+    "term": "6 - **Example with Domain**",
+    "example": ":m\n→ No, because $4$ is **not** in the Fibonacci sequence.\nSo, $\\neg [\\forall x P(x)]$ is true, and in fact $\\exists x \\neg P(x)$ with $x=4$.",
+    "description": ":m - Domain: ${1,2,3,4,5}$\n- $P(x)$: “x is in the Fibonacci sequence”\n- Fibonacci numbers in this domain: ${1, 2, 3, 5}$\n- **Question:** Is $\\forall x P(x)$ true? ",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\2-prepositional-logic.md",
+    "reference_line": 140,
+    "module_name": "2-abstract-algebra",
+    "category": "prepositionallogic"
+  },
+  {
+    "term": "1 - Conjunto",
+    "example": ":m es una colección de elementos distintos.",
+    "description": ":m Conjunto",
+    "prompt": "Conjunto",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\3-conjuntos.md",
+    "reference_line": 3,
+    "module_name": "2-abstract-algebra",
+    "category": "conjuntos"
+  },
+  {
+    "term": "2 - Cardinalidad",
+    "example": ":m La \"Cardinalidad\" del conjunto $A$ es la cantidad de elementos, se anota $|A|$\nSi $|A|=n$ entonces $|P(A)|=2^n$\n$$\nA=\\left\\{a_1, a_2, \\ldots, a_n\\right\\}\n$$",
+    "description": "",
+    "prompt": "Que es la cardinalidad de un conjunto y como se denota?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\3-conjuntos.md",
+    "reference_line": 40,
+    "module_name": "2-abstract-algebra",
+    "category": "conjuntos"
+  },
+  {
+    "term": "3 - Complemento. Como se denote algebraicamente",
+    "example": ":m Se anota $A^c$\n$$\nA^c=\\{x \\mid x \\notin A\\}\n$$",
+    "description": ":m Conjunto:: es una colección de elementos distintos.\nEjemplo:\n$$\n\\begin{aligned}\n& A=\\{1,2,3\\} \\\\\n& B=\\{1, \\text { \"Iam\", } f(x), \\text { \"miércoles\" }\\}\n\\end{aligned}\n$$\nConjunto vacío: conjunto sin elementos, se anota\n(Esto está contenido en todos los conjuntos)\nPropiedad: $\\forall A$\nDecimos que $x$ pertenece a un conjunto: $x \\in A$\nEn caso contrario: $x \\notin A$\nEjemplo:\n$$\n1 \\in A \\text { y } \\sin (x) \\in A\n$$\n---\n$$\nP(A)=\\{X \\mid X \\subseteq A\\}\n$$\nEs $A=\\{1,2\\}$\n$$\nP(A)=\\{\\varnothing, A,\\{1\\},\\{2\\}\\}\n$$\n---\n**Conjunto Potencia (Conjuntos de partes)**\nP(A)={X ∣ X⊆A}P(A) = \\{ X \\ | \\ X \\subseteq A \\}\nEs A={1,2}A = \\{1, 2\\}\nP(A)={∅,A,{1},{2}}P(A) = \\{\\varnothing, A, \\{1\\}, \\{2\\} \\}\n**NOTA**\nLa \"Cardinalidad\" del conjunto AA es la cantidad de elementos, se anota ∣A∣|A|\nSi ∣A∣=n|A| = n entonces ∣P(A)∣=2n|P(A)| = 2^n\nA={a1,a2,…,an}A = \\{ a_1, a_2, \\dots, a_n \\}\nComplemento. Como se denote algebraicamente",
+    "prompt": "Complemento. Como se denote algebraicamente",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\3-conjuntos.md",
+    "reference_line": 71,
+    "module_name": "2-abstract-algebra",
+    "category": "conjuntos"
+  },
+  {
+    "term": "4 - Diferencia Simétrica - Que significa algebraicamente como se representa?",
+    "example": ":m $$\nA \\Delta B=(A \\cup B) \\backslash(A \\cap B)\n$$",
+    "description": ":m Conjunto:: es una colección de elementos distintos.\nEjemplo:\n$$\n\\begin{aligned}\n& A=\\{1,2,3\\} \\\\\n& B=\\{1, \\text { \"Iam\", } f(x), \\text { \"miércoles\" }\\}\n\\end{aligned}\n$$\nConjunto vacío: conjunto sin elementos, se anota\n(Esto está contenido en todos los conjuntos)\nPropiedad: $\\forall A$\nDecimos que $x$ pertenece a un conjunto: $x \\in A$\nEn caso contrario: $x \\notin A$\nEjemplo:\n$$\n1 \\in A \\text { y } \\sin (x) \\in A\n$$\n---\n$$\nP(A)=\\{X \\mid X \\subseteq A\\}\n$$\nEs $A=\\{1,2\\}$\n$$\nP(A)=\\{\\varnothing, A,\\{1\\},\\{2\\}\\}\n$$\n---\n**Conjunto Potencia (Conjuntos de partes)**\nP(A)={X ∣ X⊆A}P(A) = \\{ X \\ | \\ X \\subseteq A \\}\nEs A={1,2}A = \\{1, 2\\}\nP(A)={∅,A,{1},{2}}P(A) = \\{\\varnothing, A, \\{1\\}, \\{2\\} \\}\n**NOTA**\nLa \"Cardinalidad\" del conjunto AA es la cantidad de elementos, se anota ∣A∣|A|\nSi ∣A∣=n|A| = n entonces ∣P(A)∣=2n|P(A)| = 2^n\nA={a1,a2,…,an}A = \\{ a_1, a_2, \\dots, a_n \\}\nComplemento. Como se denote algebraicamente\nDiferencia Simétrica - Que significa algebraicamente como se representa?",
+    "prompt": "Diferencia Simétrica - Que significa algebraicamente como se representa?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\3-conjuntos.md",
+    "reference_line": 79,
+    "module_name": "2-abstract-algebra",
+    "category": "conjuntos"
+  },
+  {
+    "term": "5 - Transitividad - Mostrar un Ejemplo con conjuntos A, B, C",
+    "example": ":m Si $A \\subseteq B$ y $B \\subseteq C$ entonces $A \\subseteq C$",
+    "description": ":m Conjunto:: es una colección de elementos distintos.\nEjemplo:\n$$\n\\begin{aligned}\n& A=\\{1,2,3\\} \\\\\n& B=\\{1, \\text { \"Iam\", } f(x), \\text { \"miércoles\" }\\}\n\\end{aligned}\n$$\nConjunto vacío: conjunto sin elementos, se anota\n(Esto está contenido en todos los conjuntos)\nPropiedad: $\\forall A$\nDecimos que $x$ pertenece a un conjunto: $x \\in A$\nEn caso contrario: $x \\notin A$\nEjemplo:\n$$\n1 \\in A \\text { y } \\sin (x) \\in A\n$$\n---\n$$\nP(A)=\\{X \\mid X \\subseteq A\\}\n$$\nEs $A=\\{1,2\\}$\n$$\nP(A)=\\{\\varnothing, A,\\{1\\},\\{2\\}\\}\n$$\n---\n**Conjunto Potencia (Conjuntos de partes)**\nP(A)={X ∣ X⊆A}P(A) = \\{ X \\ | \\ X \\subseteq A \\}\nEs A={1,2}A = \\{1, 2\\}\nP(A)={∅,A,{1},{2}}P(A) = \\{\\varnothing, A, \\{1\\}, \\{2\\} \\}\n**NOTA**\nLa \"Cardinalidad\" del conjunto AA es la cantidad de elementos, se anota ∣A∣|A|\nSi ∣A∣=n|A| = n entonces ∣P(A)∣=2n|P(A)| = 2^n\nA={a1,a2,…,an}A = \\{ a_1, a_2, \\dots, a_n \\}\nComplemento. Como se denote algebraicamente\nDiferencia Simétrica - Que significa algebraicamente como se representa?\nTransitividad - Mostrar un Ejemplo con conjuntos A, B, C",
+    "prompt": "Transitividad - Mostrar un Ejemplo con conjuntos A, B, C",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\3-conjuntos.md",
+    "reference_line": 85,
+    "module_name": "2-abstract-algebra",
+    "category": "conjuntos"
+  },
+  {
+    "term": "6 - Subconjuntos",
+    "example": ":m Se anota $B \\subseteq A$\nEjemplo:\nSi $B=\\{1,2\\}$, entonces $B \\subseteq A$\nSi $C=\\{\\pi, 3\\}$, entonces $C \\nsubseteq A$\n$\\forall A \\quad \\varnothing \\subseteq A$",
+    "description": ":m Decimos que $B$ es subconjunto de $A$ si todo elemento de $B$ está en $A$.",
+    "prompt": "Como se denota?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\3-conjuntos.md",
+    "reference_line": 92,
+    "module_name": "2-abstract-algebra",
+    "category": "conjuntos"
+  },
+  {
+    "term": "7 - $A, B$ conjuntos. Como se denota su union en su expresion algebraica?",
+    "example": ":m $$\nA \\cup B=\\{x \\mid x \\in A \\vee x \\in B\\}\n$$",
+    "description": ":m Conjunto:: es una colección de elementos distintos.\nEjemplo:\n$$\n\\begin{aligned}\n& A=\\{1,2,3\\} \\\\\n& B=\\{1, \\text { \"Iam\", } f(x), \\text { \"miércoles\" }\\}\n\\end{aligned}\n$$\nConjunto vacío: conjunto sin elementos, se anota\n(Esto está contenido en todos los conjuntos)\nPropiedad: $\\forall A$\nDecimos que $x$ pertenece a un conjunto: $x \\in A$\nEn caso contrario: $x \\notin A$\nEjemplo:\n$$\n1 \\in A \\text { y } \\sin (x) \\in A\n$$\n---\n$$\nP(A)=\\{X \\mid X \\subseteq A\\}\n$$\nEs $A=\\{1,2\\}$\n$$\nP(A)=\\{\\varnothing, A,\\{1\\},\\{2\\}\\}\n$$\n---\n**Conjunto Potencia (Conjuntos de partes)**\nP(A)={X ∣ X⊆A}P(A) = \\{ X \\ | \\ X \\subseteq A \\}\nEs A={1,2}A = \\{1, 2\\}\nP(A)={∅,A,{1},{2}}P(A) = \\{\\varnothing, A, \\{1\\}, \\{2\\} \\}\n**NOTA**\nLa \"Cardinalidad\" del conjunto AA es la cantidad de elementos, se anota ∣A∣|A|\nSi ∣A∣=n|A| = n entonces ∣P(A)∣=2n|P(A)| = 2^n\nA={a1,a2,…,an}A = \\{ a_1, a_2, \\dots, a_n \\}\nComplemento. Como se denote algebraicamente\nDiferencia Simétrica - Que significa algebraicamente como se representa?\nTransitividad - Mostrar un Ejemplo con conjuntos A, B, C\n---\nDecimos que $B$ es subconjunto de $A$ si todo elemento de $B$ está en $A$.\nUnión\n$A, B$ conjuntos. Como se denota su union en su expresion algebraica?",
+    "prompt": "$A, B$ conjuntos. Como se denota su union en su expresion algebraica?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\3-conjuntos.md",
+    "reference_line": 103,
+    "module_name": "2-abstract-algebra",
+    "category": "conjuntos"
+  },
+  {
+    "term": "8 - :p Como se denota disjuntos algebraicamente?",
+    "example": ":m $$\nA \\cup B=\\{1,2,3,4,5\\}\n$$",
+    "description": ":m Conjunto:: es una colección de elementos distintos.\nEjemplo:\n$$\n\\begin{aligned}\n& A=\\{1,2,3\\} \\\\\n& B=\\{1, \\text { \"Iam\", } f(x), \\text { \"miércoles\" }\\}\n\\end{aligned}\n$$\nConjunto vacío: conjunto sin elementos, se anota\n(Esto está contenido en todos los conjuntos)\nPropiedad: $\\forall A$\nDecimos que $x$ pertenece a un conjunto: $x \\in A$\nEn caso contrario: $x \\notin A$\nEjemplo:\n$$\n1 \\in A \\text { y } \\sin (x) \\in A\n$$\n---\n$$\nP(A)=\\{X \\mid X \\subseteq A\\}\n$$\nEs $A=\\{1,2\\}$\n$$\nP(A)=\\{\\varnothing, A,\\{1\\},\\{2\\}\\}\n$$\n---\n**Conjunto Potencia (Conjuntos de partes)**\nP(A)={X ∣ X⊆A}P(A) = \\{ X \\ | \\ X \\subseteq A \\}\nEs A={1,2}A = \\{1, 2\\}\nP(A)={∅,A,{1},{2}}P(A) = \\{\\varnothing, A, \\{1\\}, \\{2\\} \\}\n**NOTA**\nLa \"Cardinalidad\" del conjunto AA es la cantidad de elementos, se anota ∣A∣|A|\nSi ∣A∣=n|A| = n entonces ∣P(A)∣=2n|P(A)| = 2^n\nA={a1,a2,…,an}A = \\{ a_1, a_2, \\dots, a_n \\}\nComplemento. Como se denote algebraicamente\nDiferencia Simétrica - Que significa algebraicamente como se representa?\nTransitividad - Mostrar un Ejemplo con conjuntos A, B, C\n---\nDecimos que $B$ es subconjunto de $A$ si todo elemento de $B$ está en $A$.\nUnión\n$A, B$ conjuntos. Como se denota su union en su expresion algebraica?\nSi $B \\subseteq A$, entonces $A \\cup B=A$\nSi $A$ y $B$ son disjuntos (sin elementos en común), por ejemplo:\n:p Como se denota disjuntos algebraicamente?",
+    "prompt": ":p Como se denota disjuntos algebraicamente?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\3-conjuntos.md",
+    "reference_line": 112,
+    "module_name": "2-abstract-algebra",
+    "category": "conjuntos"
+  },
+  {
+    "term": "9 - **Intersección**",
+    "example": ":m $$\nA \\cap B=\\{x \\mid x \\in A \\wedge x \\in B\\}\n$$\nDenota lo que esta en ambos A y B\nPor ejemplo:\nEjemplo:\n$$\n\\begin{aligned}\n& A_i=\\{1,2,3\\} \\\\\n& B_i=\\{2,4,5\\} \\\\\n& A_i \\cap B_i=\\varnothing\n\\end{aligned}\n$$\nSi $A=\\{1,2,3\\}$ y $B=\\{1,2\\}$, entonces\n$$\nA \\cap B=\\{1,2\\}\n$$\n\n\n\n",
+    "description": "",
+    "prompt": "Intersección, como se denota algebraicamente la interseccion entre Conjutno A y B? Y que significa?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\3-conjuntos.md",
+    "reference_line": 120,
+    "module_name": "2-abstract-algebra",
+    "category": "conjuntos"
+  },
+  {
+    "term": "10 - Si $B \\subseteq A$, entonces $A \\cap B=...$",
+    "example": ":m Si $B \\subseteq A$, entonces $A \\cap B=B$",
+    "description": ":m Conjunto:: es una colección de elementos distintos.\nEjemplo:\n$$\n\\begin{aligned}\n& A=\\{1,2,3\\} \\\\\n& B=\\{1, \\text { \"Iam\", } f(x), \\text { \"miércoles\" }\\}\n\\end{aligned}\n$$\nConjunto vacío: conjunto sin elementos, se anota\n(Esto está contenido en todos los conjuntos)\nPropiedad: $\\forall A$\nDecimos que $x$ pertenece a un conjunto: $x \\in A$\nEn caso contrario: $x \\notin A$\nEjemplo:\n$$\n1 \\in A \\text { y } \\sin (x) \\in A\n$$\n---\n$$\nP(A)=\\{X \\mid X \\subseteq A\\}\n$$\nEs $A=\\{1,2\\}$\n$$\nP(A)=\\{\\varnothing, A,\\{1\\},\\{2\\}\\}\n$$\n---\n**Conjunto Potencia (Conjuntos de partes)**\nP(A)={X ∣ X⊆A}P(A) = \\{ X \\ | \\ X \\subseteq A \\}\nEs A={1,2}A = \\{1, 2\\}\nP(A)={∅,A,{1},{2}}P(A) = \\{\\varnothing, A, \\{1\\}, \\{2\\} \\}\n**NOTA**\nLa \"Cardinalidad\" del conjunto AA es la cantidad de elementos, se anota ∣A∣|A|\nSi ∣A∣=n|A| = n entonces ∣P(A)∣=2n|P(A)| = 2^n\nA={a1,a2,…,an}A = \\{ a_1, a_2, \\dots, a_n \\}\nComplemento. Como se denote algebraicamente\nDiferencia Simétrica - Que significa algebraicamente como se representa?\nTransitividad - Mostrar un Ejemplo con conjuntos A, B, C\n---\nDecimos que $B$ es subconjunto de $A$ si todo elemento de $B$ está en $A$.\nUnión\n$A, B$ conjuntos. Como se denota su union en su expresion algebraica?\nSi $B \\subseteq A$, entonces $A \\cup B=A$\nSi $A$ y $B$ son disjuntos (sin elementos en común), por ejemplo:\n:p Como se denota disjuntos algebraicamente?\n---\nSi $B \\subseteq A$, entonces $A \\cap B=...$",
+    "prompt": "Si $B \\subseteq A$, entonces $A \\cap B=...$",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\3-conjuntos.md",
+    "reference_line": 147,
+    "module_name": "2-abstract-algebra",
+    "category": "conjuntos"
+  },
+  {
+    "term": "11 - Mostrar lo siguiente",
+    "example": ":m 1. Se toma $x \\in B$\n2. Se muestra que $x \\in A$",
+    "description": ":m Para mostrar que $B \\subseteq A$ :",
+    "prompt": "Que pasos se usa para mostrar esto?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\3-conjuntos.md",
+    "reference_line": 151,
+    "module_name": "2-abstract-algebra",
+    "category": "conjuntos"
+  },
+  {
+    "term": "12 - Leyes de Morgan",
+    "example": ":m Leer arriba",
+    "description": ":m i) $(A \\cup B)^c=A^c \\cap B^c$ $\\# \\overline{p \\vee q}=\\bar{p} \\wedge \\bar{q}$\nii) $(A \\cap B)^c=A^c \\cup B^c$\ni) $(A \\cup B)^c \\subseteq A^c \\cap B^c$ y $(A \\cup B)^c \\supseteq A^c \\cap B^c$\nTomamos un elemento $x \\in(A \\cup B)^c$\n$$\n(x \\notin A) \\wedge(x \\notin B) \\quad \\text { luego } \\quad x \\in A^c \\cap B^c=\\{x \\notin A, x \\notin B\\}\n$$",
+    "prompt": "Describi leyes de morgan y desambla cada una de las descriptas anteriormente",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\3-conjuntos.md",
+    "reference_line": 160,
+    "module_name": "2-abstract-algebra",
+    "category": "conjuntos"
+  },
+  {
+    "term": "13 - Si $x \\in A^c \\cap B^c$, entonces que significa respecto A y B usand $\\wedge$?",
+    "example": ":m Si $x \\in A^c \\cap B^c$, entonces $(x \\notin A) \\wedge(x \\notin B)$\nentonces:\n$$\nx \\in(A \\cup B)^c\n$$",
+    "description": ":m Conjunto:: es una colección de elementos distintos.\nEjemplo:\n$$\n\\begin{aligned}\n& A=\\{1,2,3\\} \\\\\n& B=\\{1, \\text { \"Iam\", } f(x), \\text { \"miércoles\" }\\}\n\\end{aligned}\n$$\nConjunto vacío: conjunto sin elementos, se anota\n(Esto está contenido en todos los conjuntos)\nPropiedad: $\\forall A$\nDecimos que $x$ pertenece a un conjunto: $x \\in A$\nEn caso contrario: $x \\notin A$\nEjemplo:\n$$\n1 \\in A \\text { y } \\sin (x) \\in A\n$$\n---\n$$\nP(A)=\\{X \\mid X \\subseteq A\\}\n$$\nEs $A=\\{1,2\\}$\n$$\nP(A)=\\{\\varnothing, A,\\{1\\},\\{2\\}\\}\n$$\n---\n**Conjunto Potencia (Conjuntos de partes)**\nP(A)={X ∣ X⊆A}P(A) = \\{ X \\ | \\ X \\subseteq A \\}\nEs A={1,2}A = \\{1, 2\\}\nP(A)={∅,A,{1},{2}}P(A) = \\{\\varnothing, A, \\{1\\}, \\{2\\} \\}\n**NOTA**\nLa \"Cardinalidad\" del conjunto AA es la cantidad de elementos, se anota ∣A∣|A|\nSi ∣A∣=n|A| = n entonces ∣P(A)∣=2n|P(A)| = 2^n\nA={a1,a2,…,an}A = \\{ a_1, a_2, \\dots, a_n \\}\nComplemento. Como se denote algebraicamente\nDiferencia Simétrica - Que significa algebraicamente como se representa?\nTransitividad - Mostrar un Ejemplo con conjuntos A, B, C\n---\nDecimos que $B$ es subconjunto de $A$ si todo elemento de $B$ está en $A$.\nUnión\n$A, B$ conjuntos. Como se denota su union en su expresion algebraica?\nSi $B \\subseteq A$, entonces $A \\cup B=A$\nSi $A$ y $B$ son disjuntos (sin elementos en común), por ejemplo:\n:p Como se denota disjuntos algebraicamente?\n---\nSi $B \\subseteq A$, entonces $A \\cap B=...$\nPara mostrar que $B \\subseteq A$ :\n---\ni) $(A \\cup B)^c=A^c \\cap B^c$ $\\# \\overline{p \\vee q}=\\bar{p} \\wedge \\bar{q}$\nii) $(A \\cap B)^c=A^c \\cup B^c$\ni) $(A \\cup B)^c \\subseteq A^c \\cap B^c$ y $(A \\cup B)^c \\supseteq A^c \\cap B^c$\nTomamos un elemento $x \\in(A \\cup B)^c$\n$$\n(x \\notin A) \\wedge(x \\notin B) \\quad \\text { luego } \\quad x \\in A^c \\cap B^c=\\{x \\notin A, x \\notin B\\}\n$$\nSi $x \\in A^c \\cap B^c$, entonces que significa respecto A y B usand $\\wedge$?",
+    "prompt": "Si $x \\in A^c \\cap B^c$, entonces que significa respecto A y B usand $\\wedge$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\3-conjuntos.md",
+    "reference_line": 173,
+    "module_name": "2-abstract-algebra",
+    "category": "conjuntos"
+  },
+  {
+    "term": "1 - Permutations",
+    "example": ":m $$\nP(n, k)=\\frac{n!}{(n-k)!}\n$$",
+    "description": ":m The number of ways to arrange $k$ distinct elements from a total of $n$ is:",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\4-principios de contabilidad.md",
+    "reference_line": 109,
+    "module_name": "2-abstract-algebra",
+    "category": "principiosdecontabilidad"
+  },
+  {
+    "term": "2 - Combinations",
+    "example": ":m $$\nC(n, k)=\\binom{n}{k}=\\frac{n!}{(n-k)!k!}\n$$\nRelation between permutations and combinations:\n$$\nk!\\cdot C(n, k)=P(n, k)\n$$",
+    "description": ":m A combination is a selection of elements from a set where order does not matter.\nExample:\n$$\n\\{1,2\\}=\\{2,1\\} \\quad / / \\text { same combination }\n$$The number of ways to choose $k$ elements from $n$ is:",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\4-principios de contabilidad.md",
+    "reference_line": 117,
+    "module_name": "2-abstract-algebra",
+    "category": "principiosdecontabilidad"
+  },
+  {
+    "term": "3 - Permutations with Repetition",
+    "example": ":m $$\n\\frac{n!}{n_{1}!n_{2}!\\ldots n_{k}!}\n$$",
+    "description": ":m If we have $n$ elements where:\n- $n_1$ are of type 1\n- $n_2$ are of type 2\n- ...\n- $n_k$ are of type $k$\nThe number of distinct permutations is:",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\4-principios de contabilidad.md",
+    "reference_line": 133,
+    "module_name": "2-abstract-algebra",
+    "category": "principiosdecontabilidad"
+  },
+  {
+    "term": "4 - Example 1:",
+    "example": ":m $$\n\\binom{52}{5}=\\frac{52!}{(52-5)!\\cdot 5!}\n$$",
+    "description": ":m How many 5-card hands can be formed from a 52-card deck?\n(Order does not matter)",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\4-principios de contabilidad.md",
+    "reference_line": 146,
+    "module_name": "2-abstract-algebra",
+    "category": "principiosdecontabilidad"
+  },
+  {
+    "term": "5 - Example 2:",
+    "example": ":m There are 10 possible sequences of consecutive ranks:\n$$\n(A, 2,3,4,5),(2,3,4,5,6), \\ldots,(10, J, Q, K, A)\n$$\nEach sequence can be in any of the 4 suits:\n$$\n10 \\times 4\n$$",
+    "description": ":m How many straights ( 5 consecutive cards of the same suit) are there in a 52 -card deck?",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\4-principios de contabilidad.md",
+    "reference_line": 154,
+    "module_name": "2-abstract-algebra",
+    "category": "principiosdecontabilidad"
+  }
+]
