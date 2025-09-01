@@ -152,11 +152,13 @@ function parseMarkdownCards(filePath) {
 					}
 				}
 				answerLines.push(answerLine);
+
 				
 				i++;
 			}
 			
 			single_line_last_obtained_description = '';
+			last_connected_paragraph = '';
 			currentEntry.answer = answerLines.join('\n');
 			result.entries.push(currentEntry);
 			currentEntry = null; // Reset to prevent duplicate at end of file
