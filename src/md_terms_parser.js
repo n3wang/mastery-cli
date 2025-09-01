@@ -125,7 +125,7 @@ function parseMarkdownCards(filePath) {
 			i++;
 			while (i < lines.length) {
 				let answerLine = lines[i];
-				if (isMultiLine && answerLine.trim() === 'x??') {
+				if (isMultiLine && (answerLine.trim() === 'x??' || answerLine.trim() === '---')) {
 					i++;
 					break;
 				}
@@ -183,9 +183,9 @@ function parseMarkdownCards(filePath) {
 		last_line = line;
 	}
 
-	if (currentEntry && currentEntry.answer !== '' && currentEntry.prompt !== '') {
-		result.entries.push(currentEntry);
-	}
+	// if (currentEntry && currentEntry.answer !== '' && currentEntry.prompt !== '') {
+	// 	result.entries.push(currentEntry);
+	// }
 
 	// clean up.
 	for (const entry of result.entries) {

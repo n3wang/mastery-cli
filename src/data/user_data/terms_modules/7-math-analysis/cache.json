@@ -1,0 +1,102 @@
+[
+  {
+    "term": "1 - Ejercicio 1: Identificar pendiente e intercepto",
+    "example": ":m Resolución:\n- Pendiente: $m=3$.\n- Término independiente: $b=-2$.\n- Para $x=0$ :\n$$\nf(0)=3(0)-2=-2\n$$\nRespuesta: pendiente $m=3$, término independiente $b=-2, f(0)=-2$.",
+    "description": ":m Dada la función\n$$\nf(x)=3 x-2\n$$\na) ¿Cuál es la pendiente?\nb) ¿Cuál es el término independiente?\nc) ¿Qué valor toma $f(0)$ ?",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\1-generalidades-de-las-funciones.md",
+    "reference_line": 32,
+    "module_name": "7-math-analysis",
+    "category": "generalidadesdelasfunciones"
+  },
+  {
+    "term": "2 - Ejercicio 4: Intersección con los ejes",
+    "example": ":m Resolución:\na) Corte con eje $y$ : poner $x=0$.\n$$\nf(0)=\\frac{1}{2}(0)+4=4\n$$\n$\\rightarrow$ Punto: $(0,4)$.\nb) Corte con eje $x$ : poner $f(x)=0$.\n$$\n\\begin{gathered}\n0=\\frac{1}{2} x+4 \\\\\n\\frac{1}{2} x=-4 \\quad \\Rightarrow \\quad x=-8\n\\end{gathered}\n$$\n$\\rightarrow$ Punto: $(-8,0)$.\nRespuesta: Corte con $y$ en $(0,4)$ y corte con $x$ en $(-8,0)$.\n\n\n\n",
+    "description": ":m Dada la función\n$$\nf(x)=\\frac{1}{2} x+4\n$$\ndeterminar:\na) El punto de corte con el eje $y$.\nb) El punto de corte con el eje $x$.",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\1-generalidades-de-las-funciones.md",
+    "reference_line": 57,
+    "module_name": "7-math-analysis",
+    "category": "generalidadesdelasfunciones"
+  },
+  {
+    "term": "3 - Quadraticas",
+    "example": ":m\nResolución:\n- $a=2$ (coeficiente cuadrático)\n- $b=-3$ (coeficiente lineal)\n- $c=5$ (término independiente)\nRespuesta: $a=2, b=-3, c=5$.\n\n\n\n",
+    "description": ":m Ejercicio 1: Identificar coeficientes\nDada la función\n$$\nf(x)=2 x^2-3 x+5\n$$\n",
+    "prompt": "¿Cuáles son los coeficientes $a, b$ y $c$ ?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\1-generalidades-de-las-funciones.md",
+    "reference_line": 90,
+    "module_name": "7-math-analysis",
+    "category": "generalidadesdelasfunciones"
+  },
+  {
+    "term": "4 - Ejercicio 2: Vértice en forma canónica",
+    "example": ":m Resolución:\n1. Recordemos:\n$$\nf(x)=a x^2+b x+c \\quad \\Rightarrow \\quad x_v=-\\frac{b}{2 a}, \\quad y_v=f\\left(x_v\\right)\n$$\n2. Para $a=1, b=-6, c=8$ :\n$$\n\\begin{gathered}\nx_v=-\\frac{-6}{2(1)}=3 \\\\\ny_v=f(3)=(3)^2-6(3)+8=9-18+8=-1\n\\end{gathered}\n$$\n3. Forma canónica:\n$$\nf(x)=(x-3)^2-1\n$$\nRespuesta: vértice $(3,-1)$, forma canónica\n$$\nf(x)=(x-3)^2-1\n$$",
+    "description": ":m Dada la función\n$$\nf(x)=x^2-6 x+8\n$$\nescribirla en forma canónica y hallar el vértice.",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\1-generalidades-de-las-funciones.md",
+    "reference_line": 112,
+    "module_name": "7-math-analysis",
+    "category": "generalidadesdelasfunciones"
+  },
+  {
+    "term": "5 - Ejercicio 3: Forma factorizada",
+    "example": ":m Resolución:\n1. Buscamos raíces:\n$$\nx^2-5 x+6=0\n$$\nFactorizamos:\n$$\n(x-2)(x-3)=0\n$$\nRaíces: $x_1=2, x_2=3$.\n2. Forma factorizada:\n$$\nf(x)=(x-2)(x-3)\n$$\nRespuesta:\n$$\nf(x)=(x-2)(x-3)\n$$",
+    "description": ":m Dada la función\n$$\nf(x)=x^2-5 x+6\n$$\nescribirla en forma factorizada.",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\1-generalidades-de-las-funciones.md",
+    "reference_line": 152,
+    "module_name": "7-math-analysis",
+    "category": "generalidadesdelasfunciones"
+  },
+  {
+    "term": "6 - Ejercicios",
+    "example": ":m (B) La raíz es $x=4$\n(C) Tiene asintota vertical en $x=-1$",
+    "description": ":m Para la siguiente función: $f(x)=\\log _5(x+1)-1$, marcar las opciones correctas:\n(A) Tiene ordenada al origen en $y=0$\nPuede ver los plots de la serie: [1.1.entregable | Desmos](https://www.desmos.com/calculator/b6kxpx4mha?lang=es)\n(B) La raíz es $x=4$\n(C) Tiene asintota vertical en $x=-1$\n(D) Es una función creciente, ya que la base es mayor a 0",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\1-generalidades-de-las-funciones.md",
+    "reference_line": 190,
+    "module_name": "7-math-analysis",
+    "category": "generalidadesdelasfunciones"
+  },
+  {
+    "term": "7 - 2",
+    "example": ":m (B) $f(x)=-2(x-5)^2+18$\n(D) $f(x)=-2(x-2)(x-8)$",
+    "description": ":m Indicar cuál o cuáles de las siguientes funciones corresponde a la gráfica de una función cuadrática que tiene como raíz a los puntos $(2,0)$ y $(8,0)$ y su conjunto imagen es $(-\\infty, 18]$ :\nPuede ver los plots de la serie: [1.1.entregable | Desmos](https://www.desmos.com/calculator/b6kxpx4mha?lang=es)\n(A) $f(x)=(x-5)^2+18$\n(B) $f(x)=-2(x-5)^2+18$\n(C) $f(x)=(x-2)(x-8)$\n(D) $f(x)=-2(x-2)(x-8)$",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\1-generalidades-de-las-funciones.md",
+    "reference_line": 204,
+    "module_name": "7-math-analysis",
+    "category": "generalidadesdelasfunciones"
+  },
+  {
+    "term": "8 - 2",
+    "example": ":m (C) Si $\\mathrm{k}=-4 / 3$, entonces $r$ es paralela a $\\mathrm{f}(\\mathrm{x})$\n(D) Si $\\mathrm{k}=3$, entonces $r$ es perpendicular a $\\mathrm{f}(\\mathrm{x})$",
+    "description": ":m Dada la recta r: $2 x+\\mathrm{ky}-3=0$ y la función $f(x)=\\frac{3}{2} x-1$, determinar las opciones correctas:\nPuede ver los plots de la serie: [1.1.entregable | Desmos](https://www.desmos.com/calculator/b6kxpx4mha?lang=es)\n(A) La ordenada al origen de $r$ es -3\n(B) La pendiente de $f(x)$ es -1\n(C) Si $\\mathrm{k}=-4 / 3$, entonces $r$ es paralela a $\\mathrm{f}(\\mathrm{x})$\n(D) Si $\\mathrm{k}=3$, entonces $r$ es perpendicular a $\\mathrm{f}(\\mathrm{x})$",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\1-generalidades-de-las-funciones.md",
+    "reference_line": 217,
+    "module_name": "7-math-analysis",
+    "category": "generalidadesdelasfunciones"
+  },
+  {
+    "term": "9 - 3",
+    "example": ":m (A) $f(x)= \\begin{cases}\\log x & \\text { si } x<2 \\\\ x-1 & \\text { si } x>2\\end{cases}$",
+    "description": ":m Dado el siguiente gráfico:\nPuede ver los plots de la serie: [1.1.entregable | Desmos](https://www.desmos.com/calculator/b6kxpx4mha?lang=es)\n![[Pasted image 20250828203431.png]]\nIndicar a qué función corresponde:\n(A) $f(x)= \\begin{cases}\\log x & \\text { si } x<2 \\\\ x-1 & \\text { si } x>2\\end{cases}$\n(B) $h(x)= \\begin{cases}\\log (x) & \\text { si } x<2 \\\\ -x+1 & \\text { si } x>2\\end{cases}$\n(C) $i(x)= \\begin{cases}-x^2-1 & \\text { si } x<2 \\\\ x-1 & \\text { si } x>2\\end{cases}$\n(D) $g(x)=\\left\\{\\begin{array}{lr}\\log (x+1) & \\text { si } x<2 \\\\ -x-1 & \\text { si } x>2\\end{array}\\right.$",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\1-generalidades-de-las-funciones.md",
+    "reference_line": 230,
+    "module_name": "7-math-analysis",
+    "category": "generalidadesdelasfunciones"
+  },
+  {
+    "term": "10 - 4",
+    "example": ":m (B) Tiene ordenada al origen en $y=-35$\n(D) Es una función creciente",
+    "description": ":m Puede ver los plots de la serie: [1.1.entregable | Desmos](https://www.desmos.com/calculator/b6kxpx4mha?lang=es)\nPara la siguiente función: $f(x)=6^x-36$, marcar las opciones correctas:\n(A) Tiene asíntota vertical en $x=36$\n(B) Tiene ordenada al origen en $y=-35$\n(C) No tiene raíz\n(D) Es una función creciente",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\1-generalidades-de-las-funciones.md",
+    "reference_line": 244,
+    "module_name": "7-math-analysis",
+    "category": "generalidadesdelasfunciones"
+  }
+]
