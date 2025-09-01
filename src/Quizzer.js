@@ -1085,6 +1085,11 @@ class Quizzer {
 	 */
 	async createFlashcardMarkdown(term_selected, showAnswer = false) {
 		try {
+
+			const removeMarkers = (text) =>{
+				// remove :m, ??, and other markers
+				return text.replace(/(:m|\?\?|:p)/g, '').trim();
+			}
 			const markdownFileName = Settings?.flashcard_markdown_file || 'current-quiz.md';
 			const fullPath = path.resolve(__dirname, '../', markdownFileName);
 
@@ -1094,16 +1099,17 @@ class Quizzer {
 			
 			// Always show description and prompt
 			if (term_selected.description) {
-				markdownContent += `## Description\n\n${term_selected.description}\n\n`;
+				markdownContent += `## Description\n\n${removeMarkers(term_selected.description)}\n\n`;
 			}
 			
 			if (term_selected.prompt) {
-				markdownContent += `## Question\n\n:p ${term_selected.prompt}\n\n`;
+				markdownContent += `## Question\n\n${removeMarkers(term_selected.prompt)}\n\n`;
 			}
 
 			// Show answer only if requested
+			
 			if (showAnswer && term_selected.example) {
-				markdownContent += `## Answer\n\n??${term_selected.example}??\n\n`;
+				markdownContent += `## Answer\n\n${removeMarkers(term_selected.example)}\n\n`;
 			} else if (!showAnswer) {
 				markdownContent += `## Answer\n\n*[Answer will be revealed after you respond]*\n\n`;
 				// markdownContent+= term_selected.example;

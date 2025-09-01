@@ -21,11 +21,15 @@ a) Define con tus palabras qué es **materia** y qué es **energía**.
 - Materia: Todo lo que tiene masa y ocupa espacio.
 - Energía: La capacidad de realizar trabajo.
 
+---
+
 a) Escribe los tres estados de la materia y da un ejemplo de cada uno.
 ?x
 Sólido: Hielo
 Líquido: Agua
 Gaseoso: Vapor de agua
+
+---
 
 3. Sustancias puras y elementos
 a) ¿Qué caracteriza a una sustancia pura?
@@ -33,6 +37,9 @@ b) Menciona dos ejemplos de elementos químicos.
 ?x
 a) Tiene composición definida y propiedades constantes.
 b) Ejemplos: Hidrógeno $(\mathrm{H})$, Cloro $(\mathrm{Cl})$.
+
+---
+
 
 #### Clasificacion de Elementos
 - Metales: brillantes, maleables conductores
@@ -50,6 +57,8 @@ a) Brillantes, maleables, conductores.
 b) Opacos, frágiles, aislantes.
 c) Elementos que en algunas condiciones se comportan como metales (ej. conducen electricidad) y en otras como no metales.
 
+---
+
 De los siguientes elementos, indica si son metal (M), no metal (NM) o metaloide (ML):
 a) Silicio (Si)
 b) Oxígeno (O)
@@ -61,6 +70,7 @@ b) NM
 c) M
 d) ML
 
+---
 
 #### Iones
 - Atomos o grupos de atomos con carga
@@ -121,6 +131,7 @@ $$
 N_{\text {átomos }}=3 \times 1.204 \times 10^{24}=3.612 \times 10^{24} \text { átomos }
 $$
 
+---
 
 
 
@@ -161,6 +172,8 @@ $$
 A=(34.97×0.75)+(36.97×0.25)=35.47 uA = (34.97 \times 0.75) + (36.97 \times 0.25) = 35.47\ uA=(34.97×0.75)+(36.97×0.25)=35.47 u
 $$
 
+---
+
 
 #### bloque 4 - Cofiguracion Electronica
 Definicion
@@ -175,18 +188,21 @@ Capacidades de niveles
 
 - Esto va a explicar los niveles de energia, que forman los subniveles de energia que forman los espacios. un en el espacio que ocpan dda esta cantidad de electrones
 
+---
 
 2. Carbono (Z = 6)
 📌 Escribe su configuración electrónica.
 ?x
 1s² 2s² 2p²
 
+---
 
-3. Sodio (Z = 11)
+2. Sodio (Z = 11)
 :p📌 Escribe su configuración electrónica.
 ?x
 1s² 2s² 2p⁶ 3s¹
 
+---
 
 **Principios de Construccion** 
 - Los electrones se ubican en orbitales de menor energia primero
@@ -215,6 +231,8 @@ $n = 2$ (nivel principal)
 $l = 1$ (subnivel p)
 $m_l = -1, 0, +1$ (tres orientaciones posibles)
 $m_s = +1/2$ o $-1/2$
+
+---
 
 Subniveles de Energia
 - S -> esferico (2 e-)

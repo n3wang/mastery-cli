@@ -26,6 +26,16 @@ function parseMarkdownCards(filePath) {
 		const line = lines[i].trim();
 		const originalLine = lines[i]; // Preserve original line for content that needs formatting
 
+		if(line=="---"){
+			// clear all variables
+			last_connected_paragraph = '';
+			last_line = '';
+			last_connected_paragraph_line = 0;
+			has_header = false;
+			single_line_last_obtained_description = '';
+			count_of_blank_lines = 0;
+		}
+
 		// Title
 		if (!result.title && line.startsWith('# ')) {
 			result.title = line.slice(2).trim();
@@ -131,6 +141,11 @@ function parseMarkdownCards(filePath) {
 				}
 				if (!isMultiLine && answerLine.trim() === '') break;
 				
+				// remove x?? and ??x
+				if(isMultiLine){
+					// remove x?? and ??x
+					answerLine = answerLine.replace(/^\?x\?|\?x\?$/g, '').trim();
+				}
 				if(answerLine.trim() === '') {
 					if (isMultiLine) {
 						answerLines.push('\n\n');
