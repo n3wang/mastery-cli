@@ -613,17 +613,23 @@ class Quizzer {
 			get_only: [deck_selected]
 		});
 
-		// Collect categories from the selected deck's terms
-		const categories = new Set();
+		// Collect categories from the selected deck's terms with counts
+		const categoryCounts = {};
 		selected_terms.forEach(term => {
 			if (term.category) {
-				categories.add(term.category);
+				categoryCounts[term.category] = (categoryCounts[term.category] || 0) + 1;
 			}
 		});
 
 		// If there are multiple categories, ask user to choose
-		if (categories.size > 1) {
-			const categoryChoices = ['all', ...Array.from(categories).sort()];
+		if (Object.keys(categoryCounts).length > 1) {
+			const totalCards = selected_terms.length;
+			const categoryChoices = [
+				`all (${totalCards})`,
+				...Object.keys(categoryCounts)
+					.sort()
+					.map(category => `${category} (${categoryCounts[category]})`)
+			];
 
 			const ms_category = new AutoComplete({
 				name: 'CategoryOption',
@@ -631,7 +637,10 @@ class Quizzer {
 				choices: categoryChoices
 			});
 
-			let category_selected = await ms_category.run();
+			let category_selected_with_count = await ms_category.run();
+			
+			// Extract category name without count
+			let category_selected = category_selected_with_count.split(' (')[0];
 
 			// Filter terms by selected category if not 'all'
 			if (category_selected !== 'all') {
