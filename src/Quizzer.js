@@ -613,6 +613,32 @@ class Quizzer {
 			get_only: [deck_selected]
 		});
 
+		// Collect categories from the selected deck's terms
+		const categories = new Set();
+		selected_terms.forEach(term => {
+			if (term.category) {
+				categories.add(term.category);
+			}
+		});
+
+		// If there are multiple categories, ask user to choose
+		if (categories.size > 1) {
+			const categoryChoices = ['all', ...Array.from(categories).sort()];
+
+			const ms_category = new AutoComplete({
+				name: 'CategoryOption',
+				message: 'Choose category to study',
+				choices: categoryChoices
+			});
+
+			let category_selected = await ms_category.run();
+
+			// Filter terms by selected category if not 'all'
+			if (category_selected !== 'all') {
+				selected_terms = selected_terms.filter(term => term.category === category_selected);
+			}
+		}
+
 		// Sort by hash completion count (least practiced first), then by reverse order as fallback
 		selected_terms.sort((a, b) => {
 			const hashA = this.generateTermHash(a);
