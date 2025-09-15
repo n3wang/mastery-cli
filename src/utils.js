@@ -1051,7 +1051,6 @@ class Mastery {
 	}
 
 	async manageMasks() {
-		const inquirer = require('inquirer');
 		const fs = require('fs');
 		const path = require('path');
 
@@ -1064,21 +1063,28 @@ class Mastery {
 				const settings = JSON.parse(fs.readFileSync(settingsPath, 'utf8'));
 				const quizConfig = settings.quiz_decks_configuration || { masks: [], use_masks: [] };
 
-				const { action } = await inquirer.prompt([
-					{
-						type: 'list',
-						name: 'action',
-						message: 'What would you like to do?',
-						choices: [
-							{ name: 'Add new mask', value: 'add' },
-							{ name: 'Edit existing mask', value: 'edit' },
-							{ name: 'Delete existing mask', value: 'delete' },
-							{ name: 'Toggle mask usage', value: 'toggle' },
-							{ name: 'View current masks', value: 'view' },
-							{ name: 'Exit', value: 'exit' }
-						]
-					}
-				]);
+				const actionPrompt = new AutoComplete({
+					name: 'action',
+					message: 'What would you like to do?',
+					choices: [
+						'Add new mask',
+						'Edit existing mask',
+						'Delete existing mask',
+						'Toggle mask usage',
+						'View current masks',
+						'Exit'
+					]
+				});
+				const actionResult = await actionPrompt.run();
+				const actionMap = {
+					'Add new mask': 'add',
+					'Edit existing mask': 'edit',
+					'Delete existing mask': 'delete',
+					'Toggle mask usage': 'toggle',
+					'View current masks': 'view',
+					'Exit': 'exit'
+				};
+				const action = actionMap[actionResult] || actionResult;
 
 				if (action === 'exit') {
 					console.log('Now running quiz or coa will use the selected masks.');
@@ -1124,7 +1130,6 @@ class Mastery {
 	}
 
 	async addNewMask(settingsPath) {
-		const inquirer = require('inquirer');
 		const fs = require('fs');
 		const { retrieve_terms_as_decks } = require('./md_terms_parser');
 
@@ -1172,17 +1177,23 @@ class Mastery {
 			console.log('Select modules and categories to include in your mask.\n');
 
 			while (true) {
-				const { selectedModule } = await inquirer.prompt([
-					{
-						type: 'list',
-						name: 'selectedModule',
-						message: 'Select a module:',
-						choices: [
-							...moduleChoices,
-							{ name: '✅ Done selecting', value: 'done' }
-						]
-					}
-				]);
+				const modulePrompt = new AutoComplete({
+					name: 'selectedModule',
+					message: 'Select a module:',
+					choices: [
+						...moduleChoices.map(choice => choice.name),
+						'✅ Done selecting'
+					]
+				});
+				const selectedModuleResult = await modulePrompt.run();
+				// Convert display name back to value
+				let selectedModule = selectedModuleResult;
+				if (selectedModuleResult === '✅ Done selecting') {
+					selectedModule = 'done';
+				} else {
+					const foundChoice = moduleChoices.find(choice => choice.name === selectedModuleResult);
+					selectedModule = foundChoice ? foundChoice.value : selectedModuleResult;
+				}
 
 				if (selectedModule === 'done') {
 					break;
@@ -1195,17 +1206,14 @@ class Mastery {
 					selectedDecks.push(selectedModule);
 					console.log(`Added: ${selectedModule} (all categories)`);
 				} else {
-					const { selectedCategory } = await inquirer.prompt([
-						{
-							type: 'list',
-							name: 'selectedCategory',
-							message: `Select category for ${selectedModule}:`,
-							choices: availableCategories.map(cat => ({
-								name: cat === 'all' ? 'All categories' : cat,
-								value: cat
-							}))
-						}
-					]);
+					const categoryPrompt = new AutoComplete({
+						name: 'selectedCategory',
+						message: `Select category for ${selectedModule}:`,
+						choices: availableCategories.map(cat => cat === 'all' ? 'All categories' : cat)
+					});
+					const selectedCategoryResult = await categoryPrompt.run();
+					// Convert display name back to value
+					const selectedCategory = selectedCategoryResult === 'All categories' ? 'all' : selectedCategoryResult;
 
 					if (selectedCategory === 'all') {
 						selectedDecks.push(selectedModule);
@@ -1222,14 +1230,12 @@ class Mastery {
 				return;
 			}
 
-			const { maskName } = await inquirer.prompt([
-				{
-					type: 'input',
-					name: 'maskName',
-					message: 'Enter a name for this mask:',
-					validate: input => input.trim().length > 0 || 'Mask name cannot be empty'
-				}
-			]);
+			const maskNamePrompt = new Input({
+				name: 'maskName',
+				message: 'Enter a name for this mask:',
+				validate: input => input.trim().length > 0 || 'Mask name cannot be empty'
+			});
+			const maskName = await maskNamePrompt.run();
 
 			// Save the mask
 			const settings = JSON.parse(fs.readFileSync(settingsPath, 'utf8'));
@@ -1255,7 +1261,6 @@ class Mastery {
 	}
 
 	async deleteMask(settingsPath) {
-		const inquirer = require('inquirer');
 		const fs = require('fs');
 
 		try {
@@ -1267,17 +1272,14 @@ class Mastery {
 				return;
 			}
 
-			const { maskToDelete } = await inquirer.prompt([
-				{
-					type: 'list',
-					name: 'maskToDelete',
-					message: 'Select mask to delete:',
-					choices: quizConfig.masks.map(mask => ({
-						name: `${mask.title} (${mask.decks_to_enable.join(', ')})`,
-						value: mask.title
-					}))
-				}
-			]);
+			const maskDeletePrompt = new AutoComplete({
+				name: 'maskToDelete',
+				message: 'Select mask to delete:',
+				choices: quizConfig.masks.map(mask => `${mask.title} (${mask.decks_to_enable.join(', ')})`)
+			});
+			const maskToDeleteResult = await maskDeletePrompt.run();
+			// Extract the mask title from the display string (everything before the first ' (')
+			const maskToDelete = maskToDeleteResult.split(' (')[0];
 
 			// Remove from masks array
 			quizConfig.masks = quizConfig.masks.filter(mask => mask.title !== maskToDelete);
@@ -1296,7 +1298,6 @@ class Mastery {
 	}
 
 	async toggleMaskUsageLoop(settingsPath) {
-		const inquirer = require('inquirer');
 		const fs = require('fs');
 
 		try {
@@ -1318,18 +1319,22 @@ class Mastery {
 					console.log(`  ${mask.title}: ${status}`);
 				});
 
-				const { action } = await inquirer.prompt([
-					{
-						type: 'list',
-						name: 'action',
-						message: 'What would you like to do?',
-						choices: [
-							{ name: 'Toggle individual mask on/off', value: 'toggle_single' },
-							{ name: 'Select all active masks at once', value: 'select_all' },
-							{ name: 'Finish toggle operations', value: 'finish' }
-						]
-					}
-				]);
+				const actionPrompt = new AutoComplete({
+					name: 'action',
+					message: 'What would you like to do?',
+					choices: [
+						'Toggle individual mask on/off',
+						'Select all active masks at once',
+						'Finish toggle operations'
+					]
+				});
+				const actionResult = await actionPrompt.run();
+				const actionMap = {
+					'Toggle individual mask on/off': 'toggle_single',
+					'Select all active masks at once': 'select_all',
+					'Finish toggle operations': 'finish'
+				};
+				const action = actionMap[actionResult] || actionResult;
 
 				if (action === 'finish') {
 					console.log('✅ Finished toggling mask usage.\n');
@@ -1337,21 +1342,18 @@ class Mastery {
 				}
 
 				if (action === 'toggle_single') {
-					const { maskToToggle } = await inquirer.prompt([
-						{
-							type: 'list',
-							name: 'maskToToggle',
-							message: 'Select mask to toggle:',
-							choices: quizConfig.masks.map(mask => {
-								const isActive = quizConfig.use_masks.includes(mask.title);
-								const status = isActive ? '✅ ACTIVE' : '❌ INACTIVE';
-								return {
-									name: `${mask.title} - ${status}`,
-									value: mask.title
-								};
-							})
-						}
-					]);
+					const maskTogglePrompt = new AutoComplete({
+						name: 'maskToToggle',
+						message: 'Select mask to toggle:',
+						choices: quizConfig.masks.map(mask => {
+							const isActive = quizConfig.use_masks.includes(mask.title);
+							const status = isActive ? '✅ ACTIVE' : '❌ INACTIVE';
+							return `${mask.title} - ${status}`;
+						})
+					});
+					const maskToToggleResult = await maskTogglePrompt.run();
+					// Extract the mask title from the display string (everything before the first ' - ')
+					const maskToToggle = maskToToggleResult.split(' - ')[0];
 
 					if (quizConfig.use_masks.includes(maskToToggle)) {
 						// Remove from active masks
@@ -1366,18 +1368,18 @@ class Mastery {
 					settings.quiz_decks_configuration = quizConfig;
 					fs.writeFileSync(settingsPath, JSON.stringify(settings, null, '\t'));
 				} else if (action === 'select_all') {
-					const { selectedMasks } = await inquirer.prompt([
-						{
-							type: 'checkbox',
-							name: 'selectedMasks',
-							message: 'Select which masks should be ACTIVE (uncheck to deactivate):',
-							choices: quizConfig.masks.map(mask => ({
-								name: `${mask.title} (${mask.decks_to_enable.join(', ')})`,
-								value: mask.title,
-								checked: quizConfig.use_masks.includes(mask.title)
-							}))
-						}
-					]);
+					const selectedMasksPrompt = new Survey({
+						name: 'selectedMasks',
+						message: 'Select which masks should be ACTIVE (uncheck to deactivate):',
+						choices: quizConfig.masks.map(mask => ({
+							name: mask.title,
+							message: `${mask.title} (${mask.decks_to_enable.join(', ')})`,
+							initial: quizConfig.use_masks.includes(mask.title)
+						}))
+					});
+					const surveyResult = await selectedMasksPrompt.run();
+					// Extract selected mask titles from survey result
+					const selectedMasks = Object.keys(surveyResult).filter(key => surveyResult[key]);
 
 					quizConfig.use_masks = selectedMasks;
 					settings.quiz_decks_configuration = quizConfig;
@@ -1394,7 +1396,6 @@ class Mastery {
 	}
 
 	async editExistingMask(settingsPath) {
-		const inquirer = require('inquirer');
 		const fs = require('fs');
 		const { retrieve_terms_as_decks } = require('./md_terms_parser');
 
@@ -1407,17 +1408,14 @@ class Mastery {
 				return;
 			}
 
-			const { maskToEdit } = await inquirer.prompt([
-				{
-					type: 'list',
-					name: 'maskToEdit',
-					message: 'Select mask to edit:',
-					choices: quizConfig.masks.map(mask => ({
-						name: `${mask.title} (${mask.decks_to_enable.join(', ')})`,
-						value: mask.title
-					}))
-				}
-			]);
+			const maskEditPrompt = new AutoComplete({
+				name: 'maskToEdit',
+				message: 'Select mask to edit:',
+				choices: quizConfig.masks.map(mask => `${mask.title} (${mask.decks_to_enable.join(', ')})`)
+			});
+			const maskToEditResult = await maskEditPrompt.run();
+			// Extract the mask title from the display string (everything before the first ' (')
+			const maskToEdit = maskToEditResult.split(' (')[0];
 
 			const maskIndex = quizConfig.masks.findIndex(mask => mask.title === maskToEdit);
 			const currentMask = quizConfig.masks[maskIndex];
@@ -1457,18 +1455,22 @@ class Mastery {
 				moduleCategories[moduleName] = Array.from(categories);
 			});
 
-			const { editAction } = await inquirer.prompt([
-				{
-					type: 'list',
-					name: 'editAction',
-					message: 'How would you like to edit this mask?',
-					choices: [
-						{ name: 'Replace all decks (start fresh)', value: 'replace' },
-						{ name: 'Add more decks to existing ones', value: 'add' },
-						{ name: 'Remove specific decks', value: 'remove' }
-					]
-				}
-			]);
+			const editActionPrompt = new AutoComplete({
+				name: 'editAction',
+				message: 'How would you like to edit this mask?',
+				choices: [
+					'Replace all decks (start fresh)',
+					'Add more decks to existing ones',
+					'Remove specific decks'
+				]
+			});
+			const editActionResult = await editActionPrompt.run();
+			const editActionMap = {
+				'Replace all decks (start fresh)': 'replace',
+				'Add more decks to existing ones': 'add',
+				'Remove specific decks': 'remove'
+			};
+			const editAction = editActionMap[editActionResult] || editActionResult;
 
 			let newDecks = [...currentMask.decks_to_enable];
 
@@ -1478,17 +1480,17 @@ class Mastery {
 			} else if (editAction === 'add') {
 				console.log('\n➕ Adding more decks to the existing ones:');
 			} else if (editAction === 'remove') {
-				const { decksToRemove } = await inquirer.prompt([
-					{
-						type: 'checkbox',
-						name: 'decksToRemove',
-						message: 'Select decks to remove:',
-						choices: currentMask.decks_to_enable.map(deck => ({
-							name: deck,
-							value: deck
-						}))
-					}
-				]);
+				const decksToRemovePrompt = new Survey({
+					name: 'decksToRemove',
+					message: 'Select decks to remove:',
+					choices: currentMask.decks_to_enable.map(deck => ({
+						name: deck,
+						message: deck
+					}))
+				});
+				const removeResult = await decksToRemovePrompt.run();
+				// Extract selected deck names from survey result
+				const decksToRemove = Object.keys(removeResult).filter(key => removeResult[key]);
 
 				newDecks = newDecks.filter(deck => !decksToRemove.includes(deck));
 				console.log(`\n✅ Removed ${decksToRemove.length} decks from mask.`);
@@ -1497,17 +1499,23 @@ class Mastery {
 			if (editAction === 'replace' || editAction === 'add') {
 				// Select new decks to add
 				while (true) {
-					const { selectedModule } = await inquirer.prompt([
-						{
-							type: 'list',
-							name: 'selectedModule',
-							message: 'Select a module to add:',
-							choices: [
-								...moduleChoices,
-								{ name: '✅ Done selecting', value: 'done' }
-							]
-						}
-					]);
+					const moduleAddPrompt = new AutoComplete({
+						name: 'selectedModule',
+						message: 'Select a module to add:',
+						choices: [
+							...moduleChoices.map(choice => choice.name),
+							'✅ Done selecting'
+						]
+					});
+					const selectedModuleResult = await moduleAddPrompt.run();
+					// Convert display name back to value
+					let selectedModule = selectedModuleResult;
+					if (selectedModuleResult === '✅ Done selecting') {
+						selectedModule = 'done';
+					} else {
+						const foundChoice = moduleChoices.find(choice => choice.name === selectedModuleResult);
+						selectedModule = foundChoice ? foundChoice.value : selectedModuleResult;
+					}
 
 					if (selectedModule === 'done') {
 						break;
@@ -1524,17 +1532,14 @@ class Mastery {
 							console.log(`Already included: ${selectedModule}`);
 						}
 					} else {
-						const { selectedCategory } = await inquirer.prompt([
-							{
-								type: 'list',
-								name: 'selectedCategory',
-								message: `Select category for ${selectedModule}:`,
-								choices: availableCategories.map(cat => ({
-									name: cat === 'all' ? 'All categories' : cat,
-									value: cat
-								}))
-							}
-						]);
+						const categoryAddPrompt = new AutoComplete({
+							name: 'selectedCategory',
+							message: `Select category for ${selectedModule}:`,
+							choices: availableCategories.map(cat => cat === 'all' ? 'All categories' : cat)
+						});
+						const selectedCategoryResult = await categoryAddPrompt.run();
+						// Convert display name back to value
+						const selectedCategory = selectedCategoryResult === 'All categories' ? 'all' : selectedCategoryResult;
 
 						const deckSpec = selectedCategory === 'all' ? selectedModule : `${selectedModule}:${selectedCategory}`;
 						

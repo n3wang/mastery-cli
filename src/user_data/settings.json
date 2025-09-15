@@ -105,10 +105,21 @@
 					"cfa",
 					"datascience-statistics"
 				]
+			},
+			{
+				"title": "school-focus",
+				"decks_to_enable": [
+					"college-algebra",
+					"college-engineering",
+					"college-digital-systems",
+					"college-quimica",
+					"college-math-analysis",
+					"college-programming"
+				]
 			}
 		],
 		"use_masks": [
-			"cert-focus"
+			"school-focus"
 		]
 	},
 	"flashcard_markdown_file": "current-quiz.md"
