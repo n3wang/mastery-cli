@@ -112,6 +112,10 @@ class CommandsInformation {
 			'create-module': new Command(
 				'Create a new terms module with guided setup',
 				'create-module'
+			),
+			masks: new Command(
+				'Manage quiz deck masks for filtering terms by module and category',
+				'masks'
 			)
 		};
 	}
