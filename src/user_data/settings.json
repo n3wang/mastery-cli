@@ -89,7 +89,8 @@
 			{
 				"title": "cert-focus",
 				"decks_to_enable": [
-					"cfa", "datascience-statistics"
+					"cfa:MInterestRatesandReturnMeasurement", 
+					"cfa:MHypothesisTesting"
 				]
 			}
 

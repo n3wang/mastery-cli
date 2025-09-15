@@ -163,10 +163,48 @@ class TermStorage {
 	 */
 	applyMasks(masks) {
 		for (const mask of masks) {
-			if (mask.decksToEnable.includes(this.deck_name)) {
-				this.is_active = mask.enabled;
+			if (!mask.enabled) continue;
+			
+			// Collect all allowed categories for this deck/module
+			const allowedCategories = [];
+			let enableFullDeck = false;
+			
+			for (const deckSpec of mask.decksToEnable) {
+				if (deckSpec.includes(':')) {
+					// Handle module:category syntax (e.g., "cfa:MInterestRatesandReturnMeasurement")
+					const [moduleFilter, categoryFilter] = deckSpec.split(':');
+					
+					// Check if this deck matches the module
+					if (this.module_name === moduleFilter || this.deck_name === moduleFilter) {
+						if (categoryFilter) {
+							allowedCategories.push(categoryFilter);
+						} else {
+							// If no specific category, enable the whole module
+							enableFullDeck = true;
+						}
+					}
+				} else {
+					// Handle exact deck name matches (existing behavior)
+					if (deckSpec === this.deck_name || deckSpec === this.module_name) {
+						enableFullDeck = true;
+					}
+				}
+			}
+			
+			// If we have category filters for this deck, remove terms that don't match
+			if (allowedCategories.length > 0 && !enableFullDeck) {
+				this.terms = this.terms.filter(term => {
+					if (!term.category) return false;
+					return allowedCategories.some(allowedCategory => 
+						term.category.includes(allowedCategory)
+					);
+				});
+				this.is_active = true;
+			} else if (enableFullDeck) {
+				this.is_active = true;
 			}
 		}
+		
 		for (const deck of this.decks) {
 			deck.applyMasks(masks);
 		}

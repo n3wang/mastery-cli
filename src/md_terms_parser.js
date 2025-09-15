@@ -457,7 +457,8 @@ function parseMarkdownCardsFromTermsModules(
 		if (module) {
 			decks[module.module_path] = new TermStorage(
 				terms,
-				module.ABOUT.skill_category
+				module.ABOUT.skill_category,
+				{ module_name: module.ABOUT.title }
 			);
 		}
 	}
