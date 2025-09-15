@@ -613,6 +613,41 @@ class Quizzer {
 			get_only: [deck_selected]
 		});
 
+		// Collect categories from the selected deck's terms with counts
+		const categoryCounts = {};
+		selected_terms.forEach(term => {
+			if (term.category) {
+				categoryCounts[term.category] = (categoryCounts[term.category] || 0) + 1;
+			}
+		});
+
+		// If there are multiple categories, ask user to choose
+		if (Object.keys(categoryCounts).length > 1) {
+			const totalCards = selected_terms.length;
+			const categoryChoices = [
+				`all (${totalCards})`,
+				...Object.keys(categoryCounts)
+					.sort()
+					.map(category => `${category} (${categoryCounts[category]})`)
+			];
+
+			const ms_category = new AutoComplete({
+				name: 'CategoryOption',
+				message: 'Choose category to study',
+				choices: categoryChoices
+			});
+
+			let category_selected_with_count = await ms_category.run();
+			
+			// Extract category name without count
+			let category_selected = category_selected_with_count.split(' (')[0];
+
+			// Filter terms by selected category if not 'all'
+			if (category_selected !== 'all') {
+				selected_terms = selected_terms.filter(term => term.category === category_selected);
+			}
+		}
+
 		// Sort by hash completion count (least practiced first), then by reverse order as fallback
 		selected_terms.sort((a, b) => {
 			const hashA = this.generateTermHash(a);
