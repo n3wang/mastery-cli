@@ -130,6 +130,7 @@ function parseMarkdownProblemsFromModules(
 		);
 
 		const shouldCacheContent = module.CACHE_CONTENT !== false;
+		const useFileAsModule = module.USE_FILE_AS_MODULE === true;
 
 		if (shouldCacheContent && !fs.existsSync(moduleCacheDir)) {
 			fs.mkdirSync(moduleCacheDir, { recursive: true });
@@ -140,9 +141,34 @@ function parseMarkdownProblemsFromModules(
 				const folderPath = getDirAbsoluteUri(
 					`user_data/terms_modules/${module.module_path}/${folder}`
 				);
-				const parsedProblems =
-					parseMarkdownProblemsFromFolder(folderPath);
-				problems.push(...parsedProblems);
+				
+				if (useFileAsModule) {
+					const files = fs.readdirSync(folderPath);
+					for (const file of files) {
+						const filePath = path.join(folderPath, file);
+						if (fs.statSync(filePath).isFile() && file.endsWith('.md')) {
+							const fileProblems = parseMarkdownProblems(filePath);
+							const fileName = path.basename(file, '.md');
+							const fileModulePath = `${module.module_path}-${fileName}`;
+							
+							decks[fileModulePath] = new ProblemStorage(
+								fileProblems.map(
+									(p, i) =>
+										new Problem({
+											...p,
+											id: `${i + 1}-${p.title}`,
+											module_name: `${module.ABOUT.title} - ${fileName}`,
+											category: module.ABOUT.skill_category
+										})
+								),
+								module.ABOUT.skill_category
+							);
+						}
+					}
+				} else {
+					const parsedProblems = parseMarkdownProblemsFromFolder(folderPath);
+					problems.push(...parsedProblems);
+				}
 			}
 		}
 
@@ -157,39 +183,83 @@ function parseMarkdownProblemsFromModules(
 				}
 				folderExists = true;
 
-				const parsedProblems = parseMarkdownProblemsFromFolder(folder);
-				problems.push(...parsedProblems);
-
-				if (shouldCacheContent) {
+				if (useFileAsModule) {
 					const files = fs.readdirSync(folder);
 					for (const file of files) {
 						const filePath = path.join(folder, file);
-						if (
-							fs.statSync(filePath).isFile() &&
-							file.endsWith('.md')
-						) {
-							const cachedFilePath = path.join(
-								moduleCacheDir,
-								path.basename(filePath)
+						if (fs.statSync(filePath).isFile() && file.endsWith('.md')) {
+							const fileProblems = parseMarkdownProblems(filePath);
+							const fileName = path.basename(file, '.md');
+							const fileModulePath = `${module.module_path}-${fileName}`;
+							
+							decks[fileModulePath] = new ProblemStorage(
+								fileProblems.map(
+									(p, i) =>
+										new Problem({
+											...p,
+											id: `${i + 1}-${p.title}`,
+											module_name: `${module.ABOUT.title} - ${fileName}`,
+											category: module.ABOUT.skill_category
+										})
+								),
+								module.ABOUT.skill_category
 							);
+
+							if (shouldCacheContent) {
+								const cachedFilePath = path.join(
+									moduleCacheDir,
+									path.basename(filePath)
+								);
+								if (
+									useCacheIfNotFound &&
+									!fs.existsSync(cachedFilePath)
+								) {
+									fs.writeFileSync(
+										cachedFilePath,
+										fs.readFileSync(filePath, 'utf-8')
+									);
+									console.log(
+										`Caching markdown file: ${cachedFilePath}`
+									);
+								}
+							}
+						}
+					}
+				} else {
+					const parsedProblems = parseMarkdownProblemsFromFolder(folder);
+					problems.push(...parsedProblems);
+
+					if (shouldCacheContent) {
+						const files = fs.readdirSync(folder);
+						for (const file of files) {
+							const filePath = path.join(folder, file);
 							if (
-								useCacheIfNotFound &&
-								!fs.existsSync(cachedFilePath)
+								fs.statSync(filePath).isFile() &&
+								file.endsWith('.md')
 							) {
-								fs.writeFileSync(
-									cachedFilePath,
-									fs.readFileSync(filePath, 'utf-8')
+								const cachedFilePath = path.join(
+									moduleCacheDir,
+									path.basename(filePath)
 								);
-								console.log(
-									`Caching markdown file: ${cachedFilePath}`
-								);
+								if (
+									useCacheIfNotFound &&
+									!fs.existsSync(cachedFilePath)
+								) {
+									fs.writeFileSync(
+										cachedFilePath,
+										fs.readFileSync(filePath, 'utf-8')
+									);
+									console.log(
+										`Caching markdown file: ${cachedFilePath}`
+									);
+								}
 							}
 						}
 					}
 				}
 			}
 
-			if (useCacheIfNotFound && !folderExists) {
+			if (useCacheIfNotFound && !folderExists && !useFileAsModule) {
 				if (!fs.existsSync(moduleCacheJson)) {
 					console.warn(
 						`No problems found and cache file missing: ${moduleCacheJson}`
@@ -204,7 +274,7 @@ function parseMarkdownProblemsFromModules(
 					fs.readFileSync(moduleCacheJson, 'utf-8')
 				);
 				problems.push(...cachedData);
-			} else if (shouldCacheContent) {
+			} else if (shouldCacheContent && !useFileAsModule) {
 				fs.writeFileSync(
 					moduleCacheJson,
 					JSON.stringify(problems, null, 2)
@@ -217,14 +287,34 @@ function parseMarkdownProblemsFromModules(
 				const filePath = getDirAbsoluteUri(
 					`user_data/terms_modules/${module.module_path}/${file}`
 				);
-				const parsedProblems = parseMarkdownProblemsFromFolder(
-					path.dirname(filePath)
-				);
-				problems.push(...parsedProblems);
+				
+				if (useFileAsModule) {
+					const fileProblems = parseMarkdownProblems(filePath);
+					const fileName = path.basename(file, '.md');
+					const fileModulePath = `${module.module_path}-${fileName}`;
+					
+					decks[fileModulePath] = new ProblemStorage(
+						fileProblems.map(
+							(p, i) =>
+								new Problem({
+									...p,
+									id: `${i + 1}-${p.title}`,
+									module_name: `${module.ABOUT.title} - ${fileName}`,
+									category: module.ABOUT.skill_category
+								})
+						),
+						module.ABOUT.skill_category
+					);
+				} else {
+					const parsedProblems = parseMarkdownProblemsFromFolder(
+						path.dirname(filePath)
+					);
+					problems.push(...parsedProblems);
+				}
 			}
 		}
 
-		if (module) {
+		if (module && !useFileAsModule) {
 			decks[module.module_path] = new ProblemStorage(
 				problems.map(
 					(p, i) =>

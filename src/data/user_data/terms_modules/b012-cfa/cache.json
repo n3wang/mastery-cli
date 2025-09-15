@@ -240,6 +240,246 @@
     "category": "MInterestRatesandReturnMeasurement"
   },
   {
+    "term": "1 - Linear Regression Assumptions Problems",
+    "example": ":m If the relationship is not linear (e.g., quadratic or exponential), the regression model will give biased predictions since it only fits straight lines.",
+    "description": ":m 1. Linearity",
+    "prompt": "Suppose you have a dataset relating hours studied and exam scores. Explain why the assumption of linearity is important when applying linear regression.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M10-formoftheolsline.md",
+    "reference_line": 4,
+    "module_name": "CFA Modules",
+    "category": "Mformoftheolsline"
+  },
+  {
+    "term": "2 - 2. Homoskedasticity",
+    "example": ":m The assumption of homoskedasticity is violated because error terms should have constant variance. If variance changes with the predictor, standard errors become unreliable.",
+    "description": "",
+    "prompt": "In a regression model predicting house prices, you notice that the variance of errors increases as house size increases. Which assumption is violated, and why does it matter?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M10-formoftheolsline.md",
+    "reference_line": 12,
+    "module_name": "CFA Modules",
+    "category": "Mformoftheolsline"
+  },
+  {
+    "term": "3 - 3. Independence of Errors",
+    "example": ":m The independence of errors assumption is violated. Serial correlation in errors leads to biased standard error estimates.",
+    "description": "",
+    "prompt": "A researcher collects time-series stock data and fits a linear regression model. They notice that residuals are correlated over time. Which assumption is violated?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M10-formoftheolsline.md",
+    "reference_line": 18,
+    "module_name": "CFA Modules",
+    "category": "Mformoftheolsline"
+  },
+  {
+    "term": "4 - Simple Linear Regression Problems",
+    "example": ":m Simple linear regression studies how changes in one independent variable affect one dependent variable, fitting a straight-line relationship between them.",
+    "description": ":m 1. **Definition** ",
+    "prompt": "Explain in your own words what simple linear regression is.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M10-formoftheolsline.md",
+    "reference_line": 24,
+    "module_name": "CFA Modules",
+    "category": "Mformoftheolsline"
+  },
+  {
+    "term": "5 - 2. **Dependent Variable**",
+    "example": ":m The dependent variable is the **exam score** because it is being explained or predicted by the independent variable (hours studied).",
+    "description": "",
+    "prompt": "In a study predicting student exam scores from hours studied, which variable is the dependent variable and why?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M10-formoftheolsline.md",
+    "reference_line": 32,
+    "module_name": "CFA Modules",
+    "category": "Mformoftheolsline"
+  },
+  {
+    "term": "6 - 3. **Independent Variable**",
+    "example": ":m\nThe independent variable is **hours studied** because it is used to explain changes in the dependent variable (exam score).",
+    "description": "",
+    "prompt": "In the same study, which variable is the independent variable and why?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M10-formoftheolsline.md",
+    "reference_line": 40,
+    "module_name": "CFA Modules",
+    "category": "Mformoftheolsline"
+  },
+  {
+    "term": "7 - 4. **Terminology Check**",
+    "example": ":m - Dependent variable = explained variable, endogenous variable, predicted variable.\n- Independent variable = explanatory variable, exogenous variable, predicting variable.",
+    "description": ":m - Dependent variable = ?\n- Independent variable = ? ",
+    "prompt": "Match the synonyms:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M10-formoftheolsline.md",
+    "reference_line": 48,
+    "module_name": "CFA Modules",
+    "category": "Mformoftheolsline"
+  },
+  {
+    "term": "8 - Linear Regression Practice Problems",
+    "example": ":m $$\nb_1=\\frac{\\operatorname{Cov}(X, Y)}{\\sigma_x^2}=\\frac{0.000336}{0.000522}=0.64\n$$",
+    "description": ":m 1. Compute the Slope",
+    "prompt": "Given the covariance between S\\&P 500 and ABC = 0.000336 and variance of S\\&P $500=0.000522$, compute the slope coefficient.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M10-formoftheolsline.md",
+    "reference_line": 57,
+    "module_name": "CFA Modules",
+    "category": "Mformoftheolsline"
+  },
+  {
+    "term": "9 - 2. Compute the Intercept",
+    "example": ":m $$\nb_0=\\bar{Y}-b_1 \\bar{X}=-4.05 \\%-0.64(-2.70 \\%)=-2.3 \\%\n$$",
+    "description": "",
+    "prompt": "Using mean return $(A B C)=-4.05 \\%$, mean return $($ S\\&P 500$)=-2.70 \\%$, and slope $=$ 0.64 , compute the intercept.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M10-formoftheolsline.md",
+    "reference_line": 65,
+    "module_name": "CFA Modules",
+    "category": "Mformoftheolsline"
+  },
+  {
+    "term": "10 - 3. Interpret the Intercept",
+    "example": ":m When S\\&P 500 excess return $=0$, the expected ABC excess return is $-2.3 \\%$.",
+    "description": ":m $: \\mathrm{p}$ What does the intercept ( $-2.3 \\%$ ) mean in the context of ABC stock regression?",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M10-formoftheolsline.md",
+    "reference_line": 72,
+    "module_name": "CFA Modules",
+    "category": "Mformoftheolsline"
+  },
+  {
+    "term": "11 - 4. **Interpret the Slope**",
+    "example": ":m For every 1% increase in S&P 500 excess returns, ABC stock’s excess return increases by 0.64% on average.",
+    "description": "",
+    "prompt": "What does the slope (0.64) mean in the regression of ABC returns on S&P 500 returns?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M10-formoftheolsline.md",
+    "reference_line": 77,
+    "module_name": "CFA Modules",
+    "category": "Mformoftheolsline"
+  },
+  {
+    "term": "12 - 4. Interpret the Slope",
+    "example": ":m For every 1\\% increase in S\\&P 500 excess returns, ABC stock's excess return increases by $0.64 \\%$ on average.",
+    "description": "",
+    "prompt": "What does the slope (0.64) mean in the regression of ABC returns on S\\&P 500 returns?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M10-formoftheolsline.md",
+    "reference_line": 85,
+    "module_name": "CFA Modules",
+    "category": "Mformoftheolsline"
+  },
+  {
+    "term": "13 - 5. Assumptions Check",
+    "example": ":m 6. Linear relationship between dependent and independent variables.\n7. Error terms have constant variance (homoskedasticity).\n8. Error terms are independent (no correlation).\n9. Error terms are normally distributed.",
+    "description": "",
+    "prompt": "List the four main assumptions of linear regression.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M10-formoftheolsline.md",
+    "reference_line": 92,
+    "module_name": "CFA Modules",
+    "category": "Mformoftheolsline"
+  },
+  {
+    "term": "14 - 10. Application Question",
+    "example": ":m ABC is less sensitive to market movements (lower beta), meaning it is less volatile relative to the market.",
+    "description": "",
+    "prompt": "If ABC's slope (0.64) is less than 1 , what does that say about its sensitivity to the market compared to the average stock?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M10-formoftheolsline.md",
+    "reference_line": 102,
+    "module_name": "CFA Modules",
+    "category": "Mformoftheolsline"
+  },
+  {
+    "term": "15 - 1. Formula Check",
+    "example": ":m $$\nM S R=\\frac{S S R}{1}, \\quad M S E=\\frac{S S E}{(n-2)}\n$$",
+    "description": "",
+    "prompt": "Write the formulas for Mean Square Regression (MSR) and Mean Square Error (MSE) in simple regression.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M10-formoftheolsline.md",
+    "reference_line": 112,
+    "module_name": "CFA Modules",
+    "category": "Mformoftheolsline"
+  },
+  {
+    "term": "16 - 2. Degrees of Freedom",
+    "example": ":m - Regression df $=1$\n- Error df $=n-2=13$\n- Total df $=n-1=14$",
+    "description": "",
+    "prompt": "In simple linear regression with $n=15$ observations, what are the degrees of freedom for Regression, Error, and Total?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M10-formoftheolsline.md",
+    "reference_line": 122,
+    "module_name": "CFA Modules",
+    "category": "Mformoftheolsline"
+  },
+  {
+    "term": "17 - 3. ANOVA Table Completion",
+    "example": ":m\n| Source | df | SS | MS |\n| :--------- | :-- | :-- | :--- |\n| Regression | 1 | 120 | 120 |\n| Error | 14 | 30 | 2.14 |\n| Total | 15 | 150 | 一 |\n\n\n\n",
+    "description": "",
+    "prompt": "Suppose SSR $=120$ and SSE $=30$ with $n=16$. Fill the ANOVA table (SSR, SSE, SST, df, MSR, MSE).",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M10-formoftheolsline.md",
+    "reference_line": 132,
+    "module_name": "CFA Modules",
+    "category": "Mformoftheolsline"
+  },
+  {
+    "term": "18 - 4. Interpretation of MSR and MSE",
+    "example": ":m - MSR measures the explained variation in the dependent variable due to the regression (signal).\n- MSE measures the unexplained variation in the dependent variable (noise).",
+    "description": "",
+    "prompt": "What does MSR measure? What does MSE measure?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M10-formoftheolsline.md",
+    "reference_line": 146,
+    "module_name": "CFA Modules",
+    "category": "Mformoftheolsline"
+  },
+  {
+    "term": "19 - 5. Relationship Between SSR, SSE, SST",
+    "example": ":m\n$$\nS S T=S S R+S S E\n$$\n(Total variation $=$ explained variation + unexplained variation $).$\n\n\n\n",
+    "description": "",
+    "prompt": "State the relationship among SSR, SSE, and SST in regression.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M10-formoftheolsline.md",
+    "reference_line": 152,
+    "module_name": "CFA Modules",
+    "category": "Mformoftheolsline"
+  },
+  {
+    "term": "20 - 1. **Definition of SEE**",
+    "example": ":m SEE measures the accuracy of predicted values from the regression model. It is the standard deviation of the error term. Lower SEE = better model fit.",
+    "description": "",
+    "prompt": "What does the Standard Error of the Estimate (SEE) measure in regression?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M10-formoftheolsline.md",
+    "reference_line": 168,
+    "module_name": "CFA Modules",
+    "category": "Mformoftheolsline"
+  },
+  {
+    "term": "21 - 2. **Formula for SEE**",
+    "example": ":m $$\nSEE=SSEn−2=MSESEE = \\sqrt{\\frac{SSE}{n-2}} = \\sqrt{MSE}\n$$",
+    "description": "",
+    "prompt": "Write the formula for SEE in terms of SSE and sample size nn.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M10-formoftheolsline.md",
+    "reference_line": 176,
+    "module_name": "CFA Modules",
+    "category": "Mformoftheolsline"
+  },
+  {
+    "term": "22 - 4. **F-Test Hypotheses**",
+    "example": ":m - H0:β1=0H_0: \\beta_1 = 0 (slope coefficient = 0, no relationship).\n- HA:β1≠0H_A: \\beta_1 \\neq 0 (slope coefficient ≠ 0, relationship exists).",
+    "description": "",
+    "prompt": "In the F-test for regression, what are the null and alternative hypotheses?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M10-formoftheolsline.md",
+    "reference_line": 196,
+    "module_name": "CFA Modules",
+    "category": "Mformoftheolsline"
+  },
+  {
+    "term": "23 - 5. **Decision Rule**",
+    "example": ":m Reject H0H_0 if the computed F-statistic > critical F value (from F-distribution table, given numerator and denominator df).",
+    "description": "",
+    "prompt": "When do we reject the null hypothesis in the F-test?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M10-formoftheolsline.md",
+    "reference_line": 206,
+    "module_name": "CFA Modules",
+    "category": "Mformoftheolsline"
+  },
+  {
+    "term": "24 - 6. **Interpretation**",
+    "example": ":m It shows that the independent variable explains a significant portion of the variation in the dependent variable — i.e., the model is statistically significant overall.",
+    "description": "",
+    "prompt": "What does a significant F-statistic tell us in simple regression?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M10-formoftheolsline.md",
+    "reference_line": 213,
+    "module_name": "CFA Modules",
+    "category": "Mformoftheolsline"
+  },
+  {
     "term": "1 - 2.1 Present and Future Values",
     "example": ":m - $\\mathrm{FV}=\\mathrm{PV} \\times \\mathrm{e}^{\\mathrm{r} t}$\nreloa\n#### Example Zero Coupon Bond",
     "description": ":m Provide the formula for future value with continuous compounding:",

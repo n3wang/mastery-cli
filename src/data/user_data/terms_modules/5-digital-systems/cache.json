@@ -158,5 +158,65 @@
     "reference_line": 340,
     "module_name": "5-digital-systems",
     "category": "u"
+  },
+  {
+    "term": "1 - 1. Principio de dualidad",
+    "example": ":m a)\n- Dual de $A+0=A \\rightarrow A \\cdot 1=A$\n- Dual de $A \\cdot 1=A \\rightarrow A+0=A$",
+    "description": ":m a) Escribe la forma dual de las siguientes expresiones:\n- $A+0=A$\n- $A \\cdot 1=A$",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\1-u2-boolean-algebra.md",
+    "reference_line": 51,
+    "module_name": "5-digital-systems",
+    "category": "ubooleanalgebra"
+  },
+  {
+    "term": "2 - 1. Propiedad idempotencia",
+    "example": ":m a)\n- $A+A=A$\n- $A \\cdot A=A$",
+    "description": ":m a) Simplifica las siguientes expresiones usando la idempotencia:\n- $A+A$\n- $A \\cdot A$",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\1-u2-boolean-algebra.md",
+    "reference_line": 62,
+    "module_name": "5-digital-systems",
+    "category": "ubooleanalgebra"
+  },
+  {
+    "term": "3 - 1. Propiedad de los elementos nulos",
+    "example": ":m a)\n- $A+1=1$\n- $A \\cdot 0=0$\n4. Demostración guiada",
+    "description": ":m a) Simplifica aplicando la propiedad de los elementos nulos:\n- $A+1$\n- $A \\cdot 0$",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\1-u2-boolean-algebra.md",
+    "reference_line": 73,
+    "module_name": "5-digital-systems",
+    "category": "ubooleanalgebra"
+  },
+  {
+    "term": "4 - postulados usados",
+    "example": ":m Resolución:\n1. $A=A \\cdot 1$ (por identidad)\n2. $A \\cdot 1=A \\cdot(A+\\bar{A})$ (por complemento)\n3. $A \\cdot(A+\\bar{A})=A \\cdot A+A \\cdot \\bar{A}$ (por distributiva)\n4. $A \\cdot A+A \\cdot \\bar{A}=A \\cdot A+0$ (por complemento)\n5. $A \\cdot A+0=A \\cdot A$ (por identidad)\nEntonces $A=A \\cdot A$.",
+    "description": ":m Comprueba que $A \\cdot A=A$, indicando los pasos con los postulados usados (como en el ejemplo).",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\1-u2-boolean-algebra.md",
+    "reference_line": 85,
+    "module_name": "5-digital-systems",
+    "category": "ubooleanalgebra"
+  },
+  {
+    "term": "5 - 1. Propiedad involutiva",
+    "example": ":m a)\n- $\\overline{\\bar{A}}=A$\n- $\\overline{\\overline{(B+C)}}=B+C$",
+    "description": ":m a) Simplifica las siguientes expresiones:\n- $\\overline{\\bar{A}}$\n- $\\overline{\\overline{(B+C)}}$ ",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\1-u2-boolean-algebra.md",
+    "reference_line": 98,
+    "module_name": "5-digital-systems",
+    "category": "ubooleanalgebra"
+  },
+  {
+    "term": "6 - 1. Propiedad de absorción",
+    "example": ":m a)\n- $A+(A \\cdot B)=A$\n- $A \\cdot(A+B)=A$",
+    "description": ":m a) Simplifica aplicando la absorción:\n- $A+(A \\cdot B)$\n- $A \\cdot(A+B)$ ",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\1-u2-boolean-algebra.md",
+    "reference_line": 109,
+    "module_name": "5-digital-systems",
+    "category": "ubooleanalgebra"
   }
 ]
