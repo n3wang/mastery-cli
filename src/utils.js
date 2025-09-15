@@ -13,6 +13,8 @@
 
 const chalk = require('chalk');
 const clipboard = require('copy-paste');
+const fs = require('fs');
+const path = require('path');
 
 const chart = require('./local-modules/terminal-charts');
 const { exec } = require('node:child_process');
@@ -390,6 +392,9 @@ class Mastery {
 					skill_name: skill_name,
 					deck_term: deck_term
 				});
+			},
+			'create-module': () => {
+				this.createTermModule();
 			}
 		};
 	}
@@ -838,6 +843,207 @@ class Mastery {
 				.catch(err => {
 					console.error('Error loading skills reports', err);
 				});
+		}
+	}
+
+	async createTermModule() {
+		console.log('\n=== Term Module Creation Wizard ===\n');
+
+		try {
+			// Helper function to convert title to module path
+			const titleToModulePath = (title) => {
+				return title
+					.toLowerCase()
+					.replace(/[^a-z0-9\s-]/g, '') // Remove special characters except spaces and hyphens
+					.replace(/\s+/g, '-') // Replace spaces with hyphens
+					.replace(/-+/g, '-') // Replace multiple hyphens with single hyphen
+					.replace(/^-|-$/g, ''); // Remove leading/trailing hyphens
+			};
+
+			// Helper function to derive skill category from title
+			const titleToSkillCategory = (title) => {
+				const lowerTitle = title.toLowerCase();
+				
+				// Common category mappings
+				if (lowerTitle.includes('data') && lowerTitle.includes('science')) return 'datascience';
+				if (lowerTitle.includes('math') || lowerTitle.includes('calculus') || lowerTitle.includes('algebra')) return 'mathematics';
+				if (lowerTitle.includes('programming') || lowerTitle.includes('code') || lowerTitle.includes('software')) return 'programming';
+				if (lowerTitle.includes('business') || lowerTitle.includes('finance') || lowerTitle.includes('economics')) return 'business';
+				if (lowerTitle.includes('science') || lowerTitle.includes('chemistry') || lowerTitle.includes('physics')) return 'science';
+				if (lowerTitle.includes('language') || lowerTitle.includes('english') || lowerTitle.includes('spanish')) return 'language';
+				if (lowerTitle.includes('history') || lowerTitle.includes('geography')) return 'humanities';
+				
+				// Default: use first word or generic category
+				const firstWord = lowerTitle.split(' ')[0].replace(/[^a-z0-9]/g, '');
+				return firstWord || 'general';
+			};
+
+			// Collect module information
+			const titleInput = new Input({
+				name: 'title',
+				message: 'Enter module title (e.g., "Data Science Fundamentals"):',
+				validate: (input) => input.trim() ? true : 'Title is required'
+			});
+
+			const authorInput = new Input({
+				name: 'author',
+				message: 'Enter author name:',
+				initial: 'user'
+			});
+
+			const cacheContentToggle = new Toggle({
+				name: 'cacheContent',
+				message: 'Enable content caching?',
+				enabled: 'Yes',
+				disabled: 'No',
+				initial: true
+			});
+
+			const useFileAsModuleToggle = new Toggle({
+				name: 'useFileAsModule',
+				message: 'Use each file as separate module?',
+				enabled: 'Yes',
+				disabled: 'No',
+				initial: false
+			});
+
+			const externalFolderInput = new Input({
+				name: 'externalFolder',
+				message: 'Enter external content folder path (optional, press Enter to skip):',
+				validate: (input) => {
+					if (!input || input.trim() === '') {
+						return true; // Optional field
+					}
+					
+					// Check if path exists (with original single backslashes for validation)
+					const originalPath = input.trim();
+					if (!fs.existsSync(originalPath)) {
+						return `Path does not exist: ${originalPath}`;
+					}
+					
+					// Check if it's a directory
+					if (!fs.statSync(originalPath).isDirectory()) {
+						return 'Path must be a directory, not a file';
+					}
+					
+					return true;
+				},
+				format: (input) => {
+					// Automatically escape single backslashes to double backslashes for Windows paths
+					if (input && input.includes('\\')) {
+						return input.replace(/\\/g, '\\\\');
+					}
+					return input;
+				}
+			});
+
+			// Run prompts
+			const title = await titleInput.run();
+			const author = await authorInput.run();
+			const cacheContent = await cacheContentToggle.run();
+			const useFileAsModule = await useFileAsModuleToggle.run();
+			let externalFolder = await externalFolderInput.run();
+
+			// Additional path processing for Windows paths
+			if (externalFolder && externalFolder.trim()) {
+				// Ensure proper escaping for JavaScript strings
+				externalFolder = externalFolder.replace(/\\/g, '\\\\');
+			}
+
+			// Derive module path and skill category from title
+			const modulePath = titleToModulePath(title);
+			const skillCategory = titleToSkillCategory(title);
+
+			console.log(`\n📋 Generated configuration:`);
+			console.log(`   Module path: ${modulePath}`);
+			console.log(`   Skill category: ${skillCategory}`);
+			if (externalFolder && externalFolder.trim()) {
+				console.log(`   External folder: ${externalFolder.trim()}`);
+			}
+
+			// Confirm generated values
+			const confirmGeneration = new Confirm({
+				name: 'confirm',
+				message: 'Proceed with this configuration?',
+				initial: true
+			});
+
+			const shouldProceed = await confirmGeneration.run();
+			if (!shouldProceed) {
+				console.log('Module creation cancelled.');
+				return;
+			}
+
+			// Create module directory
+			const moduleDir = path.join(__dirname, 'data', 'user_data', 'terms_modules', modulePath);
+			
+			if (fs.existsSync(moduleDir)) {
+				console.log(`\nError: Module directory already exists at ${moduleDir}`);
+				return;
+			}
+
+			fs.mkdirSync(moduleDir, { recursive: true });
+			console.log(`\nCreated module directory: ${moduleDir}`);
+
+			// Generate index.js content
+			let indexContent = `const ABOUT = {
+	title: '${title}',
+	skill_category: '${skillCategory}',
+	author: '${author}'
+};
+
+`;
+
+			if (externalFolder.trim()) {
+				indexContent += `const EXTERNAL_CONTENT_FOLDERS = [
+	'${externalFolder.trim()}'
+];
+
+`;
+			}
+
+			indexContent += `module.exports = {
+	module_path: '${modulePath}',
+	ABOUT: ABOUT,
+	CACHE_CONTENT: ${cacheContent}`;
+
+			if (externalFolder.trim()) {
+				indexContent += `,
+	EXTERNAL_CONTENT_FOLDERS: EXTERNAL_CONTENT_FOLDERS`;
+			}
+
+			if (useFileAsModule) {
+				indexContent += `,
+	USE_FILE_AS_MODULE: true`;
+			}
+
+			indexContent += `
+};
+`;
+
+			// Write index.js file
+			const indexPath = path.join(moduleDir, 'index.js');
+			fs.writeFileSync(indexPath, indexContent);
+			console.log(`Created index.js: ${indexPath}`);
+
+			// Create cache directory if caching is enabled
+			if (cacheContent) {
+				const cacheDir = path.join(moduleDir, 'cache_md');
+				fs.mkdirSync(cacheDir, { recursive: true });
+				console.log(`Created cache directory: ${cacheDir}`);
+			}
+
+			console.log(`\n✅ Successfully created term module: ${modulePath}`);
+			console.log(`📁 Location: ${moduleDir}`);
+			console.log(`\n📝 Next steps:`);
+			console.log(`   1. Add your markdown files to the module directory`);
+			if (externalFolder.trim()) {
+				console.log(`   2. Ensure your external folder contains markdown files: ${externalFolder}`);
+			}
+			console.log(`   3. Run 'mastery ses' to start studying your new module`);
+
+		} catch (error) {
+			console.error('Error creating term module:', error.message);
 		}
 	}
 }

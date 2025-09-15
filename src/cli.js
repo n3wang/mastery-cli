@@ -108,6 +108,10 @@ class CommandsInformation {
 			help: new Command(
 				'Display available commands and usage hints',
 				'help'
+			),
+			'create-module': new Command(
+				'Create a new terms module with guided setup',
+				'create-module'
 			)
 		};
 	}
