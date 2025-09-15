@@ -1081,7 +1081,7 @@ class Mastery {
 				]);
 
 				if (action === 'exit') {
-					console.log('👋 Goodbye!');
+					console.log('Now running quiz or coa will use the selected masks.');
 					break;
 				}
 

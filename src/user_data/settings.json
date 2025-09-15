@@ -102,22 +102,13 @@
 			{
 				"title": "cert-focus",
 				"decks_to_enable": [
-					"cfa:MInterestRatesandReturnMeasurement",
-					"cfa:MHypothesisTesting"
-				]
-			},
-			{
-				"title": "simplemask",
-				"decks_to_enable": [
-					"college-quimica:unidadcompuestosquimicos",
-					"interview",
-					"interview filter frequent",
-					"run when job"
+					"cfa",
+					"datascience-statistics"
 				]
 			}
 		],
 		"use_masks": [
-			"simplemask"
+			"cert-focus"
 		]
 	},
 	"flashcard_markdown_file": "current-quiz.md"
