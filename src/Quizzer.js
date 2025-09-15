@@ -584,19 +584,15 @@ class Quizzer {
 	) => {
 		//Pick a term deck Suppose is given
 
-		// For now just load a new one everytime.
-		const termsModules = retrieve_terms_as_decks();
-		for (const key of Object.keys(termsModules)) {
-			masterDeck.addDeck(termsModules[key]);
-		}
+		// Terms are already loaded via ensureTermsLoaded() before this method is called
+		// No need to add decks again - this was causing duplicates
 		const dictOptions = masterDeck.deck_titles_with_count;
 
-		const allTermsModules = { ...dictOptions, ...termsModules };
 		let titles = [...Object.keys(dictOptions)];
 
 		// Sort by count(from dict Options)
 		titles.sort(
-			(a, b) => allTermsModules[b].count - allTermsModules[a].count
+			(a, b) => dictOptions[b].count - dictOptions[a].count
 		);
 
 		const ms_deck = new AutoComplete({
@@ -607,7 +603,7 @@ class Quizzer {
 
 		let deck_selected_key = await ms_deck.run();
 
-		let deck_selected = allTermsModules[deck_selected_key].name;
+		let deck_selected = dictOptions[deck_selected_key].name;
 
 		let selected_terms = masterDeck.listTerms({
 			get_only: [deck_selected]
