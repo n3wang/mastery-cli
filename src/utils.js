@@ -1071,6 +1071,7 @@ class Mastery {
 						message: 'What would you like to do?',
 						choices: [
 							{ name: 'Add new mask', value: 'add' },
+							{ name: 'Edit existing mask', value: 'edit' },
 							{ name: 'Delete existing mask', value: 'delete' },
 							{ name: 'Toggle mask usage', value: 'toggle' },
 							{ name: 'View current masks', value: 'view' },
@@ -1091,10 +1092,12 @@ class Mastery {
 
 				if (action === 'add') {
 					await this.addNewMask(settingsPath);
+				} else if (action === 'edit') {
+					await this.editExistingMask(settingsPath);
 				} else if (action === 'delete') {
 					await this.deleteMask(settingsPath);
 				} else if (action === 'toggle') {
-					await this.toggleMaskUsage(settingsPath);
+					await this.toggleMaskUsageLoop(settingsPath);
 				}
 			}
 		} catch (error) {
@@ -1292,41 +1295,269 @@ class Mastery {
 		}
 	}
 
-	async toggleMaskUsage(settingsPath) {
+	async toggleMaskUsageLoop(settingsPath) {
 		const inquirer = require('inquirer');
 		const fs = require('fs');
+
+		try {
+			console.log('\n🔄 Toggle Mask Usage Mode\n');
+
+			while (true) {
+				const settings = JSON.parse(fs.readFileSync(settingsPath, 'utf8'));
+				const quizConfig = settings.quiz_decks_configuration || { masks: [], use_masks: [] };
+
+				if (quizConfig.masks.length === 0) {
+					console.log('No masks available to toggle.');
+					return;
+				}
+
+				console.log('Current status:');
+				quizConfig.masks.forEach(mask => {
+					const isActive = quizConfig.use_masks.includes(mask.title);
+					const status = isActive ? '✅ ACTIVE' : '❌ INACTIVE';
+					console.log(`  ${mask.title}: ${status}`);
+				});
+
+				const { action } = await inquirer.prompt([
+					{
+						type: 'list',
+						name: 'action',
+						message: 'What would you like to do?',
+						choices: [
+							{ name: 'Toggle individual mask on/off', value: 'toggle_single' },
+							{ name: 'Select all active masks at once', value: 'select_all' },
+							{ name: 'Finish toggle operations', value: 'finish' }
+						]
+					}
+				]);
+
+				if (action === 'finish') {
+					console.log('✅ Finished toggling mask usage.\n');
+					break;
+				}
+
+				if (action === 'toggle_single') {
+					const { maskToToggle } = await inquirer.prompt([
+						{
+							type: 'list',
+							name: 'maskToToggle',
+							message: 'Select mask to toggle:',
+							choices: quizConfig.masks.map(mask => {
+								const isActive = quizConfig.use_masks.includes(mask.title);
+								const status = isActive ? '✅ ACTIVE' : '❌ INACTIVE';
+								return {
+									name: `${mask.title} - ${status}`,
+									value: mask.title
+								};
+							})
+						}
+					]);
+
+					if (quizConfig.use_masks.includes(maskToToggle)) {
+						// Remove from active masks
+						quizConfig.use_masks = quizConfig.use_masks.filter(title => title !== maskToToggle);
+						console.log(`❌ Deactivated: ${maskToToggle}`);
+					} else {
+						// Add to active masks
+						quizConfig.use_masks.push(maskToToggle);
+						console.log(`✅ Activated: ${maskToToggle}`);
+					}
+
+					settings.quiz_decks_configuration = quizConfig;
+					fs.writeFileSync(settingsPath, JSON.stringify(settings, null, '\t'));
+				} else if (action === 'select_all') {
+					const { selectedMasks } = await inquirer.prompt([
+						{
+							type: 'checkbox',
+							name: 'selectedMasks',
+							message: 'Select which masks should be ACTIVE (uncheck to deactivate):',
+							choices: quizConfig.masks.map(mask => ({
+								name: `${mask.title} (${mask.decks_to_enable.join(', ')})`,
+								value: mask.title,
+								checked: quizConfig.use_masks.includes(mask.title)
+							}))
+						}
+					]);
+
+					quizConfig.use_masks = selectedMasks;
+					settings.quiz_decks_configuration = quizConfig;
+					fs.writeFileSync(settingsPath, JSON.stringify(settings, null, '\t'));
+
+					console.log(`\n✅ Mask usage updated!`);
+					console.log(`Active masks: ${selectedMasks.join(', ') || 'None'}\n`);
+				}
+			}
+
+		} catch (error) {
+			console.error('Error toggling mask usage:', error.message);
+		}
+	}
+
+	async editExistingMask(settingsPath) {
+		const inquirer = require('inquirer');
+		const fs = require('fs');
+		const { retrieve_terms_as_decks } = require('./md_terms_parser');
 
 		try {
 			const settings = JSON.parse(fs.readFileSync(settingsPath, 'utf8'));
 			const quizConfig = settings.quiz_decks_configuration || { masks: [], use_masks: [] };
 
 			if (quizConfig.masks.length === 0) {
-				console.log('No masks available to toggle.');
+				console.log('No masks available to edit.');
 				return;
 			}
 
-			const { selectedMasks } = await inquirer.prompt([
+			const { maskToEdit } = await inquirer.prompt([
 				{
-					type: 'checkbox',
-					name: 'selectedMasks',
-					message: 'Select which masks should be ACTIVE (uncheck to deactivate):',
+					type: 'list',
+					name: 'maskToEdit',
+					message: 'Select mask to edit:',
 					choices: quizConfig.masks.map(mask => ({
 						name: `${mask.title} (${mask.decks_to_enable.join(', ')})`,
-						value: mask.title,
-						checked: quizConfig.use_masks.includes(mask.title)
+						value: mask.title
 					}))
 				}
 			]);
 
-			quizConfig.use_masks = selectedMasks;
+			const maskIndex = quizConfig.masks.findIndex(mask => mask.title === maskToEdit);
+			const currentMask = quizConfig.masks[maskIndex];
+
+			console.log(`\n📝 Editing mask: ${currentMask.title}`);
+			console.log(`Current decks: ${currentMask.decks_to_enable.join(', ')}\n`);
+
+			// Get available modules and their categories
+			console.log('🔍 Loading available modules and categories...\n');
+			const termsModules = retrieve_terms_as_decks();
+			const moduleChoices = [];
+			const moduleCategories = {};
+
+			// Add sample terms modules
+			const sampleTerms = require('./terms_data/sample_terms.js');
+			Object.keys(sampleTerms).forEach(key => {
+				if (Array.isArray(sampleTerms[key])) {
+					const displayName = key.replace(/_/g, ' ').toLowerCase();
+					moduleChoices.push({ name: displayName, value: displayName });
+					moduleCategories[displayName] = ['all'];
+				}
+			});
+
+			// Add terms modules with their categories
+			Object.keys(termsModules).forEach(moduleKey => {
+				const module = termsModules[moduleKey];
+				const moduleName = module.deck_name;
+				moduleChoices.push({ name: moduleName, value: moduleName });
+
+				// Get unique categories from this module
+				const categories = new Set(['all']);
+				module.terms.forEach(term => {
+					if (term.category) {
+						categories.add(term.category);
+					}
+				});
+				moduleCategories[moduleName] = Array.from(categories);
+			});
+
+			const { editAction } = await inquirer.prompt([
+				{
+					type: 'list',
+					name: 'editAction',
+					message: 'How would you like to edit this mask?',
+					choices: [
+						{ name: 'Replace all decks (start fresh)', value: 'replace' },
+						{ name: 'Add more decks to existing ones', value: 'add' },
+						{ name: 'Remove specific decks', value: 'remove' }
+					]
+				}
+			]);
+
+			let newDecks = [...currentMask.decks_to_enable];
+
+			if (editAction === 'replace') {
+				newDecks = [];
+				console.log('\n🔄 Starting fresh - select new decks for this mask:');
+			} else if (editAction === 'add') {
+				console.log('\n➕ Adding more decks to the existing ones:');
+			} else if (editAction === 'remove') {
+				const { decksToRemove } = await inquirer.prompt([
+					{
+						type: 'checkbox',
+						name: 'decksToRemove',
+						message: 'Select decks to remove:',
+						choices: currentMask.decks_to_enable.map(deck => ({
+							name: deck,
+							value: deck
+						}))
+					}
+				]);
+
+				newDecks = newDecks.filter(deck => !decksToRemove.includes(deck));
+				console.log(`\n✅ Removed ${decksToRemove.length} decks from mask.`);
+			}
+
+			if (editAction === 'replace' || editAction === 'add') {
+				// Select new decks to add
+				while (true) {
+					const { selectedModule } = await inquirer.prompt([
+						{
+							type: 'list',
+							name: 'selectedModule',
+							message: 'Select a module to add:',
+							choices: [
+								...moduleChoices,
+								{ name: '✅ Done selecting', value: 'done' }
+							]
+						}
+					]);
+
+					if (selectedModule === 'done') {
+						break;
+					}
+
+					const availableCategories = moduleCategories[selectedModule] || ['all'];
+					
+					if (availableCategories.length === 1) {
+						// Only 'all' is available
+						if (!newDecks.includes(selectedModule)) {
+							newDecks.push(selectedModule);
+							console.log(`Added: ${selectedModule} (all categories)`);
+						} else {
+							console.log(`Already included: ${selectedModule}`);
+						}
+					} else {
+						const { selectedCategory } = await inquirer.prompt([
+							{
+								type: 'list',
+								name: 'selectedCategory',
+								message: `Select category for ${selectedModule}:`,
+								choices: availableCategories.map(cat => ({
+									name: cat === 'all' ? 'All categories' : cat,
+									value: cat
+								}))
+							}
+						]);
+
+						const deckSpec = selectedCategory === 'all' ? selectedModule : `${selectedModule}:${selectedCategory}`;
+						
+						if (!newDecks.includes(deckSpec)) {
+							newDecks.push(deckSpec);
+							console.log(`Added: ${deckSpec}`);
+						} else {
+							console.log(`Already included: ${deckSpec}`);
+						}
+					}
+				}
+			}
+
+			// Update the mask
+			currentMask.decks_to_enable = newDecks;
 			settings.quiz_decks_configuration = quizConfig;
 			fs.writeFileSync(settingsPath, JSON.stringify(settings, null, '\t'));
 
-			console.log(`\n✅ Mask usage updated!`);
-			console.log(`Active masks: ${selectedMasks.join(', ') || 'None'}\n`);
+			console.log(`\n✅ Mask "${currentMask.title}" updated successfully!`);
+			console.log(`📦 Now contains: ${newDecks.join(', ')}\n`);
 
 		} catch (error) {
-			console.error('Error toggling mask usage:', error.message);
+			console.error('Error editing mask:', error.message);
 		}
 	}
 }
