@@ -599,6 +599,22 @@ class Mastery {
 			console.log('Yesterday Scores', yesterday_scores);
 			console.log('Week Scores', week_scores);
 
+			// Check if there's any recent activity
+			const hasRecentActivity = Object.keys(today_scores).length > 0 || Object.keys(week_scores).length > 0;
+			
+			if (!hasRecentActivity) {
+				console.log('\n⚠️  No recent activity found.');
+				console.log('💡 Try running some quizzes to generate report data.');
+				
+				// Show available data dates for reference
+				const availableDates = Object.keys(localStorageInstance.date_based_stats).sort();
+				if (availableDates.length > 0) {
+					console.log(`📅 Latest activity: ${availableDates[availableDates.length - 1]}`);
+					console.log(`📅 First activity: ${availableDates[0]}`);
+				}
+				return;
+			}
+
 			let userPerformanceData = {
 				today: {},
 				week_sum: {},

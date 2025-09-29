@@ -98,5 +98,205 @@
     "reference_line": 244,
     "module_name": "7-math-analysis",
     "category": "generalidadesdelasfunciones"
+  },
+  {
+    "term": "1 - Límites y su evolución histórica",
+    "example": ":m Significa que los valores de f(x) se acercan arbitrariamente al número LL cuando xx toma valores cada vez más próximos a x0, aunque x_0 no necesariamente pertenezca al dominio de f(x).",
+    "description": ":m El concepto de **límite** es la base del cálculo diferencial e integral. Permite analizar el comportamiento de una función cuando la variable independiente se acerca a cierto valor, aunque no lo alcance. Newton y Leibniz, en el siglo XVII, desarrollaron este marco que revolucionó las matemáticas.\n\n",
+    "prompt": "Explica qué significa que una función f(x) tenga límite L cuando $x→x0x \\to x_0$.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\2-limite.md",
+    "reference_line": 2,
+    "module_name": "7-math-analysis",
+    "category": "limite"
+  },
+  {
+    "term": "2 - Límite finito para variable finita",
+    "example": ":m Al simplificar queda $f(x)=x+1f(x) = x+1$ para $x≠1x \\neq 1. $\nCuando $x→1x \\to 1, f(x)→2f(x) \\to 2.$\nPor lo tanto:\nlim⁡x→$1x2−1x−1=2\\lim_{x \\to 1} \\frac{x^2 - 1}{x - 1} = 2.$",
+    "description": ":m El límite finito se da cuando la variable independiente se acerca a un valor $x0$ y la función tiende a un valor finito LL.\nEjemplo:\n$$\nf(x)=x2−1x−1,x∈R−{1}f(x) = \\frac{x^2 - 1}{x - 1}, \\quad x \\in \\mathbb{R} - \\{1\\}\n$$\nFactorizando:\n$$\nf(x)=(x−1)(x+1)x−1=x+1,x≠1f(x) = \\frac{(x-1)(x+1)}{x-1} = x+1, \\quad x \\neq 1\n$$\n",
+    "prompt": "Calcula lim⁡x→$1x2−1x−1\\lim_{x \\to 1} \\frac{x^2 - 1}{x - 1}.$",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\2-limite.md",
+    "reference_line": 14,
+    "module_name": "7-math-analysis",
+    "category": "limite"
+  },
+  {
+    "term": "3 - Límites infinitos y límites laterales",
+    "example": ":m 1. Que al acercarse a $x = 0$, los valores de $f(x)$ crecen ilimitadamente.\n2. Que cuando $x$ crece mucho (tiende a infinito), los valores de $f(x)$ se acercan a 0.",
+    "description": ":m Cuando una función crece sin acotación a medida que $x$ se acerca a un valor (como $x \\to 0$), decimos que el **límite es infinito**. Esto puede expresarse como:\n- Si $x \\to 0^+$, entonces $f(x) \\to +\\infty$\n- Si $x \\to 0^-$, entonces $f(x) \\to -\\infty$\n(dependiendo del comportamiento de la función a izquierda o derecha de cero)\nAdemás, cuando $x$ tiende a infinito o menos infinito, y la función tiende a un número, se habla de **límites con variable infinita**.\n",
+    "prompt": "¿Qué significa que $\\lim_{x \\to 0} f(x) = +\\infty$? ¿Y que $\\lim_{x \\to \\infty} f(x) = 0$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\2-limite.md",
+    "reference_line": 37,
+    "module_name": "7-math-analysis",
+    "category": "limite"
+  },
+  {
+    "term": "4 - Límites laterales – definición y ejemplo",
+    "example": ":m 1. $\\lim_{x \\to 2^-} f(x) = 2^2 + 2 = 6$\n2. $\\lim_{x \\to 2^+} f(x) = 2 \\cdot 2 = 4$",
+    "description": ":m El **límite lateral derecho** es el valor al que se acerca una función cuando $x$ se aproxima a un número por valores mayores (desde la derecha), se escribe como $\\lim_{x \\to a^+} f(x)$.\nEl **límite lateral izquierdo** se define similarmente pero por la izquierda: $\\lim_{x \\to a^-} f(x)$.\nEjemplo: Sea la función por partes\n$$\nf(x)= \\begin{cases}x^2+2 & \\text { si } x<2 \\\\ 2 x & \\text { si } x \\geq 2\\end{cases}\n$$",
+    "prompt": "Calcula los límites laterales de $f(x)$ cuando $x \\to 2$",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\2-limite.md",
+    "reference_line": 55,
+    "module_name": "7-math-analysis",
+    "category": "limite"
+  },
+  {
+    "term": "5 - Límite inexistente vs límite existente – según los límites laterales",
+    "example": ":m 1. No existe el límite en $x=2$ porque los límites laterales son distintos",
+    "description": ":m Si al acercarse a un punto desde izquierda ($x \\to a^-$) y desde derecha ($x \\to a^+$) la función se aproxima a **distintos valores**, **no existe límite** en ese punto.\nPero si **ambos límites laterales coinciden**, entonces **existe el límite** y es ese valor común.\n",
+    "prompt": "¿Qué ocurre con el límite en $x = 2$ si $\\lim_{x \\to 2^-} f(x) = 6$ y $\\lim_{x \\to 2^+} f(x) = 4$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\2-limite.md",
+    "reference_line": 71,
+    "module_name": "7-math-analysis",
+    "category": "limite"
+  },
+  {
+    "term": "6 - Propiedades básicas de límites",
+    "example": ":m $\\lim_{x \\to 3} (2x + 1) = 2 \\cdot 3 + 1 = 7$",
+    "description": ":m Estas reglas permiten operar límites como si fueran números. Sean $f(x), g(x)$ funciones con límite cuando $x \\to a$:\n1. $\\lim_{x \\to a} k = k$\n2. $\\lim_{x \\to a} x = a$\n3. $\\lim_{x \\to a} k \\cdot f(x) = k \\cdot \\lim_{x \\to a} f(x)$\n4. $\\lim_{x \\to a} [f(x) + g(x)] = \\lim_{x \\to a} f(x) + \\lim_{x \\to a} g(x)$\n5. $\\lim_{x \\to a} [f(x) \\cdot g(x)] = \\lim_{x \\to a} f(x) \\cdot \\lim_{x \\to a} g(x)$",
+    "prompt": "¿Cuál es el valor de $\\lim_{x \\to 3} (2x + 1)$ usando propiedades?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\2-limite.md",
+    "reference_line": 90,
+    "module_name": "7-math-analysis",
+    "category": "limite"
+  },
+  {
+    "term": "7 - Propiedades avanzadas de los límites",
+    "example": ":m\n9. Aplicamos propiedades:\n- $\\lim_{x \\to 2} 3x^4 = 3 \\cdot 2^4 = 48$\n- $\\lim_{x \\to 2} -5x^2 = -5 \\cdot 2^2 = -20$\n- $\\lim_{x \\to 2} 3 = 3$\nResultado: $48 - 20 + 3 = 31$",
+    "description": ":m Además de las propiedades básicas, existen otras que nos permiten operar funciones más complejas al calcular límites:\n6. División:\n$$\nlim⁡x→af(x)g(x)=lim⁡x→af(x)lim⁡x→ag(x)si lim⁡x→ag(x)≠0\\lim_{x \\to a} \\frac{f(x)}{g(x)} = \\frac{\\lim_{x \\to a} f(x)}{\\lim_{x \\to a} g(x)} \\quad \\text{si } \\lim_{x \\to a} g(x) \\ne 0\n$$\n7. Potencias:\n$$\nlim⁡x→a[f(x)]n=(lim⁡x→af(x))n\\lim_{x \\to a} [f(x)]^n = \\left(\\lim_{x \\to a} f(x)\\right)^n\n$$\n8. Composición de funciones:\n$$\nlim⁡x→af(g(x))=f(lim⁡x→ag(x))si lim⁡x→ag(x) existe\\lim_{x \\to a} f(g(x)) = f\\left(\\lim_{x \\to a} g(x)\\right) \\quad \\text{si } \\lim_{x \\to a} g(x) \\text{ existe}\n$$",
+    "prompt": "¿Cuál es el valor de $\\lim_{x \\to 2} (3x^4 - 5x^2 + 3)$ utilizando propiedades de límites?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\2-limite.md",
+    "reference_line": 107,
+    "module_name": "7-math-analysis",
+    "category": "limite"
+  },
+  {
+    "term": "8 - Estrategia para resolver límites",
+    "example": ":m 1. Identificar la indeterminación.\n2. Aplicar factorización o simplificación.\n3. Volver a intentar el cálculo del límite.",
+    "description": ":m Antes de calcular un límite, se debe:\n1. **Reemplazar directamente** el valor hacia el cual tiende x.\n2. Verificar si se obtiene un **valor definido** o una **indeterminación** (como $\\frac{0}{0}$ o $\\frac{k}{0}$ ).\n3. Si hay indeterminación, **factorizar**, **racionalizar** o **usar propiedades algebraicas** para simplificar.\n**Recordá:** Si el límite existe, los límites laterales deben coincidir.\n\\:p ¿Qué pasos debemos seguir para resolver $\\lim\\_{x \\to a} f(x)$ si al reemplazar obtenemos $\\frac{0}{0}$?",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\2-limite.md",
+    "reference_line": 133,
+    "module_name": "7-math-analysis",
+    "category": "limite"
+  },
+  {
+    "term": "9 - Aplicación de propiedades de límites – ejemplo completo",
+    "example": ":m\n1. Se separan los términos y se aplican las propiedades:\n* $\\lim\\_{x \\to 2} 3x^4 = 3 \\cdot 2^4 = 3 \\cdot 16 = 48$\n* $\\lim\\_{x \\to 2} 5x^2 = 5 \\cdot 2^2 = 5 \\cdot 4 = 20$\n* $\\lim\\_{x \\to 2} 3 = 3$\nResultado: $48 - 20 + 3 = \\boxed{31}$",
+    "description": ":m Cuando la función es polinómica, podemos **aplicar propiedades algebraicas** directamente sin necesidad de simplificar. En este caso usamos:\n* (1) $\\lim\\_{x \\to a} k = k$\n* (2) $\\lim\\_{x \\to a} x^n = a^n$\n* (3) $\\lim\\_{x \\to a} \\[k \\cdot f(x)] = k \\cdot \\lim\\_{x \\to a} f(x)$\n* (4) $\\lim\\_{x \\to a} \\[f(x) + g(x)] = \\lim f + \\lim g$\n\\:p ¿Cuál es el valor de $\\lim\\_{x \\to 2} (3x^4 - 5x^2 + 3)$ usando propiedades?",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\2-limite.md",
+    "reference_line": 159,
+    "module_name": "7-math-analysis",
+    "category": "limite"
+  },
+  {
+    "term": "10 - Pasos para resolver límites correctamente",
+    "example": ":m 1. El límite tiende a infinito o menos infinito, según el signo del denominador.",
+    "description": ":m Antes de resolver un límite, se debe seguir esta secuencia lógica para evitar errores:\n1. **Reemplazar directamente** el valor de $x$.\n2. Si el resultado es **determinado**, calcularlo directamente.\n3. Si aparece una **indeterminación** como $\\frac{0}{0}$ o $\\frac{k}{0}$, analizar:\n* Si el numerador es constante y el denominador tiende a 0, el límite tiende a $\\infty$ o $-\\infty$.\n* Si es $\\frac{0}{0}$, aplicar factorización, simplificación o técnicas de álgebra.\nAdemás:\n* **El límite existe** solo si los límites laterales (por derecha e izquierda) son **iguales**.\n\\:p ¿Qué tipo de resultado da una expresión donde el numerador tiende a un número constante y el denominador tiende a 0?",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\2-limite.md",
+    "reference_line": 183,
+    "module_name": "7-math-analysis",
+    "category": "limite"
+  },
+  {
+    "term": "11 - Indeterminaciones y límites notables",
+    "example": ":m 1. Es una indeterminación del tipo $\\frac{0}{0}$. Se debe factorizar: $\\frac{(x-2)(x+2)}{x-2} = x+2 \\Rightarrow$ límite: $4$",
+    "description": ":m Existen **formas indeterminadas** que requieren un análisis especial. Algunas comunes son:\n* $\\frac{0}{0}$\n* $\\frac{k}{0}$ con $k \\ne 0$ (tiende a $\\infty$ o $-\\infty$)\n* $\\infty - \\infty$\n* $0 \\cdot \\infty$\n* $1^\\infty$, $0^0$, $\\infty^0$\nCada una requiere un tratamiento distinto: factorización, racionalización, uso de conjugados, logaritmos, etc.\n\\:p ¿Qué tipo de indeterminación es $\\lim\\_{x \\to 2} \\frac{x^2 - 4}{x - 2}$?",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\2-limite.md",
+    "reference_line": 206,
+    "module_name": "7-math-analysis",
+    "category": "limite"
+  },
+  {
+    "term": "12 - a) Límite con numerador constante y denominador → 0",
+    "example": ":m 1. $\\frac{2}{x} \\to +\\infty$\n$\\lim\\_{x \\to 0^+} \\frac{2}{x} = +\\infty$",
+    "description": ":m \\:p Sea $f(x) = 2$, $g(x) = x$. Calcula $\\lim\\_{x \\to 0^+} \\frac{f(x)}{g(x)}$",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\2-limite.md",
+    "reference_line": 274,
+    "module_name": "7-math-analysis",
+    "category": "limite"
+  },
+  {
+    "term": "13 - b) Límite cuando $x \\to -\\infty$, con cociente tipo $k/0$",
+    "example": ":m\n1. $\\frac{-1}{1/x} = -x \\to +\\infty$",
+    "description": ":m \\:p Sea $f(x) = -1$, $g(x) = \\frac{1}{x}$. Calcula $\\lim\\_{x \\to -\\infty} \\frac{f(x)}{g(x)}$",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\2-limite.md",
+    "reference_line": 284,
+    "module_name": "7-math-analysis",
+    "category": "limite"
+  },
+  {
+    "term": "14 - c) Límite con $f(x) \\to k$, $g(x) \\to \\infty$ (tipo $k/\\infty$)",
+    "example": ":m 1. $\\lim\\_{x \\to -4} \\frac{5}{(x+4)^2} = \\frac{5}{0^+} = +\\infty$",
+    "description": ":m \\:p Sea $f(x) = 5$, $g(x) = (x+4)^2$. Calcula $\\lim\\_{x \\to -4} \\frac{f(x)}{g(x)}$",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\2-limite.md",
+    "reference_line": 294,
+    "module_name": "7-math-analysis",
+    "category": "limite"
+  },
+  {
+    "term": "15 - d) Límite con numerador → constante y denominador → ∞",
+    "example": ":m 1. $\\lim\\_{x \\to -\\infty} \\frac{3}{x^2} = 0$",
+    "description": ":m \\:p Sea $f(x) = 3$, $g(x) = x^2$. Calcula $\\lim\\_{x \\to -\\infty} \\frac{f(x)}{g(x)}$",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\2-limite.md",
+    "reference_line": 303,
+    "module_name": "7-math-analysis",
+    "category": "limite"
+  },
+  {
+    "term": "16 - e) Indeterminación $\\frac{0}{0}$ → factorear",
+    "example": ":m 1. $\\frac{x^2 - 4}{x - 2} = \\frac{(x - 2)(x + 2)}{x - 2} = x + 2 \\Rightarrow \\lim = 4$",
+    "description": ":m \\:p Sea $f(x) = x^2 - 4$, $g(x) = x - 2$. Calcula $\\lim\\_{x \\to 2} \\frac{f(x)}{g(x)}$",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\2-limite.md",
+    "reference_line": 312,
+    "module_name": "7-math-analysis",
+    "category": "limite"
+  },
+  {
+    "term": "17 - f) Indeterminación $\\frac{\\infty}{\\infty}$ → comparar grados",
+    "example": ":m 1. Grado igual: $\\lim = \\frac{1}{3}$",
+    "description": ":m \\:p Sea $f(x) = x^2 + 1$, $g(x) = 3x^2 - x$. Calcula $\\lim\\_{x \\to \\infty} \\frac{f(x)}{g(x)}$",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\2-limite.md",
+    "reference_line": 321,
+    "module_name": "7-math-analysis",
+    "category": "limite"
+  },
+  {
+    "term": "18 - g) Indeterminación $1^{-\\infty}$",
+    "example": ":m 1. $1^{-\\infty}$ → se transforma: $\\lim e^{\\ln(1+x)(-1/x)} = e^{-1}$\nResultado: $\\boxed{1/e}$",
+    "description": ":m \\:p Calcula $\\lim\\_{x \\to 0^+} \\left(1 + x\\right)^{\\frac{-1}{x}}$",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\2-limite.md",
+    "reference_line": 330,
+    "module_name": "7-math-analysis",
+    "category": "limite"
+  },
+  {
+    "term": "19 - h) Potencia con base $k < 1$ y exponente negativo",
+    "example": ":m 1. $\\left(\\frac{1}{2}\\right)^5 = \\frac{1}{32}$",
+    "description": ":m \\:p Sea $f(x) = \\frac{1}{2}$, $x \\to -5$. Calcula $\\lim\\_{x \\to -5} f(x)^{|x|}$",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\2-limite.md",
+    "reference_line": 340,
+    "module_name": "7-math-analysis",
+    "category": "limite"
+  },
+  {
+    "term": "20 - i) Indeterminación $\\infty - \\infty$",
+    "example": ":m 1. $\\frac{1}{x} - \\frac{1}{x} = 0$\n(No hay indeterminación real en este caso)",
+    "description": ":m \\:p Sea $f(x) = \\frac{1}{x}$, $g(x) = \\frac{1}{x}$. Calcula $\\lim\\_{x \\to 0^+} f(x) - g(x)$",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\2-limite.md",
+    "reference_line": 349,
+    "module_name": "7-math-analysis",
+    "category": "limite"
   }
 ]

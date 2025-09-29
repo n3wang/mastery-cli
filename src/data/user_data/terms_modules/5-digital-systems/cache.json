@@ -218,5 +218,75 @@
     "reference_line": 109,
     "module_name": "5-digital-systems",
     "category": "ubooleanalgebra"
+  },
+  {
+    "term": "1 - Señales analógicas",
+    "example": ":m Una señal analógica es continua, toma infinitos valores dentro de un rango y su gráfica es una curva suave sin saltos.",
+    "description": ":m Las señales analógicas son continuas y pueden tomar infinitos valores. Se usan, por ejemplo, para representar fenómenos naturales como el sonido o la temperatura. ",
+    "prompt": "¿Qué caracteriza a una señal analógica y cómo se representa gráficamente?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u5-hardwaredigital.md",
+    "reference_line": 1,
+    "module_name": "5-digital-systems",
+    "category": "uhardwaredigital"
+  },
+  {
+    "term": "2 - Señales digitales",
+    "example": ":m Una señal digital es discontinua, toma valores finitos (como enteros) y su gráfica aparece como escalones o saltos.",
+    "description": ":m Las señales digitales son discretas y pueden tomar solo un número finito de valores. Se utilizan en dispositivos como celulares, computadoras y calculadoras. ",
+    "prompt": "¿Qué caracteriza a una señal digital y cómo se representa gráficamente?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u5-hardwaredigital.md",
+    "reference_line": 10,
+    "module_name": "5-digital-systems",
+    "category": "uhardwaredigital"
+  },
+  {
+    "term": "3 - Señales digitales binarias",
+    "example": ":m Las señales digitales binarias son aquellas que solo pueden tomar dos valores: `0` (bajo/apagado/abierto) y `1` (alto/encendido/cerrado).",
+    "description": ":m Son un caso particular de las señales digitales, donde solo existen dos valores posibles: 0 y 1. Se usan como base en la electrónica digital y en la informática. ",
+    "prompt": "¿Qué son las señales digitales binarias y cuáles son sus dos estados posibles?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u5-hardwaredigital.md",
+    "reference_line": 19,
+    "module_name": "5-digital-systems",
+    "category": "uhardwaredigital"
+  },
+  {
+    "term": "4 - Niveles lógicos de tensión",
+    "example": ":m\n1. Representan rangos de valores de tensión que se interpretan como 0 lógico o 1 lógico.\n2. El 0 lógico → voltajes bajos, como 0 a 1,5 V.\n3. El 1 lógico → voltajes altos, como 3,3 a 5 V.\n4. Entre ambos hay un rango de transición en el cual el nivel lógico es indefinido.",
+    "description": ":m En los circuitos digitales, los valores **0 y 1 no son un único valor fijo de tensión**, sino que representan **rangos de tensión**.\n- El **0 lógico (Low, VL)** corresponde a un rango de valores de tensión bajos (ejemplo: entre 0 V y 1,5 V).\n- El **1 lógico (High, VH)** corresponde a un rango de valores de tensión altos (ejemplo: entre 3,3 V y 5 V).\nEntre esos dos rangos existe una **zona indeterminada o de transición**, donde no está definido si la señal corresponde a un 0 o a un 1.\n",
+    "prompt": "¿Qué representan los estados bajos (0) y los estados altos (1) en un sistema digital?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u5-hardwaredigital.md",
+    "reference_line": 28,
+    "module_name": "5-digital-systems",
+    "category": "uhardwaredigital"
+  },
+  {
+    "term": "5 - Escala de integración de circuitos integrados",
+    "example": ":m - **SSI (Small Scale Integration)**: hasta 10 compuertas → funciones simples.\n- **MSI (Medium Scale Integration)**: 10 a 100 compuertas → sumadores, multiplexores.\n- **LSI (Large Scale Integration)**: 100 a 10.000 compuertas → microcontroladores, memorias.\n- **VLSI (Very Large Scale Integration)**: 10.000 a 100.000 compuertas → microprocesadores, memorias.\n- **ULSI (Ultra Large Scale Integration)**: más de 100.000 compuertas → microcomputadoras, memorias avanzadas.",
+    "description": ":m Los circuitos integrados (chips) se clasifican según la **cantidad de compuertas lógicas** que contienen. Cuantas más compuertas integren, mayor es su complejidad y capacidad de procesamiento.\n",
+    "prompt": "Clasifica los circuitos integrados según la cantidad de compuertas lógicas que integran.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u5-hardwaredigital.md",
+    "reference_line": 53,
+    "module_name": "5-digital-systems",
+    "category": "uhardwaredigital"
+  },
+  {
+    "term": "6 - Retardo de propagación",
+    "example": ":m 1. Es el tiempo que tarda la señal de salida en cambiar después de que cambia la señal de entrada.\n2. Se debe a que los circuitos físicos no responden instantáneamente.\n3. Es un dato característico que los fabricantes incluyen en la hoja técnica (datasheet).",
+    "description": ":m Cuando una señal digital pasa por una compuerta lógica, el cambio de estado (de 0 a 1 o de 1 a 0) **no ocurre de manera instantánea**, sino que hay un pequeño retraso. A este se lo llama **tiempo de propagación**.\n",
+    "prompt": "¿Qué es el retardo de propagación en un circuito integrado?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u5-hardwaredigital.md",
+    "reference_line": 68,
+    "module_name": "5-digital-systems",
+    "category": "uhardwaredigital"
+  },
+  {
+    "term": "7 - Familias Lógicas TTL vs CMOS",
+    "example": ":m TTL: usan transistores bipolares → mayor velocidad, mayor consumo.\nCMOS: usan transistores MOSFET → menor consumo, alta densidad de integración.",
+    "description": ":m Las familias lógicas se diferencian según la tecnología usada para fabricar sus transistores. Esto impacta directamente en velocidad, consumo y compatibilidad. TTL (Transistor-Transistor Logic) emplea transistores bipolares, mientras que CMOS (Complementary Metal-Oxide-Semiconductor) usa transistores de efecto de campo.\nTTL fue muy popular en la electrónica clásica, mientras que CMOS domina hoy por su eficiencia energética.\n\\:p Explica en qué se diferencian principalmente las familias lógicas TTL y CMOS.",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u5-hardwaredigital.md",
+    "reference_line": 80,
+    "module_name": "5-digital-systems",
+    "category": "uhardwaredigital"
   }
 ]

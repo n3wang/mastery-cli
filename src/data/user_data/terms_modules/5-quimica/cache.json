@@ -1,442 +1,1712 @@
 [
   {
+    "term": "1 - Clasificación de óxidos (con valencias explícitas)",
+    "example": ":m a) Ca(+2), O(–2) → óxido básico\nb) S(+6), O(–2) → óxido ácido\nc) Na(+1), O(–2) → óxido básico\nd) C(+4), O(–2) → óxido ácido",
+    "description": ":m Para clasificar un óxido necesitamos saber:\n- El **oxígeno (O)** siempre actúa con valencia **–2**.\n- Los **metales** suelen actuar con sus valencias positivas más comunes.\n- Los **no metales** usan valencias positivas que permiten equilibrar con el oxígeno.\nEjemplos:\n- **CaO**:\n- Ca (calcio, metal) → valencia +2\n- O → –2\n- Se neutralizan (CaO) → óxido **básico**.\n- **SO₃**:\n- S (azufre, no metal) → aquí con valencia +6\n- O → –2 × 3 = –6\n- Se neutralizan (SO₃) → óxido **ácido**.\n- **Na₂O**:\n- Na (sodio, metal) → valencia +1\n- O → –2\n- Balance: 2(+1) + (–2) = 0 → óxido **básico**.\n- **CO₂**:\n- C (carbono, no metal) → valencia +4\n- O → –2 × 2 = –4\n- Balance: +4 + (–4) = 0 → óxido **ácido**.\n---\na) CaO\nb) SO₃\nc) Na₂O\nd) CO₂",
+    "prompt": "Clasifica en ácido o básico, indicando las valencias de cada elemento:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
+    "reference_line": 2,
+    "module_name": "5-quimica",
+    "category": "nomenclaturasrefinado"
+  },
+  {
+    "term": "2 - Compuestos químicos: binarios y ternarios",
+    "example": ":m - Binarios → formados por 2 elementos.\n- Ternarios → formados por 3 elementos.",
+    "description": ":m Los compuestos químicos se diferencian por la cantidad de elementos distintos:\n- **Binarios**: 2 elementos. Ejemplo: NaCl (Na +1, Cl –1).\n- **Ternarios**: 3 elementos. Ejemplo: H₂SO₄ (H +1, S +6, O –2).",
+    "prompt": "¿Cuál es la diferencia entre compuestos binarios y ternarios?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
+    "reference_line": 42,
+    "module_name": "5-quimica",
+    "category": "nomenclaturasrefinado"
+  },
+  {
+    "term": "3 - Valencias en las combinaciones",
+    "example": ":m Respetando sus **valencias características** (ej. O –2, H +1, Ca +2, S +6).",
+    "description": ":m Cuando los elementos se combinan, lo hacen respetando su **valencia**: capacidad de unión.\n- H: +1\n- O: –2\n- Metales alcalinos (Na, K): +1\n- Alcalinotérreos (Ca, Mg): +2\n- Halógenos (Cl, Br, I): –1\n- C: +4 o –4\n- N: –3, +3, +5\n- S: –2, +4, +6",
+    "prompt": "¿Cómo se combinan los átomos para dar compuestos?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
+    "reference_line": 55,
+    "module_name": "5-quimica",
+    "category": "nomenclaturasrefinado"
+  },
+  {
+    "term": "4 - Óxidos con 2 valencias",
+    "example": ":m - E₂O₃ → óxido **oso** (valencia +3)\n- E₂O₅ → óxido **ico** (valencia +5)\nx??",
+    "description": ":m Cuando un elemento tiene **2 valencias** se usa:\n- Terminación **–oso** → valencia menor\n- Terminación **–ico** → valencia mayor\nEjemplo con **elemento E**:\n- Valencia +3: $E_2O_3$ (2×+3=+6, 3×–2=–6).\n- Valencia +5: $E_2O_5$ (2×+5=+10, 5×–2=–10).",
+    "prompt": "Escribe la fórmula de los óxidos de un elemento E con valencia +3 y +5.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
+    "reference_line": 73,
+    "module_name": "5-quimica",
+    "category": "nomenclaturasrefinado"
+  },
+  {
+    "term": "5 - Óxidos de hierro",
+    "example": ":m - FeO → Fe(+2), O(–2) → óxido ferroso\n- Fe₂O₃ → Fe(+3), O(–2) → óxido férrico",
+    "description": ":m El **hierro (Fe)** puede actuar con:\n- +2 (menor → ferroso)\n- +3 (mayor → férrico)\nCombinación con oxígeno (–2):\n- FeO → Fe +2, O –2 → **óxido ferroso**\n- Fe₂O₃ → Fe +3, O –2 → **óxido férrico**",
+    "prompt": "Fórmulas y nombres de los óxidos de Fe.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
+    "reference_line": 90,
+    "module_name": "5-quimica",
+    "category": "nomenclaturasrefinado"
+  },
+  {
+    "term": "6 - Clasificación de óxidos con valencias",
+    "example": ":m a) Ca(+2), O(–2) → básico\nb) S(+6), O(–2) → ácido\nc) Na(+1), O(–2) → básico\nd) C(+4), O(–2) → ácido",
+    "description": ":m a) **CaO** → Ca +2, O –2 → básico\nb) **SO₃** → S +6, O –2 → ácido\nc) **Na₂O** → Na +1, O –2 → básico\nd) **CO₂** → C +4, O –2 → ácido",
+    "prompt": "Clasifica en ácido o básico, indicando valencias.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
+    "reference_line": 107,
+    "module_name": "5-quimica",
+    "category": "nomenclaturasrefinado"
+  },
+  {
+    "term": "7 - Verdadero o falso en óxidos",
+    "example": ":m a) Verdadero\nb) Falso\nc) Verdadero",
+    "description": ":m a) El oxígeno siempre tiene –2 en óxidos. ✅\nb) FeO se llama óxido férrico ❌ (es ferroso).\nc) CO₂ es un óxido ácido ✅.\n",
+    "prompt": "Da verdadero o falso.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
+    "reference_line": 123,
+    "module_name": "5-quimica",
+    "category": "nomenclaturasrefinado"
+  },
+  {
+    "term": "8 - Casos especiales de óxidos",
+    "example": ":m - N₂O (N +1)\n- NO (N +2)\n- N₂O₃ (N +3)\n- NO₂ (N +4)\n- N₂O₅ (N +5)\n- MnO₂ (Mn +4)\n- H₂O₂ (O –1)",
+    "description": ":m El **nitrógeno (N)** tiene varias valencias:\n- +1 → N₂O → óxido nitroso\n- +2 → NO → óxido nítrico\n- +3 → N₂O₃ → trióxido de dinitrógeno\n- +4 → NO₂ o N₂O₄ → dióxido/tetraóxido de dinitrógeno\n- +5 → N₂O₅ → pentaóxido de dinitrógeno\nEl **manganeso (Mn)** con +4:\n- MnO₂ → dióxido de manganeso\nLos **peróxidos** tienen el oxígeno con –1:\n- H₂O₂ → peróxido de hidrógeno\n- Na₂O₂ → peróxido de sodio\n- K₂O₂ → peróxido de potasio\n- BaO₂ → peróxido de bario\n ",
+    "prompt": "Da un ejemplo de valencias de N (1 a 5), Mn (+4) y un peróxido.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
+    "reference_line": 137,
+    "module_name": "5-quimica",
+    "category": "nomenclaturasrefinado"
+  },
+  {
+    "term": "9 - Hidruros",
+    "example": ":m - CuH → hidruro cuproso (Cu +1)\n- CuH₂ → hidruro cúprico (Cu +2)",
+    "description": ":m - En **hidruros metálicos**, el H actúa con –1.\n- El metal actúa con valencia positiva (Na +1, Ca +2, Fe +2 o +3).\nEjemplo:\n- CuH (Cu +1, H –1) → hidruro cuproso (–oso).\n- CuH₂ (Cu +2, H –1) → hidruro cúprico (–ico).",
+    "prompt": "Da un ejemplo con terminación –oso e –ico.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
+    "reference_line": 168,
+    "module_name": "5-quimica",
+    "category": "nomenclaturasrefinado"
+  },
+  {
+    "term": "10 - Hidruros, nomenclatura",
+    "example": ":m a) Hidruro de sodio\nb) Hidruro de calcio\nc) Hidruro ferroso",
+    "description": ":m a) NaH → Na +1, H –1 → hidruro de sodio\nb) CaH₂ → Ca +2, H –1 → hidruro de calcio\nc) FeH₂ → Fe +2, H –1 → hidruro ferroso\n",
+    "prompt": "Escribe el nombre de NaH, CaH₂ y FeH₂.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
+    "reference_line": 184,
+    "module_name": "5-quimica",
+    "category": "nomenclaturasrefinado"
+  },
+  {
+    "term": "11 - Hidrácidos",
+    "example": ":m - HI → yoduro de hidrógeno (g), ácido yodhídrico (ac).\n- HBr → bromuro de hidrógeno (g), ácido bromhídrico (ac).\n- HF → fluoruro de hidrógeno (g), ácido fluorhídrico (ac).",
+    "description": ":m En estos compuestos: H = +1, no metal = negativo.\nEjemplos:\n- HF → F –1 → fluoruro de hidrógeno (g) / ácido fluorhídrico (ac).\n- HCl → Cl –1 → cloruro de hidrógeno (g) / ácido clorhídrico (ac).\n- H₂S → S –2 → sulfuro de hidrógeno (g) / ácido sulfhídrico (ac).\n",
+    "prompt": "Escribe el nombre en estado gaseoso y acuoso de HI, HBr y HF.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
+    "reference_line": 199,
+    "module_name": "5-quimica",
+    "category": "nomenclaturasrefinado"
+  },
+  {
+    "term": "12 - Sales hidrácidas",
+    "example": ":m a) KCl → cloruro de potasio\nb) CaS → sulfuro de calcio\nc) AlBr₃ → bromuro de aluminio",
+    "description": ":m Fórmula general\n$$\nM e_Y^X \\text { no } M e_X^Y\n$$\nDonde Me es el metal, no Me es el no metal, x es la valencia del no metal, y es la valencia del metal .\nPara nombrarlos se sigue la regla la terminación \"HÍDRICO\" pasa a ser \"URO\" de\nSe nombran cambiando la terminación **“hídrico”** del hidrácido por **“uro” de [metal]**.\n$\\qquad$ por ejemplo:\n$$\n\\begin{aligned}\n& \\mathrm{Na}^{1+} \\mathrm{Cl}^{1-} \\rightarrow \\mathrm{NaCl} \\text { cloruro de sodio. } \\\\\n& \\mathrm{Mg}^{2+} \\mathrm{Br}_2{ }^{1-} \\rightarrow \\mathrm{MgBr}_2 \\text { bromuro de magnesio } \\\\\n& \\mathrm{Fe}_2{ }^{3+} \\mathrm{S}_3{ }^{2-} \\rightarrow \\mathrm{Fe}_2 \\mathrm{~S}_3 \\text { sulfuro férrico }\n\\end{aligned}\n$$\nPodemos pensar en ellos como compuestos derivados de los hidrácidos, en donde el metal, por ser electropositivo, actúa en reemplazo del $\\mathrm{H}^{1+}$.\n- Son **compuestos binarios** formados por un **metal (Me)** y un **no metal (no Me)**.\n- Se derivan de los **hidrácidos**, sustituyendo el **H⁺** por un **metal**.\nSe forman sustituyendo H⁺ del hidrácido por un metal.\nEjemplos:\n- NaCl → Na +1, Cl –1 → cloruro de sodio\n- MgBr₂ → Mg +2, Br –1 → bromuro de magnesio\n- Fe₂S₃ → Fe +3, S –2 → sulfuro férrico",
+    "prompt": "Nombra KCl, CaS y AlBr₃.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
+    "reference_line": 217,
+    "module_name": "5-quimica",
+    "category": "nomenclaturasrefinado"
+  },
+  {
+    "term": "13 - Hidróxidos",
+    "example": ":m a) NaOH → hidróxido de sodio\nb) Al(OH)₃ → hidróxido de aluminio\nc) Cu(OH)₂ → hidróxido cúprico",
+    "description": ":m - **Hidróxido de [metal]**\n- Si el metal tiene **2 valencias**, se usa:\n- **-oso** → valencia menor\n- **-ico** → valencia mayor\nEl grupo OH siempre vale –1.\n- NaOH → Na +1, OH –1 → hidróxido de sodio\n- Ca(OH)₂ → Ca +2, OH –1 → hidróxido de calcio\n- Fe(OH)₂ → Fe +2 → hidróxido ferroso\n- Fe(OH)₃ → Fe +3 → hidróxido férrico\n \n",
+    "prompt": "Nombra NaOH, Al(OH)₃ y Cu(OH)₂.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
+    "reference_line": 251,
+    "module_name": "5-quimica",
+    "category": "nomenclaturasrefinado"
+  },
+  {
+    "term": "14 - Oxoácidos",
+    "example": ":m - +1 → HClO → hipocloroso\n- +3 → HClO₂ → cloroso\n- +5 → HClO₃ → clórico\n- +7 → HClO₄ → perclórico",
+    "description": ":m Se forman con H + no metal + O.\nEjemplos:\n- N +5 → HNO₃ → ácido nítrico\n- S +4 → H₂SO₃ → ácido sulfuroso\n- S +6 → H₂SO₄ → ácido sulfúrico\n- Cl (+1 a +7): HClO, HClO₂, HClO₃, HClO₄.\n",
+    "prompt": "Formula los oxoácidos del cloro en sus 4 valencias.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
+    "reference_line": 274,
+    "module_name": "5-quimica",
+    "category": "nomenclaturasrefinado"
+  },
+  {
+    "term": "15 - Ejercicio 1 – Óxidos metálicos",
+    "example": ":m Fórmula: **CaO** → óxido de calcio (básico).\nx??",
+    "description": ":m 📌 Formula y nombra el óxido que forma el **calcio (Ca)** y el **oxígeno (O)**.\n- Ca tiene valencia +2.\n- O siempre –2.\n- Para que se neutralicen: 1 Ca (+2) con 1 O (–2).",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
+    "reference_line": 295,
+    "module_name": "5-quimica",
+    "category": "nomenclaturasrefinado"
+  },
+  {
+    "term": "16 - Ejercicio 2 – Óxidos no metálicos",
+    "example": ":m Fórmula: **SO₃** → trióxido de azufre, óxido ácido.",
+    "description": ":m 📌 Formula y nombra el óxido que forma el **azufre (S)** con valencia +6 y el oxígeno.\n- S +6.\n- O –2\n- Para compensar: S (+6) con 3 O (3×–2= –6).",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
+    "reference_line": 307,
+    "module_name": "5-quimica",
+    "category": "nomenclaturasrefinado"
+  },
+  {
+    "term": "17 - Ejercicio 3 – Hidruros",
+    "example": ":m - CuH → Cu +1, H –1 → **hidruro cuproso**.\n- CuH₂ → Cu +2, H –1 → **hidruro cúprico**.",
+    "description": ":m 📌 Formula y nombra el hidruro que forma el **cobre (Cu)** con valencia +1 y con valencia +2.\n- H en hidruros metálicos: –1.",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
+    "reference_line": 319,
+    "module_name": "5-quimica",
+    "category": "nomenclaturasrefinado"
+  },
+  {
+    "term": "18 - Ejercicio 4 – Hidrácidos",
+    "example": ":m - Estado gaseoso: **cloruro de hidrógeno**.\n- En agua: **ácido clorhídrico**.",
+    "description": ":m 📌 Nombra en estado gaseoso y en disolución acuosa el compuesto formado por **H y Cl**.\n- H +1.\n- Cl –1.\n- Fórmula: HCl.",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
+    "reference_line": 331,
+    "module_name": "5-quimica",
+    "category": "nomenclaturasrefinado"
+  },
+  {
+    "term": "19 - Ejercicio 5 – Sales hidrácidas",
+    "example": ":m Fórmula: **Na₂S** → sulfuro de sodio.",
+    "description": ":m 📌 Formula la sal que se forma al reemplazar H⁺ en el H₂S por Na⁺.\n- H₂S: H +1, S –2.\n- Sustituimos H +1 por Na +1.\n- Se necesitan 2 Na (+1) para balancear S (–2).",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
+    "reference_line": 345,
+    "module_name": "5-quimica",
+    "category": "nomenclaturasrefinado"
+  },
+  {
+    "term": "20 - Ejercicio 6 – Hidróxidos",
+    "example": ":m - Fe(OH)₂ → Fe +2, OH –1 → **hidróxido ferroso**.\n- Fe(OH)₃ → Fe +3, OH –1 → **hidróxido férrico**.",
+    "description": ":m 📌 Formula y nombra el hidróxido del **hierro (Fe)** en sus 2 valencias: +2 y +3.\n- Grupo OH = –1.",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
+    "reference_line": 358,
+    "module_name": "5-quimica",
+    "category": "nomenclaturasrefinado"
+  },
+  {
+    "term": "21 - Ejercicio 7 – Oxoácidos",
+    "example": ":m - +1 → HClO → ácido hipocloroso.\n- +3 → HClO₂ → ácido cloroso.\n- +5 → HClO₃ → ácido clórico.\n- +7 → HClO₄ → ácido perclórico.",
+    "description": ":m 📌 Formula los oxoácidos del **cloro (Cl)** con valencias +1, +3, +5, +7.\n- O = –2, H = +1.",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
+    "reference_line": 370,
+    "module_name": "5-quimica",
+    "category": "nomenclaturasrefinado"
+  },
+  {
+    "term": "22 - Ejercicio 8 – Comparación ácido/básico",
+    "example": ":m a) Na₂O → Na +1, O –2 → básico.\nb) CO₂ → C +4, O –2 → ácido.\nc) MgO → Mg +2, O –2 → básico.\nd) N₂O₅ → N +5, O –2 → ácido.",
+    "description": ":m 📌 Clasifica los siguientes compuestos en óxidos ácidos o básicos, indicando las valencias:\na) Na₂O\nb) CO₂\nc) MgO\nd) N₂O₅\n",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
+    "reference_line": 383,
+    "module_name": "5-quimica",
+    "category": "nomenclaturasrefinado"
+  },
+  {
     "term": "1 - - BINARIOS",
     "example": ":m Sus fórmulas moleculares tienen dos clases de átomos de elementos distintos. Entre ellos encontramos a los hidruros, los hidrácidos, los óxidos, las sales de hidrácidos, etc.",
     "description": ":m :d Los compuestos químicos pueden ser clasificados como:",
     "prompt": "- BINARIOS",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos-Cifras significativas, mediciones y nomenclatura inorgánica.md",
     "reference_line": 10,
     "module_name": "5-quimica",
-    "category": "unidadcompuestosquimicos"
+    "category": "unidadcompuestosquimicosCifrassignificativasmedicionesynomenclaturainorgnica"
   },
   {
     "term": "2 - - TERCIARIOS O TERNARIOS",
     "example": ":m Sus fórmulas moleculares tienen tres clases de átomos de elementos químicos diferentes. Podemos nombrar a los hidróxidos, los oxácidos, las sales neutras de oxácidos.",
     "description": ":m :d Los compuestos químicos pueden ser clasificados como:",
     "prompt": "- TERCIARIOS O TERNARIOS",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos-Cifras significativas, mediciones y nomenclatura inorgánica.md",
     "reference_line": 11,
     "module_name": "5-quimica",
-    "category": "unidadcompuestosquimicos"
+    "category": "unidadcompuestosquimicosCifrassignificativasmedicionesynomenclaturainorgnica"
   },
   {
     "term": "3 - COMPUESTOS QUÍMICOS",
     "example": ":m .. mira arriba",
     "description": ":m CLASIFICACIÓN\n:d Los compuestos químicos pueden ser clasificados como:\n- BINARIOS::Sus fórmulas moleculares tienen dos clases de átomos de elementos distintos. Entre ellos encontramos a los hidruros, los hidrácidos, los óxidos, las sales de hidrácidos, etc.\n- TERCIARIOS O TERNARIOS:: Sus fórmulas moleculares tienen tres clases de átomos de elementos químicos diferentes. Podemos nombrar a los hidróxidos, los oxácidos, las sales neutras de oxácidos.",
     "prompt": "Cual es la diferencia entre binarios y Terciarios?",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos-Cifras significativas, mediciones y nomenclatura inorgánica.md",
     "reference_line": 7,
     "module_name": "5-quimica",
-    "category": "unidadcompuestosquimicos"
+    "category": "unidadcompuestosquimicosCifrassignificativasmedicionesynomenclaturainorgnica"
   },
   {
     "term": "4 - Como se puede combinar para dar los compuestos para definir las valencias?",
     "example": ":m Cuando los átomos de los distintos elementos químicos se combinan para dar compuestos lo hacen respetando sus distintas valencias. Podemos definir a la valencia como la capacidad de combinación de los elementos.",
     "description": ":m Como se puede combinar para dar los compuestos para definir las valencias?",
     "prompt": "Como se puede combinar para dar los compuestos para definir las valencias?",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos-Cifras significativas, mediciones y nomenclatura inorgánica.md",
     "reference_line": 18,
     "module_name": "5-quimica",
-    "category": "unidadcompuestosquimicos"
+    "category": "unidadcompuestosquimicosCifrassignificativasmedicionesynomenclaturainorgnica"
   },
   {
     "term": "5 - FORMULACIÓN QUÍMICA",
     "example": ":m Conforme con las reglas de la Internacional Union of Pure and Aplicatted Chemestry (IUPAC), cuando se formula un compuesto binario, se debe escribir en primer lugar el electropositivo, seguido por el electronegativo e intercambiando las valencias.",
     "description": ":m :d El tema formulación debe ser encarado con el objetivo de lograr en forma sencilla un aprendizaje del \"lenguaje\" de la química, mediante una metodología ágil que les permita adquirir destreza en deducir fórmulas de compuestos químicos comunes y nombrarlos sin demasiados conocimientos previos, salvo símbolos químicos y $\\mathrm{n}^{\\circ}$ de oxidación .\n1. COMPUESTOS BINARIOS ",
     "prompt": "Cual es conforme las reglas de la iUPA para un compuesto binario cual electrox  de valencias se escribe primero?",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos-Cifras significativas, mediciones y nomenclatura inorgánica.md",
     "reference_line": 24,
     "module_name": "5-quimica",
-    "category": "unidadcompuestosquimicos"
+    "category": "unidadcompuestosquimicosCifrassignificativasmedicionesynomenclaturainorgnica"
   },
   {
     "term": "6 - ÓXIDOS:",
     "example": ":m Observar las combinaciones uno de no metal y oxido y otro de meta y oxigeno.",
     "description": ":m - Ácidos (provienen de la combinación de un no metal + oxígeno)\n- Básicos (provienen de la combinación de un metal +oxígeno )\nYa sean ácidos o básicos se formulan de la misma manera, siendo en $\\mathrm{n}^{\\circ}$ de oxidación del oxígeno $\\mathrm{O}:-2$. $\\quad \\mathrm{O}^{-2}$\nLa letra E representa a un elemento químico cualquiera, que da distintos óxidos según su valencia. Abajo está escrita la fórmula general de cada óxido.\n![[Pasted image 20250825185229.png]]",
     "prompt": "Cual es la diferencia de acidos y basicos? como se formula cada uno",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos-Cifras significativas, mediciones y nomenclatura inorgánica.md",
     "reference_line": 33,
     "module_name": "5-quimica",
-    "category": "unidadcompuestosquimicos"
+    "category": "unidadcompuestosquimicosCifrassignificativasmedicionesynomenclaturainorgnica"
   },
   {
     "term": "7 - Escribe la fórmula de los óxidos de un elemento \" $E$ \" con valencia +3 y +5 .",
     "example": ":m - $+3 \\rightarrow \\mathrm{E}_2 \\mathrm{O}_3$\n- $+5 \\rightarrow \\mathrm{E}_2 \\mathrm{O}_5$",
     "description": ":m Escribe la fórmula de los óxidos de un elemento \" $E$ \" con valencia +3 y +5 .",
     "prompt": "Escribe la fórmula de los óxidos de un elemento \" $E$ \" con valencia +3 y +5 .",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos-Cifras significativas, mediciones y nomenclatura inorgánica.md",
     "reference_line": 55,
     "module_name": "5-quimica",
-    "category": "unidadcompuestosquimicos"
+    "category": "unidadcompuestosquimicosCifrassignificativasmedicionesynomenclaturainorgnica"
   },
   {
     "term": "8 - Hierro (Fe): valencias $+2 \\mathrm{y}+3$.",
     "example": ":m - Fórmula y nombre de sus óxidos.\n- $\\mathrm{FeO} \\rightarrow$ Óxido ferroso\n- $\\mathrm{Fe}_2 \\mathrm{O}_3 \\rightarrow$ Óxido férrico",
     "description": ":m Hierro (Fe): valencias $+2 \\mathrm{y}+3$.",
     "prompt": "Hierro (Fe): valencias $+2 \\mathrm{y}+3$.",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos-Cifras significativas, mediciones y nomenclatura inorgánica.md",
     "reference_line": 62,
     "module_name": "5-quimica",
-    "category": "unidadcompuestosquimicos"
+    "category": "unidadcompuestosquimicosCifrassignificativasmedicionesynomenclaturainorgnica"
   },
   {
     "term": "9 - d) CO₂",
     "example": ":m a) Básico\nb) Ácido\nc) Básico\nd) Ácido",
     "description": ":m 4. Tipo de óxido\n📌 Clasifica en ácido o básico:\na) CaO\nb) SO₃\nc) Na₂O\nd) CO₂",
     "prompt": "d) CO₂",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos-Cifras significativas, mediciones y nomenclatura inorgánica.md",
     "reference_line": 75,
     "module_name": "5-quimica",
-    "category": "unidadcompuestosquimicos"
+    "category": "unidadcompuestosquimicosCifrassignificativasmedicionesynomenclaturainorgnica"
   },
   {
     "term": "10 - c) El CO₂ es un óxido ácido.",
     "example": ":m a) Verdadero ✅\nb) Falso ❌ (es óxido ferroso)\nc) Verdadero ✅",
     "description": ":m 5. Verdadero o Falso\na) El oxígeno siempre trabaja con número de oxidación –2 en los óxidos.\nb) El FeO se llama óxido férrico.\nc) El CO₂ es un óxido ácido.",
     "prompt": "c) El CO₂ es un óxido ácido.",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos-Cifras significativas, mediciones y nomenclatura inorgánica.md",
     "reference_line": 88,
     "module_name": "5-quimica",
-    "category": "unidadcompuestosquimicos"
+    "category": "unidadcompuestosquimicosCifrassignificativasmedicionesynomenclaturainorgnica"
   },
   {
     "term": "11 - CASOS ESPECIALES DE LOS ÓXIDOS",
     "example": ":m mira arriba",
     "description": ":m | Valencias | Fórmula | | Nombre |\n| :-------- | :--------------- | :--------- | :------------------------------------- |\n| 1+ | N_(2)^(1+)O^(2-) | ( N_(2)O ) | Óxido Nitroso |\n| 2+ | N^(2+)O^(2-) | (NO) | Óxido Nítrico |\n| 3+ | N_(2)O_(3) | | Trióxido de Dinitrógeno |\n| 4+ | N_(2)O_(4) | | Tetraóxido de Dinitrógeno |\n| 4+ | NO_(2) | | Dióxido de Nitrógeno |\n| 5+ | N_(2)O_(5) | | Pentaóxido de Dinitrógeno |\n| Manganeso | | | |\n| 4+ | MnO_(2) | | Dióxido de Manganeso |\n| Peróxidos | | | |\n| | Fórmula | | Nombre |\n| | H_(2)O_(2) | | Peróxido de Hidrógeno (Agua Oxigenada) |\n| | Na_(2)O_(2) | | Peróxido de Sodio |\n| | K_(2)O_(2) | | Peróxido de Potasio |\n| | BaO_(2) | | Peróxido de Bario |",
     "prompt": "Hace un ejemplo de las valencias de asos especiales de 1,2...5 y magenso 4+ y peroxidos",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos-Cifras significativas, mediciones y nomenclatura inorgánica.md",
     "reference_line": 99,
     "module_name": "5-quimica",
-    "category": "unidadcompuestosquimicos"
+    "category": "unidadcompuestosquimicosCifrassignificativasmedicionesynomenclaturainorgnica"
   },
   {
     "term": "12 - HIDRUROS:",
     "example": ":m Ejemplo: CuH hidruro cuproso, $\\mathrm{CuH}_2$ hidruro cúprico.",
     "description": ":m - Metálicos: $\\mathrm{n}^{\\circ}$ de oxidación del hidrógeno $\\mathrm{H}:-1 \\rightarrow \\mathrm{H}^{1-}$\nAl metal que lo acompaña lo representaremos por la letra $E$ y sus $n^{\\circ}$ de oxidación pueden ser $\\mathrm{E}:+1,+2,+3,+4$, según de que metal se trate\nFórmula general $\\mathrm{EH}_{\\mathrm{x}}$, donde x es la valencia de E , se nombra hidruro de $\\qquad$\nCuando un mismo metal puede actuar con más de una valencia, se agrega la terminación \"oso\" al hidruro de valencia menor y la terminación \"ico\" al de valencia mayor. ",
     "prompt": "Da un ejemplo de cuando es una de terminacion de valencia menor y valencia mayor",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos-Cifras significativas, mediciones y nomenclatura inorgánica.md",
     "reference_line": 123,
     "module_name": "5-quimica",
-    "category": "unidadcompuestosquimicos"
+    "category": "unidadcompuestosquimicosCifrassignificativasmedicionesynomenclaturainorgnica"
   },
   {
     "term": "13 - c) FeH₂",
     "example": ":m a) Hidruro de sodio\nb) Hidruro de calcio\nc) Hidruro ferroso",
     "description": ":m 1. Nomenclatura 📌 Escribe el nombre de los siguientes hidruros:\na) NaH\nb) CaH₂\nc) FeH₂",
     "prompt": "c) FeH₂",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos-Cifras significativas, mediciones y nomenclatura inorgánica.md",
     "reference_line": 138,
     "module_name": "5-quimica",
-    "category": "unidadcompuestosquimicos"
+    "category": "unidadcompuestosquimicosCifrassignificativasmedicionesynomenclaturainorgnica"
   },
   {
     "term": "14 - c) Hidruro férrico",
     "example": ":m a) CuH₂\nb) KH\nc) FeH₃",
     "description": ":m 1. Fórmulas\n📌 Escribe la fórmula de los siguientes compuestos:\na) Hidruro cúprico\nb) Hidruro de potasio\nc) Hidruro férrico",
     "prompt": "c) Hidruro férrico",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos-Cifras significativas, mediciones y nomenclatura inorgánica.md",
     "reference_line": 150,
     "module_name": "5-quimica",
-    "category": "unidadcompuestosquimicos"
+    "category": "unidadcompuestosquimicosCifrassignificativasmedicionesynomenclaturainorgnica"
   },
   {
     "term": "15 - c) SnH₄",
     "example": ":m a) Mg = +2\nb) Al = +3\nc) Sn = +4",
     "description": ":m 2. Oxidación y valencia\n📌 Determina la valencia del metal en cada hidruro:\na) MgH₂\nb) AlH₃\nc) SnH₄",
     "prompt": "c) SnH₄",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos-Cifras significativas, mediciones y nomenclatura inorgánica.md",
     "reference_line": 163,
     "module_name": "5-quimica",
-    "category": "unidadcompuestosquimicos"
+    "category": "unidadcompuestosquimicosCifrassignificativasmedicionesynomenclaturainorgnica"
   },
   {
     "term": "16 - b) FeH₃ → hidruro ________",
     "example": ":m a) FeH₂ → hidruro ferroso (valencia menor)\nb) FeH₃ → hidruro férrico (valencia mayor)",
     "description": ":m 4. Uso de “oso” e “ico”\n📌 Completa con la terminación correcta:\na) FeH₂ → hidruro ________\nb) FeH₃ → hidruro ________",
     "prompt": "b) FeH₃ → hidruro ________",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos-Cifras significativas, mediciones y nomenclatura inorgánica.md",
     "reference_line": 175,
     "module_name": "5-quimica",
-    "category": "unidadcompuestosquimicos"
+    "category": "unidadcompuestosquimicosCifrassignificativasmedicionesynomenclaturainorgnica"
   },
   {
     "term": "17 - c) El CuH₂ se llama hidruro cuproso.",
     "example": ":m a) Verdadero ✅\nb) Verdadero ✅\nc) Falso ❌ (es hidruro cúprico).",
     "description": ":m 4. Verdadero o Falso\na) En los hidruros metálicos, el hidrógeno actúa con número de oxidación –1.\nb) El compuesto NaH se llama hidruro sódico.\nc) El CuH₂ se llama hidruro cuproso.",
     "prompt": "c) El CuH₂ se llama hidruro cuproso.",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos-Cifras significativas, mediciones y nomenclatura inorgánica.md",
     "reference_line": 186,
     "module_name": "5-quimica",
-    "category": "unidadcompuestosquimicos"
+    "category": "unidadcompuestosquimicosCifrassignificativasmedicionesynomenclaturainorgnica"
   },
   {
     "term": "18 - 3. Nomenclatura",
     "example": ":m 1. Nomenclatura\na)\n- $\\mathrm{HI} \\rightarrow$ loduro de hidrógeno (gaseoso) $\\rightarrow$ Ácido lodhídrico (acuoso)\n- $\\mathrm{HBr} \\rightarrow$ Bromuro de hidrógeno (gaseoso) $\\rightarrow$ Ácido Bromhídrico (acuoso)\n- $\\mathrm{HF} \\rightarrow$ Fluoruro de hidrógeno (gaseoso) $\\rightarrow$ Ácido Fluorhídrico (acuoso)\nb)\n- Ácido clorhídrico $\\rightarrow \\mathrm{HCl}$\n- Ácido sulfhídrico $\\rightarrow \\mathrm{H}_2 \\mathrm{~S}$\n- Fluoruro de hidrógeno $\\rightarrow \\mathrm{HF}$",
     "description": ":m - **En estado gaseoso:** se nombran como “**(no metal) –uro de hidrógeno**”.\n- **En disolución acuosa:** se nombran como “**Ácido + raíz del no metal + hídrico**”.\n| Fórmula | Nombre en estado gaseoso | Nombre es Solución Acuosa |\n| :------ | :----------------------- | :------------------------ |\n| HF | Fluoruro de hidrógeno | Ácido Fluorhídrico |\n| HCl | Cloruro de hidrógeno | Ácido Clorhídrico |\n| HBr | Bromuro de hidrógeno | Ácido Bromhídrico |\n| HI | Ioduro de hidrógeno | Ácido Iodhídrico |\n| H_(2)S | Sulfuro de hidrógeno | Ácido Sulfhídrico |\n| HCN | Cianuro de hidrógeno | Ácido Cianhídrico |\n1. Nomenclatura\na) Escribe el nombre en estado gaseoso y en solución acuosa de las siguientes fórmulas:\n- HI\n- HBr\n- HF\nb) Escribe las fórmulas de los siguientes compuestos:\n- Ácido clorhídrico\n- Ácido sulfhídrico\n- Fluoruro de hidrógeno",
     "prompt": "",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos-Cifras significativas, mediciones y nomenclatura inorgánica.md",
     "reference_line": 201,
     "module_name": "5-quimica",
-    "category": "unidadcompuestosquimicos"
+    "category": "unidadcompuestosquimicosCifrassignificativasmedicionesynomenclaturainorgnica"
   },
   {
     "term": "19 - 📌 Escribe el nombre en estado gaseoso y en solución acuosa de HI.",
     "example": ":m HI (g): Yoduro de hidrógeno\nHI (ac): Ácido yodhídrico",
     "description": ":m 📌 Escribe el nombre en estado gaseoso y en solución acuosa de HI.",
     "prompt": "📌 Escribe el nombre en estado gaseoso y en solución acuosa de HI.",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos-Cifras significativas, mediciones y nomenclatura inorgánica.md",
     "reference_line": 236,
     "module_name": "5-quimica",
-    "category": "unidadcompuestosquimicos"
+    "category": "unidadcompuestosquimicosCifrassignificativasmedicionesynomenclaturainorgnica"
   },
   {
     "term": "20 - c) Fluoruro de hidrógeno",
     "example": ":m a) HCl\nb) H₂S\nc) HF",
     "description": ":m 2.📌 Da la fórmula de los siguientes compuestos:\na) Ácido clorhídrico\nb) Ácido sulfhídrico\nc) Fluoruro de hidrógeno",
     "prompt": "c) Fluoruro de hidrógeno",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos-Cifras significativas, mediciones y nomenclatura inorgánica.md",
     "reference_line": 246,
     "module_name": "5-quimica",
-    "category": "unidadcompuestosquimicos"
+    "category": "unidadcompuestosquimicosCifrassignificativasmedicionesynomenclaturainorgnica"
   },
   {
     "term": "21 - b) HCN",
     "example": ":m a) Bromuro de hidrógeno $\\rightarrow$ Ácido bromhídrico\nb) Cianuro de hidrógeno $\\rightarrow$ Ácido cianhídrico",
     "description": ":m \"EI $\\qquad$ de hidrógeno en solución acuosa se llama $\\qquad$ .\"\na) HBr\nb) HCN",
     "prompt": "b) HCN",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos-Cifras significativas, mediciones y nomenclatura inorgánica.md",
     "reference_line": 256,
     "module_name": "5-quimica",
-    "category": "unidadcompuestosquimicos"
+    "category": "unidadcompuestosquimicosCifrassignificativasmedicionesynomenclaturainorgnica"
   },
   {
     "term": "22 - b) El $\\mathrm{HCl}(\\mathrm{g})$ se llama ácido clorhídrico aun sin estar en agua.",
     "example": ":m a) Verdadero\nb) Falso $\\mathbf{X}$ (en gas es cloruro de hidrógeno; solo en disolución acuosa se llama ácido clorhídrico).",
     "description": ":m 4.- Verdadero o Falso:\na) El ácido sulfhídrico se forma al disolver $\\mathrm{H}_2 \\mathrm{~S}$ en agua.\nb) El $\\mathrm{HCl}(\\mathrm{g})$ se llama ácido clorhídrico aun sin estar en agua.",
     "prompt": "b) El $\\mathrm{HCl}(\\mathrm{g})$ se llama ácido clorhídrico aun sin estar en agua.",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos-Cifras significativas, mediciones y nomenclatura inorgánica.md",
     "reference_line": 265,
     "module_name": "5-quimica",
-    "category": "unidadcompuestosquimicos"
+    "category": "unidadcompuestosquimicosCifrassignificativasmedicionesynomenclaturainorgnica"
   },
   {
     "term": "23 - 1. Nomenclatura",
     "example": ":m a) Cloruro de potasio\nb) Sulfuro de calcio\nc) Bromuro de aluminio",
     "description": ":m 📌 Nombra las siguientes sales hidrácidas:\na) KCl\nb) CaS\nc) AlBr₃",
     "prompt": "",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos-Cifras significativas, mediciones y nomenclatura inorgánica.md",
     "reference_line": 292,
     "module_name": "5-quimica",
-    "category": "unidadcompuestosquimicos"
+    "category": "unidadcompuestosquimicosCifrassignificativasmedicionesynomenclaturainorgnica"
   },
   {
     "term": "24 - 2. Fórmulas",
     "example": ":m a) CaCl₂\nb) Na₂S\nc) FeI₃",
     "description": ":m 📌 Escribe la fórmula de las siguientes sales:\na) Cloruro de calcio\nb) Sulfuro de sodio\nc) Yoduro de hierro (III) ",
     "prompt": "",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos-Cifras significativas, mediciones y nomenclatura inorgánica.md",
     "reference_line": 304,
     "module_name": "5-quimica",
-    "category": "unidadcompuestosquimicos"
+    "category": "unidadcompuestosquimicosCifrassignificativasmedicionesynomenclaturainorgnica"
   },
   {
     "term": "25 - Derivación de hidrácidos",
     "example": ":m a) NaCl → cloruro de sodio\nb) NaBr → bromuro de sodio\nc) Na₂S → sulfuro de sodio",
     "description": ":m 📌 Escribe la sal derivada de los siguientes hidrácidos reemplazando H⁺ por Na⁺:\na) HCl\nb) HBr\nc) H₂S",
     "prompt": "",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos-Cifras significativas, mediciones y nomenclatura inorgánica.md",
     "reference_line": 316,
     "module_name": "5-quimica",
-    "category": "unidadcompuestosquimicos"
+    "category": "unidadcompuestosquimicosCifrassignificativasmedicionesynomenclaturainorgnica"
   },
   {
     "term": "26 - 4. Oxidación y valencia",
     "example": ":m a) Cu = +1 → cloruro cuproso\nb) Cu = +2 → cloruro cúprico\nc) Fe = +3 → sulfuro férrico",
     "description": ":m 📌 Determina la valencia del metal en las siguientes sales:\na) CuCl\nb) CuCl₂\nc) Fe₂S₃ ",
     "prompt": "",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos-Cifras significativas, mediciones y nomenclatura inorgánica.md",
     "reference_line": 329,
     "module_name": "5-quimica",
-    "category": "unidadcompuestosquimicos"
+    "category": "unidadcompuestosquimicosCifrassignificativasmedicionesynomenclaturainorgnica"
   },
   {
     "term": "27 - 1.Hidroxidos Nomenclatura",
     "example": ":m a) Hidróxido de sodio\nb) Hidróxido de aluminio\nc) Hidróxido cúprico",
     "description": ":m 📌 Nombra los siguientes compuestos:\na) NaOH\nb) Al(OH)₃\nc) Cu(OH)₂",
     "prompt": "",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos-Cifras significativas, mediciones y nomenclatura inorgánica.md",
     "reference_line": 372,
     "module_name": "5-quimica",
-    "category": "unidadcompuestosquimicos"
+    "category": "unidadcompuestosquimicosCifrassignificativasmedicionesynomenclaturainorgnica"
   },
   {
     "term": "28 - 2. Hidroxidos, Fórmulas",
     "example": ":m a) Ca(OH)₂\nb) Fe(OH)₃\nc) Mg(OH)₂",
     "description": ":m 📌 Escribe la fórmula de los siguientes hidróxidos:\na) Hidróxido de calcio\nb) Hidróxido férrico\nc) Hidróxido de magnesio",
     "prompt": "",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos-Cifras significativas, mediciones y nomenclatura inorgánica.md",
     "reference_line": 384,
     "module_name": "5-quimica",
-    "category": "unidadcompuestosquimicos"
+    "category": "unidadcompuestosquimicosCifrassignificativasmedicionesynomenclaturainorgnica"
   },
   {
     "term": "29 - 3. Hidroxidos, Con valencias",
     "example": ":m Mn(OH)₂ → Hidróxido manganoso\nMn(OH)₄ → Hidróxido mangánico",
     "description": ":m 📌 El manganeso puede tener valencias +2 y +4.\nEscribe la fórmula y el nombre de sus hidróxidos.",
     "prompt": "",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos-Cifras significativas, mediciones y nomenclatura inorgánica.md",
     "reference_line": 396,
     "module_name": "5-quimica",
-    "category": "unidadcompuestosquimicos"
+    "category": "unidadcompuestosquimicosCifrassignificativasmedicionesynomenclaturainorgnica"
   },
   {
     "term": "30 - Hidroxidos, 4. Verdadero o Falso",
     "example": ":m a) Verdadero ✅\nb) Falso ❌ (es ferroso, Fe²⁺)\nc) Falso ❌ (es cúprico, Cu²⁺)",
     "description": ":m a) El KOH se llama hidróxido potásico.\nb) El Fe(OH)₂ se llama hidróxido férrico.\nc) El Cu(OH)₂ se llama hidróxido cuproso.",
     "prompt": "",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos-Cifras significativas, mediciones y nomenclatura inorgánica.md",
     "reference_line": 407,
     "module_name": "5-quimica",
-    "category": "unidadcompuestosquimicos"
+    "category": "unidadcompuestosquimicosCifrassignificativasmedicionesynomenclaturainorgnica"
   },
   {
     "term": "31 - Oxoacidos",
     "example": ":m - Fórmula: HNO₃",
     "description": ":m Dado el nombre del Oxoácido se identifica a que elemento corresponde .Una vez identificado se escriben los elementos en el siguiente orden:\nH no Me O\nConocida la valencia con que actuará el no metal se busca un $\\mathrm{n}^{\\circ}$ que multiplicado por dos (valencia del O), de un valor mayor que la valencia del no metal. Ese $n^{\\circ}$ será la cantidad de O en la fórmula del ácido. Al resultado de la multiplicación se le resta la valencia del no metal y esa será la cantidad de $H$ en la fórmula del Oxoácidos.\nFormula Grl:\n- Son ácidos ternarios formados por $\\mathbf{H}+$ no metal $+\\mathbf{O}$.\n- Derivan de los óxidos ácidos al agregarles agua.\n$\\approx$ Fórmula general:\n$$\nH_x(n o M e) O_y\n$$\n2. Regla para formular un oxoácido\n3. Se identifica el no metal y su valencia.\n4. Se multiplica la valencia del oxígeno (-2) por un número $\\mathbf{n}$ que supere a la valencia del no metal. Ese será el número de oxígenos.\n5. Se resta:\n$$\n\\text { (número de } \\mathrm{O} \\times 2 \\text { ) - valencia del no metal }\n$$\nEse será el número de hidrógenos $(\\mathrm{H})$.\n4. Se acomoda en el orden: H - no metal - O.\nValores Impares\n| 1+ | $H^(1+) noMe ^(1+)O^(2-)$ | sumatoria de cargas | 1+1-2=0 |\n| :-- | :---------------------------- | :------------------ | :----------- |\n| 3+ | $H^(1+) noMe ^(3+)O_(2)^(2-)$ | sumatoria de cargas | 1+3-(2xx2)=0 |\n| 5+ | $H^(1+) noMe ^(5+)O_(3)^(2-)$ | sumatoria de cargas | 1+5-(2xx3)=0 |\n| 7+ | $H^(1+) noMe ^(7+)O_(4)^(2-)$ | sumatoria de cargas | 1+7-(2xx4)=0 |\nValores Pares\n| 2+ | $H_(2)^(1+)noMe^(2+)O_(2)^(2-)$ | sumatoria de cargas | (1xx2)+2-(2xx2)=0 |\n| :-- | :------------------------------ | :------------------ | :---------------- |\n| 4+ | $H_(2)^(1+)noMe^(4+)O_(3)^(2-)$ | sumatoria de cargas | (1xx2)+4-(2xx3)=0 |\n| 6+ | $H_(2)^(1+)noMe^(6+)O_(4)^(2-)$ | sumatoria de cargas | (1xx2)+6-(2xx4)=0 |\nEn cuanto a las reglas de nomenclatura si el no metal trabaja con dos $n^{\\circ}$ de oxidación para dar Oxoácido, aquel de valencia menor tiene terminación \"oso\" y el de valencia mayor terminación \"ico\".\nEjemplo: $\\mathrm{H}_2 \\mathrm{SO}_3$ ácido sulfuroso y $\\mathrm{H}_2 \\mathrm{SO}_4$ ácido sulfúrico.\nCuando el no metal puede usar cuatro valencias distintas (caso de cloro, bromo y yodo) la regla de nomenclatura es la siguiente:\nPara el ejemplo usaremos al cloro\n1+ HClO ácido hipocloroso\n3+ $\\mathrm{HClO}_2$ ácido cloroso\n$5+\\mathrm{HClO}_3$ ácido clórico\n$7+\\mathrm{HClO}_4$ ácido perclórico\nSi se trata de un no metal que forma Oxoácido con una única valencia, la terminación adecuada es \"ico\", ejemplo $\\mathrm{H}_2 \\mathrm{CO}_3$ ácido carbónico.\n\n",
     "prompt": "📌 Escribe la fórmula del ácido nítrico (N con valencia +5).",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos-Cifras significativas, mediciones y nomenclatura inorgánica.md",
     "reference_line": 420,
     "module_name": "5-quimica",
-    "category": "unidadcompuestosquimicos"
+    "category": "unidadcompuestosquimicosCifrassignificativasmedicionesynomenclaturainorgnica"
   },
   {
     "term": "32 - c) H₂SO₄",
     "example": ":m a) Ácido carbónico\nb) Ácido fosfórico\nc) Ácido sulfúrico",
     "description": ":m :p 📌 Da los nombres correctos:\na) H₂CO₃\nb) H₃PO₄\nc) H₂SO₄",
     "prompt": "c) H₂SO₄",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos-Cifras significativas, mediciones y nomenclatura inorgánica.md",
     "reference_line": 478,
     "module_name": "5-quimica",
-    "category": "unidadcompuestosquimicos"
+    "category": "unidadcompuestosquimicosCifrassignificativasmedicionesynomenclaturainorgnica"
   },
   {
     "term": "33 - :p 📌 Formula los oxoácidos del cloro en sus 4 valencias:",
     "example": ":m +1 → HClO → Ácido hipocloroso\n+3 → HClO₂ → Ácido cloroso\n+5 → HClO₃ → Ácido clórico\n+7 → HClO₄ → Ácido perclórico",
     "description": ":m :p 📌 Formula los oxoácidos del cloro en sus 4 valencias:",
     "prompt": ":p 📌 Formula los oxoácidos del cloro en sus 4 valencias:",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos-Cifras significativas, mediciones y nomenclatura inorgánica.md",
     "reference_line": 488,
     "module_name": "5-quimica",
-    "category": "unidadcompuestosquimicos"
+    "category": "unidadcompuestosquimicosCifrassignificativasmedicionesynomenclaturainorgnica"
   },
   {
     "term": "34 - :p Da verdadero false",
     "example": ":m a) Falso ❌ (es sulfúrico)\nb) Verdadero ✅\nc) Falso ❌ (es nitroso)",
     "description": ":m 5. Verdadero o Falso\na) El ácido H₂SO₄ se llama sulfuroso.\nb) El ácido HClO₄ es el ácido perclórico.\nc) El HNO₂ corresponde al ácido nítrico.\n:p Da verdadero false",
     "prompt": ":p Da verdadero false",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-unidad-compuestos-quimicos-Cifras significativas, mediciones y nomenclatura inorgánica.md",
     "reference_line": 501,
     "module_name": "5-quimica",
-    "category": "unidadcompuestosquimicos"
+    "category": "unidadcompuestosquimicosCifrassignificativasmedicionesynomenclaturainorgnica"
+  },
+  {
+    "term": "1 - Estructura atómica – ejercicio 1",
+    "example": ":m\n| Elemento | Z | A | e⁻ | p⁺ | n⁰ |\n| -------- | --- | --- | --- | --- | --- |\n| Na | 11 | 22 | 11 | 11 | 11 |\n| O | 8 | 16 | 8 | 8 | 8 |\n| Mn | 25 | 55 | 25 | 25 | 30 |\n| Ar | 18 | 40 | 18 | 18 | 22 |\n| Al | 13 | 27 | 13 | 13 | 14 |\n\n\n\n",
+    "description": ":m Para completar cuadros de átomos neutros recordemos:\n- Protones = número atómico (Z).\n- Electrones = Z (si es neutro).\n- Neutrones = A – Z (masa – número atómico).\n| Elemento | Z | A | e⁻ | p⁺ | n⁰ |\n| -------- | --- | --- | --- | --- | --- |\n| Na | | | | | |\n| O | | | | | |\n| Mn | | | | | |\n| Ar | | | | | |\n| Al | | | | | |\n\n",
+    "prompt": "Completar el cuadro con electrones, neutrones y protones.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-tp-teoria-atomica.md",
+    "reference_line": 1,
+    "module_name": "5-quimica",
+    "category": "tpteoriaatomica"
+  },
+  {
+    "term": "2 - Iones – ejercicio 2",
+    "example": ":m\n| Ion | Z | A | e⁻ | p⁺ | n⁰ | Carga |\n| ---- | --- | --- | --- | --- | --- | ----- |\n| Fe²⁺ | 26 | 56 | 24 | 26 | 30 | 2+ |\n| C | 6 | 12 | 6 | 6 | 6 | 0 |\n| F⁻ | 9 | 19 | 10 | 9 | 10 | −1 |\n| K⁺ | 19 | 39 | 18 | 19 | 20 | +1 |\n\n\n\n\n\n\n\n",
+    "description": ":m En iones la diferencia está en electrones:\n- Catión (+): menos electrones.\n- Anión (−): más electrones.\n| Ion | Z | A | e⁻ | p⁺ | n⁰ | Carga |\n| ---- | --- | --- | --- | --- | --- | ----- |\n| Fe²⁺ | 26 | 56 | | | | |\n| C | 6 | 12 | | | | |\n| F⁻ | 9 | 19 | | | | |\n| K⁺ | 19 | 39 | | | | |\n\n",
+    "prompt": "Completar el cuadro con electrones, neutrones, protones y carga.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-tp-teoria-atomica.md",
+    "reference_line": 32,
+    "module_name": "5-quimica",
+    "category": "tpteoriaatomica"
+  },
+  {
+    "term": "3 - Masa molecular relativa – ejercicio 3",
+    "example": ":m a) $C_{12}H_{22}O_{11}$ → 342 g/mol\nb) $Ca_{3}(PO_{4})_{2}$ → 310 g/mol\nc) $(NH_{4})_{2}SO_{4}$ → 132 g/mol\nd) $Al_{2}(SO_{4})_{3}$ → 342 g/mol\ne) $NaNO_{2}$ → 69 g/mol",
+    "description": ":m Mr se calcula sumando masas atómicas aproximadas: C=12, H=1, O=16, N=14, S=32, Ca=40, P=31, Al=27.\na) $C_{12}H_{22}O_{11}$ →\nb) $Ca_{3}(PO_{4})_{2}$ →\nc) $(NH_{4})_{2}SO_{4}$ →\nd) $Al_{2}(SO_{4})_{3}$ →\ne) $NaNO_{2}$ →",
+    "prompt": "Calcular Mr de las sustancias:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-tp-teoria-atomica.md",
+    "reference_line": 58,
+    "module_name": "5-quimica",
+    "category": "tpteoriaatomica"
+  },
+  {
+    "term": "4 - Moléculas y masa – ejercicio 4",
+    "example": ":m a) Una molécula de agua tiene masa $18\\times10^{-3},\\text{g}/N_A \\approx 3\\times10^{-23}$ g.\nb) En 100 g H₂O hay $100/18=5.55$ mol → $5.55\\times N_A = 3.35\\times10^{24}$ moléculas.\nc) En 2 L H₂O ($\\rho=1000,kg/m^3$ → 2000 g) hay $2000/18=111.11$ mol.",
+    "description": ":m Recordar:\n- $N_A = 6.022\\times10^{23}$ moléculas/mol.\n- 1 mol H₂O = 18 g.\n",
+    "prompt": "Completar frases sobre el agua:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-tp-teoria-atomica.md",
+    "reference_line": 79,
+    "module_name": "5-quimica",
+    "category": "tpteoriaatomica"
+  },
+  {
+    "term": "5 - Gases en CNPT – ejercicio 5",
+    "example": ":m a) 33.6 L O₂ ÷ 22.4 = 1.5 mol → 15 mol O₂ (corrigiendo a moléculas de O).\nb) $1.24\\times10^{24}/N_A=2.06$ mol → $2.06\\times22.4=46.14$ L ≈ 4614.4 L.\nc) 200 cm³ = 0.2 L → 0.2/22.4 = $8.93\\times10^{-3}$ mol → $8.93\\times10^{-3}\\times N_A=5.38\\times10^{21}$ moléculas.",
+    "description": ":m CNPT: 1 mol gas = 22.4 L.\n",
+    "prompt": "Resolver los cálculos:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-tp-teoria-atomica.md",
+    "reference_line": 93,
+    "module_name": "5-quimica",
+    "category": "tpteoriaatomica"
+  },
+  {
+    "term": "6 - CO₂ – ejercicio 6",
+    "example": ":m a) 30/44 = 0.682 mol\nb) $0.682\\times N_A=4.105\\times10^{23}$ moléculas\nc) Cada molécula tiene 3 átomos → $1.231\\times10^{24}$ átomos\nd) $0.682\\times22.4=15.27$ L",
+    "description": ":m Masa molar CO₂ = 44 g/mol.\n\n",
+    "prompt": "Para 30 g CO₂ en CNPT calcular moles, moléculas, átomos y volumen.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-tp-teoria-atomica.md",
+    "reference_line": 106,
+    "module_name": "5-quimica",
+    "category": "tpteoriaatomica"
+  },
+  {
+    "term": "7 - Hierro – ejercicio 7",
+    "example": ":m a) 40×7.9=316 g\nb) 316/55.85=5.66 mol\nc) $5.66\\times N_A=3.41\\times10^{24}$ átomos",
+    "description": ":m Relación: masa = densidad × volumen.\n\n",
+    "prompt": "Para 40 cm³ de Fe (ρ=7.9 g/cm³) calcular masa, moles y átomos.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-tp-teoria-atomica.md",
+    "reference_line": 121,
+    "module_name": "5-quimica",
+    "category": "tpteoriaatomica"
+  },
+  {
+    "term": "8 - Muestra gaseosa – ejercicio 8",
+    "example": ":m a) 5.6/22.4=0.25 mol\nb) Mr = 4/0.25=16 g/mol",
+    "description": ":m Gas de 5.6 dm³ y 4 g en CNPT.",
+    "prompt": "Calcular los moles y moleculas",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-tp-teoria-atomica.md",
+    "reference_line": 135,
+    "module_name": "5-quimica",
+    "category": "tpteoriaatomica"
+  },
+  {
+    "term": "9 - Gases – ejercicio 9",
+    "example": ":m Moles = 7.84/22.4=0.35 mol\nMoléculas = $0.35\\times N_A=2.11\\times10^{23}$",
+    "description": ":m Volumen = 7.84 dm³ en CNPT.",
+    "prompt": "Calcular los moles y moleculas",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-tp-teoria-atomica.md",
+    "reference_line": 145,
+    "module_name": "5-quimica",
+    "category": "tpteoriaatomica"
+  },
+  {
+    "term": "10 - Composición centesimal – ejercicio 10",
+    "example": ":m - $H_2SO_4$ Mr=98.1 g/mol → %H=2.06, %S=32.7, %O=65.3\n- $NaOH$ Mr=40 g/mol → %Na=57.5, %O=40.0, %H=2.5\n- $Ca(NO_3)_2$ Mr=164.1 g/mol → %Ca=24.4, %N=17.1, %O=58.5",
+    "description": ":m Se determina % de cada elemento respecto a Mr.",
+    "prompt": "Fórmulas, Mr y % en masa. de  $H_2SO_4$,  $NaOH$, $Ca(NO_3)_2$",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-tp-teoria-atomica.md",
+    "reference_line": 155,
+    "module_name": "5-quimica",
+    "category": "tpteoriaatomica"
+  },
+  {
+    "term": "11 - Composición centesimal – teoría general",
+    "example": ":m * $H_2SO_4$, Mr=98.1 g/mol → %H=2.06, %S=32.7, %O=65.3\n* $NaOH$, Mr=40 g/mol → %Na=57.5, %O=40.0, %H=2.5\n* $Ca(NO_3)_2$, Mr=164.1 g/mol → %Ca=24.4, %N=17.1, %O=58.5",
+    "description": ":m Para calcular **composición centesimal** de una sustancia:\n1. Se necesita la **fórmula molecular**.\n2. Se buscan las **masas atómicas** de los elementos (tabla periódica aproximada):\n* H = 1 g/mol\n* C = 12 g/mol\n* O = 16 g/mol\n* N = 14 g/mol\n* S = 32 g/mol\n* Na = 23 g/mol\n* Ca = 40 g/mol\n* Al = 27 g/mol\n* P = 31 g/mol\n3. Se calcula el **Mr total** sumando las masas.\n4. Se calcula el porcentaje de cada elemento con la fórmula:\n* Ácido sulfúrico ($H_2SO_4$)\n* Hidróxido de sodio ($NaOH$)\n* Nitrato de calcio ($Ca(NO_3)_2$)\n",
+    "prompt": "Calcule la composición centesimal en masa de las sustancias:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-tp-teoria-atomica.md",
+    "reference_line": 167,
+    "module_name": "5-quimica",
+    "category": "tpteoriaatomica"
+  },
+  {
+    "term": "12 - Ejercicio 11 – Ácido oxálico",
+    "example": ":m * En 100 g: C=27 g (27/12=2.25 mol), H=2.2 g (2.2/1=2.2 mol), O=71 g (71/16=4.44 mol).\n* Relación ≈ C : H : O = 2.25 : 2.2 : 4.44 → ≈ 1 : 1 : 2.\n* Fórmula mínima: $CH O_2$ → $C H O_2$ ≈ $CHO_2$.\n* Masa mínima=45 g/mol. Como el Mr real=90, se multiplica ×2 → $C_2H_2O_4$.",
+    "description": ":m **Teoría**: la fórmula mínima se obtiene calculando los moles relativos a partir de los % en 100 g de muestra. Luego se simplifican las relaciones.\n* En 100 g: C=27 g (27/12=2.25 mol), H=2.2 g (2.2/1=2.2 mol), O=71 g (71/16=4.44 mol).\n* Relación ≈ C : H : O = 2.25 : 2.2 : 4.44 → ≈ 1 : 1 : 2.\n",
+    "prompt": "Hallar la fórmula mínima y molecular.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-tp-teoria-atomica.md",
+    "reference_line": 198,
+    "module_name": "5-quimica",
+    "category": "tpteoriaatomica"
+  },
+  {
+    "term": "13 - Ejercicio 12 – Glucosa $C_6H_{12}O_6$",
+    "example": ":m Mr=180 g/mol.\n- Masa de C = $6\\times12=72$ g → $72/180=40.0%$\n- Masa de H = $12\\times1=12$ g → $12/180=6.6%$\n- Masa de O = $6\\times16=96$ g → $96/180=53.3% $",
+    "description": ":m **Datos de la tabla periódica:**\n- C = 12 g/mol\n- H = 1 g/mol\n- O = 16 g/mol\n**Mr de la glucosa:**\n$6(12) + 12(1) + 6(16) = 180$ g/mol\n",
+    "prompt": "Determinar la composición centesimal.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-tp-teoria-atomica.md",
+    "reference_line": 215,
+    "module_name": "5-quimica",
+    "category": "tpteoriaatomica"
+  },
+  {
+    "term": "14 - Ejercicio 13 – Hidrocarburo (79.9% C, 20.1% H)",
+    "example": ":m En 100 g:\n- C=79.9 g → $79.9/12=6.66$ mol\n- H=20.1 g → $20.1/1=20.1$ mol\nRelación = 6.66 : 20.1 ≈ 1 : 3\nFórmula empírica: $CH_3$",
+    "description": ":m **Datos de la tabla periódica:**\n- C = 12 g/mol\n- H = 1 g/mol\n**Estrategia:** asumir 100 g de muestra, pasar a moles y simplificar.\n",
+    "prompt": "Hallar la fórmula empírica.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-tp-teoria-atomica.md",
+    "reference_line": 240,
+    "module_name": "5-quimica",
+    "category": "tpteoriaatomica"
+  },
+  {
+    "term": "15 - Ejercicio 13 bis – Compuesto Mr=140",
+    "example": ":m En 100 g:\n- C=51.42 g → $51.42/12=4.29$ mol\n- N=40 g → $40/14=2.86$ mol\n- H=8.57 g → $8.57/1=8.57$ mol\nRelación ≈ 4.29 : 2.86 : 8.57 → dividir entre 2.86 → 1.5 : 1 : 3\nMultiplicar ×2 → $C_3N_2H_6$, Mr=70 g/mol\nEl Mr real=140 → multiplicar ×2 → $C_6N_4H_{12}$",
+    "description": ":m **Datos de la tabla periódica:**\n- C = 12 g/mol\n- N = 14 g/mol\n- H = 1 g/mol\n",
+    "prompt": "Con %C=51.42, %N=40.0, %H=8.57, hallar fórmula molecular.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-tp-teoria-atomica.md",
+    "reference_line": 260,
+    "module_name": "5-quimica",
+    "category": "tpteoriaatomica"
+  },
+  {
+    "term": "16 - Ejercicio 14 – Glúcido (Mr≈182)",
+    "example": ":m En 100 g:\n- C=40 g → $40/12=3.33$ mol\n- H=6.71 g → $6.71/1=6.71$ mol\n- O=53.29 g → $53.29/16=3.33$ mol\nRelación ≈ 1 : 2 : 1\nFórmula empírica: $CH_2O$, Mr=30 g/mol\nMr real=182 → 182/30 ≈ 6\nFórmula molecular: $C_6H_{12}O_6$",
+    "description": ":m **Datos de la tabla periódica:**\n- C = 12 g/mol\n- H = 1 g/mol\n- O = 16 g/mol\n\n",
+    "prompt": "Con %C=40, %H=6.71, %O=53.29, hallar fórmula molecular.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-tp-teoria-atomica.md",
+    "reference_line": 282,
+    "module_name": "5-quimica",
+    "category": "tpteoriaatomica"
+  },
+  {
+    "term": "17 - Ejercicio 15 – Hidrocarburo",
+    "example": ":m En 100 g:\n- C=85.63 g → $85.63/12=7.14$ mol\n- H=14.37 g → $14.37/1=14.37$ mol\nRelación ≈ 1 : 2 → fórmula empírica $CH_2$, Mr=14 g/mol\nMasa molar a partir de densidad:\n$M = d\\times V_m = 1.258\\times22.4 = 28.15$ g/mol\nRelación $28.15/14 \\approx 2$ → fórmula molecular $C_2H_4$",
+    "description": ":m **Datos de la tabla periódica:**\n- C = 12 g/mol\n- H = 1 g/mol\n**Dato adicional:** en CNPT, 1 mol de gas ocupa 22.4 L.\n",
+    "prompt": "%C=85.63, %H=14.37. Densidad=1.258 g/L en CNPT. Hallar fórmulas y peso molecular.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-tp-teoria-atomica.md",
+    "reference_line": 306,
+    "module_name": "5-quimica",
+    "category": "tpteoriaatomica"
   },
   {
     "term": "1 - Ejercicios",
     "example": ":m - Materia: Todo lo que tiene masa y ocupa espacio.\n- Energía: La capacidad de realizar trabajo.",
     "description": ":m a) Define con tus palabras qué es **materia** y qué es **energía**. ",
     "prompt": "",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-unidad-.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-unidad-Teoría atómico molecular.md",
     "reference_line": 18,
     "module_name": "5-quimica",
-    "category": "unidad"
+    "category": "unidadTeoraatmicomolecular"
   },
   {
     "term": "2 - a) Escribe los tres estados de la materia y da un ejemplo de cada uno.",
     "example": ":m Sólido: Hielo\nLíquido: Agua\nGaseoso: Vapor de agua",
     "description": ":m a) Escribe los tres estados de la materia y da un ejemplo de cada uno.",
     "prompt": "a) Escribe los tres estados de la materia y da un ejemplo de cada uno.",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-unidad-.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-unidad-Teoría atómico molecular.md",
     "reference_line": 26,
     "module_name": "5-quimica",
-    "category": "unidad"
+    "category": "unidadTeoraatmicomolecular"
   },
   {
     "term": "3 - b) Menciona dos ejemplos de elementos químicos.",
     "example": ":m a) Tiene composición definida y propiedades constantes.\nb) Ejemplos: Hidrógeno $(\\mathrm{H})$, Cloro $(\\mathrm{Cl})$.",
     "description": ":m 3. Sustancias puras y elementos\na) ¿Qué caracteriza a una sustancia pura?\nb) Menciona dos ejemplos de elementos químicos.",
     "prompt": "b) Menciona dos ejemplos de elementos químicos.",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-unidad-.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-unidad-Teoría atómico molecular.md",
     "reference_line": 36,
     "module_name": "5-quimica",
-    "category": "unidad"
+    "category": "unidadTeoraatmicomolecular"
   },
   {
     "term": "4 - Clasificacion de Elementos",
     "example": ":m a) Brillantes, maleables, conductores.\nb) Opacos, frágiles, aislantes.\nc) Elementos que en algunas condiciones se comportan como metales (ej. conducen electricidad) y en otras como no metales.",
     "description": ":m - Metales: brillantes, maleables conductores\n- No Metales: Opacos, Fragiles, aislantes\n- Metaloides: Pueden comportarse como metales en algunas condiciones (por ejemplo, conducir electricidad).\n![[Pasted image 20250825192017.png]]\n1. Clasificación de propiedades\na) ¿Qué características tienen los metales?\nb) ¿Qué características tienen los no metales?\nc) ¿Qué son los metaloides?",
     "prompt": "",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-unidad-.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-unidad-Teoría atómico molecular.md",
     "reference_line": 44,
     "module_name": "5-quimica",
-    "category": "unidad"
+    "category": "unidadTeoraatmicomolecular"
   },
   {
     "term": "5 - d) Boro (B)",
     "example": ":m a) ML\nb) NM\nc) M\nd) ML",
     "description": ":m De los siguientes elementos, indica si son metal (M), no metal (NM) o metaloide (ML):\na) Silicio (Si)\nb) Oxígeno (O)\nc) Hierro (Fe)\nd) Boro (B)",
     "prompt": "d) Boro (B)",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-unidad-.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-unidad-Teoría atómico molecular.md",
     "reference_line": 66,
     "module_name": "5-quimica",
-    "category": "unidad"
+    "category": "unidadTeoraatmicomolecular"
   },
   {
     "term": "6 - Ejercicio calcular",
     "example": ":m 1. Número de moles:\n$$\nn=\\frac{36}{18}=2 \\mathrm{moles}\n$$\n2. Número de moléculas:\n$$\nN=2 \\times 6.022 \\times 10^{23}=1.204 \\times 10^{24} \\text { moléculas }\n$$\n3. Número de átomos:\nCada molécula de $\\mathrm{H}_2 \\mathrm{O}$ tiene 3 átomos $\\rightarrow$\n$$\nN_{\\text {átomos }}=3 \\times 1.204 \\times 10^{24}=3.612 \\times 10^{24} \\text { átomos }\n$$",
     "description": ":m Hidrógeno (H): 1 g/mol\nOxígeno (O): 16 g/mol",
     "prompt": "Ejemplo: Calcular el número de moles, moléculas y átomos en 36 g de agua (H₂O).",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-unidad-.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-unidad-Teoría atómico molecular.md",
     "reference_line": 114,
     "module_name": "5-quimica",
-    "category": "unidad"
+    "category": "unidadTeoraatmicomolecular"
   },
   {
     "term": "7 - 1. Cloro (Cl)",
     "example": ":m $$\nA=(34.97×0.75)+(36.97×0.25)=35.47 uA = (34.97 \\times 0.75) + (36.97 \\times 0.25) = 35.47\\ uA=(34.97×0.75)+(36.97×0.25)=35.47 u\n$$",
     "description": ":m El cloro tiene dos isótopos:\n- $^{35}Cl$ → masa = 34.97 u, abundancia = 75 %\n- $^{37}Cl$ → masa = 36.97 u, abundancia = 25 %\n📌 Calcula la **masa atómica promedio** del cloro. ",
     "prompt": "",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-unidad-.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-unidad-Teoría atómico molecular.md",
     "reference_line": 164,
     "module_name": "5-quimica",
-    "category": "unidad"
+    "category": "unidadTeoraatmicomolecular"
   },
   {
     "term": "8 - bloque 4 - Cofiguracion Electronica",
     "example": ":m 1s² 2s² 2p²",
     "description": ":m Definicion\n- Distribucion de e- en niveles y subniveles\n- Determina propiedades quimicas y magneticas\nCapacidades de niveles\n- Nivel 1: 2e-\n- Nivel 2: 8e-\n- Nivel 3: 18e-\n- Nivel 4 al 7: 32 e-\n- Esto va a explicar los niveles de energia, que forman los subniveles de energia que forman los espacios. un en el espacio que ocpan dda esta cantidad de electrones\n---\n2. Carbono (Z = 6)\n📌 Escribe su configuración electrónica.",
     "prompt": "",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-unidad-.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-unidad-Teoría atómico molecular.md",
     "reference_line": 178,
     "module_name": "5-quimica",
-    "category": "unidad"
+    "category": "unidadTeoraatmicomolecular"
   },
   {
     "term": "9 - :p📌 Escribe su configuración electrónica.",
     "example": ":m 1s² 2s² 2p⁶ 3s¹",
     "description": ":m 2. Sodio (Z = 11)\n:p📌 Escribe su configuración electrónica.",
     "prompt": ":p📌 Escribe su configuración electrónica.",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-unidad-.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-unidad-Teoría atómico molecular.md",
     "reference_line": 201,
     "module_name": "5-quimica",
-    "category": "unidad"
+    "category": "unidadTeoraatmicomolecular"
   },
   {
     "term": "10 - Metodo de Schrodinger",
     "example": ":m $n = 2$ (nivel principal)\n$l = 1$ (subnivel p)\n$m_l = -1, 0, +1$ (tres orientaciones posibles)\n$m_s = +1/2$ o $-1/2$",
     "description": ":m - Orbitrales: Regiones donde es probable hallar un e-\n- Definidos por numeros cuanticos\n- N (principal) => tamanio / energia\n- L (angular) => forma orbital\n- m (magnetico) > Orientacion\n- s (spin) => giro del spin\n3. Ejemplo práctico: Electrón en 2p\n📌 ¿Cuáles pueden ser los números cuánticos de un electrón en el orbital 2p?",
     "prompt": "",
-    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-unidad-.md",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\2-unidad-Teoría atómico molecular.md",
     "reference_line": 218,
     "module_name": "5-quimica",
-    "category": "unidad"
+    "category": "unidadTeoraatmicomolecular"
+  },
+  {
+    "term": "1 - Problema 1 – Solución de NaCl",
+    "example": ":m a) $ \\dfrac{10}{40}\\times100 = 25%$\nb) $n=\\tfrac{10}{58.5}=0.171\\ \\text{mol}$; solvente $30,g=0.030,kg$ → $m=0.171/0.030=5.70,mol/kg$\nc) $X_{NaCl}=\\tfrac{0.171}{0.171+1.67}=0.093$\n\n\n\n",
+    "description": ":m Se disuelven **10 g de NaCl** en **40 g de solución total**. Elementos: Na (grupo 1), Cl (grupo 17).\nValores de oxidación: Na +1, Cl –1.\na) % m/m\nb) molalidad\nc) fracción molar ",
+    "prompt": "Calcula la concentración de la solución en:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-soluciones-1.md",
+    "reference_line": 2,
+    "module_name": "5-quimica",
+    "category": "soluciones"
+  },
+  {
+    "term": "2 - Problema 2 – Preparación de soluciones con CaCl₂",
+    "example": ":m a) $0.5\\ mol/L \\times 0.400\\ L = 0.200\\ mol$ → $0.200\\times111=22.2\\ g$\nb) $4\\ g/100\\ mL \\times 3000\\ mL=120\\ g$\n\n\n\n",
+    "description": ":m El Ca (grupo 2) es +2 y el Cl –1. Masa molar CaCl₂ = 111 g/mol.\na) 400 cm³ de una solución 0.5 M\nb) 3 dm³ de una solución 4% m/v ",
+    "prompt": "¿Qué masa de soluto se necesita para preparar?:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-soluciones-1.md",
+    "reference_line": 18,
+    "module_name": "5-quimica",
+    "category": "soluciones"
+  },
+  {
+    "term": "3 - Problema 3 – Solución 15% m/m",
+    "example": ":m a) $\\tfrac{50}{0.15} - 50 = 283.33\\ g$\nb) $50+283.33=333.33\\ g$\n\n\n\n",
+    "description": ":m Elementos: depende del soluto, genérico.\na) masa de solvente necesaria\nb) masa total de la solución ",
+    "prompt": "Si tienes 50 g de soluto, determina:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-soluciones-1.md",
+    "reference_line": 31,
+    "module_name": "5-quimica",
+    "category": "soluciones"
+  },
+  {
+    "term": "4 - Problema 4 – Solución al 20% m/m",
+    "example": ":m Masa total = $75+ x$; $x/(x+75)=0.20$ → $x=18.75\\ g$\n\n\n\n",
+    "description": ":m Agua: 75 g, buscar masa de sal.\n",
+    "prompt": "¿Cuántos gramos de sal deben disolverse en 75 g de agua para una solución 20% m/m?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-soluciones-1.md",
+    "reference_line": 44,
+    "module_name": "5-quimica",
+    "category": "soluciones"
+  },
+  {
+    "term": "5 - Problema 5 – Solución de Al₂(SO₄)₃",
+    "example": ":m a) $25/125=20%$\nb) $25/117\\times100=21.37%$\nc) $125/117=1.07\\ g/cm^3$\nd) $25/342=0.073\\ mol$; $0.073/0.117=0.624\\ M$\ne) $0.073/0.100=0.73\\ mol/kg$\nf) $X_{soluto}=0.073/(0.073+5.56)=0.013$; $X_{agua}=0.987$\n\n\n\n",
+    "description": ":m Elementos: Al (grupo 13, +3), S (+6), O (–2), H₂O solvente. Masa molar = 342 g/mol.\na) % m/m\nb) % m/v\nc) densidad\nd) molaridad\ne) molalidad\nf) fracciones molares ",
+    "prompt": "Se disuelven 25 g en 100 g de agua, solución final 117 cm³. Calcula:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-soluciones-1.md",
+    "reference_line": 54,
+    "module_name": "5-quimica",
+    "category": "soluciones"
+  },
+  {
+    "term": "6 - Problema 6 – Preparación de NaOH",
+    "example": ":m $n=3\\times0.2=0.6\\ mol$ → $0.6\\times40=24\\ g$\n\n\n\n",
+    "description": ":m Na (grupo 1, +1), O (–2), H (+1). Masa molar = 40 g/mol.\n",
+    "prompt": "¿Qué masa de soluto se necesita para 0.2 L de solución 3M?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-soluciones-1.md",
+    "reference_line": 75,
+    "module_name": "5-quimica",
+    "category": "soluciones"
+  },
+  {
+    "term": "7 - Problema 7 – Solución de NaCl 2.5M",
+    "example": ":m $n=2.5\\times1.230=3.075\\ mol$ → $3.075\\times58.5=179.7\\ g$\n\n\n\n\n\n\n\n",
+    "description": ":m Masa molar = 58.5 g/mol.\n",
+    "prompt": "¿Qué masa de soluto hay en 1230 cm³ de solución 2.5 M?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-soluciones-1.md",
+    "reference_line": 85,
+    "module_name": "5-quimica",
+    "category": "soluciones"
+  },
+  {
+    "term": "1 - Soluciones – Flashcards",
+    "example": ":m Es una mezcla **homogénea** formada por dos o más sustancias y que constituye un sistema material de una sola fase.",
+    "description": ":m 1. Definición ",
+    "prompt": "¿Qué es una **solución o disolución** en química?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-Soluciones.md",
+    "reference_line": 13,
+    "module_name": "5-quimica",
+    "category": "Soluciones"
+  },
+  {
+    "term": "2 - :p Da un ejemplo de **solución sólida**.",
+    "example": ":m Una aleación de metales y/o no metales. Ejemplos: acero, bronce, oro blanco.",
+    "description": ":m 3. Soluciones sólidas\n:p Da un ejemplo de **solución sólida**. ",
+    "prompt": ":p Da un ejemplo de **solución sólida**.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-Soluciones.md",
+    "reference_line": 33,
+    "module_name": "5-quimica",
+    "category": "Soluciones"
+  },
+  {
+    "term": "3 - :p Da ejemplos de **soluciones líquidas**.",
+    "example": ":m Disolución de un gas, líquido o sólido en un líquido. Ejemplos: agua de mar, agua de canilla, alcohol medicinal.",
+    "description": ":m 4. Soluciones líquidas\n:p Da ejemplos de **soluciones líquidas**. ",
+    "prompt": ":p Da ejemplos de **soluciones líquidas**.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-Soluciones.md",
+    "reference_line": 40,
+    "module_name": "5-quimica",
+    "category": "Soluciones"
+  },
+  {
+    "term": "4 - :p ¿Qué ejemplos de **soluciones gaseosas** existen en la vida diaria?",
+    "example": ":m El aire atmosférico y el aire exhalado de los pulmones.",
+    "description": ":m 5. Soluciones gaseosas\n:p ¿Qué ejemplos de **soluciones gaseosas** existen en la vida diaria? ",
+    "prompt": ":p ¿Qué ejemplos de **soluciones gaseosas** existen en la vida diaria?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-Soluciones.md",
+    "reference_line": 48,
+    "module_name": "5-quimica",
+    "category": "Soluciones"
+  },
+  {
+    "term": "5 - :p ¿Cómo se clasifican las soluciones según el número de componentes?",
+    "example": ":m En soluciones **binarias, ternarias, cuaternarias**, etc.",
+    "description": ":m 7. Clasificación según número de componentes\n:p ¿Cómo se clasifican las soluciones según el número de componentes? ",
+    "prompt": ":p ¿Cómo se clasifican las soluciones según el número de componentes?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-Soluciones.md",
+    "reference_line": 65,
+    "module_name": "5-quimica",
+    "category": "Soluciones"
+  },
+  {
+    "term": "6 - Soluciones – Flashcards (Parte 2)",
+    "example": ":m Es la sustancia que se disuelve en el solvente y, en general, se encuentra en **menor proporción** en la mezcla.",
+    "description": ":m 8. Soluto ",
+    "prompt": "¿Qué es el **soluto** en una solución?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-Soluciones.md",
+    "reference_line": 73,
+    "module_name": "5-quimica",
+    "category": "Soluciones"
+  },
+  {
+    "term": "7 - :p ¿Qué es el **solvente** en una solución?",
+    "example": ":m Es la sustancia que disuelve al soluto y, en general, se encuentra en **mayor proporción** en la mezcla.",
+    "description": ":m 9. Solvente\n:p ¿Qué es el **solvente** en una solución? ",
+    "prompt": ":p ¿Qué es el **solvente** en una solución?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-Soluciones.md",
+    "reference_line": 84,
+    "module_name": "5-quimica",
+    "category": "Soluciones"
+  },
+  {
+    "term": "8 - :p ¿Qué nombre reciben las soluciones cuyo solvente es agua?",
+    "example": ":m Se denominan **soluciones acuosas**.",
+    "description": ":m 10. Soluciones acuosas\n:p ¿Qué nombre reciben las soluciones cuyo solvente es agua? ",
+    "prompt": ":p ¿Qué nombre reciben las soluciones cuyo solvente es agua?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-Soluciones.md",
+    "reference_line": 92,
+    "module_name": "5-quimica",
+    "category": "Soluciones"
+  },
+  {
+    "term": "9 - :p ¿Cómo se calcula la **masa de una solución**?",
+    "example": ":m $$\nmsol=mste+mstom_{sol} = m_{ste} + m_{sto}\n$$",
+    "description": ":m 12. Masa de la solución\n:p ¿Cómo se calcula la **masa de una solución**? ",
+    "prompt": ":p ¿Cómo se calcula la **masa de una solución**?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-Soluciones.md",
+    "reference_line": 110,
+    "module_name": "5-quimica",
+    "category": "Soluciones"
+  },
+  {
+    "term": "10 - :p ¿Cómo se calcula la **densidad de una solución**?",
+    "example": ":m $$\nδsol=msolVsol\\delta_{sol} = \\frac{m_{sol}}{V_{sol}}\n$$",
+    "description": ":m 13. Densidad de la solución\n:p ¿Cómo se calcula la **densidad de una solución**? ",
+    "prompt": ":p ¿Cómo se calcula la **densidad de una solución**?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-Soluciones.md",
+    "reference_line": 119,
+    "module_name": "5-quimica",
+    "category": "Soluciones"
+  },
+  {
+    "term": "11 - :p ¿Se puede agregar soluto indefinidamente y siempre obtener una solución?",
+    "example": ":m No. Existe un **límite de solubilidad** que depende del soluto, solvente y la temperatura. Superado este límite, el sistema deja de ser homogéneo y pasa a ser heterogéneo.",
+    "description": ":m 14. Límite de solubilidad\n:p ¿Se puede agregar soluto indefinidamente y siempre obtener una solución? ",
+    "prompt": ":p ¿Se puede agregar soluto indefinidamente y siempre obtener una solución?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-Soluciones.md",
+    "reference_line": 128,
+    "module_name": "5-quimica",
+    "category": "Soluciones"
+  },
+  {
+    "term": "12 - :p ¿Qué significa que una solución esté **saturada**?",
+    "example": ":m Que ya no admite más soluto disuelto; el exceso se acumula en el fondo sin disolverse.",
+    "description": ":m 15. Solución saturada\n:p ¿Qué significa que una solución esté **saturada**? ",
+    "prompt": ":p ¿Qué significa que una solución esté **saturada**?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-Soluciones.md",
+    "reference_line": 136,
+    "module_name": "5-quimica",
+    "category": "Soluciones"
+  },
+  {
+    "term": "13 - Soluciones – Flashcards (Parte 3)",
+    "example": ":m Que contiene disuelta la **máxima cantidad de soluto** que puede disolverse en el solvente a una cierta temperatura.",
+    "description": ":m 16. Solución saturada ",
+    "prompt": "¿Qué significa que una solución esté **saturada**?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-Soluciones.md",
+    "reference_line": 148,
+    "module_name": "5-quimica",
+    "category": "Soluciones"
+  },
+  {
+    "term": "14 - :p ¿Cómo podemos estar seguros de que una solución está saturada?",
+    "example": ":m Cuando queda un **exceso de soluto sin disolver** en el fondo del recipiente.",
+    "description": ":m 17. Exceso de soluto\n:p ¿Cómo podemos estar seguros de que una solución está saturada? ",
+    "prompt": ":p ¿Cómo podemos estar seguros de que una solución está saturada?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-Soluciones.md",
+    "reference_line": 159,
+    "module_name": "5-quimica",
+    "category": "Soluciones"
+  },
+  {
+    "term": "15 - :p ¿Qué es la **solubilidad**?",
+    "example": ":m Es la **concentración de la solución saturada**, es decir, la cantidad de soluto que puede disolverse en un solvente a una temperatura determinada.",
+    "description": ":m 18. Solubilidad (definición)\n:p ¿Qué es la **solubilidad**? ",
+    "prompt": ":p ¿Qué es la **solubilidad**?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-Soluciones.md",
+    "reference_line": 167,
+    "module_name": "5-quimica",
+    "category": "Soluciones"
+  },
+  {
+    "term": "16 - :p ¿Cómo varía la solubilidad de los sólidos en agua con la temperatura?",
+    "example": ":m En general, **aumenta al aumentar la temperatura**.",
+    "description": ":m 19. Solubilidad de sólidos\n:p ¿Cómo varía la solubilidad de los sólidos en agua con la temperatura? ",
+    "prompt": ":p ¿Cómo varía la solubilidad de los sólidos en agua con la temperatura?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-Soluciones.md",
+    "reference_line": 175,
+    "module_name": "5-quimica",
+    "category": "Soluciones"
+  },
+  {
+    "term": "17 - :p ¿Cómo varía la solubilidad de los gases en agua con la temperatura?",
+    "example": ":m En general, **disminuye al aumentar la temperatura** (ejemplo: oxígeno en agua).",
+    "description": ":m 20. Solubilidad de gases\n:p ¿Cómo varía la solubilidad de los gases en agua con la temperatura? ",
+    "prompt": ":p ¿Cómo varía la solubilidad de los gases en agua con la temperatura?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-Soluciones.md",
+    "reference_line": 183,
+    "module_name": "5-quimica",
+    "category": "Soluciones"
+  },
+  {
+    "term": "18 - :p ¿Qué es una **solución diluida**?",
+    "example": ":m Es aquella que contiene **pequeñas cantidades de soluto** respecto a la solución saturada, a la misma temperatura.",
+    "description": ":m 21. Soluciones diluidas\n:p ¿Qué es una **solución diluida**? ",
+    "prompt": ":p ¿Qué es una **solución diluida**?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-Soluciones.md",
+    "reference_line": 191,
+    "module_name": "5-quimica",
+    "category": "Soluciones"
+  },
+  {
+    "term": "19 - :p ¿Qué es una **solución concentrada**?",
+    "example": ":m Contiene **grandes cantidades de soluto**, pero aún **sin llegar a la saturación**.",
+    "description": ":m 22. Soluciones concentradas\n:p ¿Qué es una **solución concentrada**? ",
+    "prompt": ":p ¿Qué es una **solución concentrada**?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-Soluciones.md",
+    "reference_line": 199,
+    "module_name": "5-quimica",
+    "category": "Soluciones"
+  },
+  {
+    "term": "20 - :p ¿Qué es una **solución saturada**?",
+    "example": ":m Es aquella que posee la **máxima cantidad de soluto** disuelta en un solvente a una temperatura determinada.",
+    "description": ":m 23. Soluciones saturadas\n:p ¿Qué es una **solución saturada**? ",
+    "prompt": ":p ¿Qué es una **solución saturada**?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-Soluciones.md",
+    "reference_line": 207,
+    "module_name": "5-quimica",
+    "category": "Soluciones"
+  },
+  {
+    "term": "21 - :p ¿Qué es una **solución sobresaturada**?",
+    "example": ":m Contiene **más soluto que una solución saturada**, gracias a un aumento de la temperatura que incrementa la solubilidad.",
+    "description": ":m 24. Soluciones sobresaturadas\n:p ¿Qué es una **solución sobresaturada**? ",
+    "prompt": ":p ¿Qué es una **solución sobresaturada**?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-Soluciones.md",
+    "reference_line": 215,
+    "module_name": "5-quimica",
+    "category": "Soluciones"
+  },
+  {
+    "term": "22 - Soluciones – Flashcards (Parte 4)",
+    "example": ":m Es el número de **moles del componente** dividido por el **número total de moles** de todos los componentes de la solución.",
+    "description": ":m Fracción Molar: La fracción molar de un componente en una solución está dada por el número de moles de dicho componente dividido por el número total de moles de todos los componentes de la solución (soluto más solvente). Comúnmente se utiliza el signo X para la fracción molar, con un subíndice que indica el componente sobre el cual se está enfocando la atención. La suma de las fracciones molares de todos los componentes de una solución debe ser igual a uno.\n$$\nX_1=\\frac{\\text { mol }_{\\text {ste }}}{\\text { mol }_{\\text {total }}}(\\text { solvente }) \\quad X_2=\\frac{\\text { mol }_{\\text {sto }}}{\\text { mol }_{\\text {total }}} \\text { (soluto) }\n$$\n$$\n\\text { mol }_{\\text {total }}=\\text { mol }_{\\text {ste }}+\\text { mol }_{\\text {sto }}\n$$\nEl proceso de dilución es simplemente agregar solvente a una solución ya existente. Es importante remarcar eso último, la solución ya está preparada, por lo tanto este procedimiento es para preparar una solución menos concentrada a partir de una más concentrada.\n![[Pasted image 20250915161502.png]]\n25. Fracción molar (definición)\n![[Pasted image 20250915160452.png]]",
+    "prompt": "¿Qué es la **fracción molar** de un componente en una solución?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-Soluciones.md",
+    "reference_line": 225,
+    "module_name": "5-quimica",
+    "category": "Soluciones"
+  },
+  {
+    "term": "23 - :p ¿Cómo se expresa la **fracción molar del solvente**?",
+    "example": ":m $$\nX1=molstemoltotalX_{1} = \\frac{mol_{ste}}{mol_{total}}\n$$",
+    "description": ":m 26. Fórmula fracción molar solvente\n:p ¿Cómo se expresa la **fracción molar del solvente**? ",
+    "prompt": ":p ¿Cómo se expresa la **fracción molar del solvente**?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-Soluciones.md",
+    "reference_line": 252,
+    "module_name": "5-quimica",
+    "category": "Soluciones"
+  },
+  {
+    "term": "24 - :p ¿Cómo se expresa la **fracción molar del soluto**?",
+    "example": ":m $$X2=molstomoltotalX_{2} = \\frac{mol_{sto}}{mol_{total}}$$",
+    "description": ":m 27. Fórmula fracción molar soluto\n:p ¿Cómo se expresa la **fracción molar del soluto**? ",
+    "prompt": ":p ¿Cómo se expresa la **fracción molar del soluto**?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-Soluciones.md",
+    "reference_line": 261,
+    "module_name": "5-quimica",
+    "category": "Soluciones"
+  },
+  {
+    "term": "25 - :p ¿Qué relación cumplen las fracciones molares de soluto y solvente?",
+    "example": ":m $$ X1+X2=1X_{1} + X_{2} = 1$$",
+    "description": ":m 28. Relación entre fracciones molares\n:p ¿Qué relación cumplen las fracciones molares de soluto y solvente? ",
+    "prompt": ":p ¿Qué relación cumplen las fracciones molares de soluto y solvente?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-Soluciones.md",
+    "reference_line": 268,
+    "module_name": "5-quimica",
+    "category": "Soluciones"
+  },
+  {
+    "term": "26 - :p ¿Qué es una **dilución** en química?",
+    "example": ":m Es el proceso de **agregar solvente a una solución ya preparada** para obtener otra menos concentrada.",
+    "description": ":m 29. Dilución (definición)\n:p ¿Qué es una **dilución** en química? ",
+    "prompt": ":p ¿Qué es una **dilución** en química?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-Soluciones.md",
+    "reference_line": 275,
+    "module_name": "5-quimica",
+    "category": "Soluciones"
+  },
+  {
+    "term": "27 - :p ¿Qué ocurre con los **moles de soluto** antes y después de una dilución?",
+    "example": ":m\nSe mantienen constantes:",
+    "description": ":m 30. Principio de dilución\n:p ¿Qué ocurre con los **moles de soluto** antes y después de una dilución? ",
+    "prompt": ":p ¿Qué ocurre con los **moles de soluto** antes y después de una dilución?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-Soluciones.md",
+    "reference_line": 283,
+    "module_name": "5-quimica",
+    "category": "Soluciones"
+  },
+  {
+    "term": "28 - :p ¿Cómo se relacionan los volúmenes en una dilución?",
+    "example": "",
+    "description": ":m 31. Relación de volúmenes en una dilución\n:p ¿Cómo se relacionan los volúmenes en una dilución? ",
+    "prompt": ":p ¿Cómo se relacionan los volúmenes en una dilución?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-Soluciones.md",
+    "reference_line": 293,
+    "module_name": "5-quimica",
+    "category": "Soluciones"
+  },
+  {
+    "term": "29 - :p ¿Cómo se calcula el volumen de solvente (agua) que se debe agregar en una dilución?",
+    "example": ":m $$\nVH2O=VD−VCV_{H_2O} = V_D - V_C\n$$",
+    "description": ":m 32. Cálculo de volumen de agua agregada\n:p ¿Cómo se calcula el volumen de solvente (agua) que se debe agregar en una dilución? ",
+    "prompt": ":p ¿Cómo se calcula el volumen de solvente (agua) que se debe agregar en una dilución?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\3-Soluciones.md",
+    "reference_line": 311,
+    "module_name": "5-quimica",
+    "category": "Soluciones"
+  },
+  {
+    "term": "1 - Ejercicio 1 – Producción de cloro con MnO₂ y HCl",
+    "example": ":m a) $\\mathrm{MnO_2+4HCl \\rightarrow MnCl_2+Cl_2+2H_2O}$\nb) 7 mol HCl → 3.5 mol H₂O → $3.5\\times22.4=78.4$ L\nc) 7 mol HCl → 1.75 mol MnCl₂ → $1.75\\times125.84=220.22$ g\n\n\n\n",
+    "description": ":m Elementos: Mn (grupo 7), Cl (grupo 17), O (grupo 16), H (grupo 1).\nValores de oxidación:\n- Mn: +4 → +2\n- Cl: –1 → 0\n- O: –2, H: +1\na) ecuación igualada\nb) volumen de agua en CNPT al reaccionar 7 mol HCl\nc) masa de MnCl₂ obtenido ",
+    "prompt": "Balancea la reacción y calcula:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\4-b-estequiometria.md",
+    "reference_line": 1,
+    "module_name": "5-quimica",
+    "category": "bestequiometria"
+  },
+  {
+    "term": "2 - Ejercicio 2 – Descomposición del óxido mercúrico",
+    "example": ":m a) $\\mathrm{2HgO \\rightarrow 2Hg + O_2}$\nb) $2/216=0.00926$ mol HgO; O₂ = 0.00463 mol × 0.95 = 0.0044 mol → $0.0044\\times 6.022\\times10^{23}=2.63\\times10^{21}$ moléculas\n\n\n\n",
+    "description": ":m Elementos: Hg (grupo 12), O (grupo 16).\nValores de oxidación: Hg +2 → 0; O –2 → 0.\n",
+    "prompt": "Balancea la reacción y determina moléculas de O₂ al calentar 2 g HgO con 95% de rendimiento.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\4-b-estequiometria.md",
+    "reference_line": 20,
+    "module_name": "5-quimica",
+    "category": "bestequiometria"
+  },
+  {
+    "term": "3 - Ejercicio 3 – Reacción de la plata con H₂SO₄",
+    "example": ":m a) $\\mathrm{2Ag+2H_2SO_4 \\rightarrow Ag_2SO_4+SO_2+2H_2O}$\nb) Masa Ag = 7 g → 0.0649 mol Ag → 0.03245 mol Ag₂SO₄ → $0.03245\\times311.8=10.14$ g\n\n\n\n",
+    "description": ":m Elementos: Ag (grupo 11), S (+6), O (–2), H (+1).\n",
+    "prompt": "Balancea la reacción y calcula la masa de Ag₂SO₄ formada con una moneda de 10 g (70% Ag).",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\4-b-estequiometria.md",
+    "reference_line": 32,
+    "module_name": "5-quimica",
+    "category": "bestequiometria"
+  },
+  {
+    "term": "4 - Ejercicio 4 – Descomposición de carbonato de calcio",
+    "example": ":m Masa CaCO₃ = 2000 g → 20 mol → 20 mol CaO = 1120 g → con 79% → 885.28 g\n\n\n\n",
+    "description": ":m Elementos: Ca (grupo 2), C (+4), O (–2).\n",
+    "prompt": "A partir de 2.5 kg de roca con 80% CaCO₃ y 79% rendimiento, calcula la masa de CaO.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\4-b-estequiometria.md",
+    "reference_line": 43,
+    "module_name": "5-quimica",
+    "category": "bestequiometria"
+  },
+  {
+    "term": "5 - Ejercicio 5 – Combustión del butano",
+    "example": ":m a) $\\mathrm{2C_4H_{10}+13O_2 \\rightarrow 8CO_2+10H_2O}$\nb) 20 L/22.4 = 0.893 mol butano → 4.465 mol H₂O → 90% → 4.01 mol\nc) 0.893×4=3.57 mol CO₂ → 79.97 L\n\n\n\n",
+    "description": ":m Elementos: C (grupo 14), H (grupo 1), O (grupo 16).\na) ecuación igualada\nb) moles de H₂O al quemar 20 L C₄H₁₀ en CNPT con 90% rendimiento\nc) volumen de CO₂ en CNPT ",
+    "prompt": "Balancea la reacción y calcula:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\4-b-estequiometria.md",
+    "reference_line": 53,
+    "module_name": "5-quimica",
+    "category": "bestequiometria"
+  },
+  {
+    "term": "6 - Ejercicio 6 – Reacción HCl con Al(OH)₃",
+    "example": ":m a) $\\mathrm{3HCl+Al(OH)_3 \\rightarrow AlCl_3+3H_2O}$\nb) 200/133.3=1.5 mol AlCl₃ → 1.5 mol Al(OH)₃ = 117 g\nc) 4.5 mol H₂O → $2.71\\times10^{24}$ moléculas\n\n\n\n",
+    "description": ":m Elementos: Al (grupo 13), Cl (grupo 17), H (grupo 1), O (grupo 16).\na) ecuación igualada\nb) masa de Al(OH)₃ para obtener 200 g AlCl₃\nc) moléculas de H₂O obtenidas ",
+    "prompt": "Balancea y determina:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\4-b-estequiometria.md",
+    "reference_line": 68,
+    "module_name": "5-quimica",
+    "category": "bestequiometria"
+  },
+  {
+    "term": "7 - Ejercicio 7 – Reacción del cobre con HNO₃",
+    "example": ":m a) 120/63.5=1.89 mol Cu → 1.89 mol Cu(NO₃)₂ → 1.68 mol reales → $1.01\\times10^{24}$ moléculas\nb) Agua: 2.24 mol → 40.32 g\n\n\n\n",
+    "description": ":m Elementos: Cu (grupo 11), N (+5 → +2), O (–2), H (+1).\na) moléculas de Cu(NO₃)₂\nb) gramos de agua obtenidos ",
+    "prompt": "Con 120 g Cu y 89% rendimiento calcula:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\4-b-estequiometria.md",
+    "reference_line": 83,
+    "module_name": "5-quimica",
+    "category": "bestequiometria"
+  },
+  {
+    "term": "8 - Ejercicio 8 – Producción de Cl₂ con MnO₂ y HCl (73% rendimiento)",
+    "example": ":m a) $\\mathrm{MnO_2+4HCl \\rightarrow MnCl_2+Cl_2+2H_2O}$\nb) 5/86.9=0.0575 mol MnO₂ → 0.115 mol H₂O → 2.07 g → 73% → 1.512 g\nc) 0.0575 mol Cl₂ = 1.29 L → 0.94 L\n\n\n\n",
+    "description": ":m Valores de oxidación: Mn +4 → +2, Cl –1 → 0.\na) ecuación igualada\nb) masa de H₂O\nc) volumen de Cl₂ en CNPT ",
+    "prompt": "Balancea y calcula con 5 g MnO₂:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\4-b-estequiometria.md",
+    "reference_line": 95,
+    "module_name": "5-quimica",
+    "category": "bestequiometria"
+  },
+  {
+    "term": "9 - Ejercicio 9 – Descomposición de carbonato de calcio (piedra caliza 70%)",
+    "example": ":m a) 300×0.70=210 g CaCO₃ → 2.1 mol → 47.04 L CO₂\nb) 2.1 mol CaO = 117.77 g\n\n\n\n",
+    "description": ":m a) moles y volumen de CO₂ en CNPT\nb) masa de CaO obtenido ",
+    "prompt": "A partir de 300 g roca calcula:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\4-b-estequiometria.md",
+    "reference_line": 109,
+    "module_name": "5-quimica",
+    "category": "bestequiometria"
+  },
+  {
+    "term": "1 - 1. Igualación de ecuaciones químicas",
+    "example": ":m a) $\\mathrm{2H_2 + O_2 \\rightarrow 2H_2O}$\nb) $\\mathrm{C_3H_8 + 5O_2 \\rightarrow 3CO_2 + 4H_2O}$\nc) $\\mathrm{4Fe + 3O_2 \\rightarrow 2Fe_2O_3}$",
+    "description": ":m **Marco teórico**\nCuando ocurre una reacción química, los átomos no se crean ni se destruyen, solo se reordenan. Por eso, el número de átomos de cada elemento debe ser el mismo en reactivos y productos. Para balancear, se ajustan **coeficientes estequiométricos** (números delante de cada especie química) hasta lograr la igualdad.\na) $\\mathrm{H_2 + O_2 \\rightarrow H_2O}$\nb) $\\mathrm{C_3H_8 + O_2 \\rightarrow CO_2 + H_2O}$\nc) $\\mathrm{Fe + O_2 \\rightarrow Fe_2O_3}$ ",
+    "prompt": "Balancea las siguientes ecuaciones por tanteo:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\4-estequimetria.md",
+    "reference_line": 28,
+    "module_name": "5-quimica",
+    "category": "estequimetria"
+  },
+  {
+    "term": "2 - 2. Método algebraico de balanceo",
+    "example": ":m Planteo:\n- $a , Al + b , H_2SO_4 \\rightarrow c , Al_2(SO_4)_3 + d , H_2$\nEcuaciones:\n- Al: $a = 2c$\n- S: $b = 3c$\n- H: $2b = 2d \\Rightarrow b = d$\nSolución: $a=2, b=3, c=1, d=3$\nBalanceada:\n$\\mathrm{2Al + 3H_2SO_4 \\rightarrow Al_2(SO_4)_3 + 3H_2}$",
+    "description": ":m **Marco teórico**\nEl método algebraico permite balancear reacciones complejas sin tanteo. Se asigna una incógnita ($a, b, c, …$) a cada coeficiente, se escribe una ecuación para cada elemento y se resuelve el sistema. Siempre se elige un valor entero más sencillo para despejar.\n- Si queda con fracciones multiplica todo hasta que de un numero.\n$\\mathrm{Al + H_2SO_4 \\rightarrow Al_2(SO_4)_3 + H_2}$ ",
+    "prompt": "Balancea algebraicamente:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\4-estequimetria.md",
+    "reference_line": 42,
+    "module_name": "5-quimica",
+    "category": "estequimetria"
+  },
+  {
+    "term": "3 - 3. Reactivo limitante",
+    "example": ":m - $M(H_2)=2 , g/mol \\Rightarrow n(H_2)=10/2=5 , mol$\n- $M(O_2)=32 , g/mol \\Rightarrow n(O_2)=80/32=2.5 , mol$\n- Proporción estequiométrica: $2:1$ (H₂:O₂).\n- Necesarios: $5,mol,H_2 \\Rightarrow 2.5,mol,O_2$.\nComo hay exactamente 2.5 mol de $O_2$, **no hay limitante**, se consumen ambos totalmente.",
+    "description": ":m **Marco teórico**\nEn una reacción, el **reactivo limitante** es el que se consume primero, impidiendo que la reacción continúe. Se identifica comparando la cantidad de moles de cada reactivo con la proporción estequiométrica. El otro reactivo queda en exceso.\n$$2H2+O2→2H2O2H_2 + O_2 \\rightarrow 2H_2O$$\nDetermina el reactivo limitante. ",
+    "prompt": "Se hacen reaccionar 10 g de hidrógeno ($H_2$) con 80 g de oxígeno ($O_2$) según la reacción:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\4-estequimetria.md",
+    "reference_line": 84,
+    "module_name": "5-quimica",
+    "category": "estequimetria"
+  },
+  {
+    "term": "4 - :p Explica qué es el reactivo limitante en una reacción química.",
+    "example": ":m El **reactivo limitante** es aquel que se consume **primero** durante una reacción química, lo que impide que la reacción continúe aunque todavía quede otro reactivo en exceso.\n- Se identifica comparando las moles disponibles con la proporción estequiométrica.\n- El reactivo limitante determina la **cantidad máxima de producto** que se puede formar.",
+    "description": ":m :p Explica qué es el reactivo limitante en una reacción química. ",
+    "prompt": ":p Explica qué es el reactivo limitante en una reacción química.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\4-estequimetria.md",
+    "reference_line": 99,
+    "module_name": "5-quimica",
+    "category": "estequimetria"
+  },
+  {
+    "term": "5 - 4. Pureza de reactivo",
+    "example": "",
+    "description": ":m **Marco teórico**\nEn la práctica, los reactivos no suelen estar puros. La **pureza** indica el porcentaje de sustancia útil dentro de la muestra. Para calcular la masa pura, se multiplica la masa total por el porcentaje de pureza expresado como fracción.\n",
+    "prompt": "Un reactivo de $CaCO_3$ de 85% de pureza pesa 200 g. ¿Cuántos gramos de $CaCO_3$ puro contiene?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\4-estequimetria.md",
+    "reference_line": 107,
+    "module_name": "5-quimica",
+    "category": "estequimetria"
+  },
+  {
+    "term": "6 - 5. Rendimiento de la reacción",
+    "example": "",
+    "description": ":m **Marco teórico**\nEl **rendimiento teórico** es la cantidad máxima de producto que podría obtenerse si la reacción fuera perfecta. El **rendimiento real** es la cantidad que efectivamente se obtiene en el laboratorio. El rendimiento de la reacción se calcula como:\n%R=rendimiento realrendimiento teoˊrico×100\\%R = \\frac{\\text{rendimiento real}}{\\text{rendimiento teórico}} \\times 100\nCaCO3→CaO+CO2CaCO_3 \\rightarrow CaO + CO_2\nMasa molar: $CaCO_3 = 100 , g/mol$, $CO_2 = 44 , g/mol$.\nSi se obtienen experimentalmente 6 g de $CO_2$, calcula el rendimiento. ",
+    "prompt": "Se hace reaccionar 20 g de $CaCO_3$ para producir $CO_2$:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\4-estequimetria.md",
+    "reference_line": 119,
+    "module_name": "5-quimica",
+    "category": "estequimetria"
+  },
+  {
+    "term": "7 - Reaccion Limitante de volumne H2o",
+    "example": ":m **1. Relación estequiométrica**\n- Según la ecuación: $2 , mol , H_2$ reaccionan con $1 , mol , O_2$.\n- Entonces, $4 , mol , H_2$ necesitan $2 , mol , O_2$.\n**2. Disponibles**\n- $n(H_2) = 4 , mol$\n- $n(O_2) = 2 , mol$\n→ La proporción es exacta.\n**3. Reactivo limitante**\nNinguno: ambos se consumen completamente.\n**4. Producción de agua**\nDe $2 , mol , H_2$ → $2 , mol , H_2O$.\nDe $4 , mol , H_2$ → $4 , mol , H_2O$.\n**5. Volumen en CNTP**\nV=n×22.4=4×22.4=89.6 LV = n \\times 22.4 = 4 \\times 22.4 = 89.6 \\, L\n👉 Resultado: Se producen **89.6 L de $H_2O$** en condiciones normales.",
+    "description": ":m $$\n2H2+O2\n→\n2H2O2H_2 + O_2 \\;\\;\\rightarrow\\;\\; 2H_2O\n$$\n4 mol de $H_2$ reaccionan con 2 mol de $O_2$. ",
+    "prompt": "Determina el reactivo limitante y el volumen de $H_2O$ producido en CNTP.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\4-estequimetria.md",
+    "reference_line": 143,
+    "module_name": "5-quimica",
+    "category": "estequimetria"
+  },
+  {
+    "term": "8 - pureza de los reactivos",
+    "example": ":m La **pureza** indica qué fracción de la muestra corresponde al reactivo útil que participa en la reacción.\n- Si un reactivo tiene impurezas, **solo la parte pura reacciona**, el resto no interviene.\n**Ejemplo:**\nUna medalla de $Ag$ con **90% de pureza** → en 100 g de medalla hay:\n- $90 , g$ de $Ag$ puro (participa en la reacción).\n- $10 , g$ de impurezas (no reaccionan).\n👉 Entonces, al calcular moles o masas para la reacción, se usa solo la fracción pura.",
+    "description": "",
+    "prompt": "Explica qué significa la **pureza de los reactivos** en una reacción química. Da un ejemplo con una medalla de plata al 90% de pureza.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\4-estequimetria.md",
+    "reference_line": 171,
+    "module_name": "5-quimica",
+    "category": "estequimetria"
+  },
+  {
+    "term": "9 - Rendimiento Aplicado",
+    "example": ":m **1. Moles de $N_2$**\n$$\nM(N2)=28 g/mol⇒n(N2)=2028=0.714 molM(N_2) = 28 \\, g/mol \\quad \\Rightarrow \\quad n(N_2) = \\frac{20}{28} = 0.714 \\, mol\n$$\n**2. Relación estequiométrica**\n$$\n1 mol N2\n→\n2 mol NH31 \\, mol \\, N_2 \\;\\;\\rightarrow\\;\\; 2 \\, mol \\, NH_3 0.714 mol N2\n→\n1.428 mol NH3 (teoˊrico)0.714 \\, mol \\, N_2 \\;\\;\\rightarrow\\;\\; 1.428 \\, mol \\, NH_3 \\, (\\text{teórico})\n$$\n**3. Masa teórica de $NH_3$**\n$$\nM(NH3)=17 g/mol⇒mteoˊrico=1.428×17=24.3 gM(NH_3) = 17 \\, g/mol \\quad \\Rightarrow \\quad m_{\\text{teórico}} = 1.428 \\times 17 = 24.3 \\, g\n$$\n**4. Rendimiento real (75%)**\n$$\nmreal=24.3×0.75=18.2 gm_{\\text{real}} = 24.3 \\times 0.75 = 18.2 \\, g\n$$\n👉 **Masa real obtenida: $18.2 , g$ de $NH_3$**",
+    "description": ":m - El rendimiento teórico es la cantidad máxima de producto que se podría obtener si la reacción fuese perfecta y completa.\n- El rendimiento real es la cantidad obtenida en el laboratorio o proceso industrial.\n- El porcentaje de rendimiento mide la eficiencia del proceso:\n$$\nN2+3H2\n→\n2NH3N_2 + 3H_2 \\;\\;\\rightarrow\\;\\; 2NH_3\n$$\nCalcula la masa real de $NH_3$ obtenida.",
+    "prompt": "Se reaccionan $20 , g$ de $N_2$ con exceso de $H_2$ para formar $NH_3$, con un rendimiento del **75%**. La reacción es:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\4-estequimetria.md",
+    "reference_line": 205,
+    "module_name": "5-quimica",
+    "category": "estequimetria"
+  },
+  {
+    "term": "10 - Aplicaciones",
+    "example": ":m La estequiometría se aplica en:\n- Síntesis de fármacos → asegura la dosificación exacta de reactivos para obtener medicamentos en cantidades controladas.\n- Procesos industriales → se utiliza en reacciones de combustión, producción de cementos y fabricación de fertilizantes.\n- Control ambiental → permite calcular las emisiones gaseosas y diseñar estrategias para reducir contaminantes.",
+    "description": "",
+    "prompt": "Menciona algunas aplicaciones prácticas de la estequiometría.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\4-estequimetria.md",
+    "reference_line": 237,
+    "module_name": "5-quimica",
+    "category": "estequimetria"
+  },
+  {
+    "term": "1 - Reacción 1 – Óxido de hierro con monóxido de carbono",
+    "example": ":m $\\mathrm{Fe_2O_3 + 3CO \\rightarrow 2Fe + 3CO_2}$\n\n\n\n",
+    "description": ":m Aquí intervienen el **hierro (Fe, grupo 8)**, el **oxígeno (O, grupo 16)** y el **carbono (C, grupo 14)**.\nValores de oxidación:\n- Fe: +3 → 0\n- O: –2 (constante)\n- C: +2 → +4\n$$\\mathrm{Fe_2O_3 + CO \\rightarrow Fe + CO_2}$$ ",
+    "prompt": "Balancea la reacción y señala qué elemento se oxida y cuál se reduce:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\5-igualacion-de-ecuaciones-quimicas.md",
+    "reference_line": 15,
+    "module_name": "5-quimica",
+    "category": "igualaciondeecuacionesquimicas"
+  },
+  {
+    "term": "2 - Reacción 2 – Permanganato con ácido clorhídrico",
+    "example": ":m $\\mathrm{2KMnO_4 + 16HCl \\rightarrow 2MnCl_2 + 5Cl_2 + 8H_2O + 2KCl}$\n\n\n\n",
+    "description": ":m Participan **Mn (grupo 7)**, **Cl (grupo 17, halógeno)**, **K (grupo 1, metal alcalino)**, **O (grupo 16)** y **H (grupo 1)**.\nValores de oxidación:\n- Mn: +7 → +2\n- Cl: –1 → 0\n- K: +1\n- O: –2\n- H: +1\n$$\\mathrm{KMnO_4 + HCl \\rightarrow MnCl_2 + Cl_2 + H_2O + KCl}$$ ",
+    "prompt": "Escribe la reacción balanceada indicando los cambios de oxidación:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\5-igualacion-de-ecuaciones-quimicas.md",
+    "reference_line": 31,
+    "module_name": "5-quimica",
+    "category": "igualaciondeecuacionesquimicas"
+  },
+  {
+    "term": "3 - Reacción 3 – Cobre con ácido nítrico",
+    "example": ":m $\\mathrm{3Cu + 8HNO_3 \\rightarrow 3Cu(NO_3)_2 + 2NO + 4H_2O}$\n\n\n\n",
+    "description": ":m Elementos: **Cu (grupo 11)**, **N (grupo 15)**, **O (grupo 16)**, **H (grupo 1)**.\nValores de oxidación:\n- Cu: 0 → +2\n- N: +5 → +2\n- O: –2\n- H: +1\n$$\\mathrm{Cu + HNO_3 \\rightarrow Cu(NO_3)_2 + NO + H_2O}$$ ",
+    "prompt": "Balancea la reacción y señala qué sucede con el cobre:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\5-igualacion-de-ecuaciones-quimicas.md",
+    "reference_line": 49,
+    "module_name": "5-quimica",
+    "category": "igualaciondeecuacionesquimicas"
+  },
+  {
+    "term": "4 - Reacción 4 – Hidróxido de potasio con dióxido de azufre",
+    "example": ":m $\\mathrm{2KOH + SO_2 \\rightarrow K_2SO_3 + H_2O}$\n\n\n\n",
+    "description": ":m Elementos: **K (grupo 1)**, **O (grupo 16)**, **H (grupo 1)**, **S (grupo 16)**.\nValores de oxidación:\n- S: +4 → +4 (sin cambio)\n- K: +1\n- O: –2\n- H: +1\n$$\\mathrm{KOH + SO_2 \\rightarrow K_2SO_3 + H_2O}$$ ",
+    "prompt": "Balancea la reacción y explica si hay oxidación/reducción:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\5-igualacion-de-ecuaciones-quimicas.md",
+    "reference_line": 65,
+    "module_name": "5-quimica",
+    "category": "igualaciondeecuacionesquimicas"
+  },
+  {
+    "term": "5 - Reacción 5 – Pentóxido de fósforo con hidróxido de calcio",
+    "example": ":m $\\mathrm{P_4O_{10} + 6Ca(OH)_2 \\rightarrow 2Ca_3(PO_4)_2 + 6H_2O}$\n\n\n\n",
+    "description": ":m Elementos: **P (grupo 15)**, **Ca (grupo 2)**, **O (grupo 16)**, **H (grupo 1)**.\nValores de oxidación:\n- P: +5 → +5 (constante)\n- Ca: +2\n- O: –2\n- H: +1\n$$\\mathrm{P_4O_{10} + Ca(OH)_2 \\rightarrow Ca_3(PO_4)_2 + H_2O}$$ ",
+    "prompt": "Balancea la reacción y determina el producto principal:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\5-igualacion-de-ecuaciones-quimicas.md",
+    "reference_line": 81,
+    "module_name": "5-quimica",
+    "category": "igualaciondeecuacionesquimicas"
+  },
+  {
+    "term": "6 - Reacción 6 – Combustión del etanol",
+    "example": ":m $\\mathrm{C_2H_5OH + 3O_2 \\rightarrow 2CO_2 + 3H_2O}$\n\n\n\n",
+    "description": ":m Elementos: **C (grupo 14)**, **H (grupo 1)**, **O (grupo 16)**.\nValores de oxidación:\n- C: –2 / –3 → +4 (en CO₂)\n- O: –2\n- H: +1\n$$\\mathrm{C_2H_6O + O_2 \\rightarrow CO_2 + H_2O}$$ ",
+    "prompt": "Escribe la reacción balanceada de combustión del etanol:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\5-igualacion-de-ecuaciones-quimicas.md",
+    "reference_line": 97,
+    "module_name": "5-quimica",
+    "category": "igualaciondeecuacionesquimicas"
+  },
+  {
+    "term": "7 - Reacción 7 – Disproporción del cloro en medio básico",
+    "example": ":m $\\mathrm{6KOH + 3Cl_2 \\rightarrow 5KCl + KClO_3 + 3H_2O}$\n\n\n\n",
+    "description": ":m Elementos: **Cl (grupo 17)**, **K (grupo 1)**, **O (grupo 16)**, **H (grupo 1)**.\nValores de oxidación:\n- Cl: 0 → –1 y +5\n- K: +1\n- O: –2\n- H: +1\n$$\\mathrm{KOH + Cl_2 \\rightarrow KCl + KClO_3 + H_2O}$$ ",
+    "prompt": "Balancea la reacción y explica por qué es una reacción de desproporción:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\5-igualacion-de-ecuaciones-quimicas.md",
+    "reference_line": 112,
+    "module_name": "5-quimica",
+    "category": "igualaciondeecuacionesquimicas"
+  },
+  {
+    "term": "8 - Reacción 8 – Dicromato de potasio con ácido clorhídrico",
+    "example": ":m $\\mathrm{K_2Cr_2O_7 + 14HCl \\rightarrow 2CrCl_3 + 2KCl + 3Cl_2 + 7H_2O}$\n\n\n\n",
+    "description": ":m Elementos: **Cr (grupo 6)**, **Cl (grupo 17)**, **K (grupo 1)**, **O (grupo 16)**, **H (grupo 1)**.\nValores de oxidación:\n- Cr: +6 → +3\n- Cl: –1 → 0\n- K: +1\n- O: –2\n- H: +1\n$$\\mathrm{K_2Cr_2O_7 + HCl \\rightarrow KCl + CrCl_3 + Cl_2 + H_2O}$$",
+    "prompt": "Balancea la reacción y señala el agente oxidante:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\5-igualacion-de-ecuaciones-quimicas.md",
+    "reference_line": 127,
+    "module_name": "5-quimica",
+    "category": "igualaciondeecuacionesquimicas"
+  },
+  {
+    "term": "9 - Reacción 9 – Yodo con ácido nítrico",
+    "example": ":m $\\mathrm{I_2 + 10HNO_3 \\rightarrow 2HIO_3 + 10NO_2 + 4H_2O}$\n\n\n\n",
+    "description": ":m Elementos: **I (grupo 17)**, **N (grupo 15)**, **O (grupo 16)**, **H (grupo 1)**.\nValores de oxidación:\n- I: 0 → +5\n- N: +5 → +4\n- O: –2\n- H: +1\n$$\\mathrm{I_2 + HNO_3 \\rightarrow HIO_3 + NO + H_2O}$$ ",
+    "prompt": "Balancea la reacción y explica qué sucede con el yodo:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\5-igualacion-de-ecuaciones-quimicas.md",
+    "reference_line": 145,
+    "module_name": "5-quimica",
+    "category": "igualaciondeecuacionesquimicas"
+  },
+  {
+    "term": "1 - Introducción a los gases",
+    "example": ":m Un **gas ideal** es un modelo teórico que:\n- No considera interacciones intermoleculares.\n- Asume que las moléculas no ocupan volumen (se tratan como puntos).\n- Se aplica bien a bajas presiones y temperaturas moderadas.\nEs útil como aproximación, pero no representa fielmente a todos los gases reales. A **altas presiones o bajas temperaturas**, los efectos del volumen y de las fuerzas intermoleculares no pueden despreciarse. En esos casos se usan modelos de **gases reales**, como la **ecuación de Van der Waals**.",
+    "description": ":m Los gases son un **estado de la materia** que no tiene forma ni volumen propios. Adoptan la forma y el volumen del recipiente que los contiene.\nSus partículas están **muy separadas**, se mueven en forma **aleatoria** y con alta energía cinética. Esto explica propiedades como la **expansión**, la **difusión** y la **compresibilidad**.",
+    "prompt": "¿Qué es un gas ideal?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\6-gases.md",
+    "reference_line": 19,
+    "module_name": "5-quimica",
+    "category": "gases"
+  },
+  {
+    "term": "2 - Ejercicios de transformación de unidades en gases",
+    "example": ":m\n1. T=27+273=300 KT = 27 + 273 = 300 \\, K\n2. V=250 mL×1 L1000 mL=0.250 LV = 250 \\, \\text{mL} \\times \\dfrac{1 \\, L}{1000 \\, mL} = 0.250 \\, L\n3. P=760 mmHg×1 atm760 mmHg=1 atmP = 760 \\, \\text{mmHg} \\times \\dfrac{1 \\, atm}{760 \\, mmHg} = 1 \\, atm\n4. V=3.5 L×1 m31000 L=0.0035 m3V = 3.5 \\, L \\times \\dfrac{1 \\, m^3}{1000 \\, L} = 0.0035 \\, m^3\n5. P=1.2 atm×101325 Paatm=121590 PaP = 1.2 \\, atm \\times 101325 \\, \\dfrac{Pa}{atm} = 121590 \\, Pa\n\n\n\n",
+    "description": ":m Estos ejercicios son típicos de examen porque antes de aplicar la ecuación de los gases ideales PV=nRTPV = nRT, se necesita llevar todas las magnitudes al **sistema coherente**.\n1. **Temperatura:** 27 °C27 \\, °C\n2. **Volumen:** 250 mL250 \\, \\text{mL}\n3. **Presión:** 760 mmHg760 \\, \\text{mmHg}\n4. **Volumen:** 3.5 L3.5 \\, \\text{L} a m3\\text{m}^3\n5. **Presión:** 1.2 atm1.2 \\, \\text{atm} a Pa\\text{Pa}\n",
+    "prompt": "Convierte las siguientes magnitudes a las unidades correctas para usar en la ecuación de los gases ideales:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\6-gases.md",
+    "reference_line": 46,
+    "module_name": "5-quimica",
+    "category": "gases"
+  },
+  {
+    "term": "3 - Ejercicio 1",
+    "example": ":m **Transformaciones:**\n- 250 mL=0.250 L250 \\, \\text{mL} = 0.250 \\, L\n- 760 mmHg=1 atm760 \\, \\text{mmHg} = 1 \\, atm\n- 27°C=300 K27 °C = 300 \\, K\n**Ecuación:**\nn=PVRT=(1)(0.250)0.082⋅300≈0.0102 moln = \\frac{PV}{RT} = \\frac{(1)(0.250)}{0.082 \\cdot 300} \\approx 0.0102 \\, mol\n\n\n\n",
+    "description": ":m Un gas ocupa un volumen de 250 mL250 \\, \\text{mL} a una presión de 760 mmHg760 \\, \\text{mmHg} y una temperatura de 27 °C27 \\, °C.\n¿Cuántos moles de gas hay? (R=0.082 L⋅atmmol⋅KR = 0.082 \\, \\tfrac{L \\cdot atm}{mol \\cdot K})\n",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\6-gases.md",
+    "reference_line": 73,
+    "module_name": "5-quimica",
+    "category": "gases"
+  },
+  {
+    "term": "4 - Ley de Boyle (1662)",
+    "example": ":m Aplicamos la ley de Boyle:\n$$P1V1=P2V2P_1 V_1 = P_2 V_2 (2.0)(4.0)=(1.0)(V2)(2.0)(4.0) = (1.0)(V_2) V2=8.0 LV_2 = 8.0 \\, L$$\n**Respuesta:** El gas ocupará 8.0 L8.0 \\, L.",
+    "description": ":m La **Ley de Boyle** describe la relación entre la **presión** y el **volumen** de un gas a **temperatura constante**.\n- Cuando la temperatura no cambia, la presión y el volumen son **inversamente proporcionales**:\n$P1V1 = P_2 V_2$\n- Si la presión aumenta, el volumen disminuye; si la presión baja, el volumen aumenta.\n- El proceso se llama **isotérmico** (temperatura constante).\n- Gráficamente, la relación se representa como una **hipérbola isoterma**.\nUn gas ocupa un volumen de 4.0 L4.0 \\, L a una presión de 2.0 atm2.0 \\, atm. Si la presión disminuye a 1.0 atm1.0 \\, atm, ¿qué volumen ocupará el gas, suponiendo temperatura constante?\n",
+    "prompt": "Ejercicio práctico",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\6-gases.md",
+    "reference_line": 150,
+    "module_name": "5-quimica",
+    "category": "gases"
+  },
+  {
+    "term": "5 - Procesos de los gases: diferencias fundamentales",
+    "example": ":m - **Isotérmico**: Temperatura constante (T = cte). → Boyle:$$ P⋅V=cteP \\cdot V = \\text{cte}.$$\n- **Isocórico** (o isovolumétrico): Volumen constante (V = cte). → No hay trabajo, solo cambia P con T.\n- **Isobárico**: Presión constante (P = cte). → Charles: $$VT=cte\\tfrac{V}{T} = \\text{cte}.$$\n**Resumen rápido:**\n- IsoT = constante **Temperatura**\n- IsoC = constante **Volumen**\n- IsoB = constante **Presión**",
+    "description": ":m En termodinámica, según la variable que se mantiene constante, los procesos reciben distintos nombres:\n- **Isotérmico**: Temperatura constante (T = cte). → $$Boyle: P⋅V=cteP \\cdot V = \\text{cte}.$$\n- **Isocórico** (o isovolumétrico): Volumen constante (V = cte). → No hay trabajo, solo cambia P con T.\n- **Isobárico**: Presión constante (P = cte). → Charles: $$VT=cte\\tfrac{V}{T} = \\text{cte}$$",
+    "prompt": "Explica la diferencia entre proceso isotérmico, isocórico e isobárico.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\6-gases.md",
+    "reference_line": 173,
+    "module_name": "5-quimica",
+    "category": "gases"
+  },
+  {
+    "term": "6 - Ley combinada de los gases",
+    "example": ":m Aplicamos la ley combinada:\n$$\nP1V1T1=P2V2T2\\frac{P_1 V_1}{T_1} = \\frac{P_2 V_2}{T_2} 1.0⋅2.0300=2.0⋅V2400\\frac{1.0 \\cdot 2.0}{300} = \\frac{2.0 \\cdot V_2}{400} V2=(2.0)(400)(1.0)(300)⋅2.0=1.33 LV_2 = \\frac{(2.0)(400)}{(1.0)(300)\\cdot 2.0} = 1.33 \\, L$$\n\n\n\n",
+    "description": ":m - Une las tres leyes (Boyle, Charles y Gay-Lussac).\n- Relaciona simultáneamente **Presión, Volumen y Temperatura**:\n$$P1V1T1=P2V2T2\\frac{P_1 V_1}{T_1} = \\frac{P_2 V_2}{T_2}$$\n- Muy útil para ejercicios donde cambian varias variables a la vez.\nUn gas ocupa 2.0 L2.0 \\, L a 1.0 atm1.0 \\, atm y 300 K300 \\, K. Si se lleva a 2.0 atm2.0 \\, atm y 400 K400 \\, K, ¿qué volumen ocupará?",
+    "prompt": "Ejercicio de aplicación",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\6-gases.md",
+    "reference_line": 240,
+    "module_name": "5-quimica",
+    "category": "gases"
+  },
+  {
+    "term": "7 - Ejercicios de las Leyes de los Gases",
+    "example": ":m\n$$\n\\begin{gathered}\nP_1 V_1=P_2 V_2 \\\\\n(1.5)(4.0)=(3.0)\\left(V_2\\right) \\\\\nV_2=2.0 L\n\\end{gathered}\n$$\n**Respuesta:** 2.0 L2.0 \\, L.",
+    "description": ":m Aquí tenés **un problema para cada ley**, con la resolución paso a paso:\n---\nUn gas ocupa 4.0 L4.0 \\, L a 1.5 atm1.5 \\, atm. Si la presión aumenta a 3.0 atm3.0 \\, atm, ¿qué volumen ocupará, suponiendo temperatura constante?\n",
+    "prompt": "**Ejercicio 1 – Ley de Boyle (Isotérmico)**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\6-gases.md",
+    "reference_line": 254,
+    "module_name": "5-quimica",
+    "category": "gases"
+  },
+  {
+    "term": "8 - Ley de Dalton – Presiones parciales",
+    "example": ":m **Paso 1 – Presiones parciales usando PV=nRTPV = nRT:**\n- Para O₂:\n$$PO2=nRTV=0.5⋅0.082⋅3005.0=2.46 atmP_{O_2} = \\frac{nRT}{V} = \\frac{0.5 \\cdot 0.082 \\cdot 300}{5.0} = 2.46 \\, atm$$\n- Para N₂:\n$$PN2=1.0⋅0.082⋅3005.0=4.92 atmP_{N_2} = \\frac{1.0 \\cdot 0.082 \\cdot 300}{5.0} = 4.92 \\, atm$$\n**Paso 2 – Presión total:**\nPtotal=PO2+PN2=2.46+4.92=7.38 atmP_{total} = P_{O_2} + P_{N_2} = 2.46 + 4.92 = 7.38 \\, atm\n**Respuesta:**\n- PO2=2.46 atmP_{O_2} = 2.46 \\, atm\n- PN2=4.92 atmP_{N_2} = 4.92 \\, atm\n- Ptotal=7.38 atmP_{total} = 7.38 \\, atm",
+    "description": ":m La **Ley de Dalton** (1801) establece que en una mezcla de gases que no reaccionan químicamente:\nPtotal=P1+P2+P3+…P_{total} = P_1 + P_2 + P_3 + \\dots\ndonde:\n- PtotalP_{total} es la presión total de la mezcla.\n- PiP_i es la **presión parcial** de cada gas, definida como la presión que ejercería ese gas si estuviera solo en el mismo volumen y temperatura.\nTambién puede expresarse como:\n$$Pi=χi⋅PtotalP_i = \\chi_i \\cdot P_{total}$$\ndonde $χi\\chi_i$ es la **fracción molar** del gas ii.\n---\nEn un recipiente de 5.0 L a 300 K se tienen:\n- 0.5 mol0.5 \\, mol de O₂\n- 1.0 mol1.0 \\, mol de N₂\nCalcular la presión parcial de cada gas y la presión total. (R=0.082 L⋅atm/mol⋅KR = 0.082 \\, L \\cdot atm / mol \\cdot K)",
+    "prompt": "**Ejercicio – Dalton**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\6-gases.md",
+    "reference_line": 327,
+    "module_name": "5-quimica",
+    "category": "gases"
+  },
+  {
+    "term": "9 - Ley de Dalton aplicada al aire que respiramos 🌬️",
+    "example": ":m **Paso 1 – Fracciones molares aproximadas:**\n$$χN2=0.78,χO2=0.21,χCO2=0.0004\\chi_{N_2} = 0.78, \\quad \\chi_{O_2} = 0.21, \\quad \\chi_{CO_2} = 0.0004$$\n**Paso 2 – Presiones parciales:**\n$$PN2=0.78⋅1.0=0.78 atmP_{N_2} = 0.78 \\cdot 1.0 = 0.78 \\, atm $$$$PO2=0.21⋅1.0=0.21 atmP_{O_2} = 0.21 \\cdot 1.0 = 0.21 \\, atm $$$$PCO2=0.0004⋅1.0=0.0004 atmP_{CO_2} = 0.0004 \\cdot 1.0 = 0.0004 \\, atm$$\n**Respuesta:**\n- $$PN2=0.78 atmP_{N_2} = 0.78 \\, atm $$\n- $$PO2=0.21 atmP_{O_2} = 0.21 \\, atm$$\n- $$PCO2=0.0004 atmP_{CO_2} = 0.0004 \\, atm$$\n\n\n\n",
+    "description": ":m El aire es una **mezcla de gases**, principalmente:\n- N2≈78%N_2 \\approx 78\\%\n- O2≈21%O_2 \\approx 21\\%\n- CO2≈0.04%CO_2 \\approx 0.04\\%\n- otros gases (Ar, Ne, etc.) en proporciones menores.\nSegún la **Ley de Dalton**, la presión atmosférica total es la suma de las **presiones parciales** de cada gas:\nPtotal=PN2+PO2+PCO2+PotrosP_{total} = P_{N_2} + P_{O_2} + P_{CO_2} + P_{otros}\nY cada presión parcial se calcula como:\nPi=χi⋅PtotalP_i = \\chi_i \\cdot P_{total}\n---\nLa presión atmosférica total es 1.0 atm1.0 \\, atm. Calcula las presiones parciales de N2N_2, O2O_2 y CO2CO_2.\n",
+    "prompt": "**Ejemplo – Aire a nivel del mar**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\6-gases.md",
+    "reference_line": 381,
+    "module_name": "5-quimica",
+    "category": "gases"
+  },
+  {
+    "term": "10 - Problema 1 – Difusión de gases en el aire",
+    "example": ":m\n1. $M_{NH3} = 17 , g/mol$, $M_{HCl} = 36.5 , g/mol$\n2. Relación de velocidades:\n$rNH3rHCl=36.517≈1.46\\dfrac{r_{NH3}}{r_{HCl}} = \\sqrt{\\dfrac{36.5}{17}} \\approx 1.46$\n3. Significa que $NH3$ avanza 1.46 veces más rápido.\n4. Distancia de encuentro:\n$x=11+1.46×1.00 m≈0.41 mx = \\dfrac{1}{1 + 1.46} \\times 1.00 \\, m \\approx 0.41 $, m desde el lado del HCl.",
+    "description": ":m En un laboratorio se libera **amoníaco (NH₃)** y **cloruro de hidrógeno (HCl)** en extremos opuestos de un tubo. \n",
+    "prompt": "¿En qué punto se encontrarán ambos gases si la longitud del tubo es de 1 m?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\6-gases.md",
+    "reference_line": 436,
+    "module_name": "5-quimica",
+    "category": "gases"
+  },
+  {
+    "term": "11 - Problema 2 – Efusión comparativa",
+    "example": ":m 1. $M_{He} = 4 , g/mol$, $M_{O2} = 32 , g/mol$\n2. Relación de efusión:\n$rHerO2=324=8≈2.83\\dfrac{r_{He}}{r_{O2}} = \\sqrt{\\dfrac{32}{4}} = \\sqrt{8} \\approx 2.83$\n3. El helio efunde unas **2.8 veces más rápido** que el oxígeno.",
+    "description": ":m Un recipiente con helio y otro con oxígeno están a la misma temperatura. Ambos tienen orificios del mismo tamaño. \n",
+    "prompt": "¿Qué gas efunde más rápido y en qué proporción?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\6-gases.md",
+    "reference_line": 454,
+    "module_name": "5-quimica",
+    "category": "gases"
+  },
+  {
+    "term": "12 - Problema 3 – Pérdida de gas por efusión",
+    "example": ":m 1. $M_{H2} = 2 , g/mol$, $M_{O2} = 32 , g/mol$\n2. Relación de efusión:\n$rH2rO2=322=16=4\\dfrac{r_{H2}}{r_{O2}} = \\sqrt{\\dfrac{32}{2}} = \\sqrt{16} = 4$\n3. El hidrógeno efunde **4 veces más rápido**, por lo que el globo con H₂ pierde volumen antes.",
+    "description": ":m Un globo lleno de hidrógeno se desinfla lentamente porque el gas escapa por efusión. ",
+    "prompt": "Si se compara con un globo lleno de oxígeno, ¿qué globo perderá volumen más rápido y por qué?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\6-gases.md",
+    "reference_line": 468,
+    "module_name": "5-quimica",
+    "category": "gases"
+  },
+  {
+    "term": "1 - Ejercicio 1 – Ley de los gases combinada",
+    "example": ":m $V_2=\\dfrac{750\\times800\\times273}{293\\times1000}=560.1\\ \\text{dm}^3$\n\n\n\n",
+    "description": ":m **Marco teórico:** La ley general de los gases combina las leyes de Boyle y Charles:\n$$\\frac{P_1 V_1}{T_1}=\\frac{P_2 V_2}{T_2}$$\nSe debe usar la **temperatura absoluta en K** y presiones en la misma unidad.\n",
+    "prompt": "Un gas ocupa 800 dm³ a 20 °C y 750 mmHg. ¿Qué volumen ocupará a 0 °C y 1000 mmHg?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\6a-gases-ejercicios.md",
+    "reference_line": 2,
+    "module_name": "5-quimica",
+    "category": "agasesejercicios"
+  },
+  {
+    "term": "2 - Ejercicio 2 – Ecuación de gases ideales",
+    "example": ":m $n=\\tfrac{PV}{RT}=\\tfrac{0.4\\times3.5}{0.082\\times400}=0.425\\ mol$\n\n\n\n",
+    "description": ":m **Marco teórico:** La ley de los gases ideales:\n$$PV=nRT$$\ndonde $R=0.082\\ L\\ atm\\ mol^{-1}\\ K^{-1}$.\nDatos externos: $304\\ \\text{cmHg}=3.04\\ mHg=0.4\\ atm$ (1 atm=76 cmHg).\n",
+    "prompt": "¿Cuántos moles de H₂ hay en 3.5 L a 127 °C y 304 cmHg?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\6a-gases-ejercicios.md",
+    "reference_line": 14,
+    "module_name": "5-quimica",
+    "category": "agasesejercicios"
+  },
+  {
+    "term": "3 - Ejercicio 3 – Masa molar de un gas en CNPT",
+    "example": ":m $n=0.22/22.4=0.00982\\ mol$\n$M=1.65/0.00982=168.37\\ g/mol$\n\n\n\n",
+    "description": ":m **Marco teórico:** A CNPT (0 °C y 1 atm), $1\\ mol$ de gas ocupa 22.4 L.\n",
+    "prompt": "Un gas de 1.65 g ocupa 0.22 L en CNPT. Calcula su masa molar.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\6a-gases-ejercicios.md",
+    "reference_line": 28,
+    "module_name": "5-quimica",
+    "category": "agasesejercicios"
+  },
+  {
+    "term": "4 - Ejercicio 4 – Densidad del nitrógeno",
+    "example": ":m $M=28\\ g/mol$, $T=310K$\n$\\rho=\\tfrac{2\\times28}{0.082\\times310}=2.19\\ g/L$\n\n\n\n",
+    "description": ":m **Marco teórico:**\n$$\\rho=\\frac{PM}{RT}$$\n",
+    "prompt": "Determina la densidad de N₂ a 37 °C y 2 atm.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\6a-gases-ejercicios.md",
+    "reference_line": 39,
+    "module_name": "5-quimica",
+    "category": "agasesejercicios"
+  },
+  {
+    "term": "5 - Ejercicio 5 – Moléculas en 1 dm³ de O₂",
+    "example": ":m $n=\\tfrac{2\\times1}{0.082\\times273}=0.089\\ mol$\n$N=0.089\\times6.022\\times10^{23}=5.36\\times10^{22}$\n\n\n\n",
+    "description": ":m **Marco teórico:** Relación entre moles y moléculas: $N=nN_A$.\n",
+    "prompt": "¿Cuántas moléculas hay en 1 L de O₂ a 2 atm y 0 °C?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\6a-gases-ejercicios.md",
+    "reference_line": 51,
+    "module_name": "5-quimica",
+    "category": "agasesejercicios"
+  },
+  {
+    "term": "6 - Ejercicio 6 – Densidad del amoníaco",
+    "example": ":m $P=640/760=0.842\\ atm,\\ M=17,\\ T=300K$\n$\\rho=\\tfrac{0.842\\times17}{0.082\\times300}=0.584\\ g/L$\n\n\n\n",
+    "description": ":m **Marco teórico:**\n$$\\rho=\\frac{PM}{RT}$$\n",
+    "prompt": "Determina la densidad del NH₃ a 27 °C y 640 mmHg.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\6a-gases-ejercicios.md",
+    "reference_line": 62,
+    "module_name": "5-quimica",
+    "category": "agasesejercicios"
+  },
+  {
+    "term": "7 - Ejercicio 7 – Temperatura de CO₂",
+    "example": ":m $n=6/44=0.136\\ mol$; $P=700/760=0.921\\ atm$\n$T=\\tfrac{0.921\\times8}{0.136\\times0.082}=626\\ K$\n\n\n\n",
+    "description": ":m **Marco teórico:**\n$$T=\\frac{PV}{nR}$$\n",
+    "prompt": "Dentro de 8 L hay 6 g CO₂ a 700 mmHg. ¿Cuál es la temperatura?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\6a-gases-ejercicios.md",
+    "reference_line": 74,
+    "module_name": "5-quimica",
+    "category": "agasesejercicios"
+  },
+  {
+    "term": "8 - Ejercicio 8 – Masa molar desde densidad",
+    "example": ":m a) $M=\\tfrac{0.065\\times0.082\\times300}{0.1}=16.02\\ g/mol$\nb) $n=0.065/16.02=0.004\\ mol$\n$N=0.004\\times6.022\\times10^{23}=2.44\\times10^{21}$\n\n\n\n",
+    "description": ":m **Marco teórico:**\n$$M=\\frac{\\rho RT}{P}$$\na) masa molar\nb) moles y moléculas en 1 L ",
+    "prompt": "Un gas tiene ρ=6.5×10⁻² g/L a 27 °C y 0.1 atm. Calcula:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\6a-gases-ejercicios.md",
+    "reference_line": 86,
+    "module_name": "5-quimica",
+    "category": "agasesejercicios"
+  },
+  {
+    "term": "9 - Ejercicio 9 – Ley de Dalton de presiones parciales",
+    "example": ":m $P_{N_2}=0.79\\times2=1.58\\ atm$\n$P_{O_2}=0.21\\times2=0.42\\ atm$\n\n\n\n",
+    "description": ":m **Marco teórico:**\n$$P_i=X_iP_{total}$$\n",
+    "prompt": "Aire con 79% N₂ y 21% O₂ a 2 atm. Calcula presiones parciales.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\6a-gases-ejercicios.md",
+    "reference_line": 101,
+    "module_name": "5-quimica",
+    "category": "agasesejercicios"
+  },
+  {
+    "term": "10 - Ejercicio 10 – Presión de mezcla N₂ y O₂",
+    "example": ":m $n_{O_2}=3/32=0.0938\\ mol$; $T=300K$\n$P_{N_2}=0.2\\times0.082\\times300/3=1.64\\ atm$\n$P_{O_2}=0.0938\\times0.082\\times300/3=0.76\\ atm$\n$P_{total}=2.40\\ atm$\n\n\n\n",
+    "description": ":m **Marco teórico:**\nPresión parcial: $P_i=\\dfrac{n_iRT}{V}$.\na) P total\nb) P parciales ",
+    "prompt": "En 3 L a 27 °C hay 0.2 mol N₂ y 3 g O₂. Calcula:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\6a-gases-ejercicios.md",
+    "reference_line": 113,
+    "module_name": "5-quimica",
+    "category": "agasesejercicios"
+  },
+  {
+    "term": "11 - Ejercicio 11 – Mezcla Cl₂ y He",
+    "example": ":m $%Cl_2=(600/720)\\times100=83.33%$\n$%He=(120/720)\\times100=16.67%$\n\n\n\n",
+    "description": ":m **Marco teórico:** Dalton: $P_i\\propto V_i$.\n",
+    "prompt": "Una mezcla ejerce P total=720 mmHg. PCl₂=600 mmHg. Calcula % v/v.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\6a-gases-ejercicios.md",
+    "reference_line": 129,
+    "module_name": "5-quimica",
+    "category": "agasesejercicios"
+  },
+  {
+    "term": "12 - Ejercicio 12 – Cambio de condiciones de un gas",
+    "example": ":m a) $V_2=\\dfrac{P_1V_1T_2}{P_2T_1}=24.52\\ L$\nb) $n=\\tfrac{1.013\\times10^5\\times0.030}{8.314\\times303}=1.206\\ mol$\nc) $N=1.206\\times6.022\\times10^{23}=7.26\\times10^{23}$ moléculas\n\n\n\n\n\n\n\n",
+    "description": ":m **Marco teórico:**\nLey combinada: $\\tfrac{P_1V_1}{T_1}=\\tfrac{P_2V_2}{T_2}$.\nLey de Avogadro: $n=\\tfrac{PV}{RT}$.\na) nuevo volumen\nb) número de moles\nc) número de moléculas ",
+    "prompt": "Un gas ocupa 30 L a 30 °C y 1.013×10⁵ Pa. Al almacenarlo a 20 °C y 900 mmHg, calcula:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\6a-gases-ejercicios.md",
+    "reference_line": 140,
+    "module_name": "5-quimica",
+    "category": "agasesejercicios"
   }
 ]
