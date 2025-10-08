@@ -1495,7 +1495,7 @@
     "description": ":m Un gas ocupa un volumen de 250 mL250 \\, \\text{mL} a una presión de 760 mmHg760 \\, \\text{mmHg} y una temperatura de 27 °C27 \\, °C.\n¿Cuántos moles de gas hay? (R=0.082 L⋅atmmol⋅KR = 0.082 \\, \\tfrac{L \\cdot atm}{mol \\cdot K})\n",
     "prompt": "",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\6-gases.md",
-    "reference_line": 73,
+    "reference_line": 71,
     "module_name": "5-quimica",
     "category": "gases"
   },
@@ -1505,7 +1505,7 @@
     "description": ":m La **Ley de Boyle** describe la relación entre la **presión** y el **volumen** de un gas a **temperatura constante**.\n- Cuando la temperatura no cambia, la presión y el volumen son **inversamente proporcionales**:\n$P1V1 = P_2 V_2$\n- Si la presión aumenta, el volumen disminuye; si la presión baja, el volumen aumenta.\n- El proceso se llama **isotérmico** (temperatura constante).\n- Gráficamente, la relación se representa como una **hipérbola isoterma**.\nUn gas ocupa un volumen de 4.0 L4.0 \\, L a una presión de 2.0 atm2.0 \\, atm. Si la presión disminuye a 1.0 atm1.0 \\, atm, ¿qué volumen ocupará el gas, suponiendo temperatura constante?\n",
     "prompt": "Ejercicio práctico",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\6-gases.md",
-    "reference_line": 150,
+    "reference_line": 148,
     "module_name": "5-quimica",
     "category": "gases"
   },
@@ -1515,7 +1515,7 @@
     "description": ":m En termodinámica, según la variable que se mantiene constante, los procesos reciben distintos nombres:\n- **Isotérmico**: Temperatura constante (T = cte). → $$Boyle: P⋅V=cteP \\cdot V = \\text{cte}.$$\n- **Isocórico** (o isovolumétrico): Volumen constante (V = cte). → No hay trabajo, solo cambia P con T.\n- **Isobárico**: Presión constante (P = cte). → Charles: $$VT=cte\\tfrac{V}{T} = \\text{cte}$$",
     "prompt": "Explica la diferencia entre proceso isotérmico, isocórico e isobárico.",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\6-gases.md",
-    "reference_line": 173,
+    "reference_line": 171,
     "module_name": "5-quimica",
     "category": "gases"
   },
@@ -1525,7 +1525,7 @@
     "description": ":m - Une las tres leyes (Boyle, Charles y Gay-Lussac).\n- Relaciona simultáneamente **Presión, Volumen y Temperatura**:\n$$P1V1T1=P2V2T2\\frac{P_1 V_1}{T_1} = \\frac{P_2 V_2}{T_2}$$\n- Muy útil para ejercicios donde cambian varias variables a la vez.\nUn gas ocupa 2.0 L2.0 \\, L a 1.0 atm1.0 \\, atm y 300 K300 \\, K. Si se lleva a 2.0 atm2.0 \\, atm y 400 K400 \\, K, ¿qué volumen ocupará?",
     "prompt": "Ejercicio de aplicación",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\6-gases.md",
-    "reference_line": 240,
+    "reference_line": 238,
     "module_name": "5-quimica",
     "category": "gases"
   },
@@ -1535,7 +1535,7 @@
     "description": ":m Aquí tenés **un problema para cada ley**, con la resolución paso a paso:\n---\nUn gas ocupa 4.0 L4.0 \\, L a 1.5 atm1.5 \\, atm. Si la presión aumenta a 3.0 atm3.0 \\, atm, ¿qué volumen ocupará, suponiendo temperatura constante?\n",
     "prompt": "**Ejercicio 1 – Ley de Boyle (Isotérmico)**",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\6-gases.md",
-    "reference_line": 254,
+    "reference_line": 252,
     "module_name": "5-quimica",
     "category": "gases"
   },
@@ -1545,7 +1545,7 @@
     "description": ":m La **Ley de Dalton** (1801) establece que en una mezcla de gases que no reaccionan químicamente:\nPtotal=P1+P2+P3+…P_{total} = P_1 + P_2 + P_3 + \\dots\ndonde:\n- PtotalP_{total} es la presión total de la mezcla.\n- PiP_i es la **presión parcial** de cada gas, definida como la presión que ejercería ese gas si estuviera solo en el mismo volumen y temperatura.\nTambién puede expresarse como:\n$$Pi=χi⋅PtotalP_i = \\chi_i \\cdot P_{total}$$\ndonde $χi\\chi_i$ es la **fracción molar** del gas ii.\n---\nEn un recipiente de 5.0 L a 300 K se tienen:\n- 0.5 mol0.5 \\, mol de O₂\n- 1.0 mol1.0 \\, mol de N₂\nCalcular la presión parcial de cada gas y la presión total. (R=0.082 L⋅atm/mol⋅KR = 0.082 \\, L \\cdot atm / mol \\cdot K)",
     "prompt": "**Ejercicio – Dalton**",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\6-gases.md",
-    "reference_line": 327,
+    "reference_line": 325,
     "module_name": "5-quimica",
     "category": "gases"
   },
@@ -1555,7 +1555,7 @@
     "description": ":m El aire es una **mezcla de gases**, principalmente:\n- N2≈78%N_2 \\approx 78\\%\n- O2≈21%O_2 \\approx 21\\%\n- CO2≈0.04%CO_2 \\approx 0.04\\%\n- otros gases (Ar, Ne, etc.) en proporciones menores.\nSegún la **Ley de Dalton**, la presión atmosférica total es la suma de las **presiones parciales** de cada gas:\nPtotal=PN2+PO2+PCO2+PotrosP_{total} = P_{N_2} + P_{O_2} + P_{CO_2} + P_{otros}\nY cada presión parcial se calcula como:\nPi=χi⋅PtotalP_i = \\chi_i \\cdot P_{total}\n---\nLa presión atmosférica total es 1.0 atm1.0 \\, atm. Calcula las presiones parciales de N2N_2, O2O_2 y CO2CO_2.\n",
     "prompt": "**Ejemplo – Aire a nivel del mar**",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\6-gases.md",
-    "reference_line": 381,
+    "reference_line": 379,
     "module_name": "5-quimica",
     "category": "gases"
   },
@@ -1565,7 +1565,7 @@
     "description": ":m En un laboratorio se libera **amoníaco (NH₃)** y **cloruro de hidrógeno (HCl)** en extremos opuestos de un tubo. \n",
     "prompt": "¿En qué punto se encontrarán ambos gases si la longitud del tubo es de 1 m?",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\6-gases.md",
-    "reference_line": 436,
+    "reference_line": 434,
     "module_name": "5-quimica",
     "category": "gases"
   },
@@ -1575,7 +1575,7 @@
     "description": ":m Un recipiente con helio y otro con oxígeno están a la misma temperatura. Ambos tienen orificios del mismo tamaño. \n",
     "prompt": "¿Qué gas efunde más rápido y en qué proporción?",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\6-gases.md",
-    "reference_line": 454,
+    "reference_line": 452,
     "module_name": "5-quimica",
     "category": "gases"
   },
@@ -1585,7 +1585,7 @@
     "description": ":m Un globo lleno de hidrógeno se desinfla lentamente porque el gas escapa por efusión. ",
     "prompt": "Si se compara con un globo lleno de oxígeno, ¿qué globo perderá volumen más rápido y por qué?",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\6-gases.md",
-    "reference_line": 468,
+    "reference_line": 466,
     "module_name": "5-quimica",
     "category": "gases"
   },
@@ -1708,5 +1708,125 @@
     "reference_line": 140,
     "module_name": "5-quimica",
     "category": "agasesejercicios"
+  },
+  {
+    "term": "1 - Ejercicio de nomenclatura inorgánica",
+    "example": ":m\n1. **Ácido piroarsénico** → $$\\mathrm{H_4As_2O_7}$$\n![[Pasted image 20250929192354.png]]\n2. **Fosfina** → $$\\mathrm{PH_3}$$\n3. **Pirofosfato de aluminio** → $$\\mathrm{Al_4(P_2O_7)_3}$$\n4. **Hidróxido niqueloso** (Ni²⁺) → $$\\mathrm{Ni(OH)_2}$$\n5. **Óxido nítrico** → $$\\mathrm{NO}$$\n6. **Sulfuro férrico** (Fe³⁺) → $$\\mathrm{Fe_2S_3}$$",
+    "description": ":m Para resolver, recordemos:\n* **Ácidos oxoácidos**: se forman con no metales + oxígeno + H.\n* **Hidruros**: elemento + hidrógeno.\n* **Sales**: catión + anión (oxoaniones comunes: fosfatos, pirofosfatos, etc.).\n* **Hidróxidos**: metal + OH⁻.\n* **Óxidos**: combinación de un elemento con oxígeno.\n* **Sulfuros**: metal + S²⁻.\n1. Ácido piroarsénico\n2. Fosfina\n3. Pirofosfato de aluminio\n4. Hidróxido niqueloso\n5. Óxido nítrico\n6. Sulfuro férrico\n",
+    "prompt": "Escriba las fórmulas de los siguientes compuestos:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\modelo examen.md",
+    "reference_line": 29,
+    "module_name": "5-quimica",
+    "category": "modeloexamen"
+  },
+  {
+    "term": "2 - Ácido piroarsénico — cómo deducir la fórmula",
+    "example": ":m Pasos: $$2,\\mathrm{H_3AsO_4}-\\mathrm{H_2O}=\\mathrm{H_4As_2O_7}$$. Comprobación: H: (6-2=4), As: (2), O: (8-1=7). ⇒ **$$\\mathrm{H_4As_2O_7}$$**.",
+    "description": ":m “Piro-” indica condensación de **dos oxoácidos** con pérdida de $$\\mathrm{H_2O}$$. El ácido arsénico es $$\\mathrm{H_3AsO_4}$$ (análog o a $$\\mathrm{H_3PO_4}$$). Al dimerizar: se suman átomos y se resta agua: hidrógenos $$6-2=4$$, arsénicos $$2$$, oxígenos $$8-1=7$$. Resultado neutro.",
+    "prompt": "Deduce la fórmula del **ácido piroarsénico** a partir de $$\\mathrm{H_3AsO_4}$$.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\modelo examen.md",
+    "reference_line": 65,
+    "module_name": "5-quimica",
+    "category": "modeloexamen"
+  },
+  {
+    "term": "3 - Fosfina — cómo deducir la fórmula",
+    "example": ":m P (grupo 15) → hidruro **trihidruro**: $$\\mathrm{PH_3}$$. Chequeo de estados: (3\\times(+1)=+3) de H; P aporta (-3) ⇒ neutro. **$$\\mathrm{PH_3}$$**.",
+    "description": ":m ![[Pasted image 20250929193138.png]]\nLa fosfina es el **hidruro covalente** de P. Los elementos del grupo 15 forman hidruros **trihidrogenados** tipo $$\\mathrm{EH_3}$$ (análogos a amoníaco). Cada H vale $$+1$$; para neutralidad, P queda en $$-3$$.",
+    "prompt": "Justifica la fórmula de **fosfina** usando la valencia típica de P en hidruros.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\modelo examen.md",
+    "reference_line": 75,
+    "module_name": "5-quimica",
+    "category": "modeloexamen"
+  },
+  {
+    "term": "4 - Pirofosfato de aluminio — balance iónico",
+    "example": ":m Neutralidad: ($4\\times(+3)=+12), (3\\times(-4)=-12) ⇒ **$$\\mathrm{Al_4(P_2O_7)_3}$$**.",
+    "description": ":m ![[Pasted image 20250929194440.png]]\n![[Pasted image 20250929194226.png]]\nEl anión **pirofosfato** (diposfato) es $$\\mathrm{P_2O_7^{4-}}$$. El aluminio forma $$\\mathrm{Al^{3+}}$$. Para una sal neutra, cruzamos cargas con el **m.c.m.** de 3 y 4 (=12): (4) cationes dan (+12); (3) aniones dan (-12).",
+    "prompt": "Obtén la fórmula del **pirofosfato de aluminio** a partir de $$\\mathrm{Al^{3+}}$$ y $$\\mathrm{P_2O_7^{4-}}$$.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\modelo examen.md",
+    "reference_line": 87,
+    "module_name": "5-quimica",
+    "category": "modeloexamen"
+  },
+  {
+    "term": "5 - X3 Hidróxido niqueloso — identificación de “-oso”",
+    "example": ":m Balance: $$\\mathrm{Ni^{2+}}+2,\\mathrm{OH^-}\\rightarrow \\mathrm{Ni(OH)_2}$$ ⇒ **$$\\mathrm{Ni(OH)_2}$$**.",
+    "description": ":m ![[Pasted image 20250929194448.png]]\n![[Pasted image 20250929195412.png]]\n![[Pasted image 20250929200331.png]]\n![[Pasted image 20250929201013.png]]\n![[Pasted image 20250929195244.png]]\n![[Pasted image 20250929195204.png]]\nEsto es un ternario, Al ser hidroxido, significa que tenemos OH, si tiene oso significa que es el nitrogeno de valencia +2\n“**Niqueloso**” indica **Ni(II)**: $$\\mathrm{Ni^{2+}}$$. En hidróxidos, el anión es $$\\mathrm{OH^-}$$. Se necesitan **dos** hidróxidos para neutralizar (+2).",
+    "prompt": "Deduce la fórmula del **hidróxido niqueloso**.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\modelo examen.md",
+    "reference_line": 101,
+    "module_name": "5-quimica",
+    "category": "modeloexamen"
+  },
+  {
+    "term": "6 - X2  Óxido nítrico — estado de oxidación",
+    "example": ":m Neutralidad con 1 O: (+2 + (-2)=0) ⇒ **$$\\mathrm{NO}$$**.",
+    "description": ":m > Es un nombre\n![[Pasted image 20250929194456.png]]\n![[Pasted image 20250929194920.png]]\n![[Pasted image 20250929195057.png]]\n![[Pasted image 20250929195204.png]]\nEntonces al estar del nitico va a estar\nEl **óxido nítrico** es el óxido de nitrógeno en que N está en **+2**. El oxígeno suele estar en **−2**. Una sola O (−2) exige un N en +2 para neutralidad 1:1.",
+    "prompt": "Llega a la fórmula del **óxido nítrico** desde ( \\mathrm{N}(+2) ) y ( \\mathrm{O}(-2) ).",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\modelo examen.md",
+    "reference_line": 127,
+    "module_name": "5-quimica",
+    "category": "modeloexamen"
+  },
+  {
+    "term": "7 - X1 Sulfuro férrico — uso de “-ico”",
+    "example": ":m Balance de cargas: (2\\times \\mathrm{Fe^{3+}}=+6), (3\\times \\mathrm{S^{2-}}=-6) ⇒ **$$\\mathrm{Fe_2S_3}$$**.",
+    "description": ":m ![[Pasted image 20250929194733.png]]\n![[Pasted image 20250929194831.png]]\n![[Pasted image 20250929195727.png]]\n![[Pasted image 20250929202418.png]]\nPorque se selecciona -2? porque en hidrico -> uro entonces se elige el menor\n![[Pasted image 20250929202921.png]]\n![[Pasted image 20250929194506.png]]\n“**Férrico**” corresponde a **Fe(III)**: $$\\mathrm{Fe^{3+}}$$. “**Sulfuro**” es $$\\mathrm{S^{2-}}$$. Para neutralidad, m.c.m.(3,2)=6 ⇒ (2) Fe(III) (+6) y (3) S(II) (−6).\n",
+    "prompt": "Determina la fórmula del **sulfuro férrico**.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\modelo examen.md",
+    "reference_line": 146,
+    "module_name": "5-quimica",
+    "category": "modeloexamen"
+  },
+  {
+    "term": "1 - Fórmulas de compuestos inorgánicos (Ejercicio 1)",
+    "example": ":m 7. Ácido piroarsénico:\n- Deriva del ácido arsénico ($\\mathrm{H_3AsO_4}$).\n- \"Piro\" indica unión de dos grupos con pérdida de agua.\n- Fórmula: $\\mathrm{H_4As_2O_7}$\n1. Fosfina:\n- Hidruro covalente del fósforo (valencia -3).\n- Fórmula: $\\mathrm{PH_3}$\n1. Pirofosfato de aluminio:\n- Anión pirofosfato: $\\mathrm{P_2O_7^{4-}}$\n- Catión aluminio: $\\mathrm{Al^{3+}}$\n- Balance: $\\mathrm{Al_4(P_2O_7)_3}$\n1. Hidróxido niqueloso:\n- Catión $\\mathrm{Ni^{2+}}$\n- Anión hidroxilo $\\mathrm{OH^-}$\n- Fórmula: $\\mathrm{Ni(OH)_2}$\n1. Óxido nítrico:\n- Valencia del nitrógeno +2.\n- Fórmula: $\\mathrm{NO}$\n1. Sulfuro férrico:\n- Catión $\\mathrm{Fe^{3+}}$\n- Anión $\\mathrm{S^{2-}}$\n- Fórmula: $\\mathrm{Fe_2S_3}$",
+    "description": ":m Contexto:\nPara escribir fórmulas correctamente debemos identificar:\n1. El catión y anión (si aplica).\n2. Las valencias de los elementos.\n3. Balancear las cargas para obtener un compuesto neutro.\nRecordemos que los prefijos (hidro-, piro-, etc.) indican el tipo de agrupamiento o la forma en que los oxoaniones se combinan.\n|Elemento|Símbolo|Valencias comunes|\n|---|---|---|\n|Arsénico|As|+3, +5|\n|Fósforo|P|–3, +3, +5|\n|Aluminio|Al|+3|\n|Níquel|Ni|+2, +3|\n|Nitrógeno|N|+1, +2, +3, +4, +5|\n|Azufre|S|–2, +4, +6|\n|Hierro|Fe|+2, +3|\n|Oxígeno|O|–2|\n|Hidrógeno|H|+1\n1. Ácido piroarsénico\n2. Fosfina\n3. Pirofosfato de aluminio\n4. Hidróxido niqueloso\n5. Óxido nítrico\n6. Sulfuro férrico ",
+    "prompt": "Escriba la fórmula de los siguientes compuestos:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\modelomejor.md",
+    "reference_line": 1,
+    "module_name": "5-quimica",
+    "category": "modelomejor"
+  },
+  {
+    "term": "2 - Configuración electrónica y números cuánticos (Ejercicio 2)",
+    "example": ":m A. Escandio ($Z = 21$)\nConfiguración electrónica:\n$$\n1s^2, 2s^2, 2p^6, 3s^2, 3p^6, 4s^2, 3d^1\n$$\nB. Fósforo ($Z = 15$)\nConfiguración electrónica:\n$$\n1s^2, 2s^2, 2p^6, 3s^2, 3p^3\n$$\nÚltimo electrón: en orbital $3p$.\nNúmeros cuánticos:\n- $n = 3$ (nivel principal)\n- $l = 1$ (subnivel p)\n- $m_l = -1, 0,$ o $+1$ (depende de cuál de los tres orbitales p ocupa, por convención se elige $m_l = -1$ para el primero)\n- $m_s = +\\tfrac{1}{2}$ (espín del electrón)\nPor tanto, el conjunto típico es:\n$$\nn = 3,\\ l = 1,\\ m_l = -1,\\ m_s = +\\frac{1}{2}\n$$",
+    "description": ":m Contexto:\nLa configuración electrónica se determina siguiendo el principio de Aufbau (orden creciente de energía):\n$$\n1s < 2s < 2p < 3s < 3p < 4s < 3d < 4p \\dots\n$$\nLos números cuánticos describen la posición y energía del último electrón.\nA. Escriba la configuración electrónica en forma espectral.\nB. Escriba los números cuánticos del último electrón del elemento con $Z = 15$ (Fósforo). ",
+    "prompt": "Para el elemento con $Z = 21$ (Escandio):",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\modelomejor.md",
+    "reference_line": 62,
+    "module_name": "5-quimica",
+    "category": "modelomejor"
+  },
+  {
+    "term": "3 - Soluciones y mezclas gaseosas (Ejercicio 3)",
+    "example": ":m Paso 1. Masa de NaCl:\n$$m_s = \\frac{0.9}{100} \\times 5000 = 45,\\mathrm{g}$$\nPaso 2. Moles de NaCl:\n$$n = \\frac{45}{58.44} = 0.770,\\mathrm{mol}$$\nPaso 3. Molaridad:\n$$M = \\frac{0.770}{5} = 0.154,\\mathrm{mol/L}$$\nPaso 4. % m/m:\nMasa de solución = $5000 \\times 1.005 = 5025,\\mathrm{g}$\n$$\nm/m = \\frac{45}{5025} \\times 100 = 0.896\n$$\nResultados finales:\n| Magnitud | Valor |\n| ---------- | --------- |\n| Masa NaCl | 45 g |\n| Moles NaCl | 0.770 mol |\n| Molaridad | 0.154 M |\n| % m/m | 0.896 % |\n\n\n\n",
+    "description": ":m | Elemento | Símbolo | Masa atómica (g/mol) |\n| -------- | ------- | -------------------- |\n| Sodio | Na | 22.99 |\n| Cloro | Cl | 35.45 |\nContexto:\nLa solución fisiológica al 0.9% m/v significa 0.9 g de NaCl por cada 100 mL de solución.\nDensidad: $\\rho = 1.005, \\mathrm{g/mL}$\nVolumen: $V = 5,\\mathrm{L} = 5000,\\mathrm{mL}$\nFórmulas:\n- Masa soluto: $$m_s = \\frac{0.9,\\mathrm{g}}{100,\\mathrm{mL}} \\times 5000,\\mathrm{mL}$$\n- Moles: $$n = \\frac{m_s}{M_{NaCl}}$$\n- Molaridad: $$M = \\frac{n}{V_{solución,(L)}}$$\n- $m/m: m/m = \\frac{m_{soluto}}{m_{solución}} \\times 100$",
+    "prompt": "Calcular masa de NaCl, moles, molaridad y porcentaje m/m de una solución fisiológica 0.9 mv, 5,L, rho=1.005,g mL.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\modelomejor.md",
+    "reference_line": 97,
+    "module_name": "5-quimica",
+    "category": "modelomejor"
+  },
+  {
+    "term": "4 - Mezclas gaseosas (Ejercicio 4)",
+    "example": ":m a) Presión total:\n$$P_T = 300 + 420 + 250 = 970,\\mathrm{mmHg}$$\nb) Fracciones molares:\n$$x_{H_2} = \\frac{300}{970} = 0.309$$\n$$x_{O_2} = \\frac{420}{970} = 0.433$$\n$$x_{N_2} = \\frac{250}{970} = 0.258$$\nResultados:\n| Gas | $P_i$ (mmHg) | $x_i$ |\n| ----- | ------------ | ----- |\n| H₂ | 300 | 0.309 |\n| O₂ | 420 | 0.433 |\n| N₂ | 250 | 0.258 |\n| Total | 970 mmHg | 1.000 |\n\n\n\n",
+    "description": ":m Contexto:\nSegún la ley de Dalton, la presión total es la suma de las presiones parciales:\n$$P_T = P_{H_2} + P_{O_2} + P_{N_2}$$\nLas fracciones molares se obtienen por:\n$$x_i = \\frac{P_i}{P_T}$$\nDatos:\n$P_{H_2}=300,\\mathrm{mmHg}$, $P_{O_2}=420,\\mathrm{mmHg}$, $P_{N_2}=250,\\mathrm{mmHg}$\n",
+    "prompt": "Una mezcla gaseosa contiene H₂, O₂ y N₂ con presiones parciales 300, 420 y 250 mmHg respectivamente. Calcular (a) presión total y (b) fracciones molares.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\modelomejor.md",
+    "reference_line": 141,
+    "module_name": "5-quimica",
+    "category": "modelomejor"
+  },
+  {
+    "term": "5 - Reacción entre CO y O₂ (Ejercicio 5)",
+    "example": ":m a) Ecuación balanceada:\n$$2CO + O_2 \\rightarrow 2CO_2$$\nb) Reactivo limitante:\nSi hay 4 CO y 2 O₂:\n- Relación estequiométrica: 2 CO : 1 O₂\n- Se necesitan 2 O₂ para reaccionar con 4 CO → reacción completa → no hay exceso.\nc) Moles y masa de CO₂:\nMoles CO₂ formados = moles CO iniciales = 4 moléculas → 2 mol CO₂ por cada 2 mol CO.\nSi suponemos $n_{CO}=1,\\mathrm{mol}$ → $n_{CO_2}=1,\\mathrm{mol}$\nMasa CO₂ = $1\\times44=44,\\mathrm{g}$\nd) Volumen CO₂ (780 Torr, 25°C):\nUsando ecuación de gases ideales:\n$$V = \\frac{nRT}{P}$$\n$$T = 25+273.15=298.15,K,\\ P = 780,Torr = 1.026,atm,\\ R = 0.0821$$\n$$V = \\frac{1\\times0.0821\\times298.15}{1.026} = 23.85,L$$\ne) Estado final:\nSolo se observan moléculas de CO₂, sin CO ni O₂ remanente.\nEn el esquema final, todas las partículas son (O–C–O).",
+    "description": ":m Contexto:\nLa reacción entre monóxido de carbono y oxígeno produce dióxido de carbono:\n$$2CO + O_2 \\rightarrow 2CO_2$$\nSi en el recipiente hay un número limitado de moléculas, el reactivo limitante es el que se consume primero.\nSupongamos el gráfico muestra 4 moléculas de CO y 2 de O₂.\n- tenes 5 moles de monoxido de carbono, 3 moles de oxigeno",
+    "prompt": "Dada la reacción entre monóxido de carbono y oxígeno, calcular (a) ecuación balanceada, (b) reactivo limitante, (c) moles y masa de CO₂ formados, (d) volumen del CO₂ a 780 Torr y 25°C, y (e) describir el esquema final.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\modelomejor.md",
+    "reference_line": 173,
+    "module_name": "5-quimica",
+    "category": "modelomejor"
   }
 ]

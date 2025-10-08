@@ -480,6 +480,1166 @@
     "category": "Mformoftheolsline"
   },
   {
+    "term": "1 - Introduction to Fintech",
+    "example": ":m - Traditional: company financial reports, government statistics, financial markets.\n- Alternative: social media posts, online reviews, email, website visits, IoT data.",
+    "description": ":m Fintech applies technology to financial services. It includes handling large datasets and using tools like AI to improve decision-making. Traditional data comes from financial reports and markets, while alternative data includes social media and IoT devices.\n",
+    "prompt": "What are examples of traditional and alternative sources of data in fintech?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M11 - Fintech.md",
+    "reference_line": 69,
+    "module_name": "CFA Modules",
+    "category": "MFintech"
+  },
+  {
+    "term": "2 - Characteristics of Big Data",
+    "example": ":m\n- Volume: scale of data (megabytes to petabytes).\n- Velocity: speed of data processing and communication (low latency).\n- Variety:multiple formats (structured, semi-structured, unstructured).",
+    "description": ":m Big Data is described by the \"3Vs\": Volume, Velocity, and Variety. Data may be structured (databases), semi-structured (web page code), or unstructured (videos).\n",
+    "prompt": "What do the three Vs of Big Data represent?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M11 - Fintech.md",
+    "reference_line": 82,
+    "module_name": "CFA Modules",
+    "category": "MFintech"
+  },
+  {
+    "term": "3 - Data Science and Data Processing",
+    "example": ":m - Capture: collect and transform data.\n- Curation: ensure quality, fix missing/bad data.\n- Storage: archive and allow access.\n- Search: retrieve useful information.\n- Transfer: move data to where needed.",
+    "description": ":m Data science extracts meaning from Big Data through collection, quality control, storage, search, transfer, and visualization.\n",
+    "prompt": "List and briefly explain the main stages of data processing.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M11 - Fintech.md",
+    "reference_line": 97,
+    "module_name": "CFA Modules",
+    "category": "MFintech"
+  },
+  {
+    "term": "4 - Visualization in Fintech",
+    "example": ":m - Structured: charts, graphs (clear tables, numbers).\n- Unstructured: word clouds, mind maps (text, speech, video).",
+    "description": ":m Structured data can be shown in charts and graphs. Less structured data may use word clouds or mind maps.\n",
+    "prompt": "What is the main difference between visualizing structured vs. unstructured data?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M11 - Fintech.md",
+    "reference_line": 113,
+    "module_name": "CFA Modules",
+    "category": "MFintech"
+  },
+  {
+    "term": "5 - Artificial Intelligence in Fintech",
+    "example": ":m - Uses training datasets to learn input-output relationships.\n- Validates on new data for predictive ability.\n- Requires large amounts of diverse data.\n- Acts as a \"black box\" since internal logic is hard to interpret.",
+    "description": ":m AI simulates human cognition. Neural networks process data like the brain, while machine learning algorithms detect patterns from datasets.\n",
+    "prompt": "How does machine learning work in fintech applications?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M11 - Fintech.md",
+    "reference_line": 126,
+    "module_name": "CFA Modules",
+    "category": "MFintech"
+  },
+  {
+    "term": "6 - Supervised vs. Unsupervised Learning",
+    "example": ":m - Supervised: input and output labeled; learns mapping and tested on new data.\n- Unsupervised: no labels; learns patterns and structures in data.",
+    "description": ":m Supervised learning uses labeled data; unsupervised finds hidden structures without labels. Deep learning builds on both with multiple neural layers.\n",
+    "prompt": "What is the difference between supervised and unsupervised learning?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M11 - Fintech.md",
+    "reference_line": 141,
+    "module_name": "CFA Modules",
+    "category": "MFintech"
+  },
+  {
+    "term": "1 - Short Run vs Long Run",
+    "example": ":m - Short run: at least one factor of production is fixed.\n- Long run: all factors of production are variable.",
+    "description": ":m In production, the short run fixes some inputs (e.g., land, lease, or employees), while in the long run all inputs can vary.\n",
+    "prompt": "What is the key difference between the short run and the long run for a firm?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M12 - Breakeven Shutdown and Scale.md",
+    "reference_line": 88,
+    "module_name": "CFA Modules",
+    "category": "MBreakevenShutdownandScale"
+  },
+  {
+    "term": "2 - Shutdown and Breakeven Analysis",
+    "example": ":m Breakeven is when total revenue = total cost, or equivalently, average revenue = average total cost.",
+    "description": ":m Breakeven occurs when total revenue = total cost, meaning zero economic profit. Shutdown decisions depend on whether revenue covers variable costs in the short run and total costs in the long run.\n",
+    "prompt": "What condition defines the breakeven point for a firm?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M12 - Breakeven Shutdown and Scale.md",
+    "reference_line": 101,
+    "module_name": "CFA Modules",
+    "category": "MBreakevenShutdownandScale"
+  },
+  {
+    "term": "3 - Shutdown Points in Perfect Competition",
+    "example": ":m\n- Short run: operate if AR ≥ AVC; shut down if AR < AVC.\n- Long run: stay if AR ≥ ATC; exit if AR < ATC.",
+    "description": ":m In perfect competition, firms take the market price as given. Decisions rely on average revenue (AR), average total cost (ATC), and average variable cost (AVC).\n",
+    "prompt": "What are the shutdown rules for perfect competition in the short run and long run?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M12 - Breakeven Shutdown and Scale.md",
+    "reference_line": 112,
+    "module_name": "CFA Modules",
+    "category": "MBreakevenShutdownandScale"
+  },
+  {
+    "term": "4 - Shutdown in Imperfect Competition",
+    "example": ":m If TR < TVC, the firm shuts down immediately. If TC > TR > TVC, it continues in the short run but must exit in the long run.",
+    "description": ":m For firms with market power, price depends on output. Breakeven and shutdown still depend on TR, TC, and TVC.\n",
+    "prompt": "Under imperfect competition, when should a firm shut down in the short run?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M12 - Breakeven Shutdown and Scale.md",
+    "reference_line": 126,
+    "module_name": "CFA Modules",
+    "category": "MBreakevenShutdownandScale"
+  },
+  {
+    "term": "5 - Example: Short-Run Shutdown (Legion Gaming)",
+    "example": ":m No. TR < TVC, so the firm shuts down. Loss = $400,000 in fixed costs.",
+    "description": ":m TR = $700,000, TVC = $800,000, FC = $400,000 → TC = $1.2M. Since TR < TVC, the firm cannot cover variable costs and must shut down, losing $400,000 in fixed costs.\n",
+    "prompt": "Should Legion Gaming continue to operate in the short run with TR = $700,000, TVC = $800,000, FC = $400,000?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M12 - Breakeven Shutdown and Scale.md",
+    "reference_line": 137,
+    "module_name": "CFA Modules",
+    "category": "MBreakevenShutdownandScale"
+  },
+  {
+    "term": "6 - Example: Long-Run Shutdown (Legion Gaming)",
+    "example": ":m No. In the long run TR < TC, so the firm shuts down.",
+    "description": ":m TR = $850,000, TVC = $800,000, FC = $400,000 → TC = $1.2M. Since TC > TR > TVC, the firm covers variable costs but not total costs. It can operate in the short run but must shut down in the long run.\n",
+    "prompt": "Should Legion Gaming continue to operate in the long run with TR = $850,000, TVC = $800,000, FC = $400,000?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M12 - Breakeven Shutdown and Scale.md",
+    "reference_line": 148,
+    "module_name": "CFA Modules",
+    "category": "MBreakevenShutdownandScale"
+  },
+  {
+    "term": "7 - Optimum Scale of Operations",
+    "example": ":m The output level at which average total cost is minimized. Beyond this, costs may remain flat or rise due to diseconomies of scale.",
+    "description": ":m In the long run, firms can adjust plant size to minimize costs. Economies of scale reduce costs with growth, while diseconomies increase them after a certain size.\n",
+    "prompt": "What is the minimum efficient scale (MES) of a firm?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M12 - Breakeven Shutdown and Scale.md",
+    "reference_line": 159,
+    "module_name": "CFA Modules",
+    "category": "MBreakevenShutdownandScale"
+  },
+  {
+    "term": "8 - Market Structures Overview",
+    "example": ":m\n- Perfect competition\n- Monopolistic competition\n- Oligopoly\n- Monopoly",
+    "description": ":m Markets exist on a spectrum from perfect competition to pure monopoly. Key factors: number of firms, barriers to entry, product differentiation, and price power.\n",
+    "prompt": "What are the four main types of market structures?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M12 - Breakeven Shutdown and Scale.md",
+    "reference_line": 284,
+    "module_name": "CFA Modules",
+    "category": "MBreakevenShutdownandScale"
+  },
+  {
+    "term": "9 - Perfect Competition",
+    "example": ":m Because no single firm can influence market price; supply and demand set the equilibrium price.",
+    "description": ":m Firms are price takers, products are identical, and no barriers to entry exist. Example: wheat farming.\n",
+    "prompt": "Why are firms in perfect competition considered \"price takers\"?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M12 - Breakeven Shutdown and Scale.md",
+    "reference_line": 303,
+    "module_name": "CFA Modules",
+    "category": "MBreakevenShutdownandScale"
+  },
+  {
+    "term": "10 - Monopoly",
+    "example": ":m - Control over key resources or technology.\n- Government regulation or legal protection.",
+    "description": ":m A single seller controls the market with no substitutes, high barriers to entry, and price-setting power. Example: utility companies.\n",
+    "prompt": "What are two reasons monopolies can exist?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M12 - Breakeven Shutdown and Scale.md",
+    "reference_line": 314,
+    "module_name": "CFA Modules",
+    "category": "MBreakevenShutdownandScale"
+  },
+  {
+    "term": "11 - Monopolistic Competition",
+    "example": ":m Products are not identical—firms compete using brand, quality, and marketing rather than just price.",
+    "description": ":m Many firms sell differentiated products, with competition on price, quality, and marketing. Example: toothpaste brands.\n",
+    "prompt": "What differentiates monopolistic competition from perfect competition?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M12 - Breakeven Shutdown and Scale.md",
+    "reference_line": 327,
+    "module_name": "CFA Modules",
+    "category": "MBreakevenShutdownandScale"
+  },
+  {
+    "term": "12 - Oligopoly",
+    "example": ":m Because each firm's pricing and output decisions affect, and are affected by, competitors’ actions.",
+    "description": ":m Few firms dominate, and decisions are interdependent. Products may be similar or differentiated. Examples: oil (similar) and cars (differentiated).\n",
+    "prompt": "Why is interdependence important in oligopoly markets?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M12 - Breakeven Shutdown and Scale.md",
+    "reference_line": 338,
+    "module_name": "CFA Modules",
+    "category": "MBreakevenShutdownandScale"
+  },
+  {
+    "term": "13 - Cournot Duopoly Model",
+    "example": ":m Both produce the same quantity, splitting the market equally at equilibrium price.",
+    "description": ":m Two firms choose output assuming the other won’t change. Equilibrium divides the market equally, with prices between monopoly and perfect competition.\n",
+    "prompt": "In Cournot’s model, what happens in the long run with two identical firms?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M12 - Breakeven Shutdown and Scale.md",
+    "reference_line": 349,
+    "module_name": "CFA Modules",
+    "category": "MBreakevenShutdownandScale"
+  },
+  {
+    "term": "14 - Nash Equilibrium in Oligopoly",
+    "example": ":m A stable outcome where no firm benefits by changing price while competitors’ prices stay the same.",
+    "description": ":m Occurs when no firm can improve its profit by unilaterally changing strategy.\n",
+    "prompt": "What does Nash equilibrium represent in oligopoly pricing?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M12 - Breakeven Shutdown and Scale.md",
+    "reference_line": 360,
+    "module_name": "CFA Modules",
+    "category": "MBreakevenShutdownandScale"
+  },
+  {
+    "term": "15 - Collusion in Oligopoly",
+    "example": ":m\n- Fewer firms, homogeneous products, similar costs.\n- Strong enforcement and retaliation for cheating.\n- Limited outside competition.",
+    "description": ":m Firms may collude to restrict output and raise prices, like OPEC. Cheating undermines collusion unless retaliation is certain.\n",
+    "prompt": "What conditions make collusion more stable in oligopoly?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M12 - Breakeven Shutdown and Scale.md",
+    "reference_line": 371,
+    "module_name": "CFA Modules",
+    "category": "MBreakevenShutdownandScale"
+  },
+  {
+    "term": "16 - Dominant Firm Model",
+    "example": ":m The dominant firm lowers its price, forcing smaller firms to reduce output or exit, increasing DF’s long-term share.",
+    "description": ":m A large firm sets price due to lower costs and larger scale; smaller firms follow its pricing.\n",
+    "prompt": "What happens if smaller competitive firms cut prices in a dominant firm market?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M12 - Breakeven Shutdown and Scale.md",
+    "reference_line": 388,
+    "module_name": "CFA Modules",
+    "category": "MBreakevenShutdownandScale"
+  },
+  {
+    "term": "17 - Identifying Market Structure",
+    "example": ":m Because they provide simple quantitative measures of how market power is distributed among firms, indicating whether markets are competitive, oligopolistic, or monopolistic.",
+    "description": ":m Market structure can be analyzed by elasticity of demand, concentration ratios, and market share. Regulators often use these to judge competitiveness.\n",
+    "prompt": "Why are concentration ratios and HHI used to identify market structure?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M12 - Breakeven Shutdown and Scale.md",
+    "reference_line": 474,
+    "module_name": "CFA Modules",
+    "category": "MBreakevenShutdownandScale"
+  },
+  {
+    "term": "18 - N-Firm Concentration Ratio",
+    "example": ":m It ignores barriers to entry and is not very sensitive to mergers.",
+    "description": ":m The $N$-firm concentration ratio = sum of market shares of the $N$ largest firms. High values indicate less competition.\n",
+    "prompt": "What is a disadvantage of the $N$-firm concentration ratio?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M12 - Breakeven Shutdown and Scale.md",
+    "reference_line": 485,
+    "module_name": "CFA Modules",
+    "category": "MBreakevenShutdownandScale"
+  },
+  {
+    "term": "19 - Herfindahl-Hirschman Index (HHI)",
+    "example": ":m - Below 0.10: highly competitive.\n- 0.10 to 0.18: moderately competitive.\n- Above 0.18: uncompetitive or concentrated.",
+    "description": ":m The HHI = sum of squared market shares. Higher HHI means less competition. Regulators often use it for antitrust analysis.\n",
+    "prompt": "What are the thresholds for HHI in classifying market competitiveness?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M12 - Breakeven Shutdown and Scale.md",
+    "reference_line": 496,
+    "module_name": "CFA Modules",
+    "category": "MBreakevenShutdownandScale"
+  },
+  {
+    "term": "20 - Example: 4-Firm Concentration Ratio (Before Merger)",
+    "example": ":m $CR_4 = 65$",
+    "description": ":m The **$N$-firm concentration ratio** is calculated as:\n$$CR_N = \\sum_{i=1}^N s_i$$\nwhere $s_i$ = market share of the $i^{th}$ largest firm.\nFor Acme (25%), Blake (15%), Curtis (15%), Dent (10%):\n$$CR_4 = 25 + 15 + 15 + 10 = 65$$\n",
+    "prompt": "What is the 4-firm concentration ratio before the merger of Acme and Blake?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M12 - Breakeven Shutdown and Scale.md",
+    "reference_line": 509,
+    "module_name": "CFA Modules",
+    "category": "MBreakevenShutdownandScale"
+  },
+  {
+    "term": "21 - Example: 4-Firm Concentration Ratio (After Merger)",
+    "example": ":m $CR_4 = 70$",
+    "description": ":m After the merger: Acme/Blake (40%), Curtis (15%), Dent (10%), Elite (5%).\n$$CR_4 = \\sum_{i=1}^4 s_i = 40 + 15 + 10 + 5 = 70$$\n",
+    "prompt": "What is the 4-firm concentration ratio after the merger?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M12 - Breakeven Shutdown and Scale.md",
+    "reference_line": 528,
+    "module_name": "CFA Modules",
+    "category": "MBreakevenShutdownandScale"
+  },
+  {
+    "term": "22 - Example: HHI (Before Merger)",
+    "example": ":m It shows a **moderately competitive market** (between 0.10 and 0.18).",
+    "description": ":m The **Herfindahl–Hirschman Index (HHI)** is calculated as:\n$$HHI = \\sum_{i=1}^N (s_i)^2$$\nwhere $s_i$ = market share of firm $i$ expressed as a decimal.\nBefore merger (Acme 0.25, Blake 0.15, Curtis 0.15, Dent 0.10):\n$$HHI = 0.25^2 + 0.15^2 + 0.15^2 + 0.10^2 = 0.1175$$\n",
+    "prompt": "What does an HHI of 0.1175 indicate about competitiveness?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M12 - Breakeven Shutdown and Scale.md",
+    "reference_line": 541,
+    "module_name": "CFA Modules",
+    "category": "MBreakevenShutdownandScale"
+  },
+  {
+    "term": "23 - Example: HHI (After Merger)",
+    "example": ":m It indicates an **uncompetitive/concentrated market** (above 0.18), showing higher market power after the merger.",
+    "description": ":m After merger (Acme/Blake 0.40, Curtis 0.15, Dent 0.10, Elite 0.05):\n$$HHI = 0.40^2 + 0.15^2 + 0.10^2 + 0.05^2 = 0.1950$$\n",
+    "prompt": "What does the post-merger HHI of 0.1950 indicate?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M12 - Breakeven Shutdown and Scale.md",
+    "reference_line": 560,
+    "module_name": "CFA Modules",
+    "category": "MBreakevenShutdownandScale"
+  },
+  {
+    "term": "1 - Business Cycles Overview",
+    "example": ":m - **Classical cycle:** change in real GDP relative to a base level.\n- **Growth cycle:** deviation of GDP from its long-term trend.\n- **Growth rate cycle:** changes in the growth rate of GDP relative to its trend rate.",
+    "description": ":m Business cycles describe fluctuations in real GDP around its long-term trend. Economists track these through growth, classical, and growth rate cycles.\n",
+    "prompt": "What are the three ways economists describe business cycles?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M13 - Business Cycles.md",
+    "reference_line": 118,
+    "module_name": "CFA Modules",
+    "category": "MBusinessCycles"
+  },
+  {
+    "term": "2 - Business Cycle – Trough",
+    "example": ":m - GDP growth turns from negative to positive.\n- High unemployment; firms begin rehiring temporary staff.\n- Rising consumer spending on durables and housing.\n- Inflation is low or falling.",
+    "description": ":m A trough marks the lowest point of economic activity before recovery begins.\n",
+    "prompt": "What are common indicators of a trough in the business cycle?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M13 - Business Cycles.md",
+    "reference_line": 132,
+    "module_name": "CFA Modules",
+    "category": "MBusinessCycles"
+  },
+  {
+    "term": "3 - Business Cycle – Peak",
+    "example": ":m - GDP growth slows or stops.\n- Unemployment is low but hiring slows.\n- Inflation rises as capacity constraints emerge.",
+    "description": ":m The peak is the highest point before a downturn begins.\n",
+    "prompt": "What happens to GDP, unemployment, and inflation at the business cycle’s peak?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M13 - Business Cycles.md",
+    "reference_line": 147,
+    "module_name": "CFA Modules",
+    "category": "MBusinessCycles"
+  },
+  {
+    "term": "4 - Business Cycle – Contraction (Recession)",
+    "example": ":m - Negative GDP growth for two quarters.\n- Rising unemployment, declining hours worked.\n- Decreases in consumer spending and investments.\n- Inflation falls with a lag; imports decrease.",
+    "description": ":m A recession occurs when real GDP declines for two consecutive quarters.\n",
+    "prompt": "What are the key signs of a contraction or recession?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M13 - Business Cycles.md",
+    "reference_line": 161,
+    "module_name": "CFA Modules",
+    "category": "MBusinessCycles"
+  },
+  {
+    "term": "5 - Credit Cycles",
+    "example": ":m - **Expansion:** lenders are optimistic → easier credit, lower interest rates.\n- **Contraction:** lenders are cautious → tighter credit, higher rates.\n- Credit cycles are longer and may worsen booms and busts.",
+    "description": ":m Credit cycles describe fluctuations in lending activity and borrowing costs, often amplifying business cycles.\n",
+    "prompt": "How do credit conditions differ between expansions and contractions?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M13 - Business Cycles.md",
+    "reference_line": 176,
+    "module_name": "CFA Modules",
+    "category": "MBusinessCycles"
+  },
+  {
+    "term": "6 - Inventory/Sales Ratios",
+    "example": ":m - **Contraction:** sales fall unexpectedly → inventories rise (ratio ↑).\n- **Expansion:** sales rise unexpectedly → inventories fall (ratio ↓).",
+    "description": ":m Inventory levels indicate where the economy is in the cycle.\n",
+    "prompt": "How do inventory/sales ratios change during contractions and expansions?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M13 - Business Cycles.md",
+    "reference_line": 190,
+    "module_name": "CFA Modules",
+    "category": "MBusinessCycles"
+  },
+  {
+    "term": "7 - Labor and Capital Utilization",
+    "example": ":m - **Contraction:** reduce utilization; fewer hours worked.\n- **Expansion:** increase utilization before new hiring or investment.\n- Persistent trends lead to hiring/firing or capital expansion.",
+    "description": ":m Adjusting labor or equipment takes time and cost, so firms change utilization first.\n",
+    "prompt": "How do firms adjust labor and capital during business cycles?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M13 - Business Cycles.md",
+    "reference_line": 203,
+    "module_name": "CFA Modules",
+    "category": "MBusinessCycles"
+  },
+  {
+    "term": "8 - Consumer Sector Activity",
+    "example": ":m - **Highly cyclical:** durable goods (cars, appliances).\n- **Somewhat cyclical:** discretionary services (travel, dining).\n- **Noncyclical:** nondurable goods (food, utilities).",
+    "description": ":m Consumer spending drives most of GDP and follows income expectations.\n",
+    "prompt": "Which types of goods are most and least affected by the business cycle?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M13 - Business Cycles.md",
+    "reference_line": 217,
+    "module_name": "CFA Modules",
+    "category": "MBusinessCycles"
+  },
+  {
+    "term": "9 - Housing Sector",
+    "example": ":m 1. **Mortgage rates:** higher rates ↓ housing demand.\n2. **Income/housing costs:** higher income ↑ housing demand.\n3. **Speculation:** purchases based on expected price gains (e.g., 2007–2008 bubble).\n4. **Demographics:** growth in household formation (ages 25–40) boosts housing demand.",
+    "description": ":m Housing is one of the most cyclical components of the economy, sensitive to interest rates, income, speculation, and demographics.\n",
+    "prompt": "What are the main factors influencing housing activity in the economy?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M13 - Business Cycles.md",
+    "reference_line": 232,
+    "module_name": "CFA Modules",
+    "category": "MBusinessCycles"
+  },
+  {
+    "term": "10 - External Trade Sector",
+    "example": ":m - **Currency appreciation:** imports ↑, exports ↓ (foreign goods cheaper).\n- **Currency depreciation:** imports ↓, exports ↑ (domestic goods cheaper abroad).",
+    "description": ":m Trade activity depends on domestic and foreign income and exchange rates.\n",
+    "prompt": "How do currency changes affect imports and exports?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M13 - Business Cycles.md",
+    "reference_line": 247,
+    "module_name": "CFA Modules",
+    "category": "MBusinessCycles"
+  },
+  {
+    "term": "11 - Economic Indicators Overview",
+    "example": ":m 1. **Leading indicators:** change **before** business cycle peaks or troughs.\n2. **Coincident indicators:** change **at the same time** as the cycle.\n3. **Lagging indicators:** change **after** expansions or contractions.",
+    "description": ":m Economic indicators signal the timing of expansions and recessions. They are classified as **leading**, **coincident**, or **lagging** based on when they move relative to the business cycle.\n",
+    "prompt": "What are the three main types of economic indicators?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M13 - Business Cycles.md",
+    "reference_line": 260,
+    "module_name": "CFA Modules",
+    "category": "MBusinessCycles"
+  },
+  {
+    "term": "12 - Leading Indicators",
+    "example": ":m - Weekly manufacturing hours.\n- New unemployment claims.\n- Building permits.\n- Stock prices or the yield curve slope.",
+    "description": ":m Predict turning points ahead of actual changes in the economy.\n",
+    "prompt": "Name four common leading economic indicators.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M13 - Business Cycles.md",
+    "reference_line": 274,
+    "module_name": "CFA Modules",
+    "category": "MBusinessCycles"
+  },
+  {
+    "term": "13 - Coincident Indicators",
+    "example": ":m - Industrial production.\n- Nonfarm payroll employment.",
+    "description": ":m Reflect current economic activity and move simultaneously with the business cycle.\n",
+    "prompt": "Give two examples of coincident indicators.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M13 - Business Cycles.md",
+    "reference_line": 289,
+    "module_name": "CFA Modules",
+    "category": "MBusinessCycles"
+  },
+  {
+    "term": "14 - Lagging Indicators",
+    "example": ":m Because changes in hiring or layoffs typically occur **after** the economy has already entered a new phase (expansion or contraction).",
+    "description": ":m Confirm trends after they occur, often used to validate turning points.",
+    "prompt": "Why is the unemployment rate considered a lagging indicator?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M13 - Business Cycles.md",
+    "reference_line": 302,
+    "module_name": "CFA Modules",
+    "category": "MBusinessCycles"
+  },
+  {
+    "term": "1 - Fiscal Policy Overview",
+    "example": ":m - **Budget Surplus:** Government **revenues exceed expenditures**.\n- **Budget Deficit:** Government **expenditures exceed revenues**.\n- **Balanced Budget:** Government **revenues equal expenditures**.",
+    "description": ":m Fiscal policy refers to government actions involving **spending** and **taxation** to influence the economy. Understanding fiscal balances and their effects on aggregate demand is crucial for analyzing policy decisions.\n",
+    "prompt": "Define **budget surplus**, **budget deficit**, and **balanced budget**.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M14 - Fiscal Policy.md",
+    "reference_line": 54,
+    "module_name": "CFA Modules",
+    "category": "MFiscalPolicy"
+  },
+  {
+    "term": "2 - Expansionary vs Contractionary Fiscal Policy",
+    "example": ":m - **Expansionary Fiscal Policy:** Involves **increasing spending** and/or **reducing taxes**, raising the **budget deficit** and **aggregate demand**.\n- **Contractionary Fiscal Policy:** Involves **reducing spending** and/or **raising taxes**, lowering the **budget deficit** and **aggregate demand**.",
+    "description": ":m Fiscal policy can either stimulate or slow economic activity depending on spending and taxation levels.\n",
+    "prompt": "Explain the difference between **expansionary** and **contractionary** fiscal policy and their effect on aggregate demand.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M14 - Fiscal Policy.md",
+    "reference_line": 68,
+    "module_name": "CFA Modules",
+    "category": "MFiscalPolicy"
+  },
+  {
+    "term": "3 - Monetary Policy vs Fiscal Policy",
+    "example": ":m - **Monetary Policy:** Managed by the **central bank**, focuses on **money and credit supply**.\n- **Fiscal Policy:** Managed by the **government**, focuses on **spending and taxation**.",
+    "description": ":m Both policies aim to stabilize the economy but through different mechanisms—central banks control money supply, while governments adjust taxes and spending.\n",
+    "prompt": "What is the main difference between **monetary policy** and **fiscal policy**?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M14 - Fiscal Policy.md",
+    "reference_line": 81,
+    "module_name": "CFA Modules",
+    "category": "MFiscalPolicy"
+  },
+  {
+    "term": "4 - Economic Schools on Fiscal Policy",
+    "example": ":m - **Keynesians:** Believe **fiscal policy can stabilize** the economy by adjusting aggregate demand.\n- **Monetarists:** Believe fiscal effects are **temporary** and **monetary policy** is more effective in managing cycles.",
+    "description": ":m Keynesians and Monetarists differ in how they view the effectiveness of government intervention.\n",
+    "prompt": "What is the Keynesian vs Monetarist view on fiscal policy effectiveness?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M14 - Fiscal Policy.md",
+    "reference_line": 94,
+    "module_name": "CFA Modules",
+    "category": "MFiscalPolicy"
+  },
+  {
+    "term": "5 - Automatic Stabilizers",
+    "example": ":m - **Automatic Stabilizers:** Mechanisms like **taxes** and **unemployment benefits** that change automatically with the economy.\n- They **increase deficits** during **recessions** and **reduce deficits** during **expansions**.",
+    "description": ":m Taxes and transfers adjust automatically with the business cycle, reducing the need for discretionary action.\n",
+    "prompt": "What are **automatic stabilizers**, and how do they affect deficits during recessions and expansions?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M14 - Fiscal Policy.md",
+    "reference_line": 107,
+    "module_name": "CFA Modules",
+    "category": "MFiscalPolicy"
+  },
+  {
+    "term": "6 - Objectives of Fiscal Policy",
+    "example": ":m 1. Influence economic activity and aggregate demand.\n2. Redistribute wealth and income.\n3. Allocate resources among economic sectors.",
+    "description": ":m Governments use fiscal tools to shape macroeconomic and social outcomes.\n",
+    "prompt": "List the **three main objectives** of fiscal policy.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M14 - Fiscal Policy.md",
+    "reference_line": 120,
+    "module_name": "CFA Modules",
+    "category": "MFiscalPolicy"
+  },
+  {
+    "term": "7 - Debt Ratio Dynamics",
+    "example": ":m - If **real interest rate > GDP growth**, debt ratio **increases**.\n- If **real interest rate < GDP growth**, debt ratio **decreases**.",
+    "description": ":m The debt ratio measures fiscal sustainability relative to the country’s output (GDP).\n",
+    "prompt": "How does the relationship between **real interest rate** and **GDP growth rate** affect the debt ratio?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M14 - Fiscal Policy.md",
+    "reference_line": 134,
+    "module_name": "CFA Modules",
+    "category": "MFiscalPolicy"
+  },
+  {
+    "term": "8 - Fiscal Deficit Concerns – Arguments For",
+    "example": ":m 1. Future **tax increases** reduce work incentives and GDP.\n2. **Loss of market confidence** may cause default or inflation.\n3. **Crowding out:** Government borrowing raises interest rates, lowering private investment.",
+    "description": ":m High deficits may threaten economic stability if not managed prudently.\n",
+    "prompt": "List three reasons **to be concerned** about large fiscal deficits.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M14 - Fiscal Policy.md",
+    "reference_line": 147,
+    "module_name": "CFA Modules",
+    "category": "MFiscalPolicy"
+  },
+  {
+    "term": "9 - Fiscal Deficit Concerns – Arguments Against",
+    "example": ":m 1. If debt is **domestically held**, the issue is less severe.\n2. If debt **finances capital investment**, future gains can repay it.\n3. Deficits can **stimulate GDP and employment** when there’s unused capacity.",
+    "description": ":m Under some conditions, deficits can support growth and stability.\n",
+    "prompt": "List three arguments **against being concerned** about large fiscal deficits.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M14 - Fiscal Policy.md",
+    "reference_line": 161,
+    "module_name": "CFA Modules",
+    "category": "MFiscalPolicy"
+  },
+  {
+    "term": "10 - Fiscal Deficit Concerns – Arguments Against",
+    "example": ":m 1. If debt is **domestically held**, the burden remains within the national economy rather than owed to foreign creditors.\n2. When debt **finances capital investment** (e.g., infrastructure, education), future productivity gains can generate revenues to repay it.\n3. During recessions or periods of idle resources, deficits can **stimulate GDP and employment**, helping restore full capacity.",
+    "description": ":m Some economists argue that large fiscal deficits are **not always harmful**. In certain contexts—especially when debt supports investment or when the economy is below capacity—deficits may enhance stability and long-term growth.\n",
+    "prompt": "List three arguments **against being concerned** about large fiscal deficits.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M14 - Fiscal Policy.md",
+    "reference_line": 272,
+    "module_name": "CFA Modules",
+    "category": "MFiscalPolicy"
+  },
+  {
+    "term": "11 - Fiscal Policy Spending Tools",
+    "example": ":m\n1. **Transfer payments** – Redistributive payments such as pensions or unemployment benefits that support household income.\n2. **Current spending** – Routine government purchases of goods and services (e.g., salaries, maintenance).\n3. **Capital spending** – Investment in infrastructure and technology (e.g., roads, hospitals) to enhance long-term productivity.",
+    "description": ":m Spending tools are key components of fiscal policy that governments use to influence aggregate demand and economic growth.\n",
+    "prompt": "Identify and briefly describe the **three main fiscal spending tools** used by governments.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M14 - Fiscal Policy.md",
+    "reference_line": 286,
+    "module_name": "CFA Modules",
+    "category": "MFiscalPolicy"
+  },
+  {
+    "term": "12 - Fiscal Policy Revenue Tools",
+    "example": ":m - **Direct taxes** are levied on income or wealth (e.g., income tax, corporate tax).\n- **Indirect taxes** are levied on goods or services (e.g., sales tax, VAT, excise tax).",
+    "description": ":m Governments finance expenditures through taxation. Taxes can be **direct** (on income or wealth) or **indirect** (on goods or services).\n",
+    "prompt": "Differentiate between **direct and indirect taxes** and provide one example of each.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M14 - Fiscal Policy.md",
+    "reference_line": 303,
+    "module_name": "CFA Modules",
+    "category": "MFiscalPolicy"
+  },
+  {
+    "term": "13 - Desirable Attributes of Tax Policy",
+    "example": ":m 1. **Simplicity** – Easy to understand and administer.\n2. **Equity** – Both horizontal (equal treatment of equals) and vertical (higher income, higher tax).\n3. **Efficiency** – Should not discourage work or distort market forces.",
+    "description": ":m An effective tax system must raise adequate revenue while promoting fairness and efficiency.\n",
+    "prompt": "List three **desirable attributes** of a good tax policy.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M14 - Fiscal Policy.md",
+    "reference_line": 316,
+    "module_name": "CFA Modules",
+    "category": "MFiscalPolicy"
+  },
+  {
+    "term": "14 - Fiscal Multiplier Effect",
+    "example": ":m Using\n$$\\text{Fiscal Multiplier}=\\frac{1}{1-\\mathrm{MPC}(1-t)}=\\frac{1}{1-0.8(1-0.25)}=2.5$$\nTotal impact:\n$$2.5 \\times $100\\text{ billion} = $250\\text{ billion}$$\nThus, GDP increases by **$250 billion**.",
+    "description": ":m The fiscal multiplier measures how much total GDP changes in response to a change in government spending.\n",
+    "prompt": "Calculate the total change in GDP if government spending increases by $100 billion, given $\\mathrm{MPC}=0.8$ and $t=0.25$.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M14 - Fiscal Policy.md",
+    "reference_line": 330,
+    "module_name": "CFA Modules",
+    "category": "MFiscalPolicy"
+  },
+  {
+    "term": "15 - Balanced Budget Multiplier",
+    "example": ":m - Spending multiplier effect: $250 billion increase\n- Tax multiplier effect: $200 billion decrease\nNet change: $250 – $200 = **$50 billion increase** in aggregate demand",
+    "description": ":m Even when government increases spending and taxes equally, output can still rise because spending directly affects demand more than taxation reduces it.\n",
+    "prompt": "If spending and taxes each increase by $100 billion, with $\\mathrm{MPC}=0.8$, what is the net effect on aggregate demand?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M14 - Fiscal Policy.md",
+    "reference_line": 345,
+    "module_name": "CFA Modules",
+    "category": "MFiscalPolicy"
+  },
+  {
+    "term": "16 - Fiscal Policy Lags",
+    "example": ":m 1. **Recognition lag** – Time needed to identify economic problems.\n2. **Action lag** – Time taken for policymakers to debate and implement changes.\n3. **Impact lag** – Time for policies to influence spending and investment behavior.",
+    "description": ":m Fiscal policy suffers from delays that can reduce its effectiveness.\n",
+    "prompt": "Name and describe the **three main types of fiscal policy lags**.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M14 - Fiscal Policy.md",
+    "reference_line": 359,
+    "module_name": "CFA Modules",
+    "category": "MFiscalPolicy"
+  },
+  {
+    "term": "17 - Fiscal Policy Limitations",
+    "example": ":m At full employment, **aggregate supply is inelastic**. Additional fiscal stimulus increases demand but cannot expand output, resulting mainly in **higher inflation** rather than real GDP growth.",
+    "description": ":m Fiscal policy is powerful but imperfect, particularly in complex economic environments.\n",
+    "prompt": "Explain why fiscal policy is **less effective** when the economy is at full employment.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M14 - Fiscal Policy.md",
+    "reference_line": 373,
+    "module_name": "CFA Modules",
+    "category": "MFiscalPolicy"
+  },
+  {
+    "term": "1 - Roles of Central Banks",
+    "example": ":m 1. **Sole supplier of currency** – issues legal tender used as a medium of exchange.\n2. **Lender of last resort** – provides emergency funding to banks, maintaining financial stability.\n3. **Conducts monetary policy** – manages money supply and interest rates to influence economic activity.",
+    "description": ":m Central banks perform crucial functions to ensure monetary and financial stability within an economy.\n",
+    "prompt": "List **three key roles** of a central bank.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M15 - Central Bank Objective and Tools.md",
+    "reference_line": 84,
+    "module_name": "CFA Modules",
+    "category": "MCentralBankObjectiveandTools"
+  },
+  {
+    "term": "2 - Objectives of Central Banks",
+    "example": ":m - Primary objective: **Control inflation**.\n- Target inflation: **Between 2% and 3%** annually.",
+    "description": ":m The central bank’s main goal is to maintain price stability while promoting economic growth and employment.\n",
+    "prompt": "What is the **primary objective** of most central banks, and what is the **target inflation range** in developed countries?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M15 - Central Bank Objective and Tools.md",
+    "reference_line": 98,
+    "module_name": "CFA Modules",
+    "category": "MCentralBankObjectiveandTools"
+  },
+  {
+    "term": "3 - Monetary Policy Tools",
+    "example": ":m 1. **Policy rate** – interest rate charged to banks for borrowing reserves.\n2. **Reserve requirements** – minimum reserves banks must hold.\n3. **Open market operations** – buying or selling government securities to adjust liquidity.",
+    "description": ":m Central banks adjust the money supply and interest rates using three main tools.\n",
+    "prompt": "Name the **three main monetary policy tools** used by central banks.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M15 - Central Bank Objective and Tools.md",
+    "reference_line": 111,
+    "module_name": "CFA Modules",
+    "category": "MCentralBankObjectiveandTools"
+  },
+  {
+    "term": "4 - Policy Rate Mechanism",
+    "example": ":m - Higher policy rate makes borrowing costlier for banks.\n- Banks lend less to consumers and firms.\n- **Money supply decreases** and **aggregate demand falls**.",
+    "description": ":m The policy rate influences the cost of borrowing and lending in the economy.\n",
+    "prompt": "What happens to the **money supply and lending** when a central bank **raises the policy rate**?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M15 - Central Bank Objective and Tools.md",
+    "reference_line": 125,
+    "module_name": "CFA Modules",
+    "category": "MCentralBankObjectiveandTools"
+  },
+  {
+    "term": "5 - Open Market Operations",
+    "example": ":m When the central bank buys securities, banks receive cash in exchange.\n- **Bank reserves increase**,\n- **Interest rates decrease**,\n- **Money supply expands**, boosting aggregate demand.",
+    "description": ":m These are the most frequently used monetary tools.\n",
+    "prompt": "What is the effect on the **money supply** when a central bank **buys government securities** in the open market?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M15 - Central Bank Objective and Tools.md",
+    "reference_line": 139,
+    "module_name": "CFA Modules",
+    "category": "MCentralBankObjectiveandTools"
+  },
+  {
+    "term": "6 - Reserve Requirement Ratio",
+    "example": ":m Reducing reserve requirements leaves banks with more **excess reserves** to lend.\n→ **Lending increases**, and the **money supply expands**.",
+    "description": ":m This tool affects the proportion of deposits banks must hold as reserves.\n",
+    "prompt": "Explain how **reducing the required reserve ratio** affects lending and the money supply.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M15 - Central Bank Objective and Tools.md",
+    "reference_line": 154,
+    "module_name": "CFA Modules",
+    "category": "MCentralBankObjectiveandTools"
+  },
+  {
+    "term": "7 - Monetary Transmission Mechanism",
+    "example": ":m 1. **Interest rate channel** – changes in borrowing costs affect consumption and investment.\n2. **Asset price channel** – policy changes influence stock and bond valuations.\n3. **Expectations channel** – altered confidence changes spending behavior.\n4. **Exchange rate channel** – currency appreciation/depreciation affects exports and imports.",
+    "description": ":m Policy changes affect the economy through various channels before influencing prices.\n",
+    "prompt": "List the **four main channels** of the monetary transmission mechanism.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M15 - Central Bank Objective and Tools.md",
+    "reference_line": 166,
+    "module_name": "CFA Modules",
+    "category": "MCentralBankObjectiveandTools"
+  },
+  {
+    "term": "8 - Effects of Expansionary Monetary Policy",
+    "example": ":m 1. Market and interbank rates **decrease**.\n2. Businesses **invest more**; consumers buy more durable goods.\n3. Domestic currency **depreciates**, boosting exports.\n4. **Aggregate demand increases**, stimulating GDP growth.",
+    "description": ":m An expansionary stance aims to stimulate the economy through lower interest rates and increased liquidity.\n",
+    "prompt": "Describe the **chain of effects** when a central bank **decreases the policy rate**.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M15 - Central Bank Objective and Tools.md",
+    "reference_line": 181,
+    "module_name": "CFA Modules",
+    "category": "MCentralBankObjectiveandTools"
+  },
+  {
+    "term": "9 - Effects of Contractionary Monetary Policy",
+    "example": ":m - **Higher interest rates** reduce borrowing and investment.\n- **Asset prices fall**, and **currency appreciates**, reducing exports.\n- **Aggregate demand decreases**, placing **downward pressure on prices**.",
+    "description": ":m Used to slow inflation and prevent overheating of the economy.\n",
+    "prompt": "What are the **macroeconomic effects** of a contractionary monetary policy?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M15 - Central Bank Objective and Tools.md",
+    "reference_line": 196,
+    "module_name": "CFA Modules",
+    "category": "MCentralBankObjectiveandTools"
+  },
+  {
+    "term": "10 - Repo Rates and Policy Rates",
+    "example": ":m 1. **Policy rate** – the general term for the **interest rate** at which the central bank lends money to commercial banks.\n* When the policy rate **increases**, borrowing becomes **more expensive**, reducing lending and slowing the economy.\n* When it **decreases**, borrowing becomes **cheaper**, stimulating lending and economic growth.\n1. **Repo rate (repurchase agreement rate)** – a **short-term lending tool** used by central banks.\n* The central bank **buys securities** (like government bonds) from commercial banks with an agreement that the banks will **repurchase** them later at a higher price.\n* The difference between the sale and repurchase price represents the **interest rate (repo rate)**.\n* A **lower repo rate** → cheaper short-term funding → **increases money supply**.\n* A **higher repo rate** → costlier borrowing → **reduces liquidity** and controls inflation.\n**In summary:**\n* The **policy rate** is the benchmark guiding all short-term interest rates.\n* The **repo rate** is one mechanism through which that policy rate is applied in practice.",
+    "description": ":m Central banks use **policy rates** and **repo rates** to control the cost and availability of money in the banking system. These rates are core tools of **monetary policy** that influence lending, borrowing, and inflation levels.\nTo visualize this relationship computationally:\n```python\ndef money_supply_effect(policy_rate, repo_rate):\nif policy_rate < repo_rate:\nreturn \"Expansionary: cheap funding, money supply increases.\"\nelif policy_rate > repo_rate:\nreturn \"Contractionary: expensive funding, money supply decreases.\"\nelse:\nreturn \"Neutral: stable liquidity conditions.\"\nprint(money_supply_effect(3.0, 2.5))\n# Output: \"Expansionary: cheap funding, money supply increases.\"\n```\nThis illustrates how **changes in repo and policy rates** directly influence liquidity and economic activity.\n",
+    "prompt": "Explain how **repo rates** and **policy rates** work in central bank operations.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M15 - Central Bank Objective and Tools.md",
+    "reference_line": 210,
+    "module_name": "CFA Modules",
+    "category": "MCentralBankObjectiveandTools"
+  },
+  {
+    "term": "11 - Central Bank Essential Qualities – Independence",
+    "example": ":m 1. **Operational independence** – The central bank can independently **set the policy rate** (interest rate) to achieve its monetary goals without direct government approval.\n- Example: Adjusting interest rates to control inflation or stimulate growth based on data, not politics.\n2. **Target independence** – The central bank can **set its own inflation target**, decide **how to measure inflation**, and determine the **time horizon** to meet the target.\n- Example: Choosing a 2% inflation target and the strategy to reach it over a specific period.\n➡️ These forms of independence allow the bank to act objectively, fostering **market confidence** and **price stability**.",
+    "description": ":m A strong central bank must be **independent** from political influence to ensure that decisions are made based on economic stability rather than short-term political goals. Independence promotes **consistency, credibility, and control over inflation expectations**.\n",
+    "prompt": "Explain the **two types of independence** a central bank can have and why they matter.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M15 - Central Bank Objective and Tools.md",
+    "reference_line": 319,
+    "module_name": "CFA Modules",
+    "category": "MCentralBankObjectiveandTools"
+  },
+  {
+    "term": "12 - Central Bank Essential Qualities – Credibility and Transparency",
+    "example": ":m - **Credibility:** The public and investors must believe that the central bank will **follow through on its stated goals**, such as maintaining inflation near 2%.\n- Example: If the bank consistently meets its inflation target, people expect stable prices, which helps anchor inflation expectations.\n- **Transparency:** The central bank must **clearly communicate** the data, reasoning, and models behind its decisions.\n- Example: Publishing regular **inflation reports** or **minutes of policy meetings** increases public trust.\nTogether, these qualities enhance the **effectiveness of policy** and reduce speculation in financial markets.",
+    "description": ":m Credibility and transparency make monetary policy **predictable and trusted** by financial markets, reducing uncertainty and volatility.\n",
+    "prompt": "Why are **credibility and transparency** essential qualities for a central bank?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M15 - Central Bank Objective and Tools.md",
+    "reference_line": 334,
+    "module_name": "CFA Modules",
+    "category": "MCentralBankObjectiveandTools"
+  },
+  {
+    "term": "13 - Central Bank Targets – Interest Rate Targeting",
+    "example": ":m - The central bank sets a **target interest rate** (e.g., the policy rate).\n- If actual rates are **above** the target → central bank **increases money supply** (buys bonds) to lower rates.\n- If actual rates are **below** the target → central bank **reduces money supply** (sells bonds) to raise rates.\nBy adjusting liquidity, the central bank keeps borrowing costs stable, **supporting growth and controlling inflation**.",
+    "description": ":m Interest rate targeting focuses on maintaining a desired **short-term interest rate** to stabilize money supply and demand.\n",
+    "prompt": "How does **interest rate targeting** help stabilize the economy?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M15 - Central Bank Objective and Tools.md",
+    "reference_line": 349,
+    "module_name": "CFA Modules",
+    "category": "MCentralBankObjectiveandTools"
+  },
+  {
+    "term": "14 - Central Bank Targets – Inflation Targeting",
+    "example": ":m - The central bank sets a **target inflation range** (commonly **1%–3%**).\n- If inflation is **below** the band → it **increases money supply** (cuts rates, buys bonds).\n- If inflation is **above** the band → it **tightens policy** (raises rates, sells bonds).\n- Targeting inflation **above 0%** prevents **deflation**, which discourages spending and investment.\nThis framework anchors public expectations and promotes **stable, sustainable growth**.",
+    "description": ":m Inflation targeting seeks to maintain a **specific band of inflation**, ensuring price stability and economic predictability.\n",
+    "prompt": "Describe how **inflation targeting** works and why the target is usually above 0%.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M15 - Central Bank Objective and Tools.md",
+    "reference_line": 364,
+    "module_name": "CFA Modules",
+    "category": "MCentralBankObjectiveandTools"
+  },
+  {
+    "term": "15 - Central Bank Targets – Exchange Rate Targeting",
+    "example": ":m - The central bank sets a **fixed or narrow range** for its exchange rate with a major currency (e.g., USD).\n- If the domestic currency **depreciates**, it **uses foreign reserves to buy** its own currency.\n- If it **appreciates**, it **sells** domestic currency to weaken it.\n- This means the central bank **focuses on exchange rate stability** rather than internal economic conditions.\n✅ **Result:** Domestic inflation aligns with the inflation rate of the target country.\n⚠️ **Drawback:** The central bank **loses autonomy** over its domestic monetary policy.",
+    "description": ":m Some developing nations stabilize their economies by **linking their currency** to that of a stable, developed country (like the U.S. dollar).\n",
+    "prompt": "Explain how **exchange rate targeting** works and its main consequences.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M15 - Central Bank Objective and Tools.md",
+    "reference_line": 380,
+    "module_name": "CFA Modules",
+    "category": "MCentralBankObjectiveandTools"
+  },
+  {
+    "term": "1 - Geopolitics – Definition and Scope",
+    "example": ":m **Geopolitics** is the study of how **geography affects international relations**.\n- It considers **state actors** (governments) and **nonstate actors** (individuals, companies, organizations) in global economic, financial, and political contexts.\n- National behavior (cooperative or noncooperative) is influenced by **geophysical resources**—for example, access to oil, trade routes, or ports.\n- **Soft power**, such as culture and diplomacy, allows influence **without military force**.",
+    "description": ":m Geopolitics explores how **geography influences international power, politics, and economics**. It examines how nations and other actors interact across borders to pursue their strategic interests.\n",
+    "prompt": "Define **geopolitics** and explain what factors shape the relationships among nations.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M16-Geopolitics.md",
+    "reference_line": 93,
+    "module_name": "CFA Modules",
+    "category": "MGeopolitics"
+  },
+  {
+    "term": "2 - Geopolitical Cooperation and Noncooperation",
+    "example": ":m - **Cooperative behavior:** Countries work together on trade, capital flows, and information exchange. This promotes global stability and shared growth.\n- Example: forming trade blocs or climate accords.\n- **Noncooperative behavior:** Nations act independently or competitively, prioritizing self-interest over collective goals (e.g., trade wars, sanctions).\n- Example: restricting exports or rejecting international agreements.",
+    "description": ":m Countries can choose to collaborate or act independently depending on their national priorities and geographic advantages.\n",
+    "prompt": "Explain the difference between **cooperative** and **noncooperative** geopolitical behavior.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M16-Geopolitics.md",
+    "reference_line": 108,
+    "module_name": "CFA Modules",
+    "category": "MGeopolitics"
+  },
+  {
+    "term": "3 - Globalization – Concept and Effects",
+    "example": ":m - **Globalization** is the long-term process of **worldwide integration** in economic activity and culture.\n- It encourages **standardization of regulations**, increases **trade and capital flows**, and enhances **international cooperation**.\n- Nations well-connected to trade routes or serving as **economic hubs** often gain strategic power and wealth.\n- **Landlocked countries**, lacking seaports, rely on neighbors for trade and usually favor cooperation for access and stability.",
+    "description": ":m Globalization refers to the **integration of world economies, cultures, and regulations** over time. It promotes interdependence through trade, communication, and investment.\n",
+    "prompt": "What is **globalization**, and how does it influence economic and political relations among countries?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M16-Geopolitics.md",
+    "reference_line": 124,
+    "module_name": "CFA Modules",
+    "category": "MGeopolitics"
+  },
+  {
+    "term": "4 - Nationalism (Anti-Globalization)",
+    "example": ":m\n- **Nationalism** (or anti-globalization) focuses on **pursuing national interests independently**, sometimes in **competition** with other countries.\n- It rejects heavy reliance on international systems, seeking **domestic control** over trade, production, and policy.\n- **Contrast:**\n- _Globalization_ promotes integration and shared growth.\n- _Nationalism_ emphasizes sovereignty and protectionism.",
+    "description": ":m Nationalism emphasizes **self-sufficiency and independence** rather than international cooperation. It often arises in response to perceived threats from globalization.\n",
+    "prompt": "Define **nationalism** and explain how it contrasts with globalization.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M16-Geopolitics.md",
+    "reference_line": 139,
+    "module_name": "CFA Modules",
+    "category": "MGeopolitics"
+  },
+  {
+    "term": "5 - Cooperation and Globalization Models",
+    "example": ":m 1. **Autarky (noncooperation + nationalism)** – Self-reliance; minimal external trade or investment.\n- Focus: domestic production, state control of industries.\n- Example: **North Korea**.\n1. **Hegemony (noncooperation + globalization)** – Participates in global trade but uses dominance to shape it; state controls key exports.\n- Example: **United States**, **Russia**.\n1. **Multilateralism (cooperation + globalization)** – Highly integrated, open to trade with many partners, follows global rules.\n- Example: **Germany**.\n1. **Bilateralism (cooperation + nationalism)** – Works closely with one major partner, limits broader global engagement.\n- Example: **Canada–U.S. energy trade**.",
+    "description": ":m Countries interact in different ways depending on how open they are to trade and cooperation. These relationships define their level of **integration** and **autonomy** in the global economy.\n",
+    "prompt": "Describe the **four main models** of cooperation and globalization.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M16-Geopolitics.md",
+    "reference_line": 178,
+    "module_name": "CFA Modules",
+    "category": "MGeopolitics"
+  },
+  {
+    "term": "6 - Nonstate Actors and Globalization",
+    "example": ":m\n- **Businesses** expand abroad to reach new markets, reduce costs, or access resources.\n- **Investors** seek international opportunities to **diversify** and reduce risk.\n- These private initiatives can make economies more globalized even when national policies are protectionist.",
+    "description": ":m Globalization isn’t driven by governments alone; **nonstate actors**—businesses and investors—also play a major role in cross-border integration.\n",
+    "prompt": "How do **nonstate actors** contribute to globalization?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M16-Geopolitics.md",
+    "reference_line": 199,
+    "module_name": "CFA Modules",
+    "category": "MGeopolitics"
+  },
+  {
+    "term": "7 - Types of Capital Flows",
+    "example": ":m\n- **Portfolio investment:** Buying and selling of **foreign financial assets** like stocks or bonds; short-term and easily reversible.\n- **Foreign direct investment (FDI):** Establishing **physical assets or operations** in another country; long-term and harder to reverse.",
+    "description": ":m Capital flows represent **movement of money across borders**, either for investment or production.\n",
+    "prompt": "Distinguish between **portfolio investment** and **foreign direct investment (FDI)**.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M16-Geopolitics.md",
+    "reference_line": 215,
+    "module_name": "CFA Modules",
+    "category": "MGeopolitics"
+  },
+  {
+    "term": "8 - International Monetary Fund (IMF) – Role and Objectives",
+    "example": ":m\n1. Promote **international monetary cooperation**.\n2. Facilitate **global trade growth**.\n3. Maintain **exchange rate stability**.\n4. Establish **multilateral payment systems**.\n5. Provide **financial assistance** to member countries in difficulty.",
+    "description": ":m The IMF promotes **global financial stability** and supports countries facing balance-of-payments problems.\n",
+    "prompt": "List the **main goals** of the IMF according to its Articles of Agreement.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M16-Geopolitics.md",
+    "reference_line": 229,
+    "module_name": "CFA Modules",
+    "category": "MGeopolitics"
+  },
+  {
+    "term": "9 - The World Bank – Mission and Structure",
+    "example": ":m - **Mission:** To reduce poverty and promote sustainable growth by providing loans, knowledge, and technical support to developing countries.\n- **Institutions:**\n1. **International Bank for Reconstruction and Development (IBRD)** – lends to middle-income countries.\n2. **International Development Association (IDA)** – provides low-interest loans and grants to low-income countries.",
+    "description": ":m The World Bank focuses on **poverty reduction** and **development** through financing and expertise.\n",
+    "prompt": "Describe the **mission** and **components** of the World Bank.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M16-Geopolitics.md",
+    "reference_line": 246,
+    "module_name": "CFA Modules",
+    "category": "MGeopolitics"
+  },
+  {
+    "term": "10 - Geopolitical Risk – Types",
+    "example": ":m 1. **Event risk:** Timing known, outcome unknown (e.g., election results).\n2. **Exogenous risk:** Unexpected timing and outcome (e.g., war, natural disaster).\n3. **Thematic risk:** Ongoing, long-term risks (e.g., terrorism, climate change, cyberattacks).",
+    "description": ":m Geopolitical risks arise when global events disrupt trade, security, or markets.\n",
+    "prompt": "Identify and explain the **three main types** of geopolitical risk.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M16-Geopolitics.md",
+    "reference_line": 261,
+    "module_name": "CFA Modules",
+    "category": "MGeopolitics"
+  },
+  {
+    "term": "11 - Estimating Geopolitical Risk",
+    "example": ":m - **Probability:** Likelihood the event will occur.\n- **Magnitude:** Severity of its economic or market impact.\n- **Velocity:** Speed of impact (high velocity = sudden shocks).\n- **Black Swan:** A **rare, unpredictable event** with **extreme impact** (e.g., COVID-19 pandemic, 9/11 attacks).",
+    "description": ":m Investors assess geopolitical risk by examining **probability, impact, and speed** of events.\n",
+    "prompt": "What are the **key factors** used to estimate geopolitical risk and what is a **black swan event**?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M16-Geopolitics.md",
+    "reference_line": 275,
+    "module_name": "CFA Modules",
+    "category": "MGeopolitics"
+  },
+  {
+    "term": "12 - Tools of Geopolitics",
+    "example": ":m\n1. **National security tools** – military action, espionage, alliances.\n2. **Economic tools** – trade agreements, tariffs, or nationalization of industries.\n3. **Financial tools** – sanctions, foreign investment regulations, currency manipulation.",
+    "description": ":m Governments use political, economic, and financial tools to pursue national interests globally.\n",
+    "prompt": "What are the **three main tools** used by governments to influence global outcomes?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M16-Geopolitics.md",
+    "reference_line": 290,
+    "module_name": "CFA Modules",
+    "category": "MGeopolitics"
+  },
+  {
+    "term": "13 - Geopolitics and Investments",
+    "example": ":m - Focus on **high-impact risks** likely to affect sectors or regions significantly.\n- Recognize that risks can vary with the **business cycle**—effects may worsen during recessions.\n- Use **scenario or signpost analysis** to anticipate how policy changes or conflicts could alter investment outcomes.",
+    "description": ":m Geopolitical risks directly affect **asset prices** and **investment decisions**.\n",
+    "prompt": "How should investors incorporate **geopolitical risk** into portfolio analysis?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M16-Geopolitics.md",
+    "reference_line": 305,
+    "module_name": "CFA Modules",
+    "category": "MGeopolitics"
+  },
+  {
+    "term": "1 - Market Participants – Hedgers and Speculators",
+    "example": ":m\n* **Hedgers:** Already have foreign exchange exposure (e.g., exporters or importers) and use **forward contracts** to lock in future exchange rates, reducing uncertainty.\n* Example: A U.S. firm expecting EUR payments sells euros forward to avoid losses if EUR depreciates.\n* **Speculators:** Have **no existing FX exposure**. They use forward contracts to **profit from anticipated exchange rate movements**.\n* Example: A trader buys EUR forward, expecting it to rise in value.",
+    "description": ":m Participants in the foreign exchange (FX) market differ in purpose: some seek to **reduce risk**, while others **take on risk** for potential profit.\n",
+    "prompt": "Explain the difference between **hedgers** and **speculators** in the FX market.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M18-Capitalflowsandfxmarket.md",
+    "reference_line": 109,
+    "module_name": "CFA Modules",
+    "category": "MCapitalflowsandfxmarket"
+  },
+  {
+    "term": "2 - FX Market Structure – Sell Side vs. Buy Side",
+    "example": ":m\n* **Sell side:** Market makers — typically **large multinational banks** that provide continuous buy/sell quotes.\n* **Buy side:**\n1. **Corporations** – manage international cash flows and risk.\n2. **Real money accounts** – investors who **don’t use derivatives** (mutual funds, pension funds).\n3. **Leveraged accounts** – active traders using **derivatives** (hedge funds).\n4. **Governments and central banks** – intervene to stabilize currencies.\n5. **Retail market** – individuals engaging in tourism or small investments.",
+    "description": ":m The FX market includes **large institutions** that quote prices (sell side) and **clients** who execute transactions (buy side).\n",
+    "prompt": "Identify the main participants on the **sell side** and **buy side** of the FX market.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M18-Capitalflowsandfxmarket.md",
+    "reference_line": 124,
+    "module_name": "CFA Modules",
+    "category": "MCapitalflowsandfxmarket"
+  },
+  {
+    "term": "3 - Foreign Exchange Quotations – Basics",
+    "example": ":m\n* **1.416 USD/EUR** means **$1.416 per euro**.\n* **Base currency:** EUR (always 1 unit).\n* **Price currency:** USD (quoted in terms of base).\n* Thus, €1 = $1.416.",
+    "description": ":m An FX quote expresses how much of one currency is needed to buy another.\n",
+    "prompt": "Interpret the quotation **1.416 USD/EUR** and identify the base and price currencies.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M18-Capitalflowsandfxmarket.md",
+    "reference_line": 142,
+    "module_name": "CFA Modules",
+    "category": "MCapitalflowsandfxmarket"
+  },
+  {
+    "term": "4 - Nominal vs. Real Exchange Rate",
+    "example": ":m Formula:\n$$\n\\text{Real exchange rate}(p/b) = \\text{Nominal exchange rate}(p/b) \\times \\left( \\frac{\\text{CPI}*{\\text{base}}}{\\text{CPI}*{\\text{price}}} \\right)\n$$\n* It measures **relative purchasing power** between two countries.\n* If the real exchange rate rises, **domestic goods become more expensive** relative to foreign goods, reducing competitiveness.",
+    "description": ":m The **nominal exchange rate** reflects the market rate, while the **real exchange rate** accounts for inflation differences between countries.\n",
+    "prompt": "Provide the formula for the **real exchange rate** and explain its meaning.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M18-Capitalflowsandfxmarket.md",
+    "reference_line": 157,
+    "module_name": "CFA Modules",
+    "category": "MCapitalflowsandfxmarket"
+  },
+  {
+    "term": "5 - Example – Real Exchange Rate Calculation",
+    "example": ":m $$\n\\text{Real rate (USD/GBP)} = 1.60 \\times \\frac{112}{110} = 1.629\n$$\n✅ Interpretation: U.S. goods that cost $1.70 in the base period now cost **$1.629 in real terms** in the U.K., meaning the **real USD/GBP has fallen**, and **U.S. goods are cheaper abroad**.",
+    "description": ":m Using the USD/GBP case:\n",
+    "prompt": "If USD/GBP = 1.60, CPI₍US₎ = 110, and CPI₍UK₎ = 112 (base values 100), what is the **real exchange rate**?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M18-Capitalflowsandfxmarket.md",
+    "reference_line": 174,
+    "module_name": "CFA Modules",
+    "category": "MCapitalflowsandfxmarket"
+  },
+  {
+    "term": "6 - Spot Market vs. Forward Market",
+    "example": ":m\n* **Spot market:** Immediate delivery of currencies (usually within two business days).\n* **Forward market:** Contract to buy/sell a set amount of foreign currency **at a fixed future date** and price.\n* Example: 30-, 60-, or 90-day forward contracts.",
+    "description": ":m These are two key segments of the FX market, differentiated by the timing of delivery.\n",
+    "prompt": "Differentiate between the **spot market** and the **forward market**.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M18-Capitalflowsandfxmarket.md",
+    "reference_line": 188,
+    "module_name": "CFA Modules",
+    "category": "MCapitalflowsandfxmarket"
+  },
+  {
+    "term": "7 - Currency Appreciation and Depreciation",
+    "example": ":m $$\n\\text{ change} = \\frac{\\text{End rate}}{\\text{Beginning rate}} - 1 = \\frac{1.39}{1.42} - 1 = -2.11%\n$$\n➡️ The **euro has depreciated by 2.11%** relative to the U.S. dollar.",
+    "description": ":m Changes in exchange rates indicate one currency’s value relative to another.\n```python\ndef fx_change(start_rate, end_rate):\nchange = (end_rate / start_rate - 1) * 100\nif change > 0:\nreturn f\"Appreciation of {change:.2f}%\"\nelse:\nreturn f\"Depreciation of {abs(change):.2f}%\"\nprint(fx_change(1.42, 1.39)) # Euro depreciation vs USD\n```\n",
+    "prompt": "A U.S. investor buys euros when USD/EUR = 1.42, and one year later it’s 1.39. Has the **euro appreciated or depreciated**, and by how much?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M18-Capitalflowsandfxmarket.md",
+    "reference_line": 203,
+    "module_name": "CFA Modules",
+    "category": "MCapitalflowsandfxmarket"
+  },
+  {
+    "term": "8 - Inverse Quotation – USD Appreciation",
+    "example": ":m $$\n1/1.42 = 0.7042,\\quad 1/1.39 = 0.7194\n$$\n$$\n\\text{ change} = \\frac{0.7194}{0.7042} - 1 = 2.16%\n$$\n✅ The **USD has appreciated by 2.16%** relative to the euro.",
+    "description": ":m ```python\ndef fx_change(start_rate, end_rate):\nchange = (end_rate / start_rate - 1) * 100\nif change > 0:\nreturn f\"Appreciation of {change:.2f}%\"\nelse:\nreturn f\"Depreciation of {abs(change):.2f}%\"\nprint(fx_change(1.42, 1.39)) # Euro depreciation vs USD\n# Output: Depreciation of 2.11%\n```\nTo see the USD’s movement, invert the exchange rate to EUR/USD.\n",
+    "prompt": "Given USD/EUR falls from 1.42 to 1.39, calculate the **USD appreciation**.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M18-Capitalflowsandfxmarket.md",
+    "reference_line": 229,
+    "module_name": "CFA Modules",
+    "category": "MCapitalflowsandfxmarket"
+  },
+  {
+    "term": "9 - Exchange Rate Regimes – Overview",
+    "example": ":m 1. **Countries without their own currency** – they adopt another nation’s currency or share one collectively.\n2. **Countries with their own currency** – they manage exchange rates through fixed, pegged, or floating systems.",
+    "description": ":m Exchange rate regimes describe **how a country manages its currency relative to others**. The **IMF classifies them** into two broad categories based on whether a country **has its own currency** or not. Each regime affects monetary policy flexibility, inflation control, and economic stability differently.\n",
+    "prompt": "What are the **two main categories** of exchange rate regimes defined by the IMF?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M18-Capitalflowsandfxmarket.md",
+    "reference_line": 322,
+    "module_name": "CFA Modules",
+    "category": "MCapitalflowsandfxmarket"
+  },
+  {
+    "term": "10 - Countries Without Their Own Currency",
+    "example": ":m 1. **Formal dollarization:**\n* The country adopts another nation’s currency (often the U.S. dollar) as **legal tender**.\n* It cannot print money or conduct independent monetary policy.\n* Example: **Zimbabwe (2009–2019)** used the **USD** after hyperinflation destroyed its local currency.\n2. **Monetary union:**\n* Several countries adopt a **common currency** governed by a **central authority**.\n* Monetary policy is coordinated by a **shared central bank** (e.g., the European Central Bank).\n* Example: **Eurozone countries** using the **euro (EUR)**.",
+    "description": ":m These nations **relinquish independent monetary policy** and rely on external or shared monetary authorities.\n",
+    "prompt": "Explain the two exchange rate arrangements used by countries that **do not have their own currency**.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M18-Capitalflowsandfxmarket.md",
+    "reference_line": 334,
+    "module_name": "CFA Modules",
+    "category": "MCapitalflowsandfxmarket"
+  },
+  {
+    "term": "11 - Countries With Their Own Currency – Fixed Systems (1)",
+    "example": ":m 1. **Currency board arrangement:**\n* The government legally commits to exchange domestic currency at a **fixed rate** to a foreign anchor currency.\n* The domestic money supply is backed by **foreign reserves**, limiting inflation and monetary expansion.\n* Example: **Hong Kong Dollar (HKD)** pegged to the **U.S. Dollar (USD)**.\n2. **Conventional fixed peg:**\n* The domestic currency is pegged to another currency (or basket of currencies) within a **±1% margin**.\n* **Direct intervention:** The central bank buys or sells currency to maintain the peg.\n* **Indirect intervention:** Adjusting interest rates or regulations to influence FX demand.",
+    "description": ":m When nations retain their own currency, they can choose **how tightly they control its value** relative to others.\n",
+    "prompt": "Describe a **currency board arrangement** and a **conventional fixed peg** system.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M18-Capitalflowsandfxmarket.md",
+    "reference_line": 355,
+    "module_name": "CFA Modules",
+    "category": "MCapitalflowsandfxmarket"
+  },
+  {
+    "term": "12 - Countries With Their Own Currency – Pegged and Crawling Systems (2)",
+    "example": ":m 3. **Pegged exchange rate in a target zone:**\n* Similar to a fixed peg but allows wider fluctuations (e.g., ±2%).\n* The central bank intervenes only when rates approach the boundaries.\n4. **Crawling peg:**\n* The exchange rate is **adjusted periodically** to reflect inflation differentials.\n* **Passive crawling peg:** Adjustments happen automatically based on data (e.g., inflation).\n* **Active crawling peg:** Adjustments are **announced in advance** to influence expectations.\n5. **Crawling bands:**\n* Combines crawling peg with **gradually widening bands**.\n* The wider the band, the more **monetary policy flexibility** the country retains.",
+    "description": ":m Some countries prefer flexibility while keeping predictable stability.\n",
+    "prompt": "Explain **pegged exchange rates in a target zone**, **crawling peg**, and **crawling bands** systems.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M18-Capitalflowsandfxmarket.md",
+    "reference_line": 376,
+    "module_name": "CFA Modules",
+    "category": "MCapitalflowsandfxmarket"
+  },
+  {
+    "term": "13 - Countries With Their Own Currency – Floating Systems (3)",
+    "example": ":m 6. **Managed floating exchange rate:**\n* The exchange rate moves according to **market supply and demand**, but the central bank **intervenes occasionally**.\n* Decisions may be based on **inflation**, **balance of payments**, or **employment data**.\n7. **Independent floating currency:**\n* Exchange rate determined entirely by market forces.\n* Central bank intervention only aims to **reduce short-term volatility**, not set a target rate.\n* Example: **U.S. Dollar (USD)** and **British Pound (GBP)**.",
+    "description": ":m Floating regimes allow market forces to determine exchange rates, with varying degrees of intervention.\n",
+    "prompt": "Differentiate between a **managed float** and an **independent float** exchange rate system.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M18-Capitalflowsandfxmarket.md",
+    "reference_line": 401,
+    "module_name": "CFA Modules",
+    "category": "MCapitalflowsandfxmarket"
+  },
+  {
+    "term": "14 - Effects of Exchange Rate Changes",
+    "example": ":m If USD/EUR **decreases**, fewer dollars are needed per euro (USD strengthens, EUR weakens):\n* **U.S. exports become more expensive** for Europeans → exports **fall**.\n* **Eurozone goods become cheaper** for Americans → imports **rise**.\n* Effects on **trade** (goods and services) appear more slowly than on **capital flows**, as financial markets adjust faster.",
+    "description": ":m Exchange rate movements alter **trade flows** and **capital flows** between countries.\n",
+    "prompt": "Explain how a **decrease in USD/EUR** affects U.S. exports and eurozone imports.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M18-Capitalflowsandfxmarket.md",
+    "reference_line": 421,
+    "module_name": "CFA Modules",
+    "category": "MCapitalflowsandfxmarket"
+  },
+  {
+    "term": "15 - Balance of Payments – Concept",
+    "example": ":m\n* If a country imports more than it exports (a **trade deficit**), it must finance this difference.\n* **Capital inflows** (foreign investment or lending) offset the deficit, keeping the BoP in equilibrium.\n* Example: The **U.S. imports more from China** than it exports → U.S. runs a **trade deficit**, China runs a **surplus**, and **capital flows from China to the U.S.** (buying U.S. bonds) balance it.",
+    "description": ":m The balance of payments (BoP) records all economic transactions between a country and the rest of the world.\n",
+    "prompt": "How do **capital flows** help maintain balance in international payments?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M18-Capitalflowsandfxmarket.md",
+    "reference_line": 436,
+    "module_name": "CFA Modules",
+    "category": "MCapitalflowsandfxmarket"
+  },
+  {
+    "term": "16 - Trade Deficits and Balance of Payments Equation",
+    "example": ":m $$\n(X - M) \\equiv (S - I) + (T - G)\n$$\nWhere:\n* (X - M): **Net exports** (trade balance)\n* (S - I): **Private savings minus investment**\n* (T - G): **Government savings (budget balance)**\n👉 When (X - M < 0) (trade deficit), the right side must also be negative:\n* Domestic savings + public savings < domestic investment.\n* The shortfall is funded by **foreign capital inflows**, creating a **capital account surplus**.",
+    "description": ":m The BoP links trade balances to national savings and investment behavior.\n",
+    "prompt": "Write the fundamental **balance of payments identity** and interpret its components.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M18-Capitalflowsandfxmarket.md",
+    "reference_line": 450,
+    "module_name": "CFA Modules",
+    "category": "MCapitalflowsandfxmarket"
+  },
+  {
+    "term": "17 - Objectives of Capital Restrictions",
+    "example": ":m\n1. **Reduce volatility** of domestic asset prices during crises (prevent massive capital flight).\n2. **Maintain fixed exchange rate targets** by controlling capital outflows.\n3. **Keep domestic interest rates low** by limiting investment abroad.\n4. **Protect strategic sectors** like defense or telecommunications from foreign control.",
+    "description": ":m Governments sometimes restrict capital flows to **protect economic stability** or **national interests**.\n",
+    "prompt": "List the **main objectives** of imposing capital restrictions.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M18-Capitalflowsandfxmarket.md",
+    "reference_line": 474,
+    "module_name": "CFA Modules",
+    "category": "MCapitalflowsandfxmarket"
+  },
+  {
+    "term": "1 - Foreign Exchange Rates – Cross Rates Overview",
+    "example": ":m\n- A **cross rate** is the **exchange rate between two non-USD currencies**, derived from their **exchange rates with a third common currency** (e.g., USD).\n- They are important when:\n1. No active FX market exists for a currency pair.\n2. Traders need to convert indirectly through a common intermediary (often USD).\n- Formula pattern:\n$$\\text{Currency A / Currency B} = \\text{(Currency A / USD)} \\times \\text{(USD / Currency B)}$$",
+    "description": ":m Cross rates are **implied exchange rates** between two currencies that are **not directly quoted** against each other in the market. Traders calculate them using a **common reference currency**—usually the USD or EUR. Cross rates are essential for **pricing**, **arbitrage**, and **international trade settlements** when no direct pair exists.\n",
+    "prompt": "Define a **cross rate** and explain why it is important in FX markets.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M19-ExchangeRate Caluculations.md",
+    "reference_line": 160,
+    "module_name": "CFA Modules",
+    "category": "MExchangeRateCaluculations"
+  },
+  {
+    "term": "2 - Cross Rates – Example 1 (MXN/AUD)",
+    "example": ":m\n1. Set up so the **USD cancels**:\n$$\\frac{\\text{MXN}}{\\text{AUD}} = \\frac{\\text{MXN}}{\\text{USD}} \\times \\frac{\\text{USD}}{\\text{AUD}}$$\n2. Substitute values:\n$$= 10.70 \\times 0.60 = 6.42$$\n**MXN/AUD = 6.42** → One Australian dollar equals **6.42 Mexican pesos**.",
+    "description": ":m This example uses **USD** as the common currency to find the exchange rate between the **Mexican peso (MXN)** and **Australian dollar (AUD)**.\n",
+    "prompt": "Given MXN/USD = 10.70 and USD/AUD = 0.60, calculate the **MXN/AUD cross rate**.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M19-ExchangeRate Caluculations.md",
+    "reference_line": 182,
+    "module_name": "CFA Modules",
+    "category": "MExchangeRateCaluculations"
+  },
+  {
+    "term": "3 - Cross Rates – Example 2 (CHF/NZD)",
+    "example": ":m 1. Find USD/NZD (reciprocal of NZD/USD):\n$$\\text{USD/NZD} = 1 / 2.2529 = 0.44387$$\n2. Set up to cancel USD:\n$$\\frac{\\text{USD}}{\\text{NZD}} \\times \\frac{\\text{CHF}}{\\text{USD}} = \\frac{\\text{CHF}}{\\text{NZD}}$$\n3. Multiply:\n$$0.44387 \\times 1.7799 = 0.7900$$\n**CHF/NZD = 0.7900** → One New Zealand dollar equals **0.79 Swiss francs**.",
+    "description": ":m Here, we use **USD** as the intermediary again, but one quote must be **inverted** before multiplying.\n",
+    "prompt": "Given CHF/USD = 1.7799 and NZD/USD = 2.2529, calculate the **CHF/NZD cross rate**.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M19-ExchangeRate Caluculations.md",
+    "reference_line": 201,
+    "module_name": "CFA Modules",
+    "category": "MExchangeRateCaluculations"
+  },
+  {
+    "term": "4 - No-Arbitrage Condition – Spot and Forward Rates",
+    "example": ":m Formula:\n$$\n\\text{Forward}_{d/f} = \\text{Spot}_{d/f} \\times \\frac{(1 + r_d)}{(1 + r_f)}\n$$\nWhere:\n- ( r_d ): interest rate in **domestic** country\n- ( r_f ): interest rate in **foreign** country\n- ( d/f ): domestic currency per unit of foreign currency\n**Interpretation:**\n- If ( r_d > r_f ): domestic currency is expected to **depreciate** (forward discount).\n- If ( r_d < r_f ): domestic currency is expected to **appreciate** (forward premium).\nThis ensures that investors earn **the same return** on risk-free deposits whether investing domestically or abroad—**no arbitrage**.",
+    "description": ":m The **no-arbitrage forward rate** prevents risk-free profit opportunities between **spot FX markets** and **interest rate differentials** across countries.\n",
+    "prompt": "Provide the **formula** for the no-arbitrage forward rate and explain its economic meaning.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M19-ExchangeRate Caluculations.md",
+    "reference_line": 241,
+    "module_name": "CFA Modules",
+    "category": "MExchangeRateCaluculations"
+  },
+  {
+    "term": "5 - Example – Forward Rate Calculation",
+    "example": ":m $$\n\\text{Forward}_{USD/EUR} = 1.10 \\times \\frac{1.03}{1.01} = 1.10 \\times 1.0198 = 1.1218\n$$\n✅ **Forward rate = 1.1218 USD/EUR** → The U.S. dollar trades at a **forward discount** (expected to weaken) because its interest rate is higher than Europe’s.",
+    "description": "",
+    "prompt": "If Spot USD/EUR = 1.10, ( r_d = 3% ) (U.S.) and ( r_f = 1% ) (Eurozone), find the **forward rate**.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M19-ExchangeRate Caluculations.md",
+    "reference_line": 267,
+    "module_name": "CFA Modules",
+    "category": "MExchangeRateCaluculations"
+  },
+  {
+    "term": "6 - Arbitrage-Free Forward Rate – Concept",
+    "example": ":m $$\n\\text{Forward}_{d/f} = \\text{Spot}_{d/f} \\times \\frac{(1 + r_d)}{(1 + r_f)}\n$$\nWhere:\n- ( $r_d$ ): domestic risk-free interest rate\n- ( $r_f$ ): foreign risk-free interest rate\n- ($\\text{Spot}_{d/f}$ ): current spot rate (domestic currency per unit of foreign currency)\n- ( $\\text{Forward}_{d/f}$ ): implied future exchange rate ensuring no arbitrage\n✅ **If ( r_d > r_f )** → domestic currency **depreciates** (forward discount)\n✅ **If ( r_d < r_f )** → domestic currency **appreciates** (forward premium)",
+    "description": ":m An **arbitrage-free forward rate** ensures that investors earn the same return whether they invest in domestic or foreign assets, after accounting for interest rate differences. This condition is called **covered interest rate parity (CIRP)**.\nIf forward rates diverge from this equilibrium, **arbitrageurs** could exploit the discrepancy for risk-free profit — but competitive markets eliminate such opportunities quickly.\n",
+    "prompt": "State the **no-arbitrage forward rate formula** and define its variables.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M19-ExchangeRate Caluculations.md",
+    "reference_line": 287,
+    "module_name": "CFA Modules",
+    "category": "MExchangeRateCaluculations"
+  },
+  {
+    "term": "7 - Example 1 – 1-Year Arbitrage-Free Forward Rate",
+    "example": ":m Apply the no-arbitrage formula:\n$$\n\\text{Forward}_{ABE/DUB} = 4.5671 \\times \\frac{(1.05)}{(1.03)} = 4.6558\n$$\n✅ **Forward Rate = 4.6558 ABE/DUB**\nInterpretation:\n- ABE has the **higher interest rate**, so its currency is expected to **depreciate**.\n- The DUB will trade at a **forward premium** (≈2%).\n- Forward premium check:\n[\n(F/S) - 1 = (4.6558 / 4.5671) - 1 = 0.0194 = 1.94%\n]",
+    "description": ":m We compare two currencies: **ABE** (domestic) and **DUB** (foreign).\n",
+    "prompt": "Given: Spot = 4.5671 ABE/DUB, (r_{ABE} = 5%), (r_{DUB} = 3%), find the **1-year no-arbitrage forward rate**.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M19-ExchangeRate Caluculations.md",
+    "reference_line": 311,
+    "module_name": "CFA Modules",
+    "category": "MExchangeRateCaluculations"
+  },
+  {
+    "term": "8 - Example 2 – 90-Day Arbitrage-Free Forward Rate",
+    "example": ":m Adjust interest rates to 90 days (quarter of a year):\n[\nF_{90} = 4.5671 \\times \\frac{1 + (0.05 \\times 90/360)}{1 + (0.03 \\times 90/360)}\n]\n[\nF_{90} = 4.5671 \\times \\frac{1.0125}{1.0075} = 4.5898\n]\n✅ **90-day Forward Rate = 4.5898 ABE/DUB**\nInterpretation:\n- The forward rate is **slightly above the spot** due to ABE’s higher interest rate.\n- This small difference reflects **short-term interest rate parity**.",
+    "description": ":m The same currencies, but with shorter time to maturity.\n",
+    "prompt": "Given: Spot = 4.5671 ABE/DUB, (r_{ABE} = 5%), (r_{DUB} = 3%), find the **90-day no-arbitrage forward rate**.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M19-ExchangeRate Caluculations.md",
+    "reference_line": 339,
+    "module_name": "CFA Modules",
+    "category": "MExchangeRateCaluculations"
+  },
+  {
+    "term": "9 - No-Arbitrage and Interest Rate Parity (IRP)",
+    "example": ":m\n- If the forward rate is **too high**, investors borrow in the foreign currency and invest domestically for profit.\n- If **too low**, they borrow domestically and invest abroad.\n- These trades continue until prices adjust and **interest rate parity (IRP)** is restored.\n- In real markets, minor deviations may persist due to **transaction costs, capital controls, or regulatory frictions**.",
+    "description": ":m This principle ensures consistent pricing across global markets.\n",
+    "prompt": "What happens if the **forward rate deviates** from the no-arbitrage condition?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M19-ExchangeRate Caluculations.md",
+    "reference_line": 366,
+    "module_name": "CFA Modules",
+    "category": "MExchangeRateCaluculations"
+  },
+  {
+    "term": "10 - Forward Exchange Rates in Points",
+    "example": ":m [\n\\text{Forward points} = 3.5 \\text{ points} = 0.00035\n]\n[\n\\text{Forward rate} = 0.7313 + 0.00035 = 0.73165\n]\n✅ **Forward AUD/EUR = 0.73165**\nInterpretation: AUD trades at a **forward premium**, as the forward rate is above the spot.",
+    "description": ":m Rather than quoting entire forward rates, FX markets often quote the **difference** between the forward and spot rate in “points.”\nEach point = the **last decimal place** of the quote.\n",
+    "prompt": "Example – Given AUD/EUR spot = 0.7313 and 1-year forward = +3.5 points, find the **forward exchange rate**.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M19-ExchangeRate Caluculations.md",
+    "reference_line": 385,
+    "module_name": "CFA Modules",
+    "category": "MExchangeRateCaluculations"
+  },
+  {
+    "term": "11 - Forward Exchange Rate as a Percentage",
+    "example": ":m Forward discount means the forward is **lower than the spot**:\n[\n\\text{Forward} = 0.7313 \\times (1 - 0.00062) = 0.7308\n]\n✅ **Forward AUD/EUR = 0.7308**\nInterpretation: The negative percentage shows AUD is at a **forward discount**, expected to **depreciate** slightly against EUR over 120 days.",
+    "description": ":m Forward rates can also be quoted as **percentages of the spot rate**, indicating the **forward premium or discount**.\n",
+    "prompt": "Example – Given AUD/EUR spot = 0.7313 and 120-day forward = −0.062%, find the **forward rate**.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M19-ExchangeRate Caluculations.md",
+    "reference_line": 405,
+    "module_name": "CFA Modules",
+    "category": "MExchangeRateCaluculations"
+  },
+  {
     "term": "1 - 2.1 Present and Future Values",
     "example": ":m - $\\mathrm{FV}=\\mathrm{PV} \\times \\mathrm{e}^{\\mathrm{r} t}$\nreloa\n#### Example Zero Coupon Bond",
     "description": ":m Provide the formula for future value with continuous compounding:",

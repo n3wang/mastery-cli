@@ -298,5 +298,85 @@
     "reference_line": 349,
     "module_name": "7-math-analysis",
     "category": "limite"
+  },
+  {
+    "term": "1 - Condiciones de continuidad",
+    "example": ":m 1. (f(a)) debe existir.\n2. ($\\lim_{x \\to a} f(x) = L$) debe existir y ser finito.\n3. (f(a) = L).",
+    "description": "",
+    "prompt": "¿Cuáles son las tres condiciones para que una función sea continua en (x=a)?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\6-continuidad.md",
+    "reference_line": 2,
+    "module_name": "7-math-analysis",
+    "category": "continuidad"
+  },
+  {
+    "term": "2 - Clasificación de discontinuidades",
+    "example": ":m - **Evitables**: si el límite existe y es finito.\n- **Esenciales**: si el límite no existe o es infinito.",
+    "description": "",
+    "prompt": "¿Cómo se clasifica una discontinuidad según el límite?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\6-continuidad.md",
+    "reference_line": 14,
+    "module_name": "7-math-analysis",
+    "category": "continuidad"
+  },
+  {
+    "term": "3 - Observación sobre discontinuidades",
+    "example": ":m En los puntos que **no pertenecen al dominio** de la función. También puede serlo en puntos de corte, si no se cumplen las condiciones de límite y valor de la función.",
+    "description": "",
+    "prompt": "¿Dónde seguro una función es discontinua?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\6-continuidad.md",
+    "reference_line": 25,
+    "module_name": "7-math-analysis",
+    "category": "continuidad"
+  },
+  {
+    "term": "4 - Ejemplo de discontinuidad evitable",
+    "example": ":m - En (x=2), (f(x)) no está definida.\n- ($\\lim_{x \\to 2} \\frac{x^2-4}{x-2} = \\lim_{x \\to 2} (x+2) = 4$).\n- El límite existe y es finito → discontinuidad **evitable**.\n- Redefiniendo (f(2)=4), la función queda continua.",
+    "description": "",
+    "prompt": "Sea ($f(x)=\\frac{x^2-4}{x-2}$). ¿Qué ocurre en (x=2)?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\6-continuidad.md",
+    "reference_line": 34,
+    "module_name": "7-math-analysis",
+    "category": "continuidad"
+  },
+  {
+    "term": "5 - Ejemplo 2 – Discontinuidad evitable",
+    "example": ":m - (g(2)=6) → cumple condición 1.\n- $(\\lim_{x \\to 2} g(x) = \\lim_{x \\to 2} (x+2) = 4$) → cumple condición 2.\n- Pero $(g(2)=6 \\neq 4$) → falla condición 3\n- Entonces la discontinuidad en (x=2) es **evitable**.\n- Si redefinimos (g(2)=4), la función sería **continua**.",
+    "description": ":m La función está definida como:\n$$\ng(x)= \\begin{cases}\\frac{x^2-4}{x-2}, & x \\neq 2 \\\\ 6, & x=2\\end{cases}\n$$",
+    "prompt": "¿Por qué (g(x)) presenta discontinuidad evitable en (x=2)?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\6-continuidad.md",
+    "reference_line": 46,
+    "module_name": "7-math-analysis",
+    "category": "continuidad"
+  },
+  {
+    "term": "6 - Ejemplo 3 – Continuidad en función por tramos",
+    "example": ":m - Límite por la izquierda: $\\lim _{x \\rightarrow 0^{-}}(-x+1)=1$.\n- Límite por la derecha: $\\lim _{x \\rightarrow 0^{+}}\\left(x^2\\right)=0$.\n- Como los límites laterales son distintos, el límite no existe.\n- Por lo tanto, en $x=0$ la función presenta una discontinuidad esencial.",
+    "description": ":m La función está definida como:\n$$\nh(x)= \\begin{cases}-x+1, & x<0 \\\\ x^2, & x \\geq 0\\end{cases}\n$$",
+    "prompt": "¿Cómo se analiza la continuidad de (h(x)) en (x=0)?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\6-continuidad.md",
+    "reference_line": 64,
+    "module_name": "7-math-analysis",
+    "category": "continuidad"
+  },
+  {
+    "term": "7 - Resumen en flashcard",
+    "example": ":m - Dominio: $(-\\infty,-1) \\cup(-1,0) \\cup[0,1] \\cup(1, \\infty)$.\n- Discontinuidad en $x=-1$ : esencial (asíntota vertical).\n- En $x=0$ : continua.\n- En $x=1$ : evitable (se puede redefinir como $f(1)=1$ ).\nPaso 1 - Dominio\n- Para $x<0$ : el denominador $1+x \\neq 0 \\Longrightarrow x \\neq-1$.\n- Para $0 \\leq x \\leq 1$ : denominador $1+x \\neq 0$, y como $x \\in[0,1]$, nunca se anula $\\rightarrow$ válido.\n- Para $x>1$ : denominador $x^2-1 \\neq 0 \\Longrightarrow x \\neq \\pm 1$.\n- Dominio:\n$$\nD_f=(-\\infty,-1) \\cup(-1,0) \\cup[0,1] \\cup(1, \\infty)\n$$\nPaso 2 - Puntos de discontinuidad\n- En $x=-1$ : denominador nulo $\\rightarrow$ posible asíntota vertical.\n- En $x=0$ : cambio de tramo $\\rightarrow$ verificar continuidad.\n- En $x=1$ : denominador nulo en el tercer tramo y punto de corte $\\rightarrow$ posible discontinuidad.\nPaso 3 - Clasificación\n1. En $x=-1$ :\nEl límite desde la izquierda y derecha diverge $\\rightarrow$ discontinuidad esencial/infinita (asíntota vertical).\n2. En $x=0$ :\n- Límite por la izquierda: $\\lim _{x \\rightarrow 0^{-}} \\frac{2 x+1}{1+x}=1$.\n- Límite por la derecha: $\\lim _{x \\rightarrow 0^{+}} \\frac{1+x}{1+x}=1$.\n- $f(0)=1$.\n3. En $x=1$ :\n- Límite por la izquierda: $f(1)=\\frac{1+1}{1+1}=1$.\n- Límite por la derecha: $\\lim _{x \\rightarrow 1^{+}} \\frac{2(x-1)}{(x-1)(x+1)}=\\frac{2}{x+1} \\rightarrow 1$.\n- Pero en el tercer tramo el punto $x=1$ no pertenece al dominio.\nDiscontinuidad evitable en $x=1$ (el límite existe y es finito).\nContinua en $x=0$.",
+    "description": ":m $$\nf(x)= \\begin{cases}\\frac{2 x+1}{1+x}, & x<0 \\\\ \\frac{1+x}{1+x}, & 0 \\leq x \\leq 1 \\\\ \\frac{2(x-1)}{x^2-1}, & x>1\\end{cases}\n$$\n",
+    "prompt": "Determina el dominio y clasifica las discontinuidades de",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\6-continuidad.md",
+    "reference_line": 119,
+    "module_name": "7-math-analysis",
+    "category": "continuidad"
+  },
+  {
+    "term": "8 - Continuidad - Problema con parámetro",
+    "example": ":m Solución paso a paso\n1. Condición 1: existencia de $f(1)$\nComo $x=1$ está en el primer tramo:\n$$\nf(1)=m-5(1)=m-5\n$$\n2. Condición 2: límites laterales\n- Límite por la izquierda $\\left(x \\rightarrow 1^{-}\\right)$:\n$$\n\\lim _{x \\rightarrow 1^{-}} f(x)=m-5\n$$\n- Límite por la derecha ( $x \\rightarrow 1^{+}$):\n$$\n\\lim _{x \\rightarrow 1^{+}} f(x)=2(1)^2-4 m+3=2-4 m+3=5-4 m\n$$\n3. Condición 3: igualdad de límites\nPara continuidad se exige:\n$$\nm-5=5-4 m\n$$\nResolviendo:\n$$\nm+4 m=5+5 \\quad \\Rightarrow \\quad 5 m=10 \\quad \\Rightarrow \\quad m=2\n$$x??\n\n\n\n\n\n\n\n",
+    "description": ":m $$\nf(x)= \\begin{cases}m-5 x, & x \\leq 1 \\\\ 2 x^2-4 m+3, & x>1\\end{cases}\n$$\n",
+    "prompt": "Determinar el valor de $m$ para que la función sea continua en $x=1$ :",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\6-continuidad.md",
+    "reference_line": 169,
+    "module_name": "7-math-analysis",
+    "category": "continuidad"
   }
 ]

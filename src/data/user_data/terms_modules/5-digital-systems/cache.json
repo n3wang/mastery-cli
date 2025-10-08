@@ -288,5 +288,25 @@
     "reference_line": 80,
     "module_name": "5-digital-systems",
     "category": "uhardwaredigital"
+  },
+  {
+    "term": "1 - Decodificadores y Código BCD",
+    "example": ":m La relación general es:\n$$\\text{Número de salidas} = 2^{\\text{número de entradas}}$$\nSe cumple:\n$$2^n = 16 \\implies n = 4$$\n**Respuesta:** 4 entradas.",
+    "description": ":m ---\nSi se tiene un decodificador binario de 16 salidas, ¿cuántas entradas se necesitan?\n",
+    "prompt": "**Pregunta 1**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u6-circuitos-combinatorios.md",
+    "reference_line": 3,
+    "module_name": "5-digital-systems",
+    "category": "ucircuitoscombinatorios"
+  },
+  {
+    "term": "2 - Decodificadores binarios",
+    "example": ":m Un **decodificador binario** toma un número binario de $n$ bits en las entradas y activa **exactamente una salida** de las $2^n$ posibles.\nEsto significa que **solo una salida estará activa a la vez**, y las demás estarán en estado inactivo.\n**Respuesta:** **Verdadero (A)**.",
+    "description": ":m El decodificador es un circuito combinacional que transmite datos desde sus entradas hacia sus salidas.\n",
+    "prompt": "**Pregunta 5**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u6-circuitos-combinatorios.md",
+    "reference_line": 37,
+    "module_name": "5-digital-systems",
+    "category": "ucircuitoscombinatorios"
   }
 ]
