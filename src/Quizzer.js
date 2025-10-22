@@ -578,6 +578,77 @@ class Quizzer {
 		return '';
 	}
 
+	async runStudySession(selected_terms, deck_name) {
+		// Sort by hash completion count (least practiced first), then by reverse order as fallback
+		selected_terms.sort((a, b) => {
+			const hashA = this.generateTermHash(a);
+			const hashB = this.generateTermHash(b);
+			const countA = this.getTermCompletionCount(hashA);
+			const countB = this.getTermCompletionCount(hashB);
+
+			// If hash counts are different, sort by count (ascending - least practiced first)
+			if (countA !== countB) {
+				return countA - countB;
+			}
+
+			// If hash counts are the same, maintain reverse order as fallback
+			return selected_terms.indexOf(b) - selected_terms.indexOf(a);
+		});
+
+		const studyScheduler = new TermScheduler({
+			cards_category: deck_name
+		});
+
+		await studyScheduler.setLearningCards(selected_terms);
+		let exit = false;
+
+		const printCardsLeft = (cardsLeft, cardsLearnt) => {
+			console.log(
+				`\nCards left: ${cardsLeft} || Cards completed: ${cardsLearnt}\n`
+			);
+		};
+
+		const exitMethod = () => {
+			exit = true;
+			return false;
+		};
+
+		while (!studyScheduler.is_completed && !exit) {
+			const showProgress = (
+				cardsLeft,
+				cardsCompleted,
+				learning,
+				working
+			) => {
+				console.log(
+					`Cards left: ${cardsLeft} || Cards completed: ${cardsCompleted} || learning ${learning} || workingset: ${working}`
+				);
+			};
+
+			if (DEBUG)
+				showProgress(
+					studyScheduler.getCardsToLearn(),
+					studyScheduler.getCardsLearnt(),
+					studyScheduler.learning_queue.length,
+					studyScheduler.working_set.length
+				);
+
+			const card_to_ask = studyScheduler.getCard();
+			const answered_correctly = await this.ask_term_question(
+				card_to_ask,
+				{ exitMethod: exitMethod }
+			);
+
+			studyScheduler.solveCard(answered_correctly);
+			await studyScheduler.saveCards();
+
+			printCardsLeft(
+				studyScheduler.getCardsToLearn(),
+				studyScheduler.getCardsLearnt()
+			);
+		}
+	}
+
 	study_session = async (
 		masterDeck = this.masterDeck,
 		{ reverse = false, size_study_deck = -1 } = {}
@@ -595,13 +666,56 @@ class Quizzer {
 			(a, b) => dictOptions[b].count - dictOptions[a].count
 		);
 
+		// Add Today's Deck option if enabled
+		const { DailyDeckManager } = require('./DailyDeckManager');
+		const dailyDeckConfig = Settings?.daily_deck_configuration || {};
+		const dailyDeckEnabled = dailyDeckConfig.enabled !== false;
+
+		let deckChoices = [...titles];
+		if (dailyDeckEnabled) {
+			const dailyDeckManager = new DailyDeckManager(Settings);
+			const todayDeck = dailyDeckManager.getTodayDeck();
+			if (todayDeck) {
+				deckChoices.unshift(`Today's Deck (${todayDeck.total_cards} cards)`);
+			} else {
+				deckChoices.unshift('Today\'s Deck (Generate now)');
+			}
+		}
+
 		const ms_deck = new AutoComplete({
 			name: 'StudyOption',
 			message: 'Choose deck to study',
-			choices: titles
+			choices: deckChoices
 		});
 
 		let deck_selected_key = await ms_deck.run();
+
+		// Handle Today's Deck selection
+		if (deck_selected_key.startsWith('Today\'s Deck')) {
+			const dailyDeckManager = new DailyDeckManager(Settings);
+			let todayDeck = dailyDeckManager.getTodayDeck();
+
+			if (!todayDeck) {
+				console.log('Generating today\'s deck...');
+				const cardsPerDeck = dailyDeckConfig.cards_per_deck || 5;
+				const maxTotalCards = dailyDeckConfig.max_total_cards || 20;
+
+				todayDeck = dailyDeckManager.generateDailyDeck(masterDeck, {
+					cardsPerDeck,
+					maxTotalCards
+				});
+
+				if (!todayDeck) {
+					console.log('Failed to generate daily deck. Please try another deck.');
+					return;
+				}
+
+				console.log(dailyDeckManager.getTodaySummary());
+			}
+
+			const allTerms = dailyDeckManager.getAllTermsFromDailyDeck(todayDeck);
+			return this.runStudySession(allTerms, 'daily_deck');
+		}
 
 		let deck_selected = dictOptions[deck_selected_key].name;
 
@@ -644,84 +758,7 @@ class Quizzer {
 			}
 		}
 
-		// Sort by hash completion count (least practiced first), then by reverse order as fallback
-		selected_terms.sort((a, b) => {
-			const hashA = this.generateTermHash(a);
-			const hashB = this.generateTermHash(b);
-			const countA = this.getTermCompletionCount(hashA);
-			const countB = this.getTermCompletionCount(hashB);
-
-			// If hash counts are different, sort by count (ascending - least practiced first)
-			if (countA !== countB) {
-				return countA - countB;
-			}
-
-			// If hash counts are the same, maintain reverse order as fallback
-			return selected_terms.indexOf(b) - selected_terms.indexOf(a);
-		});
-		const studyScheduler = new TermScheduler({
-			cards_category: deck_selected
-		});
-
-		await studyScheduler.setLearningCards(selected_terms); // Populate the right cards.
-		// console.log(studyScheduler.learning_queue);
-		let exit = false;
-
-		/**
-		 * Method called when a problem is unmounted, to be used to print the amount of cards left.
-		 */
-		const printCardsLeft = (cardsLeft, cardsLearnt) => {
-			console.log(
-				`\nCards left: ${cardsLeft} || Cards completed: ${cardsLearnt}\n`
-			);
-		};
-
-		const exitMethod = () => {
-			exit = true;
-			return false; //So it escapes the loop in case of perpetual until one is right
-		};
-
-		while (!studyScheduler.is_completed && !exit) {
-			// Continue asking questions.
-
-			const showProgress = (
-				cardsLeft,
-				cardsCompleted,
-				learning,
-				working
-			) => {
-				console.log(
-					`Cards left: ${cardsLeft} || Cards completed: ${cardsCompleted} || learning ${learning} || workingset: ${working}`
-				);
-			};
-			if (DEBUG)
-				showProgress(
-					studyScheduler.getCardsToLearn(),
-					studyScheduler.getCardsLearnt(),
-					studyScheduler.learning_queue.length,
-					studyScheduler.working_set.length
-				);
-			const card_to_ask = studyScheduler.getCard();
-
-			// Somewhere here the duplication error occurs.
-
-			const answered_correctly = await this.ask_term_question(
-				card_to_ask,
-				{ exitMethod: exitMethod }
-			);
-			// To here
-
-			studyScheduler.solveCard(answered_correctly);
-			await studyScheduler.saveCards();
-
-			printCardsLeft(
-				studyScheduler.getCardsToLearn(),
-				studyScheduler.getCardsLearnt()
-			);
-
-			// console.log("solveCard");
-			// showProgress(studyScheduler.getCardsToLearn(), studyScheduler.getCardsLearnt());
-		}
+		return this.runStudySession(selected_terms, deck_selected);
 	};
 
 	/**

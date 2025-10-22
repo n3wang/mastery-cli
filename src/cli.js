@@ -116,6 +116,10 @@ class CommandsInformation {
 			masks: new Command(
 				'Manage quiz deck masks for filtering terms by module and category',
 				'masks'
+			),
+			'prepare-week': new Command(
+				'Prepare daily study decks for the upcoming week',
+				'prepare-week'
 			)
 		};
 	}

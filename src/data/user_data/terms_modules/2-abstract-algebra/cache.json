@@ -240,6 +240,506 @@
     "category": "boolearnalgebra"
   },
   {
+    "term": "1 - Necesidad de los Números Complejos",
+    "example": ":m Porque las ecuaciones como $x^2 = -1$ no tienen solución en los números reales.\nSe define $i = \\sqrt{-1}$ para poder representar soluciones de raíces negativas.",
+    "description": ":m El conjunto de los números reales no tiene solución para ecuaciones como $x^2 = -1$, ya que ningún número real elevado al cuadrado da un resultado negativo.\nPara resolver esto, se introdujo una nueva entidad matemática: **la unidad imaginaria**.\nSe define como:\n$$i^2 = -1 \\quad \\text{o equivalentemente} \\quad i = \\sqrt{-1}$$\nEsta extensión permite crear un nuevo conjunto numérico que incluye raíces de números negativos: los **números complejos**.",
+    "prompt": "¿Por qué se introdujo la unidad imaginaria $i$ en matemáticas?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
+    "reference_line": 1,
+    "module_name": "2-abstract-algebra",
+    "category": "numerocomplejos"
+  },
+  {
+    "term": "2 - Definición de Número Complejo",
+    "example": ":m Un número complejo se escribe como $z = a + bi$.\n* Parte real: $a$\n* Parte imaginaria: $b$\n* $i$ es la unidad imaginaria tal que $i^2 = -1$",
+    "description": ":m Un **número complejo** es una combinación de un número real y uno imaginario.\nSe expresa en la forma:\n$$z = a + bi$$\ndonde:\n* $a$ es la **parte real**, $Re(z) = a$\n* $b$ es la **parte imaginaria**, $Im(z) = b$\n* $i$ es la unidad imaginaria, con $i^2 = -1$\nEl conjunto de todos los números complejos se denota por **$\\mathbb{C}$**.",
+    "prompt": "¿Cómo se define un número complejo y qué representan sus partes?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
+    "reference_line": 18,
+    "module_name": "2-abstract-algebra",
+    "category": "numerocomplejos"
+  },
+  {
+    "term": "3 - Ejemplos de Números Complejos",
+    "example": ":m\n* $3 + 2i$: tiene parte real $3$ y parte imaginaria $2$.\n* $-5i$: tiene parte real $0$ y parte imaginaria $-5$.\n* $\\pi$: es un número real visto como $\\pi + 0i$.\nLos reales son complejos con parte imaginaria $0$.",
+    "description": ":m 1. $3 + 2i$ → Parte real: $3$, Parte imaginaria: $2$\n2. $-5i$ → Parte real: $0$, Parte imaginaria: $-5$\n3. $\\pi$ → Parte real: $\\pi$, Parte imaginaria: $0$\nEstos ejemplos muestran que los números reales son un **caso particular** de los números complejos cuando $b = 0$.",
+    "prompt": "¿Qué ejemplos muestran la relación entre números reales e imaginarios en $\\mathbb{C}$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
+    "reference_line": 41,
+    "module_name": "2-abstract-algebra",
+    "category": "numerocomplejos"
+  },
+  {
+    "term": "4 - Representación en Código (Ejemplo en Python)",
+    "example": ":m En Python se usa `j` para representar la unidad imaginaria:\n```python\nz = 3 + 2j\nprint(z.real) # Parte real → 3\nprint(z.imag) # Parte imaginaria → 2\n```\n\n\n\n",
+    "description": ":m Los lenguajes modernos permiten trabajar directamente con números complejos.\nEjemplo:\n```python\nz = 3 + 2j # Python usa 'j' en lugar de 'i'\nprint(z.real) # 3.0\nprint(z.imag) # 2.0\n```\n",
+    "prompt": "¿Cómo se representa y manipula un número complejo en Python?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
+    "reference_line": 59,
+    "module_name": "2-abstract-algebra",
+    "category": "numerocomplejos"
+  },
+  {
+    "term": "5 - Suma y Resta de Números Complejos",
+    "example": ":m Se suman o restan por separado las partes reales y las partes imaginarias:\n* Parte real: $a \\pm c$\n* Parte imaginaria: $b \\pm d$\nEjemplo: $(2 + 3i) + (4 + 5i) = 6 + 8i$.",
+    "description": ":m Sean $z_1 = a + bi$ y $z_2 = c + di$.\nEn forma binómica, se suman o restan **las partes reales** y **las partes imaginarias** por separado.\n$$\nz_1 + z_2 = (a + c) + (b + d)i\n$$\n$$\nz_1 - z_2 = (a - c) + (b - d)i\n$$",
+    "prompt": "¿Cómo se realiza la suma y resta de números complejos en forma binómica?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
+    "reference_line": 81,
+    "module_name": "2-abstract-algebra",
+    "category": "numerocomplejos"
+  },
+  {
+    "term": "6 - Multiplicación de Números Complejos",
+    "example": ":m $$\nz_1 \\cdot z_2 = (ac - bd) + (ad + bc)i\n$$\ndonde las partes reales e imaginarias se combinan según la distributiva y usando $i^2 = -1$.",
+    "description": ":m Sean $z_1 = a + bi$ y $z_2 = c + di$.\nUsando la propiedad distributiva:\n$$\nz_1 \\cdot z_2 = (a + bi)(c + di) = (ac - bd) + (ad + bc)i\n$$\nSe aplica $i^2 = -1$ para simplificar.",
+    "prompt": "¿Qué fórmula se usa para multiplicar dos números complejos en forma binómica?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
+    "reference_line": 103,
+    "module_name": "2-abstract-algebra",
+    "category": "numerocomplejos"
+  },
+  {
+    "term": "7 - División de Números Complejos",
+    "example": ":m Porque al multiplicar por el conjugado $(c - di)$, el denominador se transforma en $c^2 + d^2$, un número real, permitiendo expresar el resultado en forma binómica $x + yi$.",
+    "description": ":m Para dividir $z_1 = a + bi$ por $z_2 = c + di$, se multiplica numerador y denominador por el **conjugado** del denominador:\n$$\n\\frac{a + bi}{c + di} = \\frac{(a + bi)(c - di)}{(c + di)(c - di)} = \\frac{(ac + bd) + (bc - ad)i}{c^2 + d^2}\n$$\nEl denominador se vuelve real.",
+    "prompt": "¿Por qué se multiplica por el conjugado al dividir números complejos?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
+    "reference_line": 123,
+    "module_name": "2-abstract-algebra",
+    "category": "numerocomplejos"
+  },
+  {
+    "term": "8 - Conjugado de un Número Complejo",
+    "example": ":m El conjugado de $z = a + bi$ es $\\overline{z} = a - bi$.\nSus propiedades principales incluyen:\n* $z \\cdot \\overline{z} = a^2 + b^2$\n* $z + \\overline{z} = 2\\operatorname{Re}(z)$\n* Cambia el signo de la parte imaginaria pero conserva la parte real.",
+    "description": ":m El **conjugado** de $z = a + bi$ se define como:\n$$\n\\overline{z} = a - bi\n$$\nSe obtiene cambiando el signo de la parte imaginaria.\nPropiedades:\n1. $\\overline{\\overline{z}} = z$\n2. $\\overline{z_1 + z_2} = \\overline{z_1} + \\overline{z_2}$\n3. $\\overline{z_1 \\cdot z_2} = \\overline{z_1} \\cdot \\overline{z_2}$\n4. $z + \\overline{z} = 2a = 2\\operatorname{Re}(z)$\n5. $z - \\overline{z} = 2bi = 2i\\operatorname{Im}(z)$\n6. $z \\cdot \\overline{z} = a^2 + b^2$ (siempre real y positivo)\n",
+    "prompt": "¿Qué es el conjugado de un número complejo y qué propiedades cumple?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
+    "reference_line": 139,
+    "module_name": "2-abstract-algebra",
+    "category": "numerocomplejos"
+  },
+  {
+    "term": "9 - Módulo de un Número Complejo",
+    "example": ":m El módulo $|z|$ representa la distancia del punto $(a,b)$ al origen en el plano complejo, y se calcula como:\n$$\n|z| = \\sqrt{a^2 + b^2}\n$$\nPor ejemplo, si $z = 3 + 4i$, entonces $|z| = \\sqrt{3^2 + 4^2} = 5$.",
+    "description": ":m El **módulo** de un número complejo $z = a + bi$ representa su distancia al origen $(0,0)$ en el plano de Argand.\nSe define como:\n$$\n|z| = \\sqrt{a^2 + b^2}\n$$\nPropiedades fundamentales:\n1. $|z| \\ge 0$ y $|z| = 0 \\Leftrightarrow z = 0$\n2. $|z| = |\\overline{z}|$\n3. $|z_1 \\cdot z_2| = |z_1| \\cdot |z_2|$\n4. $\\left|\\frac{z_1}{z_2}\\right| = \\frac{|z_1|}{|z_2|}$ (con $z_2 \\ne 0$)\n5. Desigualdad triangular: $|z_1 + z_2| \\le |z_1| + |z_2|$\n6. $z \\cdot \\overline{z} = |z|^2$\n",
+    "prompt": "¿Qué representa el módulo de un número complejo y cómo se calcula?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
+    "reference_line": 168,
+    "module_name": "2-abstract-algebra",
+    "category": "numerocomplejos"
+  },
+  {
+    "term": "10 - Raíz Cuadrada de un Número Complejo",
+    "example": ":m Se busca $w = x + yi$ tal que $w^2 = z$.\n1. Se plantean $x^2 - y^2 = a$ y $2xy = b$.\n2. Se usa $x^2 + y^2 = \\sqrt{a^2 + b^2}$ para despejar:\n$$\nx^2 = \\frac{\\sqrt{a^2 + b^2} + a}{2}, \\quad y^2 = \\frac{\\sqrt{a^2 + b^2} - a}{2}\n$$\n3. Se eligen los signos de $x$ e $y$ según el signo de $b$.",
+    "description": ":m Todo número complejo no nulo tiene **dos raíces cuadradas** opuestas.\nBuscamos $w = x + yi$ tal que:\n$$\nw^2 = z = a + bi\n$$\nDesarrollo paso a paso:\n1. $(x + yi)^2 = a + bi$\n2. $x^2 + 2xyi + y^2i^2 = a + bi$\n3. $(x^2 - y^2) + (2xy)i = a + bi$\nSe igualan las partes real e imaginaria:\n$$\n\\begin{cases}\nx^2 - y^2 = a \\\n2xy = b\n\\end{cases}\n$$\nAdemás, se cumple:\n$$\nx^2 + y^2 = \\sqrt{a^2 + b^2}\n$$\nDe ahí:\n$$\nx^2 = \\frac{\\sqrt{a^2 + b^2} + a}{2}, \\quad y^2 = \\frac{\\sqrt{a^2 + b^2} - a}{2}\n$$\nLos signos de $x$ e $y$ se eligen según el signo de $b$ (si $b>0$, ambos tienen el mismo signo; si $b<0$, signos opuestos).\nEjemplo importante:\nLas raíces de $-1$ son $i$ y $-i$, porque\n$$\ni^2 = (-i)^2 = -1\n$$\n",
+    "prompt": "¿Cómo se determinan las raíces cuadradas de un número complejo $z = a + bi$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
+    "reference_line": 197,
+    "module_name": "2-abstract-algebra",
+    "category": "numerocomplejos"
+  },
+  {
+    "term": "11 - Forma polar y exponencial — definición breve (contexto)",
+    "example": ":m En forma polar/exponencial: $$z=r(\\cos\\theta+i\\sin\\theta)=re^{i\\theta},; r=|z|,; \\theta=\\arg z.$$\nReglas: $$z_1z_2:(r_1r_2,;\\theta_1+\\theta_2),\\qquad \\frac{z_1}{z_2}:\\left(\\frac{r_1}{r_2},;\\theta_1-\\theta_2\\right).$$",
+    "description": ":m Escribimos un complejo como $$z=r(\\cos\\theta+i\\sin\\theta)=re^{i\\theta}$$ donde $$r=|z|\\ge 0,\\quad \\theta=\\arg(z).$$ En productos y cocientes se usan: $$r_{1}e^{i\\theta_{1}}\\cdot r_{2}e^{i\\theta_{2}}=(r_{1}r_{2})e^{i(\\theta_{1}+\\theta_{2})},\\qquad \\frac{r_{1}e^{i\\theta_{1}}}{r_{2}e^{i\\theta_{2}}}=\\left(\\frac{r_{1}}{r_{2}}\\right)e^{i(\\theta_{1}-\\theta_{2})}.$$",
+    "prompt": "¿Cómo se expresa un número complejo en forma polar y exponencial y qué reglas siguen producto y cociente?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
+    "reference_line": 241,
+    "module_name": "2-abstract-algebra",
+    "category": "numerocomplejos"
+  },
+  {
+    "term": "12 - Conversión a forma polar y exponencial (Ejercicio 1)",
+    "example": ":m $$r=2,\\quad \\theta=\\frac{2\\pi}{3}.$$\nPolar: $$z=2!\\left(\\cos\\frac{2\\pi}{3}+i\\sin\\frac{2\\pi}{3}\\right).$$\nExponencial: $$z=2e^{i\\frac{2\\pi}{3}}.$$",
+    "description": ":m Para $$z=-1+i\\sqrt{3}$$: $$r=|z|=\\sqrt{(-1)^2+(\\sqrt{3})^2}=\\sqrt{4}=2.$$ El punto $$(-1,\\sqrt{3})$$ está en el II cuadrante y cumple $$\\tan\\theta=\\frac{\\sqrt{3}}{-1}=-\\sqrt{3}\\Rightarrow \\theta=\\frac{2\\pi}{3}.$$ Entonces $$z=2!\\left(\\cos\\frac{2\\pi}{3}+i\\sin\\frac{2\\pi}{3}\\right)=2e^{i\\frac{2\\pi}{3}}.$$",
+    "prompt": "Convierte $$z=-1+i\\sqrt{3}$$ a forma polar y exponencial.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
+    "reference_line": 252,
+    "module_name": "2-abstract-algebra",
+    "category": "numerocomplejos"
+  },
+  {
+    "term": "13 - Producto en forma polar (Ejercicio 2 — producto)",
+    "example": ":m Exponencial: $$z_1z_2=6e^{i\\frac{5\\pi}{12}}.$$\nBinómica: $$z_1z_2=6!\\left(\\cos\\frac{5\\pi}{12}+i\\sin\\frac{5\\pi}{12}\\right)\\approx 1.5529+5.7956,i.$$",
+    "description": ":m Dados $$z_1=3e^{i\\pi/6},\\quad z_2=2e^{i\\pi/4},$$ el producto suma argumentos y multiplica módulos: $$z_1z_2=6e^{i(\\pi/6+\\pi/4)}=6e^{i\\frac{5\\pi}{12}}=6!\\left(\\cos\\frac{5\\pi}{12}+i\\sin\\frac{5\\pi}{12}\\right).$$ Aproximando: $$\\cos\\frac{5\\pi}{12}\\approx0.258819,;\\sin\\frac{5\\pi}{12}\\approx0.965926,$$ $$z_1z_2\\approx 6(0.258819+i,0.965926)\\approx 1.5529+5.7956,i.$$",
+    "prompt": "Calcula $$z_1z_2$$ (exponencial y binómica) para $$z_1=3e^{i\\pi/6},; z_2=2e^{i\\pi/4}.$$",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
+    "reference_line": 264,
+    "module_name": "2-abstract-algebra",
+    "category": "numerocomplejos"
+  },
+  {
+    "term": "14 - Cociente en forma polar (Ejercicio 2 — cociente)",
+    "example": ":m Exponencial: $$\\frac{z_1}{z_2}=\\frac{3}{2}e^{-i\\frac{\\pi}{12}}.$$\nBinómica: $$\\frac{z_1}{z_2}=\\frac{3}{2}!\\left(\\cos\\frac{\\pi}{12}-i\\sin\\frac{\\pi}{12}\\right)\\approx 1.4489-0.3882,i.$$",
+    "description": ":m Para el cociente se restan argumentos y se dividen módulos: $$\\frac{z_1}{z_2}=\\frac{3}{2}e^{i(\\pi/6-\\pi/4)}=\\frac{3}{2}e^{-i\\frac{\\pi}{12}}=\\frac{3}{2}!\\left(\\cos\\frac{\\pi}{12}-i\\sin\\frac{\\pi}{12}\\right).$$ Aproximando: $$\\cos\\frac{\\pi}{12}\\approx0.965926,;\\sin\\frac{\\pi}{12}\\approx0.258819,$$ $$\\frac{z_1}{z_2}\\approx \\frac{3}{2}(0.965926- i,0.258819)\\approx 1.4489-0.3882,i.$$",
+    "prompt": "Calcula $$\\frac{z_1}{z_2}$$ (exponencial y binómica) para $$z_1=3e^{i\\pi/6},; z_2=2e^{i\\pi/4}.$$",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
+    "reference_line": 275,
+    "module_name": "2-abstract-algebra",
+    "category": "numerocomplejos"
+  },
+  {
+    "term": "15 - Radicación en $\\mathbb{C}$ — Fórmula general",
+    "example": ":m $$\nw_k=\\sqrt[n]{r},e^{i\\frac{\\theta+2k\\pi}{n}},\\quad k=0,1,\\dots,n-1.\n$$",
+    "description": ":m Calcular las raíces $n$-ésimas de $z=r(\\cos\\theta+i\\sin\\theta)=re^{i\\theta}$ equivale a resolver $w^n=z$. Las $n$ soluciones (todas distintas si $r>0$) son\n$$\nw_k=\\sqrt[n]{r}\\Big(\\cos\\frac{\\theta+2k\\pi}{n}+i\\sin\\frac{\\theta+2k\\pi}{n}\\Big)\n=\\sqrt[n]{r},e^{i\\frac{\\theta+2k\\pi}{n}},\\quad k=0,1,\\dots,n-1.\n$$",
+    "prompt": "¿Cuál es la fórmula de las raíces $n$-ésimas de un complejo $z=re^{i\\theta}$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
+    "reference_line": 283,
+    "module_name": "2-abstract-algebra",
+    "category": "numerocomplejos"
+  },
+  {
+    "term": "16 - Geometría de las raíces $n$-ésimas",
+    "example": ":m Se ubican sobre la circunferencia de radio $\\sqrt[n]{r}$, separadas por ángulos de $$\\frac{2\\pi}{n}$$ (polígono regular).",
+    "description": ":m Las $n$ raíces de $z=re^{i\\theta}$ están igualmente espaciadas en un círculo de radio $\\sqrt[n]{r}$: sus argumentos difieren en $$\\frac{2\\pi}{n}$$ formando un polígono regular en el plano complejo (Plano de Argand).",
+    "prompt": "¿Cómo se distribuyen geométricamente las raíces $n$-ésimas de $z$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
+    "reference_line": 299,
+    "module_name": "2-abstract-algebra",
+    "category": "numerocomplejos"
+  },
+  {
+    "term": "17 - Raíces de la unidad — definición",
+    "example": ":m $$\nz_k=e^{i\\frac{2k\\pi}{n}},\\quad k=0,1,\\dots,n-1,\n$$\ntodas con módulo $1$ y espaciadas por $$\\frac{2\\pi}{n}.$$",
+    "description": ":m Las raíces $n$-ésimas de la unidad resuelven $$z^n=1.$$ En forma polar/exponencial:\n$$\nz_k=\\cos\\frac{2k\\pi}{n}+i\\sin\\frac{2k\\pi}{n}=e^{i\\frac{2k\\pi}{n}},\\quad k=0,1,\\dots,n-1.\n$$\nEstán sobre la circunferencia unitaria y dividen el círculo en $n$ partes iguales.",
+    "prompt": "¿Cómo se describen las raíces $n$-ésimas de la unidad?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
+    "reference_line": 309,
+    "module_name": "2-abstract-algebra",
+    "category": "numerocomplejos"
+  },
+  {
+    "term": "18 - Raíces primitivas de la unidad — caracterización",
+    "example": ":m Cuando $$\\gcd(k,n)=1$$ para $z_k=e^{i\\frac{2k\\pi}{n}}$ (genera todas las raíces al elevar potencias).",
+    "description": ":m Una raíz $n$-ésima de la unidad $e^{i\\frac{2k\\pi}{n}}$ es **primitiva** si su potencia genera todas las $n$ raíces; equivale a que $$\\gcd(k,n)=1.$$ (Hay exactamente $\\varphi(n)$ raíces primitivas, donde $\\varphi$ es la función totiente de Euler.)",
+    "prompt": "¿Cuándo una raíz $n$-ésima de la unidad es primitiva?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
+    "reference_line": 326,
+    "module_name": "2-abstract-algebra",
+    "category": "numerocomplejos"
+  },
+  {
+    "term": "19 - Forma exponencial y fórmula de Euler",
+    "example": ":m $$\nz=re^{i\\theta}\\quad\\text{con}\\quad e^{i\\theta}=\\cos\\theta+i\\sin\\theta.\n$$",
+    "description": ":m La fórmula de Euler $$e^{i\\theta}=\\cos\\theta+i\\sin\\theta$$ permite escribir\n$$\nz=r(\\cos\\theta+i\\sin\\theta)=re^{i\\theta},\n$$\nfacilitando el cálculo y la interpretación geométrica (radio $r$ y ángulo $\\theta$).",
+    "prompt": "¿Cómo se expresa un complejo en forma exponencial usando Euler?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
+    "reference_line": 336,
+    "module_name": "2-abstract-algebra",
+    "category": "numerocomplejos"
+  },
+  {
+    "term": "20 - Operaciones en forma exponencial",
+    "example": ":m Producto: $$(r_1r_2,\\ \\theta_1+\\theta_2),$$\nCociente: $$\\big(\\frac{r_1}{r_2},\\ \\theta_1-\\theta_2\\big).$$",
+    "description": ":m En forma exponencial los módulos se multiplican/dividen y los argumentos se suman/restan:\n$$\nz_1z_2=(r_1r_2)e^{i(\\theta_1+\\theta_2)},\\qquad\n\\frac{z_1}{z_2}=\\Big(\\frac{r_1}{r_2}\\Big)e^{i(\\theta_1-\\theta_2)}\\ (r_2\\ne0).\n$$",
+    "prompt": "¿Qué reglas siguen producto y cociente en forma exponencial?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
+    "reference_line": 352,
+    "module_name": "2-abstract-algebra",
+    "category": "numerocomplejos"
+  },
+  {
+    "term": "21 - Fórmula de De Moivre (potencias)",
+    "example": ":m $$\n(re^{i\\theta})^{n}=r^{n}e^{in\\theta}.\n$$",
+    "description": ":m Para $z=re^{i\\theta}$ y $n\\in\\mathbb{Z}$,\n$$\n(re^{i\\theta})^{n}=r^{n}e^{in\\theta}.\n$$\nEsto simplifica potencias y, al invertir el proceso, conduce a la radicación en $\\mathbb{C}$.",
+    "prompt": "¿Cuál es la fórmula de De Moivre para $(re^{i\\theta})^{n}$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
+    "reference_line": 367,
+    "module_name": "2-abstract-algebra",
+    "category": "numerocomplejos"
+  },
+  {
+    "term": "22 - Ejemplo aplicado — raíces cuartas de un número",
+    "example": ":m $$\nw_k=2,e^{i\\left(\\frac{\\pi}{4}+\\frac{k\\pi}{2}\\right)},\\quad k=0,1,2,3.\n$$",
+    "description": ":m Para $$-16=16e^{i\\pi},$$ sus $4$ raíces son\n$$\nw_k=16^{1/4}e^{i\\frac{\\pi+2k\\pi}{4}}=2,e^{i\\left(\\frac{\\pi}{4}+\\frac{k\\pi}{2}\\right)},\\quad k=0,1,2,3.\n$$\nEn binómica:\n$$\n2\\Big(\\cos\\frac{\\pi}{4}+i\\sin\\frac{\\pi}{4}\\Big),;\n2\\Big(\\cos\\frac{3\\pi}{4}+i\\sin\\frac{3\\pi}{4}\\Big),;\n2\\Big(\\cos\\frac{5\\pi}{4}+i\\sin\\frac{5\\pi}{4}\\Big),;\n2\\Big(\\cos\\frac{7\\pi}{4}+i\\sin\\frac{7\\pi}{4}\\Big).\n$$",
+    "prompt": "¿Cuáles son las raíces cuartas de $-16$ en forma exponencial?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
+    "reference_line": 383,
+    "module_name": "2-abstract-algebra",
+    "category": "numerocomplejos"
+  },
+  {
+    "term": "23 - Operaciones básicas con números complejos",
+    "example": ":m (a) $8 − 2i$\n(b) $−1 − 4i$\n(c) $8 − i$\n(d) $\\frac{1}{10} + \\frac{7}{10}i$",
+    "description": ":m (a) $$(3 + 2i) + (5 − 4i) = (3+5) + (2−4)i = 8 − 2i$$\n(b) $$(1 − i) − (2 + 3i) = (1−2) + (−1−3)i = −1 − 4i$$\n(c) $$(2 + i)(3 − 2i) = 6 − 4i + 3i − 2i^2 = 6 − i + 2 = 8 − i$$\n(d) $$\\frac{1 + 2i}{3 − i} = \\frac{(1 + 2i)(3 + i)}{(3 − i)(3 + i)} = \\frac{3 + 7i − 2}{10} = \\frac{1 + 7i}{10} = \\frac{1}{10} + \\frac{7}{10}i$$\n(a) $(3 + 2i) + (5 − 4i)$\n(b) $(1 − i) − (2 + 3i)$\n(c) $(2 + i)(3 − 2i)$\n(d) $\\frac{1 + 2i}{3 − i}$",
+    "prompt": "Realiza las siguientes operaciones y da el resultado en forma binómica:",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
+    "reference_line": 402,
+    "module_name": "2-abstract-algebra",
+    "category": "numerocomplejos"
+  },
+  {
+    "term": "24 - Conjugado y módulo",
+    "example": ":m $$\\overline{z} = 4 + 3i,\\quad |z| = 5.$$",
+    "description": ":m Para $z = 4 − 3i$:\n* Conjugado: $$\\overline{z} = 4 + 3i$$\n* Módulo: $$|z| = \\sqrt{4^2 + (-3)^2} = \\sqrt{16 + 9} = 5$$\n",
+    "prompt": "Encuentra el conjugado y módulo de $z = 4 − 3i$.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
+    "reference_line": 423,
+    "module_name": "2-abstract-algebra",
+    "category": "numerocomplejos"
+  },
+  {
+    "term": "25 - Verificación de la propiedad $z \\cdot \\overline{z} = |z|^2$",
+    "example": ":m $$z \\cdot \\overline{z} = (2 + i)(2 − i) = 5,\\quad |z|^2 = 5.$$\nSe cumple la igualdad.",
+    "description": ":m Sea $z = 2 + i$:\n$$z \\cdot \\overline{z} = (2 + i)(2 − i) = 4 − i^2 = 4 + 1 = 5$$\ny\n$$|z|^2 = (\\sqrt{2^2 + 1^2})^2 = (\\sqrt{5})^2 = 5$$\nPor tanto, $$z \\cdot \\overline{z} = |z|^2.$$\n",
+    "prompt": "Verifica que $z \\cdot \\overline{z} = |z|^2$ para $z = 2 + i$.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
+    "reference_line": 437,
+    "module_name": "2-abstract-algebra",
+    "category": "numerocomplejos"
+  },
+  {
+    "term": "26 - Representación gráfica de un número complejo y su conjugado",
+    "example": ":m $z = (3, 2)$ se ubica en el primer cuadrante y $\\overline{z} = (3, -2)$ es su reflejo respecto al eje real.",
+    "description": ":m El número complejo $z = 3 + 2i$ se representa en el **plano complejo (Argand)** con:\n* parte real: $3$\n* parte imaginaria: $2$\nSu **conjugado** $\\overline{z} = 3 - 2i$ está en el punto reflejado respecto del eje real.\n![[Pasted image 20251022062919.png]]\nEje Re → horizontal\nEje Im → vertical\n| Punto | Coordenadas | Ubicación |\n| :------------- | :---------- | :------------------ |\n| $z$ | $(3, 2)$ | arriba del eje real |\n| $\\overline{z}$ | $(3, -2)$ | abajo del eje real |\n",
+    "prompt": "¿Cómo se representan gráficamente $z = 3 + 2i$ y su conjugado?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
+    "reference_line": 450,
+    "module_name": "2-abstract-algebra",
+    "category": "numerocomplejos"
+  },
+  {
+    "term": "27 - Raíces cuadradas de $z = -5 + 12i$",
+    "example": ":m $$\nw_1 = 2 + 3i, \\quad w_2 = -2 - 3i.\n$$",
+    "description": ":m Buscamos $w = x + yi$ tal que $w^2 = -5 + 12i$.\nSistema:\n$$\n\\begin{cases}\nx^2 - y^2 = -5 \\\n2xy = 12\n\\end{cases}\n$$\nDe $2xy=12 \\Rightarrow y=\\frac{6}{x}$, se sustituye en la primera:\n$$\nx^2 - \\frac{36}{x^2} = -5 \\Rightarrow x^4 + 5x^2 - 36 = 0\n$$\nSea $u = x^2$:\n$$\nu^2 + 5u - 36 = 0 \\Rightarrow u = \\frac{-5 \\pm \\sqrt{25 + 144}}{2} = \\frac{-5 \\pm 13}{2}\n$$\nLuego $x^2 = 4$ o $x^2 = -9$ (se descarta).\nEntonces $x = \\pm 2$, y de $y = 6/x$:\n* Si $x = 2$, $y = 3$\n* Si $x = -2$, $y = -3$\n✅ Raíces:\n$$\nw_1 = 2 + 3i, \\quad w_2 = -2 - 3i\n$$\n",
+    "prompt": "Encuentra las raíces cuadradas de $z = -5 + 12i$.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
+    "reference_line": 473,
+    "module_name": "2-abstract-algebra",
+    "category": "numerocomplejos"
+  },
+  {
+    "term": "28 - Resolución de ecuación cuadrática en $\\mathbb{C}$",
+    "example": ":m $$\nz = -2 + 3i \\quad\\text{y}\\quad z = -2 - 3i.\n$$",
+    "description": ":m Resolver $z^2 + 4z + 13 = 0$:\n$$\nz = \\frac{-4 \\pm \\sqrt{16 - 52}}{2} = \\frac{-4 \\pm \\sqrt{-36}}{2} = \\frac{-4 \\pm 6i}{2} = -2 \\pm 3i\n$$ Soluciones:\n$$\nz_1 = -2 + 3i, \\quad z_2 = -2 - 3i\n$$\n",
+    "prompt": "Resuelve $z^2 + 4z + 13 = 0$ en el conjunto de los números complejos.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
+    "reference_line": 508,
+    "module_name": "2-abstract-algebra",
+    "category": "numerocomplejos"
+  },
+  {
+    "term": "29 - Potencias de (i) — patrón cíclico",
+    "example": ":m $$i^{2023}=-i.$$",
+    "description": ":m Las potencias de $$i$$ siguen un ciclo de periodo 4: $$i^1=i,; i^2=-1,; i^3=-i,; i^4=1,; i^{4k+r}=i^r.$$ Para hallar $$i^{2023}$$, divide por 4: $$2023=4\\cdot 505+3\\Rightarrow i^{2023}=i^{4\\cdot505+3}=(i^4)^{505}i^3=1^{505}\\cdot(-i)=-i.$$",
+    "prompt": "Calcula $$i^{2023}$$ usando el patrón cíclico de las potencias de $$i$$.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
+    "reference_line": 523,
+    "module_name": "2-abstract-algebra",
+    "category": "numerocomplejos"
+  },
+  {
+    "term": "30 - Potencia de un complejo sencillo — atajo con (z^2)",
+    "example": ":m $$z^4=-4.$$",
+    "description": ":m Para $$z=1+i,$$ conviene elevar primero al cuadrado: $$z^2=(1+i)^2=1+2i+i^2=2i.$$ Luego $$z^4=(z^2)^2=(2i)^2=4i^2=4(-1)=-4.$$",
+    "prompt": "Si $$z=1+i,$$ calcula $$z^4.$$",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
+    "reference_line": 533,
+    "module_name": "2-abstract-algebra",
+    "category": "numerocomplejos"
+  },
+  {
+    "term": "31 - Lugar geométrico — circunferencia en (\\mathbb{C})",
+    "example": ":m Una circunferencia de centro $(0,2)$ y radio $3$ con ecuación $$x^2+(y-2)^2=9.$$",
+    "description": ":m La ecuación $|z-2i|=3$ describe todos los complejos a distancia 3 del punto $$2i.$$\nEn forma cartesiana, con $z=x+yi$: $$|x+(y-2)i|=3;\\Rightarrow; \\sqrt{x^2+(y-2)^2}=3;\\Rightarrow; x^2+(y-2)^2=9.$$ Es una circunferencia de centro $(0,2)$ y radio $3.$\n![[Pasted image 20251022063010.png]]",
+    "prompt": "¿Qué conjunto de puntos en el plano complejo satisface $|z-2i|=3$ y cuál es su ecuación cartesiana?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
+    "reference_line": 543,
+    "module_name": "2-abstract-algebra",
+    "category": "numerocomplejos"
+  },
+  {
+    "term": "32 - Simplificación de cociente de potencias — usando cuadrados",
+    "example": ":m $$\\displaystyle \\frac{(1+i)^8}{(1-i)^6}=-2i.$$",
+    "description": ":m Observa que $$(1+i)^2=2i;\\Rightarrow;(1+i)^8=\\big((1+i)^2\\big)^4=(2i)^4=16i^4=16.$$\nTambién $$(1-i)^2=1-2i+i^2=-2i;\\Rightarrow;(1-i)^6=\\big((1-i)^2\\big)^3=(-2i)^3=-8i^3=8i.$$\nAsí,\n$$\n\\frac{(1+i)^8}{(1-i)^6}=\\frac{16}{8i}=\\frac{2}{i}=\\frac{2}{i}\\cdot\\frac{-i}{-i}=\\frac{-2i}{-i^2}=\\frac{-2i}{1}=-2i.\n$$",
+    "prompt": "Simplifica $$\\dfrac{(1+i)^8}{(1-i)^6}.$$",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
+    "reference_line": 555,
+    "module_name": "2-abstract-algebra",
+    "category": "numerocomplejos"
+  },
+  {
+    "term": "33 - Cociente de complejos en forma polar (contexto)",
+    "example": ":m $$1+i\\sqrt3=2\\left(\\cos\\frac{\\pi}{3}+i\\sin\\frac{\\pi}{3}\\right),\\qquad 1-i=\\sqrt2\\left(\\cos!\\left(-\\frac{\\pi}{4}\\right)+i\\sin!\\left(-\\frac{\\pi}{4}\\right)\\right).$$",
+    "description": ":m Para simplificar potencias de un cociente, conviene pasar cada número a forma polar y usar que al dividir **se restan argumentos** y **se dividen módulos**. Aquí: $$1+i\\sqrt3=2!\\left(\\cos\\frac{\\pi}{3}+i\\sin\\frac{\\pi}{3}\\right),\\quad 1-i=\\sqrt2!\\left(\\cos!\\left(-\\frac{\\pi}{4}\\right)+i\\sin!\\left(-\\frac{\\pi}{4}\\right)\\right).$$ ",
+    "prompt": "¿Cómo se expresan $$1+i\\sqrt3$$ y $$1-i$$ en forma polar?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
+    "reference_line": 568,
+    "module_name": "2-abstract-algebra",
+    "category": "numerocomplejos"
+  },
+  {
+    "term": "34 - Argumento y módulo del cociente",
+    "example": ":m $$\\dfrac{1+i\\sqrt3}{1-i}=\\sqrt2\\left(\\cos\\frac{7\\pi}{12}+i\\sin\\frac{7\\pi}{12}\\right).$$",
+    "description": ":m Dividir en polar: $$\\frac{1+i\\sqrt3}{1-i}=\\frac{2}{\\sqrt2}!\\left[\\cos!\\left(\\frac{\\pi}{3}-!\\left(-\\frac{\\pi}{4}\\right)\\right)+i\\sin!\\left(\\frac{\\pi}{3}-!\\left(-\\frac{\\pi}{4}\\right)\\right)\\right]=\\sqrt2!\\left(\\cos\\frac{7\\pi}{12}+i\\sin\\frac{7\\pi}{12}\\right).$$ ",
+    "prompt": "¿Cuál es la forma polar de $$\\dfrac{1+i\\sqrt3}{1-i}$$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
+    "reference_line": 578,
+    "module_name": "2-abstract-algebra",
+    "category": "numerocomplejos"
+  },
+  {
+    "term": "35 - De Moivre para la potencia 12",
+    "example": ":m $$\\left(\\dfrac{1+i\\sqrt3}{1-i}\\right)^{12}=-64.$$",
+    "description": ":m Aplicando De Moivre: $$\\left(\\frac{1+i\\sqrt3}{1-i}\\right)^{12}=(\\sqrt2)^{12}\\left(\\cos!\\left(12\\cdot\\frac{7\\pi}{12}\\right)+i\\sin!\\left(12\\cdot\\frac{7\\pi}{12}\\right)\\right)=2^{6}\\big(\\cos 7\\pi+i\\sin 7\\pi\\big).$$ Como $$\\cos 7\\pi=-1,;\\sin 7\\pi=0,$$ resulta $$2^{6}(-1+0i)=-64.$$ ",
+    "prompt": "Evalúa $$\\left(\\dfrac{1+i\\sqrt3}{1-i}\\right)^{12}$$ usando De Moivre.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
+    "reference_line": 588,
+    "module_name": "2-abstract-algebra",
+    "category": "numerocomplejos"
+  },
+  {
+    "term": "1 - Conjuntos finitos e infinitos",
+    "example": ":m Un conjunto finito tiene una cantidad limitada de elementos, mientras que un conjunto infinito tiene elementos sin fin, como los números naturales. En computación, los finitos representan recursos reales y los infinitos, modelos teóricos.",
+    "description": ":m Un conjunto es una colección de objetos bien definidos, llamados **elementos**\n- **Conjunto finito:** tiene un número limitado de elementos, por ejemplo, $A = {1, 2, 3, 4}$.\n- **Conjunto infinito:** no tiene fin en el número de elementos, por ejemplo, $\\mathbb{N} = {1, 2, 3, \\dots}$.\n**Interpretación:**\nEn computación, los conjuntos **finitos** representan recursos limitados (como memoria o datos), mientras que los **infinitos** modelan procesos teóricos o matemáticos sin límite.\n",
+    "prompt": "¿Cuál es la diferencia principal entre un conjunto finito y uno infinito?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\12-teoriagrupos.md",
+    "reference_line": 2,
+    "module_name": "2-abstract-algebra",
+    "category": "teoriagrupos"
+  },
+  {
+    "term": "2 - Estructuras algebraicas",
+    "example": ":m Una estructura algebraica combina un conjunto no vacío con una o más operaciones cerradas sobre él, es decir, al aplicar la operación a elementos del conjunto, el resultado también pertenece al conjunto.",
+    "description": ":m Una **estructura algebraica** está formada por un conjunto no vacío $A$ y una o más operaciones definidas sobre él.\nUna **operación** es una función que combina elementos del conjunto para producir otro elemento del mismo conjunto.\nEjemplo: en los enteros $\\mathbb{Z}$ con la suma $(+)$, la operación $a + b$ produce otro entero.\n",
+    "prompt": "¿Qué caracteriza a una estructura algebraica?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\12-teoriagrupos.md",
+    "reference_line": 18,
+    "module_name": "2-abstract-algebra",
+    "category": "teoriagrupos"
+  },
+  {
+    "term": "3 - Monoide",
+    "example": ":m Debe tener una operación binaria cerrada, ser asociativa y poseer un elemento neutro que no altere los resultados de la operación. Ejemplo: $(\\mathbb{N}, +, 0)$.",
+    "description": ":m Un **monoide** es una estructura algebraica $(M, ∗)$ que cumple:\n1. $M$ es un conjunto no vacío.\n2. $∗$ es una **operación binaria cerrada** en $M$.\n3. La operación es **asociativa**: $(a ∗ b) ∗ c = a ∗ (b ∗ c)$.\n4. Existe un **elemento neutro** $e ∈ M$ tal que $a ∗ e = e ∗ a = a$, para todo $a ∈ M$.\n**Ejemplo:** $(\\mathbb{N}, +)$ es un monoide con el elemento neutro $0$.\n",
+    "prompt": "¿Cuáles son las condiciones necesarias para que una estructura sea un monoide?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\12-teoriagrupos.md",
+    "reference_line": 31,
+    "module_name": "2-abstract-algebra",
+    "category": "teoriagrupos"
+  },
+  {
+    "term": "4 - Grupo",
+    "example": ":m Cada elemento de un grupo tiene un inverso, es decir, para cada $a$ existe $a^{-1}$ tal que $a ∗ a^{-1} = e$. En un monoide no todos los elementos tienen inverso.",
+    "description": ":m Un **grupo** $(G, ∗)$ es un **monoide** en el que cada elemento tiene un inverso.\nCondiciones:\n1. $(G, ∗)$ es un monoide.\n2. Todo $a ∈ G$ tiene un inverso $a^{-1}$ tal que $a ∗ a^{-1} = a^{-1} ∗ a = e$.\n**Ejemplo:** $(\\mathbb{Z}, +)$ con el neutro $0$ y el inverso de $a$ dado por $-a$.\n",
+    "prompt": "¿Qué propiedad adicional distingue a un grupo de un monoide?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\12-teoriagrupos.md",
+    "reference_line": 45,
+    "module_name": "2-abstract-algebra",
+    "category": "teoriagrupos"
+  },
+  {
+    "term": "5 - Anillo",
+    "example": ":m Debe tener una suma que forme un grupo abeliano, una multiplicación que forme un monoide y la multiplicación debe ser distributiva respecto de la suma.",
+    "description": ":m Un **anillo** $(A, +, \\cdot)$ es un conjunto con dos operaciones binarias que cumplen:\n1. $(A, +)$ es un **grupo abeliano** (la suma es conmutativa y tiene inversos).\n2. $(A, \\cdot)$ es un **monoide** (tiene asociatividad y elemento neutro multiplicativo).\n3. Se cumple la **distributividad**:\n$$a \\cdot (b + c) = a \\cdot b + a \\cdot c$$\n**Ejemplo:** $(\\mathbb{Z}, +, \\cdot)$, los enteros con suma y multiplicación.\n",
+    "prompt": "¿Qué tres propiedades definen a un anillo?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\12-teoriagrupos.md",
+    "reference_line": 62,
+    "module_name": "2-abstract-algebra",
+    "category": "teoriagrupos"
+  },
+  {
+    "term": "6 - Cuerpo",
+    "example": ":m Que todo elemento no nulo tenga inverso multiplicativo, además de que la multiplicación sea conmutativa y exista un elemento unidad.",
+    "description": ":m Un **cuerpo** $(K, +, \\cdot)$ es un **anillo conmutativo con unidad**, donde todo elemento no nulo tiene un **inverso multiplicativo**.\n**Ejemplo:** Los números racionales $(\\mathbb{Q}, +, \\cdot)$ forman un cuerpo, pues todo número distinto de 0 tiene inverso.\n",
+    "prompt": "¿Qué propiedad convierte a un anillo en un cuerpo?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\12-teoriagrupos.md",
+    "reference_line": 80,
+    "module_name": "2-abstract-algebra",
+    "category": "teoriagrupos"
+  },
+  {
+    "term": "7 - Estructuras discretas",
+    "example": ":m Que sus elementos cambian en pasos separados, no de forma continua. Se usan para representar datos finitos o contables, como en programación y lógica.",
+    "description": ":m Las **estructuras discretas** no varían de manera continua, sino por **valores o pasos separados**.\nSon fundamentales en la matemática computacional, donde los datos y operaciones son finitos o contables.\n**Ejemplos:** conjuntos finitos, números enteros, grafos, autómatas.\n",
+    "prompt": "¿Qué caracteriza a una estructura discreta?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\12-teoriagrupos.md",
+    "reference_line": 93,
+    "module_name": "2-abstract-algebra",
+    "category": "teoriagrupos"
+  },
+  {
+    "term": "8 - Grupos finitos y discretos",
+    "example": ":m Que contiene un número limitado de elementos y cada uno tiene un inverso. Ejemplo: el grupo de permutaciones $S_n$.",
+    "description": ":m Un **grupo finito** tiene un número limitado de elementos.\nSu estudio es clave en **simetrías, combinatoria y criptografía**.\n**Ejemplo:** El grupo de permutaciones $S_n$, formado por todas las maneras de reordenar $n$ elementos.\n",
+    "prompt": "¿Qué define a un grupo finito?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\12-teoriagrupos.md",
+    "reference_line": 107,
+    "module_name": "2-abstract-algebra",
+    "category": "teoriagrupos"
+  },
+  {
+    "term": "9 - Grafos",
+    "example": ":m Un grafo es el par $G = (V, E)$ formado por vértices y aristas que los conectan. Representa relaciones entre objetos, como rutas, amigos o nodos de red.",
+    "description": ":m Un **grafo** es un par $G = (V, E)$ donde:\n![[Pasted image 20251022064546.png]]\n* $V$ es el conjunto de **vértices**.\n* $E ⊆ {{u, v} : u, v ∈ V, u ≠ v}$ es el conjunto de **aristas** que conectan vértices.\n**Interpretación:** Los grafos modelan relaciones o conexiones: redes sociales, transporte, circuitos, etc.\n",
+    "prompt": "¿Cómo se define un grafo y qué representa?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\12-teoriagrupos.md",
+    "reference_line": 121,
+    "module_name": "2-abstract-algebra",
+    "category": "teoriagrupos"
+  },
+  {
+    "term": "10 - Demostración con ejemplos de que $$(\\mathbb{Z}, +)$$ es un grupo",
+    "example": ":m\n* Cerradura: $3 + (-5) = -2 ∈ \\mathbb{Z}$\n* Asociatividad: $(2 + 3) + 4 = 9 = 2 + (3 + 4)$\n* Neutro: $7 + 0 = 7$\n* Inverso: $5 + (-5) = 0$",
+    "description": ":m Veamos con **números concretos** que se cumplen las propiedades.\n1️⃣ **Cerradura**\nEjemplo: $3 + (-5) = -2 \\in \\mathbb{Z}$\n→ la suma de dos enteros sigue siendo un número entero.\n2️⃣ **Asociatividad**\nEjemplo:\n$$(2 + 3) + 4 = 5 + 4 = 9$$\n$$2 + (3 + 4) = 2 + 7 = 9$$\n→ el resultado no depende de cómo se agrupen los sumandos.\n3️⃣ **Elemento neutro**\nEjemplo:\n$$7 + 0 = 7 \\quad \\text{y} \\quad 0 + 7 = 7$$\n→ el cero no cambia el valor del número.\n4️⃣ **Elemento inverso**\nEjemplo:\n$$5 + (-5) = 0 \\quad \\text{y} \\quad (-5) + 5 = 0$$\n→ cada número tiene un opuesto que lo anula con la suma.\n✅ **Conclusión:** $(\\mathbb{Z}, +)$ cumple todos los axiomas, por tanto es un grupo.\n",
+    "prompt": "¿Qué ejemplos numéricos muestran que $(\\mathbb{Z}, +)$ cumple los axiomas de grupo?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\12-teoriagrupos.md",
+    "reference_line": 136,
+    "module_name": "2-abstract-algebra",
+    "category": "teoriagrupos"
+  },
+  {
+    "term": "11 - Demostración con ejemplos de que $(\\mathbb{Z}, +, \\cdot)$ es un anillo",
+    "example": ":m * Cerradura: $(-3)·4=-12∈\\mathbb{Z}$\n* Asociatividad: $(2·3)·4=24=2·(3·4)$\n* Distributividad: $2·(3+4)=14=2·3+2·4$\n* $(\\mathbb{Z},+)$ es grupo abeliano: $2+3=3+2$",
+    "description": ":m 1️⃣ **$(\\mathbb{Z}, +)$ es grupo abeliano**\nYa visto: $2 + 3 = 5 = 3 + 2$.\n2️⃣ **Cerradura del producto**\nEjemplo: $(-3) \\cdot 4 = -12 ∈ \\mathbb{Z}$.\n→ el producto de dos enteros también es entero.\n3️⃣ **Asociatividad del producto**\nEjemplo:\n$$(2 \\cdot 3) \\cdot 4 = 6 \\cdot 4 = 24$$\n$$2 \\cdot (3 \\cdot 4) = 2 \\cdot 12 = 24$$\n→ el resultado no depende del orden de agrupación.\n4️⃣ **Distributividad**\nEjemplo:\n$$2 \\cdot (3 + 4) = 2 \\cdot 7 = 14$$\n$$2 \\cdot 3 + 2 \\cdot 4 = 6 + 8 = 14$$\n→ se cumple la propiedad distributiva.\n✅ **Conclusión:** $(\\mathbb{Z}, +, \\cdot)$ es un **anillo** porque cumple las condiciones de suma, producto y distributividad.\n",
+    "prompt": "¿Cómo se verifican los axiomas del anillo $(\\mathbb{Z}, +, \\cdot)$ con ejemplos numéricos?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\12-teoriagrupos.md",
+    "reference_line": 173,
+    "module_name": "2-abstract-algebra",
+    "category": "teoriagrupos"
+  },
+  {
+    "term": "12 - Demostración con ejemplos de que $$(G = {z ∈ \\mathbb{C} : |z| = 1}, ·)$$ es un grupo",
+    "example": ":m\n* **Cerradura:** $|i| = |−1| = 1$ ⇒ $|i·(−1)| = |−i| = 1$\n* **Asociatividad:** $(i·(−1))·(−i) = i·((−1)·(−i)) = −1$\n* **Neutro:** $z·1 = 1·z = z$\n* **Inverso:** $i^{-1} = −i$, y $i·(−i) = 1$\nPor tanto, $(G,·)$ es grupo.",
+    "description": ":m El conjunto $G$ está formado por todos los **números complejos sobre el círculo unitario**, es decir, aquellos cuya magnitud es $1$:\n$$G = {z \\in \\mathbb{C} : |z| = 1}$$\n1️⃣ **Cerradura**\nSi $|z| = 1$ y $|w| = 1$, entonces\n$$|zw| = |z||w| = 1 \\cdot 1 = 1$$\n**Ejemplo:**\nSea $z = e^{i\\pi/2} = i$ y $w = e^{i\\pi} = -1$.\nEntonces $zw = i \\cdot (-1) = -i$ y $|-i| = 1$.\n→ $zw \\in G$.\n2️⃣ **Asociatividad**\nLa multiplicación compleja cumple\n$$(z \\cdot w) \\cdot u = z \\cdot (w \\cdot u)$$\n**Ejemplo:**\n$$(i \\cdot (-1)) \\cdot (-i) = (-i) \\cdot (-i) = -1$$\n$$i \\cdot ((-1) \\cdot (-i)) = i \\cdot i = -1$$\n→ iguales, se cumple la asociatividad.\n3️⃣ **Elemento neutro**\n$$1 \\in G$$ ya que $|1| = 1$ y\n$$z \\cdot 1 = 1 \\cdot z = z$$\n**Ejemplo:**\nPara $z = i$,\n$$i \\cdot 1 = i$$ y $$1 \\cdot i = i.$$\n4️⃣ **Elemento inverso**\nSi $|z| = 1$, entonces su inverso también tiene módulo $1$:\n$$|z^{-1}| = \\frac{1}{|z|} = 1$$\n**Ejemplo:**\nPara $z = i$,\n$$z^{-1} = \\frac{1}{i} = -i,$$\ny $|z^{-1}| = 1$, además\n$$i \\cdot (-i) = 1.$$\n✅ **Conclusión:** Se cumplen las propiedades de cerradura, asociatividad, neutro e inverso.\nPor lo tanto, $$(G, ·)$$ es un **grupo multiplicativo de módulo 1**.\n",
+    "prompt": "¿Cómo se demuestra con ejemplos que $(G = {z ∈ \\mathbb{C} : |z| = 1}, ·)$ forma un grupo?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\12-teoriagrupos.md",
+    "reference_line": 205,
+    "module_name": "2-abstract-algebra",
+    "category": "teoriagrupos"
+  },
+  {
+    "term": "13 - Homomorfismo canónico $$(\\mathbb{Z}\\to \\mathbb{Z}_n)$$",
+    "example": ":m Porque preserva ambas operaciones y la unidad: $$f(x+y)=[x+y]=[x]+[y],\\quad f(xy)=[xy]=[x]\\cdot [y],\\quad f(1)=[1].$$ Además, $$\\ker f=n\\mathbb{Z}$$ y la imagen es todo $$\\mathbb{Z}_n$$, confirmando la compatibilidad estructural.",
+    "description": ":m **Descripción:** La aplicación $$f:\\ (\\mathbb{Z},+,\\cdot)\\to (\\mathbb{Z}_n,+,\\cdot)$$ dada por $$f(x)=[x]$$ (clase de residuo módulo $$n$$) traduce suma en suma módulo $$n$$ y producto en producto módulo $$n$$. Preserva la **unidad** $$1\\mapsto [1]$$, por lo que es homomorfismo de **anillos con unidad**. Contexto útil: $$\\ker f=n\\mathbb{Z}$$ y $$\\operatorname{Im}f=\\mathbb{Z}_n$$ (sobreyectiva), induciendo el isomorfismo de primer isomorfismo $$\\mathbb{Z}/n\\mathbb{Z}\\cong \\mathbb{Z}_n$$.\nEjemplos (con $$n=5$$): $$f(7)=[7]=[2]$$, $$f(7+4)=[11]=[1]=[7]+[4]$$, $$f(3\\cdot 6)=[18]=[3]\\cdot[6]=[4]$$.",
+    "prompt": "¿Por qué $$f(x)=[x]$$ es un homomorfismo de anillos entre $$(\\mathbb{Z},+,\\cdot)$$ y $$(\\mathbb{Z}_n,+,\\cdot)$$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\12-teoriagrupos.md",
+    "reference_line": 255,
+    "module_name": "2-abstract-algebra",
+    "category": "teoriagrupos"
+  },
+  {
+    "term": "14 - Grupo multiplicativo en $$\\mathbb{Q}(\\sqrt{2})$$: el conjunto $$G-{0}$$",
+    "example": ":m Porque: **cerradura** $$(a+b\\sqrt{2})(c+d\\sqrt{2})=(ac+2bd)+(ad+bc)\\sqrt{2}\\in G,$$ **asociatividad** heredada, **neutro** $$1$$, e **inverso** por conjugación y norma: $$ (a+b\\sqrt{2})^{-1}=\\dfrac{a-b\\sqrt{2}}{a^2-2b^2}\\in G,$$ con $$a^2-2b^2\\neq 0$$ si $$a+b\\sqrt{2}\\neq 0$$.",
+    "description": ":m **Descripción:** Sea $$G={a+b\\sqrt{2},:,a,b\\in\\mathbb{Q}}$$. Con el producto usual, los **no nulos** forman un grupo: la cerradura es inmediata, la asociatividad viene de $$\\mathbb{R}$$, el neutro es $$1=1+0\\sqrt{2}$$, y los inversos existen vía el **conjugado** y la **norma** $$N(a+b\\sqrt{2})=a^2-2b^2\\in\\mathbb{Q}$$:\n$$ (a+b\\sqrt{2})^{-1}=\\frac{a-b\\sqrt{2}}{a^2-2b^2}\\in G,$$\ndonde $$a^2-2b^2\\neq 0$$ si $$a+b\\sqrt{2}\\neq 0$$ (pues implicaría $$\\sqrt{2}\\in\\mathbb{Q}$$). Ejemplo: para $$x=1+2\\sqrt{2}$$, $$N(x)=1-8=-7$$ y $$x^{-1}=\\frac{1-2\\sqrt{2}}{-7}=-\\frac{1}{7}+\\frac{2}{7}\\sqrt{2}\\in G$$.",
+    "prompt": "¿Por qué $$(G-{0},\\cdot)$$ es un grupo y cómo se obtiene el inverso de $$a+b\\sqrt{2}$$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\12-teoriagrupos.md",
+    "reference_line": 266,
+    "module_name": "2-abstract-algebra",
+    "category": "teoriagrupos"
+  },
+  {
+    "term": "15 - $$\\mathrm{GL}(2,\\mathbb{R})$$ con multiplicación de matrices",
+    "example": ":m Grupo: **cerradura** (producto de determinantes no nulos), **asociatividad** (propia de matrices), **identidad** $$I$$, e **inverso** $$A^{-1}$$ si $$\\det A\\neq 0$$. No es abeliano porque existen matrices invertibles con $$AB\\neq BA$$ (p. ej., las dadas en la descripción).",
+    "description": ":m **Descripción:** $$\\mathrm{GL}(2,\\mathbb{R})={A\\in M_{2\\times 2}(\\mathbb{R})\\ :\\ \\det A\\neq 0}$$ es el grupo de matrices **invertibles**. Es un grupo (no abeliano) bajo multiplicación: **cerradura** por $$\\det(AB)=\\det A\\cdot \\det B\\neq 0$$, **asociatividad** matricial, **identidad** $$I=\\begin{pmatrix}1&0\\0&1\\end{pmatrix}$$, e **inversos** por la existencia de $$A^{-1}$$ cuando $$\\det A\\neq 0$$ (p. ej., por adjunta/gauss). No es conmutativo: por ejemplo,\n$$A=\\begin{pmatrix}1&1\\0&1\\end{pmatrix},\\ \\ B=\\begin{pmatrix}1&0\\1&1\\end{pmatrix}\\ \\Rightarrow\\ AB\\neq BA.$$",
+    "prompt": "¿Cómo se justifica que $$\\mathrm{GL}(2,\\mathbb{R})$$ forma un grupo y que no es abeliano?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\12-teoriagrupos.md",
+    "reference_line": 278,
+    "module_name": "2-abstract-algebra",
+    "category": "teoriagrupos"
+  },
+  {
     "term": "1 - Negations Problems",
     "example": ":m 4. If not all x accomplish function then exists one x where not returns functions\n5. If not exists one that accomplishes P(x) then all x doesnt accomplish F(x)\n6. Means there is a unique x such that p(x) holds",
     "description": ":m Given the following\n1. $\\neg \\forall x P(x, y) \\equiv \\exists x \\neg P(x, y)$\n2. $\\neg \\exists x P(x) \\equiv \\forall x \\neg P(x)$\n3. $\\exists!x P(x)$ ",
@@ -988,5 +1488,175 @@
     "reference_line": 441,
     "module_name": "2-abstract-algebra",
     "category": "aiandalgebra"
+  },
+  {
+    "term": "1 - Capa Convolucional",
+    "example": ":m Aplica un filtro (kernel) sobre la imagen para obtener un **mapa de características**, detectando patrones locales como bordes o texturas.",
+    "description": ":m La **convolución** aplica un _kernel_ (filtro) sobre la imagen para extraer características como bordes, texturas o esquinas.\nFórmula del tamaño de salida:\n$$\nO = (i - k) + 1\n$$\ndonde:\n- ( i ): tamaño de la entrada\n- ( k ): tamaño del kernel",
+    "prompt": "¿Qué operación realiza una capa convolucional en una CNN?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\8-neuralnetoworks.md",
+    "reference_line": 10,
+    "module_name": "2-abstract-algebra",
+    "category": "neuralnetoworks"
+  },
+  {
+    "term": "2 - Stride (Desplazamiento)",
+    "example": ":m El filtro salta más píxeles por paso, reduciendo el tamaño del mapa resultante y, por tanto, **disminuyendo la resolución espacial**.",
+    "description": ":m El **stride** define cuánto se mueve el filtro al recorrer la imagen.\nFórmula del tamaño de salida:\n$$\nO = \\frac{i - k}{s} + 1\n$$\ndonde ( s ) es el stride.",
+    "prompt": "¿Qué ocurre si aumentamos el valor del stride en una CNN?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\8-neuralnetoworks.md",
+    "reference_line": 28,
+    "module_name": "2-abstract-algebra",
+    "category": "neuralnetoworks"
+  },
+  {
+    "term": "3 - Padding (Relleno)",
+    "example": ":m Para **preservar el tamaño original** de la imagen y evitar la pérdida de información en los bordes durante la convolución.",
+    "description": ":m El **padding** agrega píxeles (generalmente ceros) alrededor de la imagen para conservar su tamaño después de la convolución.\nFórmula del tamaño de salida:\n$$\nO = \\frac{i - k + 2p}{s} + 1\n$$\ndonde ( p ) es la cantidad de píxeles de relleno.\n",
+    "prompt": "¿Por qué se utiliza padding en CNNs?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\8-neuralnetoworks.md",
+    "reference_line": 43,
+    "module_name": "2-abstract-algebra",
+    "category": "neuralnetoworks"
+  },
+  {
+    "term": "4 - Pooling (Submuestreo)",
+    "example": ":m Reduce la dimensionalidad del mapa de características, manteniendo la información más significativa y mejorando la **invarianza espacial**.",
+    "description": ":m El **pooling** reduce el tamaño del mapa de características conservando la información más relevante.\n- **Max pooling:** toma el valor máximo en cada ventana.\n- **Average pooling:** toma el promedio.",
+    "prompt": "¿Qué función cumple el pooling en una CNN?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\8-neuralnetoworks.md",
+    "reference_line": 59,
+    "module_name": "2-abstract-algebra",
+    "category": "neuralnetoworks"
+  },
+  {
+    "term": "5 - Flatten",
+    "example": ":m Porque las **capas densas** requieren entradas vectoriales; flatten transforma la salida 2D en una estructura lineal.",
+    "description": ":m Convierte los mapas 2D en un vector 1D para alimentar las capas totalmente conectadas.\n",
+    "prompt": "¿Por qué es necesario el paso de flatten en una CNN?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\8-neuralnetoworks.md",
+    "reference_line": 71,
+    "module_name": "2-abstract-algebra",
+    "category": "neuralnetoworks"
+  },
+  {
+    "term": "6 - Fully Connected Layer (FC)",
+    "example": ":m Combina las características extraídas por las capas anteriores para **clasificar** la entrada en una de las categorías de salida.",
+    "description": ":m Estas capas realizan la **clasificación final**. Cada neurona está conectada con todas las neuronas de la capa anterior.\n",
+    "prompt": "¿Cuál es la función de la capa fully connected?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\8-neuralnetoworks.md",
+    "reference_line": 82,
+    "module_name": "2-abstract-algebra",
+    "category": "neuralnetoworks"
+  },
+  {
+    "term": "7 - Dropout",
+    "example": ":m Previene el **sobreajuste**, obligando a la red a no depender de neuronas específicas y mejorar la generalización.",
+    "description": ":m Durante el entrenamiento, el dropout **apaga aleatoriamente algunas neuronas** para evitar sobreajuste.\n",
+    "prompt": "¿Qué ventaja aporta la capa Dropout en CNNs?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\8-neuralnetoworks.md",
+    "reference_line": 93,
+    "module_name": "2-abstract-algebra",
+    "category": "neuralnetoworks"
+  },
+  {
+    "term": "8 - Funciones de Activación",
+    "example": ":m La **ReLU**, porque acelera el entrenamiento y reduce el problema del gradiente desvanecido.",
+    "description": ":m Deciden si una neurona se activa o no, introduciendo no linealidad:\n- **ReLU:** ( f(x)=\\max(0,x) ) → evita activar todas las neuronas.\n- **Sigmoid:** para clasificación binaria.\n- **tanh:** similar a Sigmoid pero centrada en cero.\n- **Softmax:** convierte la salida final en probabilidades.\n",
+    "prompt": "¿Qué función de activación se usa normalmente en las capas intermedias de una CNN?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\8-neuralnetoworks.md",
+    "reference_line": 104,
+    "module_name": "2-abstract-algebra",
+    "category": "neuralnetoworks"
+  },
+  {
+    "term": "9 - Ejemplo de flujo CNN (pseudocódigo)",
+    "example": ":m 1. **Conv2D:** extrae 32 características locales con un filtro 3×3.\n2. **ReLU:** introduce no linealidad.\n3. **MaxPool:** reduce la dimensión a la mitad.\n4. **Flatten:** transforma el mapa 2D en vector 1D.\n5. **Dense:** combina las características en 128 neuronas.\n6. **Softmax:** genera probabilidades para 10 clases.",
+    "description": ":m ```python\ninput = imagen(64, 64, 3)\nconv1 = Conv2D(filters=32, kernel=3, stride=1, padding=1)(input)\nrelu1 = ReLU()(conv1)\npool1 = MaxPool2D(kernel=2, stride=2)(relu1)\nflat = Flatten()(pool1)\ndense = Dense(units=128)(flat)\noutput = Softmax(num_classes=10)(dense)\n```\n",
+    "prompt": "Explica paso a paso qué hace este pseudocódigo",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\8-neuralnetoworks.md",
+    "reference_line": 120,
+    "module_name": "2-abstract-algebra",
+    "category": "neuralnetoworks"
+  },
+  {
+    "term": "10 - Convolution as Matrix Multiplication",
+    "example": ":m La convolución puede verse como una **multiplicación entre una matriz de pesos (kernel)** y **submatrices de la imagen**, sumando los productos elemento a elemento.",
+    "description": ":m La convolución en una CNN puede representarse como una **multiplicación matricial**, donde el kernel se aplica sobre subregiones de la imagen (ventanas).\nEl proceso se puede visualizar como:\n$$\nY = K * I\n$$\ndonde ( I ) es la matriz de la imagen, ( K ) es el kernel y ( Y ) es la salida.\n",
+    "prompt": "¿Cómo se relaciona la operación de convolución con las matrices?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\8-neuralnetoworks.md",
+    "reference_line": 146,
+    "module_name": "2-abstract-algebra",
+    "category": "neuralnetoworks"
+  },
+  {
+    "term": "11 - Ejemplo de Convolución en Forma Matricial",
+    "example": ":m $$\n1(1) + 2(0) + 4(0) + 5(-1) = 1 - 5 = -4\n$$",
+    "description": ":m Si ( I ) es una imagen ( 3 \\times 3 ) y el kernel ( K ) es ( 2 \\times 2 ):\n$$\nI =\n\\begin{bmatrix}\n1 & 2 & 3\\\n4 & 5 & 6\\\n7 & 8 & 9\n\\end{bmatrix},\n\\quad\nK =\n\\begin{bmatrix}\n1 & 0\\\n0 & -1\n\\end{bmatrix}\n$$\nLa convolución toma submatrices de ( I ), multiplica por ( K ), y suma los resultados.",
+    "prompt": "¿Cuál es el resultado de aplicar este kernel a la esquina superior izquierda de ( I )?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\8-neuralnetoworks.md",
+    "reference_line": 162,
+    "module_name": "2-abstract-algebra",
+    "category": "neuralnetoworks"
+  },
+  {
+    "term": "12 - Kernel como Matriz de Pesos",
+    "example": ":m Porque la **misma matriz ( K )** se aplica en todas las posiciones de la imagen, reduciendo el número total de parámetros y aprovechando **invariancia espacial**.",
+    "description": ":m El kernel ( K ) actúa como una **matriz de pesos compartidos**. Cada valor del kernel se multiplica con los valores de la imagen en la misma posición, y se suman para formar un único valor de salida.\n",
+    "prompt": "¿Por qué se dice que el kernel usa “pesos compartidos”?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\8-neuralnetoworks.md",
+    "reference_line": 189,
+    "module_name": "2-abstract-algebra",
+    "category": "neuralnetoworks"
+  },
+  {
+    "term": "13 - Representación Lineal de la Convolución",
+    "example": ":m Permite implementar la convolución mediante **operaciones de álgebra lineal optimizadas**, aprovechando librerías de GPU y estructuras vectorizadas.",
+    "description": ":m Podemos \"aplanar\" las submatrices de la imagen en vectores, de modo que la convolución completa se convierta en:\n$$\nY = W \\cdot x\n$$\ndonde ( W ) es una matriz construida a partir del kernel, y ( x ) es el vector que representa la imagen.",
+    "prompt": "¿Qué ventaja tiene representar la convolución como multiplicación matricial?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\8-neuralnetoworks.md",
+    "reference_line": 200,
+    "module_name": "2-abstract-algebra",
+    "category": "neuralnetoworks"
+  },
+  {
+    "term": "14 - Pooling y Matrices",
+    "example": ":m Cada bloque de la matriz de entrada se reduce a un solo número, que corresponde al **máximo elemento** de ese bloque, representando una **función de reducción** sobre submatrices.",
+    "description": ":m El pooling también puede representarse como una operación matricial: cada bloque de la imagen se transforma en un solo valor (máximo o promedio).",
+    "prompt": "¿Cómo se puede expresar el max pooling en términos matriciales?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\8-neuralnetoworks.md",
+    "reference_line": 214,
+    "module_name": "2-abstract-algebra",
+    "category": "neuralnetoworks"
+  },
+  {
+    "term": "15 - Ejemplo de Flatten en Forma Matricial",
+    "example": ":m Porque las capas totalmente conectadas operan con **vectores** y multiplicaciones del tipo ( W \\cdot x + b ).",
+    "description": ":m El proceso de flatten convierte una matriz ( m \\times n ) en un vector columna:\n$$\n\\begin{bmatrix}\na & b\\\nc & d\n\\end{bmatrix}\n\\Rightarrow\n\\begin{bmatrix}\na\\\nb\\\nc\\\nd\n\\end{bmatrix}\n$$",
+    "prompt": "¿Qué propósito tiene convertir una matriz en vector antes de la capa densa?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\8-neuralnetoworks.md",
+    "reference_line": 224,
+    "module_name": "2-abstract-algebra",
+    "category": "neuralnetoworks"
+  },
+  {
+    "term": "16 - Multiplicación Matricial en la Capa Fully Connected",
+    "example": ":m Es una **multiplicación matriz-vector**, donde cada neurona corresponde a una fila de ( W ) y produce una combinación lineal de las entradas.",
+    "description": ":m En la capa densa, el vector de entrada se multiplica por una matriz de pesos:\n$$\ny = W \\cdot x + b\n$$\ndonde\n- ( x ): vector de entrada (salida de flatten)\n- ( W ): matriz de peso\n- ( b ): vector de sesgo\n- ( y ): salida",
+    "prompt": "¿Cómo se relaciona la capa fully connected con el álgebra matricial?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\8-neuralnetoworks.md",
+    "reference_line": 247,
+    "module_name": "2-abstract-algebra",
+    "category": "neuralnetoworks"
+  },
+  {
+    "term": "17 - Pseudocódigo del Flujo Matricial",
+    "example": ":m Realiza una **multiplicación elemento a elemento** entre una submatriz de la imagen y el kernel, y **suma los productos** para obtener el primer valor de salida del mapa de características.",
+    "description": ":m ```python\n# Convolución y multiplicación matricial\nI = [[1,2,3],\n[4,5,6],\n[7,8,9]]\nK = [[1,0],\n[0,-1]]\n# Ejemplo simple\nout11 = 1*1 + 2*0 + 4*0 + 5*(-1) # -4\n```\n",
+    "prompt": "¿Qué hace este pseudocódigo en términos matriciales?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\8-neuralnetoworks.md",
+    "reference_line": 266,
+    "module_name": "2-abstract-algebra",
+    "category": "neuralnetoworks"
   }
 ]

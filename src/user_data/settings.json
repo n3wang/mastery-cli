@@ -122,5 +122,12 @@
 			"school-focus"
 		]
 	},
-	"flashcard_markdown_file": "current-quiz.md"
+	"flashcard_markdown_file": "current-quiz.md",
+	"daily_deck_configuration": {
+		"enabled": true,
+		"cards_per_deck": 5,
+		"max_total_cards": 20,
+		"auto_prepare_week": true,
+		"days_to_keep": 30
+	}
 }

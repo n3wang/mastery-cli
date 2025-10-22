@@ -1710,6 +1710,56 @@
     "category": "agasesejercicios"
   },
   {
+    "term": "1 - Equilibrio Químico",
+    "example": ":m Significa que las velocidades de las reacciones directa e inversa son iguales ($v_1 = v'_1$), por lo que las concentraciones de reactivos y productos se mantienen constantes, aunque ambas reacciones sigan ocurriendo simultáneamente.",
+    "description": ":m El **equilibrio químico** ocurre cuando una **reacción reversible** (que puede avanzar y retroceder) alcanza un punto donde **las velocidades de reacción directa ($v_1$)** y **reversa ($v'_1$)** son **iguales**:\n$$v_1 = v'_1$$\nEsto **no significa que las reacciones se detengan**, sino que las **concentraciones de reactivos y productos permanecen constantes** en el tiempo.\nPor eso se dice que es un **equilibrio dinámico**, ya que ambas reacciones siguen ocurriendo a igual velocidad.\n**Ejemplo:**\nEl sistema del dióxido y tetróxido de dinitrógeno:\n$$\\mathrm{N_2O_4(g)} \\rightleftharpoons 2,\\mathrm{NO_2(g)}$$\n- **Directa:** disociación del $\\mathrm{N_2O_4}$ (reacción endotérmica)\n- **Inversa:** recombinación de $\\mathrm{NO_2}$ (reacción exotérmica)\nVisualmente:\n- A bajas temperaturas, predomina el $\\mathrm{N_2O_4}$ (gas incoloro).\n- A altas temperaturas, aumenta el $\\mathrm{NO_2}$ (gas marrón).\n",
+    "prompt": "¿Qué significa que una reacción esté en equilibrio químico dinámico?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\8-equilibrio-quimico.md",
+    "reference_line": 30,
+    "module_name": "5-quimica",
+    "category": "equilibrioquimico"
+  },
+  {
+    "term": "2 - Relación entre $K_c$ y $K_p$",
+    "example": ":m La relación es $K_p = K_c (RT)^{\\Delta n}$, donde $\\Delta n$ es la diferencia entre los moles gaseosos de productos y de reactivos.\n$K_p$ usa presiones parciales y $K_c$ usa concentraciones molares.",
+    "description": ":m En equilibrio químico, la constante puede expresarse de dos formas:\n- **$K_c$:** usando **concentraciones molares (mol/L)**\n- **$K_p$:** usando **presiones parciales (atm o Pa)**\nLa relación entre ambas es:\n$$K_p = K_c (RT)^{\\Delta n}$$\ndonde:\n- $R$ = constante de los gases ($0.0821,\\mathrm{L·atm·mol^{-1}·K^{-1}}$)\n- $T$ = temperatura absoluta (K)\n- $\\Delta n = (n_{\\text{productos gaseosos}} - n_{\\text{reactivos gaseosos}})$\n💡 **Interpretación:**\n- Si $\\Delta n = 0$, entonces $K_p = K_c$\n- Si $\\Delta n > 0$, el equilibrio favorece productos gaseosos a mayor presión\n- Si $\\Delta n < 0$, el equilibrio favorece reactivos gaseosos\n**Ejemplo:**\n$$\\mathrm{N_2O_4(g)} \\rightleftharpoons 2,\\mathrm{NO_2(g)}$$\nAquí $\\Delta n = 2 - 1 = 1$,\npor lo tanto:\n$$K_p = K_c (RT)^1$$\n",
+    "prompt": "¿Cuál es la relación general entre $K_p$ y $K_c$ y qué representa $\\Delta n$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\8-equilibrio-quimico.md",
+    "reference_line": 66,
+    "module_name": "5-quimica",
+    "category": "equilibrioquimico"
+  },
+  {
+    "term": "3 - Principio de Le Chatelier–Braun",
+    "example": ":m Establece que, ante una perturbación en un sistema en equilibrio (como cambios de concentración, presión o temperatura), el sistema se ajusta para contrarrestarla, desplazando el equilibrio en la dirección que reduzca el efecto del cambio.",
+    "description": ":m El **principio de Le Chatelier–Braun** establece que:\n> Si un sistema en equilibrio sufre una **perturbación externa** (como un cambio en **concentración**, **presión** o **temperatura**), el sistema se ajusta de tal forma que **contrarresta ese cambio**, estableciendo un **nuevo equilibrio**.\n💡 **En otras palabras:**\nEl equilibrio **se desplaza** en la dirección que **reduce el efecto** del cambio aplicado.\n**Tipos de perturbaciones:**\n1. **Cambio de concentración:**\n- Aumentar un reactivo → el equilibrio se desplaza hacia los **productos**\n- Aumentar un producto → se desplaza hacia los **reactivos**.\n2. **Cambio de presión (solo en gases):**\n- Aumentar la presión → el equilibrio se desplaza hacia el lado con **menos moles gaseosos**.\n- Disminuir la presión → se desplaza hacia el lado con **más moles gaseosos**.\n3. **Cambio de temperatura:**\n- En una reacción **endotérmica**, aumentar $T$ favorece los **productos**.\n- En una reacción **exotérmica**, aumentar $T$ favorece los **reactivos**.\n**Ejemplo:**\n$$\\mathrm{N_2O_4(g)} \\rightleftharpoons 2,\\mathrm{NO_2(g)} \\quad \\Delta H > 0$$\n→ Al aumentar la temperatura, el equilibrio se desplaza hacia la derecha (más $\\mathrm{NO_2}$).",
+    "prompt": "¿Qué establece el principio de Le Chatelier–Braun y qué tipos de cambios pueden alterar un equilibrio químico?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\8-equilibrio-quimico.md",
+    "reference_line": 103,
+    "module_name": "5-quimica",
+    "category": "equilibrioquimico"
+  },
+  {
+    "term": "4 - Efecto de la Presión en el Equilibrio",
+    "example": ":m Aumentar la presión desplaza el equilibrio hacia el lado con menos moles gaseosos; disminuir la presión lo desplaza hacia el lado con más moles gaseosos. Solo influye en reacciones con gases.",
+    "description": ":m El **cambio de presión** afecta únicamente a los **sistemas gaseosos**, ya que depende del número de **moles de gas** presentes.\n📘 **Reglas generales:**\n- Si **aumenta la presión**, el equilibrio se desplaza hacia el **lado con menos moles gaseosos**, para **reducir la presión interna**.\n- Si **disminuye la presión**, el equilibrio se desplaza hacia el **lado con más moles gaseosos**, para **aumentar la presión interna**.\n- Si **$\\Delta n = 0$** (igual número de moles gaseosos en ambos lados), **la presión no afecta el equilibrio**.\n**Ejemplo:**\n$$\\mathrm{N_2(g)} + 3,\\mathrm{H_2(g)} \\rightleftharpoons 2,\\mathrm{NH_3(g)}$$\n- Moles gaseosos en reactivos: $1 + 3 = 4$\n- Moles gaseosos en productos: $2$\n💡 **Al aumentar la presión**, el equilibrio se **desplaza hacia la derecha**, favoreciendo la **formación de $\\mathrm{NH_3}$** (menos moles gaseosos).\n",
+    "prompt": "¿Cómo afecta un aumento o disminución de presión a un equilibrio químico gaseoso?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\8-equilibrio-quimico.md",
+    "reference_line": 138,
+    "module_name": "5-quimica",
+    "category": "equilibrioquimico"
+  },
+  {
+    "term": "5 - Factores que **No Afectan** el Equilibrio Químico",
+    "example": ":m Porque aceleran por igual las reacciones directa e inversa, haciendo que el sistema llegue al equilibrio más rápido, pero sin cambiar las concentraciones de equilibrio ni el valor de $K$.",
+    "description": ":m Algunos factores pueden **modificar la velocidad** con que se alcanza el equilibrio, pero **no alteran su posición** ni las **concentraciones finales** de reactivos y productos.\n- **Aceleran** tanto la reacción directa como la inversa **por igual**.\n- **No modifican $K_c$ ni $K_p$**, solo permiten alcanzar el equilibrio **más rápido**.\n📘 **2. Cambios de volumen (sin gases):**\n- Solo afectan **reacciones gaseosas** donde cambian los **moles de gas**.\n- En sistemas **sin gases**, variar el volumen **no cambia el equilibrio**.\n**Ejemplo:**\nEn una reacción acuosa o sólida, como\n$$\\mathrm{AgCl_{(s)} \\rightleftharpoons Ag^+_{(ac)} + Cl^-_{(ac)}}$$\nni la presión ni el volumen alteran el equilibrio.\n",
+    "prompt": "¿Por qué los catalizadores no modifican la posición del equilibrio químico?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\8-equilibrio-quimico.md",
+    "reference_line": 209,
+    "module_name": "5-quimica",
+    "category": "equilibrioquimico"
+  },
+  {
     "term": "1 - Ejercicio de nomenclatura inorgánica",
     "example": ":m\n1. **Ácido piroarsénico** → $$\\mathrm{H_4As_2O_7}$$\n![[Pasted image 20250929192354.png]]\n2. **Fosfina** → $$\\mathrm{PH_3}$$\n3. **Pirofosfato de aluminio** → $$\\mathrm{Al_4(P_2O_7)_3}$$\n4. **Hidróxido niqueloso** (Ni²⁺) → $$\\mathrm{Ni(OH)_2}$$\n5. **Óxido nítrico** → $$\\mathrm{NO}$$\n6. **Sulfuro férrico** (Fe³⁺) → $$\\mathrm{Fe_2S_3}$$",
     "description": ":m Para resolver, recordemos:\n* **Ácidos oxoácidos**: se forman con no metales + oxígeno + H.\n* **Hidruros**: elemento + hidrógeno.\n* **Sales**: catión + anión (oxoaniones comunes: fosfatos, pirofosfatos, etc.).\n* **Hidróxidos**: metal + OH⁻.\n* **Óxidos**: combinación de un elemento con oxígeno.\n* **Sulfuros**: metal + S²⁻.\n1. Ácido piroarsénico\n2. Fosfina\n3. Pirofosfato de aluminio\n4. Hidróxido niqueloso\n5. Óxido nítrico\n6. Sulfuro férrico\n",

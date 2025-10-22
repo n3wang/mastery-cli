@@ -398,8 +398,63 @@ class Mastery {
 			},
 			masks: () => {
 				this.manageMasks();
+			},
+			'prepare-week': async () => {
+				await this.prepareWeeklyDecks();
 			}
 		};
+	}
+
+	async prepareWeeklyDecks() {
+		console.log('\n=== Prepare Weekly Study Decks ===\n');
+
+		try {
+			await this.ensureTermsLoaded();
+
+			const { DailyDeckManager } = require('./DailyDeckManager');
+			const dailyDeckConfig = Settings?.daily_deck_configuration || {};
+
+			if (dailyDeckConfig.enabled === false) {
+				console.log('Daily deck feature is disabled in settings.json');
+				return;
+			}
+
+			const cardsPerDeck = dailyDeckConfig.cards_per_deck || 5;
+			const maxTotalCards = dailyDeckConfig.max_total_cards || 20;
+			const daysAhead = 7;
+
+			const dailyDeckManager = new DailyDeckManager(Settings);
+
+			console.log(`Preparing daily decks for the next ${daysAhead} days...`);
+			console.log(`Configuration: ${cardsPerDeck} cards per deck, ${maxTotalCards} cards total per day\n`);
+
+			const generatedDecks = dailyDeckManager.prepareWeekAhead(
+				this.masterDeck,
+				{
+					cardsPerDeck,
+					maxTotalCards,
+					daysAhead
+				}
+			);
+
+			console.log(`\nSuccessfully prepared ${generatedDecks.length} daily decks:\n`);
+
+			for (const deck of generatedDecks) {
+				console.log(`${deck.date}: ${deck.total_cards} cards from ${deck.decks.length} decks`);
+			}
+
+			console.log('\nDaily decks are now ready for the week!');
+			console.log('Run "mastery ses" and select "Today\'s Deck" to start studying.');
+
+			const cleanOld = dailyDeckConfig.days_to_keep || 30;
+			const removed = dailyDeckManager.cleanOldDecks(cleanOld);
+			if (removed > 0) {
+				console.log(`\nCleaned up ${removed} old daily decks (older than ${cleanOld} days)`);
+			}
+
+		} catch (error) {
+			console.error('Error preparing weekly decks:', error.message);
+		}
 	}
 
 	login = async () => {

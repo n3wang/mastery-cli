@@ -1,0 +1,41 @@
+{
+  "lists": [
+    {
+      "id": "c83cefdc-13d7-4ce8-b338-0a7aa7eb7a34",
+      "title": "TODO",
+      "cards": []
+    },
+    {
+      "id": "3d766476-da51-484c-99a0-bc213a7ce5ba",
+      "title": "Doing",
+      "cards": [
+        {
+          "id": "038c07e2-8684-4cdb-b027-8bca0733c6ba",
+          "listId": "3d766476-da51-484c-99a0-bc213a7ce5ba",
+          "title": "Deck Date Preparation",
+          "description": "New cards and decks are added all the time, and is hard to figure out what to study today, I\nwant to design a feature in which when calling maid ses it creates also a specific deck of cards for today, in which it takes 5 cards from a deck until it reaches 20 (defined at config) and can be selected when running maid ses as (today decks) also meanwhile prepare for the rest of the week, and when it comes to tomorrow running it should be the ones that I prepared today, stores the selection in a json as \"10-17-2028\": [...decks information]",
+          "labels": [],
+          "checkboxes": [],
+          "comments": [
+            {
+              "id": "b8e90915-97cb-4867-9afa-db2fd201acab",
+              "comment": "actually when generating todays deck allow the option to choose between 3 random selected \navailable decks, be careful since some decks are inside of other decks like core is inside of data    \n sicence, it should allow the option between thoose, also only random select those decks that have    \n more than 10 cards in them"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5969e69c-fe41-4634-85b5-3cd8c9380974",
+      "title": "Done",
+      "cards": []
+    }
+  ],
+  "archive": {
+    "lists": [],
+    "cards": []
+  },
+  "settings": {
+    "labels": []
+  }
+}
