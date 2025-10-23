@@ -3,19 +3,15 @@
     {
       "id": "c83cefdc-13d7-4ce8-b338-0a7aa7eb7a34",
       "title": "TODO",
+      "cards": []
+    },
+    {
+      "id": "3d766476-da51-484c-99a0-bc213a7ce5ba",
+      "title": "Doing",
       "cards": [
         {
-          "id": "5d630206-8e56-4044-a171-b1f3e075ac9b",
-          "listId": "c83cefdc-13d7-4ce8-b338-0a7aa7eb7a34",
-          "title": "Fix Nested Decks Cache",
-          "description": "Fix Nested Decks Cache\n\n- Currently the dekcs",
-          "labels": [],
-          "checkboxes": [],
-          "comments": []
-        },
-        {
           "id": "038c07e2-8684-4cdb-b027-8bca0733c6ba",
-          "listId": "c83cefdc-13d7-4ce8-b338-0a7aa7eb7a34",
+          "listId": "3d766476-da51-484c-99a0-bc213a7ce5ba",
           "title": "Deck Date Preparation",
           "description": "New cards and decks are added all the time, and is hard to figure out what to study today, I\nwant to design a feature in which when calling maid ses it creates also a specific deck of cards for today, in which it takes 5 cards from a deck until it reaches 20 (defined at config) and can be selected when running maid ses as (today decks) also meanwhile prepare for the rest of the week, and when it comes to tomorrow running it should be the ones that I prepared today, stores the selection in a json as \"10-17-2028\": [...decks information]",
           "labels": [],
@@ -36,24 +32,43 @@
       ]
     },
     {
-      "id": "3d766476-da51-484c-99a0-bc213a7ce5ba",
-      "title": "Doing",
-      "cards": [
-        {
-          "id": "0c5b8adc-afca-41b2-979d-7ee55b76355f",
-          "listId": "3d766476-da51-484c-99a0-bc213a7ce5ba",
-          "title": "Better Visuals for nested decks",
-          "description": "When going for \"maid Ses\"\n\nIt lists the decks, some of them are nested, meaning after clicking them you have the option to select all or  specific decks. The problem is that sometimes you dont know which are nested and which not, if nested, on the leftomost of the otpion, describe as  \"- 2N\" for 2 nested decks\n\n",
-          "labels": [],
-          "checkboxes": [],
-          "comments": []
-        }
-      ]
-    },
-    {
       "id": "5969e69c-fe41-4634-85b5-3cd8c9380974",
       "title": "Done",
       "cards": [
+        {
+          "id": "5d630206-8e56-4044-a171-b1f3e075ac9b",
+          "listId": "5969e69c-fe41-4634-85b5-3cd8c9380974",
+          "title": "Fix Nested Decks Cache",
+          "description": "\nFix Nested Decks Cache\n\n- Currently the decks that are stored through caches meaning, not reading it  and parsing from source, but parsing from cache, dont have the nesting feature opening, meaning, that clicking on the decks dont show the subdecks but treats it as a entire merge deck, fix that behaviour\n\n",
+          "labels": [],
+          "checkboxes": [],
+          "comments": []
+        },
+        {
+          "id": "0c5b8adc-afca-41b2-979d-7ee55b76355f",
+          "listId": "5969e69c-fe41-4634-85b5-3cd8c9380974",
+          "title": "Better Visuals for nested decks",
+          "description": "When going for \"maid Ses\"\n\nIt lists the decks, some of them are nested, meaning after clicking them you have the option to select all or  specific decks. The problem is that sometimes you dont know which are nested and which not, if nested, on the leftomost of the otpion, describe as  \"- 2N\" for 2 nested decks\n\n",
+          "labels": [],
+          "checkboxes": [
+            {
+              "id": "902b2580-e6c9-4052-bc8c-203484316861",
+              "title": "XN",
+              "checked": true
+            },
+            {
+              "id": "90c49f95-615b-44c9-890b-30a82b40c77e",
+              "title": "also show how many studied out of x",
+              "checked": true
+            },
+            {
+              "id": "5fc69131-3415-4c8e-bf7e-639e3ae5efa7",
+              "title": "Fix the issues with mising XN",
+              "checked": true
+            }
+          ],
+          "comments": []
+        },
         {
           "id": "0f9184e1-5d89-429c-bdc6-840a8c03fd0f",
           "listId": "5969e69c-fe41-4634-85b5-3cd8c9380974",

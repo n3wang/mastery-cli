@@ -649,6 +649,24 @@ class Quizzer {
 		}
 	}
 
+
+	/**
+	 * Count how many terms in a deck have been studied (completion count > 0)
+	 * @param {Array} terms - Array of terms to check
+	 * @returns {number} - Count of studied terms
+	 */
+	countStudiedTerms(terms) {
+		let studiedCount = 0;
+		for (const term of terms) {
+			const hash = this.generateTermHash(term);
+			const completionCount = this.termCompletionTracker.getCount(hash);
+			if (completionCount > 0) {
+				studiedCount++;
+			}
+		}
+		return studiedCount;
+	}
+
 	study_session = async (
 		masterDeck = this.masterDeck,
 		{ reverse = false, size_study_deck = -1 } = {}
@@ -671,13 +689,37 @@ class Quizzer {
 		const dailyDeckConfig = Settings?.daily_deck_configuration || {};
 		const dailyDeckEnabled = dailyDeckConfig.enabled !== false;
 
-		// Format deck choices with nested deck indicators on the right
+		// Format deck choices with completion progress and nested deck indicators
+		const displayToOriginalMapping = {};
 		let deckChoices = titles.map(title => {
 			const deckInfo = dictOptions[title];
-			if (deckInfo.nested_count > 0) {
-				return `${title} - ${deckInfo.nested_count}N`;
+			const deckName = deckInfo.name;
+			
+			// Get all terms for this deck to calculate completion
+			const deckTerms = masterDeck.listTerms({ get_only: [deckName] });
+			const studiedCount = this.countStudiedTerms(deckTerms);
+			const totalCount = deckTerms.length;
+			
+			// Build display string with completion count
+			let displayTitle = title;
+			if (totalCount > 0) {
+				// Insert completion count before " - X cards"
+				const cardsMatch = title.match(/ - \d+ cards$/);
+				if (cardsMatch) {
+					const baseTitle = title.substring(0, title.length - cardsMatch[0].length);
+					displayTitle = `${baseTitle} (${studiedCount}/${totalCount})${cardsMatch[0]}`;
+				}
 			}
-			return title;
+			
+			// Add nested deck indicator if present
+			if (deckInfo.nested_count > 0) {
+				displayTitle = `${displayTitle} - ${deckInfo.nested_count}N`;
+			}
+			
+			// Store mapping from display title to original title
+			displayToOriginalMapping[displayTitle] = title;
+			
+			return displayTitle;
 		});
 		if (dailyDeckEnabled) {
 			const dailyDeckManager = new DailyDeckManager(Settings);
@@ -696,14 +738,6 @@ class Quizzer {
 		});
 
 		let deck_selected_key = await ms_deck.run();
-
-		// Strip nested deck indicator if present (format: "actual title - 2N")
-		// Match pattern: " - XN" at the end where X is a number
-		const nestedIndicatorMatch = deck_selected_key.match(/\s+-\s+\d+N$/);
-		if (nestedIndicatorMatch) {
-			deck_selected_key = deck_selected_key.substring(0, deck_selected_key.length - nestedIndicatorMatch[0].length);
-		}
-
 		// Handle Today's Deck selection
 		if (deck_selected_key.startsWith('Today\'s Deck')) {
 			const dailyDeckManager = new DailyDeckManager(Settings);
@@ -731,11 +765,19 @@ class Quizzer {
 			return this.runStudySession(allTerms, 'daily_deck');
 		}
 
-		let deck_selected = dictOptions[deck_selected_key].name;
+		// Convert display title back to original title for dictionary lookup
+		const originalKey = displayToOriginalMapping[deck_selected_key] || deck_selected_key;
+		let deck_selected = dictOptions[originalKey].name;
 
 		let selected_terms = masterDeck.listTerms({
 			get_only: [deck_selected]
 		});
+
+		// Find the selected deck to get its sort option
+		const selectedDeckObj = masterDeck.findDeck(deck_selected);
+		if (selectedDeckObj) {
+			selected_terms = selectedDeckObj.applySortOption(selected_terms);
+		}
 
 		// Collect categories from the selected deck's terms with counts
 		const categoryCounts = {};

@@ -128,11 +128,12 @@ class TermStorage {
 	 * @param {string} deck_name The deckname, optional if is the parent deckname
 	 * @param {List[TermStorage]} decks The decks required for the Storages
 	 * @param {boolean} is_active If the deck is active or not; by default is false
+	 * @param {string} sort_option Sort option: 'reversed' (default), 'ordered', 'random', 'duplicate'
 	 */
 	constructor(
 		terms = [],
 		deck_name = '',
-		{ decks = [], is_active = false, module_name = '' } = {}
+		{ decks = [], is_active = false, module_name = '', sort_option = 'reversed' } = {}
 	) {
 		this.terms = terms;
 		this.deck_name = deck_name;
@@ -140,6 +141,7 @@ class TermStorage {
 		this.decks = decks;
 		this.priority = 5; //By default
 		this.module_name = module_name;
+		this.sort_option = sort_option || 'reversed'; // Default to reversed
 	}
 
 	/**
@@ -362,6 +364,62 @@ class TermStorage {
 	changeIsActiveSettingsFromDecks(is_active_settings) {
 		for (const deck_name of Object.keys(is_active_settings)) {
 			this.decks[deck_name].is_active = is_active_settings[deck_name];
+		}
+	}
+
+	/**
+	 * Find a deck by name recursively
+	 * @param {string} deckName - Name of the deck to find
+	 * @returns {TermStorage|null} The found deck or null
+	 */
+	findDeck(deckName) {
+		if (this.deck_name === deckName) {
+			return this;
+		}
+
+		for (const deck of this.decks) {
+			const found = deck.findDeck(deckName);
+			if (found) {
+				return found;
+			}
+		}
+
+		return null;
+	}
+
+	/**
+	 * Apply sorting to a list of terms based on sort_option
+	 * @param {Term[]} terms - Array of terms to sort
+	 * @returns {Term[]} Sorted array of terms
+	 */
+	applySortOption(terms) {
+		if (!terms || terms.length === 0) return terms;
+
+		switch (this.sort_option) {
+			case 'ordered':
+				// Keep original order (do nothing)
+				return [...terms];
+
+			case 'reversed':
+				// Reverse the order
+				return [...terms].reverse();
+
+			case 'random':
+				// Shuffle randomly
+				const shuffled = [...terms];
+				for (let i = shuffled.length - 1; i > 0; i--) {
+					const j = Math.floor(Math.random() * (i + 1));
+					[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+				}
+				return shuffled;
+
+			case 'duplicate':
+				// First ordered, then reversed
+				return [...terms, ...[...terms].reverse()];
+
+			default:
+				// Default to reversed
+				return [...terms].reverse();
 		}
 	}
 

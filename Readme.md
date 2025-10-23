@@ -133,6 +133,183 @@ TODO Explain the process of adding flashcards individually, or using the modules
 mcli term
 ```
 
+## Creating Custom Term Modules
+
+Term modules allow you to organize flashcards into reusable decks. Each module is a folder in `src/data/user_data/terms_modules/` with an `index.js` configuration file.
+
+### Module Structure
+
+```
+src/data/user_data/terms_modules/
+└── your-module-name/
+    ├── index.js           # Module configuration
+    ├── cache.json         # Cached terms (auto-generated)
+    └── cache_md/          # Cached markdown files (auto-generated)
+        └── *.md
+```
+
+### Basic Module Configuration
+
+Create an `index.js` file with the following structure:
+
+```javascript
+const ABOUT = {
+	title: 'Your Module Title',
+	skill_category: 'category-name',
+	author: 'your-name'
+};
+
+module.exports = {
+	module_path: 'your-module-name',
+	ABOUT: ABOUT,
+	CACHE_CONTENT: true,
+	EXTERNAL_CONTENT_FOLDERS: [
+		'path/to/your/markdown/files'
+	]
+};
+```
+
+### Configuration Options
+
+#### Required Fields
+
+- **`module_path`** - Unique identifier for the module (must match folder name)
+- **`ABOUT.title`** - Display name shown in deck selection
+- **`ABOUT.skill_category`** - Category for filtering and organization
+- **`ABOUT.author`** - Module author name
+
+#### Optional Fields
+
+- **`CACHE_CONTENT`** - Whether to cache markdown files locally (default: `true`)
+- **`EXTERNAL_CONTENT_FOLDERS`** - Array of paths to external markdown folders
+- **`CONTENT_FOLDERS`** - Array of relative paths within the module folder
+- **`CONTENT_FILES`** - Array of specific markdown files to include
+- **`USE_FILE_AS_MODULE`** - Treat module as single deck (default: `false`)
+- **`SORT_OPTION`** - Control term order during study sessions (default: `'reversed'`)
+
+### Sort Options
+
+The `SORT_OPTION` controls how terms are presented during study sessions:
+
+- **`'reversed'`** (default) - Terms in reverse order (newest first, best for reviewing recent additions)
+- **`'ordered'`** - Terms in original order (oldest first, best for sequential learning)
+- **`'random'`** - Terms shuffled randomly (best for testing knowledge without patterns)
+- **`'duplicate'`** - Terms appear twice: first ordered, then reversed (best for intensive practice)
+
+#### Example with Sort Option
+
+```javascript
+module.exports = {
+	module_path: 'exam-prep',
+	ABOUT: {
+		title: 'Exam Preparation',
+		skill_category: 'exam',
+		author: 'student'
+	},
+	SORT_OPTION: 'random', // Randomize for better testing
+	EXTERNAL_CONTENT_FOLDERS: [
+		'E:\\Documents\\study-notes\\exam-review'
+	]
+};
+```
+
+### Nested Deck Support
+
+Modules support hierarchical organization through folder structures:
+
+```
+your-module-name/
+└── cache_md/
+    ├── chapter1.md
+    ├── chapter2.md
+    └── advanced/
+        ├── topic1.md
+        └── topic2.md
+            └── subtopic/
+                └── details.md
+```
+
+Each folder level creates a nested deck, allowing you to:
+- Organize content by topic/chapter
+- Select entire sections or individual sub-topics
+- See nested deck count in selection UI (e.g., "Module - 100 cards - 3N")
+
+### Markdown Format
+
+Flashcards use a specific markdown format:
+
+```markdown
+# Module Title
+
+## Category Header
+
+Description paragraph
+
+:p Question or prompt
+
+??x
+Multi-line answer
+x??
+
+## Another Term
+
+term::short answer
+
+#### Titled Entry
+
+Description here
+
+:p What is this?
+
+?x
+Single line answer
+```
+
+Format elements:
+- `##` - Section headers
+- `####` - Creates titled flashcard entries
+- `:p` - Question/prompt marker
+- `??x...x??` - Multi-line answer block
+- `?x` - Single-line answer
+- `::` - Inline format (term::answer)
+
+### Complete Example
+
+```javascript
+const ABOUT = {
+	title: 'Computer Science Fundamentals',
+	skill_category: 'cs-fundamentals',
+	author: 'n3wang'
+};
+
+const EXTERNAL_CONTENT_FOLDERS = [
+	'E:\\Documents\\obsidian\\cs-notes\\algorithms',
+	'E:\\Documents\\obsidian\\cs-notes\\data-structures'
+];
+
+module.exports = {
+	module_path: 'cs-fundamentals',
+	ABOUT: ABOUT,
+	CACHE_CONTENT: true,
+	EXTERNAL_CONTENT_FOLDERS: EXTERNAL_CONTENT_FOLDERS,
+	SORT_OPTION: 'reversed', // Show newest terms first
+	USE_FILE_AS_MODULE: false
+};
+```
+
+### Using Your Module
+
+Once created, your module will automatically appear in:
+- `mcli ses` - Study session deck selection
+- Daily deck generation
+- Quiz selection
+
+The system will:
+1. Load markdown files from specified folders
+2. Parse them into flashcard terms
+3. Cache them for faster subsequent loads
+4. Apply your configured sort option during study sessions
+
 Math Problems:
 
 ```

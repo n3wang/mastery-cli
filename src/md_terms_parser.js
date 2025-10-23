@@ -327,6 +327,38 @@ function parseMarkdownCardsFromFolderRecursive(
 	return deck;
 }
 
+
+/**
+ * Recursively cache markdown files while preserving folder structure
+ */
+function cacheMarkdownFilesRecursively(sourceFolderPath, targetCachePath) {
+	if (!fs.existsSync(targetCachePath)) {
+		fs.mkdirSync(targetCachePath, { recursive: true });
+	}
+
+	const files = fs.readdirSync(sourceFolderPath);
+
+	for (const file of files) {
+		const sourceFilePath = path.join(sourceFolderPath, file);
+		const targetFilePath = path.join(targetCachePath, file);
+		const stat = fs.statSync(sourceFilePath);
+
+		if (stat.isDirectory()) {
+			// Recursively cache subdirectories
+			cacheMarkdownFilesRecursively(sourceFilePath, targetFilePath);
+		} else if (stat.isFile() && file.endsWith('.md')) {
+			// Cache markdown file
+			if (!fs.existsSync(targetFilePath)) {
+				fs.writeFileSync(
+					targetFilePath,
+					fs.readFileSync(sourceFilePath, 'utf-8')
+				);
+				console.log(`Caching markdown file: ${targetFilePath}`);
+			}
+		}
+	}
+}
+
 function parseFolderWithOption(folderPath, useRecursive, module_name, category) {
 	if (useRecursive) {
 		const subDeck = parseMarkdownCardsFromFolderRecursive(folderPath, {
@@ -409,30 +441,33 @@ function parseMarkdownCardsFromTermsModules(
 			terms.push(...result.terms);
 			nestedDecks.push(...result.nestedDecks);
 
-				// Cache the markdown files
-				if (shouldCacheContent && !useRecursive) {
-					const files = fs.readdirSync(folderPath);
-					for (const file of files) {
-						const filePath = path.join(folderPath, file);
-						if (
-							fs.statSync(filePath).isFile() &&
-							file.endsWith('.md')
-						) {
-							const cachedFilePath = path.join(
-								moduleCacheDir,
-								path.basename(filePath)
-							);
+				// Cache the markdown files with folder structure preservation
+				if (shouldCacheContent && useCacheIfNotFound) {
+					if (useRecursive) {
+						// Recursively cache with folder structure
+						cacheMarkdownFilesRecursively(folderPath, moduleCacheDir);
+					} else {
+						// Flat caching for non-recursive mode
+						const files = fs.readdirSync(folderPath);
+						for (const file of files) {
+							const filePath = path.join(folderPath, file);
 							if (
-								useCacheIfNotFound &&
-								!fs.existsSync(cachedFilePath)
+								fs.statSync(filePath).isFile() &&
+								file.endsWith('.md')
 							) {
-								fs.writeFileSync(
-									cachedFilePath,
-									fs.readFileSync(filePath, 'utf-8')
-								); // Cache the markdown file
-								console.log(
-									`Caching markdown file: ${cachedFilePath}`
+								const cachedFilePath = path.join(
+									moduleCacheDir,
+									path.basename(filePath)
 								);
+								if (!fs.existsSync(cachedFilePath)) {
+									fs.writeFileSync(
+										cachedFilePath,
+										fs.readFileSync(filePath, 'utf-8')
+									);
+									console.log(
+										`Caching markdown file: ${cachedFilePath}`
+									);
+								}
 							}
 						}
 					}
@@ -448,50 +483,60 @@ function parseMarkdownCardsFromTermsModules(
 						`No external folders found for module ${module.ABOUT.title}. Using cache.`
 					);
 
-					if (!fs.existsSync(targetCacheLocation)) {
+					// Check if cache_md folder exists and has content
+					if (fs.existsSync(moduleCacheDir) && fs.readdirSync(moduleCacheDir).length > 0) {
 						console.warn(
-							`Cache file ${targetCacheLocation} does not exist. Skipping.`
+							`Loading terms from cached markdown files: ${moduleCacheDir}`
+						);
+						// Parse cached markdown files (preserving nested structure if using recursive mode)
+						const result = parseFolderWithOption(
+							moduleCacheDir,
+							useRecursive,
+							module.ABOUT.title,
+							module.ABOUT.skill_category
+						);
+						terms.push(...result.terms);
+						nestedDecks.push(...result.nestedDecks);
+					} else if (fs.existsSync(targetCacheLocation)) {
+						// Fallback to old cache.json format
+						console.warn(
+							`Loading terms from cache file: ${targetCacheLocation}`
+						);
+						const cacheFileContent = fs.readFileSync(
+							targetCacheLocation,
+							'utf-8'
+						);
+						const cachedTerms = JSON.parse(cacheFileContent);
+						for (const termData of cachedTerms) {
+							const term = new Term(
+								termData.term,
+								termData.example || '',
+								termData.description || '',
+								termData.prompt || '',
+								{
+									reference_page: termData.reference_page,
+									reference_line: termData.reference_line || -1,
+									module_name: module.ABOUT.module_name,
+									category: module.ABOUT.category
+								}
+							);
+							terms.push(term);
+						}
+					} else {
+						console.warn(
+							`No cache found for module ${module.ABOUT.title}. Skipping.`
 						);
 						continue;
-					}
-					console.warn(
-						`Loading terms from cache file: ${targetCacheLocation}`
-					);
-					// Load the terms from the cache file
-					const cacheFileContent = fs.readFileSync(
-						targetCacheLocation,
-						'utf-8'
-					);
-					const cachedTerms = JSON.parse(cacheFileContent);
-					for (const termData of cachedTerms) {
-						// const cachedFilePath = path.join(moduleCacheDir, path.basename(termData.reference_page)); // Construct the cached file path
-						// console.log(`Creating term from cached file: ${cachedFilePath}`);
-						const term = new Term(
-							termData.term,
-							termData.example || '',
-							termData.description || '',
-							termData.prompt || '',
-							{
-								reference_page: termData.reference_page, // Use the cached file path
-								reference_line: termData.reference_line || -1,
-								module_name: module.ABOUT.module_name,
-								category: module.ABOUT.category
-							}
-						);
-						terms.push(term);
 					}
 				} else {
 					// save the terms to a cache file
 					const cacheFilePath = targetCacheLocation;
-					// v
-					// remove where more than 2 spaces convert into 1 spaces
-					// answerLine = answerLine.replace(/ {2,}/g, ' ');
 					const cachedTerms = terms.map(term => ({
 						term: term.term,
 						example: term.example,
 						description: term.description,
 						prompt: term.prompt,
-						reference_page: term.reference_page, // Use the cached file path
+						reference_page: term.reference_page,
 						reference_line: term.reference_line || -1,
 						module_name: term.module_name,
 						category: term.category
@@ -502,8 +547,8 @@ function parseMarkdownCardsFromTermsModules(
 						const cachedFilePath = path.join(
 							moduleCacheDir,
 							path.basename(term.reference_page)
-						); // Construct the cached file path
-						term.reference_page = cachedFilePath; // Update the reference page to the cached file path
+						);
+						term.reference_page = cachedFilePath;
 					}
 					fs.writeFileSync(
 						cacheFilePath,
@@ -548,7 +593,8 @@ function parseMarkdownCardsFromTermsModules(
 				{
 					module_name: module.ABOUT.title,
 					decks: finalNestedDecks,
-					is_active: false
+					is_active: false,
+					sort_option: module.SORT_OPTION || 'reversed'
 				}
 			);
 		}

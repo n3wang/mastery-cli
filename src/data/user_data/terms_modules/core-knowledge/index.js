@@ -14,4 +14,5 @@ module.exports = {
 	CACHE_CONTENT: false,
 	EXTERNAL_CONTENT_FOLDERS: EXTERNAL_CONTENT_FOLDERS,
 	USE_FILE_AS_MODULE: true,
+	SORT_OPTION: 'reversed' // Options: 'reversed' (default), 'ordered', 'random', 'duplicate'
 };
