@@ -276,13 +276,82 @@ function parseMarkdownCardsFromFolder(
 	return terms;
 }
 
+function parseMarkdownCardsFromFolderRecursive(
+	folderPath,
+	{ module_name = '', category = '', deckName = '' } = {}
+) {
+	const files = fs.readdirSync(folderPath);
+	const terms = [];
+	const nestedDecks = [];
+
+	if (!deckName) {
+		deckName = path.basename(folderPath);
+	}
+
+	for (const file of files) {
+		const filePath = path.join(folderPath, file);
+		const stat = fs.statSync(filePath);
+
+		if (stat.isDirectory()) {
+			const subDeck = parseMarkdownCardsFromFolderRecursive(filePath, {
+				module_name: module_name,
+				category: category,
+				deckName: file
+			});
+			if (subDeck) {
+				nestedDecks.push(subDeck);
+			}
+		} else if (stat.isFile() && file.endsWith('.md')) {
+			const parsedTerms = parseMarkdownIntoDeck(filePath, {
+				module_name: module_name,
+				category: category
+			});
+			terms.push(...parsedTerms);
+		}
+	}
+
+	if (terms.length === 0 && nestedDecks.length === 0) {
+		return null;
+	}
+
+	const deck = new TermStorage(
+		terms,
+		deckName,
+		{
+			decks: nestedDecks,
+			is_active: false,
+			module_name: module_name
+		}
+	);
+
+	return deck;
+}
+
+function parseFolderWithOption(folderPath, useRecursive, module_name, category) {
+	if (useRecursive) {
+		const subDeck = parseMarkdownCardsFromFolderRecursive(folderPath, {
+			module_name: module_name,
+			category: category,
+			deckName: path.basename(folderPath)
+		});
+		return { nestedDecks: subDeck ? [subDeck] : [], terms: [] };
+	} else {
+		const parsedTerms = parseMarkdownCardsFromFolder(folderPath, {
+			module_name: module_name,
+			category: category
+		});
+		return { nestedDecks: [], terms: parsedTerms };
+	}
+}
+
 function parseMarkdownCardsFromTermsModules(
 	termsModules,
-	{ useCacheIfNotFound = true } = {}
+	{ useCacheIfNotFound = true, useRecursive = true } = {}
 ) {
 	const decks = {};
 	for (const module of termsModules) {
 		const terms = [];
+		const nestedDecks = [];
 		const moduleCacheDir = getDirAbsoluteUri(
 			`user_data/terms_modules/${module.module_path}/cache_md`
 		); // Cache directory for markdown files
@@ -302,11 +371,14 @@ function parseMarkdownCardsFromTermsModules(
 				const folderPath = getDirAbsoluteUri(
 					`user_data/terms_modules/${module.module_path}/${folder}`
 				);
-				const parsedTerms = parseMarkdownCardsFromFolder(folderPath, {
-					module_name: module.ABOUT.title,
-					category: module.ABOUT.skill_category
-				});
-				terms.push(...parsedTerms);
+				const result = parseFolderWithOption(
+					folderPath,
+					useRecursive,
+					module.ABOUT.title,
+					module.ABOUT.skill_category
+				);
+				terms.push(...result.terms);
+				nestedDecks.push(...result.nestedDecks);
 			}
 		}
 
@@ -328,14 +400,17 @@ function parseMarkdownCardsFromTermsModules(
 				}
 
 				const folderPath = folder;
-				const parsedTerms = parseMarkdownCardsFromFolder(folderPath, {
-					module_name: module.ABOUT.title,
-					category: module.ABOUT.skill_category
-				});
-				terms.push(...parsedTerms);
+			const result = parseFolderWithOption(
+				folderPath,
+				useRecursive,
+				module.ABOUT.title,
+				module.ABOUT.skill_category
+			);
+			terms.push(...result.terms);
+			nestedDecks.push(...result.nestedDecks);
 
 				// Cache the markdown files
-				if (shouldCacheContent) {
+				if (shouldCacheContent && !useRecursive) {
 					const files = fs.readdirSync(folderPath);
 					for (const file of files) {
 						const filePath = path.join(folderPath, file);
@@ -455,10 +530,26 @@ function parseMarkdownCardsFromTermsModules(
 			}
 		}
 		if (module) {
+			// If using recursive mode and we have no direct terms but exactly one nested deck,
+			// flatten the structure to avoid empty wrapper decks
+			let finalTerms = terms;
+			let finalNestedDecks = nestedDecks;
+
+			if (useRecursive && terms.length === 0 && nestedDecks.length === 1) {
+				// Flatten: move the single nested deck's terms and sub-decks up
+				const singleDeck = nestedDecks[0];
+				finalTerms = singleDeck.terms;
+				finalNestedDecks = singleDeck.decks || [];
+			}
+
 			decks[module.module_path] = new TermStorage(
-				terms,
+				finalTerms,
 				module.ABOUT.skill_category,
-				{ module_name: module.ABOUT.title }
+				{
+					module_name: module.ABOUT.title,
+					decks: finalNestedDecks,
+					is_active: false
+				}
 			);
 		}
 	}
@@ -493,6 +584,7 @@ module.exports = {
 	parseMarkdownCards,
 	parseMarkdownIntoDeck,
 	parseMarkdownCardsFromFolder,
+	parseMarkdownCardsFromFolderRecursive,
 	parseMarkdownCardsFromTermsModules,
 	retrieve_terms_modules,
 	retrieve_terms_as_decks
