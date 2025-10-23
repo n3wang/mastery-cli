@@ -101,6 +101,27 @@ class HashStorage {
 	clear() {
 		this.data = {};
 	}
+
+	/**
+	 * Reset completion counts for a list of terms
+	 * @param {Array} terms - Array of term objects
+	 * @param {Function} hashFunction - Function to generate hash from term
+	 * @returns {number} - Number of terms reset
+	 */
+	resetTerms(terms, hashFunction) {
+		if (!terms || !Array.isArray(terms) || !hashFunction) {
+			return 0;
+		}
+		let resetCount = 0;
+		for (const term of terms) {
+			const hash = hashFunction(term);
+			if (this.data[hash]) {
+				delete this.data[hash];
+				resetCount++;
+			}
+		}
+		return resetCount;
+	}
 }
 
 module.exports = { HashStorage };

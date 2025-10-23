@@ -582,7 +582,14 @@ class Quizzer {
 		return '';
 	}
 
-	async runStudySession(selected_terms, deck_name) {
+	async runStudySession(selected_terms, deck_name, options = {}) {
+		const { resetScheduler = false } = options;
+
+		// Store current deck terms for reset functionality
+		this.currentDeckTerms = selected_terms;
+		this.currentDeckName = deck_name;
+		this.shouldResetAndRestart = false;
+
 		// Sort by hash completion count (least practiced first), then by reverse order as fallback
 		selected_terms.sort((a, b) => {
 			const hashA = this.generateTermHash(a);
@@ -603,7 +610,9 @@ class Quizzer {
 			cards_category: deck_name
 		});
 
-		await studyScheduler.setLearningCards(selected_terms);
+		await studyScheduler.setLearningCards(selected_terms, {
+			reset_scheduler: resetScheduler
+		});
 		let exit = false;
 
 		const printCardsLeft = (cardsLeft, cardsLearnt) => {
@@ -650,6 +659,33 @@ class Quizzer {
 				studyScheduler.getCardsToLearn(),
 				studyScheduler.getCardsLearnt()
 			);
+		}
+
+		// Check if reset was triggered during the session
+		if (this.shouldResetAndRestart) {
+			console.log('Reloading deck with reset progress...\n');
+			await this.runStudySession(this.currentDeckTerms, deck_name, { resetScheduler: true });
+			return;
+		}
+
+		// If deck completed (not exited early), offer to reset progress
+		if (!exit && studyScheduler.is_completed) {
+			console.log('\n✓ Deck completed!');
+			const resetPrompt = new Confirm({
+				name: 'resetProgress',
+				message: 'Would you like to reset this deck\'s progress and restart?',
+				initial: false
+			});
+
+			const shouldReset = await resetPrompt.run();
+			if (shouldReset) {
+				const resetCount = await this.resetCurrentDeckProgress();
+				console.log(`✓ Reset progress for ${resetCount} terms in "${deck_name}"\n`);
+			}
+
+			// Restart the deck regardless of reset choice (always reset scheduler to reload cards)
+			console.log('Restarting deck...\n');
+			await this.runStudySession(this.currentDeckTerms, deck_name, { resetScheduler: true });
 		}
 	}
 
@@ -998,7 +1034,7 @@ class Quizzer {
 			const storedFeedback = this.feedbackStorage.getFeedbackByTerm(term_selected);
 			if (storedFeedback && storedFeedback.feedback) {
 				console.log(''); // Add spacing
-				console.log(chalk.hex(CONSTANTS.CUTEYELLOW).bold('📝 Your Notes/Corrections:'));
+				console.log(chalk.hex(CONSTANTS.CUTEYELLOW).bold('Corrections:'));
 				printMarked(storedFeedback.feedback, { use_markdown: true });
 				const feedbackDate = new Date(storedFeedback.timestamp).toLocaleDateString();
 				console.log(chalk.gray(`(Added on ${feedbackDate})`));
@@ -1078,6 +1114,10 @@ class Quizzer {
 								message: 'Provide feedback about this term'
 							},
 							{
+								name: 'resetdeck',
+								message: 'Reset deck progress'
+							},
+							{
 								name: 'quit',
 								message: 'Quit the entire session'
 							}
@@ -1125,6 +1165,13 @@ class Quizzer {
 								feedback
 							);
 						}
+					} else if (selectedOption === 'resetdeck') {
+						const resetCount = await this.resetCurrentDeckProgress();
+						console.log(`✓ Reset progress for ${resetCount} terms\n`);
+						console.log('Restarting deck...\n');
+						this.shouldResetAndRestart = true;
+						exitMethod();
+						return false;
 					}
 				}
 
@@ -1335,7 +1382,7 @@ class Quizzer {
 			// Show stored feedback/corrections after description
 			const storedFeedback = this.feedbackStorage.getFeedbackByTerm(term_selected);
 			if (storedFeedback && storedFeedback.feedback) {
-				markdownContent += `### 📝 Your Notes/Corrections\n\n`;
+				markdownContent += `### Corrections\n\n`;
 				markdownContent += `${storedFeedback.feedback}\n\n`;
 				const feedbackDate = new Date(storedFeedback.timestamp).toLocaleDateString();
 				markdownContent += `*Added on ${feedbackDate}*\n\n`;
@@ -1377,6 +1424,25 @@ class Quizzer {
 		} catch (error) {
 			console.error('Failed to create flashcard markdown:', error.message);
 		}
+	}
+
+	/**
+	 * Reset completion progress for all terms in the current deck
+	 * @returns {Promise<number>} - Number of terms reset
+	 */
+	async resetCurrentDeckProgress() {
+		if (!this.currentDeckTerms || this.currentDeckTerms.length === 0) {
+			console.log('No deck currently loaded');
+			return 0;
+		}
+
+		const resetCount = this.termCompletionTracker.resetTerms(
+			this.currentDeckTerms,
+			(term) => this.generateTermHash(term)
+		);
+
+		await this.termCompletionTracker.save();
+		return resetCount;
 	}
 }
 
