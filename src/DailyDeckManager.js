@@ -271,6 +271,82 @@ class DailyDeckManager {
 
 		return summary;
 	}
+
+	getCompletionStatus(dailyDeck) {
+		if (!dailyDeck || !dailyDeck.decks || dailyDeck.decks.length === 0) {
+			return { completed: 0, total: 0, isComplete: false };
+		}
+
+		const total = dailyDeck.total_cards || 0;
+		const completed = dailyDeck.completed_cards || 0;
+
+		return {
+			completed,
+			total,
+			isComplete: completed >= total
+		};
+	}
+
+	markCardCompleted(dateKey, deckName, cardIndex) {
+		const dailyDeck = this.dailyDecks[dateKey];
+		if (!dailyDeck) return false;
+
+		if (!dailyDeck.completed_cards) {
+			dailyDeck.completed_cards = 0;
+		}
+
+		if (!dailyDeck.completed_by_deck) {
+			dailyDeck.completed_by_deck = {};
+		}
+
+		if (!dailyDeck.completed_by_deck[deckName]) {
+			dailyDeck.completed_by_deck[deckName] = [];
+		}
+
+		if (!dailyDeck.completed_by_deck[deckName].includes(cardIndex)) {
+			dailyDeck.completed_by_deck[deckName].push(cardIndex);
+			dailyDeck.completed_cards++;
+			this.save();
+			return true;
+		}
+
+		return false;
+	}
+
+	getWeekAheadSummary() {
+		const summary = [];
+		const today = new Date();
+
+		for (let i = 0; i < 7; i++) {
+			const date = new Date(today);
+			date.setDate(date.getDate() + i);
+			const dateKey = this.getDateKey(date);
+			const deck = this.dailyDecks[dateKey];
+
+			if (deck) {
+				const status = this.getCompletionStatus(deck);
+				summary.push({
+					date: dateKey,
+					dayName: date.toLocaleDateString('en-US', { weekday: 'short' }),
+					exists: true,
+					completed: status.completed,
+					total: status.total,
+					isComplete: status.isComplete
+				});
+			} else {
+				summary.push({
+					date: dateKey,
+					dayName: date.toLocaleDateString('en-US', { weekday: 'short' }),
+					exists: false,
+					completed: 0,
+					total: 0,
+					isComplete: false
+				});
+			}
+		}
+
+		return summary;
+	}
 }
 
 module.exports = { DailyDeckManager };

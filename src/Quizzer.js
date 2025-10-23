@@ -725,7 +725,12 @@ class Quizzer {
 			const dailyDeckManager = new DailyDeckManager(Settings);
 			const todayDeck = dailyDeckManager.getTodayDeck();
 			if (todayDeck) {
-				deckChoices.unshift(`Today's Deck (${todayDeck.total_cards} cards)`);
+				const status = dailyDeckManager.getCompletionStatus(todayDeck);
+				if (status.isComplete) {
+					deckChoices.unshift(`Today's Deck (Completed ✓)`);
+				} else {
+					deckChoices.unshift(`Today's Deck (${status.completed}/${status.total} cards)`);
+				}
 			} else {
 				deckChoices.unshift('Today\'s Deck (Generate now)');
 			}
@@ -744,24 +749,95 @@ class Quizzer {
 			let todayDeck = dailyDeckManager.getTodayDeck();
 
 			if (!todayDeck) {
-				console.log('Generating today\'s deck...');
+				// Show week-ahead summary
+				const weekSummary = dailyDeckManager.getWeekAheadSummary();
+				console.log('\n=== Week Ahead Summary ===');
+				for (const day of weekSummary) {
+					if (day.exists) {
+						const statusStr = day.isComplete ? 'Completed ✓' : `${day.completed}/${day.total}`;
+						console.log(`  ${day.dayName} (${day.date}): ${statusStr}`);
+					} else {
+						console.log(`  ${day.dayName} (${day.date}): Not generated`);
+					}
+				}
+				console.log('');
+
+				// Ask user what to do
+				const { AutoComplete } = require('enquirer');
+				const actionPrompt = new AutoComplete({
+					name: 'action',
+					message: 'What would you like to do?',
+					choices: [
+						'Generate today\'s deck only',
+						'Generate week ahead (7 days)',
+						'Configure and generate today',
+						'Cancel'
+					]
+				});
+
+				const action = await actionPrompt.run();
+
+				if (action === 'Cancel') {
+					console.log('Cancelled. Please select another deck.');
+					return;
+				}
+
 				const cardsPerDeck = dailyDeckConfig.cards_per_deck || 5;
 				const maxTotalCards = dailyDeckConfig.max_total_cards || 20;
 
-				todayDeck = dailyDeckManager.generateDailyDeck(masterDeck, {
-					cardsPerDeck,
-					maxTotalCards
-				});
+				if (action === 'Generate week ahead (7 days)') {
+					console.log('\nGenerating decks for the next 7 days...');
+					const generatedDecks = await dailyDeckManager.prepareWeekAhead(masterDeck, {
+						cardsPerDeck,
+						maxTotalCards
+					});
+					console.log(`Generated ${generatedDecks.length} daily decks successfully!\n`);
+					todayDeck = dailyDeckManager.getTodayDeck();
+				} else if (action === 'Configure and generate today') {
+					// Ask for custom configuration
+					const { NumberPrompt } = require('enquirer');
+
+					const cardsPrompt = new NumberPrompt({
+						name: 'cards',
+						message: 'Cards per deck:',
+						initial: cardsPerDeck
+					});
+					const customCardsPerDeck = await cardsPrompt.run();
+
+					const totalPrompt = new NumberPrompt({
+						name: 'total',
+						message: 'Total cards:',
+						initial: maxTotalCards
+					});
+					const customMaxTotal = await totalPrompt.run();
+
+					console.log(`\nGenerating deck with ${customCardsPerDeck} cards per deck, ${customMaxTotal} total...`);
+					todayDeck = await dailyDeckManager.generateDailyDeck(masterDeck, {
+						cardsPerDeck: customCardsPerDeck,
+						maxTotalCards: customMaxTotal
+					});
+				} else {
+					// Generate today only
+					console.log('Generating today\'s deck...');
+					todayDeck = await dailyDeckManager.generateDailyDeck(masterDeck, {
+						cardsPerDeck,
+						maxTotalCards
+					});
+				}
 
 				if (!todayDeck) {
 					console.log('Failed to generate daily deck. Please try another deck.');
 					return;
 				}
 
-				console.log(dailyDeckManager.getTodaySummary());
+				console.log('\n' + dailyDeckManager.getTodaySummary());
 			}
 
 			const allTerms = dailyDeckManager.getAllTermsFromDailyDeck(todayDeck);
+			if (allTerms.length === 0) {
+				console.log('No terms available in today\'s deck.');
+				return;
+			}
 			return this.runStudySession(allTerms, 'daily_deck');
 		}
 
