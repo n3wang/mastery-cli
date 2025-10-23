@@ -45,6 +45,7 @@ const { TermScheduler } = require('./termScheduler');
 const { MiniTermScheduler } = require('./MiniTermScheduler');
 const { StorableQueue } = require('./StorableQueue');
 const { HashStorage } = require('./HashStorage');
+const { FeedbackStorage } = require('./FeedbackStorage');
 const crypto = require('crypto');
 
 // const DEBUG = true
@@ -64,6 +65,9 @@ class Quizzer {
 		// Initialize term completion tracker using HashStorage
 		this.termCompletionTracker = new HashStorage('term_completion_hashes');
 		this.termCompletionTracker.load();
+
+		// Initialize feedback storage
+		this.feedbackStorage = new FeedbackStorage('term_feedback');
 	}
 
 	/**
@@ -990,6 +994,17 @@ class Quizzer {
 				use_markdown: true
 			});
 
+			// Display stored feedback/corrections after description
+			const storedFeedback = this.feedbackStorage.getFeedbackByTerm(term_selected);
+			if (storedFeedback && storedFeedback.feedback) {
+				console.log(''); // Add spacing
+				console.log(chalk.hex(CONSTANTS.CUTEYELLOW).bold('📝 Your Notes/Corrections:'));
+				printMarked(storedFeedback.feedback, { use_markdown: true });
+				const feedbackDate = new Date(storedFeedback.timestamp).toLocaleDateString();
+				console.log(chalk.gray(`(Added on ${feedbackDate})`));
+				console.log(''); // Add spacing
+			}
+
 			const question = new Input({
 				name: 'Term Question',
 				message: `${term_selected.prompt} (Ignore with "no")\n`
@@ -1081,14 +1096,29 @@ class Quizzer {
 						exitMethod();
 						return false;
 					} else if (selectedOption === 'providefeedback') {
+						// Check if there's existing feedback
+						const existingFeedback = this.feedbackStorage.getFeedbackByTerm(term_selected);
+						let initialValue = '';
+						if (existingFeedback && existingFeedback.feedback) {
+							console.log('\n📝 Existing feedback/corrections:');
+							console.log(existingFeedback.feedback);
+							console.log(`(Added on ${new Date(existingFeedback.timestamp).toLocaleDateString()})\n`);
+							initialValue = existingFeedback.feedback;
+						}
+
 						const feedbackPrompt = new Input({
 							name: 'feedback',
-							message:
-								'Please provide your feedback about this term:'
+							message: 'Add/edit your feedback/corrections:',
+							initial: initialValue
 						});
 
 						const feedback = await feedbackPrompt.run();
 						if (feedback && feedback.trim()) {
+							// Save to persistent storage
+							this.feedbackStorage.addFeedbackByTerm(term_selected, feedback);
+							console.log('✓ Feedback saved and will appear with this term in future reviews');
+
+							// Also create annotation file for daily record
 							await this.createAnnotation(
 								term_selected,
 								user_res,
@@ -1301,7 +1331,16 @@ class Quizzer {
 			if (term_selected.description) {
 				markdownContent += `## Description\n\n${removeMarkers(term_selected.description)}\n\n`;
 			}
-			
+
+			// Show stored feedback/corrections after description
+			const storedFeedback = this.feedbackStorage.getFeedbackByTerm(term_selected);
+			if (storedFeedback && storedFeedback.feedback) {
+				markdownContent += `### 📝 Your Notes/Corrections\n\n`;
+				markdownContent += `${storedFeedback.feedback}\n\n`;
+				const feedbackDate = new Date(storedFeedback.timestamp).toLocaleDateString();
+				markdownContent += `*Added on ${feedbackDate}*\n\n`;
+			}
+
 			if (term_selected.prompt) {
 				markdownContent += `## Question\n\n${removeMarkers(term_selected.prompt)}\n\n`;
 			}

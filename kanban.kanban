@@ -10,8 +10,23 @@
       "title": "Doing",
       "cards": [
         {
-          "id": "038c07e2-8684-4cdb-b027-8bca0733c6ba",
+          "id": "47147948-7414-4929-badf-01629befdd2d",
           "listId": "3d766476-da51-484c-99a0-bc213a7ce5ba",
+          "title": "Show Suggestions on Card",
+          "description": "When providing feedback about this term, I want these feedbacks to appear after the descirption when running the flashcard card. Sometimes there are corrections that I create last minute and it would be nice having those corrections when showing the card again.",
+          "labels": [],
+          "checkboxes": [],
+          "comments": []
+        }
+      ]
+    },
+    {
+      "id": "5969e69c-fe41-4634-85b5-3cd8c9380974",
+      "title": "Done",
+      "cards": [
+        {
+          "id": "038c07e2-8684-4cdb-b027-8bca0733c6ba",
+          "listId": "5969e69c-fe41-4634-85b5-3cd8c9380974",
           "title": "Deck Date Preparation",
           "description": "New cards and decks are added all the time, and is hard to figure out what to study today, I\nwant to design a feature in which when calling maid ses it creates also a specific deck of cards for today, in which it takes 5 cards from a deck until it reaches 20 (defined at config) and can be selected when running maid ses as (today decks) also meanwhile prepare for the rest of the week, and when it comes to tomorrow running it should be the ones that I prepared today, stores the selection in a json as \"10-17-2028\": [...decks information]\n\nWhen selecting on maid ses, it shoudl print yout he options to:\n- Create more cards aheads default as allow all, or can select a specific\n- Select cards to focus n the days ahead to pre create those cards, when completed it should display as todays deck (completed) otherwise the amount left if already generated (5/20)",
           "labels": [],
@@ -28,13 +43,7 @@
               "comment": "actually when generating todays deck allow the option to choose between 3 random selected \navailable decks, be careful since some decks are inside of other decks like core is inside of data    \n sicence, it should allow the option between thoose, also only random select those decks that have    \n more than 10 cards in them"
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "5969e69c-fe41-4634-85b5-3cd8c9380974",
-      "title": "Done",
-      "cards": [
+        },
         {
           "id": "5d630206-8e56-4044-a171-b1f3e075ac9b",
           "listId": "5969e69c-fe41-4634-85b5-3cd8c9380974",
