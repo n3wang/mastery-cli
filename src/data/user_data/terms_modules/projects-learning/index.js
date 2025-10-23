@@ -8,5 +8,8 @@ module.exports = {
 	module_path: 'projects-learning',
 	ABOUT: ABOUT,
 	CACHE_CONTENT: true,
-	USE_FILE_AS_MODULE: true
+	USE_FILE_AS_MODULE: true,
+	EXTERNAL_CONTENT_FOLDERS: [
+		'E:\\Documents\\obsidian\\general-docs-public\\content\\4 - academia-decks\\K9-projectslearning'
+	]
 };

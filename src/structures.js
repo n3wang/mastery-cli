@@ -226,16 +226,17 @@ class TermStorage {
 	 * Returns dict of deck titles with the count of cards inside: deckname
 	 *  e.g.:
 	 * {
-	 *      kotlin - 3: {count: 3, name: kotlin},
-	 *      java - 5: {count: 5, name: java}
-	 *      javascript - 10: {count: 10, name: javascript}
+	 *      kotlin - 3: {count: 3, name: kotlin, nested_count: 0},
+	 *      java - 5: {count: 5, name: java, nested_count: 2}
+	 *      javascript - 10: {count: 10, name: javascript, nested_count: 0}
 	 * }
 	 */
 	get deck_titles_with_count() {
 		const deck_names = {
 			[`${this.deck_name} - ${this.terms.length} cards`]: {
 				name: this.deck_name,
-				count: this.terms.length
+				count: this.terms.length,
+				nested_count: this.decks ? this.decks.length : 0
 			}
 		};
 		for (const deck of this.decks) {
@@ -285,40 +286,68 @@ class TermStorage {
 	/**
 	 *
 	 * @param {get_only} get only certain decks (with x categories.)
+	 * @param {_includeAll} internal flag to include all nested decks regardless of active status
 	 * @returns
 	 */
-	listTerms({ get_only = [] } = {}) {
+	listTerms({ get_only = [], _includeAll = false } = {}) {
 		const termsList = [];
-		termsList.push(
-			...this.terms.map(obj => {
-				const newterm = new Term(
-					obj?.term ?? '',
-					obj?.example ?? '',
-					obj?.description ?? '',
-					obj?.prompt ?? '',
-					{
-						references: obj?.references ?? '',
-						category: obj?.category ?? '',
-						attachment: obj?.attachment,
-						reference_line: obj?.reference_line ?? -1,
-						reference_page: obj?.reference_page ?? '',
-						module_name: obj?.module_name ?? '',
-						priority: this.priority ?? 5,
-						auto_newline: obj?.auto_newline ?? true
-					}
-				);
-				newterm.pushCategory(this.deck_name ?? '');
-				return newterm;
-			})
-		);
 
+		// Check if this specific deck is in the get_only list
+		const isThisDeckExplicitlyRequested = get_only.length > 0 && get_only.includes(this.deck_name);
+		const noFilter = get_only.length === 0;
+
+		// Include this deck's own terms if:
+		// - _includeAll flag is set (parent was requested), OR
+		// - No filter and this deck is active, OR
+		// - This deck is explicitly requested
+		if (_includeAll || (noFilter && this.is_active) || isThisDeckExplicitlyRequested) {
+			termsList.push(
+				...this.terms.map(obj => {
+					const newterm = new Term(
+						obj?.term ?? '',
+						obj?.example ?? '',
+						obj?.description ?? '',
+						obj?.prompt ?? '',
+						{
+							references: obj?.references ?? '',
+							category: obj?.category ?? '',
+							attachment: obj?.attachment,
+							reference_line: obj?.reference_line ?? -1,
+							reference_page: obj?.reference_page ?? '',
+							module_name: obj?.module_name ?? '',
+							priority: this.priority ?? 5,
+							auto_newline: obj?.auto_newline ?? true
+						}
+					);
+					newterm.pushCategory(this.deck_name ?? '');
+					return newterm;
+				})
+			);
+		}
+
+		// Recursively process nested decks
 		for (const deck of this.decks) {
-			//Regardless of it is active or not.
-			if (
-				(get_only.length == 0 && deck.is_active) ||
-				get_only.includes(deck.deck_name)
-			) {
-				termsList.push(...deck.listTerms());
+			// Include nested deck if:
+			// 1. _includeAll flag is set (parent was requested)
+			// 2. No filter AND (this deck is active OR nested deck is active)
+			// 3. This parent deck was explicitly requested (include all children)
+			// 4. There's a filter - pass it down to search recursively
+
+			if (_includeAll) {
+				// Parent was requested, include everything
+				termsList.push(...deck.listTerms({ get_only: [], _includeAll: true }));
+			} else if (noFilter && this.is_active) {
+				// Parent is active, include all children
+				termsList.push(...deck.listTerms({ get_only: [], _includeAll: true }));
+			} else if (isThisDeckExplicitlyRequested) {
+				// This deck was explicitly requested, include all nested decks
+				termsList.push(...deck.listTerms({ get_only: [], _includeAll: true }));
+			} else if (noFilter && deck.is_active) {
+				// No filter but this specific child is active
+				termsList.push(...deck.listTerms({ get_only: [], _includeAll: true }));
+			} else if (get_only.length > 0) {
+				// There's a filter, pass it down to search recursively
+				termsList.push(...deck.listTerms({ get_only, _includeAll: false }));
 			}
 		}
 

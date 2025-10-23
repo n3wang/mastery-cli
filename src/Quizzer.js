@@ -671,7 +671,14 @@ class Quizzer {
 		const dailyDeckConfig = Settings?.daily_deck_configuration || {};
 		const dailyDeckEnabled = dailyDeckConfig.enabled !== false;
 
-		let deckChoices = [...titles];
+		// Format deck choices with nested deck indicators on the right
+		let deckChoices = titles.map(title => {
+			const deckInfo = dictOptions[title];
+			if (deckInfo.nested_count > 0) {
+				return `${title} - ${deckInfo.nested_count}N`;
+			}
+			return title;
+		});
 		if (dailyDeckEnabled) {
 			const dailyDeckManager = new DailyDeckManager(Settings);
 			const todayDeck = dailyDeckManager.getTodayDeck();
@@ -689,6 +696,13 @@ class Quizzer {
 		});
 
 		let deck_selected_key = await ms_deck.run();
+
+		// Strip nested deck indicator if present (format: "actual title - 2N")
+		// Match pattern: " - XN" at the end where X is a number
+		const nestedIndicatorMatch = deck_selected_key.match(/\s+-\s+\d+N$/);
+		if (nestedIndicatorMatch) {
+			deck_selected_key = deck_selected_key.substring(0, deck_selected_key.length - nestedIndicatorMatch[0].length);
+		}
 
 		// Handle Today's Deck selection
 		if (deck_selected_key.startsWith('Today\'s Deck')) {

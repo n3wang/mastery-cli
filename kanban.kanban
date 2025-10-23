@@ -5,10 +5,10 @@
       "title": "TODO",
       "cards": [
         {
-          "id": "0c5b8adc-afca-41b2-979d-7ee55b76355f",
+          "id": "5d630206-8e56-4044-a171-b1f3e075ac9b",
           "listId": "c83cefdc-13d7-4ce8-b338-0a7aa7eb7a34",
-          "title": "Better Visuals for nested decks",
-          "description": "When going for Maid Ses\n\nIt lists the decks, some of them are nested, meaning after clicking them you have the option to select all or  specific decks. The problem is that sometimes you dont know which are nested and which not, if nested, on the leftomost of the otpion, describe as  \"- 2N\" for 2 nested decks\n\n",
+          "title": "Fix Nested Decks Cache",
+          "description": "Fix Nested Decks Cache\n\n- Currently the dekcs",
           "labels": [],
           "checkboxes": [],
           "comments": []
@@ -32,15 +32,6 @@
               "comment": "actually when generating todays deck allow the option to choose between 3 random selected \navailable decks, be careful since some decks are inside of other decks like core is inside of data    \n sicence, it should allow the option between thoose, also only random select those decks that have    \n more than 10 cards in them"
             }
           ]
-        },
-        {
-          "id": "5d630206-8e56-4044-a171-b1f3e075ac9b",
-          "listId": "c83cefdc-13d7-4ce8-b338-0a7aa7eb7a34",
-          "title": "Fix Nested Decks Cache",
-          "description": "Fix Nested Decks Cache\n\n- Currently the dekcs",
-          "labels": [],
-          "checkboxes": [],
-          "comments": []
         }
       ]
     },
@@ -49,18 +40,12 @@
       "title": "Doing",
       "cards": [
         {
-          "id": "0f9184e1-5d89-429c-bdc6-840a8c03fd0f",
+          "id": "0c5b8adc-afca-41b2-979d-7ee55b76355f",
           "listId": "3d766476-da51-484c-99a0-bc213a7ce5ba",
-          "title": "Nested Decks should consider the folder as a whole",
-          "description": "Maid ses retrieves deck modules from terms_modules.\nImplement a recursive nested Decks support that should consider the folder as a whole, not only the files as differents decks nested, but consider if there are markdowns inside of a folder, treat all that as part of another  nested deck inside",
+          "title": "Better Visuals for nested decks",
+          "description": "When going for \"maid Ses\"\n\nIt lists the decks, some of them are nested, meaning after clicking them you have the option to select all or  specific decks. The problem is that sometimes you dont know which are nested and which not, if nested, on the leftomost of the otpion, describe as  \"- 2N\" for 2 nested decks\n\n",
           "labels": [],
-          "checkboxes": [
-            {
-              "id": "17e0d5ce-095a-4851-996a-7de9de35b92e",
-              "title": "recursive Nested Deck",
-              "checked": false
-            }
-          ],
+          "checkboxes": [],
           "comments": []
         }
       ]
@@ -68,7 +53,23 @@
     {
       "id": "5969e69c-fe41-4634-85b5-3cd8c9380974",
       "title": "Done",
-      "cards": []
+      "cards": [
+        {
+          "id": "0f9184e1-5d89-429c-bdc6-840a8c03fd0f",
+          "listId": "5969e69c-fe41-4634-85b5-3cd8c9380974",
+          "title": "Nested Decks should consider the folder as a whole",
+          "description": "Maid ses retrieves deck modules from terms_modules.\nImplement a recursive nested Decks support that should consider the folder as a whole, not only the files as differents decks nested, but consider if there are markdowns inside of a folder, treat all that as part of another  nested deck inside",
+          "labels": [],
+          "checkboxes": [
+            {
+              "id": "17e0d5ce-095a-4851-996a-7de9de35b92e",
+              "title": "recursive Nested Deck",
+              "checked": true
+            }
+          ],
+          "comments": []
+        }
+      ]
     }
   ],
   "archive": {
