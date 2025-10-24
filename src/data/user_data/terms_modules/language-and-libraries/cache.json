@@ -1,1 +1,1112 @@
-[]
+[
+  {
+    "term": "1 - Convert from Integer to Binary String and reverse",
+    "example": ":m ```java\nString binaryRepresentation = Integer.toBinaryString(n);",
+    "description": ":m Convert from Integer to Binary String and reverse",
+    "prompt": "Convert from Integer to Binary String and reverse",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\K2 - Java Leetcode.md",
+    "reference_line": 7,
+    "module_name": "language and libraries",
+    "category": "KJavaLeetcode"
+  },
+  {
+    "term": "2 - Having Parameters as a list in a method and implementing lists",
+    "example": ":m ```java\nprivate List<Integer> preorderTraversalHelper(TreeNode root, List<Integer> visit) {",
+    "description": ":m Having Parameters as a list in a method and implementing lists",
+    "prompt": "Having Parameters as a list in a method and implementing lists",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\K2 - Java Leetcode.md",
+    "reference_line": 16,
+    "module_name": "language and libraries",
+    "category": "KJavaLeetcode"
+  },
+  {
+    "term": "3 - Handling Nulls",
+    "example": ":m ```java\nif (root == null) {\nreturn visit;\n}\n```",
+    "description": ":m Handling Nulls",
+    "prompt": "Handling Nulls",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\K2 - Java Leetcode.md",
+    "reference_line": 31,
+    "module_name": "language and libraries",
+    "category": "KJavaLeetcode"
+  },
+  {
+    "term": "4 - Using hashsets",
+    "example": ":m ```java\nHashSet<Integer> set = new HashSet<Integer>();\nif(set.contains(number)){\nset.add(number);\nset.remove(number);\n```\n<!--SR:!2025-03-25,3,250-->",
+    "description": ":m Using hashsets",
+    "prompt": "Using hashsets",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\K2 - Java Leetcode.md",
+    "reference_line": 39,
+    "module_name": "language and libraries",
+    "category": "KJavaLeetcode"
+  },
+  {
+    "term": "5 - List and Array Operations",
+    "example": ":m ```java\nint[] solution = intersections.stream().mapToInt(Integer::intValue).toArray();\nreturn solution;",
+    "description": ":m List and Array Operations",
+    "prompt": "List and Array Operations",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\K2 - Java Leetcode.md",
+    "reference_line": 51,
+    "module_name": "language and libraries",
+    "category": "KJavaLeetcode"
+  },
+  {
+    "term": "1 - Skip If",
+    "example": ":m ```\n```",
+    "description": ":m What if you want to skip specific versions of os from testings?",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\K6 - Pytest.md",
+    "reference_line": 64,
+    "module_name": "language and libraries",
+    "category": "KPytest"
+  },
+  {
+    "term": "1 - Building a Spring Boot Tutorial Crash Course",
+    "example": ":m https://start.spring.io/index.html\n> Make sure to set the project package name all with dots and no dashes\nx\nDependencies:\n- Spring Data JDBC\n- Spring Boot\n- H2 Database",
+    "description": ":m Youtube Tutorial: https://www.youtube.com/watch?v=QuvS_VLbGko\nOfficial Repository: https://github.com/marcobehlerjetbrains/photoz-clone\nMy Repository: https://github.com/NeneWang/photoz-clone\nWhat is Spring Frame˜work? An Unorthodox Guide: https://www.marcobehler.com/guides/spring-framework#_introduction\nWhere can you start a spring project? Which dependencies should you consider for Having a simple database and Spring?",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P2 - Spring Boot Java.md",
+    "reference_line": 7,
+    "module_name": "language and libraries",
+    "category": "PSpringBootJava"
+  },
+  {
+    "term": "2 - Howto compile the mvn package and deploy?",
+    "example": ":m ```\n./mvn clean package\ncd target\njava -jar ./photoz-clone-0.0.1-SNAPSHOT.jar\n```",
+    "description": ":m Howto compile the mvn package and deploy?",
+    "prompt": "Howto compile the mvn package and deploy?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P2 - Spring Boot Java.md",
+    "reference_line": 26,
+    "module_name": "language and libraries",
+    "category": "PSpringBootJava"
+  },
+  {
+    "term": "1 - **String to int**",
+    "example": ":m `Integer.parseInt(s);`\n// Converts a String to an int primitive.",
+    "description": ":m **String to int** ",
+    "prompt": "**String to int**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 8,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "2 - **String to Integer**",
+    "example": ":m `Integer.valueOf(s);`\n// Converts a String to an Integer object.",
+    "description": ":m **String to Integer** ",
+    "prompt": "**String to Integer**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 13,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "3 - **int to String**",
+    "example": ":m `String.valueOf(int);`\n// Converts an int primitive to a String.",
+    "description": ":m **int to String** ",
+    "prompt": "**int to String**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 18,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "4 - **char[] to String**",
+    "example": ":m `String str = new String(chArray);`\n// Converts a char array to a String.",
+    "description": ":m **char[] to String** ",
+    "prompt": "**char[] to String**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 23,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "5 - **list to array**",
+    "example": ":m `String[] arr = list.toArray(new String[list.size()]);`\n// Converts a List to an array.",
+    "description": ":m **list to array** ",
+    "prompt": "**list to array**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 28,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "6 - **array to list**",
+    "example": ":m `List<String> list = Arrays.asList(arr);`\n// Converts an array to a List. Can also be used for single-element arrays, e.g., `Arrays.asList(\"first\", \"second\");`.",
+    "description": ":m **array to list** ",
+    "prompt": "**array to list**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 33,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "7 - **s.charAt(i)**",
+    "example": ":m Returns the character at index `i` in String `s`.\nExample:\n```java\nString s = \"a*b*c\";\nchar c = s.charAt(2); // Returns 'b', as the character at index 2 is 'b'.\n```",
+    "description": ":m **s.charAt(i)** ",
+    "prompt": "**s.charAt(i)**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 43,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "8 - **s.length()**",
+    "example": ":m Returns the length of the String `s`. This represents the total number of characters in the string.\nExample:\n```java\nString s = \"a*b*c\";\nint len = s.length(); // Returns 5, since the string contains 5 characters: \"a\", \"*\", \"b\", \"*\", \"c\".\n```",
+    "description": ":m **s.length()** ",
+    "prompt": "**s.length()**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 52,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "9 - Returns a substring from index 0 to index 1 (exclusive) in String `s`. The substring will contain only the character at index 0.",
+    "example": ":m **s.substring(0, 1)**\nReturns a substring from index 0 to index 1 (exclusive) in String `s`. The substring will contain only the character at index 0.\nExample:\n```java\nString s = \"a*b*c\";\nString sub = s.substring(0, 1); // Returns \"a\", the substring from index 0 to 1.\n```",
+    "description": ":m Returns a substring from index 0 to index 1 (exclusive) in String `s`. The substring will contain only the character at index 0. ",
+    "prompt": "Returns a substring from index 0 to index 1 (exclusive) in String `s`. The substring will contain only the character at index 0.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 62,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "10 - **s.substring(1)**",
+    "example": ":m Returns a substring starting from index 1 to the end of String `s`.\nExample:\n```java\nString s = \"a*b*c\";\nString sub = s.substring(1); // Returns \"*b*c\", starting from index 1 to the end.\n```",
+    "description": ":m **s.substring(1)** ",
+    "prompt": "**s.substring(1)**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 72,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "11 - **s.equals(\"b\")**",
+    "example": ":m Compares String `s` with the string \"b\" for equality. Returns `true` if both strings are identical, otherwise `false`.\nExample:\n```java\nString s = \"a*b*c\";\nboolean isEqual = s.equals(\"b\"); // Returns false, because \"a*b*c\" is not equal to \"b\".\n```",
+    "description": ":m **s.equals(\"b\")** ",
+    "prompt": "**s.equals(\"b\")**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 81,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "12 - **s.compareTo(\"b_c_d\")**",
+    "example": ":m Compares String `s` lexicographically with \"b_c_d\". It returns a negative number if `s` comes before \"b_c_d\" in lexicographical order, zero if they are equal, and a positive number if `s` comes after.\nExample:\n```java\nString s = \"a*b*c\";\nint result = s.compareTo(\"b*c*d\"); // Returns -1, because \"a*b*c\" comes before \"b*c*d\".\n```",
+    "description": ":m **s.compareTo(\"b_c_d\")** ",
+    "prompt": "**s.compareTo(\"b_c_d\")**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 90,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "13 - **s.trim()**",
+    "example": ":m Removes any leading and trailing spaces from String `s`.\nExample:\n```java\nString s = \" hello world \";\nString trimmed = s.trim(); // Returns \"hello world\", with spaces removed.\n```",
+    "description": ":m **s.trim()** ",
+    "prompt": "**s.trim()**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 99,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "14 - **s.indexOf(\"a\")**",
+    "example": ":m Returns the first index of the substring \"a\" within String `s`. If \"a\" is not found, it returns -1.\nExample:\n```java\nString s = \"a*b*c\";\nint index = s.indexOf(\"a\"); // Returns 0, because \"a\" is at index 0.\n```",
+    "description": ":m **s.indexOf(\"a\")** ",
+    "prompt": "**s.indexOf(\"a\")**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 108,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "15 - **s.indexOf('a', 2)**",
+    "example": ":m Returns the index of character `'a'` starting from the given index `2`. If `'a'` is not found after index 2, it returns -1.\nExample:\n```java\nString s = \"a*b*c\";\nint index = s.indexOf('a', 2); // Returns -1, because there is no 'a' after index 2.\n```",
+    "description": ":m **s.indexOf('a', 2)** ",
+    "prompt": "**s.indexOf('a', 2)**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 117,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "16 - **s.lastIndexOf('a')**",
+    "example": ":m Returns the last index of character `'a'` in String `s`. If `'a'` is not found, it returns -1.\nExample:\n```java\nString s = \"a*b*a*c\";\nint index = s.lastIndexOf('a'); // Returns 4, as the last occurrence of 'a' is at index 4.\n```",
+    "description": ":m **s.lastIndexOf('a')** ",
+    "prompt": "**s.lastIndexOf('a')**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 126,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "17 - **s.replaceAll(substr, target)**",
+    "example": ":m Replaces all occurrences of the substring `substr` with `target` in String `s`.\nExample:\n```java\nString s = \"a*b*c*a\";\nString result = s.replaceAll(\"\\\\*\", \"-\"); // Replaces all '*' with '-', returns \"a-b-c-a\".\n```",
+    "description": ":m **s.replaceAll(substr, target)** ",
+    "prompt": "**s.replaceAll(substr, target)**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 135,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "18 - **s.toCharArray()**",
+    "example": ":m Converts String `s` into a char array.\nExample:\n```java\nString s = \"a*b*c\";\nchar[] arr = s.toCharArray(); // Returns a char array: ['a', '*', 'b', '*', 'c'].\n```",
+    "description": ":m **s.toCharArray()** ",
+    "prompt": "**s.toCharArray()**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 144,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "19 - **s.split(\"\\*\")**",
+    "example": ":m Splits String `s` by the delimiter `\"*\"`. It returns an array of substrings.\nExample:\n```java\nString s = \"a*b*c\";\nString[] arr = s.split(\"\\\\*\"); // Returns an array: [\"a\", \"b\", \"c\"].\n```",
+    "description": ":m **s.split(\"\\*\")** ",
+    "prompt": "**s.split(\"\\*\")**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 153,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "20 - **s.split(\"\\.\")**",
+    "example": ":m Splits String `s` by the delimiter `\".\"`. It returns an array of substrings.\nExample:\n```java\nString s = \"a.b.c\";\nString[] arr = s.split(\"\\\\.\"); // Returns an array: [\"a\", \"b\", \"c\"].\n```",
+    "description": ":m **s.split(\"\\.\")** ",
+    "prompt": "**s.split(\"\\.\")**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 162,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "21 - **String.join(delimiter, List data)**",
+    "example": ":m Concatenates the strings in `data` using `delimiter` as a separator.\nExample:\n```java\nList<String> data = Arrays.asList(\"a\", \"b\", \"c\");\nString result = String.join(\"-\", data); // Returns \"a-b-c\", with '-' as the delimiter.\n```",
+    "description": ":m **String.join(delimiter, List data)** ",
+    "prompt": "**String.join(delimiter, List data)**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 171,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "22 - **Objects.equals(Object a, Object b)**",
+    "example": ":m Compares two objects `a` and `b`. It returns `true` if both are equal or both are `null`.",
+    "description": ":m **Objects.equals(Object a, Object b)** ",
+    "prompt": "**Objects.equals(Object a, Object b)**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 180,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "23 - String Builder",
+    "example": ":m ```java\nStringBuilder sb = new StringBuilder();\n```\nThis initializes an empty `StringBuilder` instance which can be used to efficiently modify strings by appending, inserting, deleting, or reversing characters.\nExample:\n```java\nStringBuilder sb = new StringBuilder(); // Creates an empty StringBuilder.\n```",
+    "description": ":m Here are the updated flashcards following your requested format:\n**Creates a new StringBuilder instance.** ",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 198,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "24 - **Appends the string \"a\" to the end of the StringBuilder.**",
+    "example": ":m ```java\nsb.append(\"a\");\n```\nThis method adds the string `\"a\"` to the end of the current `StringBuilder` content.\nExample:\n```java\nStringBuilder sb = new StringBuilder(\"b\");\nsb.append(\"a\"); // Returns \"ba\", appends \"a\" to the end.\n```",
+    "description": ":m **Appends the string \"a\" to the end of the StringBuilder.** ",
+    "prompt": "**Appends the string \"a\" to the end of the StringBuilder.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 215,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "25 - **Inserts the string \"a\" at index 0 in the StringBuilder.**",
+    "example": ":m ```java\nsb.insert(0, \"a\");\n```\nThis method inserts the string `\"a\"` at the specified index `0` in the `StringBuilder`. It shifts existing characters to the right.\nExample:\n```java\nStringBuilder sb = new StringBuilder(\"bcd\");\nsb.insert(0, \"a\"); // Returns \"abcd\", inserts \"a\" at the start.\n```",
+    "description": ":m **Inserts the string \"a\" at index 0 in the StringBuilder.** ",
+    "prompt": "**Inserts the string \"a\" at index 0 in the StringBuilder.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 229,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "26 - **Deletes the character at the specified index in the StringBuilder.**",
+    "example": ":m ```java\nsb.deleteCharAt(index);\n```\nThis method removes the character at the given `index` in the `StringBuilder`. It does not return a new object, it modifies the existing `StringBuilder`.\nExample:\n```java\nStringBuilder sb = new StringBuilder(\"abcd\");\nsb.deleteCharAt(2); // Returns \"abd\", removes the character at index 2 ('c').\n```",
+    "description": ":m **Deletes the character at the specified index in the StringBuilder.** ",
+    "prompt": "**Deletes the character at the specified index in the StringBuilder.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 243,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "27 - **Reverses the characters in the StringBuilder.**",
+    "example": ":m ```java\nsb.reverse();\n```\nThis method reverses the sequence of characters in the `StringBuilder`.\nExample:\n```java\nStringBuilder sb = new StringBuilder(\"abcd\");\nsb.reverse(); // Returns \"dcba\", the characters are reversed.\n```",
+    "description": ":m **Reverses the characters in the StringBuilder.** ",
+    "prompt": "**Reverses the characters in the StringBuilder.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 257,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "28 - **Converts the StringBuilder to a regular String.**",
+    "example": ":m ```java\nsb.toString();\n```\nThis method converts the current `StringBuilder` into a standard `String`.\nExample:\n```java\nStringBuilder sb = new StringBuilder(\"abc\");\nString result = sb.toString(); // Returns \"abc\", converts StringBuilder to String.\n```",
+    "description": ":m **Converts the StringBuilder to a regular String.** ",
+    "prompt": "**Converts the StringBuilder to a regular String.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 271,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "29 - **Returns the number of characters in the StringBuilder.**",
+    "example": ":m ```java\nsb.length();\n```\nThis method returns the number of characters currently stored in the `StringBuilder`. It is similar to calling `length()` on a `String`.\nExample:\n```java\nStringBuilder sb = new StringBuilder(\"abc\");\nint length = sb.length(); // Returns 3, as there are 3 characters.\n```",
+    "description": ":m **Returns the number of characters in the StringBuilder.** ",
+    "prompt": "**Returns the number of characters in the StringBuilder.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 285,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "30 - Hashsets",
+    "example": ":m ```java\nHashMap<Character, Integer> map = new HashMap<Character, Integer>();\n```\nThis initializes an empty `HashMap` where keys are `Character` and values are `Integer`.\nExample:\n```java\nHashMap<Character, Integer> map = new HashMap<>(); // Creates an empty HashMap with Character keys and Integer values.\n```",
+    "description": ":m **Creates a new HashMap with Character keys and Integer values.** ",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 297,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "31 - **Puts a key-value pair into the HashMap.**",
+    "example": ":m ```java\nmap.put('c', 1);\n```\nThis method adds the key `'c'` with value `1` to the `HashMap`.\nExample:\n```java\nmap.put('c', 1); // Adds 'c' as the key with 1 as the value.\n```",
+    "description": ":m **Puts a key-value pair into the HashMap.** ",
+    "prompt": "**Puts a key-value pair into the HashMap.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 312,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "32 - **Gets the value associated with the given key from the HashMap.**",
+    "example": ":m ```java\nmap.get('c');\n```\nThis method retrieves the value associated with key `'c'` from the `HashMap`.\nExample:\n```java\nint value = map.get('c'); // Returns 1 if 'c' exists in the map.\n```",
+    "description": ":m **Gets the value associated with the given key from the HashMap.** ",
+    "prompt": "**Gets the value associated with the given key from the HashMap.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 325,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "33 - **Returns the value associated with the key, or a default value if the key doesn't exist.**",
+    "example": ":m ```java\nmap.getOrDefault(key, defaultValue);\n```\nThis method returns the value if the key exists, otherwise returns `defaultValue`.\nExample:\n```java\nint value = map.getOrDefault('d', -1); // Returns -1 since 'd' is not in the map.\n```",
+    "description": ":m **Returns the value associated with the key, or a default value if the key doesn't exist.** ",
+    "prompt": "**Returns the value associated with the key, or a default value if the key doesn't exist.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 338,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "34 - **Removes the key-value pair associated with the given key.**",
+    "example": ":m ```java\nmap.remove('c');\n```\nThis method removes the entry for the key `'c'` from the `HashMap`.\nExample:\n```java\nmap.remove('c'); // Removes the key-value pair for 'c'.\n```",
+    "description": ":m **Removes the key-value pair associated with the given key.** ",
+    "prompt": "**Removes the key-value pair associated with the given key.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 351,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "35 - **Computes the value for the key if absent, or returns the existing value.**",
+    "example": ":m ```java\nmap.computeIfAbsent(key, mappingFunction);\n```\nThis method computes the value for the specified key using `mappingFunction` if the key does not exist in the map.\nExample:\n```java\nmap.computeIfAbsent('c', k -> 2); // Adds 'c' with value 2 if 'c' doesn't exist in the map.\n```",
+    "description": ":m **Computes the value for the key if absent, or returns the existing value.** ",
+    "prompt": "**Computes the value for the key if absent, or returns the existing value.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 364,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "36 - **Adds a value to the collection created for the key using computeIfAbsent.**",
+    "example": ":m ```java\nmap.computeIfAbsent(key, k -> new HashSet<>()).add(val);\n```\nThis method ensures a `HashSet` is created for the key if it does not exist, then adds the value `val` to that set.\nExample:\n```java\nmap.computeIfAbsent('c', k -> new HashSet<>()).add(3); // Adds 3 to the HashSet for 'c'.\n```",
+    "description": ":m **Adds a value to the collection created for the key using computeIfAbsent.** ",
+    "prompt": "**Adds a value to the collection created for the key using computeIfAbsent.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 377,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "37 - **Adds a value to the list created for the key using computeIfAbsent.**",
+    "example": ":m ```java\nmap.computeIfAbsent(key, k -> new ArrayList<>()).add(val);\n```\nThis method ensures an `ArrayList` is created for the key if it does not exist, then adds the value `val` to that list.\nExample:\n```java\nmap.computeIfAbsent('c', k -> new ArrayList<>()).add(3); // Adds 3 to the ArrayList for 'c'.\n```",
+    "description": ":m **Adds a value to the list created for the key using computeIfAbsent.** ",
+    "prompt": "**Adds a value to the list created for the key using computeIfAbsent.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 390,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "38 - **Checks if the given key exists in the map.**",
+    "example": ":m ```java\nif (map.containsKey('c')) {\n}\n```\nThis checks whether the key `'c'` exists in the `HashMap`.\nExample:\n```java\nif (map.containsKey('c')) { // Executes if 'c' is a key in the map.\nSystem.out.println(\"Key 'c' exists.\");\n}\n```",
+    "description": ":m **Checks if the given key exists in the map.** ",
+    "prompt": "**Checks if the given key exists in the map.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 403,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "39 - **Checks if the given value exists in the map.**",
+    "example": ":m ```java\nif (map.containsValue(1)) {\n}\n```\nThis checks whether the value `1` exists in the `HashMap`.\nExample:\n```java\nif (map.containsValue(1)) { // Executes if 1 is a value in the map.\nSystem.out.println(\"Value 1 exists.\");\n}\n```",
+    "description": ":m **Checks if the given value exists in the map.** ",
+    "prompt": "**Checks if the given value exists in the map.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 419,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "40 - **Traverses and prints all keys in the map.**",
+    "example": ":m ```java\nfor (Character d : map.keySet()) {\n}\n```\nThis loop iterates over all the keys in the `HashMap`.\nExample:\n```java\nfor (Character d : map.keySet()) {\nSystem.out.println(d); // Prints each key in the map.\n}\n```",
+    "description": ":m **Traverses and prints all keys in the map.** ",
+    "prompt": "**Traverses and prints all keys in the map.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 435,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "41 - **Traverses and prints all values in the map.**",
+    "example": ":m ```java\nfor (Integer i : map.values()) {\n}\n```\nThis loop iterates over all the values in the `HashMap`.\nExample:\n```java\nfor (Integer i : map.values()) {\nSystem.out.println(i); // Prints each value in the map.\n}\n```",
+    "description": ":m **Traverses and prints all values in the map.** ",
+    "prompt": "**Traverses and prints all values in the map.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 451,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "42 - **Traverses and prints both keys and values in the map.**",
+    "example": ":m ```java\nfor (Map.Entry<Character, Integer> entry : map.entrySet()) {\nentry.getKey();\nentry.getValue();\n}\n```\nThis loop iterates over each key-value pair in the `HashMap`.\nExample:\n```java\nfor (Map.Entry<Character, Integer> entry : map.entrySet()) {\nSystem.out.println(\"Key: \" + entry.getKey() + \", Value: \" + entry.getValue());\n}\n```",
+    "description": ":m **Traverses and prints both keys and values in the map.** ",
+    "prompt": "**Traverses and prints both keys and values in the map.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 467,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "43 - **Traverses and prints key-value pairs using lambda expression.**",
+    "example": ":m ```java\nmap.forEach((k, v) -> System.out.println(\"key: \" + k + \" value:\" + v));\n```\nThis method uses a lambda expression to traverse and print key-value pairs in the map.\nExample:\n```java\nmap.forEach((k, v) -> System.out.println(\"key: \" + k + \" value:\" + v));\n```",
+    "description": ":m **Traverses and prints key-value pairs using lambda expression.** ",
+    "prompt": "**Traverses and prints key-value pairs using lambda expression.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 485,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "44 - **Checks if the map is empty.**",
+    "example": ":m ```java\nmap.isEmpty();\n```\nThis method returns `true` if the `HashMap` is empty, otherwise `false`.\nExample:\n```java\nboolean empty = map.isEmpty(); // Returns true if map is empty.\n```",
+    "description": ":m **Checks if the map is empty.** ",
+    "prompt": "**Checks if the map is empty.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 498,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "45 - **Returns the number of entries in the map.**",
+    "example": ":m ```java\nmap.size();\n```\nThis method returns the number of key-value pairs in the `HashMap`.\nExample:\n```java\nint size = map.size(); // Returns the number of key-value pairs in the map.\n```",
+    "description": ":m **Returns the number of entries in the map.** ",
+    "prompt": "**Returns the number of entries in the map.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 511,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "46 - **Creates a new HashSet and adds a value to it.**",
+    "example": ":m ```java\nHashSet<Integer> set = new HashSet<Integer>();\nset.add(10);\n```\nThis creates a new `HashSet` and adds the value `10`.\nExample:\n```java\nHashSet<Integer> set = new HashSet<>();\nset.add(10); // Adds 10 to the set.\n```",
+    "description": ":m **Creates a new HashSet and adds a value to it.** ",
+    "prompt": "**Creates a new HashSet and adds a value to it.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 524,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "47 - **Removes a value from the HashSet.**",
+    "example": ":m ```java\nset.remove(10);\n```\nThis removes the value `10` from the `HashSet`.\nExample:\n```java\nset.remove(10); // Removes 10 from the set.\n```",
+    "description": ":m **Removes a value from the HashSet.** ",
+    "prompt": "**Removes a value from the HashSet.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 539,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "48 - **Checks if a value exists in the HashSet.**",
+    "example": ":m ```java\nif (set.contains(10)) {\n}\n```\nThis checks whether the value `10` exists in the `HashSet`.\nExample:\n```java\nif (set.contains(10)) { // Executes if 10 is in the set.\nSystem.out.println(\"10 is in the set.\");\n}\n```",
+    "description": ":m **Checks if a value exists in the HashSet.** ",
+    "prompt": "**Checks if a value exists in the HashSet.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 552,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "49 - **Returns the number of elements in the HashSet.**",
+    "example": ":m ```java\nset.size();\n```\nThis returns the number of elements in the `HashSet`.\nExample:\n```java\nint size = set.size(); // Returns the number of elements in the set.\n```",
+    "description": ":m **Returns the number of elements in the HashSet.** ",
+    "prompt": "**Returns the number of elements in the HashSet.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 568,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "50 - **Checks if the HashSet is empty.**",
+    "example": ":m ```java\nset.isEmpty();\n```\nThis method returns `true` if the `HashSet` is empty, otherwise `false`.\nExample:\n```java\nboolean empty = set.isEmpty(); // Returns true if the set is empty.\n```",
+    "description": ":m **Checks if the HashSet is empty.** ",
+    "prompt": "**Checks if the HashSet is empty.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 581,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "51 - **Keeps the intersection of two sets in setA.**",
+    "example": ":m ```java\nsetA.retainAll(setB);\n```",
+    "description": ":m **Keeps the intersection of two sets in setA.** ",
+    "prompt": "**Keeps the intersection of two sets in setA.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 594,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "52 - **Removes elements in setC from setB.**",
+    "example": ":m ```java\nsetB.removeAll(setC);\n```",
+    "description": ":m **Removes elements in setC from setB.** ",
+    "prompt": "**Removes elements in setC from setB.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 609,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "53 - **Unites two sets, adding elements of setD to setC.**",
+    "example": ":m ```java\nsetC.addAll(setD);\n```",
+    "description": ":m **Unites two sets, adding elements of setD to setC.** ",
+    "prompt": "**Unites two sets, adding elements of setD to setC.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 624,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "54 - **Checks if setC contains all elements of setD.**",
+    "example": ":m ```java\nsetC.containsAll(setD);\n```",
+    "description": ":m **Checks if setC contains all elements of setD.** ",
+    "prompt": "**Checks if setC contains all elements of setD.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 639,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "55 - **Converts the set to an array.**",
+    "example": ":m ```java\nObject[] arr = setA.toArray();\n```",
+    "description": ":m **Converts the set to an array.** ",
+    "prompt": "**Converts the set to an array.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 656,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "56 - **Creates a new TreeMap with Integer keys and String values, sorted by keys in ascending order.**",
+    "example": ":m ```java\nTreeMap<Integer, String> map = new TreeMap<>();\n```\nThis creates a `TreeMap` that sorts keys in ascending order by default.\nExample:\n```java\nTreeMap<Integer, String> map = new TreeMap<>();\nmap.put(2, \"b\");\nmap.put(1, \"a\");\nmap.put(3, \"c\"); // TreeMap will sort keys: {1, 2, 3}.\n```",
+    "description": ":m **Creates a new TreeMap with Integer keys and String values, sorted by keys in ascending order.** ",
+    "prompt": "**Creates a new TreeMap with Integer keys and String values, sorted by keys in ascending order.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 671,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "57 - **Creates a TreeMap sorted in reverse order.**",
+    "example": ":m ```java\nTreeMap<Integer, Integer> treeMap = new TreeMap<>(Collections.reverseOrder());\n```",
+    "description": ":m **Creates a TreeMap sorted in reverse order.** ",
+    "prompt": "**Creates a TreeMap sorted in reverse order.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 687,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "58 - **Returns the largest key that is smaller than the given key.**",
+    "example": ":m ```java\ntreeMap.lowerKey(k);\n```\nThis method returns the largest key that is smaller than `k`.\nExample:",
+    "description": ":m **Returns the largest key that is smaller than the given key.** ",
+    "prompt": "**Returns the largest key that is smaller than the given key.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 704,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "59 - **Returns the largest key that is less than or equal to the given key.**",
+    "example": ":m ```java\ntreeMap.floorKey(k);\n```\nThis method returns the largest key that is less than or equal to `k`.\nExample:",
+    "description": ":m **Returns the largest key that is less than or equal to the given key.** ",
+    "prompt": "**Returns the largest key that is less than or equal to the given key.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 718,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "60 - **Returns the smallest key that is greater than the given key.**",
+    "example": ":m ```java\ntreeMap.higherKey(k);\n```\nThis method returns the smallest key that is greater than `k`.\nExample:",
+    "description": ":m **Returns the smallest key that is greater than the given key.** ",
+    "prompt": "**Returns the smallest key that is greater than the given key.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 732,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "61 - **Returns the smallest key that is greater than or equal to the given key.**",
+    "example": ":m ```java\ntreeMap.ceilingKey(k);\n```\nThis method returns the smallest key that is greater than or equal to `k`.\nExample:",
+    "description": ":m **Returns the smallest key that is greater than or equal to the given key.** ",
+    "prompt": "**Returns the smallest key that is greater than or equal to the given key.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 746,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "62 - **Returns the first (lowest) key in the TreeMap.**",
+    "example": ":m ```java\ntreeMap.firstKey();\n```\nThis method returns the lowest key currently in the map.\nExample:",
+    "description": ":m **Returns the first (lowest) key in the TreeMap.** ",
+    "prompt": "**Returns the first (lowest) key in the TreeMap.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 760,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "63 - **Returns a view of the portion of the map whose keys are strictly less than toKey.**",
+    "example": ":m ```java\nSortedMap<K, V> portionOfTreeMap = treeMap.headMap(K toKey);\n```\nThis method returns a view of the portion of the map whose keys are strictly less than `toKey`.\nExample:",
+    "description": ":m **Returns a view of the portion of the map whose keys are strictly less than toKey.** ",
+    "prompt": "**Returns a view of the portion of the map whose keys are strictly less than toKey.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 774,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "64 - **Returns a view of the portion of the map whose keys are less than or equal to toKey.**",
+    "example": ":m ```java\nNavigableMap<K, V> map = treeMap.headMap(toKey, true);\n```\nThis method returns a view of the portion of the map whose keys are less than or equal to `toKey`.\nExample:\n```java\nNavigableMap<Integer, String> portion = treeMap.headMap(3, true); // Returns keys <= 3.\n```",
+    "description": ":m **Returns a view of the portion of the map whose keys are less than or equal to toKey.** ",
+    "prompt": "**Returns a view of the portion of the map whose keys are less than or equal to toKey.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 788,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "65 - **Creates a new TreeSet and adds an element to it.**",
+    "example": ":m ```java\nSet<Integer> treeSet = new TreeSet<>();\n```\nThis creates a `TreeSet` that sorts elements in ascending order by default.\nExample:\n```\nimport java.util.*;",
+    "description": ":m **Creates a new TreeSet and adds an element to it.**",
+    "prompt": "**Creates a new TreeSet and adds an element to it.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 801,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "66 - **Returns the largest element smaller than the specified element.**",
+    "example": ":m ```java\ntreeSet.lower(Integer e);\n```\nThis method returns the greatest element that is smaller than `e`.\nExample:\n```java\nInteger lower = treeSet.lower(10); // Returns the greatest element smaller than 10.\n```",
+    "description": ":m **Returns the largest element smaller than the specified element.** ",
+    "prompt": "**Returns the largest element smaller than the specified element.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 837,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "67 - **Returns the largest element less than or equal to the specified element.**",
+    "example": ":m ```java\ntreeSet.floor(Integer e);\n```\nThis method returns the greatest element that is less than or equal to `e`.\nExample:\n```java\nInteger floor = treeSet.floor(10); // Returns the greatest element <= 10.\n```",
+    "description": ":m **Returns the largest element less than or equal to the specified element.** ",
+    "prompt": "**Returns the largest element less than or equal to the specified element.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 850,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "68 - **Returns the smallest element greater than or equal to the specified element.**",
+    "example": ":m ```java\ntreeSet.ceiling(Integer e);\n```\nThis method returns the smallest element greater than or equal to `e`.\nExample:\n```java\nInteger ceiling = treeSet.ceiling(10); // Returns the smallest element >= 10.\n```",
+    "description": ":m **Returns the smallest element greater than or equal to the specified element.** ",
+    "prompt": "**Returns the smallest element greater than or equal to the specified element.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 863,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "69 - **Returns the smallest element greater than the specified element.**",
+    "example": ":m ```java\ntreeSet.higher(Integer e);\n```\nThis method returns the smallest element greater than `e`.\nExample:\n```java\nInteger higher = treeSet.higher(10); // Returns the smallest element greater than 10.\n```",
+    "description": ":m **Returns the smallest element greater than the specified element.** ",
+    "prompt": "**Returns the smallest element greater than the specified element.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 876,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "70 - **Returns the first element in the TreeSet.**",
+    "example": ":m ```java\ntreeSet.first();\n```\nThis method returns the first (lowest) element in the `TreeSet`.\nExample:\n```java\nInteger first = treeSet.first(); // Returns the first element in the TreeSet.\n```",
+    "description": ":m **Returns the first element in the TreeSet.** ",
+    "prompt": "**Returns the first element in the TreeSet.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 889,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "71 - **Returns the last element in the TreeSet.**",
+    "example": ":m ```java\ntreeSet.last();\n```\nThis method returns the last (largest) element in the `TreeSet`.\nExample:\n```java\nInteger last = treeSet.last(); // Returns the last element in the TreeSet.\n```",
+    "description": ":m **Returns the last element in the TreeSet.** ",
+    "prompt": "**Returns the last element in the TreeSet.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 902,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "72 - **Creates a LinkedHashMap and iterates through it to print key-value pairs in insertion order.**",
+    "example": ":m ```java\nMap<Integer, String> map = new LinkedHashMap<>();\nmap.put(1, \"first\");\nmap.put(2, \"second\");\nmap.put(3, \"third\");\nfor (Map.Entry<Integer, String> entry : map.entrySet()) {\nSystem.out.println(entry.getKey() + \", \" + entry.getValue()); // Prints: 1, first; 2, second; 3, third\n}\n```\nThis creates a `LinkedHashMap`, which maintains the insertion order of elements. The `for-each` loop iterates through the `entrySet()` and prints the key-value pairs in the order they were inserted.\nExample:\n```java\nMap<Integer, String> map = new LinkedHashMap<>();\nmap.put(1, \"first\");\nmap.put(2, \"second\");\nmap.put(3, \"third\");\nfor (Map.Entry<Integer, String> entry : map.entrySet()) {\nSystem.out.println(entry.getKey() + \", \" + entry.getValue()); // Prints: 1, first; 2, second; 3, third\n}\n```",
+    "description": ":m **Creates a LinkedHashMap and iterates through it to print key-value pairs in insertion order.** ",
+    "prompt": "**Creates a LinkedHashMap and iterates through it to print key-value pairs in insertion order.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 914,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "73 - **Creates a LinkedHashSet and adds elements, maintaining the insertion order.**",
+    "example": ":m ```java\nSet<Integer> set = new LinkedHashSet<>();\nset.add(10);\nset.add(20);\nset.add(30);\nfor (Integer i : set) {\nSystem.out.println(i); // Prints: 10, 20, 30 (in insertion order)\n}\n```\nThis creates a `LinkedHashSet`, which maintains the order of elements as they are inserted. The `for-each` loop iterates through the set and prints the elements in the same order they were added.\nExample:\n```java\nSet<Integer> set = new LinkedHashSet<>();\nset.add(10);\nset.add(20);\nset.add(30);\nfor (Integer i : set) {\nSystem.out.println(i); // Prints: 10, 20, 30 (in insertion order)\n}\n```",
+    "description": ":m **Creates a LinkedHashSet and adds elements, maintaining the insertion order.** ",
+    "prompt": "**Creates a LinkedHashSet and adds elements, maintaining the insertion order.**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 939,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "74 - Arraylist",
+    "example": ":m ```java\nList<Integer> list = new ArrayList<>();\nlist.add(14);\nlist.add(0, 10); // Inserts 10 at index 0\nlist.get(0); // Returns element at index 0\nlist.remove(list.size() - 1); // Removes the last element\nlist.set(0, 20); // Replaces element at index 0 with 20 and returns the original value\nlist.indexOf(20); // Returns the index of the first occurrence of 20, or -1 if not found\nlist.subList(0, 2); // Returns a sublist containing elements at indices [0, 2)\nCollections.sort(list); // Sorts the list in ascending order\nCollections.sort(list, Collections.reverseOrder()); // Sorts the list in descending order\nCollections.sort(list, new Comparator<Integer>() {\n@Override\npublic int compare(Integer o1, Integer o2) {\nreturn o1 - o2; // Ascending order (min-heap)\n}\n});\nlist.forEach(num -> System.out.println(num)); // Iterates and prints elements using lambda\n```",
+    "description": ":m **Creates and manipulates a List using ArrayList methods, such as adding, removing, setting, and sorting elements.** ",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 962,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "75 - **Stack Operations** , Creaete a stack, push, pop, peek, check if empty and check size",
+    "example": ":m ```java\nStack<Integer> stack = new Stack<>();\nstack.push(10); // Pushes 10 onto the stack\nstack.pop(); // Pops the top element from the stack\nstack.peek(); // Returns the top element without removing it\nstack.isEmpty(); // Checks if the stack is empty\nstack.size(); // Returns the size of the stack\n```\nA `Stack` follows the Last In, First Out (LIFO) principle. Elements are added and removed from the top. Methods include `push`, `pop`, `peek`, `isEmpty`, and `size`.\nExample:\n```java\nQueue<Integer> q = new LinkedList<>();\nq.offer(10); // Adds 10 to the queue\nq.offer(20); // Adds 20 to the queue\nq.offer(30); // Adds 30 to the queue\nSystem.out.println(q.peek()); // Prints 10, as it's the front element\nq.poll(); // Removes 10 from the queue\nSystem.out.println(q.peek()); // Prints 20, as it's now the front element\nq.poll(); // Removes 20\nq.poll(); // Removes 30\nSystem.out.println(q.isEmpty()); // Prints true, as the queue is now empty",
+    "description": ":m **Stack Operations** , Creaete a stack, push, pop, peek, check if empty and check size",
+    "prompt": "**Stack Operations** , Creaete a stack, push, pop, peek, check if empty and check size",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 992,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "76 - **Queue Operations**  , add, remove from front, check the front element, check if empty, and check size",
+    "example": ":m ```java\nQueue<Integer> q = new LinkedList<>();\nq.offer(10); // Adds 10 to the queue\nq.poll(); // Removes and returns the front element of the queue\nq.peek(); // Returns the front element without removing it\nq.isEmpty(); // Checks if the queue is empty\nq.size(); // Returns the size of the queue\n```\nA `Queue` follows the First In, First Out (FIFO) principle. Elements are added at the back and removed from the front. Methods include `offer`, `poll`, `peek`, `isEmpty`, and `size`.\nExample:\n```java\nQueue<Integer> q = new LinkedList<>();\nq.offer(10); // Adds 10 to the queue\nq.offer(20); // Adds 20 to the queue\nq.offer(30); // Adds 30 to the queue\nSystem.out.println(q.peek()); // Prints 10, as it's the front element\nq.poll(); // Removes 10 from the queue\nSystem.out.println(q.peek()); // Prints 20, as it's now the front element\nq.poll(); // Removes 20\nq.poll(); // Removes 30\nSystem.out.println(q.isEmpty()); // Prints true, as the queue is now empty",
+    "description": ":m **Queue Operations** , add, remove from front, check the front element, check if empty, and check size",
+    "prompt": "**Queue Operations**  , add, remove from front, check the front element, check if empty, and check size",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 1020,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "77 - Create a Priority QUeue, add, poll, peek, check if empty and the size",
+    "example": ":m ```java\nPriorityQueue<Integer> pq = new PriorityQueue<>(); // Min-heap by default\nPriorityQueue<Integer> pqDesc = new PriorityQueue<>(Collections.reverseOrder()); // Max-heap\npq.add(10); // Adds 10 to the priority queue\npq.poll(); // Removes and returns the highest-priority element (min by default)\npq.peek(); // Returns the highest-priority element without removing it\npq.isEmpty(); // Checks if the priority queue is empty\npq.size(); // Returns the size of the priority queue\n```\nA `PriorityQueue` orders elements based on priority. By default, it acts as a min-heap, but it can be configured to act as a max-heap using `Collections.reverseOrder()`. Methods include `add`, `poll`, `peek`, `isEmpty`, and `size`.\n```java\nclass Node implements Comparable<Node> {\nint x, y;\npublic Node(int x, int y) {\nthis.x = x;\nthis.y = y;\n}\n@Override\npublic int compareTo(Node that) {\nreturn this.x - that.x; // Min-heap based on x value (ascending order)\n}\n}\nPriorityQueue<Node> pq = new PriorityQueue<>();\npq.add(new Node(10, 100)); // Adds node with x=10, y=100\npq.add(new Node(5, 50)); // Adds node with x=5, y=50\npq.add(new Node(15, 150)); // Adds node with x=15, y=150\nx\nSystem.out.println(\"Poll: \" + pq.poll().x); // Prints 5 (the node with smallest x value)\nSystem.out.println(\"Poll: \" + pq.poll().x); // Prints 10\nSystem.out.println(\"Poll: \" + pq.poll().x); // Prints 15\n```",
+    "description": ":m **PriorityQueue Operations**\nCreate a Priority QUeue, add, poll, peek, check if empty and the size",
+    "prompt": "Create a Priority QUeue, add, poll, peek, check if empty and the size",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 1049,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "78 - **Deque Operations**",
+    "example": ":m ```java\nimport java.util.Deque;\nDeque<Integer> dq = new LinkedList<>();\ndq.addFirst(10); // Adds 10 to the front of the deque\ndq.addLast(20); // Adds 20 to the end of the deque\ndq.peekFirst(); // Returns the first element without removing it\ndq.peekLast(); // Returns the last element without removing it\ndq.pollFirst(); // Removes and returns the first element\ndq.pollLast(); // Removes and returns the last element\n```\nA `Deque` (Double-Ended Queue) allows elements to be added and removed from both ends. Methods include `addFirst`, `addLast`, `peekFirst`, `peekLast`, `pollFirst`, and `pollLast`.\nExample:\n```java\nDeque<Integer> dq = new LinkedList<>();\ndq.addFirst(10); // Adds 10 to the front\ndq.addLast(20); // Adds 20 to the end\ndq.addFirst(5); // Adds 5 to the front\ndq.addLast(30); // Adds 30 to the end\nSystem.out.println(dq.peekFirst()); // 5\nSystem.out.println(dq.peekLast()); // 30\ndq.pollFirst(); // Removes 5\ndq.pollLast(); // Removes 30\nSystem.out.println(dq.peekFirst()); // 10\nSystem.out.println(dq.peekLast()); // 20\n```",
+    "description": ":m **Deque Operations** ",
+    "prompt": "**Deque Operations**",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P4 - Java for Interview.md",
+    "reference_line": 1087,
+    "module_name": "language and libraries",
+    "category": "PJavaforInterview"
+  },
+  {
+    "term": "1 - runtimeOnly \"org.lwjgl:lwjgl",
+    "example": ":m $lwjglNatives\"",
+    "description": ":m runtimeOnly \"org.lwjgl:lwjgl",
+    "prompt": "runtimeOnly \"org.lwjgl:lwjgl",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P5  - Java Game Engine.md",
+    "reference_line": 33,
+    "module_name": "language and libraries",
+    "category": "PJavaGameEngine"
+  },
+  {
+    "term": "2 - runtimeOnly \"org.lwjgl:lwjgl-assimp",
+    "example": ":m $lwjglNatives\"",
+    "description": ":m runtimeOnly \"org.lwjgl:lwjgl-assimp",
+    "prompt": "runtimeOnly \"org.lwjgl:lwjgl-assimp",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P5  - Java Game Engine.md",
+    "reference_line": 34,
+    "module_name": "language and libraries",
+    "category": "PJavaGameEngine"
+  },
+  {
+    "term": "3 - runtimeOnly \"org.lwjgl:lwjgl-glfw",
+    "example": ":m $lwjglNatives\"",
+    "description": ":m runtimeOnly \"org.lwjgl:lwjgl-glfw",
+    "prompt": "runtimeOnly \"org.lwjgl:lwjgl-glfw",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P5  - Java Game Engine.md",
+    "reference_line": 35,
+    "module_name": "language and libraries",
+    "category": "PJavaGameEngine"
+  },
+  {
+    "term": "4 - runtimeOnly \"org.lwjgl:lwjgl-openal",
+    "example": ":m $lwjglNatives\"",
+    "description": ":m runtimeOnly \"org.lwjgl:lwjgl-openal",
+    "prompt": "runtimeOnly \"org.lwjgl:lwjgl-openal",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P5  - Java Game Engine.md",
+    "reference_line": 36,
+    "module_name": "language and libraries",
+    "category": "PJavaGameEngine"
+  },
+  {
+    "term": "5 - runtimeOnly \"org.lwjgl:lwjgl-opengl",
+    "example": ":m $lwjglNatives\"",
+    "description": ":m runtimeOnly \"org.lwjgl:lwjgl-opengl",
+    "prompt": "runtimeOnly \"org.lwjgl:lwjgl-opengl",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P5  - Java Game Engine.md",
+    "reference_line": 37,
+    "module_name": "language and libraries",
+    "category": "PJavaGameEngine"
+  },
+  {
+    "term": "6 - runtimeOnly \"org.lwjgl:lwjgl-stb",
+    "example": ":m $lwjglNatives\"",
+    "description": ":m runtimeOnly \"org.lwjgl:lwjgl-stb",
+    "prompt": "runtimeOnly \"org.lwjgl:lwjgl-stb",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P5  - Java Game Engine.md",
+    "reference_line": 38,
+    "module_name": "language and libraries",
+    "category": "PJavaGameEngine"
+  },
+  {
+    "term": "1 - 1. **Overloading vs Overriding**",
+    "example": ":m **Description:**\nOverloading occurs when multiple methods with the same name but different parameter lists exist in the same class. Overriding occurs when a subclass provides a specific implementation of a method already defined in the parent class.\n**Overloading Example**\n```java\nclass Sample {\nvoid display(int num) {\nSystem.out.println(\"Integer: \" + num);\n}",
+    "description": ":m **Prompt:**\nDescribe the difference between method overloading and method overriding in Java. ",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P6 - Java Interview Questions.md",
+    "reference_line": 7,
+    "module_name": "language and libraries",
+    "category": "PJavaInterviewQuestions"
+  },
+  {
+    "term": "2 - 2. **Final Keyword (Final Method, Final Class, Final Variable)**",
+    "example": ":m **Description:**\nThe `final` keyword is used to define constants, prevent method overriding, and prevent inheritance of classes. When applied to a variable, the value cannot be changed after initialization; when applied to a method, the method cannot be overridden; and when applied to a class, the class cannot be subclassed.\n**Final Variable Example**\n```java\nfinal int MAX_VALUE = 100;\n```\n**Final Method Example**\n```java\nclass Base {\nfinal void show() {\nSystem.out.println(\"Final method in Base class\");\n}\n}",
+    "description": ":m **Prompt:**\nWhat is the significance of the `final` keyword in Java? ",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P6 - Java Interview Questions.md",
+    "reference_line": 41,
+    "module_name": "language and libraries",
+    "category": "PJavaInterviewQuestions"
+  },
+  {
+    "term": "3 - 4. **Access Modifiers (public, protected, default, private)**",
+    "example": ":m **Description:**\nAccess modifiers control the visibility of variables, methods, and classes. `public` allows access from anywhere, `private` restricts access within the same class, `protected` allows access within the same package or subclasses, and the default modifier allows access within the same package.\n```java\nclass A {\npublic int publicVar = 1;\nprotected int protectedVar = 2;\nint defaultVar = 3;\nprivate int privateVar = 4;\n}\n```",
+    "description": ":m **Prompt:**\nWhat are the different access modifiers in Java and how do they work? ",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P6 - Java Interview Questions.md",
+    "reference_line": 113,
+    "module_name": "language and libraries",
+    "category": "PJavaInterviewQuestions"
+  },
+  {
+    "term": "4 - 5. **Constructor Overloading**",
+    "example": ":m **Description:**\nConstructor overloading occurs when multiple constructors with different parameter lists exist in the same class. This allows an object to be initialized in different ways based on the parameters passed.\n```java\nclass OverloadConstructor {\nOverloadConstructor() {\nSystem.out.println(\"Default Constructor\");\n}",
+    "description": ":m **Prompt:**\nWhat is constructor overloading in Java? ",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P6 - Java Interview Questions.md",
+    "reference_line": 128,
+    "module_name": "language and libraries",
+    "category": "PJavaInterviewQuestions"
+  },
+  {
+    "term": "5 - 6. **Abstract Class vs Interface**",
+    "example": ":m **Description:**\nAn abstract class can have both abstract methods (without implementation) and concrete methods (with implementation), while an interface can only have abstract methods (prior to Java 8). Abstract classes allow partial implementation, whereas interfaces enforce a contract for implementation.\n**Abstract Class Example**\n```java\nabstract class Animal {\nabstract void sound();",
+    "description": ":m **Prompt:**\nWhat is the difference between an abstract class and an interface in Java? ",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P6 - Java Interview Questions.md",
+    "reference_line": 151,
+    "module_name": "language and libraries",
+    "category": "PJavaInterviewQuestions"
+  },
+  {
+    "term": "6 - 7. **Method Signature (Overloading & Overriding)**",
+    "example": ":m **Description:**\nIn method overloading, methods with the same name but different parameter types or numbers are allowed. In method overriding, the method signature must be identical to the one in the superclass, including the method name and parameter list.\n```java\nclass Base {\nvoid print(int a) {\nSystem.out.println(\"Integer: \" + a);\n}\n}",
+    "description": ":m **Prompt:**\nExplain method signatures and how they relate to overloading and overriding. ",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P6 - Java Interview Questions.md",
+    "reference_line": 186,
+    "module_name": "language and libraries",
+    "category": "PJavaInterviewQuestions"
+  },
+  {
+    "term": "7 - 8. **Static Method and Instance Method (Calling Order)**",
+    "example": ":m **Description:**\nStatic methods are called on the class itself, while instance methods require an object to be invoked. Static methods cannot access instance variables or methods, but they can access other static variables and methods.\n```java\nclass Example {\nstatic void staticMethod() {\nSystem.out.println(\"Static method\");\n}",
+    "description": ":m **Prompt:**\nWhat is the difference between static and instance methods in terms of calling and behavior? ",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P6 - Java Interview Questions.md",
+    "reference_line": 207,
+    "module_name": "language and libraries",
+    "category": "PJavaInterviewQuestions"
+  },
+  {
+    "term": "8 - 9. **Super Keyword**",
+    "example": ":m **Description:**\nThe `super` keyword is used to refer to the superclass of the current object. It can be used to access parent class constructors, methods, and fields.\n```java\nclass Parent {\nint value = 10;\n}",
+    "description": ":m **Prompt:**\nHow is the `super` keyword used in Java? ",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P6 - Java Interview Questions.md",
+    "reference_line": 231,
+    "module_name": "language and libraries",
+    "category": "PJavaInterviewQuestions"
+  },
+  {
+    "term": "9 - 10. **This Keyword**",
+    "example": ":m **Description:**\nThe `this` keyword refers to the current instance of the class. It is used to differentiate between instance variables and local variables when they have the same name and to invoke other constructors in the same class.",
+    "description": ":m **Prompt:**\nWhat is the purpose of the `this` keyword in Java? ",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P6 - Java Interview Questions.md",
+    "reference_line": 252,
+    "module_name": "language and libraries",
+    "category": "PJavaInterviewQuestions"
+  },
+  {
+    "term": "10 - 11. **Instance Initialization Block**",
+    "example": ":m **Description:**\nAn instance initialization block is used to initialize instance variables. It runs before the constructor is invoked when an object is created.",
+    "description": ":m **Prompt:**\nWhat is an instance initialization block in Java? ",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P6 - Java Interview Questions.md",
+    "reference_line": 278,
+    "module_name": "language and libraries",
+    "category": "PJavaInterviewQuestions"
+  },
+  {
+    "term": "11 - 12. **Thread Synchronization**",
+    "example": ":m **Description:**\nThread synchronization ensures that only one thread can access a shared resource at a time, preventing data inconsistency. This is crucial in multi-threaded applications to avoid race conditions.",
+    "description": ":m **Prompt:**\nWhat is thread synchronization in Java and why is it needed? ",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P6 - Java Interview Questions.md",
+    "reference_line": 304,
+    "module_name": "language and libraries",
+    "category": "PJavaInterviewQuestions"
+  },
+  {
+    "term": "12 - 13. **Exception Handling (Try-Catch-Finally)**",
+    "example": ":m **Description:**\nThe `try` block contains code that might throw an exception, the `catch` block handles exceptions, and the `finally` block is executed regardless of whether an exception occurs.\n```java\ntry {\nint result = 10 / 0;\n} catch (ArithmeticException e) {\nSystem.out.println(\"Exception: \" + e.getMessage());\n} finally {\nSystem.out.println(\"Finally block executed\");\n}\n```",
+    "description": ":m **Prompt:**\nExplain how exception handling works in Java with the use of `try`, `catch`, and `finally`. ",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P6 - Java Interview Questions.md",
+    "reference_line": 326,
+    "module_name": "language and libraries",
+    "category": "PJavaInterviewQuestions"
+  },
+  {
+    "term": "13 - 14. **Method References**",
+    "example": ":m **Description:**\nMethod references provide a shorthand for invoking a method by referring to it with the help of a lambda expression. They are more concise and can improve readability.\n```java\nclass Example {\nstatic void printMessage(String message) {\nSystem.out.println(message);\n}",
+    "description": ":m **Prompt:**\nWhat are method references in Java? ",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P6 - Java Interview Questions.md",
+    "reference_line": 343,
+    "module_name": "language and libraries",
+    "category": "PJavaInterviewQuestions"
+  },
+  {
+    "term": "14 - 15. **Lambda Expressions**",
+    "example": ":m **Description:**\nLambda expressions provide a concise way to represent an anonymous function (or a method) in a functional style. They are useful for passing behavior as parameters to methods, especially in contexts like the Java Streams API.\n```java\ninterface Example {\nvoid showMessage();\n}",
+    "description": ":m **Prompt:**\nWhat is a lambda expression in Java, and when should it be used? ",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P6 - Java Interview Questions.md",
+    "reference_line": 363,
+    "module_name": "language and libraries",
+    "category": "PJavaInterviewQuestions"
+  },
+  {
+    "term": "15 - 16. **Enum**",
+    "example": ":m **Description:**\nAn `enum` is a special class that represents a group of constants. It is used when a variable can only take one of a predefined set of values.\n```java\nenum Day {\nMONDAY, TUESDAY, WEDNESDAY;\n}",
+    "description": ":m **Prompt:**\nWhat is an `enum` in Java, and how does it work? ",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P6 - Java Interview Questions.md",
+    "reference_line": 383,
+    "module_name": "language and libraries",
+    "category": "PJavaInterviewQuestions"
+  },
+  {
+    "term": "16 - 17. **Varargs (Variable Arguments)**",
+    "example": ":m **Description:**\nVarargs allows a method to accept a variable number of arguments of a specified type. The arguments are passed as an array inside the method.\n```java\nclass Example {\nstatic void printNumbers(int... numbers) {\nfor (int num : numbers) {\nSystem.out.println(num);\n}\n}",
+    "description": ":m **Prompt:**\nWhat is a varargs parameter in Java, and how does it work? ",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P6 - Java Interview Questions.md",
+    "reference_line": 403,
+    "module_name": "language and libraries",
+    "category": "PJavaInterviewQuestions"
+  },
+  {
+    "term": "17 - 18. **Inner Class (Non-static)**",
+    "example": ":m **Description:**\nA non-static inner class is associated with an instance of the outer class and has access to its instance variables and methods.\n```java\nclass Outer {\nint value = 10;",
+    "description": ":m **Prompt:**\nWhat is a non-static inner class in Java? ",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P6 - Java Interview Questions.md",
+    "reference_line": 424,
+    "module_name": "language and libraries",
+    "category": "PJavaInterviewQuestions"
+  },
+  {
+    "term": "18 - 19. **Static Nested Class**",
+    "example": ":m **Description:**\nA static nested class is a nested class that does not require an instance of the outer class to be created. It can access only static members of the outer class.\n```java\nclass Outer {\nstatic int value = 10;",
+    "description": ":m **Prompt:**\nWhat is a static nested class in Java? ",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P6 - Java Interview Questions.md",
+    "reference_line": 451,
+    "module_name": "language and libraries",
+    "category": "PJavaInterviewQuestions"
+  },
+  {
+    "term": "19 - 20. **Cloneable Interface**",
+    "example": ":m **Description:**\nThe `Cloneable` interface is used to indicate that a class allows objects of that class to be cloned. If a class does not implement `Cloneable` and an attempt is made to clone an object, a `CloneNotSupportedException` is thrown.\n```java\nclass Person implements Cloneable {\nString name;",
+    "description": ":m **Prompt:**\nWhat is the `Cloneable` interface and how is it used in Java? ",
+    "prompt": "",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\language-and-libraries\\cache_md\\P6 - Java Interview Questions.md",
+    "reference_line": 477,
+    "module_name": "language and libraries",
+    "category": "PJavaInterviewQuestions"
+  }
+]

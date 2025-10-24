@@ -17,3 +17,9 @@ class MaxProfit {
 }
 
 module.exports = { Problem: MaxProfit };
+
+const maxProfit = new MaxProfit();
+console.log(maxProfit.solve([7, 1, 5, 3, 6, 4])); // Expected output: 5
+console.log(maxProfit.solve([7, 6, 4, 3, 1])); // Expected output: 0
+
+

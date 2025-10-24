@@ -531,7 +531,29 @@ function parseMarkdownCardsFromTermsModules(
 				} else {
 					// save the terms to a cache file
 					const cacheFilePath = targetCacheLocation;
-					const cachedTerms = terms.map(term => ({
+
+					// Collect all terms from both flat and nested structures
+					let allTerms = [...terms];
+
+					// Flatten nested decks to include all terms in cache.json
+					const flattenNestedDecks = (decks) => {
+						const flattened = [];
+						for (const deck of decks) {
+							if (deck.terms) {
+								flattened.push(...deck.terms);
+							}
+							if (deck.decks && deck.decks.length > 0) {
+								flattened.push(...flattenNestedDecks(deck.decks));
+							}
+						}
+						return flattened;
+					};
+
+					if (nestedDecks.length > 0) {
+						allTerms.push(...flattenNestedDecks(nestedDecks));
+					}
+
+					const cachedTerms = allTerms.map(term => ({
 						term: term.term,
 						example: term.example,
 						description: term.description,

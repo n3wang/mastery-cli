@@ -3,7 +3,17 @@
     {
       "id": "c83cefdc-13d7-4ce8-b338-0a7aa7eb7a34",
       "title": "TODO",
-      "cards": []
+      "cards": [
+        {
+          "id": "7f61e118-97e6-4a27-acf3-0e6f918168fa",
+          "listId": "c83cefdc-13d7-4ce8-b338-0a7aa7eb7a34",
+          "title": "better temp problems fill ups.",
+          "description": "better temp problems fill ups. the idea is to populate the ",
+          "labels": [],
+          "checkboxes": [],
+          "comments": []
+        }
+      ]
     },
     {
       "id": "3d766476-da51-484c-99a0-bc213a7ce5ba",
@@ -13,7 +23,7 @@
           "id": "ab55a093-6068-46e0-a997-941d2ed192fa",
           "listId": "3d766476-da51-484c-99a0-bc213a7ce5ba",
           "title": "Is not showing the cache,json",
-          "description": "",
+          "description": "\nfor some reason cache.json is no longer being filled. after parsing and depending on te index.js code from external modules.",
           "labels": [],
           "checkboxes": [],
           "comments": []
