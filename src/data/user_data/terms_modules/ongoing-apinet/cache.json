@@ -1,0 +1,432 @@
+[
+  {
+    "term": "1 - #       Now listening on: http://[",
+    "example": ":m ]:8080",
+    "description": ":m # Now listening on: http://[",
+    "prompt": "#       Now listening on: http://[",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\dotnet-basics.md",
+    "reference_line": 124,
+    "module_name": "ongoing-apinet",
+    "category": "dotnetbasics"
+  },
+  {
+    "term": "1 - Chess State Structure",
+    "example": ":m **ChessState is a record holding all game information:**\n```csharp\nprivate record ChessState(\nstring Turn, // Whose turn\nstring Position, // Board position\nlong WhiteTimeMs, // Time remaining\nlong BlackTimeMs,\nint MoveCount, // Move counter\nstring? Winner, // Game result\nstring? GameOverReason\n);\n```\n**Why record (not class):**\n1. **Immutable by default** - Can't accidentally change\n2. **Value equality** - Compare by content not reference\n3. **with expression** - Easy copying with changes\n```csharp\n// Immutable update\nvar newState = oldState with {\nTurn = \"black\",\nMoveCount = oldState.MoveCount + 1\n};\n// oldState unchanged\n```\n**Benefit:** Old states preserved for validation/rollback",
+    "description": ":m The chess state is a C# record that holds all information needed to represent the game at any point in time. Records are used because they provide immutability and value equality by default.\n```csharp\nprivate record ChessState(\nstring Turn, // \"white\" or \"black\"\nstring Position, // Simplified position tracking\nlong WhiteTimeMs, // White's remaining time\nlong BlackTimeMs, // Black's remaining time\nint MoveCount, // Total moves made\nstring? Winner, // \"white\", \"black\", \"draw\", or null\nstring? GameOverReason // \"checkmate\", \"timeout\", \"resign\", etc.\n);\n// Creating new state (immutable)\nvar newState = state with { Turn = \"black\", MoveCount = state.MoveCount + 1 };\n```\n**Why record:** Immutability ensures old states aren't accidentally modified, crucial for move validation.\n",
+    "prompt": "What is the chess state structure and why is it a record type?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\chess-implementation.md",
+    "reference_line": 5,
+    "module_name": "ongoing-apinet",
+    "category": "chessimplementation"
+  },
+  {
+    "term": "2 - Time Control Algorithm",
+    "example": ":m **Time control formula:**\n```\nNewTime = (OldTime - Elapsed) + Increment\n```\n**Implementation:**\n```csharp\n// Configuration\nbaseTimeMs = 600000; // 10 minutes\nincrementMs = 5000; // 5 seconds\n// After white's move\nwhiteTimeMs = (600000 - 3000) + 5000 = 602000;\nturn = \"black\";\n// Timeout check\nif (whiteTimeMs <= 0) {\nwinner = \"black\";\nreason = \"timeout\";\n}\n```\n**Example game:**\n```\nMove 1: White starts 600s, uses 3s → 597s + 5s = 602s\nMove 2: Black starts 600s, uses 5s → 595s + 5s = 600s\nMove 3: White has 602s, uses 2s → 600s + 5s = 605s\n```\n**Math:** Each player gains net time if move < increment\n- Move in 3s with 5s increment = gain 2s\n- Move in 8s with 5s increment = lose 3s",
+    "description": ":m Time controls in chess work with a base time plus increment per move. After each move, the player's time decreases by elapsed time, then increases by increment.\n```csharp\n// Time update algorithm (simplified)\nif (state.Turn == \"white\")\n{\n// White moved\nnewWhiteTime = (state.WhiteTimeMs - elapsedMs) + incrementMs;\nnewTurn = \"black\";\n}\nelse\n{\n// Black moved\nnewBlackTime = (state.BlackTimeMs - elapsedMs) + incrementMs;\nnewTurn = \"white\";\n}\n// Check for timeout\nif (newWhiteTime <= 0)\n{\nwinner = \"black\";\ngameOverReason = \"timeout\";\n}\n```\n**Example:** 10 min + 5 sec\n- Start: 600,000ms\n- After move (took 3000ms): 600,000 - 3,000 + 5,000 = 602,000ms\n",
+    "prompt": "How does the chess time control algorithm work with increment?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\chess-implementation.md",
+    "reference_line": 60,
+    "module_name": "ongoing-apinet",
+    "category": "chessimplementation"
+  },
+  {
+    "term": "3 - Move Validation Flow",
+    "example": ":m **Move validation has 4 stages (fail fast):**\n**Stage 1: Format validation**\n```csharp\nif (!moveData.ContainsKey(\"from\") || !moveData.ContainsKey(\"to\"))\nreturn (false, \"INVALID_MOVE_FORMAT\");\nif (!IsValidSquare(from) || !IsValidSquare(to))\nreturn (false, \"INVALID_SQUARE\");\n```\nCheck structure and format first (fastest)\n**Stage 2: Permission validation**\n```csharp\nvar seat = room.Seats.FirstOrDefault(s => s.UserId == playerId);\nif (seat == null)\nreturn (false, \"PLAYER_NOT_IN_ROOM\");\n```\nIs this player in this game?\n**Stage 3: Game state validation**\n```csharp\nif (state.Turn != playerColor)\nreturn (false, \"NOT_YOUR_TURN\");\nif (state.Winner != null)\nreturn (false, \"GAME_ALREADY_FINISHED\");\n```\nCheck game-level rules\n**Stage 4: Chess rules validation**\n- Is piece at 'from' square?\n- Does piece belong to current player?\n- Is move legal for that piece?\n- Does move leave king in check?\n**Order matters:** Fast checks first, expensive checks last",
+    "description": ":m Move validation happens in two stages: format validation and game rule validation. This separation allows for early rejection of malformed requests.\n```csharp\npublic (bool ok, string? error) ValidateMove(\nGameRoom room, object state, string playerId,\nDictionary<string, object> moveData)\n{\n// Stage 1: Format validation\nif (!moveData.ContainsKey(\"from\") || !moveData.ContainsKey(\"to\"))\nreturn (false, \"INVALID_MOVE_FORMAT\");\nvar from = moveData[\"from\"]?.ToString();\nvar to = moveData[\"to\"]?.ToString();\nif (!IsValidSquare(from) || !IsValidSquare(to))\nreturn (false, \"INVALID_SQUARE\");\n// Stage 2: Permission validation\nvar seat = room.Seats.FirstOrDefault(s => s.UserId == playerId);\nif (seat == null)\nreturn (false, \"PLAYER_NOT_IN_ROOM\");\n// Stage 3: Game state validation\nif (state.Turn != playerColor)\nreturn (false, \"NOT_YOUR_TURN\");\n// Stage 4: Chess rules (simplified here)\n// In full implementation: check piece rules, check, etc.\nreturn (true, null);\n}\n```\n",
+    "prompt": "What are the stages of move validation in the chess implementation?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\chess-implementation.md",
+    "reference_line": 128,
+    "module_name": "ongoing-apinet",
+    "category": "chessimplementation"
+  },
+  {
+    "term": "4 - Command Envelope Design",
+    "example": ":m **Command Envelope wraps command type + payload:**\n```csharp\npublic record CommandEnvelope(\nstring Type, // Command identifier\nDictionary<string, object>? Payload // Optional data\n);\n// Examples\nnew CommandEnvelope(\"resign\", null);\nnew CommandEnvelope(\"offer_draw\", null);\nnew CommandEnvelope(\"chat\", new {\nmessage = \"Good game!\"\n});\n```\n**Handler pattern:**\n```csharp\nswitch (command.Type.ToLower())\n{\ncase \"resign\":\nreturn HandleResign(playerId);\ncase \"offer_draw\":\nreturn HandleDrawOffer(playerId);\ndefault:\nreturn (false, \"UNKNOWN_COMMAND\", ...);\n}\n```\n**Benefits:**\n1. **Extensible**: Add commands without interface changes\n2. **Type safe**: Payload is flexible per command\n3. **Discoverable**: All commands go through one method\n4. **Testable**: Easy to mock different commands\n**Pattern:** Similar to message passing in actor systems",
+    "description": ":m Commands are generic actions (resign, offer draw, chat) that aren't moves. We use an envelope pattern to make the system extensible.\n```csharp\npublic record CommandEnvelope(\nstring Type, // \"resign\", \"offer_draw\", etc.\nDictionary<string, object>? Payload // Optional command-specific data\n);\n// Usage\nnew CommandEnvelope(\"resign\", null);\nnew CommandEnvelope(\"chat\", new { message = \"Good game!\" });\nnew CommandEnvelope(\"offer_draw\", new { timeLeft = 60000 });\n// Handler uses switch on Type\nswitch (command.Type.ToLower())\n{\ncase \"resign\":\n// Handle resignation\nbreak;\ncase \"offer_draw\":\n// Handle draw offer\nbreak;\n// ...\n}\n```\n**Why envelope pattern:** New commands can be added without changing the interface.\n",
+    "prompt": "What is the Command Envelope pattern and why is it used for game commands?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\chess-implementation.md",
+    "reference_line": 207,
+    "module_name": "ongoing-apinet",
+    "category": "chessimplementation"
+  },
+  {
+    "term": "5 - Resignation Logic",
+    "example": ":m **Resignation updates state, room, and notifies clients:**\n```csharp\n// 1. Identify resigner\nvar seat = room.Seats.First(s => s.UserId == playerId);\nvar resignerColor = seat.Tags[\"color\"]; // \"white\"/\"black\"\n// 2. Determine winner (opponent)\nvar winner = resignerColor == \"white\" ? \"black\" : \"white\";\n// 3. Update game state (immutable)\nvar newState = state with {\nWinner = winner,\nGameOverReason = \"resign\"\n};\n// 4. Update room\nroom.Status = \"finished\";\nroom.FinishedAt = DateTime.UtcNow;\nroom.Sequence++;\n// 5. Create event\nvar evt = new GameEventDto(\nroomId,\nsequence,\n\"game_over\",\nnew { winner, reason = \"resign\", resignedBy = playerId }\n);\n// 6. Broadcast to all players\nreturn (true, null, newState, evt);\n```\n**Updates are atomic:** All changes in single database transaction",
+    "description": ":m When a player resigns, we need to determine the winner, update game state, and notify all players. The logic is straightforward but must be atomic.\n```csharp\ncase \"resign\":\n{\n// Find who resigned\nvar seat = room.Seats.FirstOrDefault(s => s.UserId == playerId);\nvar resignerColor = seat.Tags[\"color\"]; // \"white\" or \"black\"\n// Winner is opponent\nvar winner = resignerColor == \"white\" ? \"black\" : \"white\";\n// Update state (immutable record)\nvar newState = state with\n{\nWinner = winner,\nGameOverReason = \"resign\"\n};\n// Update room status\nroom.Status = \"finished\";\nroom.FinishedAt = DateTime.UtcNow;\n// Create event for clients\nvar evt = new GameEventDto(\nroom.RoomId,\nroom.Sequence + 1,\n\"game_over\",\nnew { winner, reason = \"resign\", resignedBy = playerId }\n);\nreturn (true, null, newState, evt);\n}\n```\n",
+    "prompt": "How is the resignation command implemented and what updates are made?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\chess-implementation.md",
+    "reference_line": 278,
+    "module_name": "ongoing-apinet",
+    "category": "chessimplementation"
+  },
+  {
+    "term": "6 - Immutable State Updates",
+    "example": ":m **Immutable updates create NEW state instead of modifying existing:**\n```csharp\n// MUTABLE (bad)\nstate.Turn = \"black\";\nstate.MoveCount++;\nreturn state; // Modified original\n// IMMUTABLE (good)\nreturn new ChessState(\nTurn: \"black\",\nPosition: newPosition,\nWhiteTimeMs: newWhiteTime,\nBlackTimeMs: newBlackTime,\nMoveCount: state.MoveCount + 1,\nWinner: null,\nGameOverReason: null\n);\n// Original state unchanged\n```\n**Benefits:**\n**1. Rollback:**\n```csharp\nvar oldState = state; // Save reference\nvar newState = ApplyMove(...);\nif (violation) {\nreturn oldState; // Easy rollback\n}\n```\n**2. Debugging:**\n- Can compare old vs new\n- History preserved\n- No hidden mutations\n**3. Thread safety:**\n- Old state can't be modified\n- Safe to read while computing new\n**Pattern:** Functional programming in C#",
+    "description": ":m When applying a move, we never modify the existing state. Instead, we create a new state object with updated values. This is functional programming style.\n```csharp\npublic object ApplyMove(\nGameRoom room, object stateObj, string playerId,\nDictionary<string, object> moveData, long serverMs)\n{\nvar state = (ChessState)stateObj;\n// Calculate time updates\nlong newWhiteTime = state.WhiteTimeMs;\nlong newBlackTime = state.BlackTimeMs;\nstring newTurn;\nif (state.Turn == \"white\")\n{\nnewWhiteTime = Math.Max(0, state.WhiteTimeMs - 1000) + incrementMs;\nnewTurn = \"black\";\n}\nelse\n{\nnewBlackTime = Math.Max(0, state.BlackTimeMs - 1000) + incrementMs;\nnewTurn = \"white\";\n}\n// Create NEW state (old state unchanged)\nreturn new ChessState(\nTurn: newTurn,\nPosition: newPosition,\nWhiteTimeMs: newWhiteTime,\nBlackTimeMs: newBlackTime,\nMoveCount: state.MoveCount + 1,\nWinner: winner,\nGameOverReason: gameOverReason\n);\n}\n```\n**Why immutable:** Allows rollback, simplifies debugging, prevents accidental modification.\n",
+    "prompt": "Why do we use immutable state updates in ApplyMove and how is it implemented?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\chess-implementation.md",
+    "reference_line": 356,
+    "module_name": "ongoing-apinet",
+    "category": "chessimplementation"
+  },
+  {
+    "term": "7 - Square Validation",
+    "example": ":m **Chess squares: file (a-h) + rank (1-8)**\n```csharp\nprivate static bool IsValidSquare(string square)\n{\nif (square.Length != 2)\nreturn false;\nchar file = square[0]; // a-h\nchar rank = square[1]; // 1-8\nreturn (file >= 'a' && file <= 'h') &&\n(rank >= '1' && rank <= '8');\n}\n```\n**Valid squares:**\n```\na1, a2, ..., a8 (file a, ranks 1-8)\nb1, b2, ..., b8 (file b, ranks 1-8)\n...\nh1, h2, ..., h8 (file h, ranks 1-8)\n```\n**Total: 8 × 8 = 64 squares**\n**Invalid examples:**\n- \"i9\" - file 'i' doesn't exist, rank > 8\n- \"e\" - only 1 character\n- \"e22\" - too long\n- \"9a\" - digits in wrong position\n**Coordinate system:**\n- Files (columns): a-h (left to right)\n- Ranks (rows): 1-8 (bottom to top)",
+    "description": ":m Chess squares are notated as file (a-h) + rank (1-8). We validate this format before processing moves.\n```csharp\nprivate static bool IsValidSquare(string square)\n{\n// Must be exactly 2 characters\nif (square.Length != 2)\nreturn false;\nchar file = square[0]; // First char: a-h\nchar rank = square[1]; // Second char: 1-8\n// Validate file (column)\nbool validFile = file >= 'a' && file <= 'h';\n// Validate rank (row)\nbool validRank = rank >= '1' && rank <= '8';\nreturn validFile && validRank;\n}\n// Valid: \"e2\", \"h8\", \"a1\"\n// Invalid: \"i9\", \"e\", \"e22\", \"9a\"\n```\n**Chess coordinates:** 64 squares = 8 files × 8 ranks\n",
+    "prompt": "How is chess square notation validated and what are valid squares?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\chess-implementation.md",
+    "reference_line": 445,
+    "module_name": "ongoing-apinet",
+    "category": "chessimplementation"
+  },
+  {
+    "term": "1 - What is .NET?",
+    "example": ":m The three main components of .NET are:\n**1. Runtime (CLR):**\n- Executes your applications\n- Manages memory (garbage collection)\n- Handles security and type safety\n- Just-In-Time (JIT) compilation\n**2. Libraries (BCL - Base Class Library):**\n- Pre-built code you can use\n- Collections, file I/O, networking, etc.\n- No need to write everything from scratch\n**3. SDK (Software Development Kit):**\n- Tools for building apps: `dotnet build`\n- Tools for running apps: `dotnet run`\n- Package manager: `dotnet add package`\n- Project templates: `dotnet new`\n**Analogy:**\n- Runtime = Engine that runs your car\n- Libraries = GPS, radio, features you use\n- SDK = Tools to build and maintain the car",
+    "description": ":m .NET is a free, open-source platform for building applications. It consists of three main components that work together: the Runtime (CLR - Common Language Runtime) executes your code, the Libraries (BCL - Base Class Library) provide pre-built functionality, and the SDK (Software Development Kit) contains tools for building and running applications.\n```\n.NET Platform\n├── Runtime (CLR) - Executes applications\n├── Libraries (BCL) - Pre-built code\n└── SDK - Development tools\n```\n",
+    "prompt": "What are the three main components of .NET and what does each do?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\dotnet-basics.md",
+    "reference_line": 5,
+    "module_name": "ongoing-apinet",
+    "category": "dotnetbasics"
+  },
+  {
+    "term": "2 - Project File Structure (.csproj)",
+    "example": ":m The `.csproj` file is the **project configuration file** in XML format.\n**Key elements:**\n**1. Project SDK:**\n```xml\n<Project Sdk=\"Microsoft.NET.Sdk.Web\">\n```\n- Defines project type\n- `Sdk.Web` = Web applications\n- `Sdk` = Console apps, class libraries\n**2. PropertyGroup - Project settings:**\n```xml\n<TargetFramework>net9.0</TargetFramework>\n```\n- Which .NET version to use\n- `net9.0` = .NET 9.0\n- `net8.0` = .NET 8.0\n```xml\n<Nullable>enable</Nullable>\n```\n- Enable nullable reference types\n- Helps prevent null reference errors\n```xml\n<ImplicitUsings>enable</ImplicitUsings>\n```\n- Automatically imports common namespaces\n- Don't need `using System;` everywhere\n**3. ItemGroup - Dependencies:**\n```xml\n<PackageReference Include=\"PackageName\" Version=\"1.0.0\" />\n```\n- External libraries (NuGet packages)\n- Version management\n**Editing:** Usually edit via `dotnet add package`, not manually",
+    "description": ":m The `.csproj` file is an XML file that defines your project configuration. It specifies the target framework (which .NET version), enabled features (like nullable reference types), and dependencies (NuGet packages).\n```xml\n<Project Sdk=\"Microsoft.NET.Sdk.Web\">\n<PropertyGroup>\n<TargetFramework>net9.0</TargetFramework>\n<Nullable>enable</Nullable>\n<ImplicitUsings>enable</ImplicitUsings>\n</PropertyGroup>\n<ItemGroup>\n<PackageReference Include=\"Npgsql.EntityFrameworkCore.PostgreSQL\" Version=\"9.0.4\" />\n</ItemGroup>\n</Project>\n```\n",
+    "prompt": "What is the purpose of the .csproj file and what are its key elements?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\dotnet-basics.md",
+    "reference_line": 44,
+    "module_name": "ongoing-apinet",
+    "category": "dotnetbasics"
+  },
+  {
+    "term": "3 - dotnet build vs dotnet run",
+    "example": ":m **dotnet build** - Compile only:\n```bash\ndotnet build\n# What happens:\n1. Compiles .cs files → .dll files\n2. Checks for syntax/type errors\n3. Creates bin/Debug/net9.0/ output\n4. Does NOT run the application\n# Build in Release mode (optimized):\ndotnet build -c Release\n```\n**dotnet run** - Compile AND run:\n```bash\ndotnet run\n# What happens:\n1. Checks if build needed (implicit build)\n2. Builds if source changed\n3. Runs the application\n4. Starts web server or console app\n# Run with file watching:\ndotnet watch run # Auto-restart on file changes\n```\n**When to use:**\n**Build:**\n- Check for compilation errors\n- CI/CD pipelines\n- Prepare for publishing\n- Verify code compiles without running\n**Run:**\n- Development (test locally)\n- See application output\n- Debug issues\n- Test HTTP endpoints\n**Performance:** `dotnet build` is faster if you just need to check errors",
+    "description": ":m The `dotnet build` command compiles your code into assemblies (DLL files) without running it. The `dotnet run` command both builds AND runs your application in one step. Build is useful for checking compilation errors without starting the app.\n```bash\n# Just compile (check for errors)\ndotnet build\n# Compile and run\ndotnet run\n```\n",
+    "prompt": "What is the difference between `dotnet build` and `dotnet run`?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\dotnet-basics.md",
+    "reference_line": 109,
+    "module_name": "ongoing-apinet",
+    "category": "dotnetbasics"
+  },
+  {
+    "term": "4 - Package Management Commands",
+    "example": ":m **NuGet package management commands:**\n**Add a package:**\n```bash\ndotnet add package PackageName\n# What happens:\n1. Downloads package from NuGet.org\n2. Adds to .csproj file:\n<PackageReference Include=\"PackageName\" Version=\"x.x.x\" />\n3. Restores dependencies\n4. Ready to use in code\n```\n**Add specific version:**\n```bash\ndotnet add package PackageName --version 1.2.3\n# Locks to exact version\n# Useful for stability/compatibility\n```\n**Remove package:**\n```bash\ndotnet remove package PackageName\n# Removes from .csproj\n# Cleans up unused dependencies\n```\n**List packages:**\n```bash\ndotnet list package\n# Shows all installed packages\n# With version numbers\ndotnet list package --outdated\n# Shows packages with newer versions available\n```\n**Restore packages:**\n```bash\ndotnet restore\n# Downloads all packages from .csproj\n# Usually automatic (build/run do this)\n# Useful after cloning repo\n```\n**Example workflow:**\n```bash\n# Clone project\ngit clone repo-url\ncd project\n# Restore dependencies\ndotnet restore\n# Add new package\ndotnet add package Swashbuckle.AspNetCore\n# Build with new package\ndotnet build\n```",
+    "description": ":m NuGet is .NET's package manager for adding external libraries. Packages are downloaded from NuGet.org and added to your project's dependencies. The `.csproj` file tracks which packages and versions your project uses.\n```bash\n# Add package\ndotnet add package Npgsql.EntityFrameworkCore.PostgreSQL\n# Add specific version\ndotnet add package PackageName --version 1.2.3\n# Remove package\ndotnet remove package PackageName\n# List all packages\ndotnet list package\n```\n",
+    "prompt": "How do you manage NuGet packages using the dotnet CLI?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\dotnet-basics.md",
+    "reference_line": 169,
+    "module_name": "ongoing-apinet",
+    "category": "dotnetbasics"
+  },
+  {
+    "term": "5 - EF Core Migration Commands",
+    "example": ":m **Migrations = Version control for your database schema**\n**Workflow:**\n**1. Install EF Core tools:**\n```bash\ndotnet tool install --global dotnet-ef\n# Verify installation:\ndotnet ef\n```\n**2. Create migration:**\n```bash\ndotnet ef migrations add MigrationName\n# What happens:\n1. Compares current model to last migration\n2. Generates C# code with Up()/Down() methods\n3. Creates file in Migrations/ folder\n4. Calculates SQL needed for changes\n# Example:\ndotnet ef migrations add AddTodoTable\n```\n**3. Apply migration:**\n```bash\ndotnet ef database update\n# What happens:\n1. Generates SQL from migration\n2. Executes SQL on database\n3. Updates __EFMigrationsHistory table\n4. Database now matches your models\n```\n**4. Remove migration:**\n```bash\ndotnet ef migrations remove\n# Only works if:\n- Migration not applied to database\n- Removes the last migration file\n```\n**5. Generate SQL script:**\n```bash\ndotnet ef migrations script\n# Outputs SQL without running it\n# Useful for:\n- Manual review\n- DBA approval\n- Production deployments\n```\n**Example scenario:**\n```bash\n# 1. Add property to model\npublic class TodoItem {\npublic string? Tags { get; set; } // NEW\n}\n# 2. Create migration\ndotnet ef migrations add AddTagsToTodo\n# 3. Apply to database\ndotnet ef database update\n# Database now has Tags column\n```\n**vs EnsureCreated():**\n- `EnsureCreated()` - Creates DB from scratch (no evolution)\n- Migrations - Evolves DB over time (proper versioning)",
+    "description": ":m Entity Framework Core migrations are a way to evolve your database schema over time. Migrations track changes to your models and generate SQL to update the database accordingly.\n```bash\n# Create migration\ndotnet ef migrations add AddUserTable\n# Apply to database\ndotnet ef database update\n# Remove last migration (if not applied)\ndotnet ef migrations remove\n# Generate SQL script\ndotnet ef migrations script\n```\n",
+    "prompt": "What are EF Core migrations and how do you use them?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\dotnet-basics.md",
+    "reference_line": 257,
+    "module_name": "ongoing-apinet",
+    "category": "dotnetbasics"
+  },
+  {
+    "term": "6 - Watch Mode",
+    "example": ":m **Watch mode = Auto-restart on file changes**\n**Usage:**\n```bash\ndotnet watch run\n# Console output:\n# \"dotnet watch ⌚ Started\"\n# \"dotnet watch ⌚ Building...\"\n# \"dotnet watch ⌚ Started\"\n# \"Watching for file changes...\"\n```\n**What it does:**\n**1. Monitors files:**\n- All `.cs` files\n- `.csproj` file\n- Configuration files\n**2. On file change:**\n- Detects change\n- Stops running app\n- Rebuilds project\n- Restarts app\n- Shows in console\n**3. Hot reload (some changes):**\n- Method body changes\n- Adding methods\n- No restart needed for small changes\n**When to use:**\n**Development ✓:**\n```bash\ndotnet watch run\n# Make changes\n# Save file\n# Instantly see results in browser\n# No manual restart\n```\n**Production ✗:**\n```bash\ndotnet run # Regular run for production\n```\n**Example workflow:**\n```bash\n# Terminal 1: Start watch\ndotnet watch run\n# Terminal 2: Make changes\nvim Controllers/TodoController.cs\n# Edit, save\n# Terminal 1: Automatically shows\n# \"File changed: TodoController.cs\"\n# \"Restarting...\"\n# \"Application started\"\n# Browser: Refresh to see changes\n```\n**Benefit:** Save 10-30 seconds per change × 100 changes/day = huge time saver",
+    "description": ":m Watch mode monitors your source files and automatically rebuilds and restarts your application when changes are detected. This is extremely useful during development to see changes immediately without manually restarting.\n```bash\n# Normal run\ndotnet run\n# Watch mode\ndotnet watch run\n# Output: \"Watching for file changes...\"\n# Any .cs file change → auto rebuild + restart\n```\n",
+    "prompt": "What is `dotnet watch run` and when should you use it?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\dotnet-basics.md",
+    "reference_line": 358,
+    "module_name": "ongoing-apinet",
+    "category": "dotnetbasics"
+  },
+  {
+    "term": "7 - Build Configurations",
+    "example": ":m **Debug vs Release configurations:**\n**Debug configuration:**\n```bash\ndotnet build # Default is Debug\ndotnet build -c Debug # Explicit\n# Characteristics:\n- Optimization: OFF\n- Debug symbols: Included (.pdb files)\n- Assertions: Enabled\n- Code size: Larger\n- Performance: Slower\n- Debugging: Easy (breakpoints work)\n# Output: bin/Debug/net9.0/\n```\n**Release configuration:**\n```bash\ndotnet build -c Release\n# Characteristics:\n- Optimization: ON (aggressive)\n- Debug symbols: Usually excluded\n- Assertions: Removed\n- Code size: Smaller\n- Performance: Faster\n- Debugging: Difficult\n# Output: bin/Release/net9.0/\n```\n**Publishing:**\n```bash\ndotnet publish -c Release -o ./publish\n# Creates deployment-ready files:\n- Optimized binaries\n- All dependencies\n- Configuration files\n- Ready to deploy\n# Self-contained (includes runtime):\ndotnet publish -c Release -r linux-x64 --self-contained\n# Creates standalone app with .NET runtime included\n# Larger size but no .NET installation needed\n```\n**When to use:**\n**Debug:**\n- Local development\n- Testing with breakpoints\n- Investigating bugs\n**Release:**\n- Production deployment\n- Performance testing\n- Docker images\n- Final builds\n**Performance difference:**\n```\nDebug: 100 requests/sec\nRelease: 500 requests/sec (example - varies)\n```\n**File size:**\n```\nDebug: 50 MB\nRelease: 30 MB (optimized, trimmed)\n```",
+    "description": ":m .NET has two main build configurations: Debug (development) and Release (production). Debug mode includes symbols for debugging and is not optimized. Release mode is fully optimized for performance.\n```bash\n# Debug build (default)\ndotnet build\n# Release build (optimized)\ndotnet build -c Release\n# Publish for deployment\ndotnet publish -c Release -o ./publish\n```\n",
+    "prompt": "What is the difference between Debug and Release build configurations?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\dotnet-basics.md",
+    "reference_line": 445,
+    "module_name": "ongoing-apinet",
+    "category": "dotnetbasics"
+  },
+  {
+    "term": "8 - ASPNETCORE_ENVIRONMENT",
+    "example": ":m **ASPNETCORE_ENVIRONMENT** determines runtime behavior\n**Common values:**\n**Development:**\n```bash\nexport ASPNETCORE_ENVIRONMENT=Development\ndotnet run\n# Behavior:\n- Detailed error pages (stack traces)\n- Verbose logging\n- Developer exception page\n- Loads appsettings.Development.json\n- Swagger enabled (often)\n- No response caching\n```\n**Production:**\n```bash\nexport ASPNETCORE_ENVIRONMENT=Production\ndotnet run\n# Behavior:\n- Generic error pages (no stack traces)\n- Minimal logging\n- Production exception handler\n- Loads appsettings.Production.json\n- Swagger disabled (typically)\n- Response caching enabled\n- Performance optimized\n```\n**Staging:**\n```bash\nexport ASPNETCORE_ENVIRONMENT=Staging\n# Production-like but with more logging\n# For final testing before production\n```\n**How it works:**\n**In code (Program.cs):**\n```csharp\nvar builder = WebApplication.CreateBuilder(args);\nvar app = builder.Build();\nif (app.Environment.IsDevelopment())\n{\napp.UseDeveloperExceptionPage();\napp.UseSwagger();\n}\nelse\n{\napp.UseExceptionHandler(\"/Error\");\n}\n```\n**Configuration files:**\n```\nappsettings.json - Base config\nappsettings.Development.json - Dev overrides\nappsettings.Production.json - Prod overrides\n# Loaded in order:\n1. appsettings.json\n2. appsettings.{Environment}.json (overrides base)\n```\n**Other variables:**\n```bash\n# Set custom port\nexport ASPNETCORE_URLS=\"http://localhost:3000\"\n# Set connection string\nexport ConnectionStrings__DefaultConnection=\"Host=...\"\n```\n**Windows (PowerShell):**\n```powershell\n$env:ASPNETCORE_ENVIRONMENT=\"Development\"\ndotnet run\n```\n**Docker:**\n```dockerfile\nENV ASPNETCORE_ENVIRONMENT=Production\n```",
+    "description": ":m This environment variable controls the application's runtime behavior. Different environments (Development, Production) enable different features like detailed error pages, logging verbosity, and configuration sources.\n```bash\n# Development mode\nexport ASPNETCORE_ENVIRONMENT=Development\ndotnet run\n# Production mode\nexport ASPNETCORE_ENVIRONMENT=Production\ndotnet run\n```\n",
+    "prompt": "What does ASPNETCORE_ENVIRONMENT control and what are the common values?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\dotnet-basics.md",
+    "reference_line": 540,
+    "module_name": "ongoing-apinet",
+    "category": "dotnetbasics"
+  },
+  {
+    "term": "9 - Creating a New Web API Project",
+    "example": ":m **Creating a new Web API project:**\n**Command:**\n```bash\ndotnet new webapi -n TodoApi\n# Options:\n# -n: Project name\n# -o: Output directory\n# --no-https: Disable HTTPS\n# -f: Target framework (net9.0, net8.0)\n```\n**Generated files:**\n**Program.cs:**\n```csharp\n// Main entry point\n// Configures services and middleware\nvar builder = WebApplication.CreateBuilder(args);\nbuilder.Services.AddControllers();\nvar app = builder.Build();\napp.MapControllers();\napp.Run();\n```\n**Controllers/WeatherForecastController.cs:**\n```csharp\n// Example API controller\n[ApiController]\n[Route(\"[controller]\")]\npublic class WeatherForecastController : ControllerBase\n{\n[HttpGet]\npublic IEnumerable<WeatherForecast> Get() { ... }\n}\n```\n**TodoApi.csproj:**\n```xml\n<!-- Project configuration -->\n<Project Sdk=\"Microsoft.NET.Sdk.Web\">\n<PropertyGroup>\n<TargetFramework>net9.0</TargetFramework>\n</PropertyGroup>\n</Project>\n```\n**appsettings.json:**\n```json\n// Configuration settings\n{\n\"Logging\": {\n\"LogLevel\": {\n\"Default\": \"Information\"\n}\n}\n}\n```\n**Other files:**\n- `Properties/launchSettings.json` - Debug profiles\n- `WeatherForecast.cs` - Example model\n**Create in current directory:**\n```bash\nmkdir TodoApi\ncd TodoApi\ndotnet new webapi -o . # Creates in current folder\n```\n**Add packages:**\n```bash\ndotnet new webapi -n TodoApi\ncd TodoApi\ndotnet add package Npgsql.EntityFrameworkCore.PostgreSQL\ndotnet add package Swashbuckle.AspNetCore\n```\n**Run immediately:**\n```bash\ndotnet new webapi -n TodoApi\ncd TodoApi\ndotnet run\n# API available at http://localhost:5000\n```\n**List templates:**\n```bash\ndotnet new list\n# Output:\n# console - Console application\n# webapi - ASP.NET Core Web API\n# mvc - ASP.NET Core MVC\n# blazor - Blazor app\n# ... many more\n```",
+    "description": ":m The `dotnet new` command creates projects from templates. The `webapi` template creates a RESTful API project with all necessary files and configurations.\n```bash\n# Create new Web API\ndotnet new webapi -n MyApi\n# Create in current directory\ndotnet new webapi -o .\n# List available templates\ndotnet new list\n```\n",
+    "prompt": "How do you create a new Web API project and what files are generated?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\dotnet-basics.md",
+    "reference_line": 650,
+    "module_name": "ongoing-apinet",
+    "category": "dotnetbasics"
+  },
+  {
+    "term": "1 - IGameRules Interface Design",
+    "example": ":m IGameRules implements the **Strategy Pattern** - different algorithms (game rules) with a common interface.\n**Why state is `object`:**\n```csharp\n// ChessRules internal state\nprivate record ChessState(string Turn, string Position, ...);\n// CheckersRules would have different state\nprivate record CheckersState(Dictionary<int,string> Board, ...);\n// Interface accepts any type\nobject ApplyMove(GameRoom room, object state, ...);\n```\n**Benefits:**\n1. Each game defines its own state structure\n2. No common state constraints\n3. Type safety within each implementation\n4. Maximum flexibility\n**Pattern:**\nInterface is polymorphic, implementations are type-specific",
+    "description": ":m The IGameRules interface is the core of our pluggable architecture. It defines a contract that any game must implement, allowing the system to support multiple games without changing core infrastructure. This is an example of the Strategy Pattern.\n```csharp\npublic interface IGameRules\n{\nstring Key { get; } // \"chess:standard\"\n(bool, string?, object?) CreateInitialState(GameRoom room);\n(bool, string?) ValidateMove(GameRoom room, object state,\nstring playerId, Dictionary<string, object> moveData);\nobject ApplyMove(GameRoom room, object state, ...);\n// ... more methods\n}\n```\n**Key insight:** State is `object` - each game defines its own state structure. This provides maximum flexibility while maintaining type safety within each implementation.\n",
+    "prompt": "What design pattern does IGameRules implement and why is the state type `object`?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\game-architecture.md",
+    "reference_line": 5,
+    "module_name": "ongoing-apinet",
+    "category": "gamearchitecture"
+  },
+  {
+    "term": "2 - Rules Registry Pattern",
+    "example": ":m The Rules Registry is a **dictionary-based lookup pattern** for game implementations.\n**Structure:**\n```csharp\nDictionary<string, IGameRules> _rulesRegistry = new()\n{\n{ \"chess:standard\", new ChessRules() },\n{ \"checkers:standard\", new CheckersRules() }\n};\n// Lookup at runtime\nvar rules = _rulesRegistry[room.RulesKey];\n```\n**Benefits:**\n1. **Extensibility**: Add games without modifying core logic\n2. **Runtime selection**: Game chosen based on room configuration\n3. **Decoupling**: Core system doesn't know specific games\n4. **Variant support**: Same game, different rules (chess vs chess960)\n**To add game:**\n1. Implement IGameRules\n2. Add one line to registry\n3. Done!",
+    "description": ":m The RoomManager uses a dictionary to map rule keys to implementations. This is a Registry Pattern that allows runtime lookup of game rules without hardcoding.\n```csharp\nprivate readonly Dictionary<string, IGameRules> _rulesRegistry = new()\n{\n{ \"chess:standard\", new ChessRules() },\n{ \"checkers:standard\", new CheckersRules() },\n{ \"chess:960\", new Chess960Rules() }\n};\n// Runtime lookup\nif (_rulesRegistry.TryGetValue(room.RulesKey, out var rules))\n{\nvar state = rules.CreateInitialState(room);\n}\n```\n**Adding a new game:** Just add one line to the registry. No other code changes needed.\n",
+    "prompt": "How does the Rules Registry pattern work and what are its benefits?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\game-architecture.md",
+    "reference_line": 50,
+    "module_name": "ongoing-apinet",
+    "category": "gamearchitecture"
+  },
+  {
+    "term": "3 - Server-Authoritative Architecture",
+    "example": ":m Server-authoritative means the **server is the single source of truth** for game state.\n**Flow:**\n```\n1. Client: \"I want to move e2 to e4\"\n2. Server: Validates using ChessRules.ValidateMove()\n3. Server: If valid, applies using ChessRules.ApplyMove()\n4. Server: Saves to database\n5. Server: Broadcasts validated state to ALL clients\n6. Clients: Update UI with server state (not their input)\n```\n**Benefits:**\n1. **Prevents cheating**: Client can't fake moves\n2. **Consistency**: All clients see same state\n3. **Validation**: Server enforces rules\n4. **Replay**: Database has authoritative history\n**Alternative (client-authoritative):**\n- Fast but unsafe\n- Client computes, server syncs\n- Vulnerable to cheating",
+    "description": ":m In our system, the server is the single source of truth. Clients send move intentions, but the server validates and applies them. This prevents cheating and ensures consistency across all clients.\n```\nCLIENT SIDE (untrusted):\n- Render UI\n- Send move requests\n- Update UI based on server response\nSERVER SIDE (authoritative):\n- Validate ALL moves\n- Update game state\n- Persist to database\n- Broadcast validated state to all clients\nSECURITY MODEL:\nNever trust client input - always validate\n```\n**Why this matters:** A malicious client can modify their code, but can't modify server logic.\n",
+    "prompt": "What is server-authoritative architecture and why is it important for multiplayer games?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\game-architecture.md",
+    "reference_line": 100,
+    "module_name": "ongoing-apinet",
+    "category": "gamearchitecture"
+  },
+  {
+    "term": "4 - JSONB for Flexible State Storage",
+    "example": ":m JSONB is PostgreSQL's **binary JSON storage type** - flexible and performant.\n**Usage in our system:**\n```csharp\n// Database column\npublic string StateJson { get; set; }\n// EF Core mapping\n.HasColumnType(\"jsonb\")\n// Different states per game\nChessState: { turn, position, whiteTimeMs, ... }\nCheckersState: { board, redPieces, blackPieces, ... }\n```\n**Benefits:**\n1. **No schema migration** when adding games\n2. **Each game has unique structure**\n3. **Fast queries** - can query JSON fields\n4. **Indexable** - can create indexes on JSON paths\n5. **Efficient** - binary format (not text JSON)\n**vs Relational:**\n- Relational: Rigid, requires migrations\n- JSONB: Flexible, just serialize/deserialize",
+    "description": ":m We use PostgreSQL's JSONB type to store game state. This allows each game to have its own state structure without requiring database migrations when adding new games or modifying state.\n```csharp\n// GameRoom entity\npublic string StateJson { get; set; } // JSONB in database\n// ChessRules stores this as JSON\nprivate record ChessState(\nstring Turn,\nstring Position,\nlong WhiteTimeMs,\nlong BlackTimeMs\n);\n// EF Core configuration\nentity.Property(e => e.StateJson).HasColumnType(\"jsonb\");\n```\n**JSONB benefits:**\n- Fast queries on JSON fields\n- Indexable\n- Efficient storage (binary)\n- Flexible schema\n",
+    "prompt": "Why do we use JSONB for storing game state and what are the benefits?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\game-architecture.md",
+    "reference_line": 151,
+    "module_name": "ongoing-apinet",
+    "category": "gamearchitecture"
+  },
+  {
+    "term": "5 - Sequence Numbers for Optimistic Concurrency",
+    "example": ":m Sequence is a **monotonically increasing counter** for state changes.\n**Server side:**\n```csharp\npublic int Sequence { get; set; } = 0;\n// Every state change\nroom.Sequence++;\n// Include in events\nnew GameEventDto(roomId, sequence: room.Sequence, ...);\n```\n**Client side uses:**\n**1. Detect missed events:**\n```javascript\nif (data.sequence !== lastSeen + 1) {\n// We missed something!\nrequestFullState();\n}\n```\n**2. Optimistic concurrency:**\n```javascript\n// Send with expected sequence\nsendMove({ expectedSeq: 42, move: ... });\n// Server rejects if sequence changed\n```\n**3. Reconnection:**\n```javascript\n// \"Give me all events after sequence 42\"\nreconnect({ lastSeenSeq: 42 });\n```\n**Pattern:** Version number for distributed state",
+    "description": ":m Each state change increments the room's sequence number. This enables optimistic concurrency control, helps clients detect missed events, and supports reconnection scenarios.\n```csharp\npublic class GameRoom\n{\npublic int Sequence { get; set; } = 0; // Increments on each change\n}\n// Every move increments\nroom.Sequence++;\n// Events include sequence\nnew GameEventDto(room.RoomId, room.Sequence, \"move\", data);\n```\n**Client usage:**\n```javascript\nlet lastSeenSequence = 0;\nconnection.on(\"event\", (data) => {\nif (data.sequence !== lastSeenSequence + 1) {\n// Missed events! Request full state\nconnection.invoke(\"GetFullState\", roomId);\n}\nlastSeenSequence = data.sequence;\n});\n```\n",
+    "prompt": "What is the purpose of the sequence number in GameRoom and how can clients use it?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\game-architecture.md",
+    "reference_line": 207,
+    "module_name": "ongoing-apinet",
+    "category": "gamearchitecture"
+  },
+  {
+    "term": "6 - Idempotency Pattern",
+    "example": ":m Idempotency means **same request multiple times = same result** (beyond first).\n**Implementation:**\n```csharp\n// Client generates unique key\nconst moveId = crypto.randomUUID();\nconnection.invoke(\"PlayMove\", roomId, playerId, {\nidempotencyKey: moveId,\nmove: { from: \"e2\", to: \"e4\" }\n});\n// Server checks before processing\nif (existingMove with moveId exists) {\nreturn existing result; // Don't reprocess\n}\n// Database constraint\nUNIQUE (GameRoomId, IdempotencyKey) WHERE IdempotencyKey IS NOT NULL\n```\n**Why needed:**\n1. **Network retries**: Client doesn't know if first request succeeded\n2. **Double-clicks**: User mashes button\n3. **Reconnection**: Resending pending moves\n**Without idempotency:**\n- Same move applied twice\n- Game state corrupted\n**Math analogy:** `f(x)` is idempotent if `f(f(x)) = f(x)`",
+    "description": ":m Idempotency means the same request can be made multiple times without changing the result beyond the first application. We use idempotency keys to prevent duplicate moves on network retries.\n```csharp\npublic class GameMove\n{\npublic string? IdempotencyKey { get; set; }\n}\n// In RoomManager.PlayMoveAsync()\nif (!string.IsNullOrEmpty(idempotencyKey))\n{\nvar existingMove = room.Moves\n.FirstOrDefault(m => m.IdempotencyKey == idempotencyKey);\nif (existingMove != null)\n{\n// Already processed - return success without reprocessing\nreturn (true, null, currentEvent, currentState);\n}\n}\n// Database constraint ensures uniqueness\nentity.HasIndex(e => new { e.GameRoomId, e.IdempotencyKey })\n.IsUnique()\n.HasFilter(\"\\\"IdempotencyKey\\\" IS NOT NULL\");\n```\n",
+    "prompt": "What is idempotency and how is it implemented in the move system?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\game-architecture.md",
+    "reference_line": 279,
+    "module_name": "ongoing-apinet",
+    "category": "gamearchitecture"
+  },
+  {
+    "term": "7 - Entity Relationships",
+    "example": ":m **Three main entities with one-to-many relationships:**\n```\nGameRoom\n├─► PlayerSeat (1-to-many)\n└─► GameMove (1-to-many)\n```\n**EF Core configuration:**\n```csharp\n// One-to-many: Room → Seats\nentity.HasMany(r => r.Seats) // Room has many seats\n.WithOne(s => s.GameRoom) // Seat has one room\n.HasForeignKey(s => s.GameRoomId)\n.OnDelete(DeleteBehavior.Cascade); // Delete room → delete seats\n// One-to-many: Room → Moves\nentity.HasMany(r => r.Moves)\n.WithOne(m => m.GameRoom)\n.HasForeignKey(m => m.GameRoomId)\n.OnDelete(DeleteBehavior.Cascade);\n```\n**Cascade delete:**\nWhen room is deleted, all seats and moves are automatically deleted.\n**Navigation properties:**\n```csharp\nroom.Seats // Access all players\nroom.Moves // Access move history\nseat.GameRoom // Access parent room\n```",
+    "description": ":m Our database has three main tables with specific relationships. Understanding these relationships is crucial for querying and maintaining data integrity.\n```\nGameRoom (1) ----< (many) PlayerSeat\n|\n|\n+----------< (many) GameMove\nRelationships:\n- One room has many seats (players)\n- One room has many moves (history)\n- Cascading delete: deleting room deletes seats and moves\n```\n```csharp\n// EF Core configuration\nmodelBuilder.Entity<GameRoom>(entity =>\n{\nentity.HasMany(e => e.Seats)\n.WithOne(e => e.GameRoom)\n.HasForeignKey(e => e.GameRoomId)\n.OnDelete(DeleteBehavior.Cascade);\nentity.HasMany(e => e.Moves)\n.WithOne(e => e.GameRoom)\n.HasForeignKey(e => e.GameRoomId)\n.OnDelete(DeleteBehavior.Cascade);\n});\n```\n",
+    "prompt": "What are the entity relationships in the game database and how are they configured in EF Core?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\game-architecture.md",
+    "reference_line": 345,
+    "module_name": "ongoing-apinet",
+    "category": "gamearchitecture"
+  },
+  {
+    "term": "8 - Composite Indexes and Constraints",
+    "example": ":m **Composite indexes combine multiple columns for constraints or performance:**\n**1. PlayerSeat uniqueness:**\n```csharp\nHasIndex(e => new { e.GameRoomId, e.UserId }).IsUnique();\n```\n- **Purpose**: Prevent same user joining room twice\n- **Business rule**: One seat per user per room\n**2. GameMove ordering:**\n```csharp\nHasIndex(e => new { e.GameRoomId, e.MoveNumber });\n```\n- **Purpose**: Fast queries for move history\n- **Query**: \"Get all moves for room 123, ordered by number\"\n**3. Idempotency constraint:**\n```csharp\nHasIndex(e => new { e.GameRoomId, e.IdempotencyKey })\n.IsUnique()\n.HasFilter(\"\\\"IdempotencyKey\\\" IS NOT NULL\");\n```\n- **Purpose**: Prevent duplicate moves\n- **Partial index**: Only non-NULL keys (saves space)\n**Composite index benefits:**\n- Faster WHERE clauses on both columns\n- Enforces multi-column uniqueness",
+    "description": ":m We use composite indexes for two purposes: enforcing business rules (uniqueness) and improving query performance.\n```csharp\n// PlayerSeat - prevent user from joining same room twice\nentity.HasIndex(e => new { e.GameRoomId, e.UserId })\n.IsUnique();\n// GameMove - fast move history queries\nentity.HasIndex(e => new { e.GameRoomId, e.MoveNumber });\n// GameMove - prevent duplicate idempotency keys\nentity.HasIndex(e => new { e.GameRoomId, e.IdempotencyKey })\n.IsUnique()\n.HasFilter(\"\\\"IdempotencyKey\\\" IS NOT NULL\"); // Partial index\n```\n**Partial index:** Only indexes non-NULL idempotency keys, saving space.\n",
+    "prompt": "What composite indexes exist in the game database and what is their purpose?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\game-architecture.md",
+    "reference_line": 414,
+    "module_name": "ongoing-apinet",
+    "category": "gamearchitecture"
+  },
+  {
+    "term": "9 - Scoped Database Access in Singleton Service",
+    "example": ":m **Problem:** RoomManager is singleton, DbContext must be scoped.\n**Service lifetimes:**\n```csharp\n// Program.cs\nbuilder.Services.AddSingleton<RoomManager>(); // Lives entire app\nbuilder.Services.AddDbContext<TodoContext>(); // Scoped per request\n```\n**Solution - Manual scope creation:**\n```csharp\npublic class RoomManager\n{\nprivate readonly IServiceScopeFactory _scopeFactory;\npublic async Task<GameRoom> GetRoom(string id)\n{\n// Create scope\nusing var scope = _scopeFactory.CreateScope();\n// Get scoped DbContext\nvar context = scope.ServiceProvider\n.GetRequiredService<TodoContext>();\n// Use it\nreturn await context.GameRooms.FindAsync(id);\n} // Scope disposed, DbContext released\n}\n```\n**Why scoped DbContext:**\n- Prevents concurrency issues\n- Avoids memory leaks\n- Proper connection management",
+    "description": ":m RoomManager is a singleton (lives for app lifetime), but DbContext must be scoped (per-request). We use IServiceScopeFactory to create scopes and get DbContext instances.\n```csharp\npublic class RoomManager\n{\nprivate readonly IServiceScopeFactory _scopeFactory;\npublic RoomManager(IServiceScopeFactory scopeFactory)\n{\n_scopeFactory = scopeFactory;\n}\npublic async Task<GameRoom> CreateRoomAsync(CreateRoomRequest request)\n{\nusing var scope = _scopeFactory.CreateScope();\nvar context = scope.ServiceProvider.GetRequiredService<TodoContext>();\n// Use context...\nawait context.SaveChangesAsync();\n} // Scope disposed here, DbContext released\n}\n```\n**Why:** Singleton + DbContext = memory leaks and concurrency issues.\n",
+    "prompt": "Why do we use IServiceScopeFactory in RoomManager and what problem does it solve?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\game-architecture.md",
+    "reference_line": 469,
+    "module_name": "ongoing-apinet",
+    "category": "gamearchitecture"
+  },
+  {
+    "term": "10 - Tuple Return Pattern for Error Handling",
+    "example": ":m **Tuple pattern returns multiple values including success/failure info:**\n```csharp\n// Return signature\n(bool success, string? error, TResult? data)\n// Success\nreturn (true, null, result);\n// Failure\nreturn (false, \"ERROR_CODE\", null);\n// Usage - deconstruction\nvar (success, error, data) = await Method();\nif (!success) {\nHandleError(error);\nreturn;\n}\nUseData(data);\n```\n**When to use:**\n**Tuples (expected failures):**\n- Room not found ✓\n- Room full ✓\n- Invalid move ✓\n- Business logic validation ✓\n**Exceptions (unexpected failures):**\n- Database connection lost\n- Null reference bugs\n- System errors\n**Benefits of tuples:**\n1. No exception overhead\n2. Forces error handling (can't ignore)\n3. Clear method contract\n4. Compiler helps with nullability",
+    "description": ":m We use tuples to return multiple values including success status and error messages. This is cleaner than exceptions for expected failure cases.\n```csharp\n// Method signature\npublic async Task<(bool success, string? error, GameRoom? room)>\nTryJoinAsync(JoinRoomRequest request)\n{\n// Success case\nreturn (true, null, room);\n// Error cases\nreturn (false, \"ROOM_NOT_FOUND\", null);\nreturn (false, \"ROOM_FULL\", null);\n}\n// Usage with deconstruction\nvar (success, error, room) = await roomManager.TryJoinAsync(request);\nif (!success)\n{\nawait Clients.Caller.SendAsync(\"error\", new { code = error });\nreturn;\n}\n// Use room...\n```\n",
+    "prompt": "What is the tuple return pattern and when should it be used instead of exceptions?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\game-architecture.md",
+    "reference_line": 537,
+    "module_name": "ongoing-apinet",
+    "category": "gamearchitecture"
+  },
+  {
+    "term": "1 - Topic Title",
+    "example": ":m Answer with code examples and detailed explanation",
+    "description": ":m Background context and explanation\n",
+    "prompt": "Question goes here?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\README.md",
+    "reference_line": 75,
+    "module_name": "ongoing-apinet",
+    "category": "README"
+  },
+  {
+    "term": "1 - Event Broadcasting Pattern",
+    "example": ":m **Event broadcasting sends notifications to all interested parties without coupling:**\n```csharp\n// SERVER: Publish event\nawait Clients.Group(roomId).SendAsync(\"event\", new {\nroomId,\nsequence,\neventType: \"move\",\npayload: moveData\n});\n// CLIENTS: Subscribe to events\nconnection.on(\"event\", (evt) => {\nswitch (evt.eventType) {\ncase \"move\": handleMove(evt.payload); break;\ncase \"player_joined\": handleJoin(evt.payload); break;\ncase \"game_over\": handleGameOver(evt.payload); break;\n}\n});\n```\n**Decoupling benefits:**\n1. Server doesn't know what clients do with events\n2. Clients can ignore events they don't care about\n3. Easy to add new event types\n4. Multiple clients react independently\n**Pattern:**\n- Publisher: Sends to group\n- Subscribers: Listen for event type\n- Topic: Room ID (via SignalR groups)\n**Similar to:** Observer pattern, pub/sub messaging",
+    "description": ":m In event-driven systems, when something happens (a move, a join, etc.), we broadcast an event to all interested parties. This decouples the action from the reaction.\n```csharp\n// Action happens\nvar moveResult = await roomManager.PlayMoveAsync(...);\n// Broadcast to interested parties (everyone in room)\nawait Clients.Group(roomId).SendAsync(\"event\", new GameEventDto(\nroomId,\nsequence,\n\"move\",\nmoveData\n));\n// Also broadcast updated state\nawait Clients.Group(roomId).SendAsync(\"match_state\", newState);\n// Clients react independently\nconnection.on(\"event\", (evt) => {\nif (evt.eventType === \"move\") {\nanimateMove(evt.payload);\n}\n});\n```\n**Key principle:** Publishers don't know about subscribers. They just broadcast.\n",
+    "prompt": "What is the event broadcasting pattern and how is it used in the game system?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\real-time-patterns.md",
+    "reference_line": 5,
+    "module_name": "ongoing-apinet",
+    "category": "realtimepatterns"
+  },
+  {
+    "term": "2 - Dual Event + State Pattern",
+    "example": ":m **Dual messaging sends specific event + full state:**\n```csharp\n// 1. Event - What happened\nawait Clients.Group(roomId).SendAsync(\"event\", new {\ntype: \"move\",\npayload: { from: \"e2\", to: \"e4\" }\n});\n// 2. State - Current situation\nawait Clients.Group(roomId).SendAsync(\"match_state\", new {\nturn: \"black\",\nposition: \"...\",\nwhiteTimeMs: 602000,\n// ... complete state\n});\n```\n**Why both:**\n**Event advantages:**\n- Small payload\n- Semantic meaning\n- Good for animations\n- Efficient\n**State advantages:**\n- Complete truth\n- Handles missed events\n- Client doesn't need to maintain state\n- Self-correcting\n**Client strategies:**\n**Optimistic:**\n```javascript\non(\"event\") → animate immediately\n```\n**Conservative:**\n```javascript\non(\"match_state\") → render full board\n```\n**Hybrid (best):**\n```javascript\non(\"event\") → animate\non(\"match_state\") → validate + correct if needed\n```",
+    "description": ":m We send both a specific event (what happened) and the full state (current situation). This handles network issues and different client implementations.\n```csharp\n// After a move is processed\nawait Clients.Group(roomId).SendAsync(\"event\", new GameEventDto(\nroomId, sequence, \"move\", moveData\n));\nawait Clients.Group(roomId).SendAsync(\"match_state\", new MatchStateDto(\nroomId, sequence, fullState, status\n));\n```\n**Why both?**\n- Event: Efficient for animations, logs, immediate feedback\n- State: Definitive source of truth, handles missed events\n**Client strategies:**\n```javascript\n// Optimistic client - use events\nconnection.on(\"event\", evt => animateMove(evt));\n// Conservative client - use state\nconnection.on(\"match_state\", state => renderBoard(state));\n// Hybrid - event for UX, state for validation\nconnection.on(\"event\", evt => animateMove(evt));\nconnection.on(\"match_state\", state => {\nif (!boardMatchesState(state)) {\nrenderBoard(state); // Sync to truth\n}\n});\n```\n",
+    "prompt": "Why do we send both event and match_state messages, and how should clients use them?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\real-time-patterns.md",
+    "reference_line": 72,
+    "module_name": "ongoing-apinet",
+    "category": "realtimepatterns"
+  },
+  {
+    "term": "3 - Connection State Management",
+    "example": ":m **Connection state management handles network issues:**\n```javascript\nconst connection = new signalR.HubConnectionBuilder()\n.withUrl(\"/game-hub\")\n.withAutomaticReconnect([0, 2000, 5000, 10000])\n.build();\n// Track state changes\nconnection.onreconnecting((error) => {\n// Lost connection, trying to reconnect\nconsole.log(\"Reconnecting...\");\nshowUI(\"Reconnecting...\");\ndisableControls();\n});\nconnection.onreconnected((connectionId) => {\n// Reconnected successfully\nconsole.log(\"Reconnected!\");\nshowUI(\"Connected\");\nresyncState(); // Get latest state\nenableControls();\n});\nconnection.onclose((error) => {\n// Connection permanently closed\nconsole.log(\"Disconnected\");\nshowUI(\"Disconnected - Refresh page\");\n});\n```\n**Reconnection strategy:**\n1. Lost connection → disable UI\n2. Auto-retry with backoff: 0ms, 2s, 5s, 10s\n3. On reconnect → request full state (may have missed events)\n4. Update UI with latest state\n5. Re-enable controls\n**withAutomaticReconnect delays:**\n- 1st retry: Immediate\n- 2nd retry: 2 seconds later\n- 3rd retry: 5 seconds later\n- 4th+ retry: 10 seconds later",
+    "description": ":m Real-time connections can drop. Good clients track connection state and handle reconnection gracefully.\n```javascript\n// Client-side connection management\nclass GameConnection {\nconstructor() {\nthis.connection = new signalR.HubConnectionBuilder()\n.withUrl(\"/game-hub\")\n.withAutomaticReconnect([0, 2000, 5000, 10000]) // Retry delays\n.build();\nthis.setupHandlers();\n}\nsetupHandlers() {\n// Connection state changes\nthis.connection.onreconnecting((error) => {\nconsole.log(\"Connection lost, reconnecting...\");\nthis.showReconnectingUI();\n});\nthis.connection.onreconnected((connectionId) => {\nconsole.log(\"Reconnected!\");\nthis.hideReconnectingUI();\nthis.resyncState(); // Request latest state\n});\nthis.connection.onclose((error) => {\nconsole.log(\"Connection closed\");\nthis.showDisconnectedUI();\n});\n}\nasync resyncState() {\n// After reconnect, get current state\nconst state = await this.connection.invoke(\"GetCurrentState\", this.roomId);\nthis.renderState(state);\n}\n}\n```\n",
+    "prompt": "How should clients handle connection state changes in SignalR?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\real-time-patterns.md",
+    "reference_line": 164,
+    "module_name": "ongoing-apinet",
+    "category": "realtimepatterns"
+  },
+  {
+    "term": "4 - State Resynchronization",
+    "example": ":m **Resynchronization fetches current state after reconnection:**\n**Server provides resync method:**\n```csharp\npublic async Task<MatchStateDto> GetCurrentState(string roomId)\n{\nvar room = await GetRoom(roomId);\nvar state = DeserializeState(room.StateJson);\nreturn new MatchStateDto(\nroomId,\nroom.Sequence,\nstate,\nroom.Status\n);\n}\n```\n**Client requests on reconnect:**\n```javascript\nconnection.onreconnected(async () => {\n// Get current state\nconst state = await connection.invoke(\n\"GetCurrentState\",\nroomId\n);\n// Update UI with server truth\nrenderCompleteState(state);\n// Update sequence number\nlastSeenSequence = state.sequence;\n});\n```\n**Why needed:**\n- Missed events during disconnect\n- Sequence gaps\n- Server state may have changed\n- Client state might be stale\n**Alternative:** Request delta (events since sequence N)\n```csharp\nGetEventsSince(roomId, lastSeenSequence)\n```",
+    "description": ":m After reconnecting, the client may have missed events. The solution is to request the full current state.\n```csharp\n// Server-side hub method for resync\npublic async Task<MatchStateDto> GetCurrentState(string roomId)\n{\nvar room = await _roomManager.GetRoomAsync(roomId);\nif (room == null)\nthrow new Exception(\"Room not found\");\nvar state = JsonSerializer.Deserialize<object>(room.StateJson);\nvar rules = _rulesRegistry[room.RulesKey];\nreturn new MatchStateDto(\nroom.RoomId,\nroom.Sequence,\nrules.Render(state),\nroom.Status\n);\n}\n// Client-side resync\nasync resyncState() {\ntry {\nconst state = await connection.invoke(\"GetCurrentState\", roomId);\nrenderCompleteState(state);\nlastSeenSequence = state.sequence;\n} catch (error) {\nconsole.error(\"Failed to resync:\", error);\n}\n}\n```\n",
+    "prompt": "How does state resynchronization work after a client reconnects?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\real-time-patterns.md",
+    "reference_line": 255,
+    "module_name": "ongoing-apinet",
+    "category": "realtimepatterns"
+  },
+  {
+    "term": "5 - Group-Based Routing",
+    "example": ":m **Groups enable efficient one-to-many broadcasting:**\n**Inefficient (individual sends):**\n```csharp\n// O(n) operations\nforeach (var player in room.Players) {\nawait Clients.Client(player.ConnectionId)\n.SendAsync(\"event\", data);\n}\n```\n- N separate send operations\n- N network round-trips\n- Scales linearly with players\n**Efficient (group send):**\n```csharp\n// O(1) operation\nawait Clients.Group(room.RoomId)\n.SendAsync(\"event\", data);\n```\n- 1 send operation\n- SignalR handles distribution\n- Constant time regardless of group size\n**How groups work:**\n```csharp\n// Setup - add to group\nawait Groups.AddToGroupAsync(connectionId, groupName);\n// SignalR maintains in memory:\n// groups[\"room123\"] = [conn1, conn2, conn3, ...]\n// Broadcast - SignalR iterates internally\nawait Clients.Group(\"room123\").SendAsync(...);\n// SignalR loops through connections efficiently\n```\n**Performance:**\n- 100 players: Individual = 100 ops, Group = 1 op\n- Auto-cleanup on disconnect",
+    "description": ":m SignalR groups provide efficient message routing. Instead of sending to each connection individually, we send once to a group.\n```csharp\n// INEFFICIENT - individual sends\nforeach (var seat in room.Seats)\n{\nawait Clients.Client(seat.ConnectionId)\n.SendAsync(\"event\", data); // N database queries, N sends\n}\n// EFFICIENT - group send\nawait Clients.Group(room.RoomId)\n.SendAsync(\"event\", data); // 1 send to group\n```\n**How it works:**\n1. When client joins room, add to group: `Groups.AddToGroupAsync()`\n2. SignalR maintains group membership in memory\n3. Broadcast to group sends to all members efficiently\n4. When client disconnects, SignalR auto-removes from groups\n**Performance difference:** O(1) vs O(n) where n = number of players\n",
+    "prompt": "Why are SignalR groups more efficient than individual client sends?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\real-time-patterns.md",
+    "reference_line": 342,
+    "module_name": "ongoing-apinet",
+    "category": "realtimepatterns"
+  },
+  {
+    "term": "6 - Lazy Database Loading",
+    "example": ":m **N+1 problem: 1 query for parent + N queries for children**\n**Problem code:**\n```csharp\n// 1 query for rooms\nvar rooms = await context.GameRooms.ToListAsync();\n// N queries (one per room!)\nforeach (var room in rooms) {\nforeach (var seat in room.Seats) { // Lazy load\nConsole.WriteLine(seat.DisplayName);\n}\n}\n```\n**SQL generated:**\n```sql\n-- 1 query\nSELECT * FROM GameRooms;\n-- Then N queries\nSELECT * FROM PlayerSeats WHERE GameRoomId = 1;\nSELECT * FROM PlayerSeats WHERE GameRoomId = 2;\n-- ... one per room\n```\n**Solution - Include():**\n```csharp\nvar rooms = await context.GameRooms\n.Include(r => r.Seats) // JOIN\n.ToListAsync();\nforeach (var room in rooms) {\nforeach (var seat in room.Seats) { // Already loaded\nConsole.WriteLine(seat.DisplayName);\n}\n}\n```\n**SQL generated:**\n```sql\nSELECT r.*, s.*\nFROM GameRooms r\nLEFT JOIN PlayerSeats s ON r.Id = s.GameRoomId;\n```\n**Result:** 1 query vs N+1 queries",
+    "description": ":m We don't load related data unless needed. EF Core provides `.Include()` for eager loading when we know we'll need it.\n```csharp\n// INEFFICIENT - N+1 queries\nvar room = await context.GameRooms.FindAsync(id);\nforeach (var seat in room.Seats) // Separate query for each seat!\n{\nConsole.WriteLine(seat.DisplayName);\n}\n// EFFICIENT - single query with JOIN\nvar room = await context.GameRooms\n.Include(r => r.Seats) // JOIN in SQL\n.Include(r => r.Moves) // JOIN in SQL\n.FirstOrDefaultAsync(r => r.RoomId == id);\nforeach (var seat in room.Seats) // Already loaded\n{\nConsole.WriteLine(seat.DisplayName);\n}\n```\n**SQL generated:**\n```sql\n-- Inefficient (N+1)\nSELECT * FROM GameRooms WHERE RoomId = 'abc';\nSELECT * FROM PlayerSeats WHERE GameRoomId = 1; -- Separate query!\nSELECT * FROM PlayerSeats WHERE GameRoomId = 2; -- For each room!\n-- Efficient (JOIN)\nSELECT r.*, s.*\nFROM GameRooms r\nLEFT JOIN PlayerSeats s ON r.Id = s.GameRoomId\nWHERE r.RoomId = 'abc';\n```\n",
+    "prompt": "What is the N+1 query problem and how does Include() solve it?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\real-time-patterns.md",
+    "reference_line": 412,
+    "module_name": "ongoing-apinet",
+    "category": "realtimepatterns"
+  },
+  {
+    "term": "7 - Try-Catch in Hub Methods",
+    "example": ":m **Unhandled exceptions in hub methods terminate the connection:**\n**Problem (no try-catch):**\n```csharp\npublic async Task PlayMove(...) {\nvar result = await DoSomething(); // Throws exception\n// Connection terminates!\n}\n```\n**Solution (try-catch):**\n```csharp\npublic async Task PlayMove(...) {\ntry {\nvar (success, error, data) = await DoSomething();\nif (!success) {\n// Expected error\nawait Clients.Caller.SendAsync(\"error\",\nnew { code = error });\nreturn;\n}\n// Success\nawait Clients.Group(roomId).SendAsync(\"event\", data);\n}\ncatch (Exception ex) {\n// Unexpected error\n_logger.LogError(ex, \"Unexpected error\");\nawait Clients.Caller.SendAsync(\"error\", new {\ncode = \"INTERNAL_ERROR\",\nmessage = \"An error occurred\"\n});\n// Connection stays alive\n}\n}\n```\n**Error types:**\n1. **Expected errors** (validation): Return error code\n2. **Unexpected errors** (bugs): Log + send generic error\n**Result:** Connection survives, client can retry",
+    "description": ":m Hub methods should always catch exceptions to prevent connection termination. Unhandled exceptions close the SignalR connection.\n```csharp\npublic async Task PlayMove(string roomId, string playerId, MoveEnvelope move)\n{\ntry\n{\nvar (success, error, evt, state) = await _roomManager.PlayMoveAsync(...);\nif (!success)\n{\n// Expected failure - send error event\nawait Clients.Caller.SendAsync(\"error\", new { code = error });\nreturn;\n}\n// Success - broadcast\nawait Clients.Group(roomId).SendAsync(\"event\", evt);\nawait Clients.Group(roomId).SendAsync(\"match_state\", state);\n}\ncatch (Exception ex)\n{\n// Unexpected failure - log and send generic error\n_logger.LogError(ex, \"Error playing move\");\nawait Clients.Caller.SendAsync(\"error\", new {\ncode = \"INTERNAL_ERROR\",\nmessage = ex.Message\n});\n}\n}\n```\n**Without try-catch:** Exception → connection closes → client disconnected\n",
+    "prompt": "Why must SignalR hub methods always use try-catch and how should errors be handled?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\real-time-patterns.md",
+    "reference_line": 504,
+    "module_name": "ongoing-apinet",
+    "category": "realtimepatterns"
+  },
+  {
+    "term": "1 - What is SignalR?",
+    "example": ":m SignalR is a library for bidirectional, real-time communication using persistent connections.\n**Key differences:**\n- **HTTP/REST**: Request-response, stateless, client initiates\n- **SignalR**: Persistent connection, stateful, both can initiate\n**Transport:**\n- Uses WebSockets (with fallbacks to SSE/Long Polling)\n- Connection stays alive for duration of session\n**Use case:**\n- Perfect for real-time apps: chat, games, live updates",
+    "description": ":m SignalR is a library for ASP.NET that enables bidirectional, real-time communication between server and client. Unlike traditional HTTP (request-response), SignalR maintains a persistent connection where both server and client can send messages at any time. It uses WebSockets when available, with automatic fallback to Server-Sent Events or Long Polling.\n**Key Difference from REST:**\n- REST: Client asks → Server responds → Connection closes\n- SignalR: Connection stays open → Both sides can send anytime\n",
+    "prompt": "What is SignalR and how does it differ from traditional HTTP/REST communication?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\signalr-concepts.md",
+    "reference_line": 5,
+    "module_name": "ongoing-apinet",
+    "category": "signalrconcepts"
+  },
+  {
+    "term": "2 - SignalR Hub Pattern",
+    "example": ":m A Hub is a server-side class for handling real-time client calls.\n**Structure:**\n```csharp\npublic class GameHub : Hub\n{\n// Methods clients can invoke\npublic async Task MethodName(params) { }\n}\n```\n**Key components:**\n- **Context.ConnectionId**: Unique ID for current connection\n- **Clients**: Object to send messages to clients\n- **Groups**: Organize connections into channels\n**Pattern:**\nClient invokes → Hub method runs → Hub broadcasts to clients",
+    "description": ":m A Hub is like a controller for real-time communication. It's a server-side class that inherits from `Hub` and defines methods that clients can invoke. The Hub has access to `Context` (current connection info) and `Clients` (to send messages).\n```csharp\npublic class GameHub : Hub\n{\n// Clients can call this method\npublic async Task JoinRoom(string roomId)\n{\nawait Groups.AddToGroupAsync(Context.ConnectionId, roomId);\nawait Clients.Group(roomId).SendAsync(\"player_joined\", ...);\n}\n}\n```\n",
+    "prompt": "What is a SignalR Hub and what are its key components?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\signalr-concepts.md",
+    "reference_line": 30,
+    "module_name": "ongoing-apinet",
+    "category": "signalrconcepts"
+  },
+  {
+    "term": "3 - SignalR Groups",
+    "example": ":m Groups organize connections into channels for targeted broadcasting.\n**Operations:**\n```csharp\n// Add to group\nawait Groups.AddToGroupAsync(connectionId, groupName);\n// Send to group\nawait Clients.Group(groupName).SendAsync(\"event\", data);\n// Remove from group\nawait Groups.RemoveFromGroupAsync(connectionId, groupName);\n```\n**Chess game usage:**\n- Each game room = one SignalR group\n- Group name = room ID\n- When player moves, broadcast to group\n- All players in room receive update simultaneously",
+    "description": ":m Groups are like chat rooms or channels. They allow you to organize connections and broadcast messages to specific subsets of clients. When a player joins a game room, we add their connection to a group named after the room ID.\n```csharp\n// Add connection to group\nawait Groups.AddToGroupAsync(Context.ConnectionId, \"room123\");\n// Send to everyone in group\nawait Clients.Group(\"room123\").SendAsync(\"event\", data);\n// Remove from group\nawait Groups.RemoveFromGroupAsync(Context.ConnectionId, \"room123\");\n```\n**In our chess game:** Each game room = one SignalR group. When a player makes a move, we broadcast to everyone in that room's group.\n",
+    "prompt": "What are SignalR Groups and how are they used in the chess game?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\signalr-concepts.md",
+    "reference_line": 69,
+    "module_name": "ongoing-apinet",
+    "category": "signalrconcepts"
+  },
+  {
+    "term": "4 - Client Targeting in SignalR",
+    "example": ":m SignalR provides multiple targeting options via the `Clients` property:\n**Targeting options:**\n1. **Clients.Caller** - Only the client who called the method\n- Use for: Errors, personal confirmations\n2. **Clients.Group(groupId)** - All clients in a group\n- Use for: Game moves, room events\n3. **Clients.OthersInGroup(groupId)** - Group except caller\n- Use for: \"Player X joined\" (don't tell X they joined)\n4. **Clients.Client(connectionId)** - Specific connection\n- Use for: Direct messages, specific notifications\n5. **Clients.All** - Every connected client\n- Use for: Server announcements, global events",
+    "description": ":m The `Clients` property provides different ways to target who receives messages. This is crucial for sending the right information to the right people.\n```csharp\n// Only the calling client\nawait Clients.Caller.SendAsync(\"error\", errorData);\n// Everyone in a group\nawait Clients.Group(\"room123\").SendAsync(\"event\", data);\n// Everyone except caller\nawait Clients.OthersInGroup(\"room123\").SendAsync(\"event\", data);\n// Specific connection\nawait Clients.Client(connectionId).SendAsync(\"message\", data);\n// Everyone connected\nawait Clients.All.SendAsync(\"announcement\", data);\n```\n",
+    "prompt": "What are the different ways to target clients in SignalR and when would you use each?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\signalr-concepts.md",
+    "reference_line": 110,
+    "module_name": "ongoing-apinet",
+    "category": "signalrconcepts"
+  },
+  {
+    "term": "5 - Client-Server Message Flow",
+    "example": ":m **Complete message flow for a chess move:**\n**Client → Server:**\n1. Client calls: `connection.invoke(\"PlayMove\", roomId, playerId, moveData)`\n2. WebSocket sends message to server\n3. Hub receives: `GameHub.PlayMove()` executes\n4. Hub calls: `RoomManager.PlayMoveAsync()`\n5. RoomManager:\n- Loads room from database\n- Finds game rules (ChessRules)\n- Validates: `rules.ValidateMove()`\n- Applies: `rules.ApplyMove()`\n- Saves to database\n**Server → Clients:**\n6. RoomManager returns event and state\n7. Hub broadcasts:\n- `Clients.Group(roomId).SendAsync(\"event\", moveEvent)`\n- `Clients.Group(roomId).SendAsync(\"match_state\", newState)`\n8. All clients in group receive both messages\n9. Clients update UI with new game state",
+    "description": ":m Understanding how messages flow in SignalR is crucial for debugging and designing real-time features. The flow is bidirectional with clear patterns.\n```\nCLIENT CALLS SERVER:\n1. Client: connection.invoke(\"PlayMove\", roomId, moveData)\n2. Transport: WebSocket sends message\n3. Server: GameHub.PlayMove() method executes\n4. Logic: Validate, process, update database\nSERVER BROADCASTS TO CLIENTS:\n5. Server: Clients.Group(roomId).SendAsync(\"event\", data)\n6. Transport: WebSocket sends to all connections in group\n7. Client: connection.on(\"event\", handler) receives\n8. UI: Update game board\n```\n",
+    "prompt": "Trace the complete message flow when a player makes a chess move in our system.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\signalr-concepts.md",
+    "reference_line": 155,
+    "module_name": "ongoing-apinet",
+    "category": "signalrconcepts"
+  },
+  {
+    "term": "6 - MessagePack Protocol",
+    "example": ":m MessagePack is a binary serialization format used instead of JSON.\n**Configuration:**\n```csharp\nbuilder.Services.AddSignalR()\n.AddMessagePackProtocol();\n```\n**Benefits over JSON:**\n1. **30-50% smaller messages** - Binary vs text\n2. **Faster serialization** - Native binary format\n3. **Better type preservation** - Maintains data types\n4. **Lower bandwidth** - Important for mobile/real-time\n**Use case:**\nPerfect for real-time games with frequent updates (chess moves, state changes)\n**Trade-off:**\nBoth client and server must support MessagePack",
+    "description": ":m MessagePack is a binary serialization format that's more efficient than JSON. We use it in SignalR for smaller message sizes and faster serialization, which is important for real-time games with frequent updates.\n```csharp\n// Configuration in Program.cs\nbuilder.Services.AddSignalR()\n.AddMessagePackProtocol(); // Add binary protocol\n```\n**Benefits:**\n- **Smaller messages**: Binary vs text (30-50% smaller)\n- **Faster serialization**: Native binary format\n- **Type safety**: Preserves data types better than JSON\n**Trade-off:** Requires MessagePack library on client side\n",
+    "prompt": "Why do we use MessagePack protocol in SignalR and what are the benefits?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\signalr-concepts.md",
+    "reference_line": 199,
+    "module_name": "ongoing-apinet",
+    "category": "signalrconcepts"
+  },
+  {
+    "term": "7 - Connection Events",
+    "example": ":m SignalR provides lifecycle hooks to handle connection changes:\n**Events:**\n```csharp\npublic override async Task OnConnectedAsync()\n{\n// Connection established\n// Initialize user data, load state, etc.\n}\npublic override async Task OnDisconnectedAsync(Exception? exception)\n{\n// Connection lost\n// Clean up resources, notify others\n}\n```\n**Common use cases:**\n**OnConnected:**\n- Authenticate user\n- Load user preferences\n- Send initial state\n**OnDisconnected:**\n- Remove from game rooms\n- Update online status\n- Notify other players\n- Save partial game state\n**Error handling:**\nCheck `exception` parameter to distinguish graceful vs error disconnect",
+    "description": ":m SignalR connections have a lifecycle that you can hook into. Understanding these events is crucial for handling disconnections, reconnections, and cleanup.\n```csharp\npublic class GameHub : Hub\n{\npublic override async Task OnConnectedAsync()\n{\n// Called when client connects\nvar userId = Context.User?.Identity?.Name;\nawait base.OnConnectedAsync();\n}\npublic override async Task OnDisconnectedAsync(Exception? exception)\n{\n// Called when client disconnects\n// Clean up: remove from groups, update status, etc.\nawait base.OnDisconnectedAsync(exception);\n}\n}\n```\n**Common cleanup tasks:**\n- Remove player from active games\n- Update player status to offline\n- Notify other players of disconnection\n",
+    "prompt": "What are the SignalR connection lifecycle events and how should they be used?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\signalr-concepts.md",
+    "reference_line": 242,
+    "module_name": "ongoing-apinet",
+    "category": "signalrconcepts"
+  },
+  {
+    "term": "8 - SignalR Registration and Mapping",
+    "example": ":m SignalR configuration has two required steps:\n**1. Service Registration (in builder):**\n```csharp\nbuilder.Services.AddSignalR()\n.AddMessagePackProtocol(); // Optional\n```\n- Registers SignalR services in DI\n- Configures protocols and options\n**2. Endpoint Mapping (in app):**\n```csharp\napp.MapHub<GameHub>(\"/game-hub\");\n```\n- Maps hub class to URL path\n- Enables WebSocket endpoint\n**Result:**\n- WebSocket available at: `ws://domain/game-hub`\n- Clients connect to this endpoint\n- Hub methods become callable\n**Order matters:** Register services before building app",
+    "description": ":m SignalR requires two steps: service registration (dependency injection) and endpoint mapping (routing). Understanding both is essential for setup.\n```csharp\n// Program.cs - Service registration\nbuilder.Services.AddSignalR()\n.AddMessagePackProtocol(); // Optional protocol\n// Program.cs - Endpoint mapping\napp.MapHub<GameHub>(\"/game-hub\"); // URL path\n```\n**What happens:**\n1. `AddSignalR()` registers SignalR services in DI container\n2. `.AddMessagePackProtocol()` adds binary serialization support\n3. `MapHub<T>()` maps the hub to a URL endpoint\n**Client connects to:** `ws://localhost:5000/game-hub`\n",
+    "prompt": "What are the two required steps to configure SignalR in ASP.NET Core?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\ongoing-apinet\\cache_md\\signalr-concepts.md",
+    "reference_line": 309,
+    "module_name": "ongoing-apinet",
+    "category": "signalrconcepts"
+  }
+]

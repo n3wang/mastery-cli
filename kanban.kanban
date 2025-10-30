@@ -12,6 +12,15 @@
           "labels": [],
           "checkboxes": [],
           "comments": []
+        },
+        {
+          "id": "bbc954fc-28ad-4469-bd4c-56dbabce86fd",
+          "listId": "c83cefdc-13d7-4ce8-b338-0a7aa7eb7a34",
+          "title": "Imrprove the todays creation cards",
+          "description": "",
+          "labels": [],
+          "checkboxes": [],
+          "comments": []
         }
       ]
     },
@@ -19,6 +28,20 @@
       "id": "3d766476-da51-484c-99a0-bc213a7ce5ba",
       "title": "Doing",
       "cards": [
+        {
+          "id": "121546da-783b-4977-80cd-a56993ba9445",
+          "listId": "3d766476-da51-484c-99a0-bc213a7ce5ba",
+          "title": "Cards Rating",
+          "description": "",
+          "labels": [],
+          "checkboxes": [],
+          "comments": [
+            {
+              "id": "9243dbb6-1385-4ce7-bb03-74fb8b61c18c",
+              "comment": "Similar to \"Provide feedback about this term\" also provide the option to provide rating to the flashcard, this will help designing flashcards in the future so save everything (all rated cards) in a large csv"
+            }
+          ]
+        },
         {
           "id": "ab55a093-6068-46e0-a997-941d2ed192fa",
           "listId": "3d766476-da51-484c-99a0-bc213a7ce5ba",

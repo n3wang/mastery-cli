@@ -46,6 +46,7 @@ const { MiniTermScheduler } = require('./MiniTermScheduler');
 const { StorableQueue } = require('./StorableQueue');
 const { HashStorage } = require('./HashStorage');
 const { FeedbackStorage } = require('./FeedbackStorage');
+const { RatingStorage } = require('./RatingStorage');
 const crypto = require('crypto');
 
 // const DEBUG = true
@@ -68,6 +69,9 @@ class Quizzer {
 
 		// Initialize feedback storage
 		this.feedbackStorage = new FeedbackStorage('term_feedback');
+
+		// Initialize rating storage
+		this.ratingStorage = new RatingStorage('term_ratings');
 	}
 
 	/**
@@ -1114,6 +1118,10 @@ class Quizzer {
 								message: 'Provide feedback about this term'
 							},
 							{
+								name: 'rateflashcard',
+								message: 'Rate this flashcard'
+							},
+							{
 								name: 'resetdeck',
 								message: 'Reset deck progress'
 							},
@@ -1164,6 +1172,51 @@ class Quizzer {
 								user_res,
 								feedback
 							);
+						}
+					} else if (selectedOption === 'rateflashcard') {
+						// Show existing ratings for this term
+						const existingRatings = this.ratingStorage.getRatingsByTerm(term_selected);
+						if (existingRatings.length > 0) {
+							console.log('\nPrevious ratings for this term:');
+							existingRatings.forEach(r => {
+								const date = new Date(r.timestamp).toLocaleDateString();
+								const stars = '⭐'.repeat(r.rating);
+								console.log(`  ${stars} (${r.rating}/5) - ${date}`);
+							});
+							const avgRating = this.ratingStorage.getAverageRating(term_selected);
+							console.log(`Average: ${avgRating.toFixed(1)}/5\n`);
+						}
+
+						// Prompt for rating
+						const ratingPrompt = new AutoComplete({
+							name: 'rating',
+							message: 'Rate this flashcard (1-5):',
+							choices: [
+								{ name: '5', message: '5 - Excellent' },
+								{ name: '4', message: '4 - Good' },
+								{ name: '3', message: '3 - Average' },
+								{ name: '2', message: '2 - Poor' },
+								{ name: '1', message: '1 - Very Poor' }
+							]
+						});
+
+						const rating = await ratingPrompt.run();
+						if (rating) {
+							const ratingValue = parseInt(rating);
+							const hasFeedback = this.feedbackStorage.getFeedbackByTerm(term_selected) !== null;
+							const wasCorrect = ISANSWERCORRECT;
+
+							// Save rating to CSV
+							const success = this.ratingStorage.addRating(
+								term_selected,
+								ratingValue,
+								wasCorrect,
+								hasFeedback
+							);
+
+							if (success) {
+								console.log(`✓ Rating saved: ${'⭐'.repeat(ratingValue)} (${ratingValue}/5)`);
+							}
 						}
 					} else if (selectedOption === 'resetdeck') {
 						const resetCount = await this.resetCurrentDeckProgress();

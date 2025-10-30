@@ -1760,6 +1760,236 @@
     "category": "equilibrioquimico"
   },
   {
+    "term": "1 - Concepto histórico de ácidos y bases",
+    "example": ":m Faraday propuso la **disolución eléctrica**, explicando que los ácidos y las bases liberan iones al disolverse, permitiendo conducir electricidad y separarse en cargas positivas y negativas.",
+    "description": ":m Desde la antigüedad, ciertas sustancias eran reconocidas por sus propiedades físicas y químicas: se usaban en metalurgia, cultivos, colorantes y disoluciones. Con el tiempo, se identificó que los **ácidos** y **bases** tenían comportamientos opuestos.\nLos ácidos contenían oxígeno (según Lavoisier) o hidrógeno (según otras teorías posteriores), mientras que **Faraday** introdujo la idea de **disolución eléctrica**, donde las sustancias podían separarse en iones, sentando las bases de la teoría moderna ácido-base. ",
+    "prompt": "¿Qué aportó Faraday al entendimiento moderno de los ácidos y las bases?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\9-calculiacidobases.md",
+    "reference_line": 15,
+    "module_name": "5-quimica",
+    "category": "calculiacidobases"
+  },
+  {
+    "term": "2 - Reacciones ácido-base",
+    "example": ":m Se forma una **sal** y **agua**, como resultado de la combinación del ion hidrógeno del ácido con el ion hidroxilo de la base.",
+    "description": ":m Una **reacción ácido-base** ocurre cuando un ácido reacciona con una base para formar una **sal y agua**.\nEsto se conoce como **neutralización**, donde los iones hidrógeno ($H^+$) del ácido se combinan con los iones hidroxilo ($OH^-$) de la base.\n$$\\text{Ácido} + \\text{Base} \\rightarrow \\text{Sal} + \\text{Agua}$$ ",
+    "prompt": "¿Qué productos se forman en una reacción de neutralización ácido-base?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\9-calculiacidobases.md",
+    "reference_line": 26,
+    "module_name": "5-quimica",
+    "category": "calculiacidobases"
+  },
+  {
+    "term": "3 - Escala de pH",
+    "example": ":m El pH indica la **acidez o basicidad** de una disolución: valores bajos significan más ácido (mayor $[H^+]$), y valores altos, más básico (menor $[H^+]$).",
+    "description": ":m El **pH** mide la acidez o basicidad de una sustancia.\nSu escala va de **0 a 14**:\n- pH < 7 → ácido\n- pH = 7 → neutro\n- pH > 7 → básico\nEsta escala se basa en la concentración de iones de hidrógeno ($[H^+]$):\n$$pH = -\\log [H^+]$$ ",
+    "prompt": "¿Qué representa el valor de pH y cómo se interpreta?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\9-calculiacidobases.md",
+    "reference_line": 38,
+    "module_name": "5-quimica",
+    "category": "calculiacidobases"
+  },
+  {
+    "term": "4 - Constante de autoionización del agua",
+    "example": ":m $K_w$ mide el grado en que el agua se disocia en iones $H^+$ y $OH^-$, siendo la base del equilibrio ácido-base y de la relación $pH + pOH = 14$.",
+    "description": ":m El agua pura se **disocia levemente** en iones hidrógeno y oxhidrilo:\n$$H_2O \\leftrightharpoons H^+ + OH^-$$\nSu constante se expresa como:\n$$K_w = [H^+][OH^-] = 1 \\times 10^{-14} \\ (a\\ 25°C)$$\nEsta relación permite calcular $pH$ y $pOH$:\n$$pH + pOH = 14$$ ",
+    "prompt": "¿Qué representa la constante de autoionización del agua ($K_w$)?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\9-calculiacidobases.md",
+    "reference_line": 55,
+    "module_name": "5-quimica",
+    "category": "calculiacidobases"
+  },
+  {
+    "term": "5 - Fuerza de ácidos y bases",
+    "example": ":m Un ácido fuerte se disocia completamente liberando todos sus $H^+$, mientras que un ácido débil solo lo hace parcialmente; su $K_a$ es mucho menor.",
+    "description": ":m La **fuerza** de un ácido o base depende de su grado de disociación:\n- **Ácidos fuertes** → se disocian completamente.\n- **Ácidos débiles** → se disocian parcialmente.\nCada uno tiene una **constante de acidez ($K_a$)** o **basicidad ($K_b$)**:\n$$K_a = \\frac{[H^+][A^-]}{[HA]}$$\n$$K_b = \\frac{[BH^+][OH^-]}{[B]}$$ ",
+    "prompt": "¿Cómo se diferencia un ácido fuerte de uno débil?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\9-calculiacidobases.md",
+    "reference_line": 70,
+    "module_name": "5-quimica",
+    "category": "calculiacidobases"
+  },
+  {
+    "term": "6 - Propiedades generales de ácidos y bases",
+    "example": ":m Los **ácidos** tienen sabor agrio y vuelven rojo el tornasol, mientras que las **bases** son amargas, resbaladizas y vuelven azul el tornasol.",
+    "description": ":m Los **ácidos** y **bases** se diferencian por su sabor, tacto, efecto sobre indicadores y comportamiento químico. Se debe tener **precaución** porque muchas son corrosivas o tóxicas.\n| Propiedad | Ácidos | Bases |\n| -------------------------------- | ---------------------------------- | ---------------------------------- |\n| Sabor | Agrio (como el vinagre) | Amargo, jabonoso |\n| Tacto | Irritante | Resbaladizo |\n| Conductividad | Buenos conductores (en disolución) | Buenos conductores (en disolución) |\n| Efecto sobre indicadores | Tornan el papel tornasol **rojo** | Tornan el papel tornasol **azul** |\n| Reacción con metales | Liberan $H_2$ | No reaccionan con metales |\n| Productos al reaccionar entre sí | Forman **sal y agua** | Forman **sal y agua** |\nEjemplos domésticos:\n* Ácidos: **Vinagre ($CH_3COOH$)**, **jugo gástrico ($HCl$)**\n* Bases: **Amoníaco ($NH_3$)**, **productos de limpieza alcalinos**\n",
+    "prompt": "¿Qué diferencias principales existen entre ácidos y bases en cuanto a sabor y efecto sobre indicadores?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\9-calculiacidobases.md",
+    "reference_line": 127,
+    "module_name": "5-quimica",
+    "category": "calculiacidobases"
+  },
+  {
+    "term": "7 - Seguridad química con ácidos y bases",
+    "example": ":m No se deben probar ni oler; deben manipularse con guantes, gafas y guardapolvo, ya que pueden ser corrosivos o tóxicos.",
+    "description": ":m Dado que muchas de estas sustancias son **corrosivas** o **tóxicas**, se deben seguir normas básicas de seguridad:\n* **No probar ni oler** directamente las sustancias.\n* **Usar elementos de protección personal (EPP)**: guantes, gafas y guardapolvo.\n* **Trabajar en áreas ventiladas** y con cuidado al diluir (siempre agregar ácido al agua).",
+    "prompt": "¿Qué medidas de seguridad deben tomarse al manipular ácidos y bases?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\9-calculiacidobases.md",
+    "reference_line": 152,
+    "module_name": "5-quimica",
+    "category": "calculiacidobases"
+  },
+  {
+    "term": "8 - Autoionización del agua",
+    "example": ":m Cuando aumenta $[H_3O^+]$, disminuye $[OH^-]$ para mantener constante el producto $K_w = 1 \\times 10^{-14}$.",
+    "description": ":m El agua pura se **disocia** en pequeñas cantidades, generando iones hidronio y oxhidrilo:\n$$2H_2O \\leftrightharpoons H_3O^+ + OH^-$$\nLa **constante de equilibrio** es:\n$$K_w = [H_3O^+][OH^-] = 1 \\times 10^{-14} \\ (a\\ 25°C)$$\nA medida que aumenta $[H_3O^+]$, disminuye $[OH^-]$, manteniendo la relación:\n$$pH + pOH = 14$$",
+    "prompt": "¿Qué ocurre con la concentración de $OH^-$ cuando aumenta $[H_3O^+]$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\9-calculiacidobases.md",
+    "reference_line": 166,
+    "module_name": "5-quimica",
+    "category": "calculiacidobases"
+  },
+  {
+    "term": "9 - Teoría de Arrhenius",
+    "example": ":m Un ácido libera iones $H^+$ en agua, mientras una base libera iones $OH^-$.",
+    "description": ":m **Svante Arrhenius (1884)** propuso que:\n* Un **ácido** produce **iones $H^+$** en disolución acuosa.\n* Una **base** produce **iones $OH^-$** en disolución acuosa.\nEjemplos:\n$$HCl \\rightarrow H^+ + Cl^-$$\n$$NaOH \\rightarrow Na^+ + OH^-$$\n**Limitación:** solo explica sustancias que liberan iones en **agua**, no otras bases como el **amoniaco ($NH_3$)**.",
+    "prompt": "¿Qué define a un ácido y a una base según la teoría de Arrhenius?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\9-calculiacidobases.md",
+    "reference_line": 181,
+    "module_name": "5-quimica",
+    "category": "calculiacidobases"
+  },
+  {
+    "term": "10 - Teoría de Brønsted-Lowry",
+    "example": ":m Significa que el ácido **transfiere un ion $H^+$** a otra sustancia (la base), la cual lo **acepta**, formando un par ácido-base conjugado.",
+    "description": ":m **Johannes Brønsted** y **Thomas Lowry** (1923) ampliaron la definición:\n* Un **ácido** es un **donador de protones ($H^+$)**.\n* Una **base** es un **aceptor de protones**.\nEjemplo:\n$$NH_3 + H_2O \\leftrightharpoons NH_4^+ + OH^-$$\nAquí, $NH_3$ actúa como **base** porque acepta un protón de $H_2O$, que se comporta como **ácido**.\nUn **par conjugado ácido-base** difiere solo por un protón ($H^+$).",
+    "prompt": "¿Qué significa que un ácido \"done\" un protón según Brønsted-Lowry?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\9-calculiacidobases.md",
+    "reference_line": 200,
+    "module_name": "5-quimica",
+    "category": "calculiacidobases"
+  },
+  {
+    "term": "11 - Pares conjugados del amonio (NH₄⁺ / NH₃)",
+    "example": ":m El par conjugado es **$NH_4^+$ / $NH_3$**, donde $NH_4^+$ es el ácido y $NH_3$ la base conjugada.",
+    "description": ":m Según la **teoría de Brønsted-Lowry**, un **ácido y su base conjugada** difieren en **un protón ($H^+$)**.\nEl **ion amonio ($NH_4^+$)** y el **amoníaco ($NH_3$)** son un **par conjugado ácido-base**.\n---\n**Ejemplo 1:**\n$$NH_4^+ \\leftrightharpoons NH_3 + H^+$$\n* $NH_4^+$ → **ácido** (donador de $H^+$)\n* $NH_3$ → **base conjugada** (producto al perder el protón)\n",
+    "prompt": "¿Qué par ácido-base se forma cuando $NH_4^+$ dona un protón?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\9-calculiacidobases.md",
+    "reference_line": 220,
+    "module_name": "5-quimica",
+    "category": "calculiacidobases"
+  },
+  {
+    "term": "12 - Teoría de Lewis",
+    "example": ":m Un **ácido de Lewis** acepta un par de electrones, mientras una **base de Lewis** los dona para formar un enlace covalente coordinado.",
+    "description": ":m La **teoría de Lewis** amplía el concepto de ácido y base más allá del medio acuoso.\nSegún esta teoría:\n* **Ácido de Lewis:** sustancia que **acepta un par de electrones**.\n* **Base de Lewis:** sustancia que **dona un par de electrones**.\nEsto permite explicar reacciones donde **no hay transferencia de protones**, sino **interacción entre pares electrónicos**.\n",
+    "prompt": "¿Cómo define la teoría de Lewis a un ácido y a una base?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\9-calculiacidobases.md",
+    "reference_line": 321,
+    "module_name": "5-quimica",
+    "category": "calculiacidobases"
+  },
+  {
+    "term": "13 - Ejemplo clásico: $BF_3$ y $NH_3$",
+    "example": ":m Porque $BF_3$ **acepta** un par de electrones del nitrógeno (ácido de Lewis), y $NH_3$ **los dona** (base de Lewis), formando el complejo $NH_3!-!BF_3$.",
+    "description": ":m $$BF_3 + NH_3 \\rightarrow NH_3 !-! BF_3$$\n* $BF_3$: **ácido de Lewis**, ya que el boro tiene un orbital vacío y **acepta** un par de electrones.\n* $NH_3$: **base de Lewis**, porque el nitrógeno tiene un par solitario y **lo dona** al boro.",
+    "prompt": "¿Por qué $BF_3$ actúa como ácido y $NH_3$ como base según Lewis?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\9-calculiacidobases.md",
+    "reference_line": 336,
+    "module_name": "5-quimica",
+    "category": "calculiacidobases"
+  },
+  {
+    "term": "14 - Ventaja de la teoría de Lewis",
+    "example": ":m Permite describir reacciones **sin agua ni protones**, explicando la formación de enlaces covalentes coordinados entre ácidos y bases.",
+    "description": ":m La principal ventaja de esta teoría es que **se aplica a reacciones no acuosas** y explica **interacciones covalentes** donde no hay protones involucrados.\nEjemplo adicional:\n$$Ag^+ + 2NH_3 \\rightarrow [Ag(NH_3)_2]^+$$\nAquí $Ag^+$ es el **ácido de Lewis** (aceptor de electrones) y $NH_3$ la **base de Lewis** (donadora del par electrónico).\n",
+    "prompt": "¿Qué ventaja ofrece la teoría de Lewis frente a otras teorías ácido-base?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\9-calculiacidobases.md",
+    "reference_line": 347,
+    "module_name": "5-quimica",
+    "category": "calculiacidobases"
+  },
+  {
+    "term": "15 - Concepto de pH y pOH",
+    "example": ":m Un **pH menor que 7** indica una disolución **ácida**, un **pH igual a 7** es **neutra**, y un **pH mayor que 7** corresponde a una **básica**.",
+    "description": ":m El **pH** y el **pOH** indican la acidez o basicidad de una disolución, en base a las concentraciones de iones hidronio ($H_3O^+$) y oxhidrilo ($OH^-$).\nFormulas fundamentales:\n$$pH = -\\log[H_3O^+]$$\n$$pOH = -\\log[OH^-]$$\n$$pH + pOH = 14 \\quad (a\\ 25°C)$$\n---\n|Tipo de disolución|$[H_3O^+]$ (mol/L)|$[OH^-]$ (mol/L)|pH|pOH|Naturaleza|\n|---|---|---|---|---|---|\n|**Ácida**|$> 10^{-7}$|$< 10^{-7}$|$< 7$|$> 7$|Predomina el ion $H_3O^+$|\n|**Neutra**|$= 10^{-7}$|$= 10^{-7}$|$= 7$|$= 7$|Equilibrio entre $H_3O^+$ y $OH^-$|\n|**Básica**|$< 10^{-7}$|$> 10^{-7}$|$> 7$|$< 7$|Predomina el ion $OH^-$|\n",
+    "prompt": "¿Cómo se interpreta el valor de pH en función de la concentración de $H_3O^+$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\9-calculiacidobases.md",
+    "reference_line": 373,
+    "module_name": "5-quimica",
+    "category": "calculiacidobases"
+  },
+  {
+    "term": "16 - 🔹 En la calculadora:",
+    "example": ":m Se ingresa la **concentración molar de $H_3O^+$**, por ejemplo `1e-3`, y se aplica la fórmula $pH = -\\log[H_3O^+]$.",
+    "description": ":m 1. Escribís el número entre paréntesis, ej. `1e-3` (para $1\\times10^{-3}$).\n2. Luego hacés `log(1e-3)` → te da **–3**.\n3. Finalmente cambiás el signo: `–(–3)` → **3**.\n---\n",
+    "prompt": "¿Qué valor se ingresa en la calculadora para hallar el pH de una disolución?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\9-calculiacidobases.md",
+    "reference_line": 434,
+    "module_name": "5-quimica",
+    "category": "calculiacidobases"
+  },
+  {
+    "term": "17 - Cuándo **no sirve**",
+    "example": ":m Porque $x$ (la disociación) es muy pequeña comparada con $C$, entonces restarla no cambia el valor significativamente, y permite simplificar $K_a=\\dfrac{x^2}{C-x}$ a $K_a\\approx\\dfrac{x^2}{C}$.",
+    "description": ":m * Cuando el ácido es **fuerte** (disociación grande).\n* Cuando $C$ es muy pequeña (dilución extrema).\n* Si el error supera el **5%** → hay que usar la **ecuación cuadrática exacta**.\n---\n",
+    "prompt": "¿Por qué se puede usar la aproximación $C - x \\approx C$ en ácidos o bases débiles?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\9-calculiacidobases.md",
+    "reference_line": 511,
+    "module_name": "5-quimica",
+    "category": "calculiacidobases"
+  },
+  {
+    "term": "18 - Ácido débil: planteo ICE y variables",
+    "example": ":m Inicial: $$[HA]=C,;[H^+]=0,;[A^-]=0$$.\nEquilibrio: $$[HA]=C-x,;[H^+]=x,;[A^-]=x$$; y $$K_a=\\dfrac{x^2}{C-x}$$.",
+    "description": ":m Para un ácido débil\n$$HA \\rightleftharpoons H^+ + A^-$$\ncon concentración inicial $$C$$ y disociación $$x$$:\n* Estado inicial: $$[HA]=C,;[H^+]=0,;[A^-]=0$$\n* Cambio: $$[HA]\\to C-x,;[H^+]\\to x,;[A^-]\\to x$$\nLa definición de $$K_a$$ es:\n$$K_a=\\dfrac{[H^+][A^-]}{[HA]}=\\dfrac{x\\cdot x}{C-x}=\\dfrac{x^2}{C-x}$$\n",
+    "prompt": "¿Cómo quedan las concentraciones en el cuadro ICE para $$HA \\rightleftharpoons H^+ + A^-$$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\9-calculiacidobases.md",
+    "reference_line": 524,
+    "module_name": "5-quimica",
+    "category": "calculiacidobases"
+  },
+  {
+    "term": "19 - Ecuación cuadrática general para $$x$$",
+    "example": ":m Se obtiene $$x^2+K_a x-K_aC=0$$, con $$x=\\dfrac{-K_a+\\sqrt{K_a^2+4K_a C}}{2}$$ (se toma la raíz positiva).",
+    "description": ":m Partiendo de $$K_a=\\dfrac{x^2}{C-x}$$:\n$$K_a(C-x)=x^2;\\Longrightarrow;x^2+K_a x-K_aC=0$$\nLa solución física (positiva) para $$x=[H^+]$$ es:\n$$x=\\frac{-K_a+\\sqrt{K_a^2+4K_a C}}{2}$$\n",
+    "prompt": "¿Cuál es la forma cuadrática que se obtiene y su solución para $$x$$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\9-calculiacidobases.md",
+    "reference_line": 544,
+    "module_name": "5-quimica",
+    "category": "calculiacidobases"
+  },
+  {
+    "term": "20 - Aproximación práctica (cuando $$K_a \\ll C$$)",
+    "example": ":m $$x\\approx \\sqrt{K_a C}$$, y luego $$pH=-\\log x$$.",
+    "description": ":m Si $$K_a \\ll C$$, entonces $$C-x\\approx C$$ y:\n$$K_a\\approx \\frac{x^2}{C}\\quad\\Longrightarrow\\quad x\\approx \\sqrt{K_a C}$$\nLuego:\n$$pH=-\\log x$$\n",
+    "prompt": "¿Cuál es la expresión aproximada de $$x$$ cuando $$K_a\\ll C$$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\9-calculiacidobases.md",
+    "reference_line": 559,
+    "module_name": "5-quimica",
+    "category": "calculiacidobases"
+  },
+  {
+    "term": "21 - Criterio de validez",
+    "example": ":m La aproximación es válida cuando $$x$$ es mucho menor que $$C$$; si no, se debe usar la fórmula cuadrática exacta.",
+    "description": ":m La aproximación es válida si la disociación es muy pequeña comparada con la concentración inicial.\nSi no se cumple, usar la solución **cuadrática exacta** para $$x$$.\n",
+    "prompt": "¿Cómo decides si puedes usar $$x\\approx\\sqrt{K_a C}$$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\9-calculiacidobases.md",
+    "reference_line": 574,
+    "module_name": "5-quimica",
+    "category": "calculiacidobases"
+  },
+  {
+    "term": "22 - Ejemplo numérico: ácido acético 0.10 M",
+    "example": ":m $$x\\approx 1.34\\times10^{-3};\\Rightarrow;pH\\approx 2.87$$. La aproximación es válida porque $$x$$ es pequeño comparado con $$C$$.",
+    "description": ":m Para $$CH_3COOH$$ con $$C=0.10,\\text{M}$$ y $$K_a=1.8\\times10^{-5}$$:\nAproximación:\n$$x\\approx \\sqrt{(1.8\\times10^{-5})(0.10)}=\\sqrt{1.8\\times10^{-6}}\\approx 1.34\\times10^{-3},\\text{M}$$\n$$pH=-\\log(1.34\\times10^{-3})\\approx 2.87$$\n",
+    "prompt": "Calcula el pH de $$0.10,\\text{M}$$ de ácido acético con $$K_a=1.8\\times10^{-5}$$.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\9-calculiacidobases.md",
+    "reference_line": 586,
+    "module_name": "5-quimica",
+    "category": "calculiacidobases"
+  },
+  {
+    "term": "23 - Cuando la aproximación **no** vale (uso exacto)",
+    "example": ":m Se usa la solución exacta: $$x=\\dfrac{-K_a+\\sqrt{K_a^2+4K_a C}}{2}$$ y luego $$pH=-\\log x$$.",
+    "description": ":m Si $$x$$ no es despreciable frente a $$C$$, se debe usar:\n$$x=\\frac{-K_a+\\sqrt{K_a^2+4K_a C}}{2},\\quad pH=-\\log x$$\nEsto ocurre con ácidos menos diluidos o con $$K_a$$ relativamente grande.\n",
+    "prompt": "¿Qué fórmula usas para $$x$$ si la aproximación no es válida?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\9-calculiacidobases.md",
+    "reference_line": 601,
+    "module_name": "5-quimica",
+    "category": "calculiacidobases"
+  },
+  {
     "term": "1 - Ejercicio de nomenclatura inorgánica",
     "example": ":m\n1. **Ácido piroarsénico** → $$\\mathrm{H_4As_2O_7}$$\n![[Pasted image 20250929192354.png]]\n2. **Fosfina** → $$\\mathrm{PH_3}$$\n3. **Pirofosfato de aluminio** → $$\\mathrm{Al_4(P_2O_7)_3}$$\n4. **Hidróxido niqueloso** (Ni²⁺) → $$\\mathrm{Ni(OH)_2}$$\n5. **Óxido nítrico** → $$\\mathrm{NO}$$\n6. **Sulfuro férrico** (Fe³⁺) → $$\\mathrm{Fe_2S_3}$$",
     "description": ":m Para resolver, recordemos:\n* **Ácidos oxoácidos**: se forman con no metales + oxígeno + H.\n* **Hidruros**: elemento + hidrógeno.\n* **Sales**: catión + anión (oxoaniones comunes: fosfatos, pirofosfatos, etc.).\n* **Hidróxidos**: metal + OH⁻.\n* **Óxidos**: combinación de un elemento con oxígeno.\n* **Sulfuros**: metal + S²⁻.\n1. Ácido piroarsénico\n2. Fosfina\n3. Pirofosfato de aluminio\n4. Hidróxido niqueloso\n5. Óxido nítrico\n6. Sulfuro férrico\n",
