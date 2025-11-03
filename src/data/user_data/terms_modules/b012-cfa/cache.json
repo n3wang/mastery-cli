@@ -451,7 +451,7 @@
   },
   {
     "term": "22 - 4. **F-Test Hypotheses**",
-    "example": ":m - H0:β1=0H_0: \\beta_1 = 0 (slope coefficient = 0, no relationship).\n- HA:β1≠0H_A: \\beta_1 \\neq 0 (slope coefficient ≠ 0, relationship exists).",
+    "example": ":m\n- H0:β1=0H_0: \\beta_1 = 0 (slope coefficient = 0, no relationship).\n- HA:β1≠0H_A: \\beta_1 \\neq 0 (slope coefficient ≠ 0, relationship exists).",
     "description": "",
     "prompt": "In the F-test for regression, what are the null and alternative hypotheses?",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M10-formoftheolsline.md",
@@ -1422,7 +1422,7 @@
   {
     "term": "7 - Currency Appreciation and Depreciation",
     "example": ":m $$\n\\text{ change} = \\frac{\\text{End rate}}{\\text{Beginning rate}} - 1 = \\frac{1.39}{1.42} - 1 = -2.11%\n$$\n➡️ The **euro has depreciated by 2.11%** relative to the U.S. dollar.",
-    "description": ":m Changes in exchange rates indicate one currency’s value relative to another.\n```python\ndef fx_change(start_rate, end_rate):\nchange = (end_rate / start_rate - 1) * 100\nif change > 0:\nreturn f\"Appreciation of {change:.2f}%\"\nelse:\nreturn f\"Depreciation of {abs(change):.2f}%\"\nprint(fx_change(1.42, 1.39)) # Euro depreciation vs USD\n```\n",
+    "description": ":m Changes in exchange rates indicate one currency’s value relative to another.\n```python\ndef fx_change(start_rate, end_rate):\nchange = (end_rate / start_rate - 1) * 100\nif change > 0:\nreturn f\"Appreciation of {change:.2f}%\"\nelse:\nreturn f\"Depreciation of {abs(change):.2f}%\"\nprint(fx_change(1.42, 1.39))\n# Euro depreciation vs USD\n```\n",
     "prompt": "A U.S. investor buys euros when USD/EUR = 1.42, and one year later it’s 1.39. Has the **euro appreciated or depreciated**, and by how much?",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M18-Capitalflowsandfxmarket.md",
     "reference_line": 203,
@@ -1432,7 +1432,7 @@
   {
     "term": "8 - Inverse Quotation – USD Appreciation",
     "example": ":m $$\n1/1.42 = 0.7042,\\quad 1/1.39 = 0.7194\n$$\n$$\n\\text{ change} = \\frac{0.7194}{0.7042} - 1 = 2.16%\n$$\n✅ The **USD has appreciated by 2.16%** relative to the euro.",
-    "description": ":m ```python\ndef fx_change(start_rate, end_rate):\nchange = (end_rate / start_rate - 1) * 100\nif change > 0:\nreturn f\"Appreciation of {change:.2f}%\"\nelse:\nreturn f\"Depreciation of {abs(change):.2f}%\"\nprint(fx_change(1.42, 1.39)) # Euro depreciation vs USD\n# Output: Depreciation of 2.11%\n```\nTo see the USD’s movement, invert the exchange rate to EUR/USD.\n",
+    "description": ":m ```python\ndef fx_change(start_rate, end_rate):\nchange = (end_rate / start_rate - 1) * 100\nif change > 0:\nreturn f\"Appreciation of {change:.2f}%\"\nelse:\nreturn f\"Depreciation of {abs(change):.2f}%\"\nprint(fx_change(1.42, 1.39))\n# Euro depreciation vs USD\n# Output: Depreciation of 2.11%\n```\nTo see the USD’s movement, invert the exchange rate to EUR/USD.\n",
     "prompt": "Given USD/EUR falls from 1.42 to 1.39, calculate the **USD appreciation**.",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M18-Capitalflowsandfxmarket.md",
     "reference_line": 229,
@@ -1531,7 +1531,7 @@
   },
   {
     "term": "1 - Foreign Exchange Rates – Cross Rates Overview",
-    "example": ":m\n- A **cross rate** is the **exchange rate between two non-USD currencies**, derived from their **exchange rates with a third common currency** (e.g., USD).\n- They are important when:\n1. No active FX market exists for a currency pair.\n2. Traders need to convert indirectly through a common intermediary (often USD).\n- Formula pattern:\n$$\\text{Currency A / Currency B} = \\text{(Currency A / USD)} \\times \\text{(USD / Currency B)}$$",
+    "example": ":m\n- A **cross rate** is the **exchange rate between two non-USD currencies**, derived from their **exchange rates with a third common currency** (e.g., USD).\n- They are important when:\n1. No active FX market exists for a currency pair.\n2. Traders need to convert indirectly through a common intermediary (often USD).\n- Formula pattern:\n$$\\text{Currency A / Currency B} = \\text{(Currency A / USD)} \\times \\text{(USD / Currency B)}$$ ",
     "description": ":m Cross rates are **implied exchange rates** between two currencies that are **not directly quoted** against each other in the market. Traders calculate them using a **common reference currency**—usually the USD or EUR. Cross rates are essential for **pricing**, **arbitrage**, and **international trade settlements** when no direct pair exists.\n",
     "prompt": "Define a **cross rate** and explain why it is important in FX markets.",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M19-ExchangeRate Caluculations.md",
@@ -1541,7 +1541,7 @@
   },
   {
     "term": "2 - Cross Rates – Example 1 (MXN/AUD)",
-    "example": ":m\n1. Set up so the **USD cancels**:\n$$\\frac{\\text{MXN}}{\\text{AUD}} = \\frac{\\text{MXN}}{\\text{USD}} \\times \\frac{\\text{USD}}{\\text{AUD}}$$\n2. Substitute values:\n$$= 10.70 \\times 0.60 = 6.42$$\n**MXN/AUD = 6.42** → One Australian dollar equals **6.42 Mexican pesos**.",
+    "example": ":m\n1. Set up so the **USD cancels**:\n$$\\frac{\\text{MXN}}{\\text{AUD}} = \\frac{\\text{MXN}}{\\text{USD}} \\times \\frac{\\text{USD}}{\\text{AUD}}$$\n2. Substitute values:\n$$= 10.70 \\times 0.60 = 6.42$$\n**MXN/AUD = 6.42** → One Australian dollar equals **6.42 Mexican pesos**. ",
     "description": ":m This example uses **USD** as the common currency to find the exchange rate between the **Mexican peso (MXN)** and **Australian dollar (AUD)**.\n",
     "prompt": "Given MXN/USD = 10.70 and USD/AUD = 0.60, calculate the **MXN/AUD cross rate**.",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M19-ExchangeRate Caluculations.md",
@@ -1591,7 +1591,7 @@
   },
   {
     "term": "7 - Example 1 – 1-Year Arbitrage-Free Forward Rate",
-    "example": ":m Apply the no-arbitrage formula:\n$$\n\\text{Forward}_{ABE/DUB} = 4.5671 \\times \\frac{(1.05)}{(1.03)} = 4.6558\n$$\n✅ **Forward Rate = 4.6558 ABE/DUB**\nInterpretation:\n- ABE has the **higher interest rate**, so its currency is expected to **depreciate**.\n- The DUB will trade at a **forward premium** (≈2%).\n- Forward premium check:\n[\n(F/S) - 1 = (4.6558 / 4.5671) - 1 = 0.0194 = 1.94%\n]",
+    "example": ":m Apply the no-arbitrage formula:\n$$\n\\text{Forward}_{ABE/DUB} = 4.5671 \\times \\frac{(1.05)}{(1.03)} = 4.6558\n$$\n✅ **Forward Rate = 4.6558 ABE/DUB**\nInterpretation:\n- ABE has the **higher interest rate**, so its currency is expected to **depreciate**.\n- The DUB will trade at a **forward premium** (≈2%).\n- Forward premium check:\n[\n(F/S) - 1 = (4.6558 / 4.5671) - 1 = 0.0194 = 1.94%\n] ",
     "description": ":m We compare two currencies: **ABE** (domestic) and **DUB** (foreign).\n",
     "prompt": "Given: Spot = 4.5671 ABE/DUB, (r_{ABE} = 5%), (r_{DUB} = 3%), find the **1-year no-arbitrage forward rate**.",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\b012-cfa\\cache_md\\M19-ExchangeRate Caluculations.md",

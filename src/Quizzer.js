@@ -937,6 +937,180 @@ class Quizzer {
 		return this.runStudySession(selected_terms, deck_selected);
 	};
 
+	filtered_study_session = async (
+		masterDeck = this.masterDeck,
+		{ reverse = false, size_study_deck = -1 } = {}
+	) => {
+		const SettingsManager = require('./SettingsManager');
+		const settingsManager = new SettingsManager();
+		const enabledDecks = settingsManager.getEnabledDecksFromMasks();
+
+		if (enabledDecks.length === 0) {
+			console.log('\nNo masks are currently active or configured.');
+			console.log('Use "mastery mask-list" to see available masks.');
+			console.log('Use "mastery mask-toggle <mask-name>" to enable a mask.\n');
+			return;
+		}
+
+		console.log(`\nFiltered by active masks: ${settingsManager.getActiveMasks().join(', ')}\n`);
+
+		const dictOptions = masterDeck.deck_titles_with_count;
+		let titles = [...Object.keys(dictOptions)];
+
+		titles = titles.filter(title => {
+			const deckInfo = dictOptions[title];
+			const deckName = deckInfo.name;
+
+			return enabledDecks.some(enabledDeck => {
+				return deckName.toLowerCase().includes(enabledDeck.toLowerCase()) ||
+					   enabledDeck.toLowerCase().includes(deckName.toLowerCase());
+			});
+		});
+
+		if (titles.length === 0) {
+			console.log('\nNo decks match the enabled filters.');
+			console.log('Available decks in masks:', enabledDecks.join(', '));
+			console.log('\nUse "mastery ses" for unfiltered deck selection.\n');
+			return;
+		}
+
+		titles.sort((a, b) => dictOptions[b].count - dictOptions[a].count);
+
+		const { DailyDeckManager } = require('./DailyDeckManager');
+		const dailyDeckConfig = Settings?.daily_deck_configuration || {};
+		const dailyDeckEnabled = dailyDeckConfig.enabled !== false;
+
+		const displayToOriginalMapping = {};
+		let deckChoices = titles.map(title => {
+			const deckInfo = dictOptions[title];
+			const deckName = deckInfo.name;
+
+			const deckTerms = masterDeck.listTerms({ get_only: [deckName] });
+			const studiedCount = this.countStudiedTerms(deckTerms);
+			const totalCount = deckTerms.length;
+
+			let displayTitle = title;
+			if (totalCount > 0) {
+				const cardsMatch = title.match(/ - \d+ cards$/);
+				if (cardsMatch) {
+					const baseTitle = title.substring(0, title.length - cardsMatch[0].length);
+					displayTitle = `${baseTitle} (${studiedCount}/${totalCount})${cardsMatch[0]}`;
+				}
+			}
+
+			if (deckInfo.nested_count > 0) {
+				displayTitle = `${displayTitle} - ${deckInfo.nested_count}N`;
+			}
+
+			displayToOriginalMapping[displayTitle] = title;
+
+			return displayTitle;
+		});
+
+		if (dailyDeckEnabled) {
+			const dailyDeckManager = new DailyDeckManager(Settings);
+			const todayDeck = dailyDeckManager.getTodayDeck();
+			if (todayDeck) {
+				const status = dailyDeckManager.getCompletionStatus(todayDeck);
+				if (status.isComplete) {
+					deckChoices.unshift(`Today's Deck (Completed ✓)`);
+				} else {
+					deckChoices.unshift(`Today's Deck (${status.completed}/${status.total} cards)`);
+				}
+			} else {
+				deckChoices.unshift('Today\'s Deck (Generate now)');
+			}
+		}
+
+		const { AutoComplete } = require('enquirer');
+		const ms_deck = new AutoComplete({
+			name: 'StudyOption',
+			message: 'Choose deck to study (filtered)',
+			choices: deckChoices
+		});
+
+		let deck_selected_key = await ms_deck.run();
+
+		if (deck_selected_key.startsWith('Today\'s Deck')) {
+			const dailyDeckManager = new DailyDeckManager(Settings);
+			let todayDeck = dailyDeckManager.getTodayDeck();
+
+			if (!todayDeck) {
+				const weekSummary = dailyDeckManager.getWeekAheadSummary();
+				console.log('\n=== Week Ahead Summary ===');
+				for (const day of weekSummary) {
+					if (day.exists) {
+						const statusStr = day.isComplete ? 'Completed ✓' : `${day.completed}/${day.total}`;
+						console.log(`  ${day.dayName} (${day.date}): ${statusStr}`);
+					} else {
+						console.log(`  ${day.dayName} (${day.date}): Not generated`);
+					}
+				}
+				console.log('');
+
+				const actionPrompt = new AutoComplete({
+					name: 'action',
+					message: 'What would you like to do?',
+					choices: [
+						'Generate today\'s deck',
+						'Prepare full week ahead',
+						'Go back to deck selection'
+					]
+				});
+
+				const action = await actionPrompt.run();
+
+				if (action === 'Generate today\'s deck') {
+					todayDeck = dailyDeckManager.generateTodayDeck(masterDeck);
+					console.log(`\nGenerated today's deck with ${todayDeck.terms.length} cards\n`);
+				} else if (action === 'Prepare full week ahead') {
+					dailyDeckManager.prepareWeekAhead(masterDeck);
+					console.log('\nWeek ahead prepared!\n');
+					todayDeck = dailyDeckManager.getTodayDeck();
+				} else {
+					return this.filtered_study_session(masterDeck, { reverse, size_study_deck });
+				}
+			}
+
+			const selected_terms = todayDeck.terms;
+			return this.runStudySession(selected_terms, 'Today\'s Deck');
+		}
+
+		const originalKey = displayToOriginalMapping[deck_selected_key] || deck_selected_key;
+		const deck_selected = dictOptions[originalKey].name;
+
+		let selected_terms = masterDeck.listTerms({
+			get_only: [deck_selected]
+		});
+
+		if (size_study_deck > 0) {
+			selected_terms = selected_terms.slice(0, size_study_deck);
+		}
+
+		if (reverse) {
+			selected_terms = selected_terms.reverse();
+		}
+
+		const categories = [...new Set(selected_terms.map(term => term.category))];
+
+		if (categories.length > 1) {
+			const { AutoComplete } = require('enquirer');
+			const ms_category = new AutoComplete({
+				name: 'CategoryOption',
+				message: 'Choose category (optional filter)',
+				choices: ['all', ...categories]
+			});
+
+			const category_selected = await ms_category.run();
+
+			if (category_selected !== 'all') {
+				selected_terms = selected_terms.filter(term => term.category === category_selected);
+			}
+		}
+
+		return this.runStudySession(selected_terms, deck_selected);
+	};
+
 	/**
 	 *
 	 * @param {method} param0

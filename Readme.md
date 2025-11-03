@@ -344,6 +344,25 @@ mcli dsa --all
 ```
 
 
+### Masks Lists
+
+#### Test mask management
+mastery mask-list
+mastery mask-toggle cert-focus
+mastery mask-status
+
+#### Test filtered study session
+mastery fses
+
+#### Test creating a new mask
+mastery mask-create
+
+#### Test full interactive mask manager
+mastery masks
+
+
+
+
 ## Need Help?
 
 - Run `mastery --help` for all commands

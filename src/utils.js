@@ -316,6 +316,11 @@ class Mastery {
 				await this.ensureTermsLoaded();
 				return this.mQuizer.study_session({ reverse: true });
 			},
+			fses: async () => {
+				// Filtered study session based on active masks
+				await this.ensureTermsLoaded();
+				return this.mQuizer.filtered_study_session();
+			},
 			'reset-queues': async () => {
 				// Reset study session queues while preserving hash data
 				const { Input, Confirm } = require('enquirer');
@@ -398,6 +403,23 @@ class Mastery {
 			},
 			masks: () => {
 				this.manageMasks();
+			},
+			'mask-list': () => {
+				this.listMasks();
+			},
+			'mask-toggle': () => {
+				const maskName = process.argv[3];
+				if (!maskName) {
+					console.log('Usage: mastery mask-toggle <mask-name>');
+					return;
+				}
+				this.quickToggleMask(maskName);
+			},
+			'mask-create': async () => {
+				await this.quickCreateMask();
+			},
+			'mask-status': () => {
+				this.showMaskStatus();
 			},
 			'prepare-week': async () => {
 				await this.prepareWeeklyDecks();
@@ -1635,6 +1657,97 @@ class Mastery {
 		} catch (error) {
 			console.error('Error editing mask:', error.message);
 		}
+	}
+
+	listMasks() {
+		const SettingsManager = require('./SettingsManager');
+		const settingsManager = new SettingsManager();
+		const masks = settingsManager.getAllMasks();
+		const activeMasks = settingsManager.getActiveMasks();
+
+		console.log('\n=== Quiz Deck Masks ===\n');
+
+		if (masks.length === 0) {
+			console.log('No masks configured yet.');
+			console.log('Use "mastery mask-create" to create a new mask.\n');
+			return;
+		}
+
+		masks.forEach((mask, index) => {
+			const isActive = activeMasks.includes(mask.title);
+			const status = isActive ? '✅ ACTIVE' : '❌ INACTIVE';
+			console.log(`${index + 1}. ${mask.title} - ${status}`);
+			console.log(`   Decks: ${mask.decks_to_enable.join(', ')}`);
+		});
+
+		console.log(`\nCurrently active: ${activeMasks.join(', ') || 'None'}\n`);
+	}
+
+	quickToggleMask(maskName) {
+		const SettingsManager = require('./SettingsManager');
+		const settingsManager = new SettingsManager();
+
+		try {
+			const enabled = settingsManager.toggleMask(maskName);
+			const status = enabled ? '✅ ENABLED' : '❌ DISABLED';
+			console.log(`\n${status}: ${maskName}\n`);
+
+			const activeMasks = settingsManager.getActiveMasks();
+			console.log(`Currently active masks: ${activeMasks.join(', ') || 'None'}\n`);
+		} catch (error) {
+			console.error(`Error: ${error.message}\n`);
+			console.log('Use "mastery mask-list" to see available masks.\n');
+		}
+	}
+
+	async quickCreateMask() {
+		const SettingsManager = require('./SettingsManager');
+		const settingsManager = new SettingsManager();
+		const { Input, MultiSelect } = require('enquirer');
+
+		try {
+			const namePrompt = new Input({
+				name: 'name',
+				message: 'Mask name:',
+				validate: input => input.trim().length > 0 || 'Name cannot be empty'
+			});
+			const maskName = await namePrompt.run();
+
+			const decksPrompt = new Input({
+				name: 'decks',
+				message: 'Deck names (comma-separated):',
+				validate: input => input.trim().length > 0 || 'At least one deck required'
+			});
+			const decksInput = await decksPrompt.run();
+			const decks = decksInput.split(',').map(d => d.trim()).filter(d => d.length > 0);
+
+			settingsManager.createMask(maskName, decks);
+			console.log(`\n✅ Created mask: ${maskName}`);
+			console.log(`📦 Decks: ${decks.join(', ')}`);
+			console.log(`\nUse "mastery mask-toggle ${maskName}" to enable it.\n`);
+		} catch (error) {
+			console.error(`Error: ${error.message}\n`);
+		}
+	}
+
+	showMaskStatus() {
+		const SettingsManager = require('./SettingsManager');
+		const settingsManager = new SettingsManager();
+		const activeMasks = settingsManager.getActiveMasks();
+		const enabledDecks = settingsManager.getEnabledDecksFromMasks();
+
+		console.log('\n=== Active Mask Status ===\n');
+
+		if (activeMasks.length === 0) {
+			console.log('No masks currently active.');
+			console.log('Use "mastery mask-toggle <name>" to enable a mask.\n');
+			return;
+		}
+
+		console.log(`Active masks: ${activeMasks.join(', ')}`);
+		console.log(`\nFiltered decks (${enabledDecks.length} total):`);
+		enabledDecks.forEach(deck => console.log(`  - ${deck}`));
+		console.log('');
 	}
 }
 

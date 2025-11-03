@@ -140,11 +140,15 @@ function parseMarkdownCards(filePath) {
 					break;
 				}
 				if (!isMultiLine && answerLine.trim() === '') break;
-				
-				// remove x?? and ??x
+
+				// remove x?? and ??x - but preserve indentation
 				if(isMultiLine){
-					// remove x?? and ??x
-					answerLine = answerLine.replace(/^\?x\?|\?x\?$/g, '').trim();
+					// remove x?? and ??x but keep the rest of the line as-is
+					answerLine = answerLine.replace(/^\?x\?|\?x\?$/g, '');
+					// Only trim if the line doesn't start with whitespace (preserve indentation)
+					if (answerLine.length > 0 && answerLine[0] !== ' ' && answerLine[0] !== '\t') {
+						answerLine = answerLine.trim();
+					}
 				}
 				if(answerLine.trim() === '') {
 					if (isMultiLine) {
@@ -153,10 +157,10 @@ function parseMarkdownCards(filePath) {
 				}
 				answerLines.push(answerLine);
 
-				
+
 				i++;
 			}
-			
+
 			single_line_last_obtained_description = '';
 			last_connected_paragraph = '';
 			currentEntry.answer = answerLines.join('\n');
@@ -204,17 +208,48 @@ function parseMarkdownCards(filePath) {
 	// 	result.entries.push(currentEntry);
 	// }
 
-	// clean up.
+	// clean up - but preserve indentation inside code blocks
 	for (const entry of result.entries) {
 		if (entry.description) {
-			entry.description = ":m " + entry.description.replace(/ {1,}/g, ' ');
+			entry.description = ":m " + preserveIndentationInCodeBlocks(entry.description);
 		}
 		if (entry.answer) {
-			entry.answer = ":m " + entry.answer.replace(/ {1,}/g, ' ');
+			entry.answer = ":m " + preserveIndentationInCodeBlocks(entry.answer);
 		}
 	}
 
 	return result;
+}
+
+/**
+ * Helper function to replace consecutive spaces with single space,
+ * but preserve indentation inside code blocks (```...```)
+ */
+function preserveIndentationInCodeBlocks(text) {
+	const lines = text.split('\n');
+	let inCodeBlock = false;
+	const processedLines = [];
+
+	for (const line of lines) {
+		const trimmedLine = line.trim();
+
+		// Check for code block markers
+		if (trimmedLine.startsWith('```')) {
+			inCodeBlock = !inCodeBlock;
+			processedLines.push(line);
+			continue;
+		}
+
+		// If inside code block, preserve the line as-is
+		if (inCodeBlock) {
+			processedLines.push(line);
+		} else {
+			// Outside code block, apply space normalization
+			processedLines.push(line.replace(/ {2,}/g, ' '));
+		}
+	}
+
+	return processedLines.join('\n');
 }
 
 function parseMarkdownIntoDeck(

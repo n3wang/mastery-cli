@@ -67,6 +67,10 @@ class CommandsInformation {
 			),
 			clean: new Command('Prompt to confirm terminal cleanup', 'clean'),
 			ses: new Command('Start a study session', 'ses'),
+			fses: new Command(
+				'Start a filtered study session using active deck masks',
+				'fses'
+			),
 			'reset-queues': new Command(
 				'Reset study session progress queues while preserving hash-based term completion data',
 				'reset-queues'
@@ -116,6 +120,22 @@ class CommandsInformation {
 			masks: new Command(
 				'Manage quiz deck masks for filtering terms by module and category',
 				'masks'
+			),
+			'mask-list': new Command(
+				'List all configured deck masks and their status',
+				'mask-list'
+			),
+			'mask-toggle': new Command(
+				'Toggle a deck mask on/off (usage: mastery mask-toggle <mask-name>)',
+				'mask-toggle'
+			),
+			'mask-create': new Command(
+				'Quickly create a new deck mask',
+				'mask-create'
+			),
+			'mask-status': new Command(
+				'Show currently active masks and their filtered decks',
+				'mask-status'
 			),
 			'prepare-week': new Command(
 				'Prepare daily study decks for the upcoming week',

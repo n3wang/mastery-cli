@@ -1561,7 +1561,7 @@
   },
   {
     "term": "10 - Problema 1 – Difusión de gases en el aire",
-    "example": ":m\n1. $M_{NH3} = 17 , g/mol$, $M_{HCl} = 36.5 , g/mol$\n2. Relación de velocidades:\n$rNH3rHCl=36.517≈1.46\\dfrac{r_{NH3}}{r_{HCl}} = \\sqrt{\\dfrac{36.5}{17}} \\approx 1.46$\n3. Significa que $NH3$ avanza 1.46 veces más rápido.\n4. Distancia de encuentro:\n$x=11+1.46×1.00 m≈0.41 mx = \\dfrac{1}{1 + 1.46} \\times 1.00 \\, m \\approx 0.41 $, m desde el lado del HCl.",
+    "example": ":m\n1. $M_{NH3} = 17 , g/mol$, $M_{HCl} = 36.5 , g/mol$\n2. Relación de velocidades:\n$rNH3rHCl=36.517≈1.46\\dfrac{r_{NH3}}{r_{HCl}} = \\sqrt{\\dfrac{36.5}{17}} \\approx 1.46$\n3. Significa que $NH3$ avanza 1.46 veces más rápido.\n4. Distancia de encuentro:\n$x=11+1.46×1.00 m≈0.41 mx = \\dfrac{1}{1 + 1.46} \\times 1.00 \\, m \\approx 0.41 $, m desde el lado del HCl. ",
     "description": ":m En un laboratorio se libera **amoníaco (NH₃)** y **cloruro de hidrógeno (HCl)** en extremos opuestos de un tubo. \n",
     "prompt": "¿En qué punto se encontrarán ambos gases si la longitud del tubo es de 1 m?",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\6-gases.md",
@@ -1821,7 +1821,7 @@
   },
   {
     "term": "7 - Seguridad química con ácidos y bases",
-    "example": ":m No se deben probar ni oler; deben manipularse con guantes, gafas y guardapolvo, ya que pueden ser corrosivos o tóxicos.",
+    "example": ":m\nNo se deben probar ni oler; deben manipularse con guantes, gafas y guardapolvo, ya que pueden ser corrosivos o tóxicos.",
     "description": ":m Dado que muchas de estas sustancias son **corrosivas** o **tóxicas**, se deben seguir normas básicas de seguridad:\n* **No probar ni oler** directamente las sustancias.\n* **Usar elementos de protección personal (EPP)**: guantes, gafas y guardapolvo.\n* **Trabajar en áreas ventiladas** y con cuidado al diluir (siempre agregar ácido al agua).",
     "prompt": "¿Qué medidas de seguridad deben tomarse al manipular ácidos y bases?",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\9-calculiacidobases.md",

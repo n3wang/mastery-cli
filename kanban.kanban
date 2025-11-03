@@ -5,6 +5,15 @@
       "title": "TODO",
       "cards": [
         {
+          "id": "a8092e97-653b-4cf5-8689-c180e8410b5e",
+          "listId": "c83cefdc-13d7-4ce8-b338-0a7aa7eb7a34",
+          "title": "mcli fses",
+          "description": "create the fses feature\nfses would be a variation of ses. the idea is that this would however filter by only showing the quick decks configuration that is being used on src\\user_data\\settings.json\n\"quiz_decks_configuration\": {\n\t\t\"masks\": [\n\t\t\t{\n\t\t\t\t\"title\": \"cert-focus\",\n\t\t\t\t\"decks_to_enable\": [\n\t\t\t\t\t\"cfa\",\n\t\t\t\t\t\"datascience-statistics\"\n\t\t\t\t]\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"title\": \"school-focus\",\n\t\t\t\t\"decks_to_enable\": [\n\t\t\t\t\t\"college-algebra\",\n\t\t\t\t\t\"college-engineering\",\n\t\t\t\t\t\"college-digital-systems\",\n\t\t\t\t\t\"college-quimica\",\n\t\t\t\t\t\"college-math-analysis\",\n\t\t\t\t\t\"college-programming\"\n\t\t\t\t]\n\t\t\t}\n\t\t],\n\t\t\"use_masks\": [\n\t\t\t\"school-focus\"\n\t\t]\n\t},\n\nalso 2 random decks\nAlso include how to run to create via the cli masks and toggle use and not use them.",
+          "labels": [],
+          "checkboxes": [],
+          "comments": []
+        },
+        {
           "id": "7f61e118-97e6-4a27-acf3-0e6f918168fa",
           "listId": "c83cefdc-13d7-4ce8-b338-0a7aa7eb7a34",
           "title": "better temp problems fill ups.",
@@ -29,8 +38,32 @@
       "title": "Doing",
       "cards": [
         {
-          "id": "121546da-783b-4977-80cd-a56993ba9445",
+          "id": "6d9e3665-3026-42c2-82ea-fdc644e3936a",
           "listId": "3d766476-da51-484c-99a0-bc213a7ce5ba",
+          "title": "Fix indentation for solutions",
+          "description": "Fix indentation for flashcards storage\nI believe either when scanning for flashcards it is not storing the indentation for codeblocks inside of ``` pre blocks. Which is important because without tab indentation doesn't work properly and cant show the code logics . Fix that by including indentations when scanning inside of code blocks.\n",
+          "labels": [],
+          "checkboxes": [],
+          "comments": []
+        }
+      ]
+    },
+    {
+      "id": "5969e69c-fe41-4634-85b5-3cd8c9380974",
+      "title": "Done",
+      "cards": [
+        {
+          "id": "ab55a093-6068-46e0-a997-941d2ed192fa",
+          "listId": "5969e69c-fe41-4634-85b5-3cd8c9380974",
+          "title": "Is not showing the cache,json",
+          "description": "\nfor some reason cache.json is no longer being filled. after parsing and depending on te index.js code from external modules.",
+          "labels": [],
+          "checkboxes": [],
+          "comments": []
+        },
+        {
+          "id": "121546da-783b-4977-80cd-a56993ba9445",
+          "listId": "5969e69c-fe41-4634-85b5-3cd8c9380974",
           "title": "Cards Rating",
           "description": "",
           "labels": [],
@@ -42,21 +75,6 @@
             }
           ]
         },
-        {
-          "id": "ab55a093-6068-46e0-a997-941d2ed192fa",
-          "listId": "3d766476-da51-484c-99a0-bc213a7ce5ba",
-          "title": "Is not showing the cache,json",
-          "description": "\nfor some reason cache.json is no longer being filled. after parsing and depending on te index.js code from external modules.",
-          "labels": [],
-          "checkboxes": [],
-          "comments": []
-        }
-      ]
-    },
-    {
-      "id": "5969e69c-fe41-4634-85b5-3cd8c9380974",
-      "title": "Done",
-      "cards": [
         {
           "id": "47147948-7414-4929-badf-01629befdd2d",
           "listId": "5969e69c-fe41-4634-85b5-3cd8c9380974",

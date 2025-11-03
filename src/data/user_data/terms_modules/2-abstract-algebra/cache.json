@@ -271,8 +271,8 @@
   },
   {
     "term": "4 - Representación en Código (Ejemplo en Python)",
-    "example": ":m En Python se usa `j` para representar la unidad imaginaria:\n```python\nz = 3 + 2j\nprint(z.real) # Parte real → 3\nprint(z.imag) # Parte imaginaria → 2\n```\n\n\n\n",
-    "description": ":m Los lenguajes modernos permiten trabajar directamente con números complejos.\nEjemplo:\n```python\nz = 3 + 2j # Python usa 'j' en lugar de 'i'\nprint(z.real) # 3.0\nprint(z.imag) # 2.0\n```\n",
+    "example": ":m En Python se usa `j` para representar la unidad imaginaria:\n```python\nz = 3 + 2j\nprint(z.real)\n# Parte real → 3\nprint(z.imag)\n# Parte imaginaria → 2\n```\n\n\n\n",
+    "description": ":m Los lenguajes modernos permiten trabajar directamente con números complejos.\nEjemplo:\n```python\nz = 3 + 2j\n# Python usa 'j' en lugar de 'i'\nprint(z.real)\n# 3.0\nprint(z.imag)\n# 2.0\n```\n",
     "prompt": "¿Cómo se representa y manipula un número complejo en Python?",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\10-numerocomplejos.md",
     "reference_line": 59,
@@ -1301,7 +1301,7 @@
   },
   {
     "term": "8 - HOG Implementation in Python",
-    "example": ":m\n```python\nfrom skimage.io import imread\nfrom skimage.transform import resize\nfrom skimage.feature import hog\nfrom skimage import exposure\nimport matplotlib.pyplot as plt\n# Load and resize image\nimg = imread('puppy.jpeg')\nresized = resize(img, (128, 64))\n# Compute HOG features\nfd, hog_img = hog(resized, orientations=9,\npixels_per_cell=(8, 8),\ncells_per_block=(2, 2),\nvisualize=True,\nchannel_axis=-1)\nprint(fd.shape) # Output: (3780,)\n# Display result\nhog_img = exposure.rescale_intensity(hog_img, in_range=(0, 10))\nfig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 6))\nax1.imshow(resized)\nax1.set_title('Input Image')\nax2.imshow(hog_img, cmap='gray')\nax2.set_title('HOG Visualization')\nplt.show()\n```\n\n\n\n",
+    "example": ":m\n```python\nfrom skimage.io import imread\nfrom skimage.transform import resize\nfrom skimage.feature import hog\nfrom skimage import exposure\nimport matplotlib.pyplot as plt\n# Load and resize image\nimg = imread('puppy.jpeg')\nresized = resize(img, (128, 64))\n# Compute HOG features\nfd, hog_img = hog(resized, orientations=9,\npixels_per_cell=(8, 8),\ncells_per_block=(2, 2),\nvisualize=True,\nchannel_axis=-1)\nprint(fd.shape)\n# Output: (3780,)\n# Display result\nhog_img = exposure.rescale_intensity(hog_img, in_range=(0, 10))\nfig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 6))\nax1.imshow(resized)\nax1.set_title('Input Image')\nax2.imshow(hog_img, cmap='gray')\nax2.set_title('HOG Visualization')\nplt.show()\n```\n\n\n\n",
     "description": ":m Python’s `skimage.feature.hog` automatically computes all steps. ",
     "prompt": "Write the Python code snippet to compute HOG features and visualize them.",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\7-aiandalgebra.md",
@@ -1652,7 +1652,7 @@
   {
     "term": "17 - Pseudocódigo del Flujo Matricial",
     "example": ":m Realiza una **multiplicación elemento a elemento** entre una submatriz de la imagen y el kernel, y **suma los productos** para obtener el primer valor de salida del mapa de características.",
-    "description": ":m ```python\n# Convolución y multiplicación matricial\nI = [[1,2,3],\n[4,5,6],\n[7,8,9]]\nK = [[1,0],\n[0,-1]]\n# Ejemplo simple\nout11 = 1*1 + 2*0 + 4*0 + 5*(-1) # -4\n```\n",
+    "description": ":m ```python\n# Convolución y multiplicación matricial\nI = [[1,2,3],\n[4,5,6],\n[7,8,9]]\nK = [[1,0],\n[0,-1]]\n# Ejemplo simple\nout11 = 1*1 + 2*0 + 4*0 + 5*(-1)\n# -4\n```\n",
     "prompt": "¿Qué hace este pseudocódigo en términos matriciales?",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\2-abstract-algebra\\cache_md\\8-neuralnetoworks.md",
     "reference_line": 266,

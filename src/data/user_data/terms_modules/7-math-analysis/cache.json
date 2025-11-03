@@ -161,7 +161,7 @@
   },
   {
     "term": "7 - Propiedades avanzadas de los límites",
-    "example": ":m\n9. Aplicamos propiedades:\n- $\\lim_{x \\to 2} 3x^4 = 3 \\cdot 2^4 = 48$\n- $\\lim_{x \\to 2} -5x^2 = -5 \\cdot 2^2 = -20$\n- $\\lim_{x \\to 2} 3 = 3$\nResultado: $48 - 20 + 3 = 31$",
+    "example": ":m\n9. Aplicamos propiedades:\n- $\\lim_{x \\to 2} 3x^4 = 3 \\cdot 2^4 = 48$\n- $\\lim_{x \\to 2} -5x^2 = -5 \\cdot 2^2 = -20$\n- $\\lim_{x \\to 2} 3 = 3$\nResultado: $48 - 20 + 3 = 31$ ",
     "description": ":m Además de las propiedades básicas, existen otras que nos permiten operar funciones más complejas al calcular límites:\n6. División:\n$$\nlim⁡x→af(x)g(x)=lim⁡x→af(x)lim⁡x→ag(x)si lim⁡x→ag(x)≠0\\lim_{x \\to a} \\frac{f(x)}{g(x)} = \\frac{\\lim_{x \\to a} f(x)}{\\lim_{x \\to a} g(x)} \\quad \\text{si } \\lim_{x \\to a} g(x) \\ne 0\n$$\n7. Potencias:\n$$\nlim⁡x→a[f(x)]n=(lim⁡x→af(x))n\\lim_{x \\to a} [f(x)]^n = \\left(\\lim_{x \\to a} f(x)\\right)^n\n$$\n8. Composición de funciones:\n$$\nlim⁡x→af(g(x))=f(lim⁡x→ag(x))si lim⁡x→ag(x) existe\\lim_{x \\to a} f(g(x)) = f\\left(\\lim_{x \\to a} g(x)\\right) \\quad \\text{si } \\lim_{x \\to a} g(x) \\text{ existe}\n$$",
     "prompt": "¿Cuál es el valor de $\\lim_{x \\to 2} (3x^4 - 5x^2 + 3)$ utilizando propiedades de límites?",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\2-limite.md",
