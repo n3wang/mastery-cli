@@ -220,6 +220,436 @@
     "category": "ubooleanalgebra"
   },
   {
+    "term": "1 - Funciones lógicas",
+    "example": ":m Es una expresión que combina variables binarias (0 o 1) mediante operaciones lógicas como AND, OR y NOT.",
+    "description": ":m Una **función lógica** es una expresión booleana formada por **variables binarias** (0 o 1) combinadas mediante **operaciones lógicas** como AND (·), OR (+) y NOT (‾). Estas funciones representan el comportamiento de sistemas digitales.\n![[Pasted image 20251104095548.png]]",
+    "prompt": "¿Qué es una función lógica en álgebra de Boole?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u3 - funciones logicas.md",
+    "reference_line": 4,
+    "module_name": "5-digital-systems",
+    "category": "ufuncioneslogicas"
+  },
+  {
+    "term": "2 - Ejemplo de función lógica",
+    "example": ":m Las variables son $A$, $B$ y $C$.",
+    "description": ":m Dada la función $f(A,B,C)=(A+B̅)!̅+ A(B+C)+B(B+C̅)$, las variables son $A,B,C$. Cualquier función puede expresarse en distinto orden de variables, como $f(C,B,A)$.\n![[Pasted image 20251104095622.png]]",
+    "prompt": "En la función $f(A,B,C)=(A+B̅)!̅+A(B+C)+B(B+C̅)$, ¿cuáles son las variables lógicas?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u3 - funciones logicas.md",
+    "reference_line": 15,
+    "module_name": "5-digital-systems",
+    "category": "ufuncioneslogicas"
+  },
+  {
+    "term": "3 - Circuito lógico de una función",
+    "example": ":m Usando compuertas: AND (·), OR (+) y NOT (‾), conectadas según la expresión booleana.",
+    "description": ":m Un **circuito lógico** representa gráficamente la función mediante **compuertas lógicas**. Cada operación booleana se traduce a una compuerta:\n* AND → producto ($·$)\n* OR → suma ($+$)\n* NOT → negación ($‾$)",
+    "prompt": "¿Cómo se representa una función lógica mediante un circuito?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u3 - funciones logicas.md",
+    "reference_line": 26,
+    "module_name": "5-digital-systems",
+    "category": "ufuncioneslogicas"
+  },
+  {
+    "term": "4 - Minimización con álgebra de Boole",
+    "example": ":m Para obtener una expresión equivalente más simple, reduciendo el número de compuertas y el costo lógico.",
+    "description": ":m Usando las **propiedades del álgebra de Boole** (De Morgan, distributiva, idempotencia, absorción, etc.), se pueden reducir expresiones para usar menos compuertas. Una expresión es **mínima** cuando ya no puede simplificarse.",
+    "prompt": "¿Para qué sirve la minimización en álgebra de Boole?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u3 - funciones logicas.md",
+    "reference_line": 39,
+    "module_name": "5-digital-systems",
+    "category": "ufuncioneslogicas"
+  },
+  {
+    "term": "5 - Ejemplo paso a paso de simplificación",
+    "example": ":m $f(A,B,C)=AC+B.$",
+    "description": ":m Para $f(A,B,C)=(A+B̅)!̅ + A(B+C)+B(B+C̅)$:\n1. **De Morgan:** $f=A̅B + A(B+C)+B(B+C̅)$\n2. **Distributiva:** $f=A̅B + AB + AC + BB + BC̅$\n3. **Idempotencia:** $BB=B$ → $f=A̅B + AB + AC + B + BC̅$\n4. **Absorción:** $AB$ absorbido por $B$ → $f=A̅B + AC + B$\n5. **Absorción adicional:** $A̅B$ absorbido por $B$ → $f=AC + B$",
+    "prompt": "¿Cuál es la expresión mínima obtenida del ejemplo?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u3 - funciones logicas.md",
+    "reference_line": 49,
+    "module_name": "5-digital-systems",
+    "category": "ufuncioneslogicas"
+  },
+  {
+    "term": "6 - Circuito lógico minimizado",
+    "example": ":m Porque reduce la cantidad de compuertas lógicas necesarias, simplificando el diseño y disminuyendo el costo lógico.",
+    "description": ":m La expresión $f=AC+B$ usa solo **dos AND**, **una OR**, y **ningún NOT** extra. Es más eficiente que el circuito original.",
+    "prompt": "¿Por qué el circuito minimizado es más eficiente?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u3 - funciones logicas.md",
+    "reference_line": 65,
+    "module_name": "5-digital-systems",
+    "category": "ufuncioneslogicas"
+  },
+  {
+    "term": "7 - Implementación con una sola compuerta (visión general)",
+    "example": ":m Que con **solo** NAND o **solo** NOR se puede implementar **cualquier** función lógica (se pueden construir NOT, AND y OR a partir de ellas).",
+    "description": ":m Usar un único tipo de compuerta (NAND o NOR) simplifica el inventario y la tecnología: ambas son **funcionalmente completas**, es decir, pueden implementar **cualquier** función booleana reproduciendo NOT, AND y OR con combinaciones adecuadas.",
+    "prompt": "¿Qué significa que NAND y NOR sean “funcionalmente completas”?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u3 - funciones logicas.md",
+    "reference_line": 78,
+    "module_name": "5-digital-systems",
+    "category": "ufuncioneslogicas"
+  },
+  {
+    "term": "8 - Construir NOT, AND, OR usando solo NAND",
+    "example": ":m Conectar $X$ a **ambas** entradas de una NAND: $X' = X ,\\text{NAND}, X$.",
+    "description": ":m Con NAND: $X'$ se obtiene como $X ,\\text{NAND}, X$; $X\\cdot Y$ es $(X,\\text{NAND},Y)'$; $X+Y$ es $(X'\\cdot Y')'$, que con NAND queda $((X,\\text{NAND},X),\\text{NAND},(Y,\\text{NAND},Y)),\\text{NAND},((X,\\text{NAND},X),\\text{NAND},(Y,\\text{NAND},Y))$.",
+    "prompt": "¿Cómo obtienes $X'$ usando solo compuertas NAND?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u3 - funciones logicas.md",
+    "reference_line": 87,
+    "module_name": "5-digital-systems",
+    "category": "ufuncioneslogicas"
+  },
+  {
+    "term": "9 - Ejemplo NAND a partir de forma mínima",
+    "example": ":m Para introducir negaciones y formas equivalentes que calcen con la topología **NAND–NAND**, reemplazando NOT con “NAND de entrada duplicada”.",
+    "description": ":m Dada $f(A,B,C)=AC+B$, por involutiva y De Morgan se reescribe para forzar negaciones y productos: $f=(\\overline{\\overline{A},\\overline{C}}),\\overline{\\vphantom{C}\\overline{B}}$ en estructura de **productos de salidas negadas**, lo que permite cablear como red de **NAND** (cada punto donde se necesite NOT se realiza con una NAND con entradas unidas).",
+    "prompt": "¿Por qué conviene reescribir $f=AC+B$ antes de implementarla solo con NAND?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u3 - funciones logicas.md",
+    "reference_line": 96,
+    "module_name": "5-digital-systems",
+    "category": "ufuncioneslogicas"
+  },
+  {
+    "term": "10 - Construir NOT, AND, OR usando solo NOR",
+    "example": ":m Hacer NOR y luego negar con otra NOR unaria: $(X+Y)=\\big(X,\\text{NOR},Y\\big)'$, y el NOT se implementa como $Z' = Z,\\text{NOR},Z$.",
+    "description": ":m Con NOR: $X'$ es $X,\\text{NOR},X$; $X+Y$ es $(X,\\text{NOR},Y)'$; $X\\cdot Y$ es $(X'+Y')'$, que con NOR queda $((X,\\text{NOR},X),\\text{NOR},(Y,\\text{NOR},Y)),\\text{NOR},((X,\\text{NOR},X),\\text{NOR},(Y,\\text{NOR},Y))$.",
+    "prompt": "¿Cómo obtienes $X+Y$ usando solo compuertas NOR?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u3 - funciones logicas.md",
+    "reference_line": 105,
+    "module_name": "5-digital-systems",
+    "category": "ufuncioneslogicas"
+  },
+  {
+    "term": "11 - Ejemplo NOR desde forma POS",
+    "example": ":m La **POS** (producto de sumas), porque las sumas se mapean directo a NOR y las negaciones a NOR unaria.",
+    "description": ":m Si $f(A,B,C)=(A+B),(B+C)$, conviene partir de **producto de sumas**, aplicar involutiva/De Morgan para que cada suma y negación se traduzca naturalmente a una red **NOR–NOR** (sumas con NOR seguidas de inversión con NOR unaria).",
+    "prompt": "¿Qué forma algebraica favorece una implementación solo con NOR?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u3 - funciones logicas.md",
+    "reference_line": 114,
+    "module_name": "5-digital-systems",
+    "category": "ufuncioneslogicas"
+  },
+  {
+    "term": "12 - Forma canónica: idea general",
+    "example": ":m SOP suma productos completos (minitérminos); POS multiplica sumas completas (maxitérminos).",
+    "description": ":m Una forma canónica obliga a que **cada término** contenga **todas** las variables. Hay dos variantes: **SOP** (suma de productos) y **POS** (producto de sumas). Son útiles para vincular funciones con su tabla de verdad y para síntesis sistemática.",
+    "prompt": "¿Cuál es la diferencia entre formas canónicas SOP y POS?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u3 - funciones logicas.md",
+    "reference_line": 123,
+    "module_name": "5-digital-systems",
+    "category": "ufuncioneslogicas"
+  },
+  {
+    "term": "13 - Pasar a SOP canónica (técnica)",
+    "example": ":m $1=X+X'$ (suma con complemento) y $1=Y\\cdot Y'$ (producto con complemento).",
+    "description": ":m Dada $f(A,B,C)=AC+B$, completa variables con identidades: $1=X+X'$ y $1=Y\\cdot Y'$. Ej.: $AC=AC(B+B')=ABC+AB'C$ y $B=B(A+A')(C+C')=ABC+ABC'+A'BC+A'B C'$; luego combina y ordena.",
+    "prompt": "¿Qué identidades usas para “inyectar” variables faltantes al pasar a SOP?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u3 - funciones logicas.md",
+    "reference_line": 133,
+    "module_name": "5-digital-systems",
+    "category": "ufuncioneslogicas"
+  },
+  {
+    "term": "14 - Minitérmino (definición)",
+    "example": ":m Una **fila** específica donde $f=1$ (una combinación única de las variables).",
+    "description": ":m Un **minitérmino** es un producto con **todas** las variables, cada una en forma directa o negada (ej.: $A!B!C'$, con $A=1,B=1,C=0$). En SOP canónica, $f$ es la **suma** de los minitérminos donde $f=1$.",
+    "prompt": "¿Qué representa un minitérmino respecto de la tabla de verdad?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u3 - funciones logicas.md",
+    "reference_line": 143,
+    "module_name": "5-digital-systems",
+    "category": "ufuncioneslogicas"
+  },
+  {
+    "term": "15 - Notación de sumatoria de minitérminos",
+    "example": ":m Que $f=1$ en las filas 2, 3 y 5 de la tabla (minitérminos 2, 3 y 5) y $0$ en las demás.",
+    "description": ":m Si $f$ vale $1$ en los índices $2,3,5,6,7$ (para variables en orden $A,B,C$), se escribe $f(A,B,C)=\\sum m(2,3,5,6,7)$. El índice es el valor decimal del binario $ABC$.",
+    "prompt": "¿Qué significa $f=\\sum m(2,3,5)$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u3 - funciones logicas.md",
+    "reference_line": 153,
+    "module_name": "5-digital-systems",
+    "category": "ufuncioneslogicas"
+  },
+  {
+    "term": "16 - Pasar a POS canónica (técnica)",
+    "example": ":m $0=X\\cdot X'$ (y también $0=Y+Y'$) para expandir cada suma hasta incluir todas las variables.",
+    "description": ":m Partiendo de una función (p. ej., $f=(A+B)(B+C)$), agrega variables a cada **suma** usando $0=X\\cdot X'$ y $0=Y+Y'$ para expandir a sumas completas, y luego elimina duplicados por idempotencia.",
+    "prompt": "¿Qué identidad usas para inyectar variables faltantes en POS?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u3 - funciones logicas.md",
+    "reference_line": 163,
+    "module_name": "5-digital-systems",
+    "category": "ufuncioneslogicas"
+  },
+  {
+    "term": "17 - Maxitérmino (definición)",
+    "example": ":m Una **fila** específica donde $f=0$ (una combinación única de variables).",
+    "description": ":m Un **maxitérmino** es una suma con **todas** las variables (cada una directa o negada), p. ej. $(A+B+C')$. En POS canónica, $f$ es el **producto** de los maxitérminos donde $f=0$.",
+    "prompt": "¿Qué representa un maxitérmino respecto de la tabla de verdad?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u3 - funciones logicas.md",
+    "reference_line": 173,
+    "module_name": "5-digital-systems",
+    "category": "ufuncioneslogicas"
+  },
+  {
+    "term": "18 - Notación productoria de maxitérminos",
+    "example": ":m Que $f=0$ en las filas 0, 1 y 4 (maxitérminos 0, 1 y 4) y $1$ en las demás filas.",
+    "description": ":m Si $f=0$ en los índices $0,1,4$, se anota $f(A,B,C)=\\prod M(0,1,4)$. Cada $M(i)$ es el maxitérmino asociado a esa fila.",
+    "prompt": "¿Qué significa $f=\\prod M(0,1,4)$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u3 - funciones logicas.md",
+    "reference_line": 183,
+    "module_name": "5-digital-systems",
+    "category": "ufuncioneslogicas"
+  },
+  {
+    "term": "19 - De canónica a implementación con una sola compuerta",
+    "example": ":m Elegiría **POS**, porque mapea directo a una red **NOR–NOR** tras aplicar De Morgan e involutiva.\n\n\n\n\n\n\n\n",
+    "description": ":m La SOP canónica se traduce naturalmente a redes **OR de ANDs**; para usar **solo NAND**, invierte salidas/entradas (involutiva y De Morgan) para obtener una red **NAND–NAND**. La POS canónica va a **AND de ORs**; para **solo NOR**, reescribe a **NOR–NOR** con negaciones realizadas por NOR unarias.",
+    "prompt": "¿Qué forma canónica elegirías si planeas implementar con solo NOR?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u3 - funciones logicas.md",
+    "reference_line": 193,
+    "module_name": "5-digital-systems",
+    "category": "ufuncioneslogicas"
+  },
+  {
+    "term": "1 - ¿Qué es un mapa de Karnaugh?",
+    "example": ":m Se usa para simplificar funciones booleanas identificando términos comunes; el orden Gray garantiza que celdas adyacentes difieran en un solo bit, permitiendo cancelar variables y reducir la expresión.",
+    "description": ":m Un mapa de Karnaugh (K-map) es una disposición bidimensional de $2^n$ celdas (para $n$ variables) que reordena la tabla de verdad en código Gray para que celdas adyacentes difieran en un solo bit. Sirve para visualizar agrupaciones y obtener una expresión mínima equivalente a la función booleana original.\n![[Pasted image 20251104092744.png]]",
+    "prompt": "¿Para qué se usa el mapa de Karnaugh y por qué las celdas están en orden Gray?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u4 - mapa de Karnaugh - funciones logicas.md",
+    "reference_line": 5,
+    "module_name": "5-digital-systems",
+    "category": "umapadeKarnaughfuncioneslogicas"
+  },
+  {
+    "term": "2 - Tamaño del mapa para 3 variables",
+    "example": ":m Tiene 8 celdas. Filas: $A=0$ y $A=1$; columnas: $BC=00,01,11,10$ (orden Gray).",
+    "description": ":m Con $n=3$ variables (por ejemplo $A,B,C$) el K-map tiene $2^3=8$ celdas. Usualmente se colocan dos valores de $A$ en filas (0 y 1) y las cuatro combinaciones $BC$ (00, 01, 11, 10) en columnas, en orden Gray. Los rótulos de los bordes (izquierdo y superior) son fijos para mantener la adyacencia.\n![[Pasted image 20251104092806.png]]",
+    "prompt": "¿Cuántas celdas tiene un K-map de 3 variables y cómo se rotulan filas/columnas?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u4 - mapa de Karnaugh - funciones logicas.md",
+    "reference_line": 16,
+    "module_name": "5-digital-systems",
+    "category": "umapadeKarnaughfuncioneslogicas"
+  },
+  {
+    "term": "3 - De la tabla al K-map (coordenadas)",
+    "example": ":m Fila $A=0$; columna $BC=01$ ⇒ segunda columna de la fila superior.",
+    "description": ":m Cada fila de la tabla de verdad se ubica como una coordenada: el valor de $A$ selecciona la fila y $BC$ la columna Gray. Por ejemplo, la fila $001$ (esto es $A=0,B=0,C=1$) cae en $A=0$ y columna $BC=01$ (segunda columna). ",
+    "prompt": "¿Cómo ubicas la combinación $A=0,B=0,C=1$ en el K-map de 3 variables?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u4 - mapa de Karnaugh - funciones logicas.md",
+    "reference_line": 27,
+    "module_name": "5-digital-systems",
+    "category": "umapadeKarnaughfuncioneslogicas"
+  },
+  {
+    "term": "4 - Minitérminos (unos) vs. Maxitérminos (ceros)",
+    "example": ":m Minitérminos: agrupar 1s ⇒ SOP. Maxitérminos: agrupar 0s ⇒ POS.",
+    "description": ":m Simplificar por minitérminos coloca $1$ en celdas donde la función vale $1$ y produce una Suma de Productos (SOP). Simplificar por maxitérminos coloca $0$ en celdas donde la función vale $0$ y produce un Producto de Sumas (POS).\n![[Pasted image 20251104093643.png]]",
+    "prompt": "¿Qué diferencia hay entre minimizar por minitérminos y por maxitérminos?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u4 - mapa de Karnaugh - funciones logicas.md",
+    "reference_line": 37,
+    "module_name": "5-digital-systems",
+    "category": "umapadeKarnaughfuncioneslogicas"
+  },
+  {
+    "term": "5 - Reglas de agrupación (potencias de 2)",
+    "example": ":m Tamaños potencia de 2 (1,2,4,8,…). Objetivo: cubrir con el menor número de grupos y del mayor tamaño para minimizar literales.",
+    "description": ":m Se agrupan celdas contiguas en rectángulos de tamaño $2^n$ (1,2,4,8,…) cubriendo todos los $1$ (o $0$) con el menor número de grupos y del mayor tamaño posible. Grupos pueden solaparse si ayuda a maximizar tamaños y reducir literales.\n![[Pasted image 20251104093745.png]]",
+    "prompt": "¿Qué tamaños pueden tener los grupos válidos en un K-map y cuál es el objetivo?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u4 - mapa de Karnaugh - funciones logicas.md",
+    "reference_line": 48,
+    "module_name": "5-digital-systems",
+    "category": "umapadeKarnaughfuncioneslogicas"
+  },
+  {
+    "term": "6 - Adyacencia con “wrap-around”",
+    "example": ":m Sí. Hay “wrap-around”: primera/última columna y fila son adyacentes y pueden formar un mismo grupo.",
+    "description": ":m En K-maps, los bordes opuestos son adyacentes (se “envuelven”): la primera y última columna son vecinas, y lo mismo con la primera y última fila. Esto permite formar grupos que crucen el borde. ",
+    "prompt": "¿Las celdas en bordes opuestos pueden agruparse como adyacentes?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u4 - mapa de Karnaugh - funciones logicas.md",
+    "reference_line": 59,
+    "module_name": "5-digital-systems",
+    "category": "umapadeKarnaughfuncioneslogicas"
+  },
+  {
+    "term": "7 - Leer un grupo ⇒ término (SOP)",
+    "example": ":m Se conservan solo las variables constantes en el grupo: $1$ ⇒ literal directo; $0$ ⇒ literal negado. Variables que cambian se omiten.",
+    "description": ":m Para SOP (minitérminos), en cada grupo se toman las variables que NO cambian: si esa variable vale $1$ en el grupo, va sin negar; si vale $0$ en todo el grupo, va negada. Las variables que cambian se eliminan. ",
+    "prompt": "¿Cómo se obtiene el término de un grupo en SOP a partir de un K-map?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u4 - mapa de Karnaugh - funciones logicas.md",
+    "reference_line": 69,
+    "module_name": "5-digital-systems",
+    "category": "umapadeKarnaughfuncioneslogicas"
+  },
+  {
+    "term": "8 - Ejemplo dado: función y tabla",
+    "example": ":m Las filas donde $f=1$ (para minitérminos) o donde $f=0$ (para maxitérminos) para marcar las celdas correspondientes.",
+    "description": ":m Para $f(A,B,C)$ con la tabla de verdad provista (o equivalente), se llenan las celdas con $1$ donde $f=1$ y con $0$ donde $f=0$. Luego se agrupan los unos en rectángulos máximos (por ejemplo, un grupo de cuatro y otro de dos) siguiendo adyacencias Gray. ",
+    "prompt": "¿Qué información necesitas de la tabla para llenar un K-map de $f(A,B,C)$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u4 - mapa de Karnaugh - funciones logicas.md",
+    "reference_line": 79,
+    "module_name": "5-digital-systems",
+    "category": "umapadeKarnaughfuncioneslogicas"
+  },
+  {
+    "term": "9 - Simplificación por minitérminos (resultado SOP)",
+    "example": ":m $f(A,B,C)=AC+B.$",
+    "description": ":m En el ejemplo, al agrupar $m_2,m_3,m_6,m_7$ se obtiene el término $B$ (porque $B=1$ es constante y $A,C$ varían), y al agrupar $m_5,m_7$ se obtiene $AC$ (porque $A=1$ y $C=1$ son constantes, $B$ varía). Sumando ambos: $f=AC+B$. ",
+    "prompt": "¿Cuál es la expresión mínima SOP obtenida en el ejemplo?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u4 - mapa de Karnaugh - funciones logicas.md",
+    "reference_line": 89,
+    "module_name": "5-digital-systems",
+    "category": "umapadeKarnaughfuncioneslogicas"
+  },
+  {
+    "term": "10 - Simplificación por maxitérminos (resultado POS)",
+    "example": ":m $f(A,B,C)=(A+B)(B+C).$",
+    "description": ":m Agrupando los ceros del mismo ejemplo y leyendo en forma de sumas (variable constante $0$ ⇒ sin negar en la suma; constante $1$ ⇒ negada), se llega a un POS equivalente: $(A+B)(B+C)$. ",
+    "prompt": "¿Cuál es la expresión mínima POS obtenida en el ejemplo?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u4 - mapa de Karnaugh - funciones logicas.md",
+    "reference_line": 99,
+    "module_name": "5-digital-systems",
+    "category": "umapadeKarnaughfuncioneslogicas"
+  },
+  {
+    "term": "11 - Equivalencia SOP–POS",
+    "example": ":m Expando $(A+B)(B+C)=AB+AC+B^2+BC=AB+AC+B+BC=B+AC$, usando idempotencia $B^2=B$ y absorción $AB\\le B,,BC\\le B$.",
+    "description": ":m Las dos expresiones mínimas del ejemplo son equivalentes: $AC+B \\equiv (A+B)(B+C)$. Aplicando distributiva se puede transformar una en la otra, confirmando que representan la misma función. ",
+    "prompt": "¿Cómo verificas que $AC+B$ y $(A+B)(B+C)$ son equivalentes?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u4 - mapa de Karnaugh - funciones logicas.md",
+    "reference_line": 109,
+    "module_name": "5-digital-systems",
+    "category": "umapadeKarnaughfuncioneslogicas"
+  },
+  {
+    "term": "12 - Interpretación de constantes en grupos (POS)",
+    "example": ":m Se toman variables constantes: constante $0$ ⇒ literal directo; constante $1$ ⇒ literal negado; variables que cambian se omiten.",
+    "description": ":m Para POS (maxitérminos), en cada grupo se toman variables constantes, pero a la inversa de SOP: si la variable es constante en $0$, entra sin negar en la suma; si es constante en $1$, entra negada. Las que cambian se eliminan. ",
+    "prompt": "En POS, ¿cómo se forma el sumando de un grupo a partir del K-map?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u4 - mapa de Karnaugh - funciones logicas.md",
+    "reference_line": 119,
+    "module_name": "5-digital-systems",
+    "category": "umapadeKarnaughfuncioneslogicas"
+  },
+  {
+    "term": "13 - Generalización de mapas de Karnaugh",
+    "example": ":m El número de celdas es $2^m$, donde $m$ es la cantidad de variables.",
+    "description": ":m El tamaño del mapa depende del número de variables $m$. Cada mapa tiene $2^m$ celdas:\n![[Pasted image 20251104094542.png]]\n- 2 variables → $2\\times2$\n- 3 variables → $2\\times4$\n- 4 variables → $4\\times4$\nSe usa hasta 4 variables en la práctica. ",
+    "prompt": "¿Cómo se calcula la cantidad de celdas en un mapa de Karnaugh según el número de variables?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u4 - mapa de Karnaugh - funciones logicas.md",
+    "reference_line": 127,
+    "module_name": "5-digital-systems",
+    "category": "umapadeKarnaughfuncioneslogicas"
+  },
+  {
+    "term": "14 - Celdas adyacentes",
+    "example": ":m Cuando solo cambia una variable entre ellas; en el diagrama, comparten lado (incluyendo bordes opuestos).",
+    "description": ":m Dos celdas son adyacentes cuando solo cambia el valor de **una variable** entre ellas. En el mapa, esto ocurre cuando comparten un lado. En mapas 4×4 también puede haber adyacencia entre bordes opuestos.\n![[Pasted image 20251104094604.png]]",
+    "prompt": "¿Cuándo se considera que dos celdas son adyacentes en un mapa de Karnaugh?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u4 - mapa de Karnaugh - funciones logicas.md",
+    "reference_line": 143,
+    "module_name": "5-digital-systems",
+    "category": "umapadeKarnaughfuncioneslogicas"
+  },
+  {
+    "term": "15 - Agrupaciones válidas",
+    "example": ":m Deben ser rectangulares o cuadradas y contener $2^n$ celdas (1,2,4,8,…). No se permiten agrupaciones irregulares.",
+    "description": ":m Las agrupaciones se hacen de celdas contiguas, siempre de tamaño $2^n$ (1, 2, 4, 8, 16,…). No están permitidas agrupaciones de 3 o 5 celdas. Cada grupo debe ser **rectangular o cuadrado** (no en forma de T o L). ",
+    "prompt": "¿Qué forma y tamaños deben tener las agrupaciones en un mapa de Karnaugh?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u4 - mapa de Karnaugh - funciones logicas.md",
+    "reference_line": 154,
+    "module_name": "5-digital-systems",
+    "category": "umapadeKarnaughfuncioneslogicas"
+  },
+  {
+    "term": "16 - Agrupaciones máximas",
+    "example": ":m Porque cuanto más grande sea el grupo, menos variables quedan en el término, reduciendo la función.",
+    "description": ":m Siempre deben elegirse los grupos más grandes posibles. Cuantas más celdas abarque una agrupación, menos variables tendrá el término resultante, logrando una forma más simplificada. ",
+    "prompt": "¿Por qué se prefieren agrupaciones grandes en un mapa de Karnaugh?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u4 - mapa de Karnaugh - funciones logicas.md",
+    "reference_line": 164,
+    "module_name": "5-digital-systems",
+    "category": "umapadeKarnaughfuncioneslogicas"
+  },
+  {
+    "term": "17 - Implicante",
+    "example": ":m Es una agrupación de $2^n$ celdas contiguas (de unos o ceros) que representa un término simplificado de la función.",
+    "description": ":m Un **implicante** es cualquier agrupación de $2^n$ celdas (de unos o de ceros). Cada agrupación representa un término simplificado de la función. ",
+    "prompt": "¿Qué es un implicante en el contexto de los mapas de Karnaugh?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u4 - mapa de Karnaugh - funciones logicas.md",
+    "reference_line": 174,
+    "module_name": "5-digital-systems",
+    "category": "umapadeKarnaughfuncioneslogicas"
+  },
+  {
+    "term": "18 - Implicante primo (IP)",
+    "example": ":m El implicante primo es una agrupación máxima: no puede expandirse sin incluir valores opuestos (0 o 1).",
+    "description": ":m Un **implicante primo** es un implicante que **no puede ampliarse** incluyendo más celdas sin abarcar ceros (o unos, según el caso). Es una agrupación máxima. ",
+    "prompt": "¿Qué diferencia hay entre un implicante y un implicante primo?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u4 - mapa de Karnaugh - funciones logicas.md",
+    "reference_line": 184,
+    "module_name": "5-digital-systems",
+    "category": "umapadeKarnaughfuncioneslogicas"
+  },
+  {
+    "term": "19 - Implicante primo esencial (IPE)",
+    "example": ":m Cuando contiene al menos una celda (1 o 0) que no pertenece a ningún otro implicante primo.",
+    "description": ":m Un **implicante primo esencial** tiene al menos una celda que **no está incluida** en ningún otro implicante primo. Siempre forma parte de la expresión mínima. ",
+    "prompt": "¿Cuándo se considera que un implicante primo es esencial?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u4 - mapa de Karnaugh - funciones logicas.md",
+    "reference_line": 194,
+    "module_name": "5-digital-systems",
+    "category": "umapadeKarnaughfuncioneslogicas"
+  },
+  {
+    "term": "20 - Expresiones mínimas no únicas",
+    "example": ":m Sí. Puede haber distintas combinaciones de grupos que produzcan expresiones mínimas equivalentes.",
+    "description": ":m Puede haber **más de una expresión mínima** para una misma función. Todas tienen igual cantidad de términos y de variables por término. ",
+    "prompt": "¿Puede existir más de una expresión mínima en un mapa de Karnaugh?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u4 - mapa de Karnaugh - funciones logicas.md",
+    "reference_line": 204,
+    "module_name": "5-digital-systems",
+    "category": "umapadeKarnaughfuncioneslogicas"
+  },
+  {
+    "term": "21 - Ejemplo de 4 variables",
+    "example": ":m $f(A,B,C,D)=BC̅D+AB̅C+A̅CD.$",
+    "description": ":m Dada $f(A,B,C,D)=\\sum m(3,5,7,10,11,13)$, se ubican los minitérminos en un mapa 4×4, se identifican los implicantes primos y luego los esenciales. Los IPE hallados son $BC̅D$ y $AB̅C$, más el implicante $A̅CD$ para cubrir los minitérminos restantes. ",
+    "prompt": "¿Cuál es la expresión mínima obtenida del ejemplo $f(A,B,C,D)=\\sum m(3,5,7,10,11,13)$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u4 - mapa de Karnaugh - funciones logicas.md",
+    "reference_line": 214,
+    "module_name": "5-digital-systems",
+    "category": "umapadeKarnaughfuncioneslogicas"
+  },
+  {
+    "term": "22 - Método de Quine-McCluskey",
+    "example": ":m El método de Quine-McCluskey.",
+    "description": ":m El algoritmo de Quine-McCluskey es un método sistemático (por tabla) que permite identificar implicantes primos y esenciales en funciones con muchas variables, equivalente a usar mapas de Karnaugh pero automatizable.\n![[Pasted image 20251104094725.png]]\n![[Pasted image 20251104094743.png]]",
+    "prompt": "¿Qué método puede reemplazar a los mapas de Karnaugh cuando hay muchas variables?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u4 - mapa de Karnaugh - funciones logicas.md",
+    "reference_line": 224,
+    "module_name": "5-digital-systems",
+    "category": "umapadeKarnaughfuncioneslogicas"
+  },
+  {
+    "term": "23 - Funciones no totalmente definidas",
+    "example": ":m Representan condiciones “don’t care”: combinaciones que no se usan y pueden considerarse 0 o 1 para simplificar.",
+    "description": ":m Cuando ciertos valores de entrada nunca ocurren, se marcan como **“X” (don’t care)**. Estas celdas pueden tomarse como 1 o 0 según convenga para simplificar la función. ",
+    "prompt": "¿Qué representan las “X” en un mapa de Karnaugh?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u4 - mapa de Karnaugh - funciones logicas.md",
+    "reference_line": 236,
+    "module_name": "5-digital-systems",
+    "category": "umapadeKarnaughfuncioneslogicas"
+  },
+  {
+    "term": "24 - Ejemplo con don’t cares",
+    "example": ":m $f(A,B,C,D)=C̅D+BD.$",
+    "description": ":m Para $f(A,B,C,D)=\\sum m(1,5,7,9)+d(10,11,12,13,14,15)$, las celdas $X$ se pueden usar como 1 si ayudan a simplificar. En este caso, con los implicantes esenciales $C̅D$ y $BD$ se cubren todos los 1s.\n![[Pasted image 20251104094845.png]]\n",
+    "prompt": "¿Cuál es la expresión mínima obtenida para el ejemplo con don’t cares?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-digital-systems\\cache_md\\u4 - mapa de Karnaugh - funciones logicas.md",
+    "reference_line": 246,
+    "module_name": "5-digital-systems",
+    "category": "umapadeKarnaughfuncioneslogicas"
+  },
+  {
     "term": "1 - Señales analógicas",
     "example": ":m Una señal analógica es continua, toma infinitos valores dentro de un rango y su gráfica es una curva suave sin saltos.",
     "description": ":m Las señales analógicas son continuas y pueden tomar infinitos valores. Se usan, por ejemplo, para representar fenómenos naturales como el sonido o la temperatura. ",

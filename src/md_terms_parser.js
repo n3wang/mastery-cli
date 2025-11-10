@@ -244,8 +244,11 @@ function preserveIndentationInCodeBlocks(text) {
 		if (inCodeBlock) {
 			processedLines.push(line);
 		} else {
-			// Outside code block, apply space normalization
-			processedLines.push(line.replace(/ {2,}/g, ' '));
+			// Outside code block, preserve leading whitespace but normalize internal consecutive spaces
+			const leadingWhitespace = line.match(/^[\t ]*/)[0];
+			const content = line.substring(leadingWhitespace.length);
+			const normalizedContent = content.replace(/ {2,}/g, ' ');
+			processedLines.push(leadingWhitespace + normalizedContent);
 		}
 	}
 
@@ -413,10 +416,57 @@ function parseFolderWithOption(folderPath, useRecursive, module_name, category) 
 
 function parseMarkdownCardsFromTermsModules(
 	termsModules,
-	{ useCacheIfNotFound = true, useRecursive = true } = {}
+	{ useCacheIfNotFound = true, useRecursive = true, deckFilter = null } = {}
 ) {
 	const decks = {};
 	for (const module of termsModules) {
+		// Check if module matches deckFilter
+		// For nested decks, we need to load the module if ANY part of the filter might match
+		// We'll do more precise filtering at the deck level later
+		if (deckFilter && deckFilter.length > 0) {
+			const moduleName = module.ABOUT.title.toLowerCase();
+			const skillCategory = module.ABOUT.skill_category.toLowerCase();
+			const modulePath = module.module_path.toLowerCase();
+
+			// Check if module name directly matches
+			const directMatch = deckFilter.some(filter => {
+				const filterLower = filter.toLowerCase();
+				return moduleName.includes(filterLower) ||
+					   filterLower.includes(moduleName) ||
+					   skillCategory.includes(filterLower) ||
+					   filterLower.includes(skillCategory) ||
+					   modulePath.includes(filterLower) ||
+					   filterLower.includes(modulePath);
+			});
+
+			// For nested decks: if filter looks like a nested deck name (has hyphens/underscores and multiple parts),
+			// we need to load modules that might contain nested structures
+			const hasNestedDeckFilters = deckFilter.some(filter => {
+				const parts = filter.split(/[-_]/).filter(p => p.length > 0);
+				return parts.length >= 3; // e.g., "Operating-Systems-Three-Easy-Pieces" has 3+ parts
+			});
+
+			// If we have nested deck filters, only load modules likely to contain such structures
+			if (!directMatch && hasNestedDeckFilters) {
+				// Only load modules with book/reading/notes in the name for nested deck filtering
+				const likelyHasNested = moduleName.includes('book') ||
+					moduleName.includes('reading') ||
+					moduleName.includes('note') ||
+					skillCategory.includes('book') ||
+					skillCategory.includes('reading') ||
+					skillCategory.includes('note');
+
+				if (likelyHasNested) {
+					console.log(`📦 Loading ${module.ABOUT.title} (checking for nested decks)`);
+				} else {
+					console.log(`⏭ Skipping module (no nested deck indicators): ${module.ABOUT.title}`);
+					continue;
+				}
+			} else if (!directMatch) {
+				console.log(`⏭ Skipping module (not in filter): ${module.ABOUT.title}`);
+				continue;
+			}
+		}
 		const terms = [];
 		const nestedDecks = [];
 		const moduleCacheDir = getDirAbsoluteUri(
@@ -678,9 +728,9 @@ function retrieve_terms_modules() {
 	return termsModules;
 }
 
-function retrieve_terms_as_decks() {
+function retrieve_terms_as_decks({ deckFilter = null } = {}) {
 	const termsModules = retrieve_terms_modules();
-	return parseMarkdownCardsFromTermsModules(Object.values(termsModules));
+	return parseMarkdownCardsFromTermsModules(Object.values(termsModules), { deckFilter });
 }
 
 module.exports = {

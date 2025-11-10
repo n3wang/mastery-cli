@@ -2,7 +2,7 @@
   {
     "term": "1 - Clasificación de óxidos (con valencias explícitas)",
     "example": ":m a) Ca(+2), O(–2) → óxido básico\nb) S(+6), O(–2) → óxido ácido\nc) Na(+1), O(–2) → óxido básico\nd) C(+4), O(–2) → óxido ácido",
-    "description": ":m Para clasificar un óxido necesitamos saber:\n- El **oxígeno (O)** siempre actúa con valencia **–2**.\n- Los **metales** suelen actuar con sus valencias positivas más comunes.\n- Los **no metales** usan valencias positivas que permiten equilibrar con el oxígeno.\nEjemplos:\n- **CaO**:\n- Ca (calcio, metal) → valencia +2\n- O → –2\n- Se neutralizan (CaO) → óxido **básico**.\n- **SO₃**:\n- S (azufre, no metal) → aquí con valencia +6\n- O → –2 × 3 = –6\n- Se neutralizan (SO₃) → óxido **ácido**.\n- **Na₂O**:\n- Na (sodio, metal) → valencia +1\n- O → –2\n- Balance: 2(+1) + (–2) = 0 → óxido **básico**.\n- **CO₂**:\n- C (carbono, no metal) → valencia +4\n- O → –2 × 2 = –4\n- Balance: +4 + (–4) = 0 → óxido **ácido**.\n---\na) CaO\nb) SO₃\nc) Na₂O\nd) CO₂",
+    "description": ":m Para clasificar un óxido necesitamos saber:\n- El **oxígeno (O)** siempre actúa con valencia **–2**.\n- Los **metales** suelen actuar con sus valencias positivas más comunes.\n- Los **no metales** usan valencias positivas que permiten equilibrar con el oxígeno.\nEjemplos:\n- **CaO**:\n- Ca (calcio, metal) → valencia +2\n- O → –2\n- Se neutralizan (CaO) → óxido **básico**.\n- **SO₃**:\n- S (azufre, no metal) → aquí con valencia +6\n- O → –2 × 3 = –6\n- Se neutralizan (SO₃) → óxido **ácido**.\n- **Na₂O**:\n- Na (sodio, metal) → valencia +1\n- O → –2\n- Balance: 2(+1) + (–2) = 0 → óxido **básico**.\n- **CO₂**:\n- C (carbono, no metal) → valencia +4\n- O → –2 × 2 = –4\n- Balance: +4 + (–4) = 0 → óxido **ácido**.\nMolecula, Nombre, , Regla, Elemento 1 (y posibles valencias), Elemento 2, Elemento 3\n**CaO**, Oxido de Calcio, clasificacion oxido, Calcio +2, Oxigeno -2, -\n---\na) CaO\nb) SO₃\nc) Na₂O\nd) CO₂",
     "prompt": "Clasifica en ácido o básico, indicando las valencias de cada elemento:",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
     "reference_line": 2,
@@ -15,7 +15,7 @@
     "description": ":m Los compuestos químicos se diferencian por la cantidad de elementos distintos:\n- **Binarios**: 2 elementos. Ejemplo: NaCl (Na +1, Cl –1).\n- **Ternarios**: 3 elementos. Ejemplo: H₂SO₄ (H +1, S +6, O –2).",
     "prompt": "¿Cuál es la diferencia entre compuestos binarios y ternarios?",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
-    "reference_line": 42,
+    "reference_line": 46,
     "module_name": "5-quimica",
     "category": "nomenclaturasrefinado"
   },
@@ -25,7 +25,7 @@
     "description": ":m Cuando los elementos se combinan, lo hacen respetando su **valencia**: capacidad de unión.\n- H: +1\n- O: –2\n- Metales alcalinos (Na, K): +1\n- Alcalinotérreos (Ca, Mg): +2\n- Halógenos (Cl, Br, I): –1\n- C: +4 o –4\n- N: –3, +3, +5\n- S: –2, +4, +6",
     "prompt": "¿Cómo se combinan los átomos para dar compuestos?",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
-    "reference_line": 55,
+    "reference_line": 59,
     "module_name": "5-quimica",
     "category": "nomenclaturasrefinado"
   },
@@ -35,7 +35,7 @@
     "description": ":m Cuando un elemento tiene **2 valencias** se usa:\n- Terminación **–oso** → valencia menor\n- Terminación **–ico** → valencia mayor\nEjemplo con **elemento E**:\n- Valencia +3: $E_2O_3$ (2×+3=+6, 3×–2=–6).\n- Valencia +5: $E_2O_5$ (2×+5=+10, 5×–2=–10).",
     "prompt": "Escribe la fórmula de los óxidos de un elemento E con valencia +3 y +5.",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
-    "reference_line": 73,
+    "reference_line": 77,
     "module_name": "5-quimica",
     "category": "nomenclaturasrefinado"
   },
@@ -45,7 +45,7 @@
     "description": ":m El **hierro (Fe)** puede actuar con:\n- +2 (menor → ferroso)\n- +3 (mayor → férrico)\nCombinación con oxígeno (–2):\n- FeO → Fe +2, O –2 → **óxido ferroso**\n- Fe₂O₃ → Fe +3, O –2 → **óxido férrico**",
     "prompt": "Fórmulas y nombres de los óxidos de Fe.",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
-    "reference_line": 90,
+    "reference_line": 94,
     "module_name": "5-quimica",
     "category": "nomenclaturasrefinado"
   },
@@ -55,7 +55,7 @@
     "description": ":m a) **CaO** → Ca +2, O –2 → básico\nb) **SO₃** → S +6, O –2 → ácido\nc) **Na₂O** → Na +1, O –2 → básico\nd) **CO₂** → C +4, O –2 → ácido",
     "prompt": "Clasifica en ácido o básico, indicando valencias.",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
-    "reference_line": 107,
+    "reference_line": 111,
     "module_name": "5-quimica",
     "category": "nomenclaturasrefinado"
   },
@@ -65,17 +65,17 @@
     "description": ":m a) El oxígeno siempre tiene –2 en óxidos. ✅\nb) FeO se llama óxido férrico ❌ (es ferroso).\nc) CO₂ es un óxido ácido ✅.\n",
     "prompt": "Da verdadero o falso.",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
-    "reference_line": 123,
+    "reference_line": 127,
     "module_name": "5-quimica",
     "category": "nomenclaturasrefinado"
   },
   {
     "term": "8 - Casos especiales de óxidos",
     "example": ":m - N₂O (N +1)\n- NO (N +2)\n- N₂O₃ (N +3)\n- NO₂ (N +4)\n- N₂O₅ (N +5)\n- MnO₂ (Mn +4)\n- H₂O₂ (O –1)",
-    "description": ":m El **nitrógeno (N)** tiene varias valencias:\n- +1 → N₂O → óxido nitroso\n- +2 → NO → óxido nítrico\n- +3 → N₂O₃ → trióxido de dinitrógeno\n- +4 → NO₂ o N₂O₄ → dióxido/tetraóxido de dinitrógeno\n- +5 → N₂O₅ → pentaóxido de dinitrógeno\nEl **manganeso (Mn)** con +4:\n- MnO₂ → dióxido de manganeso\nLos **peróxidos** tienen el oxígeno con –1:\n- H₂O₂ → peróxido de hidrógeno\n- Na₂O₂ → peróxido de sodio\n- K₂O₂ → peróxido de potasio\n- BaO₂ → peróxido de bario\n ",
+    "description": ":m El **nitrógeno (N)** tiene varias valencias:\n- +1 → N₂O → óxido nitroso\n- +2 → NO → óxido nítrico\n- +3 → N₂O₃ → trióxido de dinitrógeno\n- +4 → NO₂ o N₂O₄ → dióxido/tetraóxido de dinitrógeno\n- +5 → N₂O₅ → pentaóxido de dinitrógeno\nEl **manganeso (Mn)** con +4:\n- MnO₂ → dióxido de manganeso\nLos **peróxidos** tienen el oxígeno con –1:\n- H₂O₂ → peróxido de hidrógeno\n- Na₂O₂ → peróxido de sodio\n- K₂O₂ → peróxido de potasio\n- BaO₂ → peróxido de bario\n    ",
     "prompt": "Da un ejemplo de valencias de N (1 a 5), Mn (+4) y un peróxido.",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
-    "reference_line": 137,
+    "reference_line": 141,
     "module_name": "5-quimica",
     "category": "nomenclaturasrefinado"
   },
@@ -85,7 +85,7 @@
     "description": ":m - En **hidruros metálicos**, el H actúa con –1.\n- El metal actúa con valencia positiva (Na +1, Ca +2, Fe +2 o +3).\nEjemplo:\n- CuH (Cu +1, H –1) → hidruro cuproso (–oso).\n- CuH₂ (Cu +2, H –1) → hidruro cúprico (–ico).",
     "prompt": "Da un ejemplo con terminación –oso e –ico.",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
-    "reference_line": 168,
+    "reference_line": 172,
     "module_name": "5-quimica",
     "category": "nomenclaturasrefinado"
   },
@@ -95,7 +95,7 @@
     "description": ":m a) NaH → Na +1, H –1 → hidruro de sodio\nb) CaH₂ → Ca +2, H –1 → hidruro de calcio\nc) FeH₂ → Fe +2, H –1 → hidruro ferroso\n",
     "prompt": "Escribe el nombre de NaH, CaH₂ y FeH₂.",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
-    "reference_line": 184,
+    "reference_line": 188,
     "module_name": "5-quimica",
     "category": "nomenclaturasrefinado"
   },
@@ -105,7 +105,7 @@
     "description": ":m En estos compuestos: H = +1, no metal = negativo.\nEjemplos:\n- HF → F –1 → fluoruro de hidrógeno (g) / ácido fluorhídrico (ac).\n- HCl → Cl –1 → cloruro de hidrógeno (g) / ácido clorhídrico (ac).\n- H₂S → S –2 → sulfuro de hidrógeno (g) / ácido sulfhídrico (ac).\n",
     "prompt": "Escribe el nombre en estado gaseoso y acuoso de HI, HBr y HF.",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
-    "reference_line": 199,
+    "reference_line": 203,
     "module_name": "5-quimica",
     "category": "nomenclaturasrefinado"
   },
@@ -115,17 +115,17 @@
     "description": ":m Fórmula general\n$$\nM e_Y^X \\text { no } M e_X^Y\n$$\nDonde Me es el metal, no Me es el no metal, x es la valencia del no metal, y es la valencia del metal .\nPara nombrarlos se sigue la regla la terminación \"HÍDRICO\" pasa a ser \"URO\" de\nSe nombran cambiando la terminación **“hídrico”** del hidrácido por **“uro” de [metal]**.\n$\\qquad$ por ejemplo:\n$$\n\\begin{aligned}\n& \\mathrm{Na}^{1+} \\mathrm{Cl}^{1-} \\rightarrow \\mathrm{NaCl} \\text { cloruro de sodio. } \\\\\n& \\mathrm{Mg}^{2+} \\mathrm{Br}_2{ }^{1-} \\rightarrow \\mathrm{MgBr}_2 \\text { bromuro de magnesio } \\\\\n& \\mathrm{Fe}_2{ }^{3+} \\mathrm{S}_3{ }^{2-} \\rightarrow \\mathrm{Fe}_2 \\mathrm{~S}_3 \\text { sulfuro férrico }\n\\end{aligned}\n$$\nPodemos pensar en ellos como compuestos derivados de los hidrácidos, en donde el metal, por ser electropositivo, actúa en reemplazo del $\\mathrm{H}^{1+}$.\n- Son **compuestos binarios** formados por un **metal (Me)** y un **no metal (no Me)**.\n- Se derivan de los **hidrácidos**, sustituyendo el **H⁺** por un **metal**.\nSe forman sustituyendo H⁺ del hidrácido por un metal.\nEjemplos:\n- NaCl → Na +1, Cl –1 → cloruro de sodio\n- MgBr₂ → Mg +2, Br –1 → bromuro de magnesio\n- Fe₂S₃ → Fe +3, S –2 → sulfuro férrico",
     "prompt": "Nombra KCl, CaS y AlBr₃.",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
-    "reference_line": 217,
+    "reference_line": 221,
     "module_name": "5-quimica",
     "category": "nomenclaturasrefinado"
   },
   {
     "term": "13 - Hidróxidos",
     "example": ":m a) NaOH → hidróxido de sodio\nb) Al(OH)₃ → hidróxido de aluminio\nc) Cu(OH)₂ → hidróxido cúprico",
-    "description": ":m - **Hidróxido de [metal]**\n- Si el metal tiene **2 valencias**, se usa:\n- **-oso** → valencia menor\n- **-ico** → valencia mayor\nEl grupo OH siempre vale –1.\n- NaOH → Na +1, OH –1 → hidróxido de sodio\n- Ca(OH)₂ → Ca +2, OH –1 → hidróxido de calcio\n- Fe(OH)₂ → Fe +2 → hidróxido ferroso\n- Fe(OH)₃ → Fe +3 → hidróxido férrico\n \n",
+    "description": ":m - **Hidróxido de [metal]**\n- Si el metal tiene **2 valencias**, se usa:\n- **-oso** → valencia menor\n- **-ico** → valencia mayor\nEl grupo OH siempre vale –1.\n- NaOH → Na +1, OH –1 → hidróxido de sodio\n- Ca(OH)₂ → Ca +2, OH –1 → hidróxido de calcio\n- Fe(OH)₂ → Fe +2 → hidróxido ferroso\n- Fe(OH)₃ → Fe +3 → hidróxido férrico\n    \n",
     "prompt": "Nombra NaOH, Al(OH)₃ y Cu(OH)₂.",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
-    "reference_line": 251,
+    "reference_line": 255,
     "module_name": "5-quimica",
     "category": "nomenclaturasrefinado"
   },
@@ -135,7 +135,7 @@
     "description": ":m Se forman con H + no metal + O.\nEjemplos:\n- N +5 → HNO₃ → ácido nítrico\n- S +4 → H₂SO₃ → ácido sulfuroso\n- S +6 → H₂SO₄ → ácido sulfúrico\n- Cl (+1 a +7): HClO, HClO₂, HClO₃, HClO₄.\n",
     "prompt": "Formula los oxoácidos del cloro en sus 4 valencias.",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
-    "reference_line": 274,
+    "reference_line": 278,
     "module_name": "5-quimica",
     "category": "nomenclaturasrefinado"
   },
@@ -145,7 +145,7 @@
     "description": ":m 📌 Formula y nombra el óxido que forma el **calcio (Ca)** y el **oxígeno (O)**.\n- Ca tiene valencia +2.\n- O siempre –2.\n- Para que se neutralicen: 1 Ca (+2) con 1 O (–2).",
     "prompt": "",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
-    "reference_line": 295,
+    "reference_line": 299,
     "module_name": "5-quimica",
     "category": "nomenclaturasrefinado"
   },
@@ -155,7 +155,7 @@
     "description": ":m 📌 Formula y nombra el óxido que forma el **azufre (S)** con valencia +6 y el oxígeno.\n- S +6.\n- O –2\n- Para compensar: S (+6) con 3 O (3×–2= –6).",
     "prompt": "",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
-    "reference_line": 307,
+    "reference_line": 311,
     "module_name": "5-quimica",
     "category": "nomenclaturasrefinado"
   },
@@ -165,7 +165,7 @@
     "description": ":m 📌 Formula y nombra el hidruro que forma el **cobre (Cu)** con valencia +1 y con valencia +2.\n- H en hidruros metálicos: –1.",
     "prompt": "",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
-    "reference_line": 319,
+    "reference_line": 323,
     "module_name": "5-quimica",
     "category": "nomenclaturasrefinado"
   },
@@ -175,7 +175,7 @@
     "description": ":m 📌 Nombra en estado gaseoso y en disolución acuosa el compuesto formado por **H y Cl**.\n- H +1.\n- Cl –1.\n- Fórmula: HCl.",
     "prompt": "",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
-    "reference_line": 331,
+    "reference_line": 335,
     "module_name": "5-quimica",
     "category": "nomenclaturasrefinado"
   },
@@ -185,7 +185,7 @@
     "description": ":m 📌 Formula la sal que se forma al reemplazar H⁺ en el H₂S por Na⁺.\n- H₂S: H +1, S –2.\n- Sustituimos H +1 por Na +1.\n- Se necesitan 2 Na (+1) para balancear S (–2).",
     "prompt": "",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
-    "reference_line": 345,
+    "reference_line": 349,
     "module_name": "5-quimica",
     "category": "nomenclaturasrefinado"
   },
@@ -195,7 +195,7 @@
     "description": ":m 📌 Formula y nombra el hidróxido del **hierro (Fe)** en sus 2 valencias: +2 y +3.\n- Grupo OH = –1.",
     "prompt": "",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
-    "reference_line": 358,
+    "reference_line": 362,
     "module_name": "5-quimica",
     "category": "nomenclaturasrefinado"
   },
@@ -205,7 +205,7 @@
     "description": ":m 📌 Formula los oxoácidos del **cloro (Cl)** con valencias +1, +3, +5, +7.\n- O = –2, H = +1.",
     "prompt": "",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
-    "reference_line": 370,
+    "reference_line": 374,
     "module_name": "5-quimica",
     "category": "nomenclaturasrefinado"
   },
@@ -215,7 +215,7 @@
     "description": ":m 📌 Clasifica los siguientes compuestos en óxidos ácidos o básicos, indicando las valencias:\na) Na₂O\nb) CO₂\nc) MgO\nd) N₂O₅\n",
     "prompt": "",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\1-nomenclaturas-refinado.md",
-    "reference_line": 383,
+    "reference_line": 387,
     "module_name": "5-quimica",
     "category": "nomenclaturasrefinado"
   },
@@ -558,6 +558,326 @@
     "reference_line": 501,
     "module_name": "5-quimica",
     "category": "unidadcompuestosquimicosCifrassignificativasmedicionesynomenclaturainorgnica"
+  },
+  {
+    "term": "1 - Elementos metálicos, no metálicos y metaloides",
+    "example": ":m Están ordenados por número atómico creciente.\n* Los **grupos** son columnas con elementos de propiedades similares.\n* Los **períodos** son filas que indican el número de niveles de energía del átomo.",
+    "description": ":m La **tabla periódica** organiza los elementos según su **número atómico** (cantidad de protones) y su **configuración electrónica**, agrupando aquellos con propiedades químicas semejantes en columnas llamadas **grupos**.\nLos **períodos** son las filas, que indican el número de niveles de energía del átomo.\nLos **grupos** agrupan elementos con propiedades parecidas (por ejemplo, los metales alcalinos o los halógenos).\n",
+    "prompt": "¿Cómo están ordenados los elementos en la tabla periódica y qué representan los grupos y períodos?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\10-electroquimica.md",
+    "reference_line": 1,
+    "module_name": "5-quimica",
+    "category": "electroquimica"
+  },
+  {
+    "term": "2 - Metales",
+    "example": ":m Forman **cationes** porque tienen baja energía de ionización y pierden electrones fácilmente.",
+    "description": ":m **Características:**\n* Alta conductividad eléctrica y térmica.\n* Son dúctiles y maleables.\n* Poseen **baja energía de ionización**, lo que les permite perder electrones fácilmente y formar **cationes**.\n**Ejemplos:** Na, K, Mg, Al.\n",
+    "prompt": "¿Qué tipo de iones forman los metales y por qué?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\10-electroquimica.md",
+    "reference_line": 18,
+    "module_name": "5-quimica",
+    "category": "electroquimica"
+  },
+  {
+    "term": "3 - No metales",
+    "example": ":m Tienen alta energía de ionización, no conducen electricidad y tienden a ganar electrones formando **aniones**.",
+    "description": ":m **Características:**\n* Pueden ser sólidos, líquidos o gases.\n* Alta energía de ionización y afinidad electrónica.\n* No conducen electricidad.\n* Se encuentran en la parte **superior derecha** de la tabla periódica.\n**Ejemplos:** C, N, O, F, Cl, S.\n",
+    "prompt": "¿Qué propiedades distinguen a los no metales de los metales?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\10-electroquimica.md",
+    "reference_line": 35,
+    "module_name": "5-quimica",
+    "category": "electroquimica"
+  },
+  {
+    "term": "4 - Metaloides",
+    "example": ":m Tienen propiedades intermedias entre metales y no metales.\nSon **semiconductores** usados en **chips, transistores y paneles solares**.",
+    "description": ":m **Ubicación:** junto a la “escalera” diagonal de la tabla periódica.\n**Ejemplos:** B, Si, Ge, As, Sb, Te.\n**Propiedades intermedias:**\n* Actúan como **semiconductores**, clave en electrónica.\n* Forman enlaces **covalentes**.\n* Se emplean en **transistores, chips y celdas solares**.\n",
+    "prompt": "¿Qué caracteriza a los metaloides y en qué se utilizan?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\10-electroquimica.md",
+    "reference_line": 53,
+    "module_name": "5-quimica",
+    "category": "electroquimica"
+  },
+  {
+    "term": "5 - Conductores y semiconductores",
+    "example": ":m\n* **Tipo n:** tiene electrones extra por dopaje con fósforo (donador).\n* **Tipo p:** tiene huecos por dopaje con boro (aceptor).",
+    "description": ":m * **Conductores de primera clase:** metales (transmiten electrones libremente).\n* **Conductores de segunda clase:** electrolitos (iones en solución).\n* **Semiconductores:** conducen solo a altas temperaturas o cuando se **dopan** con impurezas.\n**Tipos de dopaje:**\n* **Tipo n:** impurezas donadoras (como fósforo, P).\n* **Tipo p:** impurezas aceptoras (como boro, B).\n",
+    "prompt": "¿Qué diferencia hay entre un semiconductor tipo n y tipo p?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\10-electroquimica.md",
+    "reference_line": 71,
+    "module_name": "5-quimica",
+    "category": "electroquimica"
+  },
+  {
+    "term": "6 - Aplicaciones tecnológicas",
+    "example": ":m El dopaje cambia su conductividad:\n* Aumenta los electrones libres (tipo n) o\n* Crea huecos positivos (tipo p), permitiendo controlar el flujo de corriente.",
+    "description": ":m Los materiales de la tabla periódica son esenciales en la **industria electrónica**:\n* Los **semiconductores** (Si, Ge) se usan en chips y procesadores.\n* Los **metales** (Cu, Al) sirven como conductores eléctricos.\n* Los **aislantes** (como SiO₂) protegen los circuitos.\nEl **dopaje** consiste en introducir impurezas controladas para modificar la conductividad del material, permitiendo la creación de **transistores**, **puentes electrolíticos** y **celdas fotovoltaicas**.\n",
+    "prompt": "¿Qué efecto tiene el dopaje en un semiconductor?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\10-electroquimica.md",
+    "reference_line": 91,
+    "module_name": "5-quimica",
+    "category": "electroquimica"
+  },
+  {
+    "term": "7 - Introducción a la electroquímica",
+    "example": ":m * **Galvánica:** genera electricidad mediante una reacción espontánea.\n* **Electrolítica:** requiere corriente externa para forzar una reacción no espontánea.",
+    "description": ":m La **electroquímica** estudia las **reacciones redox**, es decir, aquellas donde ocurre una **transferencia de electrones** entre sustancias.\nEstas reacciones permiten **convertir energía química en eléctrica** o **eléctrica en química**, según el tipo de celda.\nExisten **dos tipos de celdas electroquímicas:**\n* **Galvánicas (pilas):** producen electricidad, son **reacciones espontáneas**.\n* **Electrolíticas:** consumen electricidad para inducir una reacción **no espontánea**.\n",
+    "prompt": "¿Qué diferencia hay entre una celda galvánica y una electrolítica?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\10-electroquimica.md",
+    "reference_line": 170,
+    "module_name": "5-quimica",
+    "category": "electroquimica"
+  },
+  {
+    "term": "8 - Reacciones redox",
+    "example": ":m * **Zn** se oxida (pierde electrones).\n* **H⁺** se reduce (gana electrones para formar H₂).",
+    "description": ":m Las **reacciones de oxidación-reducción** implican que un elemento **pierde electrones (oxidación)** y otro los **gana (reducción)**.\nEjemplo:\n$$\\text{Zn (s)} + 2HCl (aq) \\rightarrow ZnCl_2 (aq) + H_2 (g)$$\n* **Zn** (metal) se **oxida** → pasa de estado 0 a +2.\n* **H⁺** (del ácido) se **reduce** → pasa de +1 a 0.\nLa **oxidación** ocurre en el **ánodo**, y la **reducción** en el **cátodo**.\n",
+    "prompt": "En la reacción Zn + 2HCl → ZnCl₂ + H₂, ¿qué sustancia se oxida y cuál se reduce?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\10-electroquimica.md",
+    "reference_line": 188,
+    "module_name": "5-quimica",
+    "category": "electroquimica"
+  },
+  {
+    "term": "9 - Conceptos clave",
+    "example": ":m * **Agente oxidante:** se reduce, gana electrones.\n* **Agente reductor:** se oxida, pierde electrones.",
+    "description": ":m * **Oxidante:** sustancia que **acepta electrones** (se reduce).\n* **Reductora:** sustancia que **cede electrones** (se oxida).\n* **Número de oxidación:** indica cuántos electrones gana o pierde un átomo al formar un compuesto.\n",
+    "prompt": "¿Qué diferencia hay entre agente oxidante y agente reductor?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\10-electroquimica.md",
+    "reference_line": 208,
+    "module_name": "5-quimica",
+    "category": "electroquimica"
+  },
+  {
+    "term": "10 - Celdas electroquímicas",
+    "example": ":m * **Oxidación:** en el ánodo.\n* **Reducción:** en el cátodo.",
+    "description": ":m Una **celda galvánica** tiene **dos semiceldas**:\n* En el **ánodo** ocurre la **oxidación** (libera e⁻).\n* En el **cátodo** ocurre la **reducción** (recibe e⁻).\nAmbas están conectadas por un **puente salino**, que permite el flujo de iones.\n",
+    "prompt": "¿Dónde ocurre la oxidación y la reducción en una celda galvánica?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\10-electroquimica.md",
+    "reference_line": 222,
+    "module_name": "5-quimica",
+    "category": "electroquimica"
+  },
+  {
+    "term": "11 - Celda electrolítica",
+    "example": ":m Proporciona la energía necesaria para que ocurra una reacción no espontánea, como la descomposición del agua en hidrógeno y oxígeno.",
+    "description": ":m En una **celda electrolítica**, se aplica una **fuente externa de electricidad** para forzar una reacción redox no espontánea.\nEjemplo: **electrólisis del agua**, donde se obtiene **hidrógeno y oxígeno** aplicando corriente.\n",
+    "prompt": "¿Qué función cumple la fuente de electricidad en una celda electrolítica?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\10-electroquimica.md",
+    "reference_line": 238,
+    "module_name": "5-quimica",
+    "category": "electroquimica"
+  },
+  {
+    "term": "12 - Leyes de Faraday de la Electrólisis",
+    "example": ":m La masa depositada es directamente proporcional a la cantidad de electricidad que pasa por la celda: $$m \\propto I \\cdot t$$.",
+    "description": ":m Las **leyes de Faraday** describen cómo la cantidad de sustancia liberada o depositada durante un proceso electrolítico depende de la corriente eléctrica que pasa por la celda.\n**Primera ley:**\nLa masa $$m$$ de una sustancia depositada en un electrodo es directamente proporcional a la cantidad de electricidad $$Q$$ que circula:\n$$m = k \\cdot Q = k \\cdot I \\cdot t$$\ndonde $$I$$ es la corriente (A) y $$t$$ el tiempo (s).\n**Segunda ley:**\nPara la misma cantidad de electricidad, las masas depositadas de diferentes sustancias son proporcionales a sus **pesos equivalentes** $$E = \\dfrac{M}{n}$$ (masa molar dividida por el número de electrones transferidos).\nAsí, la **fórmula general** es:\n$$m = \\dfrac{E \\cdot I \\cdot t}{96500}$$\ndonde 96500 C corresponde a **1 Faraday**.\n",
+    "prompt": "¿Cuál es la relación entre la masa depositada y la cantidad de electricidad según la primera ley de Faraday?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\10-electroquimica.md",
+    "reference_line": 295,
+    "module_name": "5-quimica",
+    "category": "electroquimica"
+  },
+  {
+    "term": "13 - Ejercicio aplicado de Faraday",
+    "example": ":m Se depositan **3.36 g** de plata.",
+    "description": ":m Una corriente de $$2.5\\text{ A}$$ pasa durante $$20\\text{ min}$$ por una celda que contiene $$AgNO_3$$. Calcula la masa de plata depositada sabiendo que $$Ag^+ + e^- \\rightarrow Ag$$ y $$M_{Ag} = 108\\text{ g/mol}$$.\n**Solución paso a paso:**\n1. $$t = 20 \\text{ min} = 1200 \\text{ s}$$\n2. $$E = \\dfrac{108}{1} = 108$$\n3. $$m = \\dfrac{108 \\cdot 2.5 \\cdot 1200}{96500} = 3.36 \\text{ g}$$\n    \n",
+    "prompt": "¿Cuánta masa de plata se deposita si una corriente de 2.5 A circula durante 20 min por una celda con nitrato de plata?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\10-electroquimica.md",
+    "reference_line": 318,
+    "module_name": "5-quimica",
+    "category": "electroquimica"
+  },
+  {
+    "term": "14 - Propiedades metálicas",
+    "example": ":m Los metales conducen la electricidad fácilmente por sus electrones libres, mientras que los semiconductores solo conducen bajo ciertas condiciones (temperatura, dopado, etc.).",
+    "description": ":m Los **metales** son dúctiles (se estiran en hilos) y maleables (se deforman sin romperse). Los **semiconductores** (como el silicio y el germanio) tienen conductividad intermedia, útil en dispositivos electrónicos.\n",
+    "prompt": "¿Qué diferencia hay entre un metal y un semiconductor en términos de conductividad eléctrica?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\10-electroquimica.md",
+    "reference_line": 338,
+    "module_name": "5-quimica",
+    "category": "electroquimica"
+  },
+  {
+    "term": "15 - Actividad 1: Electronegatividad",
+    "example": ":m Porque tiene alta carga nuclear efectiva y pequeño radio atómico, atrayendo con fuerza los electrones de enlace.",
+    "description": ":m El **flúor (F)** es el elemento más electronegativo porque tiene **7 electrones de valencia** y un **radio atómico pequeño**, lo que le permite atraer con gran fuerza electrones hacia sí.\n",
+    "prompt": "¿Por qué el flúor es el elemento más electronegativo?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\10-electroquimica.md",
+    "reference_line": 349,
+    "module_name": "5-quimica",
+    "category": "electroquimica"
+  },
+  {
+    "term": "16 - Actividad 2: Tipo de celda para recubrir plata",
+    "example": ":m Se usa una **celda electrolítica**, ya que requiere energía eléctrica para depositar plata sobre la superficie del metal.",
+    "description": ":m Para recubrir una cuchara con plata se usa una **celda electrolítica**, donde la plata se deposita en el cátodo (la cuchara).\n",
+    "prompt": "¿Qué tipo de celda se usa para recubrir una cuchara con plata y por qué?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\10-electroquimica.md",
+    "reference_line": 360,
+    "module_name": "5-quimica",
+    "category": "electroquimica"
+  },
+  {
+    "term": "17 - Actividad 3: Radio atómico creciente",
+    "example": ":m Orden creciente: **S < Se < K**.",
+    "description": ":m Elementos: $$S(Z=16),; Se(Z=34),; K(Z=19)$$\n→ Los radios aumentan hacia abajo y hacia la izquierda en la tabla periódica.\nOrden creciente de radio atómico:\n$$S < Se < K$$\n",
+    "prompt": "Ordena por radio atómico creciente los elementos S(Z=16), Se(Z=34), K(Z=19).",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\10-electroquimica.md",
+    "reference_line": 371,
+    "module_name": "5-quimica",
+    "category": "electroquimica"
+  },
+  {
+    "term": "1 - Termoquímica",
+    "example": ":m La termoquímica estudia los cambios de energía en las reacciones químicas, enfocándose en el **calor absorbido o liberado** durante ellas.",
+    "description": ":m La **termoquímica** es una rama de la **termodinámica** que estudia los **cambios de energía** (particularmente de **calor**) que ocurren en las **reacciones químicas**.\nSu objetivo es determinar **cuánto calor se libera o absorbe** cuando las sustancias reaccionan, relacionando la **energía química** con la **energía térmica**.\n",
+    "prompt": "¿Qué estudia la termoquímica y en qué se enfoca principalmente?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\11-termoquimica.md",
+    "reference_line": 18,
+    "module_name": "5-quimica",
+    "category": "termoquimica"
+  },
+  {
+    "term": "2 - Tipos de sistemas",
+    "example": ":m * Abierto: intercambia masa y energía.\n* Cerrado: solo energía.\n* Aislado: no intercambia nada con el entorno.",
+    "description": ":m * **Sistema abierto:** intercambia **masa y energía** con el entorno (ej. hervir agua en una olla destapada).\n* **Sistema cerrado:** intercambia solo **energía (calor o trabajo)**, pero **no masa** (ej. una botella tapada).\n* **Sistema aislado:** **no intercambia ni masa ni energía** con el entorno (ej. un termo perfectamente sellado).\n",
+    "prompt": "¿Qué diferencia hay entre un sistema abierto, cerrado y aislado?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\11-termoquimica.md",
+    "reference_line": 30,
+    "module_name": "5-quimica",
+    "category": "termoquimica"
+  },
+  {
+    "term": "3 - Procesos endotérmicos y exotérmicos",
+    "example": ":m\n* Endotérmica: absorbe calor ($\\Delta H > 0$).\n* Exotérmica: libera calor ($\\Delta H < 0$).",
+    "description": ":m * **Endotérmico:** el sistema **absorbe calor** del entorno → la temperatura del entorno **disminuye** (ej. fotosíntesis, disolver NH₄NO₃).\n* **Exotérmico:** el sistema **libera calor** al entorno → la temperatura del entorno **aumenta** (ej. combustión, neutralización ácido-base).\n",
+    "prompt": "¿Qué diferencia hay entre una reacción endotérmica y una exotérmica?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\11-termoquimica.md",
+    "reference_line": 45,
+    "module_name": "5-quimica",
+    "category": "termoquimica"
+  },
+  {
+    "term": "4 - Variables Termodinámicas",
+    "example": ":m\n* **Extensivas:** dependen de la cantidad de materia (masa, volumen).\n* **Intensivas:** no dependen de la cantidad de materia (temperatura, presión).",
+    "description": ":m Las **variables termodinámicas** describen el estado de un sistema (gas, líquido o sólido). Se clasifican según cómo dependen de la cantidad de materia:\n* **Extensivas:** dependen de la cantidad de materia.\nEjemplos: **masa, volumen, energía total.**\n* **Intensivas:** no dependen de la cantidad de materia.\nEjemplos: **temperatura, presión, densidad, concentración.**\nTambién existen las **funciones de estado**, que solo dependen del **estado inicial y final**, no del camino seguido.\nEjemplos: **P, T, V, H (entalpía), U (energía interna).**\n",
+    "prompt": "¿Qué diferencia hay entre variables extensivas e intensivas?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\11-termoquimica.md",
+    "reference_line": 80,
+    "module_name": "5-quimica",
+    "category": "termoquimica"
+  },
+  {
+    "term": "5 - Funciones de estado",
+    "example": ":m Depende solo del **estado inicial y final** del sistema.\nEjemplo: $$\\Delta H, \\Delta U, \\Delta P, \\Delta T.$$",
+    "description": ":m Una **función de estado** mide una propiedad del sistema que **solo depende del punto inicial y final**, no del proceso recorrido.\nEjemplo: el cambio de energía interna $$\\Delta U = U_f - U_i$$.\n",
+    "prompt": "¿De qué depende una función de estado y cuál es un ejemplo?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\11-termoquimica.md",
+    "reference_line": 101,
+    "module_name": "5-quimica",
+    "category": "termoquimica"
+  },
+  {
+    "term": "6 - Tipos de procesos termodinámicos",
+    "example": ":m En un proceso adiabático **no hay intercambio de calor** con el entorno: $q = 0$",
+    "description": ":m 1. **Isotérmico:** temperatura constante ($T = \\text{cte}$).\n2. **Isobárico:** presión constante ($P = \\text{cte}$).\n3. **Isocórico (o isovolumétrico):** volumen constante ($V = \\text{cte}$).\n4. **Adiabático:** no hay intercambio de calor ($q = 0$).\nAdemás, los procesos pueden ser:\n* **Reversibles:** se realizan infinitamente despacio y pasan por estados de equilibrio.\n* **Irreversibles:** ocurren rápidamente y no se puede volver al estado inicial sin cambios en el entorno.",
+    "prompt": "¿Qué caracteriza a un proceso adiabático respecto al intercambio de calor?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\11-termoquimica.md",
+    "reference_line": 114,
+    "module_name": "5-quimica",
+    "category": "termoquimica"
+  },
+  {
+    "term": "7 - Reacciones Exotérmicas y Endotérmicas",
+    "example": ":m Libera calor al entorno y tiene **ΔH negativo** ($\\Delta H < 0$).",
+    "description": ":m Las **reacciones termoquímicas** implican un intercambio de **energía en forma de calor** entre el sistema y el entorno.\nEl signo de $$\\Delta H$$ (entalpía) indica si la reacción **libera** o **absorbe** calor.\n---\n**Exotérmica:**\n* **Libera calor** al entorno.\n* $\\Delta H < 0$ (la entalpía del sistema disminuye).\n* El entorno se **calienta**.\n* **Ejemplos:** combustión del metano, neutralización ácido-base.\n$$\\text{CH}_4 + 2O_2 \\rightarrow CO_2 + 2H_2O + \\text{energía}$$\n",
+    "prompt": "¿Qué caracteriza a una reacción exotérmica y qué signo tiene su ΔH?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\11-termoquimica.md",
+    "reference_line": 140,
+    "module_name": "5-quimica",
+    "category": "termoquimica"
+  },
+  {
+    "term": "8 - Entalpía (H) y Entalpía de reacción",
+    "example": ":m Representa el contenido total de energía del sistema.\nEl cambio se calcula como:\n$$\\Delta H = H_{\\text{productos}} - H_{\\text{reactivos}}$$",
+    "description": ":m La **entalpía (H)** representa el **contenido total de energía** de un sistema, incluyendo la **energía interna** y la asociada a la **presión y volumen**.\nEn una reacción química, el **cambio de entalpía** ($$\\Delta H$$) indica si la reacción **absorbe** o **libera** calor a presión constante.\n$$\\Delta H = H_{\\text{productos}} - H_{\\text{reactivos}}$$\n",
+    "prompt": "¿Qué representa la entalpía (H) y cómo se calcula su variación en una reacción?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\11-termoquimica.md",
+    "reference_line": 193,
+    "module_name": "5-quimica",
+    "category": "termoquimica"
+  },
+  {
+    "term": "9 - Entalpía de formación ($\\Delta H_f$)",
+    "example": ":m Es el cambio de entalpía al formar **una mol de un compuesto** a partir de sus **elementos en estado estándar (1 atm, 25 °C)**.",
+    "description": ":m La **entalpía de formación estándar** es el **cambio de entalpía** cuando **una mol** de un compuesto se forma a partir de sus elementos en su **estado estándar** (1 atm, 25 °C).\nEjemplo:\n$$\\text{C(s)} + \\tfrac{1}{2}\\text{O}_2(g) \\rightarrow \\text{CO}(g)$$\n",
+    "prompt": "¿Qué es la entalpía de formación estándar?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\11-termoquimica.md",
+    "reference_line": 209,
+    "module_name": "5-quimica",
+    "category": "termoquimica"
+  },
+  {
+    "term": "10 - Ley de Lavoisier–Laplace",
+    "example": ":m Que el calor de formación de un compuesto es igual en magnitud y **opuesto en signo** al calor de su descomposición.",
+    "description": ":m > “El calor de formación de un compuesto es igual en magnitud, pero opuesto en signo, al calor de su descomposición.”\nEjemplo:\n$$\\text{S(s)} + \\text{O}_2(g) \\rightarrow \\text{SO}_2(g) \\quad \\Delta H = -296.1,\\text{kJ}$$\n$$\\text{SO}_2(g) \\rightarrow \\text{S(s)} + \\text{O}_2(g) \\quad \\Delta H = +296.1,\\text{kJ}$$\n",
+    "prompt": "¿Qué establece la ley de Lavoisier–Laplace?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\11-termoquimica.md",
+    "reference_line": 223,
+    "module_name": "5-quimica",
+    "category": "termoquimica"
+  },
+  {
+    "term": "11 - Ley de Hess",
+    "example": ":m Que el cambio total de entalpía es **independiente del camino** seguido y depende solo del estado inicial y final.",
+    "description": ":m La **Ley de Hess** establece que el **cambio total de entalpía** ($\\Delta H_{\\text{total}}$) de una reacción **no depende del camino** seguido, sino **solo de los estados inicial y final** del sistema.\nEsto significa que si una reacción puede expresarse como la **suma de varias reacciones parciales**, el cambio total de entalpía es la **suma algebraica** de los $$\\Delta H$$ de cada una.\n$$\\Delta H_{\\text{total}} = \\sum \\Delta H_i$$\n",
+    "prompt": "¿Qué establece la Ley de Hess respecto al cambio de entalpía total?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\11-termoquimica.md",
+    "reference_line": 252,
+    "module_name": "5-quimica",
+    "category": "termoquimica"
+  },
+  {
+    "term": "12 - Aplicación práctica",
+    "example": ":m Se **suman o restan** los valores de $$\\Delta H$$ de las reacciones parciales como si fueran ecuaciones algebraicas:\n$$\\Delta H_{\\text{total}} = \\Delta H_1 + \\Delta H_2$$",
+    "description": ":m La Ley de Hess permite calcular $\\Delta H$ de **reacciones difíciles de medir** directamente, combinando ecuaciones termoquímicas conocidas.\n**Ejemplo esquemático:**\nSi:\n$$a \\rightarrow b \\quad \\Delta H_1$$\n$$b \\rightarrow c \\quad \\Delta H_2$$\nEntonces:\n$$a \\rightarrow c \\quad \\Delta H_{\\text{total}} = \\Delta H_1 + \\Delta H_2$$\n",
+    "prompt": "¿Cómo se aplica la Ley de Hess para obtener la entalpía total de una reacción compuesta por varias etapas?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\11-termoquimica.md",
+    "reference_line": 267,
+    "module_name": "5-quimica",
+    "category": "termoquimica"
+  },
+  {
+    "term": "13 - ¿Por qué no se puede medir la entalpía absoluta?",
+    "example": ":m Porque no hay un cero experimental de referencia para $$H$$; los instrumentos solo detectan **cambios** de energía entre estados. Por eso se determina $$\\Delta H$$ (calor a $$p=\\text{cte}$$) y no $$H$$ absoluto.",
+    "description": ":m La entalpía $$H$$ incluye energía interna y el término $$pV$$; solo pueden medirse **cambios** de energía cuando un sistema pasa entre estados. No existe un “cero” absoluto accesible experimentalmente para $$H$$, por lo que medimos $$\\Delta H$$ a partir de un estado de referencia (p. ej., condiciones estándar), típicamente vía calor a presión constante.",
+    "prompt": "¿Por qué solo es medible $$\\Delta H$$ y no la entalpía absoluta $$H$$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\11-termoquimica.md",
+    "reference_line": 301,
+    "module_name": "5-quimica",
+    "category": "termoquimica"
+  },
+  {
+    "term": "14 - Clasificación de sistemas (abierto, cerrado, aislado)",
+    "example": ":m\n1. **Abierto**: evapora y pierde masa/calor.\n2. **Cerrado**: no entra/sale masa; sí calor (y trabajo) a través de paredes.\n3. **Aislado (aprox.)**: el termo minimiza intercambio de calor y no hay flujo de masa.",
+    "description": ":m Recordatorio:\n* **Abierto:** intercambia **masa y energía**.\n* **Cerrado:** intercambia **energía** pero **no masa**.\n* **Aislado:** no intercambia **ni masa ni energía** (ideal).",
+    "prompt": "Clasifica: (1) café en taza abierta, (2) agua en botella hermética, (3) termo lleno de sopa.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\11-termoquimica.md",
+    "reference_line": 311,
+    "module_name": "5-quimica",
+    "category": "termoquimica"
+  },
+  {
+    "term": "15 - Cálculo de $\\Delta H$ para formación de agua líquida",
+    "example": ":m $$\\Delta H_\\text{rxn}^\\circ=2(-285.8)-0=\\boxed{-571.6\\ \\mathrm{kJ}}$$ (a 25 °C, 1 bar).",
+    "description": ":m Usa **entalpías estándar de formación** $\\Delta H_f^\\circ$ a 25 °C, 1 bar:\n* $\\Delta H_f^\\circ!\\left(\\mathrm{H_2O(l)}\\right)\\approx -285.8\\ \\mathrm{kJ,mol^{-1}}$\n* $\\Delta H_f^\\circ!\\left(\\mathrm{H_2(g)}\\right)=0,\\ \\Delta H_f^\\circ!\\left(\\mathrm{O_2(g)}\\right)=0$\nReacción: $$2,\\mathrm{H_2(g)}+\\mathrm{O_2(g)}\\rightarrow 2,\\mathrm{H_2O(l)}$$\n$$\\Delta H_\\text{rxn}^\\circ=\\sum \\nu,\\Delta H_f^\\circ(\\text{prod})-\\sum \\nu,\\Delta H_f^\\circ(\\text{reac})\n=2(-285.8)-[2(0)+1(0)]=\\boxed{-571.6\\ \\mathrm{kJ}}$$",
+    "prompt": "Calcula $$\\Delta H$$ para $$2\\mathrm{H_2(g)}+\\mathrm{O_2(g)}\\to 2\\mathrm{H_2O(l)}$$ usando $$\\Delta H_f^\\circ$$.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\11-termoquimica.md",
+    "reference_line": 328,
+    "module_name": "5-quimica",
+    "category": "termoquimica"
   },
   {
     "term": "1 - Estructura atómica – ejercicio 1",
@@ -1715,17 +2035,17 @@
     "description": ":m El **equilibrio químico** ocurre cuando una **reacción reversible** (que puede avanzar y retroceder) alcanza un punto donde **las velocidades de reacción directa ($v_1$)** y **reversa ($v'_1$)** son **iguales**:\n$$v_1 = v'_1$$\nEsto **no significa que las reacciones se detengan**, sino que las **concentraciones de reactivos y productos permanecen constantes** en el tiempo.\nPor eso se dice que es un **equilibrio dinámico**, ya que ambas reacciones siguen ocurriendo a igual velocidad.\n**Ejemplo:**\nEl sistema del dióxido y tetróxido de dinitrógeno:\n$$\\mathrm{N_2O_4(g)} \\rightleftharpoons 2,\\mathrm{NO_2(g)}$$\n- **Directa:** disociación del $\\mathrm{N_2O_4}$ (reacción endotérmica)\n- **Inversa:** recombinación de $\\mathrm{NO_2}$ (reacción exotérmica)\nVisualmente:\n- A bajas temperaturas, predomina el $\\mathrm{N_2O_4}$ (gas incoloro).\n- A altas temperaturas, aumenta el $\\mathrm{NO_2}$ (gas marrón).\n",
     "prompt": "¿Qué significa que una reacción esté en equilibrio químico dinámico?",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\8-equilibrio-quimico.md",
-    "reference_line": 30,
+    "reference_line": 4,
     "module_name": "5-quimica",
     "category": "equilibrioquimico"
   },
   {
     "term": "2 - Relación entre $K_c$ y $K_p$",
     "example": ":m La relación es $K_p = K_c (RT)^{\\Delta n}$, donde $\\Delta n$ es la diferencia entre los moles gaseosos de productos y de reactivos.\n$K_p$ usa presiones parciales y $K_c$ usa concentraciones molares.",
-    "description": ":m En equilibrio químico, la constante puede expresarse de dos formas:\n- **$K_c$:** usando **concentraciones molares (mol/L)**\n- **$K_p$:** usando **presiones parciales (atm o Pa)**\nLa relación entre ambas es:\n$$K_p = K_c (RT)^{\\Delta n}$$\ndonde:\n- $R$ = constante de los gases ($0.0821,\\mathrm{L·atm·mol^{-1}·K^{-1}}$)\n- $T$ = temperatura absoluta (K)\n- $\\Delta n = (n_{\\text{productos gaseosos}} - n_{\\text{reactivos gaseosos}})$\n💡 **Interpretación:**\n- Si $\\Delta n = 0$, entonces $K_p = K_c$\n- Si $\\Delta n > 0$, el equilibrio favorece productos gaseosos a mayor presión\n- Si $\\Delta n < 0$, el equilibrio favorece reactivos gaseosos\n**Ejemplo:**\n$$\\mathrm{N_2O_4(g)} \\rightleftharpoons 2,\\mathrm{NO_2(g)}$$\nAquí $\\Delta n = 2 - 1 = 1$,\npor lo tanto:\n$$K_p = K_c (RT)^1$$\n",
+    "description": ":m En equilibrio químico, la constante puede expresarse de dos formas:\n- **$K_c$:** usando **concentraciones molares (mol/L)**\n- **$K_p$:** usando **presiones parciales (atm o Pa)**\nLa relación entre ambas es:\n$$K_p = K_c (RT)^{\\Delta n}$$\ndonde:\n- $R$ = constante de los gases ($0.0821,\\mathrm{L·atm·mol^{-1}·K^{-1}}$)\n- $T$ = temperatura absoluta (K)\n- $\\Delta n = (n_{\\text{productos gaseosos}} - n_{\\text{reactivos gaseosos}})$\n💡 **Interpretación:**\n- Si $\\Delta n = 0$, entonces $K_p = K_c$\n- Si $\\Delta n > 0$, el equilibrio favorece productos gaseosos a mayor presión\n- Si $\\Delta n < 0$, el equilibrio favorece reactivos gaseosos\n**Ejemplo:**\n$$\\mathrm{N_2O_4(g)} \\rightleftharpoons 2,\\mathrm{NO_2(g)}$$\nAquí $\\Delta n = 2 - 1 = 1$,\n![[Pasted image 20251104223946.png]]\npor lo tanto:\n$$K_p = K_c (RT)^1$$\n",
     "prompt": "¿Cuál es la relación general entre $K_p$ y $K_c$ y qué representa $\\Delta n$?",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\8-equilibrio-quimico.md",
-    "reference_line": 66,
+    "reference_line": 30,
     "module_name": "5-quimica",
     "category": "equilibrioquimico"
   },
@@ -1735,7 +2055,7 @@
     "description": ":m El **principio de Le Chatelier–Braun** establece que:\n> Si un sistema en equilibrio sufre una **perturbación externa** (como un cambio en **concentración**, **presión** o **temperatura**), el sistema se ajusta de tal forma que **contrarresta ese cambio**, estableciendo un **nuevo equilibrio**.\n💡 **En otras palabras:**\nEl equilibrio **se desplaza** en la dirección que **reduce el efecto** del cambio aplicado.\n**Tipos de perturbaciones:**\n1. **Cambio de concentración:**\n- Aumentar un reactivo → el equilibrio se desplaza hacia los **productos**\n- Aumentar un producto → se desplaza hacia los **reactivos**.\n2. **Cambio de presión (solo en gases):**\n- Aumentar la presión → el equilibrio se desplaza hacia el lado con **menos moles gaseosos**.\n- Disminuir la presión → se desplaza hacia el lado con **más moles gaseosos**.\n3. **Cambio de temperatura:**\n- En una reacción **endotérmica**, aumentar $T$ favorece los **productos**.\n- En una reacción **exotérmica**, aumentar $T$ favorece los **reactivos**.\n**Ejemplo:**\n$$\\mathrm{N_2O_4(g)} \\rightleftharpoons 2,\\mathrm{NO_2(g)} \\quad \\Delta H > 0$$\n→ Al aumentar la temperatura, el equilibrio se desplaza hacia la derecha (más $\\mathrm{NO_2}$).",
     "prompt": "¿Qué establece el principio de Le Chatelier–Braun y qué tipos de cambios pueden alterar un equilibrio químico?",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\8-equilibrio-quimico.md",
-    "reference_line": 103,
+    "reference_line": 68,
     "module_name": "5-quimica",
     "category": "equilibrioquimico"
   },
@@ -1745,7 +2065,7 @@
     "description": ":m El **cambio de presión** afecta únicamente a los **sistemas gaseosos**, ya que depende del número de **moles de gas** presentes.\n📘 **Reglas generales:**\n- Si **aumenta la presión**, el equilibrio se desplaza hacia el **lado con menos moles gaseosos**, para **reducir la presión interna**.\n- Si **disminuye la presión**, el equilibrio se desplaza hacia el **lado con más moles gaseosos**, para **aumentar la presión interna**.\n- Si **$\\Delta n = 0$** (igual número de moles gaseosos en ambos lados), **la presión no afecta el equilibrio**.\n**Ejemplo:**\n$$\\mathrm{N_2(g)} + 3,\\mathrm{H_2(g)} \\rightleftharpoons 2,\\mathrm{NH_3(g)}$$\n- Moles gaseosos en reactivos: $1 + 3 = 4$\n- Moles gaseosos en productos: $2$\n💡 **Al aumentar la presión**, el equilibrio se **desplaza hacia la derecha**, favoreciendo la **formación de $\\mathrm{NH_3}$** (menos moles gaseosos).\n",
     "prompt": "¿Cómo afecta un aumento o disminución de presión a un equilibrio químico gaseoso?",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\8-equilibrio-quimico.md",
-    "reference_line": 138,
+    "reference_line": 103,
     "module_name": "5-quimica",
     "category": "equilibrioquimico"
   },
@@ -1755,7 +2075,7 @@
     "description": ":m Algunos factores pueden **modificar la velocidad** con que se alcanza el equilibrio, pero **no alteran su posición** ni las **concentraciones finales** de reactivos y productos.\n- **Aceleran** tanto la reacción directa como la inversa **por igual**.\n- **No modifican $K_c$ ni $K_p$**, solo permiten alcanzar el equilibrio **más rápido**.\n📘 **2. Cambios de volumen (sin gases):**\n- Solo afectan **reacciones gaseosas** donde cambian los **moles de gas**.\n- En sistemas **sin gases**, variar el volumen **no cambia el equilibrio**.\n**Ejemplo:**\nEn una reacción acuosa o sólida, como\n$$\\mathrm{AgCl_{(s)} \\rightleftharpoons Ag^+_{(ac)} + Cl^-_{(ac)}}$$\nni la presión ni el volumen alteran el equilibrio.\n",
     "prompt": "¿Por qué los catalizadores no modifican la posición del equilibrio químico?",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\8-equilibrio-quimico.md",
-    "reference_line": 209,
+    "reference_line": 174,
     "module_name": "5-quimica",
     "category": "equilibrioquimico"
   },
@@ -1995,7 +2315,7 @@
     "description": ":m Para resolver, recordemos:\n* **Ácidos oxoácidos**: se forman con no metales + oxígeno + H.\n* **Hidruros**: elemento + hidrógeno.\n* **Sales**: catión + anión (oxoaniones comunes: fosfatos, pirofosfatos, etc.).\n* **Hidróxidos**: metal + OH⁻.\n* **Óxidos**: combinación de un elemento con oxígeno.\n* **Sulfuros**: metal + S²⁻.\n1. Ácido piroarsénico\n2. Fosfina\n3. Pirofosfato de aluminio\n4. Hidróxido niqueloso\n5. Óxido nítrico\n6. Sulfuro férrico\n",
     "prompt": "Escriba las fórmulas de los siguientes compuestos:",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\modelo examen.md",
-    "reference_line": 29,
+    "reference_line": 31,
     "module_name": "5-quimica",
     "category": "modeloexamen"
   },
@@ -2005,7 +2325,7 @@
     "description": ":m “Piro-” indica condensación de **dos oxoácidos** con pérdida de $$\\mathrm{H_2O}$$. El ácido arsénico es $$\\mathrm{H_3AsO_4}$$ (análog o a $$\\mathrm{H_3PO_4}$$). Al dimerizar: se suman átomos y se resta agua: hidrógenos $$6-2=4$$, arsénicos $$2$$, oxígenos $$8-1=7$$. Resultado neutro.",
     "prompt": "Deduce la fórmula del **ácido piroarsénico** a partir de $$\\mathrm{H_3AsO_4}$$.",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\modelo examen.md",
-    "reference_line": 65,
+    "reference_line": 67,
     "module_name": "5-quimica",
     "category": "modeloexamen"
   },
@@ -2015,7 +2335,7 @@
     "description": ":m ![[Pasted image 20250929193138.png]]\nLa fosfina es el **hidruro covalente** de P. Los elementos del grupo 15 forman hidruros **trihidrogenados** tipo $$\\mathrm{EH_3}$$ (análogos a amoníaco). Cada H vale $$+1$$; para neutralidad, P queda en $$-3$$.",
     "prompt": "Justifica la fórmula de **fosfina** usando la valencia típica de P en hidruros.",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\modelo examen.md",
-    "reference_line": 75,
+    "reference_line": 77,
     "module_name": "5-quimica",
     "category": "modeloexamen"
   },
@@ -2025,7 +2345,7 @@
     "description": ":m ![[Pasted image 20250929194440.png]]\n![[Pasted image 20250929194226.png]]\nEl anión **pirofosfato** (diposfato) es $$\\mathrm{P_2O_7^{4-}}$$. El aluminio forma $$\\mathrm{Al^{3+}}$$. Para una sal neutra, cruzamos cargas con el **m.c.m.** de 3 y 4 (=12): (4) cationes dan (+12); (3) aniones dan (-12).",
     "prompt": "Obtén la fórmula del **pirofosfato de aluminio** a partir de $$\\mathrm{Al^{3+}}$$ y $$\\mathrm{P_2O_7^{4-}}$$.",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\modelo examen.md",
-    "reference_line": 87,
+    "reference_line": 89,
     "module_name": "5-quimica",
     "category": "modeloexamen"
   },
@@ -2035,7 +2355,7 @@
     "description": ":m ![[Pasted image 20250929194448.png]]\n![[Pasted image 20250929195412.png]]\n![[Pasted image 20250929200331.png]]\n![[Pasted image 20250929201013.png]]\n![[Pasted image 20250929195244.png]]\n![[Pasted image 20250929195204.png]]\nEsto es un ternario, Al ser hidroxido, significa que tenemos OH, si tiene oso significa que es el nitrogeno de valencia +2\n“**Niqueloso**” indica **Ni(II)**: $$\\mathrm{Ni^{2+}}$$. En hidróxidos, el anión es $$\\mathrm{OH^-}$$. Se necesitan **dos** hidróxidos para neutralizar (+2).",
     "prompt": "Deduce la fórmula del **hidróxido niqueloso**.",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\modelo examen.md",
-    "reference_line": 101,
+    "reference_line": 103,
     "module_name": "5-quimica",
     "category": "modeloexamen"
   },
@@ -2045,7 +2365,7 @@
     "description": ":m > Es un nombre\n![[Pasted image 20250929194456.png]]\n![[Pasted image 20250929194920.png]]\n![[Pasted image 20250929195057.png]]\n![[Pasted image 20250929195204.png]]\nEntonces al estar del nitico va a estar\nEl **óxido nítrico** es el óxido de nitrógeno en que N está en **+2**. El oxígeno suele estar en **−2**. Una sola O (−2) exige un N en +2 para neutralidad 1:1.",
     "prompt": "Llega a la fórmula del **óxido nítrico** desde ( \\mathrm{N}(+2) ) y ( \\mathrm{O}(-2) ).",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\modelo examen.md",
-    "reference_line": 127,
+    "reference_line": 129,
     "module_name": "5-quimica",
     "category": "modeloexamen"
   },
@@ -2055,7 +2375,7 @@
     "description": ":m ![[Pasted image 20250929194733.png]]\n![[Pasted image 20250929194831.png]]\n![[Pasted image 20250929195727.png]]\n![[Pasted image 20250929202418.png]]\nPorque se selecciona -2? porque en hidrico -> uro entonces se elige el menor\n![[Pasted image 20250929202921.png]]\n![[Pasted image 20250929194506.png]]\n“**Férrico**” corresponde a **Fe(III)**: $$\\mathrm{Fe^{3+}}$$. “**Sulfuro**” es $$\\mathrm{S^{2-}}$$. Para neutralidad, m.c.m.(3,2)=6 ⇒ (2) Fe(III) (+6) y (3) S(II) (−6).\n",
     "prompt": "Determina la fórmula del **sulfuro férrico**.",
     "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\modelo examen.md",
-    "reference_line": 146,
+    "reference_line": 148,
     "module_name": "5-quimica",
     "category": "modeloexamen"
   },
@@ -2108,5 +2428,895 @@
     "reference_line": 173,
     "module_name": "5-quimica",
     "category": "modelomejor"
+  },
+  {
+    "term": "1 - LiH",
+    "example": ":m nombre: Hidruro de litio\ntipo Hidruro metálico\nregla usada: En hidruros metálicos: H = −1",
+    "description": ":m Dado el compuesto LiH\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Hidruro metálico:** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Litio (+1), Hidrógeno (−1)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: LiH",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 1,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "2 - NaH",
+    "example": ":m nombre: Hidruro de sodio\ntipo Hidruro metálico\nregla usada: En hidruros metálicos: H = −1",
+    "description": ":m Dado el compuesto NaH\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Hidruro metálico:** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Sodio (+1), Hidrógeno (−1)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: NaH",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 22,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "3 - KH",
+    "example": ":m nombre: Hidruro de potasio\ntipo Hidruro metálico\nregla usada: En hidruros metálicos: H = −1",
+    "description": ":m Dado el compuesto KH\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Hidruro metálico:** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Potasio (+1), Hidrógeno (−1)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: KH",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 43,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "4 - CaH2",
+    "example": ":m nombre: Hidruro de calcio\ntipo Hidruro metálico\nregla usada: En hidruros metálicos: H = −1",
+    "description": ":m Dado el compuesto CaH2\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Hidruro metálico:** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Calcio (+2), Hidrógeno (−1)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: CaH2",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 64,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "5 - MgH2",
+    "example": ":m nombre: Hidruro de magnesio\ntipo Hidruro metálico\nregla usada: En hidruros metálicos: H = −1",
+    "description": ":m Dado el compuesto MgH2\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Hidruro metálico:** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Magnesio (+2), Hidrógeno (−1)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: MgH2",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 85,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "6 - HF",
+    "example": ":m nombre: Ácido fluorhídrico\ntipo Hidrácido\nregla usada: H = +1; no metal negativo",
+    "description": ":m Dado el compuesto HF\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Hidrácido:** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Hidrógeno (+1), Flúor (−1)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: HF",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 106,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "7 - HCl",
+    "example": ":m nombre: Ácido clorhídrico\ntipo Hidrácido\nregla usada: H = +1; no metal negativo",
+    "description": ":m Dado el compuesto HCl\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Hidrácido:** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Hidrógeno (+1), Cloro (−1)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: HCl",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 127,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "8 - HBr",
+    "example": ":m nombre: Ácido bromhídrico\ntipo Hidrácido\nregla usada: H = +1; no metal negativo",
+    "description": ":m Dado el compuesto HBr\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Hidrácido:** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Hidrógeno (+1), Bromo (−1)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: HBr",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 148,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "9 - HI",
+    "example": ":m nombre: Ácido yodhídrico\ntipo Hidrácido\nregla usada: H = +1; no metal negativo",
+    "description": ":m Dado el compuesto HI\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Hidrácido:** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Hidrógeno (+1), Yodo (−1)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: HI",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 169,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "10 - H2S",
+    "example": ":m nombre: Ácido sulfhídrico\ntipo Hidrácido\nregla usada: H = +1; no metal negativo",
+    "description": ":m Dado el compuesto H2S\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Hidrácido:** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Hidrógeno (+1), Azufre (−2)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: H2S",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 190,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "11 - NaOH",
+    "example": ":m nombre: Hidróxido de sodio\ntipo Hidróxido\nregla usada: Grupo OH = −1",
+    "description": ":m Dado el compuesto NaOH\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Hidróxido:** Hidróxidos: $M(OH)_n$ con $OH^{-}$. De óxido básico + agua. Se nombra: hidróxido de metal (valencia).\n**Elementos:** Sodio (+1), Oxígeno (−2), Hidrógeno (+1)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: NaOH",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 211,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "12 - KOH",
+    "example": ":m nombre: Hidróxido de potasio\ntipo Hidróxido\nregla usada: Grupo OH = −1",
+    "description": ":m Dado el compuesto KOH\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Hidróxido:** Hidróxidos: $M(OH)_n$ con $OH^{-}$. De óxido básico + agua. Se nombra: hidróxido de metal (valencia).\n**Elementos:** Potasio (+1), Oxígeno (−2), Hidrógeno (+1)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: KOH",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 232,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "13 - Ca(OH)2",
+    "example": ":m nombre: Hidróxido de calcio\ntipo Hidróxido\nregla usada: Grupo OH = −1",
+    "description": ":m Dado el compuesto Ca(OH)2\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Hidróxido:** Hidróxidos: $M(OH)_n$ con $OH^{-}$. De óxido básico + agua. Se nombra: hidróxido de metal (valencia).\n**Elementos:** Calcio (+2), Oxígeno (−2), Hidrógeno (+1)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: Ca(OH)2",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 253,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "14 - Mg(OH)2",
+    "example": ":m nombre: Hidróxido de magnesio\ntipo Hidróxido\nregla usada: Grupo OH = −1",
+    "description": ":m Dado el compuesto Mg(OH)2\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Hidróxido:** Hidróxidos: $M(OH)_n$ con $OH^{-}$. De óxido básico + agua. Se nombra: hidróxido de metal (valencia).\n**Elementos:** Magnesio (+2), Oxígeno (−2), Hidrógeno (+1)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: Mg(OH)2",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 274,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "15 - Al(OH)3",
+    "example": ":m nombre: Hidróxido de aluminio\ntipo Hidróxido\nregla usada: Grupo OH = −1",
+    "description": ":m Dado el compuesto Al(OH)3\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Hidróxido:** Hidróxidos: $M(OH)_n$ con $OH^{-}$. De óxido básico + agua. Se nombra: hidróxido de metal (valencia).\n**Elementos:** Aluminio (+3), Oxígeno (−2), Hidrógeno (+1)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: Al(OH)3",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 295,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "16 - HNO2",
+    "example": ":m nombre: Ácido nitroso\ntipo Oxoácido\nregla usada: H + no metal + O; valencias según anión",
+    "description": ":m Dado el compuesto HNO2\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Oxoácido:** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Hidrógeno (+1), Nitrógeno (+3), Oxígeno (−2)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: HNO2",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 316,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "17 - HNO3",
+    "example": ":m nombre: Ácido nítrico\ntipo Oxoácido\nregla usada: H + no metal + O; valencias según anión",
+    "description": ":m Dado el compuesto HNO3\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Oxoácido:** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Hidrógeno (+1), Nitrógeno (+5), Oxígeno (−2)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: HNO3",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 337,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "18 - H2SO3",
+    "example": ":m nombre: Ácido sulfuroso\ntipo Oxoácido\nregla usada: H + no metal + O; valencias según anión",
+    "description": ":m Dado el compuesto H2SO3\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Oxoácido:** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Hidrógeno (+1), Azufre (+4), Oxígeno (−2)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: H2SO3",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 358,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "19 - H2SO4",
+    "example": ":m nombre: Ácido sulfúrico\ntipo Oxoácido\nregla usada: H + no metal + O; valencias según anión",
+    "description": ":m Dado el compuesto H2SO4\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Oxoácido:** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Hidrógeno (+1), Azufre (+6), Oxígeno (−2)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: H2SO4",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 379,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "20 - H2CO3",
+    "example": ":m nombre: Ácido carbónico\ntipo Oxoácido\nregla usada: H + no metal + O; valencias según anión",
+    "description": ":m Dado el compuesto H2CO3\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Oxoácido:** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Hidrógeno (+1), Carbono (+4), Oxígeno (−2)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: H2CO3",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 400,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "21 - H2O2",
+    "example": ":m nombre: Peróxido de hidrógeno\ntipo Peróxido\nregla usada: En peróxidos: O = −1",
+    "description": ":m Dado el compuesto H2O2\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Peróxido:** Peróxidos contienen $O_2^{2-}$. Se nombran 'peróxido de ...'. Ej.: Na₂O₂, H₂O₂.\n**Elementos:** Metal/Hidrógeno, Oxígeno (−1)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: H2O2",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 421,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "22 - Na2O2",
+    "example": ":m nombre: Peróxido de sodio\ntipo Peróxido\nregla usada: En peróxidos: O = −1",
+    "description": ":m Dado el compuesto Na2O2\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Peróxido:** Peróxidos contienen $O_2^{2-}$. Se nombran 'peróxido de ...'. Ej.: Na₂O₂, H₂O₂.\n**Elementos:** Metal/Hidrógeno, Oxígeno (−1)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: Na2O2",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 442,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "23 - K2O2",
+    "example": ":m nombre: Peróxido de potasio\ntipo Peróxido\nregla usada: En peróxidos: O = −1",
+    "description": ":m Dado el compuesto K2O2\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Peróxido:** Peróxidos contienen $O_2^{2-}$. Se nombran 'peróxido de ...'. Ej.: Na₂O₂, H₂O₂.\n**Elementos:** Metal/Hidrógeno, Oxígeno (−1)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: K2O2",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 463,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "24 - BaO2",
+    "example": ":m nombre: Peróxido de bario\ntipo Peróxido\nregla usada: En peróxidos: O = −1",
+    "description": ":m Dado el compuesto BaO2\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Peróxido:** Peróxidos contienen $O_2^{2-}$. Se nombran 'peróxido de ...'. Ej.: Na₂O₂, H₂O₂.\n**Elementos:** Metal/Hidrógeno, Oxígeno (−1)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: BaO2",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 484,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "25 - LiCl",
+    "example": ":m nombre: cloruro de litio\ntipo Sal binaria\nregla usada: De hidrácido: “...uro de [metal]”",
+    "description": ":m Dado el compuesto LiCl\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Sal binaria:** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Litio (+1), Cloruro (-1)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: LiCl",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 505,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "26 - LiBr",
+    "example": ":m nombre: bromuro de litio\ntipo Sal binaria\nregla usada: De hidrácido: “...uro de [metal]”",
+    "description": ":m Dado el compuesto LiBr\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Sal binaria:** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Litio (+1), Bromuro (-1)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: LiBr",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 526,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "27 - LiI",
+    "example": ":m nombre: yoduro de litio\ntipo Sal binaria\nregla usada: De hidrácido: “...uro de [metal]”",
+    "description": ":m Dado el compuesto LiI\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Sal binaria:** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Litio (+1), Yoduro (-1)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: LiI",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 547,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "28 - LiF",
+    "example": ":m nombre: fluoruro de litio\ntipo Sal binaria\nregla usada: De hidrácido: “...uro de [metal]”",
+    "description": ":m Dado el compuesto LiF\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Sal binaria:** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Litio (+1), Fluoruro (-1)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: LiF",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 568,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "29 - Li2S",
+    "example": ":m nombre: sulfuro de litio\ntipo Sal binaria\nregla usada: De hidrácido: “...uro de [metal]”",
+    "description": ":m Dado el compuesto Li2S\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Sal binaria:** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Litio (+1), Sulfuro (-2)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: Li2S",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 589,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "30 - LiNO3",
+    "example": ":m nombre: nitrato de litio\ntipo Sal oxácida\nregla usada: De oxoácido correspondiente",
+    "description": ":m Dado el compuesto LiNO3\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Sal oxácida:** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Litio (+1), nitrato (-1), Oxígeno en anión\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: LiNO3",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 610,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "31 - LiNO2",
+    "example": ":m nombre: nitrito de litio\ntipo Sal oxácida\nregla usada: De oxoácido correspondiente",
+    "description": ":m Dado el compuesto LiNO2\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Sal oxácida:** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Litio (+1), nitrito (-1), Oxígeno en anión\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: LiNO2",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 631,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "32 - Li2SO4",
+    "example": ":m nombre: sulfato de litio\ntipo Sal oxácida\nregla usada: De oxoácido correspondiente",
+    "description": ":m Dado el compuesto Li2SO4\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Sal oxácida:** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Litio (+1), sulfato (-2), Oxígeno en anión\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: Li2SO4",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 652,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "33 - Li2SO3",
+    "example": ":m nombre: sulfito de litio\ntipo Sal oxácida\nregla usada: De oxoácido correspondiente",
+    "description": ":m Dado el compuesto Li2SO3\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Sal oxácida:** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Litio (+1), sulfito (-2), Oxígeno en anión\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: Li2SO3",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 673,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "34 - Li2CO3",
+    "example": ":m nombre: carbonato de litio\ntipo Sal oxácida\nregla usada: De oxoácido correspondiente",
+    "description": ":m Dado el compuesto Li2CO3\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Sal oxácida:** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Litio (+1), carbonato (-2), Oxígeno en anión\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: Li2CO3",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 694,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "35 - Cu2O",
+    "example": ":m nombre: Óxido cuproso\ntipo Óxido (básico/anfótero)\nregla usada: O = −2; balancear con valencia del metal",
+    "description": ":m Dado el compuesto Cu2O\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Óxido (básico/anfótero):** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Cobre (+1,+2), Oxígeno (−2)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: Cu2O",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 715,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "36 - CuO",
+    "example": ":m nombre: Óxido cúprico\ntipo Óxido (básico/anfótero)\nregla usada: O = −2; balancear con valencia del metal",
+    "description": ":m Dado el compuesto CuO\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Óxido (básico/anfótero):** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Cobre (+1,+2), Oxígeno (−2)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: CuO",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 736,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "37 - FeO",
+    "example": ":m nombre: Óxido ferroso\ntipo Óxido (básico/anfótero)\nregla usada: O = −2; balancear con valencia del metal",
+    "description": ":m Dado el compuesto FeO\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Óxido (básico/anfótero):** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Hierro (+2,+3), Oxígeno (−2)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: FeO",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 757,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "38 - Fe2O3",
+    "example": ":m nombre: Óxido férrico\ntipo Óxido (básico/anfótero)\nregla usada: O = −2; balancear con valencia del metal",
+    "description": ":m Dado el compuesto Fe2O3\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Óxido (básico/anfótero):** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Hierro (+2,+3), Oxígeno (−2)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: Fe2O3",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 778,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "39 - SnO",
+    "example": ":m nombre: Óxido estañoso\ntipo Óxido (básico/anfótero)\nregla usada: O = −2; balancear con valencia del metal",
+    "description": ":m Dado el compuesto SnO\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Óxido (básico/anfótero):** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Estaño (+2,+4), Oxígeno (−2)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: SnO",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 799,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "40 - CO",
+    "example": ":m nombre: Monóxido de carbono\ntipo Óxido (ácido/anhídrido)\nregla usada: O = −2; no metal con valencia positiva",
+    "description": ":m Dado el compuesto CO\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Óxido (ácido/anhídrido):** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Carbono (+2,+4), Oxígeno (−2)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: CO",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 820,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "41 - SO2",
+    "example": ":m nombre: Dióxido de azufre\ntipo Óxido (ácido/anhídrido)\nregla usada: O = −2; no metal con valencia positiva",
+    "description": ":m Dado el compuesto SO2\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Óxido (ácido/anhídrido):** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Azufre (+4,+6), Oxígeno (−2)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: SO2",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 841,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "42 - CO2",
+    "example": ":m nombre: Dióxido de carbono\ntipo Óxido (ácido/anhídrido)\nregla usada: O = −2; no metal con valencia positiva",
+    "description": ":m Dado el compuesto CO2\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Óxido (ácido/anhídrido):** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Carbono (+4), Oxígeno (−2)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: CO2",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 862,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "43 - SO3",
+    "example": ":m nombre: Trióxido de azufre\ntipo Óxido (ácido/anhídrido)\nregla usada: O = −2; no metal con valencia positiva",
+    "description": ":m Dado el compuesto SO3\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Óxido (ácido/anhídrido):** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Azufre (+6), Oxígeno (−2)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: SO3",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 883,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "44 - NO",
+    "example": ":m nombre: Óxido nítrico (NO)\ntipo Óxido (ácido/anhídrido)\nregla usada: O = −2; no metal con valencia positiva\ndado el compuesto: SO3\n??x\nnombre: Trióxido de azufre\ntipo Óxido (ácido/anhídrido)\nregla usada: O = −2; no metal con valencia positiva",
+    "description": ":m Dado el compuesto NO\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Óxido (ácido/anhídrido):** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Nitrógeno (+2), Oxígeno (−2)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: NO",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 904,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "45 - NO",
+    "example": ":m nombre: Óxido nítrico (NO)\ntipo Óxido (ácido/anhídrido)\nregla usada: O = −2; no metal con valencia positiva",
+    "description": ":m Dado el compuesto NO\n**Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- Valores típicos: $O = -2$, $H = +1$ (salvo hidruros metálicos: $H = -1$).\n- Si el elemento presenta múltiples valencias: **-oso** (menor), **-ico** (mayor) o número romano (II, III, IV...).\n- Sistemática: prefijos mono-, di-, tri-, tetra-, penta-, hexa-, etc.\n**Reglas específicas para Óxido (ácido/anhídrido):** Sigue las reglas de combinación de valencias y neutralidad de carga.\n**Elementos:** Nitrógeno (+2), Oxígeno (−2)\n",
+    "prompt": "Escribí el nombre de la molécula dado el compuesto: NO",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_comp_nombre.md",
+    "reference_line": 931,
+    "module_name": "5-quimica",
+    "category": "moleccompnombre"
+  },
+  {
+    "term": "1 - Hidruro de litio",
+    "example": ":m LiH\ntipo Hidruro metálico\nregla usada: En hidruros metálicos: H = −1",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Hidruro metálico:** Compuesto inorgánico que sigue las reglas generales de combinación de valencias.\n**Elementos:** Litio (+1), Hidrógeno (−1), -\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: Hidruro de litio",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 1,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "2 - Hidruro de sodio",
+    "example": ":m NaH\ntipo Hidruro metálico\nregla usada: En hidruros metálicos: H = −1",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Hidruro metálico:** Compuesto inorgánico que sigue las reglas generales de combinación de valencias.\n**Elementos:** Sodio (+1), Hidrógeno (−1), -\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: Hidruro de sodio",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 24,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "3 - Hidruro de potasio",
+    "example": ":m KH\ntipo Hidruro metálico\nregla usada: En hidruros metálicos: H = −1",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Hidruro metálico:** Compuesto inorgánico que sigue las reglas generales de combinación de valencias.\n**Elementos:** Potasio (+1), Hidrógeno (−1), -\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: Hidruro de potasio",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 47,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "4 - Hidruro de calcio",
+    "example": ":m CaH2\ntipo Hidruro metálico\nregla usada: En hidruros metálicos: H = −1",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Hidruro metálico:** Compuesto inorgánico que sigue las reglas generales de combinación de valencias.\n**Elementos:** Calcio (+2), Hidrógeno (−1), -\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: Hidruro de calcio",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 70,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "5 - Hidruro de magnesio",
+    "example": ":m MgH2\ntipo Hidruro metálico\nregla usada: En hidruros metálicos: H = −1",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Hidruro metálico:** Compuesto inorgánico que sigue las reglas generales de combinación de valencias.\n**Elementos:** Magnesio (+2), Hidrógeno (−1), -\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: Hidruro de magnesio",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 93,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "6 - Ácido fluorhídrico",
+    "example": ":m HF\ntipo Hidrácido\nregla usada: H = +1; no metal negativo",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Hidrácido:** Compuesto inorgánico que sigue las reglas generales de combinación de valencias.\n**Elementos:** Hidrógeno (+1), Flúor (−1), -\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: Ácido fluorhídrico",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 116,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "7 - Ácido clorhídrico",
+    "example": ":m HCl\ntipo Hidrácido\nregla usada: H = +1; no metal negativo",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Hidrácido:** Compuesto inorgánico que sigue las reglas generales de combinación de valencias.\n**Elementos:** Hidrógeno (+1), Cloro (−1), -\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: Ácido clorhídrico",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 139,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "8 - Ácido bromhídrico",
+    "example": ":m HBr\ntipo Hidrácido\nregla usada: H = +1; no metal negativo",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Hidrácido:** Compuesto inorgánico que sigue las reglas generales de combinación de valencias.\n**Elementos:** Hidrógeno (+1), Bromo (−1), -\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: Ácido bromhídrico",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 162,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "9 - Ácido yodhídrico",
+    "example": ":m HI\ntipo Hidrácido\nregla usada: H = +1; no metal negativo",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Hidrácido:** Compuesto inorgánico que sigue las reglas generales de combinación de valencias.\n**Elementos:** Hidrógeno (+1), Yodo (−1), -\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: Ácido yodhídrico",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 185,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "10 - Ácido sulfhídrico",
+    "example": ":m H2S\ntipo Hidrácido\nregla usada: H = +1; no metal negativo",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Hidrácido:** Compuesto inorgánico que sigue las reglas generales de combinación de valencias.\n**Elementos:** Hidrógeno (+1), Azufre (−2), -\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: Ácido sulfhídrico",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 208,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "11 - Hidróxido de sodio",
+    "example": ":m NaOH\ntipo Hidróxido\nregla usada: Grupo OH = −1",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Hidróxido:** Se forman combinando óxidos básicos con agua. Fórmula general M(OH)_n. Ejemplo: Fe(OH)₂ → hidróxido de hierro (II).\n**Elementos:** Sodio (+1), Oxígeno (−2), Hidrógeno (+1)\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: Hidróxido de sodio",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 231,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "12 - Hidróxido de potasio",
+    "example": ":m KOH\ntipo Hidróxido\nregla usada: Grupo OH = −1",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Hidróxido:** Se forman combinando óxidos básicos con agua. Fórmula general M(OH)_n. Ejemplo: Fe(OH)₂ → hidróxido de hierro (II).\n**Elementos:** Potasio (+1), Oxígeno (−2), Hidrógeno (+1)\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: Hidróxido de potasio",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 254,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "13 - Hidróxido de calcio",
+    "example": ":m Ca(OH)2\ntipo Hidróxido\nregla usada: Grupo OH = −1",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Hidróxido:** Se forman combinando óxidos básicos con agua. Fórmula general M(OH)_n. Ejemplo: Fe(OH)₂ → hidróxido de hierro (II).\n**Elementos:** Calcio (+2), Oxígeno (−2), Hidrógeno (+1)\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: Hidróxido de calcio",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 277,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "14 - Hidróxido de magnesio",
+    "example": ":m Mg(OH)2\ntipo Hidróxido\nregla usada: Grupo OH = −1",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Hidróxido:** Se forman combinando óxidos básicos con agua. Fórmula general M(OH)_n. Ejemplo: Fe(OH)₂ → hidróxido de hierro (II).\n**Elementos:** Magnesio (+2), Oxígeno (−2), Hidrógeno (+1)\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: Hidróxido de magnesio",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 300,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "15 - Hidróxido de aluminio",
+    "example": ":m Al(OH)3\ntipo Hidróxido\nregla usada: Grupo OH = −1",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Hidróxido:** Se forman combinando óxidos básicos con agua. Fórmula general M(OH)_n. Ejemplo: Fe(OH)₂ → hidróxido de hierro (II).\n**Elementos:** Aluminio (+3), Oxígeno (−2), Hidrógeno (+1)\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: Hidróxido de aluminio",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 323,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "16 - Ácido nitroso",
+    "example": ":m HNO2\ntipo Oxoácido\nregla usada: H + no metal + O; valencias según anión",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Oxoácido:** Compuesto inorgánico que sigue las reglas generales de combinación de valencias.\n**Elementos:** Hidrógeno (+1), Nitrógeno (+3), Oxígeno (−2)\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: Ácido nitroso",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 346,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "17 - Ácido nítrico",
+    "example": ":m HNO3\ntipo Oxoácido\nregla usada: H + no metal + O; valencias según anión",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Oxoácido:** Compuesto inorgánico que sigue las reglas generales de combinación de valencias.\n**Elementos:** Hidrógeno (+1), Nitrógeno (+5), Oxígeno (−2)\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: Ácido nítrico",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 369,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "18 - Ácido sulfuroso",
+    "example": ":m H2SO3\ntipo Oxoácido\nregla usada: H + no metal + O; valencias según anión",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Oxoácido:** Compuesto inorgánico que sigue las reglas generales de combinación de valencias.\n**Elementos:** Hidrógeno (+1), Azufre (+4), Oxígeno (−2)\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: Ácido sulfuroso",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 392,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "19 - Ácido sulfúrico",
+    "example": ":m H2SO4\ntipo Oxoácido\nregla usada: H + no metal + O; valencias según anión",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Oxoácido:** Compuesto inorgánico que sigue las reglas generales de combinación de valencias.\n**Elementos:** Hidrógeno (+1), Azufre (+6), Oxígeno (−2)\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: Ácido sulfúrico",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 415,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "20 - Ácido carbónico",
+    "example": ":m H2CO3\ntipo Oxoácido\nregla usada: H + no metal + O; valencias según anión",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Oxoácido:** Compuesto inorgánico que sigue las reglas generales de combinación de valencias.\n**Elementos:** Hidrógeno (+1), Carbono (+4), Oxígeno (−2)\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: Ácido carbónico",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 438,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "21 - Peróxido de hidrógeno",
+    "example": ":m H2O2\ntipo Peróxido\nregla usada: En peróxidos: O = −1",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Peróxido:** Contienen el grupo O₂²⁻. Ej: H₂O₂ → peróxido de hidrógeno. Se nombran como peróxidos de metal o hidrógeno.\n**Elementos:** Metal/Hidrógeno, Oxígeno (−1), -\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: Peróxido de hidrógeno",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 461,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "22 - Peróxido de sodio",
+    "example": ":m Na2O2\ntipo Peróxido\nregla usada: En peróxidos: O = −1",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Peróxido:** Contienen el grupo O₂²⁻. Ej: H₂O₂ → peróxido de hidrógeno. Se nombran como peróxidos de metal o hidrógeno.\n**Elementos:** Metal/Hidrógeno, Oxígeno (−1), -\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: Peróxido de sodio",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 484,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "23 - Peróxido de potasio",
+    "example": ":m K2O2\ntipo Peróxido\nregla usada: En peróxidos: O = −1",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Peróxido:** Contienen el grupo O₂²⁻. Ej: H₂O₂ → peróxido de hidrógeno. Se nombran como peróxidos de metal o hidrógeno.\n**Elementos:** Metal/Hidrógeno, Oxígeno (−1), -\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: Peróxido de potasio",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 507,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "24 - Peróxido de bario",
+    "example": ":m BaO2\ntipo Peróxido\nregla usada: En peróxidos: O = −1",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Peróxido:** Contienen el grupo O₂²⁻. Ej: H₂O₂ → peróxido de hidrógeno. Se nombran como peróxidos de metal o hidrógeno.\n**Elementos:** Metal/Hidrógeno, Oxígeno (−1), -\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: Peróxido de bario",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 530,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "25 - cloruro de litio",
+    "example": ":m LiCl\ntipo Sal binaria\nregla usada: De hidrácido: “...uro de [metal]”",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Sal binaria:** Compuesto inorgánico que sigue las reglas generales de combinación de valencias.\n**Elementos:** Litio (+1), Cloruro (-1), -\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: cloruro de litio",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 553,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "26 - bromuro de litio",
+    "example": ":m LiBr\ntipo Sal binaria\nregla usada: De hidrácido: “...uro de [metal]”",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Sal binaria:** Compuesto inorgánico que sigue las reglas generales de combinación de valencias.\n**Elementos:** Litio (+1), Bromuro (-1), -\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: bromuro de litio",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 576,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "27 - yoduro de litio",
+    "example": ":m LiI\ntipo Sal binaria\nregla usada: De hidrácido: “...uro de [metal]”",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Sal binaria:** Compuesto inorgánico que sigue las reglas generales de combinación de valencias.\n**Elementos:** Litio (+1), Yoduro (-1), -\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: yoduro de litio",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 599,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "28 - fluoruro de litio",
+    "example": ":m LiF\ntipo Sal binaria\nregla usada: De hidrácido: “...uro de [metal]”",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Sal binaria:** Compuesto inorgánico que sigue las reglas generales de combinación de valencias.\n**Elementos:** Litio (+1), Fluoruro (-1), -\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: fluoruro de litio",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 622,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "29 - sulfuro de litio",
+    "example": ":m Li2S\ntipo Sal binaria\nregla usada: De hidrácido: “...uro de [metal]”",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Sal binaria:** Compuesto inorgánico que sigue las reglas generales de combinación de valencias.\n**Elementos:** Litio (+1), Sulfuro (-2), -\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: sulfuro de litio",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 645,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "30 - nitrato de litio",
+    "example": ":m LiNO3\ntipo Sal oxácida\nregla usada: De oxoácido correspondiente",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Sal oxácida:** Compuesto inorgánico que sigue las reglas generales de combinación de valencias.\n**Elementos:** Litio (+1), nitrato (-1), Oxígeno en anión\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: nitrato de litio",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 668,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "31 - nitrito de litio",
+    "example": ":m LiNO2\ntipo Sal oxácida\nregla usada: De oxoácido correspondiente",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Sal oxácida:** Compuesto inorgánico que sigue las reglas generales de combinación de valencias.\n**Elementos:** Litio (+1), nitrito (-1), Oxígeno en anión\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: nitrito de litio",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 691,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "32 - sulfato de litio",
+    "example": ":m Li2SO4\ntipo Sal oxácida\nregla usada: De oxoácido correspondiente",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Sal oxácida:** Compuesto inorgánico que sigue las reglas generales de combinación de valencias.\n**Elementos:** Litio (+1), sulfato (-2), Oxígeno en anión\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: sulfato de litio",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 714,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "33 - sulfito de litio",
+    "example": ":m Li2SO3\ntipo Sal oxácida\nregla usada: De oxoácido correspondiente",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Sal oxácida:** Compuesto inorgánico que sigue las reglas generales de combinación de valencias.\n**Elementos:** Litio (+1), sulfito (-2), Oxígeno en anión\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: sulfito de litio",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 737,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "34 - carbonato de litio",
+    "example": ":m Li2CO3\ntipo Sal oxácida\nregla usada: De oxoácido correspondiente",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Sal oxácida:** Compuesto inorgánico que sigue las reglas generales de combinación de valencias.\n**Elementos:** Litio (+1), carbonato (-2), Oxígeno en anión\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: carbonato de litio",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 760,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "35 - Óxido de litio",
+    "example": ":m Li2O\ntipo Óxido (básico/anfótero)\nregla usada: O = −2; balancear con valencia del metal",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Óxido (básico/anfótero):** Compuesto inorgánico que sigue las reglas generales de combinación de valencias.\n**Elementos:** Litio (+1), Oxígeno (−2), -\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: Óxido de litio",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 783,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "36 - Óxido de sodio",
+    "example": ":m Na2O\ntipo Óxido (básico/anfótero)\nregla usada: O = −2; balancear con valencia del metal",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Óxido (básico/anfótero):** Compuesto inorgánico que sigue las reglas generales de combinación de valencias.\n**Elementos:** Sodio (+1), Oxígeno (−2), -\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: Óxido de sodio",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 806,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "37 - Óxido de potasio",
+    "example": ":m K2O\ntipo Óxido (básico/anfótero)\nregla usada: O = −2; balancear con valencia del metal",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Óxido (básico/anfótero):** Compuesto inorgánico que sigue las reglas generales de combinación de valencias.\n**Elementos:** Potasio (+1), Oxígeno (−2), -\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: Óxido de potasio",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 829,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "38 - Óxido de magnesio",
+    "example": ":m MgO\ntipo Óxido (básico/anfótero)\nregla usada: O = −2; balancear con valencia del metal",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Óxido (básico/anfótero):** Compuesto inorgánico que sigue las reglas generales de combinación de valencias.\n**Elementos:** Magnesio (+2), Oxígeno (−2), -\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: Óxido de magnesio",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 852,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "39 - Óxido de calcio",
+    "example": ":m CaO\ntipo Óxido (básico/anfótero)\nregla usada: O = −2; balancear con valencia del metal",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Óxido (básico/anfótero):** Compuesto inorgánico que sigue las reglas generales de combinación de valencias.\n**Elementos:** Calcio (+2), Oxígeno (−2), -\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: Óxido de calcio",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 875,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "40 - Monóxido de carbono",
+    "example": ":m CO\ntipo Óxido (ácido/anhídrido)\nregla usada: O = −2; no metal con valencia positiva",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Óxido (ácido/anhídrido):** Compuesto inorgánico que sigue las reglas generales de combinación de valencias.\n**Elementos:** Carbono (+2,+4), Oxígeno (−2), -\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: Monóxido de carbono",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 898,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "41 - Dióxido de carbono",
+    "example": ":m CO2\ntipo Óxido (ácido/anhídrido)\nregla usada: O = −2; no metal con valencia positiva",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Óxido (ácido/anhídrido):** Compuesto inorgánico que sigue las reglas generales de combinación de valencias.\n**Elementos:** Carbono (+4), Oxígeno (−2), -\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: Dióxido de carbono",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 921,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "42 - Dióxido de azufre",
+    "example": ":m SO2\ntipo Óxido (ácido/anhídrido)\nregla usada: O = −2; no metal con valencia positiva",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Óxido (ácido/anhídrido):** Compuesto inorgánico que sigue las reglas generales de combinación de valencias.\n**Elementos:** Azufre (+4,+6), Oxígeno (−2), -\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: Dióxido de azufre",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 944,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "43 - Trióxido de azufre",
+    "example": ":m SO3\ntipo Óxido (ácido/anhídrido)\nregla usada: O = −2; no metal con valencia positiva",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Óxido (ácido/anhídrido):** Compuesto inorgánico que sigue las reglas generales de combinación de valencias.\n**Elementos:** Azufre (+6), Oxígeno (−2), -\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: Trióxido de azufre",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 967,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
+  },
+  {
+    "term": "44 - Óxido nítrico (NO)",
+    "example": ":m NO\ntipo Óxido (ácido/anhídrido)\nregla usada: O = −2; no metal con valencia positiva",
+    "description": ":m **Reglas generales de nomenclatura:**\n- Se nombra primero el elemento menos electronegativo (usualmente el metal).\n- El oxígeno y el hidrógeno tienen valencias fijas (-2 y +1, respectivamente) salvo excepciones.\n- Si el elemento presenta múltiples valencias:\n- Terminación **-oso** indica menor valencia.\n- Terminación **-ico** indica mayor valencia.\n- También puede usarse el número romano (II, III, IV...).\n- En la forma sistemática, se usan prefijos numéricos (mono-, di-, tri-, tetra-, etc.).\n**Reglas específicas para Óxido (ácido/anhídrido):** Compuesto inorgánico que sigue las reglas generales de combinación de valencias.\n**Elementos:** Nitrógeno (+2), Oxígeno (−2), -\n",
+    "prompt": "Escribí la molécula dado este nombre de molécula: Óxido nítrico (NO)",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\molec_nombre_comp.md",
+    "reference_line": 990,
+    "module_name": "5-quimica",
+    "category": "molecnombrecomp"
   }
 ]

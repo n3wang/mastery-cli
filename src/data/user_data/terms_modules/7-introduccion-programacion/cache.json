@@ -1,1 +1,52 @@
-[]
+[
+  {
+    "term": "1 - Contadores con flip-flops",
+    "example": ":m Puede representar **$2^4 = 16$ estados** como máximo.",
+    "description": ":m Cada **flip-flop** representa 1 bit, por lo tanto un contador con $n$ flip-flops puede representar:\n$$2^n \\text{ estados}$$\n",
+    "prompt": "¿Cuántos estados puede representar un contador de 4 flip-flops?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-introduccion-programacion\\cache_md\\circuitos realimentados p2.md",
+    "reference_line": 5,
+    "module_name": "7-introduccion-programacion",
+    "category": "circuitosrealimentadosp"
+  },
+  {
+    "term": "2 - Contador de 4 bits (0000 a 1001)",
+    "example": ":m El módulo es **10**, ya que tiene 10 estados distintos.",
+    "description": ":m El contador va desde **0000 (0)** hasta **1001 (9)**, lo que significa que recorre **10 estados**.\n",
+    "prompt": "¿Cuál es el módulo de un contador de 4 bits que cuenta de 0000 a 1001?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-introduccion-programacion\\cache_md\\circuitos realimentados p2.md",
+    "reference_line": 18,
+    "module_name": "7-introduccion-programacion",
+    "category": "circuitosrealimentadosp"
+  },
+  {
+    "term": "3 - Contador de 3 bits con estados omitidos",
+    "example": ":m Se consideran **estados no válidos** o **inexistentes (X)** dentro del ciclo de conteo.",
+    "description": ":m Un contador de **3 bits** puede tener hasta **8 estados (000–111)**, pero si no pasa por **110 y 111**, esos estados no se utilizan.\n",
+    "prompt": "¿Cómo se consideran los estados no utilizados (110 y 111) en un contador?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-introduccion-programacion\\cache_md\\circuitos realimentados p2.md",
+    "reference_line": 29,
+    "module_name": "7-introduccion-programacion",
+    "category": "circuitosrealimentadosp"
+  },
+  {
+    "term": "4 - Contador sincrónico",
+    "example": ":m **Falso.**\nEn un contador sincrónico **todos** los flip-flops comparten el mismo reloj.",
+    "description": ":m En un **contador sincrónico**, **todos los flip-flops están conectados al mismo reloj (clock)**, es decir, cambian de estado simultáneamente.\nSi solo _algunos_ están conectados, dejaría de ser completamente sincrónico.\n",
+    "prompt": "¿Es verdadero que en un contador sincrónico solo algunos flip-flops comparten la misma señal de clock?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-introduccion-programacion\\cache_md\\circuitos realimentados p2.md",
+    "reference_line": 40,
+    "module_name": "7-introduccion-programacion",
+    "category": "circuitosrealimentadosp"
+  },
+  {
+    "term": "5 - Verificación mediante diagrama temporal",
+    "example": ":m **Verdadero.**\nEl diagrama temporal muestra la evolución de los bits y permite confirmar que el contador sigue la secuencia correcta.",
+    "description": ":m El **diagrama temporal** permite visualizar la secuencia de estados de salida del contador y compararla con la esperada. Es una forma válida de **verificar el funcionamiento correcto** del diseño, ya sea en papel o simulador.\n",
+    "prompt": "¿Realizar el diagrama temporal es una forma válida de verificar un contador?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-introduccion-programacion\\cache_md\\circuitos realimentados p2.md",
+    "reference_line": 53,
+    "module_name": "7-introduccion-programacion",
+    "category": "circuitosrealimentadosp"
+  }
+]

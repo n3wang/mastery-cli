@@ -83,15 +83,16 @@ function getMasksByAlgorithm() {
 }
 
 /**
- *
+ * @param {Object} options - Loading options
+ * @param {string[]} options.deckFilter - Optional array of deck names to load (skips others)
  * @returns Master Deck containing all the cards
  */
-async function populateMasterDeck() {
+async function populateMasterDeck({ deckFilter = null } = {}) {
 	terms = [];
 
 	let decks = new TermStorage([], 'Academic Terms');
 	const allSampleTerms = require('./sample_terms.js');
-	
+
 	// Dynamically add all decks from sample_terms with automated naming
 	Object.entries(allSampleTerms).forEach(([termKey, termData]) => {
 		// Skip non-array data like CURRENCY_SIMBOLS
@@ -99,9 +100,22 @@ async function populateMasterDeck() {
 			console.log(`⏭ Skipping non-array export: ${termKey}`);
 			return;
 		}
-		
+
 		// Convert term key to display name: underscores to spaces, lowercase
 		const deckDisplayName = termKey.replace(/_/g, ' ').toLowerCase();
+
+		// If deckFilter is provided, check if this deck matches
+		if (deckFilter && deckFilter.length > 0) {
+			const matches = deckFilter.some(filter =>
+				deckDisplayName.toLowerCase().includes(filter.toLowerCase()) ||
+				filter.toLowerCase().includes(deckDisplayName.toLowerCase())
+			);
+			if (!matches) {
+				console.log(`⏭ Skipping deck (not in filter): "${deckDisplayName}"`);
+				return;
+			}
+		}
+
 		console.log(`➕ Adding deck: "${deckDisplayName}" with ${termData.length} terms`);
 		decks.addDeck(new TermStorage(termData, deckDisplayName));
 	});
@@ -109,7 +123,7 @@ async function populateMasterDeck() {
 	// Add terms_modules (like cfa, datascience, etc.)
 	try {
 		const { retrieve_terms_as_decks } = require('../md_terms_parser');
-		const termsModules = retrieve_terms_as_decks();
+		const termsModules = retrieve_terms_as_decks({ deckFilter });
 		for (const key of Object.keys(termsModules)) {
 			decks.addDeck(termsModules[key]);
 		}

@@ -5,15 +5,6 @@
       "title": "TODO",
       "cards": [
         {
-          "id": "a8092e97-653b-4cf5-8689-c180e8410b5e",
-          "listId": "c83cefdc-13d7-4ce8-b338-0a7aa7eb7a34",
-          "title": "mcli fses",
-          "description": "create the fses feature\nfses would be a variation of ses. the idea is that this would however filter by only showing the quick decks configuration that is being used on src\\user_data\\settings.json\n\"quiz_decks_configuration\": {\n\t\t\"masks\": [\n\t\t\t{\n\t\t\t\t\"title\": \"cert-focus\",\n\t\t\t\t\"decks_to_enable\": [\n\t\t\t\t\t\"cfa\",\n\t\t\t\t\t\"datascience-statistics\"\n\t\t\t\t]\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"title\": \"school-focus\",\n\t\t\t\t\"decks_to_enable\": [\n\t\t\t\t\t\"college-algebra\",\n\t\t\t\t\t\"college-engineering\",\n\t\t\t\t\t\"college-digital-systems\",\n\t\t\t\t\t\"college-quimica\",\n\t\t\t\t\t\"college-math-analysis\",\n\t\t\t\t\t\"college-programming\"\n\t\t\t\t]\n\t\t\t}\n\t\t],\n\t\t\"use_masks\": [\n\t\t\t\"school-focus\"\n\t\t]\n\t},\n\nalso 2 random decks\nAlso include how to run to create via the cli masks and toggle use and not use them.",
-          "labels": [],
-          "checkboxes": [],
-          "comments": []
-        },
-        {
           "id": "7f61e118-97e6-4a27-acf3-0e6f918168fa",
           "listId": "c83cefdc-13d7-4ce8-b338-0a7aa7eb7a34",
           "title": "better temp problems fill ups.",
@@ -26,7 +17,7 @@
           "id": "bbc954fc-28ad-4469-bd4c-56dbabce86fd",
           "listId": "c83cefdc-13d7-4ce8-b338-0a7aa7eb7a34",
           "title": "Imrprove the todays creation cards",
-          "description": "",
+          "description": "how?\n- remove the ",
           "labels": [],
           "checkboxes": [],
           "comments": []
@@ -52,6 +43,21 @@
       "id": "5969e69c-fe41-4634-85b5-3cd8c9380974",
       "title": "Done",
       "cards": [
+        {
+          "id": "a8092e97-653b-4cf5-8689-c180e8410b5e",
+          "listId": "5969e69c-fe41-4634-85b5-3cd8c9380974",
+          "title": "mcli fses",
+          "description": "create the fses feature\nfses would be a variation of ses. the idea is that this would however filter by only showing the quick decks configuration that is being used on src\\user_data\\settings.json\n\"quiz_decks_configuration\": {\n\t\t\"masks\": [\n\t\t\t{\n\t\t\t\t\"title\": \"cert-focus\",\n\t\t\t\t\"decks_to_enable\": [\n\t\t\t\t\t\"cfa\",\n\t\t\t\t\t\"datascience-statistics\"\n\t\t\t\t]\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"title\": \"school-focus\",\n\t\t\t\t\"decks_to_enable\": [\n\t\t\t\t\t\"college-algebra\",\n\t\t\t\t\t\"college-engineering\",\n\t\t\t\t\t\"college-digital-systems\",\n\t\t\t\t\t\"college-quimica\",\n\t\t\t\t\t\"college-math-analysis\",\n\t\t\t\t\t\"college-programming\"\n\t\t\t\t]\n\t\t\t}\n\t\t],\n\t\t\"use_masks\": [\n\t\t\t\"school-focus\"\n\t\t]\n\t},\n\nalso 2 random decks\nAlso include how to run to create via the cli masks and toggle use and not use them.",
+          "labels": [],
+          "checkboxes": [
+            {
+              "id": "a3fc24ca-f23c-48d4-9512-739546ae9789",
+              "title": "fses",
+              "checked": true
+            }
+          ],
+          "comments": []
+        },
         {
           "id": "ab55a093-6068-46e0-a997-941d2ed192fa",
           "listId": "5969e69c-fe41-4634-85b5-3cd8c9380974",

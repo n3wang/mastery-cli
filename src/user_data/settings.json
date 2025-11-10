@@ -116,10 +116,18 @@
           "college-math-analysis",
           "college-programming"
         ]
-      }
+      },
+	  {
+		"title": "current_booknotes",
+		"decks_to_enable": [
+		  "Operating-Systems_-Three-Easy-Pieces",
+		  "Game-Engine-Architecture",
+		  "Parallel-and-High-Performance-Computing"
+		]
+	  }
     ],
     "use_masks": [
-      "school-focus"
+      "school-focus","current_booknotes"
     ]
   },
   "flashcard_markdown_file": "current-quiz.md",

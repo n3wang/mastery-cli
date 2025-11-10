@@ -300,6 +300,646 @@
     "category": "limite"
   },
   {
+    "term": "1 - ¿Qué es una indeterminación de límite?",
+    "example": ":m Se llaman “indeterminaciones” porque la sustitución directa no determina el valor del límite. Para resolverlas, se transforman las expresiones (factorizar, simplificar, racionalizar, dividir por potencias dominantes) hasta obtener una forma donde el límite pueda evaluarse.",
+    "description": ":m Una **indeterminación** aparece al sustituir el valor $x \\to a$ en un límite y obtener formas que no permiten decidir el valor del límite de manera directa (por ejemplo, $\\frac{0}{0}$, $\\frac{\\infty}{\\infty}$, $\\infty-\\infty$). Se “salva” aplicando artificios algebraicos (factorizar, racionalizar, dividir por la mayor potencia, etc.) para poder evaluar el límite.",
+    "prompt": "¿Por qué se llaman “indeterminaciones” y qué se hace para resolverlas?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\3-indeterminacionesdellimite.md",
+    "reference_line": 2,
+    "module_name": "7-math-analysis",
+    "category": "indeterminacionesdellimite"
+  },
+  {
+    "term": "2 - Indeterminación tipo $\\frac{0}{0}$ en cociente de polinomios",
+    "example": ":m Factorizar numerador y denominador para exhibir el factor $(x-a)$ asociado a la raíz común, cancelarlo y luego evaluar el límite en la expresión simplificada.",
+    "description": ":m **Descripción:** Si al evaluar $x \\to a$ se obtiene $\\frac{0}{0}$, entonces $x=a$ es raíz tanto del numerador como del denominador. La técnica estándar es **factorizar** ambos polinomios y **cancelar** el factor común $(x-a)$.",
+    "prompt": "¿Cuál es la estrategia principal para resolver $\\frac{0}{0}$ en un cociente de polinomios?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\3-indeterminacionesdellimite.md",
+    "reference_line": 12,
+    "module_name": "7-math-analysis",
+    "category": "indeterminacionesdellimite"
+  },
+  {
+    "term": "3 - Herramientas de factorización (repaso rápido)",
+    "example": ":m 4. Factor común, por ejemplo: $12x^4+4x^3-6x^7=2x^3(6x+2-3x^4).$\n5. Diferencia de cuadrados, por ejemplo: $x^2-81=(x-9)(x+9).$\n6. Trinomio cuadrático, por ejemplo: $2x^2+2x-12=2(x-2)(x+3).$",
+    "description": ":m **Descripción:** Para salvar $\\frac{0}{0}$ conviene recordar:\n1. **Factor común:** $12x^4+4x^3-6x^7=2x^3(6x+2-3x^4).$\n2. **Diferencia de cuadrados:** $(x^2-a^2)=(x-a)(x+a).$\n3. **Trinomio cuadrático:** si $x_1,x_2$ son raíces de $ax^2+bx+c$, entonces $ax^2+bx+c=a(x-x_1)(x-x_2).$",
+    "prompt": "Menciona tres técnicas de factorización útiles y un ejemplo de cada una.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\3-indeterminacionesdellimite.md",
+    "reference_line": 22,
+    "module_name": "7-math-analysis",
+    "category": "indeterminacionesdellimite"
+  },
+  {
+    "term": "4 - Regla de Ruffini (división por $x-a$)",
+    "example": ":m Para dividir numerador y denominador por $x-a$ cuando $a$ es raíz común, obteniendo factores explícitos y permitiendo cancelar $(x-a)$.",
+    "description": ":m **Descripción:** Para dividir un polinomio por un binomio lineal $x-a$ y factorizar cuando $x=a$ es raíz. El resultado da un polinomio de un grado menos y un resto (que es $0$ si $a$ es raíz).",
+    "prompt": "¿Para qué se usa Ruffini al enfrentar $\\frac{0}{0}$ en polinomios?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\3-indeterminacionesdellimite.md",
+    "reference_line": 38,
+    "module_name": "7-math-analysis",
+    "category": "indeterminacionesdellimite"
+  },
+  {
+    "term": "5 - Racionalización con conjugados (raíces cuadradas)",
+    "example": ":m El conjugado cambia el signo entre términos: de $\\sqrt{A}-\\sqrt{B}$ a $\\sqrt{A}+\\sqrt{B}$. Al multiplicar y dividir por el conjugado se usa $(\\sqrt{A}-\\sqrt{B})(\\sqrt{A}+\\sqrt{B})=A-B$, que elimina las raíces y permite simplificar el límite.",
+    "description": ":m **Descripción:** En cocientes con raíces, multiplicar por el **conjugado** elimina la raíz en numerador o denominador (completa una diferencia de cuadrados) y suele resolver la $\\frac{0}{0}$.",
+    "prompt": "¿Cuál es el “conjugado” y por qué ayuda a eliminar raíces en límites?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\3-indeterminacionesdellimite.md",
+    "reference_line": 48,
+    "module_name": "7-math-analysis",
+    "category": "indeterminacionesdellimite"
+  },
+  {
+    "term": "6 - Indeterminación $\\frac{\\infty}{\\infty}$ en polinomios: grados dominantes",
+    "example": ":m Comparando grados: si el grado del numerador es mayor, el límite diverge (signo según coeficientes); si es menor, vale $0$; si es igual, vale el cociente de coeficientes líderes $\\frac{a_n}{b_m}.$",
+    "description": ":m **Descripción:** Dividir numerador y denominador por la **mayor potencia** de $x$ presente; luego analizar los **términos dominantes**.\nReglas rápidas para $\\lim_{x\\to\\infty}\\frac{p(x)}{q(x)}$ con $p,q$ polinomios de grados $n,m$ y coeficientes líderes $a_n,b_m$:\n* Si $n>m$, el cociente $\\to \\infty$ (o $-\\infty$ según signos).\n* Si $n<m$, el cociente $\\to 0.$\n* Si $n=m$, $\\to \\frac{a_n}{b_m}.$\n",
+    "prompt": "¿Cómo decidir el valor del límite al infinito en cocientes de polinomios?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\3-indeterminacionesdellimite.md",
+    "reference_line": 58,
+    "module_name": "7-math-analysis",
+    "category": "indeterminacionesdellimite"
+  },
+  {
+    "term": "7 - Indeterminación $\\infty-\\infty$ con raíces: idea general",
+    "example": ":m 1. Multiplicar y dividir por el conjugado para convertir la diferencia de raíces en diferencia de radicandos.\n2. Si resulta $\\frac{\\infty}{\\infty}$, dividir por la potencia dominante (p.ej. por $x$ o $\\sqrt{x^2}$) y evaluar la tendencia de cada término.",
+    "description": ":m **Descripción:** En expresiones como $\\sqrt{x^2+ax}-\\sqrt{x^2+bx}$ con $x\\to \\infty$, se **multiplica por el conjugado** y luego, si aparece $\\frac{\\infty}{\\infty}$, se **divide por la potencia dominante** (p.ej. por $\\sqrt{x^2}=|x|$; si $x\\to+\\infty$, vale $x$).",
+    "prompt": "¿Qué dos pasos encadenados resuelven $\\infty-\\infty$ con raíces cuadradas?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\3-indeterminacionesdellimite.md",
+    "reference_line": 73,
+    "module_name": "7-math-analysis",
+    "category": "indeterminacionesdellimite"
+  },
+  {
+    "term": "8 - Comparación de crecimiento: exponencial vs polinómica vs logarítmica",
+    "example": ":m El orden es: exponencial $>$ polinómica $>$ logarítmica. Sirve porque en un cociente domina la función de crecimiento más rápido: si está arriba, suele ir a $\\infty$; si está abajo, tiende a $0$.",
+    "description": ":m **Descripción:** Al estudiar $\\frac{f(x)}{g(x)}$ cuando $x\\to\\infty$, importa **qué crece más rápido**: $\\text{exponencial} \\gg \\text{polinómica} \\gg \\text{logarítmica}$. Esto decide si el cociente va a $0$, a $\\infty$ o a un número finito.",
+    "prompt": "Ordena por velocidad de crecimiento para $x\\to\\infty$: logarítmica, polinómica y exponencial. ¿Por qué sirve esta comparación en límites?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\3-indeterminacionesdellimite.md",
+    "reference_line": 84,
+    "module_name": "7-math-analysis",
+    "category": "indeterminacionesdellimite"
+  },
+  {
+    "term": "9 - Procedimiento típico: $\\frac{0}{0}$ con raíces (ejemplo guiado)",
+    "example": ":m Multiplico y divido por $\\sqrt{x}+1$:\n$\\frac{\\sqrt{x}-1}{x-1}\\cdot\\frac{\\sqrt{x}+1}{\\sqrt{x}+1}=\\frac{x-1}{(x-1)(\\sqrt{x}+1)}=\\frac{1}{\\sqrt{x}+1}\\to \\frac{1}{2}.$",
+    "description": ":m **Descripción:** Para $\\lim_{x\\to 1}\\frac{\\sqrt{x}-1}{x-1}$: racionalizar el numerador con su conjugado.",
+    "prompt": "¿Cómo resuelves $\\lim_{x\\to 1}\\frac{\\sqrt{x}-1}{x-1}$ sin derivadas?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\3-indeterminacionesdellimite.md",
+    "reference_line": 94,
+    "module_name": "7-math-analysis",
+    "category": "indeterminacionesdellimite"
+  },
+  {
+    "term": "10 - Procedimiento típico: $\\frac{\\infty}{\\infty}$ con polinomios (ejemplo guiado)",
+    "example": ":m Dividir por $x^5$:\n$\\frac{3+\\frac{2}{x^3}+\\frac{1}{x^5}}{\\frac{4}{x^2}+\\frac{3}{x^5}}\\to \\frac{3}{0^+}=\\infty$, pues el numerador $\\to 3$ y el denominador $\\to 0^+.$",
+    "description": ":m **Descripción:** En $\\lim_{x\\to\\infty}\\frac{3x^5+2x^2+1}{4x^3+3}$ dividir por $x^5$ (potencia dominante del numerador).",
+    "prompt": "Evalúa $\\lim_{x\\to\\infty}\\frac{3x^5+2x^2+1}{4x^3+3}$ comparando grados.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\3-indeterminacionesdellimite.md",
+    "reference_line": 105,
+    "module_name": "7-math-analysis",
+    "category": "indeterminacionesdellimite"
+  },
+  {
+    "term": "11 - Aplicación: asíntota horizontal como “tope” de utilidad",
+    "example": ":m Como los grados son iguales, el límite es el cociente de coeficientes líderes: $\\lim_{x\\to\\infty}\\frac{2000x}{x+1}=2000.$ El tope de utilidad es $2000.$",
+    "description": ":m **Descripción:** En funciones racionales $U(x)=\\frac{ax+b}{cx+d}$ con $x\\to\\infty$, si los grados son iguales, $U(x)\\to \\frac{a}{c}$ (asíntota horizontal). Interpretable como **límite máximo** de utilidad al aumentar $x$ (p.ej., inversión en publicidad).",
+    "prompt": "Si $U(x)=\\frac{2000x}{x+1}$ modela utilidad en función de inversión $x$, ¿cuál es el tope máximo cuando $x\\to\\infty$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\3-indeterminacionesdellimite.md",
+    "reference_line": 116,
+    "module_name": "7-math-analysis",
+    "category": "indeterminacionesdellimite"
+  },
+  {
+    "term": "12 - Checklist de técnicas para “salvar” indeterminaciones",
+    "example": ":m a) Factorizar: $x^2-9=(x-3)(x+3)$ y cancelar $x-3$.\nb) Conjugado del numerador, luego simplificar.\nc) Dividir por la mayor potencia ($x^5$) y usar regla de grados ($\\to 0$).\nd) Multiplicar por el conjugado y luego dividir por $x$ (para $x\\to\\infty$).",
+    "description": ":m **Descripción:** Guía rápida según el tipo de expresión:\n* $\\frac{0}{0}$ (polinomios): factorizar (Ruffini, trinomios, diferencia de cuadrados) y cancelar.\n* Raíces: multiplicar por el conjugado.\n* $\\frac{\\infty}{\\infty}$ (polinomios): dividir por potencia dominante y comparar grados.\n* Diferencias tipo $\\infty-\\infty$ con raíces: conjugado y luego dividir por potencia dominante (p.ej. $x$).\n* No polinómicas: comparar crecimientos (exponencial/polinómica/logarítmica).\na) $\\frac{x^2-9}{x-3}$\nb) $\\frac{\\sqrt{x+4}-\\sqrt{x}}{x}$\nc) $\\frac{5x^3-7}{2x^5+1}$\nd) $\\sqrt{x^2+5x}-\\sqrt{x^2+x}$",
+    "prompt": "¿Qué técnica aplicarías en cada uno?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\3-indeterminacionesdellimite.md",
+    "reference_line": 126,
+    "module_name": "7-math-analysis",
+    "category": "indeterminacionesdellimite"
+  },
+  {
+    "term": "13 - Límite (a): cociente de polinomios con $\\frac{0}{0}$",
+    "example": ":m Factorizo: $$2x-4=2(x-2),\\quad 2x^2-3x-2=(2x+1)(x-2).$$ Cancelo $(x-2)$ y evalúo:\n$$\\lim_{x\\to 2}\\frac{2(x-2)}{(2x+1)(x-2)}=\\lim_{x\\to 2}\\frac{2}{2x+1}=\\frac{2}{5}.$$",
+    "description": ":m **Descripción:** Al sustituir $x\\to 2$ en $$\\frac{2x-4}{2x^2-3x-2}$$ se obtiene $\\frac{0}{0}$. Se factoriza y se cancela el factor común $(x-2)$.",
+    "prompt": "Calcula $\\lim_{x\\to 2}\\frac{2x-4}{2x^2-3x-2}$ mostrando la factorización y la cancelación del factor común.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\3-indeterminacionesdellimite.md",
+    "reference_line": 153,
+    "module_name": "7-math-analysis",
+    "category": "indeterminacionesdellimite"
+  },
+  {
+    "term": "14 - Límite (b): asíntota vertical y límites laterales",
+    "example": ":m Factorizo el denominador: $$3x^2-8x+4=(3x-2)(x-2).$$ Como el numerador $\\to 8>0$ cerca de $x=2$ y $3x-2\\to 4>0$:\n* Si $x\\to 2^+$, entonces $x-2\\to 0^+$ $\\Rightarrow$ denominador $0^+$ $\\Rightarrow$ cociente $\\to +\\infty$.\n* Si $x\\to 2^-$, entonces $x-2\\to 0^-$ $\\Rightarrow$ denominador $0^-$ $\\Rightarrow$ cociente $\\to -\\infty$.\nConclusión: el límite bilateral **no existe** (diverge), con asíntota vertical en $x=2$.",
+    "description": ":m **Descripción:** En $$\\frac{2x^3+x^2-7x+2}{3x^2-8x+4}$$ el denominador se anula en $x=2$ mientras el numerador no ($=8$), lo que sugiere asíntota vertical.",
+    "prompt": "Calcula $\\lim_{x\\to 2}\\frac{2x^3+x^2-7x+2}{3x^2-8x+4}$ y describe su comportamiento lateral.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\3-indeterminacionesdellimite.md",
+    "reference_line": 164,
+    "module_name": "7-math-analysis",
+    "category": "indeterminacionesdellimite"
+  },
+  {
+    "term": "15 - Regla rápida: cociente de polinomios al infinito",
+    "example": ":m Comparando grados y, si empatan, usando el cociente de coeficientes líderes: $n<m\\Rightarrow 0$; $n=m\\Rightarrow \\frac{a_n}{b_m}$; $n>m\\Rightarrow \\pm\\infty$.",
+    "description": ":m Para $x\\to+\\infty$, si $p$ y $q$ son polinomios de grados $n$ y $m$ con coeficientes líderes $a_n$ y $b_m$:\n- Si $n<m$, el límite es $0$.\n- Si $n=m$, el límite es $\\frac{a_n}{b_m}$.\n- Si $n>m$, el cociente $\\to \\pm\\infty$ según signos dominantes. ",
+    "prompt": "¿Cómo decidir rápidamente $\\lim_{x\\to+\\infty}\\frac{p(x)}{q(x)}$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\3-indeterminacionesdellimite.md",
+    "reference_line": 177,
+    "module_name": "7-math-analysis",
+    "category": "indeterminacionesdellimite"
+  },
+  {
+    "term": "16 - Ej. 2 (a): $\\displaystyle \\lim_{x\\to+\\infty}\\frac{2x^2-3x-4}{x^4-5}$",
+    "example": ":m Como $2<4$, $$\\lim_{x\\to+\\infty}\\frac{2x^2-3x-4}{x^4-5}=0.$$",
+    "description": ":m **Descripción:** Grados: numerador $2$, denominador $4$ $\\Rightarrow$ domina el denominador; el cociente se aplasta a $0$. ",
+    "prompt": "Calcula $\\lim_{x\\to+\\infty}\\frac{2x^2-3x-4}{x^4-5}$.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\3-indeterminacionesdellimite.md",
+    "reference_line": 192,
+    "module_name": "7-math-analysis",
+    "category": "indeterminacionesdellimite"
+  },
+  {
+    "term": "17 - Ej. 2 (b): $\\displaystyle \\lim_{x\\to+\\infty}\\frac{x^2-3x^3+1}{5x^3+3x-2}$",
+    "example": ":m Coeficientes líderes: $a_3=-3$, $b_3=5$. Entonces\n$$\\lim_{x\\to+\\infty}\\frac{x^2-3x^3+1}{5x^3+3x-2}=\\frac{-3}{5}.$$",
+    "description": ":m **Descripción:** Grados iguales $3$ y $3$; tomar coeficientes líderes ($-3$ y $5$). ",
+    "prompt": "Calcula $\\lim_{x\\to+\\infty}\\frac{x^2-3x^3+1}{5x^3+3x-2}$.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\3-indeterminacionesdellimite.md",
+    "reference_line": 202,
+    "module_name": "7-math-analysis",
+    "category": "indeterminacionesdellimite"
+  },
+  {
+    "term": "18 - Ej. 2 (c): $\\displaystyle \\lim_{x\\to+\\infty}\\frac{3x^2+3x^6+1}{x^3+3}$",
+    "example": ":m Como $6>3$, el cociente crece como $$\\frac{3x^6}{x^3}=3x^3\\to+\\infty,$$ por lo que el límite diverge a $+\\infty$.",
+    "description": ":m **Descripción:** Grados $6$ (numerador) y $3$ (denominador); domina el numerador positivo $\\sim 3x^6$. ",
+    "prompt": "Calcula $\\lim_{x\\to+\\infty}\\frac{3x^2+3x^6+1}{x^3+3}$ e indica su tendencia.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\3-indeterminacionesdellimite.md",
+    "reference_line": 213,
+    "module_name": "7-math-analysis",
+    "category": "indeterminacionesdellimite"
+  },
+  {
+    "term": "19 - Límites laterales de $f(x)$ en $x=0$",
+    "example": ":m Izquierda: $e^{1/x}\\to0\\Rightarrow \\lim_{x\\to0^-}f(x)=\\tfrac12$.\nDerecha: $$\\frac{\\sqrt{x+1}-1}{x}\\cdot\\frac{\\sqrt{x+1}+1}{\\sqrt{x+1}+1}=\\frac{1}{\\sqrt{x+1}+1}\\to \\tfrac12.$$\nComo ambos laterales valen $\\tfrac12$, **existe** y $\\displaystyle \\lim_{x\\to0}f(x)=\\tfrac12$.",
+    "description": ":m ![[Pasted image 20251106190351.png]]\n**Descripción:** $f(x)=\\begin{cases}\\tfrac12+e^{1/x},& x<0[2mm]\\dfrac{\\sqrt{x+1}-1}{x},& x>0\\end{cases}$. A la izquierda $1/x\\to-\\infty\\Rightarrow e^{1/x}\\to0$; a la derecha se racionaliza.",
+    "prompt": "Halla $,\\lim_{x\\to0^-}f(x)$, $,\\lim_{x\\to0^+}f(x)$ y decide si $\\lim_{x\\to0}f(x)$ existe.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\3-indeterminacionesdellimite.md",
+    "reference_line": 223,
+    "module_name": "7-math-analysis",
+    "category": "indeterminacionesdellimite"
+  },
+  {
+    "term": "20 - Límite lateral de $g(x)$ en $x=-2$",
+    "example": ":m Izquierda (rama 1): factorizar $$\\frac{2x^2-8}{x^3-6x-4}=\\frac{2(x-2)(x+2)}{(x+2)(x^2-2x-2)}=\\frac{2(x-2)}{x^2-2x-2}.$$\nAl tender $x\\to-2$: $\\displaystyle \\frac{2(-4)}{6}=-\\frac43.$\nDerecha (rama 2): en $x\\to-2^+$, numerador $\\to12>0$ y denominador $\\sqrt{3x^2+4}-4\\to0^-$ (porque $\\sqrt{3x^2+4}<4$ dentro de $(-2,2)$), luego $$\\lim_{x\\to-2^+}g(x)=-\\infty.$$\nComo los laterales difieren ($-\\tfrac43$ y $-\\infty$), el límite **no existe** y hay asíntota vertical desde la derecha.",
+    "description": ":m Calcular los límites laterales de las siguientes funciones y determinar la existencia del mismo en los puntos indicados.\n**Descripción:** $g(x)=\\begin{cases}\\dfrac{2x^2-8}{x^3-6x-4},& x\\le-2[2mm]\\dfrac{-3x+6}{\\sqrt{3x^2+4}-4},& -2<x<2[2mm]\\dfrac{x^2-4}{4-2x},& x>2\\end{cases}$. En $x=-2$ se usan las ramas 1 (izq.) y 2 (der.).",
+    "prompt": "Calcula $,\\lim_{x\\to-2^-}g(x)$ y $,\\lim_{x\\to-2^+}g(x)$ y decide si $\\lim_{x\\to-2}g(x)$ existe.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\3-indeterminacionesdellimite.md",
+    "reference_line": 235,
+    "module_name": "7-math-analysis",
+    "category": "indeterminacionesdellimite"
+  },
+  {
+    "term": "21 - Límite en $x=2$ para $g(x)$",
+    "example": ":m Izquierda (rama 2): $$\\frac{-3x+6}{\\sqrt{3x^2+4}-4}\\cdot\\frac{\\sqrt{3x^2+4}+4}{\\sqrt{3x^2+4}+4}=\\frac{-3(x-2)(\\sqrt{3x^2+4}+4)}{3(x^2-4)}=-\\frac{\\sqrt{3x^2+4}+4}{x+2}\\to -\\frac{4+4}{4}=-2.$$\nDerecha (rama 3): $$\\frac{x^2-4}{4-2x}=\\frac{(x-2)(x+2)}{-2(x-2)}=-\\frac{x+2}{2}\\to -2.$$\nAmbos laterales valen $-2$, por lo tanto **existe** y $\\displaystyle \\lim_{x\\to2}g(x)=-2$ (aunque $g$ no esté definida en $x=2$).\n![[Pasted image 20251106190841.png]]",
+    "description": ":m Calcular los límites laterales de las siguientes funciones y determinar la existencia del mismo en los puntos indicados.\n![[Pasted image 20251106190850.png]]\n**Descripción:** En $x=2$ se usan las ramas 2 (izq.) y 3 (der.).",
+    "prompt": "Calcula $,\\lim_{x\\to2^-}g(x)$ y $,\\lim_{x\\to2^+}g(x)$ y decide si $\\lim_{x\\to2}g(x)$ existe.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\3-indeterminacionesdellimite.md",
+    "reference_line": 248,
+    "module_name": "7-math-analysis",
+    "category": "indeterminacionesdellimite"
+  },
+  {
+    "term": "22 - Límite 4(a): $4^{-x}$ al infinito",
+    "example": ":m $$4^{-x}=\\left(\\tfrac14\\right)^{x}\\xrightarrow[x\\to+\\infty]{}0.$$",
+    "description": ":m **Descripción:** Potencias con base mayor que $1$ y exponente $-x$ se vuelven fracciones $(\\tfrac14)^x$ que se aplastan a $0$ cuando $x\\to+\\infty$.",
+    "prompt": "Calcula $\\lim_{x\\to+\\infty}4^{-x}$.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\3-indeterminacionesdellimite.md",
+    "reference_line": 261,
+    "module_name": "7-math-analysis",
+    "category": "indeterminacionesdellimite"
+  },
+  {
+    "term": "23 - Límite 4(b): $\\displaystyle \\lim_{x\\to-1}\\frac{-3x^3+4x+1}{2x+2}$",
+    "example": ":m Factorizo: $$-3x^3+4x+1=-(x+1)(3x^2-3x-1),\\quad 2x+2=2(x+1).$$\nCancelo $x+1$ y evalúo:\n$$\\lim_{x\\to-1}-\\frac{3x^2-3x-1}{2}=-\\frac{3(1)+3-1}{2}=-\\frac{5}{2}.$$",
+    "description": ":m **Descripción:** Al sustituir $x=-1$ aparece $\\tfrac{0}{0}$. Se factoriza el numerador para cancelar $x+1$.",
+    "prompt": "Resuelve $\\lim_{x\\to-1}\\frac{-3x^3+4x+1}{2x+2}$ factorizando.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\3-indeterminacionesdellimite.md",
+    "reference_line": 271,
+    "module_name": "7-math-analysis",
+    "category": "indeterminacionesdellimite"
+  },
+  {
+    "term": "24 - Límite 4(c): $\\displaystyle \\lim_{x\\to+\\infty}\\frac{-3x^3+4x+1}{2x+2}$",
+    "example": ":m $$\\frac{-3x^3+4x+1}{2x+2}\\sim \\frac{-3x^3}{2x}=-\\frac32x^2\\to -\\infty.$$",
+    "description": ":m **Descripción:** Comparación de grados: arriba grado $3$, abajo grado $1$; domina el numerador $\\sim -3x^3$.",
+    "prompt": "Determina la tendencia de $\\frac{-3x^3+4x+1}{2x+2}$ cuando $x\\to+\\infty$.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\3-indeterminacionesdellimite.md",
+    "reference_line": 283,
+    "module_name": "7-math-analysis",
+    "category": "indeterminacionesdellimite"
+  },
+  {
+    "term": "25 - Límite 4(d): $\\displaystyle \\lim_{x\\to+\\infty}\\left(\\frac{3x^2+1}{2x^2-6}\\right)^{x^2}$",
+    "example": ":m $$\\frac{3x^2+1}{2x^2-6}\\xrightarrow[x\\to+\\infty]{}\\frac32>1,\\qquad x^2\\to+\\infty\\ \\Rightarrow\\ \\left(\\frac{3x^2+1}{2x^2-6}\\right)^{x^2}\\to+\\infty.$$",
+    "description": ":m **Descripción:** La base tiende a $\\tfrac{3}{2}>1$ y el exponente $x^2\\to+\\infty$; por lo tanto crece sin cota.Calcular los siguientes límites: Calcular los siguientes límites:",
+    "prompt": "Evalúa el límite y justifica por el valor de la base.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\3-indeterminacionesdellimite.md",
+    "reference_line": 293,
+    "module_name": "7-math-analysis",
+    "category": "indeterminacionesdellimite"
+  },
+  {
+    "term": "26 - Límite 4(e): $\\displaystyle \\lim_{x\\to\\infty}2^{1/x}$",
+    "example": ":m $$2^{1/x}=e^{(\\ln2)/x}\\xrightarrow[x\\to\\infty]{}e^{0}=1.$$",
+    "description": ":m **Descripción:** Exponente tiende a $0$; usar continuidad de la exponencial o forma $e^{(\\ln2)/x}$. Calcular los siguientes límites:",
+    "prompt": "Calcula $\\lim_{x\\to\\infty}2^{1/x}$.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\3-indeterminacionesdellimite.md",
+    "reference_line": 303,
+    "module_name": "7-math-analysis",
+    "category": "indeterminacionesdellimite"
+  },
+  {
+    "term": "27 - Ej. 5: hallar $a$ para que $$\\lim_{x\\to 0}\\frac{\\sqrt{x^2-ax+1}-1}{x}=2$$",
+    "example": ":m Multiplico y divido por el conjugado:\n$$\\frac{\\sqrt{x^2-ax+1}-1}{x}\\cdot\\frac{\\sqrt{x^2-ax+1}+1}{\\sqrt{x^2-ax+1}+1}\n=\\frac{x^2-ax+1-1}{x\\left(\\sqrt{x^2-ax+1}+1\\right)}\n=\\frac{x-a}{\\sqrt{x^2-ax+1}+1}.$$\nAhora $x\\to 0 \\Rightarrow \\sqrt{x^2-ax+1}\\to 1$, por lo que\n$$\\lim_{x\\to 0}\\frac{x-a}{\\sqrt{x^2-ax+1}+1}=\\frac{0-a}{1+1}=-\\frac{a}{2}.$$\nImponiendo $-\\frac{a}{2}=2$ se obtiene $a=-4$.\n**Respuesta:** $a=-4$.",
+    "description": ":m **Descripción:** Límite tipo $\\frac{0}{0}$ con raíz. Se racionaliza para eliminar la raíz y evaluar. La idea clave es transformar la diferencia de raíces en diferencia de radicandos.",
+    "prompt": "Encuentra el valor real de $a$ tal que $$\\lim_{x\\to 0}\\frac{\\sqrt{x^2-ax+1}-1}{x}=2,$$ justificando con racionalización.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\3-indeterminacionesdellimite.md",
+    "reference_line": 312,
+    "module_name": "7-math-analysis",
+    "category": "indeterminacionesdellimite"
+  },
+  {
+    "term": "1 - Límite exponencial con exponente decreciente",
+    "example": ":m El producto $2x\\cdot\\frac{2}{x^2}=\\frac{4}{x}\\to0$, por lo tanto la expresión tiende a $1^0=1$.\n**Resultado:** $1$.",
+    "description": ":m **Descripción:**\nCuando el exponente decrece más rápido que la base tiende a $1$, la expresión se acerca a $1$. En este caso,\n$$\\lim_{x\\to\\infty}\\left(1+\\frac{2}{x^2}\\right)^{2x}$$\ntiene exponente $2x$ y término $\\frac{2}{x^2}$, cuyo producto $\\frac{4}{x}\\to0$.",
+    "prompt": "¿Cuál es el valor del límite $\\lim_{x\\to\\infty}\\left(1+\\frac{2}{x^2}\\right)^{2x}$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\4-ejercicios.md",
+    "reference_line": 1,
+    "module_name": "7-math-analysis",
+    "category": "ejercicios"
+  },
+  {
+    "term": "2 - Factorización en el argumento del seno",
+    "example": ":m Usando la diferencia de cuadrados: $$x^2-9=(x+3)(x-3),$$ lo que permite igualar el argumento del seno con el factor $(x-3)$.",
+    "description": ":m **Descripción:**\nEn el límite $$\\lim_{x\\to3}\\frac{\\sin(x^2-9)+1}{x^3-x^2-9x+9},$$ el argumento $x^2-9$ puede escribirse como $(x+3)(x-3)$ (diferencia de cuadrados). Esto permite emparejar el argumento del seno con el factor $(x-3)$ del denominador para aplicar el límite notable $\\frac{\\sin t}{t}\\to1$.",
+    "prompt": "¿Cómo se factoriza el argumento del seno $x^2-9$ para aplicar el límite notable?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\4-ejercicios.md",
+    "reference_line": 15,
+    "module_name": "7-math-analysis",
+    "category": "ejercicios"
+  },
+  {
+    "term": "3 - Límite con seno y cuadrado del denominador",
+    "example": ":m Sustituyendo $x^2-1\\approx2(x+1)$, se tiene\n$$\\frac{\\sin(2(x+1))}{(x+1)^2}\\approx\\frac{2(x+1)}{(x+1)^2}=\\frac{2}{x+1}\\to\\infty.$$\n**Resultado:** $\\infty$.",
+    "description": ":m **Descripción:**\nEn $$\\lim_{x\\to-1}\\frac{\\sin(x^2-1)}{(x+1)^2},$$ el argumento del seno se aproxima a $0$ y puede escribirse como $(x-1)(x+1)$. Alrededor de $x=-1$, $x^2-1\\approx2(x+1)$. Así, el seno se comporta como $\\sin(2(x+1))\\approx2(x+1)$, y el cociente crece sin límite.",
+    "prompt": "Determina el valor del límite $\\lim_{x\\to-1}\\frac{\\sin(x^2-1)}{(x+1)^2}$.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\4-ejercicios.md",
+    "reference_line": 26,
+    "module_name": "7-math-analysis",
+    "category": "ejercicios"
+  },
+  {
+    "term": "4 - Límite con constante no nula en el numerador",
+    "example": ":m El numerador $\\to3$, el denominador $\\to0$, por lo tanto el cociente diverge a $\\infty$.\n**Resultado:** $\\infty$.",
+    "description": ":m **Descripción:**\nEn $$\\lim_{x\\to0}\\frac{\\sin(x)+3}{2x},$$ al tender $x\\to0$, $\\sin(x)\\to0$ y el numerador $\\to3$. Como el denominador tiende a $0$, el cociente crece sin límite.",
+    "prompt": "¿Cuál es el resultado de $\\lim_{x\\to0}\\frac{\\sin(x)+3}{2x}$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\4-ejercicios.md",
+    "reference_line": 39,
+    "module_name": "7-math-analysis",
+    "category": "ejercicios"
+  },
+  {
+    "term": "5 - Límite trigonométrico con cuadrado en el denominador",
+    "example": ":m El primer factor tiende a $1$, mientras que $\\frac{2}{x+1}\\to\\infty$, por lo tanto el límite diverge.\n**Resultado:** $\\infty.$",
+    "description": ":m **Descripción:**\nEl límite $$\\lim_{x\\to-1}\\frac{\\sin(x^2-1)}{(x+1)^2}$$ presenta una indeterminación $\\frac{0}{0}$ ya que $x^2-1=(x-1)(x+1)$.\nCerca de $x=-1$, $x^2-1\\approx2(x+1)$, entonces\n$$\\frac{\\sin(x^2-1)}{(x+1)^2}\\approx\\frac{\\sin(2(x+1))}{(x+1)^2}=\\frac{\\sin(2(x+1))}{2(x+1)}\\cdot\\frac{2}{x+1}.$$\nEl primer factor $\\to1$, el segundo $\\to\\infty$.",
+    "prompt": "¿Cuál es el valor del límite $\\lim_{x\\to-1}\\frac{\\sin(x^2-1)}{(x+1)^2}$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\4-ejercicios.md",
+    "reference_line": 52,
+    "module_name": "7-math-analysis",
+    "category": "ejercicios"
+  },
+  {
+    "term": "6 - Límite con numerador constante y denominador tendiendo a cero",
+    "example": ":m Como el numerador $\\to3$ y el denominador $\\to0$, el cociente crece sin límite.\n**Resultado:** $\\infty.$",
+    "description": ":m **Descripción:**\nEn $$\\lim_{x\\to0}\\frac{\\sin(x)+3}{2x},$$ al acercarse $x$ a $0$, $\\sin(x)\\to0$, el numerador $\\to3$, y el denominador $\\to0$.\nDividir un número positivo por una cantidad muy pequeña positiva da un valor grande positivo.",
+    "prompt": "¿Cuál es el resultado del límite $\\lim_{x\\to0}\\frac{\\sin(x)+3}{2x}$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\4-ejercicios.md",
+    "reference_line": 67,
+    "module_name": "7-math-analysis",
+    "category": "ejercicios"
+  },
+  {
+    "term": "1 - Límite notable del seno",
+    "example": ":m $$\\lim_{t\\to 0}\\frac{\\sin t}{t}=1.$$",
+    "description": ":m **Descripción:** Base para resolver límites con senos cerca de $0$. Es fundamental igualar el argumento del seno con el denominador.",
+    "prompt": "Enuncia el límite notable de $\\sin t$ y su valor.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\4-Indeterminaciones del límite - Parte I.md",
+    "reference_line": 1,
+    "module_name": "7-math-analysis",
+    "category": "IndeterminacionesdellmiteParteI"
+  },
+  {
+    "term": "2 - Sustitución para igualar argumento y variable",
+    "example": ":m Tomar $t=g(x)$ y reexpresar el cociente como $$\\frac{\\sin(g(x))}{x}=\\frac{\\sin t}{t}\\cdot\\frac{t}{x},$$ de modo que $\\frac{\\sin t}{t}\\to1$ y el límite queda por el factor $\\frac{t}{x}=\\frac{g(x)}{x}.$",
+    "description": ":m **Descripción:** Si aparece $\\dfrac{\\sin(g(x))}{x}$ con $g(x)\\to0$ cuando $x\\to0$, conviene hacer el cambio $t=g(x)$ para usar el límite notable.",
+    "prompt": "¿Qué cambio de variable se realiza para aplicar $\\lim_{t\\to0}\\frac{\\sin t}{t}=1$ cuando tienes $\\frac{\\sin(g(x))}{x}$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\4-Indeterminaciones del límite - Parte I.md",
+    "reference_line": 11,
+    "module_name": "7-math-analysis",
+    "category": "IndeterminacionesdellmiteParteI"
+  },
+  {
+    "term": "3 - Ajuste por constante en $\\sin(kx)$",
+    "example": ":m $$\\frac{\\sin(kx)}{x}=\\frac{\\sin(kx)}{kx}\\cdot k \\xrightarrow[x\\to0]{}1\\cdot k=k.$$",
+    "description": ":m **Descripción:** Para $\\dfrac{\\sin(kx)}{x}$, multiplicar y dividir por $k$ iguala el argumento con el denominador.",
+    "prompt": "¿Cómo conviertes $\\dfrac{\\sin(kx)}{x}$ en un notable usando un factor constante?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\4-Indeterminaciones del límite - Parte I.md",
+    "reference_line": 21,
+    "module_name": "7-math-analysis",
+    "category": "IndeterminacionesdellmiteParteI"
+  },
+  {
+    "term": "4 - Descomposición en producto: parte trigonométrica y parte polinómica",
+    "example": ":m Porque un factor se vuelve notable ($\\frac{\\sin(qx)}{qx}\\to1$ o su recíproco) y el otro se reduce a un límite de funciones algebraicas fáciles de evaluar.",
+    "description": ":m **Descripción:** Expresiones del tipo $\\dfrac{p(x)}{\\sin(qx)}$ pueden reescribirse como $$\\frac{p(x)}{qx}\\cdot\\frac{qx}{\\sin(qx)}$$ o $$\\frac{\\sin(qx)}{qx}\\cdot\\frac{p(x)}{x},$$ según convenga, para aislar un notable y un límite polinómico.",
+    "prompt": "¿Por qué es útil escribir un cociente con seno como producto de dos factores?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\4-Indeterminaciones del límite - Parte I.md",
+    "reference_line": 31,
+    "module_name": "7-math-analysis",
+    "category": "IndeterminacionesdellmiteParteI"
+  },
+  {
+    "term": "5 - Factorización previa (Ruffini) para hacer aparecer el factor",
+    "example": ":m Obtener un factor (como $x$ o $2x$) que coincida con el argumento del seno y así poder formar el cociente notable $\\frac{\\sin(ux)}{ux}$.",
+    "description": ":m **Descripción:** Si el numerador es polinómico, se lo factoriza (por ejemplo con Ruffini) para extraer $x$ o $(x-a)$ que permita emparejar con el argumento del seno.",
+    "prompt": "¿Cuál es el objetivo de factorizar el numerador antes de aplicar un notable trigonométrico?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\4-Indeterminaciones del límite - Parte I.md",
+    "reference_line": 41,
+    "module_name": "7-math-analysis",
+    "category": "IndeterminacionesdellmiteParteI"
+  },
+  {
+    "term": "6 - Límite tipo $1^\\infty$: idea general",
+    "example": ":m Tomando logaritmo: $$\\ln L=\\lim v(x)\\ln(1+u(x)),$$ evaluar este límite (usando $\\ln(1+u)\\sim u$) y luego $L=\\exp(\\ln L)$.",
+    "description": ":m **Descripción:** Cuando $L=\\lim (1+u(x))^{v(x)}$ con $u(x)\\to0$ y $v(x)\\to\\infty$, se usa logaritmo/exponencial: $$L=\\exp!\\left(\\lim v(x),\\ln(1+u(x))\\right),$$ si el límite del exponente existe (usando $\\ln(1+u)\\sim u$).",
+    "prompt": "¿Cómo transformas un $1^\\infty$ en un límite manejable?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\4-Indeterminaciones del límite - Parte I.md",
+    "reference_line": 51,
+    "module_name": "7-math-analysis",
+    "category": "IndeterminacionesdellmiteParteI"
+  },
+  {
+    "term": "7 - Definición de $e$ como límite",
+    "example": ":m $$e^{t}=\\lim_{n\\to\\infty}\\left(1+\\frac{t}{n}\\right)^{n}.$$",
+    "description": ":m **Descripción:** Número $e$ definido por $$e=\\lim_{n\\to\\infty}\\left(1+\\frac1n\\right)^n,$$ y más general $$e^{t}=\\lim_{n\\to\\infty}\\left(1+\\frac{t}{n}\\right)^{n}.$$",
+    "prompt": "Escribe una forma de límite que defina $e^t$.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\4-Indeterminaciones del límite - Parte I.md",
+    "reference_line": 61,
+    "module_name": "7-math-analysis",
+    "category": "IndeterminacionesdellmiteParteI"
+  },
+  {
+    "term": "8 - Patrón clásico: $\\left(1+\\frac{a}{x}\\right)^{bx}$",
+    "example": ":m $$\\left(1+\\frac{3}{x}\\right)^{2x}\\to e^{3\\cdot2}=e^{6}.$$",
+    "description": ":m **Descripción:** Para $x\\to\\infty$, usar $e^{t}$ con $t=ab$: $$\\left(1+\\frac{a}{x}\\right)^{bx}\\to e^{ab}.$$",
+    "prompt": "Evalúa $\\lim_{x\\to\\infty}\\left(1+\\frac{3}{x}\\right)^{2x}$.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\4-Indeterminaciones del límite - Parte I.md",
+    "reference_line": 71,
+    "module_name": "7-math-analysis",
+    "category": "IndeterminacionesdellmiteParteI"
+  },
+  {
+    "term": "9 - Ajuste del exponente por factores (multiplicar y dividir)",
+    "example": ":m Escribir $$\\left(1+\\frac{c}{x}\\right)^{k x^2}=\\left[\\left(1+\\frac{c}{x}\\right)^x\\right]^{kx}\\ \\to\\ (e^{c})^{\\infty}=+\\infty$$ si $c>0$; si $c<0$, tiende a $0$; si $c=0$, a $1$.",
+    "description": ":m **Descripción:** Si el exponente no es exactamente $x$ o $n$, se puede multiplicar y dividir por una constante para encajar el patrón exponencial.",
+    "prompt": "¿Cómo procedes si tienes $\\left(1+\\frac{c}{x}\\right)^{k x^2}$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\4-Indeterminaciones del límite - Parte I.md",
+    "reference_line": 81,
+    "module_name": "7-math-analysis",
+    "category": "IndeterminacionesdellmiteParteI"
+  },
+  {
+    "term": "10 - Resumen operativo para senos y $1^\\infty$",
+    "example": ":m Senos: sustituir/ajustar $\\to$ formar notable $\\to$ completar con factor algebraico.\n$1^\\infty$: tomar $\\ln$ $\\to$ evaluar $\\lim v,\\ln(1+u)$ (usando $\\ln(1+u)\\sim u$) $\\to$ aplicar $\\exp$.",
+    "description": ":m **Descripción:**\n1. Senos: igualar argumento y denominador (sustitución/ajuste), usar $\\frac{\\sin t}{t}\\to1$, y separar en producto.\n2. $1^\\infty$: logaritmo, pasar a exponente $v\\ln(1+u)\\sim vu$, y volver con exponencial.",
+    "prompt": "¿Cuál es la secuencia de pasos clave en cada caso?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\4-Indeterminaciones del límite - Parte I.md",
+    "reference_line": 91,
+    "module_name": "7-math-analysis",
+    "category": "IndeterminacionesdellmiteParteI"
+  },
+  {
+    "term": "11 - Límite exponencial con exponente dependiente de $x$",
+    "example": ":m Reescribiendo como $\\left[\\left(1+\\frac{1}{x+1}\\right)^{x+1}\\right]^{-1}\\to e^{-1}=\\frac{1}{e}$.\n**Resultado:** $\\frac{1}{e}.$",
+    "description": ":m **Descripción:**\nEl límite es\n$$\\lim_{x\\to\\infty}\\left(\\frac{2+x}{x+1}\\right)^{-x-1}.$$\nPrimero se simplifica la fracción:\n$$\\frac{2+x}{x+1}=1+\\frac{1}{x+1}.$$\nEntonces,\n$$\\left(1+\\frac{1}{x+1}\\right)^{-x-1}=\\left[\\left(1+\\frac{1}{x+1}\\right)^{x+1}\\right]^{-1}.$$\nComo $\\left(1+\\frac{1}{n}\\right)^n\\to e$, el límite tiende a $\\frac{1}{e}$. ",
+    "prompt": "¿Cuál es el valor de $\\lim_{x\\to\\infty}\\left(\\frac{2+x}{x+1}\\right)^{-x-1}$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\4-Indeterminaciones del límite - Parte I.md",
+    "reference_line": 104,
+    "module_name": "7-math-analysis",
+    "category": "IndeterminacionesdellmiteParteI"
+  },
+  {
+    "term": "12 - Límite trigonométrico cociente $\\sin(5x)/\\sin(3x)$",
+    "example": ":m $$\\lim_{x\\to0}\\frac{\\sin(5x)}{\\sin(3x)}=\\left(\\frac{\\sin(5x)}{5x}\\right)\\left(\\frac{5}{3}\\right)\\left(\\frac{3x}{\\sin(3x)}\\right)\\to 1\\cdot\\frac{5}{3}\\cdot1=\\frac{5}{3}.$$",
+    "description": ":m ![[Pasted image 20251106193909.png]]\n**Descripción:** Usar el notable $\\frac{\\sin t}{t}\\to1$ igualando argumento y denominador: $\\dfrac{\\sin(5x)}{5x}\\cdot\\dfrac{5x}{3x}\\cdot\\dfrac{3x}{\\sin(3x)}$.",
+    "prompt": "Calcula $\\lim_{x\\to0}\\dfrac{\\sin(5x)}{\\sin(3x)}$.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\4-Indeterminaciones del límite - Parte I.md",
+    "reference_line": 121,
+    "module_name": "7-math-analysis",
+    "category": "IndeterminacionesdellmiteParteI"
+  },
+  {
+    "term": "13 - Límite con $\\sin^2x$ sobre $3x$",
+    "example": ":m $$\\frac{\\sin^2 x}{3x}=\\left(\\frac{\\sin x}{x}\\right)\\left(\\frac{\\sin x}{3}\\right)\\xrightarrow[x\\to0]{}1\\cdot0=0.$$",
+    "description": ":m ![[Pasted image 20251106193916.png]]\n**Descripción:** Escribir $\\dfrac{\\sin^2x}{3x}=\\left(\\dfrac{\\sin x}{x}\\right)\\left(\\dfrac{\\sin x}{3}\\right)$ y aplicar $\\dfrac{\\sin x}{x}\\to1$ y $\\sin x\\to0$.",
+    "prompt": "Evalúa $\\lim_{x\\to0}\\dfrac{\\sin^2 x}{3x}$.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\4-Indeterminaciones del límite - Parte I.md",
+    "reference_line": 131,
+    "module_name": "7-math-analysis",
+    "category": "IndeterminacionesdellmiteParteI"
+  },
+  {
+    "term": "14 - Cociente de senos con distintos coeficientes en x-> 0",
+    "example": ":m Ambos factores notables $\\to1$, queda $$\\lim_{x\\to0}\\frac{\\sin(3x)}{\\sin(4x)}=\\frac{3}{4}.$$",
+    "description": ":m ![[Pasted image 20251106193922.png]]\n**Descripción:** Igualar argumentos: $\\dfrac{\\sin(3x)}{\\sin(4x)}=\\dfrac{\\sin(3x)}{3x}\\cdot\\dfrac{3x}{4x}\\cdot\\dfrac{4x}{\\sin(4x)}$.",
+    "prompt": "Calcula $\\lim_{x\\to0}\\dfrac{\\sin(3x)}{\\sin(4x)}$.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\4-Indeterminaciones del límite - Parte I.md",
+    "reference_line": 141,
+    "module_name": "7-math-analysis",
+    "category": "IndeterminacionesdellmiteParteI"
+  },
+  {
+    "term": "15 - Seno de polinomio sobre polinomio en $x\\to2$",
+    "example": ":m $$\\frac{\\sin(x^2-4)}{x^2+5x-14}=\\frac{\\sin t}{t}\\cdot\\frac{t}{(x-2)(x+7)}=\\frac{\\sin t}{t}\\cdot\\frac{(x-2)(x+2)}{(x-2)(x+7)}\\to 1\\cdot\\frac{2+2}{2+7}=\\frac{4}{9}.$$",
+    "description": ":m ![[Pasted image 20251106193931.png]]\n**Descripción:** Sea $t=x^2-4=(x-2)(x+2)$. Entonces $\\sin t\\sim t$ cerca de $0$. Factorizar el denominador $x^2+5x-14=(x-2)(x+7)$.",
+    "prompt": "Halla $\\lim_{x\\to2}\\dfrac{\\sin(x^2-4)}{x^2+5x-14}$.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\4-Indeterminaciones del límite - Parte I.md",
+    "reference_line": 151,
+    "module_name": "7-math-analysis",
+    "category": "IndeterminacionesdellmiteParteI"
+  },
+  {
+    "term": "16 - Parámetro $k$ en $\\dfrac{\\sin(kx)}{x}$ en x->0",
+    "example": ":m $$\\lim_{x\\to0}\\frac{\\sin(kx)}{x}=\\left(\\lim_{x\\to0}\\frac{\\sin(kx)}{kx}\\right),k=1\\cdot k=k.$$",
+    "description": ":m ![[Pasted image 20251106193941.png]]\n**Descripción:** Ajustar por $k$: $\\dfrac{\\sin(kx)}{x}=\\dfrac{\\sin(kx)}{kx}\\cdot k$, usando el notable.",
+    "prompt": "Calcula $\\lim_{x\\to0}\\dfrac{\\sin(kx)}{x}$ con $k\\in\\mathbb{R}$.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\4-Indeterminaciones del límite - Parte I.md",
+    "reference_line": 161,
+    "module_name": "7-math-analysis",
+    "category": "IndeterminacionesdellmiteParteI"
+  },
+  {
+    "term": "17 - Hallar $b$ en $\\displaystyle \\lim_{x\\to0}\\frac{\\sin(3bx)}{\\sin(4x)}=12$",
+    "example": ":m Usando $\\frac{\\sin(3bx)}{3bx}\\to1$ y $\\frac{\\sin(4x)}{4x}\\to1$, queda $$\\lim_{x\\to0}\\frac{\\sin(3bx)}{\\sin(4x)}=\\frac{3b}{4}.$$\nImponiendo $\\frac{3b}{4}=12\\Rightarrow b=16.$\n**Resultado:** $b=16$.",
+    "description": ":m ![[Pasted image 20251106194225.png]]\n**Descripción:** Cerca de $0$, vale el notable $\\frac{\\sin(kx)}{kx}\\to1$. Así, el cociente se comporta como $\\frac{3b}{4}$.",
+    "prompt": "Encuentra $b\\in\\mathbb{R}$ tal que $\\lim_{x\\to0}\\frac{\\sin(3bx)}{\\sin(4x)}=12$.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\4-Indeterminaciones del límite - Parte I.md",
+    "reference_line": 172,
+    "module_name": "7-math-analysis",
+    "category": "IndeterminacionesdellmiteParteI"
+  },
+  {
+    "term": "18 - Límite exponencial tipo $1^\\alpha$: $\\displaystyle \\left(\\frac{1+5x}{3+5x}\\right)^{2x-1}$",
+    "example": ":m $$\\frac{1+5x}{3+5x}=1-\\frac{2}{3+5x}=1+u_x,\\quad u_x\\sim -\\frac{2}{5x}.$$\nEntonces $$(2x-1)u_x\\sim 2x\\left(-\\frac{2}{5x}\\right)=-\\frac{4}{5}.$$\nPor el límite exponencial: resultado $=e^{-4/5}$.",
+    "description": ":m **Descripción:** Es de la forma $(1+u_x)^{v_x}$ con $u_x\\to0$, $v_x\\to\\infty$. Usamos $(1+u_x)^{v_x}\\to e^{\\lim u_x v_x}$ si $\\lim u_x v_x$ existe.",
+    "prompt": "Calcula $\\lim_{x\\to\\infty}\\left(\\frac{1+5x}{3+5x}\\right)^{2x-1}$.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\4-Indeterminaciones del límite - Parte I.md",
+    "reference_line": 184,
+    "module_name": "7-math-analysis",
+    "category": "IndeterminacionesdellmiteParteI"
+  },
+  {
+    "term": "19 - Límite exponencial: $\\displaystyle \\left(\\frac{2x-1}{2x+3}\\right)^{x+5}$",
+    "example": ":m $$\\frac{2x-1}{2x+3}=1-\\frac{4}{2x+3}=1+u_x,\\quad u_x\\sim -\\frac{2}{x}.$$\n$$(x+5)u_x\\sim x\\left(-\\frac{2}{x}\\right)=-2.$$\nResultado: $e^{-2}$.",
+    "description": ":m **Descripción:** Misma idea; reescribir la base como $1$ más un término pequeño y multiplicar por el exponente grande.",
+    "prompt": "Calcula $\\lim_{x\\to\\infty}\\left(\\frac{2x-1}{2x+3}\\right)^{x+5}$.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\4-Indeterminaciones del límite - Parte I.md",
+    "reference_line": 196,
+    "module_name": "7-math-analysis",
+    "category": "IndeterminacionesdellmiteParteI"
+  },
+  {
+    "term": "20 - Límite exponencial: $\\displaystyle \\left(\\frac{1+3x}{3x+4}\\right)^{2x+1}$",
+    "example": ":m $$\\frac{1+3x}{3x+4}=1-\\frac{3}{3x+4}=1+u_x,\\quad u_x\\sim -\\frac{1}{x}.$$\n$$(2x+1)u_x\\sim 2x\\left(-\\frac{1}{x}\\right)=-2.$$\nResultado: $e^{-2}$.",
+    "description": ":m **Descripción:** Base $\\to1$, exponente $\\to\\infty$; usar $e^{\\lim u_x v_x}$.",
+    "prompt": "Calcula $\\lim_{x\\to\\infty}\\left(\\frac{1+3x}{3x+4}\\right)^{2x+1}$.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\4-Indeterminaciones del límite - Parte I.md",
+    "reference_line": 208,
+    "module_name": "7-math-analysis",
+    "category": "IndeterminacionesdellmiteParteI"
+  },
+  {
+    "term": "21 - Límite exponencial: $\\displaystyle \\left(\\frac{-1+4x}{4x+1}\\right)^{x+4}$",
+    "example": ":m $$\\frac{-1+4x}{4x+1}=1-\\frac{2}{4x+1}=1+u_x,\\quad u_x\\sim -\\frac{1}{2x}.$$\n$$(x+4)u_x\\sim x\\left(-\\frac{1}{2x}\\right)=-\\frac{1}{2}.$$\nResultado: $e^{-1/2}$.",
+    "description": ":m **Descripción:** Otra vez $(1+u_x)^{v_x}$ con $u_x\\to0$.",
+    "prompt": "Calcula $\\lim_{x\\to\\infty}\\left(\\frac{-1+4x}{4x+1}\\right)^{x+4}$.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\4-Indeterminaciones del límite - Parte I.md",
+    "reference_line": 220,
+    "module_name": "7-math-analysis",
+    "category": "IndeterminacionesdellmiteParteI"
+  },
+  {
+    "term": "1 - Asíntotas – Definición general",
+    "example": ":m Una asíntota es una recta a la que la gráfica de una función se aproxima cada vez más sin llegar a tocarla. Se usa para analizar el comportamiento de las funciones cuando $x$ tiende a un punto o al infinito.",
+    "description": ":m Una **asíntota** es una recta cuya distancia a la función $f(x)$ tiende a cero cuando $x$ tiende a cierto valor o al infinito. Pueden ser **verticales**, **horizontales** u **oblicuas**, dependiendo de la dirección en la que se aproxima la función. Sirven para describir el comportamiento extremo o límite de una función.",
+    "prompt": "¿Qué es una asíntota y para qué se usa en el estudio de funciones?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\5-asintotas.md",
+    "reference_line": 2,
+    "module_name": "7-math-analysis",
+    "category": "asintotas"
+  },
+  {
+    "term": "2 - Asíntota vertical",
+    "example": ":m Cuando al acercarse $x$ a cierto valor $a$, la función $f(x)$ crece o decrece sin límite, es decir,\n$\\lim_{x \\to a} f(x) = \\pm\\infty$.\nEn ese caso, la recta $x = a$ es la asíntota vertical.",
+    "description": ":m La recta $x = a$ es una **asíntota vertical** de $f(x)$ si se cumple que:\n$$\n\\lim_{x \\to a^+} f(x) = \\infty \\quad \\text{o} \\quad \\lim_{x \\to a^-} f(x) = \\infty\n$$\nGeneralmente ocurre en puntos donde la función **no está definida** (división por cero, dominio partido, etc.).\n![[Pasted image 20251106195029.png]]",
+    "prompt": "¿Cuándo una función tiene una asíntota vertical?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\5-asintotas.md",
+    "reference_line": 11,
+    "module_name": "7-math-analysis",
+    "category": "asintotas"
+  },
+  {
+    "term": "3 - Ejemplo de asíntota vertical",
+    "example": ":m Porque cuando $x$ se acerca a 2, el denominador tiende a cero y la función tiende a $\\pm\\infty$.\nPor eso, la recta $x=2$ es una asíntota vertical.",
+    "description": ":m Para la función:\n$$\nf(x) = \\frac{1}{x - 2}\n$$\nel dominio excluye $x=2$ y los límites laterales tienden a $\\pm\\infty$.\nPor lo tanto, **$x=2$ es una asíntota vertical**.\n",
+    "prompt": "¿Por qué $x=2$ es una asíntota vertical en $f(x)=\\frac{1}{x-2}$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\5-asintotas.md",
+    "reference_line": 27,
+    "module_name": "7-math-analysis",
+    "category": "asintotas"
+  },
+  {
+    "term": "4 - Asíntota horizontal",
+    "example": ":m Representa el valor constante $y=b$ al que se aproxima $f(x)$ cuando $x$ tiende a infinito o menos infinito.\nSe calcula como $b = \\lim_{x \\to \\pm\\infty} f(x)$.",
+    "description": ":m La recta $y=b$ es una **asíntota horizontal** de $f(x)$ si:\n$$\n\\lim_{x \\to +\\infty} f(x) = b \\quad \\text{o} \\quad \\lim_{x \\to -\\infty} f(x) = b\n$$\nIndica el valor al que se aproxima la función cuando $x$ crece o decrece indefinidamente.\n",
+    "prompt": "¿Qué representa una asíntota horizontal y cómo se determina?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\5-asintotas.md",
+    "reference_line": 44,
+    "module_name": "7-math-analysis",
+    "category": "asintotas"
+  },
+  {
+    "term": "5 - Asíntota oblicua",
+    "example": ":m Cuando el grado del numerador es **uno mayor** que el del denominador (en funciones racionales) y los límites permiten hallar una recta $y=ax+b$ tal que $f(x)-(ax+b)\\to 0$.",
+    "description": ":m La recta $y = ax + b$ es una **asíntota oblicua** si:\n$$\n\\lim_{x \\to \\infty} [f(x) - (ax + b)] = 0\n$$\nSe da cuando la función crece sin límite, pero su forma se aproxima a una recta inclinada.\nSe obtienen:\n$$\na = \\lim_{x \\to \\infty} \\frac{f(x)}{x}, \\qquad b = \\lim_{x \\to \\infty} [f(x) - ax]\n$$\n",
+    "prompt": "¿Cuándo una función tiene asíntota oblicua?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\5-asintotas.md",
+    "reference_line": 60,
+    "module_name": "7-math-analysis",
+    "category": "asintotas"
+  },
+  {
+    "term": "6 - Relación entre tipos de asíntotas",
+    "example": ":m La asíntota horizontal es un caso particular de la oblicua con pendiente $a=0$.\nEs decir, cuando la recta límite no tiene inclinación, $y=b$ es la asíntota horizontal.",
+    "description": ":m * Si $a = 0$ en la ecuación $y = ax + b$, la asíntota oblicua se vuelve **horizontal**.\n* Una función puede tener:\n* Varias asíntotas verticales,\n* A lo sumo dos horizontales u oblicuas.\n* Si $f(x)$ corta una asíntota en infinitos puntos, sigue siendo asíntota si la distancia tiende a cero.\n",
+    "prompt": "¿Qué relación existe entre la asíntota horizontal y la oblicua?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\5-asintotas.md",
+    "reference_line": 79,
+    "module_name": "7-math-analysis",
+    "category": "asintotas"
+  },
+  {
+    "term": "7 - Asíntota vertical – Límite infinito",
+    "example": ":m **Respuesta correcta:**\nLa recta **$x = a$ es una asíntota vertical**, porque la función tiende a infinito cuando $x$ se aproxima a ese valor.",
+    "description": ":m Si\n$$\\lim_{x \\to a} f(x) = +\\infty,$$\nentonces la función **crece sin límite** al acercarse $x$ a $a$, lo que implica que la recta $x=a$ es una **asíntota vertical**.\n",
+    "prompt": "Si $\\lim_{x \\to a} f(x) = +\\infty$, ¿qué tipo de asíntota tiene la función?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\5-asintotas.md",
+    "reference_line": 98,
+    "module_name": "7-math-analysis",
+    "category": "asintotas"
+  },
+  {
+    "term": "8 - Límite con asíntota oblicua",
+    "example": ":m **Respuesta correcta:**\nEl límite es **–3**, porque la asíntota oblicua es $y = x - 3$, y el término independiente $b$ representa ese valor.",
+    "description": ":m De la gráfica se observa que la función tiene una **asíntota oblicua** $y = x - 3$.\nPor definición, si $y = ax + b$ es asíntota oblicua, entonces:\n![[Pasted image 20251106200056.png]]\n$$\n\\lim_{x \\to \\infty} [f(x) - (ax + b)] = 0\n$$\nEn este caso $a = 1$ y $b = -3$, por lo tanto:\n$$\n\\lim_{x \\to \\infty} [f(x) - x] = -3\n$$",
+    "prompt": "Según la gráfica, ¿cuál es el valor del límite $\\lim_{x \\to \\infty} (f(x) - x)$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\5-asintotas.md",
+    "reference_line": 112,
+    "module_name": "7-math-analysis",
+    "category": "asintotas"
+  },
+  {
+    "term": "9 - Cálculo de la asíntota oblicua",
+    "example": ":m $a = 3$\nPorque al hacer la división polinómica, el término constante del cociente queda $1 - a$, y debe ser igual a $-2$, de donde $a = 3$.",
+    "description": ":m Dada la función:\n$$\nf(x) = \\frac{x^3 + x^2 - 1}{x^2 + ax - 1}\n$$\nSabemos que tiene una **asíntota oblicua** $y = x - 2$, por lo tanto:\n* Pendiente $a_1 = 1$\n* Ordenada al origen $b = -2$\nPara funciones racionales con grado del numerador **una unidad mayor** que el del denominador, la pendiente se obtiene con **división polinómica**:\n$$\\frac{x^3 + x^2 - 1}{x^2 + ax - 1}$$\nPrimer término: $\\frac{x^3}{x^2} = x$\nMultiplicamos: $x(x^2 + ax - 1) = x^3 + a x^2 - x$\nRestamos:\n$$(x^3 + x^2 - 1) - (x^3 + a x^2 - x) = (1 - a)x^2 + x - 1$$\n2️⃣ Segundo término: $\\frac{(1 - a)x^2}{x^2} = 1 - a$\nMultiplicamos: $(1 - a)(x^2 + ax - 1) = (1 - a)x^2 + a(1 - a)x - (1 - a)$\nRestamos:\n$$[(1 - a)x^2 + x - 1] - [(1 - a)x^2 + a(1 - a)x - (1 - a)]$$\n$$= [x - a(1 - a)x] + [-1 + (1 - a)] = [x(1 - a + a^2)] - a$$\nPara que $y = x - 2$ sea asíntota, el cociente debe ser **$x - 2$**.\nPor tanto:\n* Pendiente: $1 = 1$ (ya coincide)\n* Término constante: $1 - a = -2$\nDe allí:\n$$\n1 - a = -2 \\Rightarrow a = 3\n$$\n",
+    "prompt": "Si la función $\\frac{x^3 + x^2 - 1}{x^2 + ax - 1}$ tiene como asíntota oblicua $y = x - 2$, ¿cuál es el valor de $a$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\5-asintotas.md",
+    "reference_line": 134,
+    "module_name": "7-math-analysis",
+    "category": "asintotas"
+  },
+  {
+    "term": "10 - Límite lateral con asíntota vertical",
+    "example": ":m $\\displaystyle \\lim_{x \\to 1^+} f(x) = -\\infty$,\nporque al acercarse a $x=1$ desde la derecha, la función tiende a menos infinito por la asíntota vertical.",
+    "description": ":m En la gráfica se observa una **asíntota vertical en $x = 1$**.\n![[Pasted image 20251106200511.png]]\nCuando $x \\to 1^+$ (desde la derecha), la función **desciende bruscamente** hacia valores cada vez más negativos.\nPor lo tanto:\n$$\n\\lim_{x \\to 1^+} f(x) = -\\infty\n$$\n",
+    "prompt": "Según la gráfica, ¿cuál es el valor del límite $\\lim_{x \\to 1^+} f(x)$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\5-asintotas.md",
+    "reference_line": 181,
+    "module_name": "7-math-analysis",
+    "category": "asintotas"
+  },
+  {
     "term": "1 - Condiciones de continuidad",
     "example": ":m 1. (f(a)) debe existir.\n2. ($\\lim_{x \\to a} f(x) = L$) debe existir y ser finito.\n3. (f(a) = L).",
     "description": "",
@@ -378,5 +1018,195 @@
     "reference_line": 169,
     "module_name": "7-math-analysis",
     "category": "continuidad"
+  },
+  {
+    "term": "1 - Discontinuidad en la gráfica",
+    "example": ":m ESTAMAL\nC) En $x=0$ hay una discontinuidad evitable.\nD) El $\\lim_{x \\to 2} f(x)$ no existe.",
+    "description": ":m ![[Pasted image 20251106202005.png]]\nEn la gráfica, se observa:\n* En $x=0$, la función tiene un hueco → **discontinuidad evitable**.\n* En $x=2$, la función tiende a $\\infty$ → **asíntota vertical** y el límite no existe.\n* ![[Pasted image 20251106211456.png]]",
+    "prompt": "¿Cuáles afirmaciones son correctas según la gráfica?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\6z-ejercicios-continuidad.md",
+    "reference_line": 2,
+    "module_name": "7-math-analysis",
+    "category": "zejercicioscontinuidad"
+  },
+  {
+    "term": "2 - Asíntotas vertical y horizontal",
+    "example": ":m Las correctas son **B, C y G**:\nB) $\\lim_{x \\to \\infty} \\frac{f(x)+3}{x}=0$\nC) $\\lim_{x \\to 3} \\frac{4x}{3f(x)-2}=0$\nG) $\\lim_{x \\to \\infty} 3f(x)=6$",
+    "description": ":m Datos:\n* Asíntota vertical: $x = 3$ → $\\lim_{x \\to 3} f(x) = \\pm \\infty$\n* Asíntota horizontal: $y = 2$ → $\\lim_{x \\to \\infty} f(x) = 2$\n",
+    "prompt": "¿Qué afirmaciones son correctas si $f(x)$ tiene asíntota vertical en $x=3$ y horizontal en $y=2$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\6z-ejercicios-continuidad.md",
+    "reference_line": 17,
+    "module_name": "7-math-analysis",
+    "category": "zejercicioscontinuidad"
+  },
+  {
+    "term": "3 - Tipo de discontinuidad en $f(x) = (x + 3)^{\\frac{1}{x - 1}}$",
+    "example": ":m Presenta una **discontinuidad esencial en $x=1$**, ya que el límite tiende a infinito.",
+    "description": ":m En $x=1$, el exponente tiende a infinito y la base tiende a $4$, por lo que $f(x) \\to 4^{\\infty} \\to \\infty$.\nEso indica una **asíntota vertical** y una **discontinuidad esencial** en $x=1$.\n",
+    "prompt": "¿Qué tipo de discontinuidad presenta $f(x) = (x + 3)^{\\frac{1}{x - 1}}$ en $x=1$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\6z-ejercicios-continuidad.md",
+    "reference_line": 34,
+    "module_name": "7-math-analysis",
+    "category": "zejercicioscontinuidad"
+  },
+  {
+    "term": "4 - Límite infinito y asíntota",
+    "example": ":m Las correctas son **A y C**:\nA) $x=a$ es asíntota vertical.\nC) Hay discontinuidad en $x=a$.",
+    "description": ":m Si $\\lim_{x \\to a} f(x) = +\\infty$, la función crece sin límite al acercarse a $x=a$.\nEsto implica una **asíntota vertical** y una **discontinuidad en $x=a$**.\n",
+    "prompt": "¿Qué ocurre si $\\lim_{x \\to a} f(x) = +\\infty$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\6z-ejercicios-continuidad.md",
+    "reference_line": 46,
+    "module_name": "7-math-analysis",
+    "category": "zejercicioscontinuidad"
+  },
+  {
+    "term": "5 - Continuidad en $x=0$",
+    "example": ":m Debe cumplirse que:\n* $x=0$ pertenece al dominio de la función.\n* Existe el $\\lim_{x \\to 0} f(x)$.",
+    "description": ":m Para que una función sea continua en $x=0$:\n1. $x=0$ pertenece al dominio.\n2. Existe el $\\lim_{x \\to 0} f(x)$.\n3. $f(0)$ = $\\lim_{x \\to 0} f(x)$.\n",
+    "prompt": "Si una función es continua en $x=0$, ¿qué debe cumplirse respecto al dominio y al límite?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\6z-ejercicios-continuidad.md",
+    "reference_line": 60,
+    "module_name": "7-math-analysis",
+    "category": "zejercicioscontinuidad"
+  },
+  {
+    "term": "6 - Continuidad en un punto",
+    "example": ":m Debe cumplirse que:\n* $x=0$ pertenece al dominio de la función.\n* Existe el $\\lim_{x \\to 0} f(x)$.",
+    "description": ":m Una función $f$ es **continua en $x = 0$** si se cumplen simultáneamente las siguientes condiciones:\n1. $x = 0$ pertenece al dominio de la función.\n2. Existe el $\\lim_{x \\to 0} f(x)$.\n3. El valor del límite coincide con el valor de la función en ese punto:\n$$\\lim_{x \\to 0} f(x) = f(0)$$\nPor lo tanto, si $f$ es continua en $x = 0$, necesariamente se cumplen (B) y (D).\n",
+    "prompt": "Si una función es continua en $x=0$, ¿qué debe cumplirse respecto al dominio y al límite?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\6z-ejercicios-continuidad.md",
+    "reference_line": 76,
+    "module_name": "7-math-analysis",
+    "category": "zejercicioscontinuidad"
+  },
+  {
+    "term": "7 - Límite infinito y tipo de asíntota",
+    "example": ":m A) $x=a$ es una asíntota vertical.\nC) La función es discontinua en $x=a$.",
+    "description": ":m Cuando $\\lim_{x \\to a} f(x) = +\\infty$, significa que la función crece sin límite al acercarse a $x=a$.\nEsto implica que en $x=a$ hay una **asíntota vertical** y, por tanto, la función no es continua allí.\n",
+    "prompt": "Si $\\lim_{x \\to a} f(x) = +\\infty$, ¿qué tipo de asíntota y discontinuidad hay en $x=a$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\6z-ejercicios-continuidad.md",
+    "reference_line": 94,
+    "module_name": "7-math-analysis",
+    "category": "zejercicioscontinuidad"
+  },
+  {
+    "term": "8 - Límites con asíntotas vertical y horizontal",
+    "example": ":m Parte esta mal\n* **B)** $\\displaystyle \\lim_{x\\to+\\infty}\\frac{f(x)+3}{x}=0$ porque $f(x)\\to2$ y $\\frac{2+3}{x}\\to0$.\n* **C)** $\\displaystyle \\lim_{x\\to3}\\frac{4x}{3f(x)-2}=0$ ya que $f(x)\\to\\pm\\infty$ y el denominador $\\to\\pm\\infty$.\n* **G)** $\\displaystyle \\lim_{x\\to\\infty}3f(x)=6$ porque $3\\cdot2=6$.\nFalsas:\n* **A)** $\\lim_{x\\to3}(2f(x)-6)\\neq0$ (diverge).\n* **D)** Habla de $x\\to2$, no corresponde.\n* **E)** En $x=3$ hay discontinuidad **infinita** (no “esencial”).\n* **F)** No es continua en $x=3$.",
+    "description": ":m Si una función tiene **asíntota vertical** en $x=3$, entonces $f(x)\\to\\pm\\infty$ cuando $x\\to3$, y cualquier expresión con $f(x)$ en el denominador tenderá a $0$ si el numerador permanece acotado.\nSi además tiene **asíntota horizontal** $y=2$, entonces $f(x)\\to2$ cuando $x\\to\\infty$, por lo que transformaciones lineales de $f(x)$ tenderán al mismo tipo de límite (ej.: $3f(x)\\to6$) y cocientes con $x$ en el denominador tenderán a $0$.\n![[Pasted image 20251106211435.png]]",
+    "prompt": "Dada una función $f(x)$ con asíntota vertical $x=3$ y horizontal $y=2$, ¿cuáles opciones son correctas?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\6z-ejercicios-continuidad.md",
+    "reference_line": 107,
+    "module_name": "7-math-analysis",
+    "category": "zejercicioscontinuidad"
+  },
+  {
+    "term": "9 - 3. **Discontinuidad esencial**",
+    "example": ":m * **Evinable:** el límite existe → se puede “corregir” el valor.\n* **Infinita:** el límite tiende a $\\pm\\infty$ → hay asíntota vertical.\n* **Esencial:** el límite no existe ni finito ni infinito → la función oscila.",
+    "description": ":m Ocurre cuando el límite **no existe** porque el comportamiento es caótico o **oscila** sin acercarse a ningún valor (ni finito ni infinito).**\n$$f(x)=\\sin\\left(\\frac{1}{x}\\right)$$\nCuando $x\\to0$, la función oscila entre –1 y 1.\n👉 Discontinuidad **esencial**.\n---\n",
+    "prompt": "¿Cuál es la diferencia entre discontinuidad evitable, infinita y esencial?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\6z-ejercicios-continuidad.md",
+    "reference_line": 157,
+    "module_name": "7-math-analysis",
+    "category": "zejercicioscontinuidad"
+  },
+  {
+    "term": "1 - Límite con radical: indeterminación $0/0$",
+    "example": ":m Usar $x-4=(\\sqrt{x}-2)(\\sqrt{x}+2)$ y simplificar:\n$$\\frac{(x-4)(x+2)}{2-\\sqrt{x}}=-(x+2)(\\sqrt{x}+2)\\to -24.$$\n**Resultado:** $-24$.",
+    "description": ":m Para $$\\lim_{x\\to 4}\\frac{x^2-2x-8}{2-\\sqrt{x}}$$ aparece $0/0$. Factorizamos $x^2-2x-8=(x-4)(x+2)$ y usamos $$x-4=(\\sqrt{x}-2)(\\sqrt{x}+2).$$ Al simplificar con el denominador $$2-\\sqrt{x}=-(\\sqrt{x}-2),$$ queda $$-(x+2)(\\sqrt{x}+2)\\xrightarrow[x\\to4]{}-24.$$\n",
+    "prompt": "Calcula $$\\lim_{x\\to 4}\\frac{x^2-2x-8}{2-\\sqrt{x}}$$ indicando el truco para eliminar la indeterminación.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\7-parcial1.md",
+    "reference_line": 1,
+    "module_name": "7-math-analysis",
+    "category": "parcial"
+  },
+  {
+    "term": "2 - Potencia con base racional y exponente grande negativo",
+    "example": ":m Porque $$5x\\ln\\frac{3x-5}{2x+7}\\to-\\infty$$ (ya que $\\ln\\frac{3}{2}>0$ y $x\\to-\\infty$), luego\n$$\\exp(\\cdot)\\to 0.$$\n**Resultado:** $0$.",
+    "description": ":m Para $$\\lim_{x\\to-\\infty}\\left(\\frac{3x-5}{2x+7}\\right)^{5x}$$ escribimos como $$\\exp!\\Big(5x\\ln\\frac{3x-5}{2x+7}\\Big).$$ La base tiende a $$\\frac{3}{2}>1\\Rightarrow \\ln!\\frac{3}{2}>0.$$ Como $x\\to-\\infty$, entonces $5x\\ln(\\cdot)\\to-\\infty$ y la exponencial tiende a $0$.\n",
+    "prompt": "Evalúa $$\\lim_{x\\to-\\infty}\\left(\\frac{3x-5}{2x+7}\\right)^{5x}$$ explicando por qué no diverge.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\7-parcial1.md",
+    "reference_line": 14,
+    "module_name": "7-math-analysis",
+    "category": "parcial"
+  },
+  {
+    "term": "1 - Propiedades de la derivada",
+    "example": ":m Con la **suma** y la **resta** de funciones.",
+    "description": ":m La derivada se **distribuye** sobre la **suma y la resta** de funciones:\n$$(f \\pm g)' = f' \\pm g'$$\nNo se distribuye directamente sobre productos o divisiones (requieren reglas especiales: producto y cociente).\n",
+    "prompt": "¿Con respecto a qué operaciones se distribuye la derivada de una función?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\8-exploracion-derivada.md",
+    "reference_line": 1,
+    "module_name": "7-math-analysis",
+    "category": "exploracionderivada"
+  },
+  {
+    "term": "2 - Interpretación de $f'(a)$",
+    "example": ":m $f'(a)$ es un **número real** que indica la **pendiente de la recta tangente** en el punto $(a, f(a))$.\n![[Pasted image 20251107080913.png]]\n![[Pasted image 20251107081217.png]]",
+    "description": ":m Si $f(x)$ es una función derivable en $x=a$, entonces $f'(a)$ representa:\n* Un **número real** (el valor de la derivada en ese punto).\n* La **pendiente de la recta tangente** a la curva $y=f(x)$ en el punto $(a, f(a))$.",
+    "prompt": "¿Qué representa $f'(a)$ para una función derivable en $x=a$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\8-exploracion-derivada.md",
+    "reference_line": 14,
+    "module_name": "7-math-analysis",
+    "category": "exploracionderivada"
+  },
+  {
+    "term": "3 - Relación entre continuidad y derivabilidad",
+    "example": ":m No es derivable entonces (verdadero)",
+    "description": ":m Una función **derivable** en un punto siempre es **continua** en ese punto, pero el recíproco no siempre es cierto (una función puede ser continua y no derivable, como $|x|$ en $x=0$).\nPor tanto:\n* Si **no es continua**, no puede ser derivable.\n* Si **es derivable**, necesariamente es continua. ",
+    "prompt": "Si una función no es continua en un punto, ¿puede ser derivable allí?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\8-exploracion-derivada.md",
+    "reference_line": 28,
+    "module_name": "7-math-analysis",
+    "category": "exploracionderivada"
+  },
+  {
+    "term": "1 - Regla de la cadena",
+    "example": ":m Aplicando la **regla de la cadena**: se deriva la función externa y se multiplica por la derivada de la interna.\n$$[f(g(x))]' = f'(g(x))\\cdot g'(x)$$",
+    "description": ":m La **derivada de una función compuesta** se obtiene derivando desde la última función aplicada hasta la primera:\nSi $h(x)=f(g(x))$, entonces\n$$h'(x)=f'(g(x))\\cdot g'(x)$$\n📘 Ejemplo:\n$$y=\\sin(\\sqrt{x})$$\nEntonces\n$$y'=\\cos(\\sqrt{x})\\cdot\\frac{1}{2\\sqrt{x}}$$\n",
+    "prompt": "¿Cómo se deriva una función compuesta?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\9-derivada-de-la-funcion-compuesta-de-la-funcion-potencial-exponencial.md",
+    "reference_line": 5,
+    "module_name": "7-math-analysis",
+    "category": "derivadadelafuncioncompuestadelafuncionpotencialexponencial"
+  },
+  {
+    "term": "2 - Derivada de una función potencial-exponencial",
+    "example": ":m Usando:\n$$[f(x)]^{g(x)}\\left[g'(x)\\ln(f(x))+\\frac{g(x)f'(x)}{f(x)}\\right]$$\nDerivando tanto el exponente como la base.",
+    "description": ":m Una función potencial-exponencial tiene la forma:\n$$y=[f(x)]^{g(x)}$$\nSu derivada es:\n$$y'=[f(x)]^{g(x)}\\left[g'(x)\\ln(f(x))+\\frac{g(x)f'(x)}{f(x)}\\right]$$\n",
+    "prompt": "¿Cómo se deriva una función del tipo $[f(x)]^{g(x)}$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\9-derivada-de-la-funcion-compuesta-de-la-funcion-potencial-exponencial.md",
+    "reference_line": 24,
+    "module_name": "7-math-analysis",
+    "category": "derivadadelafuncioncompuestadelafuncionpotencialexponencial"
+  },
+  {
+    "term": "3 - Derivadas de distintos órdenes",
+    "example": ":m Representa la **derivada de orden $n$**, obtenida derivando sucesivamente $n$ veces la función original.\nEjemplo: si $f(x)=2x^6$, entonces $f^{(6)}(x)=1440$.",
+    "description": ":m Si una función es derivable varias veces, se pueden hallar sus derivadas sucesivas:\n* $f'(x)$: primera derivada\n* $f''(x)$: segunda derivada\n* $f^{(n)}(x)$: derivada de orden $n$\n$$f(x)=2x^6$$\n$$f'(x)=12x^5,; f''(x)=60x^4,; f^{(3)}(x)=240x^3,; f^{(4)}(x)=720x^2,; f^{(5)}(x)=1440x,; f^{(6)}(x)=1440$$\n",
+    "prompt": "¿Qué representa $f^{(n)}(x)$ y cómo se calcula?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\9-derivada-de-la-funcion-compuesta-de-la-funcion-potencial-exponencial.md",
+    "reference_line": 40,
+    "module_name": "7-math-analysis",
+    "category": "derivadadelafuncioncompuestadelafuncionpotencialexponencial"
+  },
+  {
+    "term": "4 - Derivada de $f(x)=x^{\\cos x}$",
+    "example": ":m **Verdadero.**\nUsando la fórmula $[f(x)]^{g(x)},'=[f(x)]^{g(x)}\\left[g'(x)\\ln f(x)+\\dfrac{g(x)f'(x)}{f(x)}\\right]$, el resultado coincide.",
+    "description": ":m Usamos la fórmula de la **función potencial–exponencial**:\n$$[f(x)]^{g(x)},' = [f(x)]^{g(x)}\\left[g'(x)\\ln f(x)+\\frac{g(x)f'(x)}{f(x)}\\right]$$\nAquí $f(x)=x$ y $g(x)=\\cos x$.\nEntonces\n$$f'(x)=1,\\quad g'(x)=-\\sin x.$$\nPor tanto:\n$$\\frac{d}{dx}(x^{\\cos x})=x^{\\cos x}\\left[-\\sin x\\ln x+\\frac{\\cos x}{x}\\right].$$\n✅ El enunciado es **verdadero**, ya que coincide con\n$$f'(x)=-\\sin x\\ln x+\\frac{\\cos x}{x}.$$\n",
+    "prompt": "¿Es verdadero que $\\dfrac{d}{dx}(x^{\\cos x})=-\\sin x\\ln x+\\dfrac{\\cos x}{x}$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\9-derivada-de-la-funcion-compuesta-de-la-funcion-potencial-exponencial.md",
+    "reference_line": 59,
+    "module_name": "7-math-analysis",
+    "category": "derivadadelafuncioncompuestadelafuncionpotencialexponencial"
+  },
+  {
+    "term": "5 - Pendiente de la tangente en $f(x)=(5x^2-3)^2$ en $x=1$",
+    "example": ":m $$f'(x)=20x(5x^2-3)\\Rightarrow f'(1)=40.$$\n**Pendiente:** 40 (opción C).",
+    "description": ":m Primero derivamos:\n$$f'(x)=2(5x^2-3)\\cdot(10x)=20x(5x^2-3).$$\nEn $x=1$:\n$$f'(1)=20(1)(5(1)^2-3)=20(2)=40.$$\nLa pendiente es **40**.\n",
+    "prompt": "¿Cuál es la pendiente de la recta tangente a $f(x)=(5x^2-3)^2$ en $x=1$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\9-derivada-de-la-funcion-compuesta-de-la-funcion-potencial-exponencial.md",
+    "reference_line": 81,
+    "module_name": "7-math-analysis",
+    "category": "derivadadelafuncioncompuestadelafuncionpotencialexponencial"
   }
 ]

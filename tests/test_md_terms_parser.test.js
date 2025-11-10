@@ -19,10 +19,10 @@ describe('parseMarkdownCards', () => {
 		assert.strictEqual(result.entries[0].header, 'Term 1');
 		assert.strictEqual(
 			result.entries[0].description,
-			'Description for term 1.\n'
+			':m Description for term 1.\n'
 		);
 		assert.strictEqual(result.entries[0].prompt, 'Prompt for term 1?');
-		assert.strictEqual(result.entries[0].answer, 'Answer for term 1.');
+		assert.strictEqual(result.entries[0].answer, ':m Answer for term 1.');
 	});
 
 	it('should handle multi-line descriptions and answers', () => {

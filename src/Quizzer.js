@@ -960,16 +960,44 @@ class Quizzer {
 		titles = titles.filter(title => {
 			const deckInfo = dictOptions[title];
 			const deckName = deckInfo.name;
+			const deckNameLower = deckName.toLowerCase();
 
 			return enabledDecks.some(enabledDeck => {
-				return deckName.toLowerCase().includes(enabledDeck.toLowerCase()) ||
-					   enabledDeck.toLowerCase().includes(deckName.toLowerCase());
+				const enabledDeckLower = enabledDeck.toLowerCase();
+
+				// Exact match (case insensitive)
+				if (deckNameLower === enabledDeckLower) {
+					return true;
+				}
+
+				// Substring match (both directions)
+				if (deckNameLower.includes(enabledDeckLower) ||
+					enabledDeckLower.includes(deckNameLower)) {
+					return true;
+				}
+
+				// Normalize names: replace underscores and hyphens with spaces for comparison
+				const normalizedDeckName = deckNameLower.replace(/[-_]/g, ' ');
+				const normalizedFilter = enabledDeckLower.replace(/[-_]/g, ' ');
+
+				if (normalizedDeckName.includes(normalizedFilter) ||
+					normalizedFilter.includes(normalizedDeckName)) {
+					return true;
+				}
+
+				return false;
 			});
 		});
 
 		if (titles.length === 0) {
 			console.log('\nNo decks match the enabled filters.');
-			console.log('Available decks in masks:', enabledDecks.join(', '));
+			console.log('Filters from masks:', enabledDecks.join(', '));
+			console.log('\nLoaded deck names:');
+			const allDeckNames = Object.keys(dictOptions).map(key => dictOptions[key].name);
+			allDeckNames.slice(0, 20).forEach(name => console.log(`  - ${name}`));
+			if (allDeckNames.length > 20) {
+				console.log(`  ... and ${allDeckNames.length - 20} more`);
+			}
 			console.log('\nUse "mastery ses" for unfiltered deck selection.\n');
 			return;
 		}

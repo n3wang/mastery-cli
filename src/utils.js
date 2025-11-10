@@ -213,13 +213,18 @@ class Mastery {
 
 	/**
 	 * Lazily loads terms data when first needed
+	 * @param {Object} options - Loading options
+	 * @param {string[]} options.deckFilter - Optional array of deck names to load (skips others)
 	 * @returns {Promise} Promise that resolves when terms are loaded
 	 */
-	async ensureTermsLoaded() {
+	async ensureTermsLoaded({ deckFilter = null } = {}) {
 		if (!this.termsLoaded) {
 			console.log('Loading terms data...');
+			if (deckFilter && deckFilter.length > 0) {
+				console.log(`Filtering to decks: ${deckFilter.join(', ')}`);
+			}
 			const { populateMasterDeck } = require('./terms_data/terms');
-			this.masterDeck = await populateMasterDeck();
+			this.masterDeck = await populateMasterDeck({ deckFilter });
 			this.mQuizer.masterDeck = this.masterDeck;
 			// Update the terms array in the quizzer
 			this.mQuizer.terms = [];
@@ -318,7 +323,18 @@ class Mastery {
 			},
 			fses: async () => {
 				// Filtered study session based on active masks
-				await this.ensureTermsLoaded();
+				const SettingsManager = require('./SettingsManager');
+				const settingsManager = new SettingsManager();
+				const enabledDecks = settingsManager.getEnabledDecksFromMasks();
+
+				if (enabledDecks.length === 0) {
+					console.log('\nNo masks are currently active or configured.');
+					console.log('Use "mastery mask-list" to see available masks.');
+					console.log('Use "mastery mask-toggle <mask-name>" to enable a mask.\n');
+					return;
+				}
+
+				await this.ensureTermsLoaded({ deckFilter: enabledDecks });
 				return this.mQuizer.filtered_study_session();
 			},
 			'reset-queues': async () => {
