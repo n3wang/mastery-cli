@@ -2380,6 +2380,116 @@
     "category": "modeloexamen"
   },
   {
+    "term": "1 - Equilibrio gaseoso: cálculo de $K_c$ y $K_p$ (ejemplo guiado)",
+    "example": ":m $$K_c=3.0,\\qquad K_p\\approx 0.105\\ \\ (\\text{usando }R=0.082057\\ \\text{L·atm·mol}^{-1}\\text{·K}^{-1}).$$",
+    "description": ":m En la reacción idealizada $$\\text{A} + \\text{B} \\rightleftharpoons \\text{AB}$$ a $T=350\\ \\text{K}$, en un recipiente de $5\\ \\text{dm}^3$ se observan a equilibrio: $4$ moles de A, $2.5$ moles de B y $6$ moles de AB.\nPara $1:1 \\to 1$, $$K_c=\\dfrac{[\\text{AB}]}{[\\text{A}][\\text{B}]},\\qquad K_p=K_c,(RT)^{\\Delta n},\\ \\ \\Delta n=1-(1+1)=-1.$$\nConcentraciones: $$[\\text{A}]=\\tfrac{4}{5}=0.8\\ \\text{M},\\ [\\text{B}]=\\tfrac{2.5}{5}=0.5\\ \\text{M},\\ [\\text{AB}]=\\tfrac{6}{5}=1.2\\ \\text{M}.$$\nEntonces $$K_c=\\dfrac{1.2}{(0.8)(0.5)}=\\dfrac{1.2}{0.4}=3.0.$$\nComo $\\Delta n=-1$, $$K_p=\\dfrac{K_c}{RT}=\\dfrac{3.0}{(0.082057)(350)}\\approx\\dfrac{3.0}{28.72}\\approx 0.105.$$",
+    "prompt": "Con los datos dados ($V=5\\ \\text{dm}^3$, $T=350\\ \\text{K}$, $n_\\text{A}=4$, $n_\\text{B}=2.5$, $n_{\\text{AB}}=6$) para $\\text{A}+\\text{B}\\rightleftharpoons\\text{AB}$, calcula $K_c$ y $K_p$.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\modelofinal.md",
+    "reference_line": 13,
+    "module_name": "5-quimica",
+    "category": "modelofinal"
+  },
+  {
+    "term": "2 - Relación $K_p$–$K_c$ y cómo usarla",
+    "example": ":m $$K_p=K_c,(RT)^{\\Delta n},\\quad \\Delta n=n*\\text{gas, productos}-n_\\text{gas, reactivos}.$$\nSi $\\Delta n<0\\Rightarrow K_p<K_c$; si $\\Delta n=0\\Rightarrow K_p=K_c$; si $\\Delta n>0\\Rightarrow K_p>K_c$.",
+    "description": ":m Para reacciones gaseosas $$\\sum_i \\nu_i^\\prime \\text{A}*i \\rightleftharpoons \\sum_j \\nu_j^{\\prime\\prime} \\text{B}*j,$$ la relación entre constantes es\n$$K_p=K_c,(RT)^{\\Delta n},\\quad \\Delta n=\\Big(\\sum_j \\nu_j^{\\prime\\prime}\\Big)-\\Big(\\sum_i \\nu_i^\\prime\\Big).$$\nInterpretación: si hay menos moles gaseosos en productos que en reactivos ($\\Delta n<0$), entonces $K_p<K_c$ a la misma $T$; si hay más ($\\Delta n>0$), $K_p>K_c$. Para convertir moles a concentraciones usa $[\\text{X}]=n*\\text{X}/V$ y luego sustituyes en la expresión de $K_c$.",
+    "prompt": "¿Cuál es la fórmula general que conecta $K_p$ con $K_c$ y cómo influye el signo de $\\Delta n$ en su comparación?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\modelofinal.md",
+    "reference_line": 27,
+    "module_name": "5-quimica",
+    "category": "modelofinal"
+  },
+  {
+    "term": "3 - Cálculo de la constante de velocidad $k$",
+    "example": ":m $$k = 0.0233\\ \\text{L·mol}^{-1}\\text{s}^{-1}$$",
+    "description": ":m La reacción $$\\text{A} + \\text{B} \\to \\text{AB}$$ es de primer orden con respecto a cada reactivo, por lo tanto:\n$$v = k[\\text{A}][\\text{B}]$$\nDatos:\n$[\\text{A}] = 0.8\\ \\text{M}$, $[\\text{B}] = 0.3\\ \\text{M}$, $v = 5.6\\times10^{-3}\\ \\text{mol·L}^{-1}\\text{s}^{-1}$\nSustituyendo:\n$$k = \\frac{v}{[\\text{A}][\\text{B}]} = \\frac{5.6\\times10^{-3}}{(0.8)(0.3)} = 0.0233\\ \\text{L·mol}^{-1}\\text{s}^{-1}$$",
+    "prompt": "Dada una reacción de primer orden en A y B con $v = 5.6\\times10^{-3}$, $[\\text{A}] = 0.8$ y $[\\text{B}] = 0.3$, calcula la constante de velocidad $k$.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\modelofinal.md",
+    "reference_line": 40,
+    "module_name": "5-quimica",
+    "category": "modelofinal"
+  },
+  {
+    "term": "4 - Cálculo de la velocidad para nuevas concentraciones",
+    "example": ":m $$v = 5.83\\times10^{-4}\\ \\text{mol·L}^{-1}\\text{s}^{-1}$$",
+    "description": ":m Con $k=0.0233$, $[\\text{A}] = 0.5$ y $[\\text{B}] = 0.05$:\n$$v = k[\\text{A}][\\text{B}] = 0.0233\\times(0.5)(0.05) = 5.83\\times10^{-4}\\ \\text{mol·L}^{-1}\\text{s}^{-1}$$",
+    "prompt": "Calcula la velocidad de reacción cuando $[\\text{A}] = 0.5$ y $[\\text{B}] = 0.05$.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\modelofinal.md",
+    "reference_line": 56,
+    "module_name": "5-quimica",
+    "category": "modelofinal"
+  },
+  {
+    "term": "5 - Determinación del orden de reacción",
+    "example": ":m Se comparan experimentos donde solo cambia una concentración:\n* Si al duplicar $[\\text{A}]$ la velocidad también se duplica → primer orden en A.\n* Si al duplicar $[\\text{B}]$ la velocidad se cuadruplica → segundo orden en B.\nEl orden global es $x+y$.",
+    "description": ":m De la ecuación general $$v=k[\\text{A}]^x[\\text{B}]^y,$$ se comparan velocidades experimentales.\nSi duplicar $[\\text{A}]$ (con $[\\text{B}]$ constante) duplica la velocidad → primer orden en A.\nSi triplicar $[\\text{B}]$ aumenta la velocidad nueve veces → segundo orden en B.\nEl orden global es la suma $x+y$.",
+    "prompt": "¿Cómo se determina experimentalmente el orden de reacción de cada reactivo?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\modelofinal.md",
+    "reference_line": 67,
+    "module_name": "5-quimica",
+    "category": "modelofinal"
+  },
+  {
+    "term": "6 - Relación entre concentración y velocidad inicial",
+    "example": ":m Representa el orden de reacción parcial con respecto a A ($x$) en la ecuación $v=k[\\text{A}]^x[\\text{B}]^y$.",
+    "description": ":m La velocidad inicial depende de las concentraciones de reactivos según la ley de velocidad:\n$$v_0 = k[\\text{A}]^x[\\text{B}]^y.$$\nEn un gráfico log–log de $\\log v_0$ vs. $\\log[\\text{A}]$ o $\\log[\\text{B}]$, la pendiente da el orden parcial.",
+    "prompt": "¿Qué representa la pendiente en una gráfica $\\log v_0$ vs. $\\log[\\text{A}]$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\modelofinal.md",
+    "reference_line": 84,
+    "module_name": "5-quimica",
+    "category": "modelofinal"
+  },
+  {
+    "term": "7 - Determinación de órdenes parciales y constante de velocidad",
+    "example": ":m $$x=3,\\quad y=1,\\quad k=0.0719\\ \\text{L}^3\\text{mol}^{-3}\\text{s}^{-1}.$$",
+    "description": ":m La reacción:\n$$\\text{A} + 2\\text{B} \\rightarrow \\text{C}$$\ntiene la ley de velocidad:\n$$v = k[\\text{A}]^x[\\text{B}]^y$$\n| v (mol/L·s) | [A] (M) | [B] (M) |\n| ----------- | ------- | ------- |\n| 4.60×10⁻⁴ | 0.4 | 0.1 |\n| 5.32×10⁻³ | 0.3 | 0.3 |\n| 1.38×10⁻³ | 0.4 | 0.3 |\n| 1.10×10⁻² | 0.8 | 0.6 |\n**Paso 1: Determinar el orden en B (manteniendo A constante)**\nComparar exp 1 y exp 3:\n$$\\frac{v_3}{v_1} = \\frac{1.38\\times10^{-3}}{4.60\\times10^{-4}} = 3.0,$$\n$$\\frac{[\\text{B}]_3}{[\\text{B}]_1} = \\frac{0.3}{0.1} = 3.$$\nEntonces $3.0 = 3^y \\Rightarrow y = 1.$\n**Paso 2: Determinar el orden en A (manteniendo B constante)**\nComparar exp 3 y exp 4:\n$$\\frac{v_4}{v_3} = \\frac{1.10\\times10^{-2}}{1.38\\times10^{-3}} \\approx 8.0,$$\n$$\\frac{[\\text{A}]_4}{[\\text{A}]_3} = \\frac{0.8}{0.4} = 2.$$\nEntonces $8.0 = 2^x \\Rightarrow x = 3.$\n**Paso 3: Calcular la constante $k$**\nUsando exp 3 ($v=1.38\\times10^{-3}$, $[\\text{A}]=0.4$, $[\\text{B}]=0.3$):\n$$k = \\frac{v}{[\\text{A}]^x[\\text{B}]^y} = \\frac{1.38\\times10^{-3}}{(0.4)^3(0.3)^1} = \\frac{1.38\\times10^{-3}}{0.0192} = 0.0719\\ \\text{L}^3\\text{mol}^{-3}\\text{s}^{-1}.$$\n",
+    "prompt": "Dada la reacción $\\text{A}+2\\text{B}\\to\\text{C}$ con los datos de la tabla, determina los órdenes parciales $x$ y $y$ y la constante $k$.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\modelofinal.md",
+    "reference_line": 95,
+    "module_name": "5-quimica",
+    "category": "modelofinal"
+  },
+  {
+    "term": "8 - Expresión de $K_c$ para $,\\text{A}_2+2\\text{B}\\rightleftharpoons 2\\text{AB}$  (Serie: equilibrio $A_2+2B\\leftrightharpoons2AB$)",
+    "example": ":m $$K_c=\\dfrac{[\\text{AB}]^2}{[\\text{A}_2],[\\text{B}]^2}.$$",
+    "description": ":m Para esta estequiometría, la constante en concentración se construye elevando cada concentración a su coeficiente estequiométrico:\n$$K_c=\\frac{[\\text{AB}]^2}{[\\text{A}_2],[\\text{B}]^2}.$$",
+    "prompt": "¿Cuál es la expresión correcta de $K_c$ para la reacción $,\\text{A}_2+2\\text{B}\\rightleftharpoons 2\\text{AB}$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\modelofinal.md",
+    "reference_line": 133,
+    "module_name": "5-quimica",
+    "category": "modelofinal"
+  },
+  {
+    "term": "9 - Cálculo de concentraciones a partir de moles y volumen  (Serie: equilibrio $A_2+2B\\leftrightharpoons2AB$)",
+    "example": ":m $[\\text{A}_2]=0.8\\ \\text{M}$, $[\\text{B}]=0.5\\ \\text{M}$, $[\\text{AB}]=1.2\\ \\text{M}$.",
+    "description": ":m En $V=5\\ \\text{L}$ y moles en equilibrio $n(\\text{A}_2)=4$, $n(\\text{B})=2.5$, $n(\\text{AB})=6$, las concentraciones son\n$$[\\text{A}_2]=\\frac{4}{5}=0.8\\ \\text{M},\\quad [\\text{B}]=\\frac{2.5}{5}=0.5\\ \\text{M},\\quad [\\text{AB}]=\\frac{6}{5}=1.2\\ \\text{M}.$$",
+    "prompt": "Con $V=5\\ \\text{L}$ y moles $4$, $2.5$ y $6$ para $\\text{A}_2$, $\\text{B}$ y $\\text{AB}$, ¿cuáles son $[\\text{A}_2]$, $[\\text{B}]$ y $[\\text{AB}]$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\modelofinal.md",
+    "reference_line": 144,
+    "module_name": "5-quimica",
+    "category": "modelofinal"
+  },
+  {
+    "term": "10 - Cálculo de $K_c$ numérico  (Serie: equilibrio $A_2+2B\\leftrightharpoons2AB$)",
+    "example": ":m $$K_c=7.2.$$",
+    "description": ":m Usando las concentraciones anteriores en $$K_c=\\frac{[\\text{AB}]^2}{[\\text{A}_2][\\text{B}]^2},$$\n$$K_c=\\frac{(1.2)^2}{(0.8)(0.5)^2}=\\frac{1.44}{0.8\\times0.25}=\\frac{1.44}{0.20}=7.2.$$",
+    "prompt": "Con $[\\text{A}_2]=0.8$, $[\\text{B}]=0.5$, $[\\text{AB}]=1.2$ (M), calcula $K_c$ para $\\text{A}_2+2\\text{B}\\rightleftharpoons 2\\text{AB}$.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\modelofinal.md",
+    "reference_line": 155,
+    "module_name": "5-quimica",
+    "category": "modelofinal"
+  },
+  {
+    "term": "11 - Conversión $K_c \\to K_p$ y signo de $\\Delta n$  (Serie: equilibrio $A_2+2B\\leftrightharpoons2AB$)",
+    "example": ":m $\\Delta n=-1$ y $$K_p\\approx0.251.$$",
+    "description": ":m Para gases ideales $$K_p=K_c,(RT)^{\\Delta n},\\quad \\Delta n=2-(1+2)=-1.$$\nCon $T=350\\ \\text{K}$ y $R=0.082057\\ \\text{L·atm·mol}^{-1}\\text{·K}^{-1}$, $$RT\\approx28.72\\Rightarrow K_p=\\frac{7.2}{28.72}\\approx0.251.$$",
+    "prompt": "Con $K_c=7.2$ a $350\\ \\text{K}$, calcula $K_p$ para la reacción dada e indica $\\Delta n$.",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\5-quimica\\cache_md\\modelofinal.md",
+    "reference_line": 166,
+    "module_name": "5-quimica",
+    "category": "modelofinal"
+  },
+  {
     "term": "1 - Fórmulas de compuestos inorgánicos (Ejercicio 1)",
     "example": ":m 7. Ácido piroarsénico:\n- Deriva del ácido arsénico ($\\mathrm{H_3AsO_4}$).\n- \"Piro\" indica unión de dos grupos con pérdida de agua.\n- Fórmula: $\\mathrm{H_4As_2O_7}$\n1. Fosfina:\n- Hidruro covalente del fósforo (valencia -3).\n- Fórmula: $\\mathrm{PH_3}$\n1. Pirofosfato de aluminio:\n- Anión pirofosfato: $\\mathrm{P_2O_7^{4-}}$\n- Catión aluminio: $\\mathrm{Al^{3+}}$\n- Balance: $\\mathrm{Al_4(P_2O_7)_3}$\n1. Hidróxido niqueloso:\n- Catión $\\mathrm{Ni^{2+}}$\n- Anión hidroxilo $\\mathrm{OH^-}$\n- Fórmula: $\\mathrm{Ni(OH)_2}$\n1. Óxido nítrico:\n- Valencia del nitrógeno +2.\n- Fórmula: $\\mathrm{NO}$\n1. Sulfuro férrico:\n- Catión $\\mathrm{Fe^{3+}}$\n- Anión $\\mathrm{S^{2-}}$\n- Fórmula: $\\mathrm{Fe_2S_3}$",
     "description": ":m Contexto:\nPara escribir fórmulas correctamente debemos identificar:\n1. El catión y anión (si aplica).\n2. Las valencias de los elementos.\n3. Balancear las cargas para obtener un compuesto neutro.\nRecordemos que los prefijos (hidro-, piro-, etc.) indican el tipo de agrupamiento o la forma en que los oxoaniones se combinan.\n|Elemento|Símbolo|Valencias comunes|\n|---|---|---|\n|Arsénico|As|+3, +5|\n|Fósforo|P|–3, +3, +5|\n|Aluminio|Al|+3|\n|Níquel|Ni|+2, +3|\n|Nitrógeno|N|+1, +2, +3, +4, +5|\n|Azufre|S|–2, +4, +6|\n|Hierro|Fe|+2, +3|\n|Oxígeno|O|–2|\n|Hidrógeno|H|+1\n1. Ácido piroarsénico\n2. Fosfina\n3. Pirofosfato de aluminio\n4. Hidróxido niqueloso\n5. Óxido nítrico\n6. Sulfuro férrico ",

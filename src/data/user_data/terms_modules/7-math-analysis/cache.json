@@ -100,6 +100,96 @@
     "category": "generalidadesdelasfunciones"
   },
   {
+    "term": "1 - Pendiente de la recta tangente",
+    "example": ":m La pendiente es **36**, ya que $f'(1)=36$.",
+    "description": ":m Para $f(x) = (2x + 6x^2)(\\ln x + 2)$, se aplica la regla del producto:\n$$f'(x) = (2 + 12x)(\\ln x + 2) + (2x + 6x^2)\\frac{1}{x}$$\nEn $x=1$:\n$$f'(1) = 14(2) + 8 = 36$$ ",
+    "prompt": "¿Cuál es la pendiente de la recta tangente a $f(x)$ en $x=1$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\10-calificacionfinal.md",
+    "reference_line": 2,
+    "module_name": "7-math-analysis",
+    "category": "calificacionfinal"
+  },
+  {
+    "term": "2 - Valor del parámetro $a$",
+    "example": ":m $a = -\\tfrac{15}{2}$.",
+    "description": ":m Dada $f(x)=\\dfrac{2a-5}{x+3}$, la pendiente de la recta normal en $x=-1$ es $-\\tfrac{1}{5}$, por lo tanto la pendiente de la tangente es el recíproco negativo:\n$$m_t = 5$$\nComo $f'(x) = -\\dfrac{2a-5}{(x+3)^2}$,\n$$f'(-1) = -\\dfrac{2a-5}{4} = 5 \\Rightarrow a = -\\tfrac{15}{2}$$ ",
+    "prompt": "¿Qué valor de $a$ cumple que la pendiente de la normal en $x=-1$ sea $-\\tfrac{1}{5}$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\10-calificacionfinal.md",
+    "reference_line": 15,
+    "module_name": "7-math-analysis",
+    "category": "calificacionfinal"
+  },
+  {
+    "term": "3 - Derivada de la función compuesta",
+    "example": ":m $f'(x) = -e^{-x} + 4(e+1)x^e - \\dfrac{\\ln 2}{(x+\\sqrt{5})^2}$.",
+    "description": ":m Para $f(x)=e^{-x}+4x^{e+1}+\\dfrac{\\ln 2}{x+\\sqrt{5}}$, derivamos término a término:\n$$f'(x) = -e^{-x} + 4(e+1)x^e - \\dfrac{\\ln 2}{(x+\\sqrt{5})^2}$$ ",
+    "prompt": "¿Cuál es la derivada correcta de $f(x)=e^{-x}+4x^{e+1}+\\dfrac{\\ln 2}{x+\\sqrt{5}}$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\10-calificacionfinal.md",
+    "reference_line": 28,
+    "module_name": "7-math-analysis",
+    "category": "calificacionfinal"
+  },
+  {
+    "term": "4 - Límite con regla de L’Hôpital",
+    "example": ":m El límite vale **1**.",
+    "description": ":m El límite\n$$\\lim_{x\\to 0}\\frac{e^x - 1}{x}$$\nes de tipo $\\frac{0}{0}$, por lo tanto aplicamos L’Hôpital:\n$$\\lim_{x\\to 0}\\frac{e^x}{1} = e^0 = 1$$\n",
+    "prompt": "¿Cuál es el valor del límite $\\lim_{x\\to 0}\\frac{e^x - 1}{x}$ aplicando la regla de L’Hôpital?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\10-calificacionfinal.md",
+    "reference_line": 39,
+    "module_name": "7-math-analysis",
+    "category": "calificacionfinal"
+  },
+  {
+    "term": "5 - Pendiente de la recta tangente",
+    "example": ":m La pendiente es **36**.",
+    "description": ":m Para $f(x) = (2x + 6x^2)(\\ln x + 2)$, derivamos usando la regla del producto:\n$$f'(x) = (2 + 12x)(\\ln x + 2) + (2x + 6x^2)\\frac{1}{x}$$\nEn $x=1$, obtenemos $f'(1) = 36$. ",
+    "prompt": "¿Cuál es la pendiente de la recta tangente a $f(x)$ en $x=1$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\10-calificacionfinal.md",
+    "reference_line": 51,
+    "module_name": "7-math-analysis",
+    "category": "calificacionfinal"
+  },
+  {
+    "term": "6 - Parámetro $a$ con pendiente normal",
+    "example": ":m $a = -\\tfrac{15}{2}$.",
+    "description": ":m Dada $f(x)=\\dfrac{2a-5}{x+3}$, si la pendiente de la recta normal en $x=-1$ es $-\\tfrac{1}{5}$, entonces la pendiente tangente es $5$.\nComo $f'(x) = -\\dfrac{2a-5}{(x+3)^2}$, en $x=-1$ resulta\n$$-\\dfrac{2a-5}{4}=5\\Rightarrow a=-\\tfrac{15}{2}.$$ ",
+    "prompt": "¿Cuál es el valor de $a$ que cumple que la pendiente de la normal en $x=-1$ sea $-\\tfrac{1}{5}$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\10-calificacionfinal.md",
+    "reference_line": 63,
+    "module_name": "7-math-analysis",
+    "category": "calificacionfinal"
+  },
+  {
+    "term": "7 - Derivada de $f(x)=e^{-x}+4x^{e+1}+\\dfrac{\\ln 2}{x+\\sqrt{5}}$",
+    "example": ":m La derivada es\n$$f'(x)=-e^{-x}+4(e+1)x^e-\\dfrac{\\ln 2}{(x+\\sqrt{5})^2}.$$",
+    "description": ":m Para derivar $f(x)$ se usan reglas básicas:\n* Derivada de $e^{-x}$: $$\\dfrac{d}{dx}e^{-x}=-e^{-x}$$\n* Derivada de $4x^{e+1}$ (potencia con exponente constante $e+1$):\n$$\\dfrac{d}{dx}4x^{e+1}=4(e+1)x^e$$\n* Derivada de $\\dfrac{\\ln 2}{x+\\sqrt{5}}$ (constante sobre función): primero se escribe como $f(x)=(\\ln 2)(x+\\sqrt{5})^{-1}$ y se aplica la regla de la potencia:\n$$\\dfrac{d}{dx}(\\ln 2)(x+\\sqrt{5})^{-1}= (\\ln 2)(-1)(x+\\sqrt{5})^{-2}=-\\dfrac{\\ln 2}{(x+\\sqrt{5})^2}$$\nEntonces:\n$$f'(x)=-e^{-x}+4(e+1)x^e-\\dfrac{\\ln 2}{(x+\\sqrt{5})^2}$$",
+    "prompt": "¿Cuál es la derivada completa de $f(x)=e^{-x}+4x^{e+1}+\\dfrac{\\ln 2}{x+\\sqrt{5}}$ usando regla de la potencia y de la cadena?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\10-calificacionfinal.md",
+    "reference_line": 75,
+    "module_name": "7-math-analysis",
+    "category": "calificacionfinal"
+  },
+  {
+    "term": "8 - Expresiones equivalentes para la derivada",
+    "example": ":m Porque $(x+\\sqrt{5})^{-2}=\\dfrac{1}{(x+\\sqrt{5})^2}$, de modo que\n$$(x+\\sqrt{5})^{-2}(-\\ln 2)=-\\ln 2\\cdot\\dfrac{1}{(x+\\sqrt{5})^2}=-\\dfrac{\\ln 2}{(x+\\sqrt{5})^2}.$$\nSon la misma expresión escrita con notación de potencia negativa o como fracción.",
+    "description": ":m En una de las respuestas la parte de la derivada del último término se escribe como\n$$(x+\\sqrt{5})^{-2}(-\\ln 2)$$\ny en otra como\n$$-\\dfrac{\\ln 2}{(x+\\sqrt{5})^2}.$$\nSon equivalentes porque:\n* $(x+\\sqrt{5})^{-2}=\\dfrac{1}{(x+\\sqrt{5})^2}$ por la regla de potencias con exponente negativo.\n* Multiplicar por $-\\ln 2$ sólo cambia el signo de la constante.\nPor eso\n$$(x+\\sqrt{5})^{-2}(-\\ln 2)=-\\ln 2\\cdot\\dfrac{1}{(x+\\sqrt{5})^2}=-\\dfrac{\\ln 2}{(x+\\sqrt{5})^2}.$$",
+    "prompt": "¿Por qué las formas $(x+\\sqrt{5})^{-2}(-\\ln 2)$ y $-\\dfrac{\\ln 2}{(x+\\sqrt{5})^2}$ representan la misma expresión?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\10-calificacionfinal.md",
+    "reference_line": 94,
+    "module_name": "7-math-analysis",
+    "category": "calificacionfinal"
+  },
+  {
+    "term": "9 - Aplicación de la regla de L’Hôpital",
+    "example": ":m El límite vale **1**.",
+    "description": ":m El límite\n$$\\lim_{x\\to 0}\\frac{e^x-1}{x}$$\nes de tipo $\\frac{0}{0}$, por lo que aplicamos L’Hôpital:\n$$\\lim_{x\\to 0}\\frac{e^x}{1}=1.$$ ",
+    "prompt": "¿Cuál es el resultado del límite $\\lim_{x\\to 0}\\frac{e^x-1}{x}$?",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\7-math-analysis\\cache_md\\10-calificacionfinal.md",
+    "reference_line": 118,
+    "module_name": "7-math-analysis",
+    "category": "calificacionfinal"
+  },
+  {
     "term": "1 - Límites y su evolución histórica",
     "example": ":m Significa que los valores de f(x) se acercan arbitrariamente al número LL cuando xx toma valores cada vez más próximos a x0, aunque x_0 no necesariamente pertenezca al dominio de f(x).",
     "description": ":m El concepto de **límite** es la base del cálculo diferencial e integral. Permite analizar el comportamiento de una función cuando la variable independiente se acerca a cierto valor, aunque no lo alcance. Newton y Leibniz, en el siglo XVII, desarrollaron este marco que revolucionó las matemáticas.\n\n",

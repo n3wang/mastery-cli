@@ -1289,6 +1289,14 @@ class Quizzer {
 				const response = await is_correct.run();
 				ISANSWERCORRECT = response;
 
+				// Track flashcard attempts and learned counts
+				if (!is_try_question_again) {
+					this.masteryManager.increasePerformance('flashcard_attempts', 'feat', 1);
+					if (response) {
+						this.masteryManager.increasePerformance('flashcard_learned', 'feat', 1);
+					}
+				}
+
 				// Update markdown with answer revealed
 				if (response) {
 					const _ = await this.masteryManager.logSkillExperience(

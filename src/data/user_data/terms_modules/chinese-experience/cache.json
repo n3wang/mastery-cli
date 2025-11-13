@@ -1500,6 +1500,16 @@
     "category": "week"
   },
   {
+    "term": "1 - 熔铸",
+    "example": ":m Ingot Casting",
+    "description": ":m 熔铸",
+    "prompt": "熔铸",
+    "reference_page": "E:\\Documents\\GitHub\\mastery-cli\\src\\data\\user_data\\terms_modules\\chinese-experience\\cache_md\\5-week11.md",
+    "reference_line": 10,
+    "module_name": "chinese-experience",
+    "category": "week"
+  },
+  {
     "term": "1 - 日心说的提出（哥白尼革命）",
     "example": ":m 1543年，哥白尼提出地球绕太阳公转的日心说。这一理论彻底改变了人类对宇宙的认识，奠定了现代天文学与科学革命的基础。",
     "description": ":m 在1543年，波兰天文学家尼古拉·哥白尼（Nicolaus Copernicus）发表了《天体运行论》，提出**地球并非宇宙中心，而是围绕太阳公转**。这被称为“哥白尼革命”，标志着**现代科学的开端**，动摇了中世纪以地球为中心的宇宙观。 ",

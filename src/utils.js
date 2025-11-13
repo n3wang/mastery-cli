@@ -694,17 +694,20 @@ class Mastery {
 
 			// Check if there's any recent activity
 			const hasRecentActivity = Object.keys(today_scores).length > 0 || Object.keys(week_scores).length > 0;
-			
+
 			if (!hasRecentActivity) {
 				console.log('\n⚠️  No recent activity found.');
 				console.log('💡 Try running some quizzes to generate report data.');
-				
+
 				// Show available data dates for reference
 				const availableDates = Object.keys(localStorageInstance.date_based_stats).sort();
 				if (availableDates.length > 0) {
 					console.log(`📅 Latest activity: ${availableDates[availableDates.length - 1]}`);
 					console.log(`📅 First activity: ${availableDates[0]}`);
 				}
+
+				// Still show flashcard report even if no other activity
+				this.generateFlashcardReport(localStorageInstance);
 				return;
 			}
 
@@ -771,8 +774,61 @@ class Mastery {
 			// console.log("User Performance Data", userPerformanceData);
 
 			console.table(userPerformanceData);
+
+			// Generate flashcard statistics table
+			this.generateFlashcardReport(localStorageInstance);
 		} catch (err) {
 			console.error('Error generating offline performance report', err);
+		}
+	}
+
+	generateFlashcardReport(localStorageInstance) {
+		try {
+			console.log('\n=== Flashcard Statistics (Last 7 Days) ===\n');
+
+			const today = new Date();
+			const flashcardData = {};
+
+			// Collect data for the last 7 days
+			for (let i = 6; i >= 0; i--) {
+				const date = new Date(today);
+				date.setDate(date.getDate() - i);
+				const dateString = date.toISOString().split('T')[0];
+
+				const dayData = localStorageInstance.date_based_stats[dateString] || {};
+				const attempts = dayData.flashcard_attempts?.value || 0;
+				const learned = dayData.flashcard_learned?.value || 0;
+				const successRate = attempts > 0 ? `${Math.round((learned / attempts) * 100)}%` : 'N/A';
+
+				// Format date as MM/DD
+				const formattedDate = `${date.getMonth() + 1}/${date.getDate()}`;
+
+				flashcardData[formattedDate] = {
+					Attempts: attempts,
+					Learned: learned,
+					'Success Rate': successRate
+				};
+			}
+
+			console.table(flashcardData);
+
+			// Calculate weekly totals
+			let totalAttempts = 0;
+			let totalLearned = 0;
+
+			for (const day in flashcardData) {
+				totalAttempts += flashcardData[day].Attempts;
+				totalLearned += flashcardData[day].Learned;
+			}
+
+			const weeklySuccessRate = totalAttempts > 0 ? Math.round((totalLearned / totalAttempts) * 100) : 0;
+
+			console.log(`\nWeekly Summary:`);
+			console.log(`Total Attempts: ${totalAttempts}`);
+			console.log(`Total Learned: ${totalLearned}`);
+			console.log(`Overall Success Rate: ${weeklySuccessRate}%\n`);
+		} catch (err) {
+			console.error('Error generating flashcard report', err);
 		}
 	}
 
