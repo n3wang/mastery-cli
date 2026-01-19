@@ -7,12 +7,12 @@
 
 
 #### Short-Time Fourier Transform (STFT)
-Background context explaining the concept. The short-time Fourier transform involves translating a window function \( w(t-\tau) \) over a signal to analyze it locally in time, as described by equation 10.13.
+Background context explaining the concept. The short-time Fourier transform involves translating a window function $w(t-\tau)$ over a signal to analyze it locally in time, as described by equation 10.13.
 
 Equation:
-\[ Y(\text{ST})(\omega, \tau)=\int_{-\infty}^{+\infty} dt \sqrt{\frac{2}{\pi}} w(t - \tau) y(t) e^{i \omega t}. \]
+$$Y(\text{ST})(\omega, \tau)=\int_{-\infty}^{+\infty} dt \sqrt{\frac{2}{\pi}} w(t - \tau) y(t) e^{i \omega t}.$$
 
-This formula indicates that for different values of the translation time \( \tau \), which correspond to different locations of the window over the signal, a surface or 3D plot is needed to visualize the amplitude as a function of both \( \omega \) and \( \tau \).
+This formula indicates that for different values of the translation time $\tau $, which correspond to different locations of the window over the signal, a surface or 3D plot is needed to visualize the amplitude as a function of both $\omega $ and$\tau$.
 
 :p What does the short-time Fourier transform allow us to do with respect to analyzing signals?
 ??x
@@ -35,8 +35,8 @@ x??
 Background context explaining the wavelet transform equations. The forward and inverse wavelet transforms are given by equations 10.18 and 10.19, respectively.
 
 Equations:
-\[ Y(s,\tau)=\frac{1}{\sqrt{s}} \int_{-\infty}^{+\infty} dt \psi^*_{s,\tau}(t) y(t). \]
-\[ y(t)=\frac{1}{C} \int_{-\infty}^{+\infty} d\tau \int_{0}^{+\infty} ds \frac{\psi^*_{s,\tau}(t)}{s^{3/2}} Y(s, \tau). \]
+$$Y(s,\tau)=\frac{1}{\sqrt{s}} \int_{-\infty}^{+\infty} dt \psi^*_{s,\tau}(t) y(t).$$
+$$y(t)=\frac{1}{C} \int_{-\infty}^{+\infty} d\tau \int_{0}^{+\infty} ds \frac{\psi^*_{s,\tau}(t)}{s^{3/2}} Y(s, \tau).$$
 
 Explanation of the equations and their interpretation.
 
@@ -63,7 +63,7 @@ x??
 
 
 #### Morlet Wavelet Calculation
-Background context: The Morlet wavelet is a complex wavelet given by the formula \( \psi(t) = \frac{1}{\sqrt{\pi f_b}} e^{i 2 \pi f_c t} e^{-t^2 / f_b} \).
+Background context: The Morlet wavelet is a complex wavelet given by the formula $\psi(t) = \frac{1}{\sqrt{\pi f_b}} e^{i 2 \pi f_c t} e^{-t^2 / f_b}$.
 
 :p Write a method to calculate the Morlet mother wavelet.
 ??x
@@ -107,10 +107,9 @@ x??
 #### Discrete Wavelet Transforms (DWT)
 Background context: DWT is a method used to analyze time signals that are measured at discrete times. Unlike continuous wavelet transforms, DWT deals with discrete values of scaling and translation parameters, making it suitable for practical applications where data is often sampled at discrete intervals.
 Relevant formulas:
-\[ \Psi\left[\frac{t - k2^j}{2^j}\right] = \psi_{j,k}(t) \sqrt{\frac{1}{2^j}} \]
-where \( s = 2^j, \tau = \frac{k}{2^j} \), and \( j, k \) are integers.
+$$\Psi\left[\frac{t - k2^j}{2^j}\right] = \psi_{j,k}(t) \sqrt{\frac{1}{2^j}}$$where $ s = 2^j, \tau = \frac{k}{2^j}$, and $ j, k$ are integers.
 The DWT is defined as:
-\[ Y_{j,k} \approx \sum_m \psi_{j,k}(t_m)y(t_m) \]
+$$Y_{j,k} \approx \sum_m \psi_{j,k}(t_m)y(t_m)$$
 
 :p What does the discrete wavelet transform (DWT) evaluate?
 ??x

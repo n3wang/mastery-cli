@@ -180,9 +180,7 @@ To ensure regulatory compliance:
 
 Example: Using a masking function in SQL to replace PII with placeholders.
 ```sql
-CREATE FUNCTION mask_email(email VARCHAR) RETURNS VARCHAR AS $$
-SELECT REPLACE(email, SUBSTR(email FROM 6 FOR LENGTH(email)-5), '****');
-$$ LANGUAGE plpgsql;
+CREATE FUNCTION mask_email(email VARCHAR) RETURNS VARCHAR AS $$SELECT REPLACE(email, SUBSTR(email FROM 6 FOR LENGTH(email)-5), '****');$$ LANGUAGE plpgsql;
 ```
 x??
 

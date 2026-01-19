@@ -7,7 +7,7 @@
 
 
 #### Time Series Data
-Time series data is a collection of records for one or more variables associated with a single entity, observed at specific intervals over time. These data are indexed in time order and can be mathematically represented as \( X_1, X_2, \ldots , X_N \) where N is the length of the time series, and \( X \) is the observed variable.
+Time series data is a collection of records for one or more variables associated with a single entity, observed at specific intervals over time. These data are indexed in time order and can be mathematically represented as $X_1, X_2, \ldots , X_N $ where N is the length of the time series, and$X$ is the observed variable.
 
 In tabular format, a time series with S variables observed over N periods can be represented as follows:
 | Time/variable | X1   | X2   | X3  ... XS |
@@ -40,7 +40,7 @@ x??
 Cross-sectional data is a collection of records for one or more variables observed across multiple entities at a single point in time. In cross-sectional data, the focus is on the variables themselves rather than the time series dimension.
 
 Mathematically, it can be represented as:
-\[ X_{t,i,j} \] where \( t \) is the fixed time index, \( i \) is the entity index, and \( j \) is the variable index.
+$$X_{t,i,j}$$where $ t $is the fixed time index,$ i $ is the entity index, and $ j$ is the variable index.
 
 In tabular format, we can represent cross-sectional data with N entities and S variables as follows:
 | Entity/variable | V1   | V2   | V3  ... VS |
@@ -73,7 +73,7 @@ x??
 Panel data combines both time series and cross-sectional structures, representing data for a set of variables across multiple entities at different points in time.
 
 Mathematically, panel data can be represented as:
-\[ X_{i,j,t} \] where \( i \) is the entity index, \( j \) is the variable index, and \( t \) is the time index.
+$$X_{i,j,t}$$where $ i $is the entity index,$ j $ is the variable index, and $ t$ is the time index.
 
 A tabular representation for a two-entity, two-time periods, and three-variables panel would look like this (wide format):
 | Entity | Time | V1   | V2  | V3 |
@@ -125,14 +125,13 @@ x??
 Matrix representations are fundamental in financial portfolio optimization, particularly for Markowitz’s mean-variance optimization (MVO). These matrices help in organizing and analyzing the expected returns and covariances of various assets.
 
 The **portfolio return matrix** is a 3 × 1 vector representing the expected returns on each asset. Let's denote this as:
+$$\text{ERA} = \begin{bmatrix} ER_A \\ ER_B \\ ER_C \end{bmatrix}$$
 
-\[ \text{ERA} = \begin{bmatrix} ER_A \\ ER_B \\ ER_C \end{bmatrix} \]
-
-Where \( ER_i \) represents the expected return of asset \( i \).
+Where $ER_i $ represents the expected return of asset$i$.
 
 The **covariance matrix** is a 3 × 3 symmetric matrix representing the variances and covariances between each pair of assets. It is denoted as:
 
-\[ \Sigma = \begin{bmatrix} \text{var}(R_A) & \text{cov}(R_A, R_B) & \text{cov}(R_A, R_C) \\ \text{cov}(R_B, R_A) & \text{var}(R_B) & \text{cov}(R_B, R_C) \\ \text{cov}(R_C, R_A) & \text{cov}(R_C, R_B) & \text{var}(R_C) \end{bmatrix} \]
+$$\Sigma = \begin{bmatrix} \text{var}(R_A) & \text{cov}(R_A, R_B) & \text{cov}(R_A, R_C) \\ \text{cov}(R_B, R_A) & \text{var}(R_B) & \text{cov}(R_B, R_C) \\ \text{cov}(R_C, R_A) & \text{cov}(R_C, R_B) & \text{var}(R_C) \end{bmatrix}$$
 
 :p What is the structure of the covariance matrix in MVO?
 ??x
@@ -196,7 +195,7 @@ Using these, one can derive optimal weights using linear algebra techniques like
 ??x
 The key matrices used in portfolio optimization include:
 - **Portfolio Return Vector (ERA)**: A 1 × n vector of expected returns for each asset.
-- **Covariance Matrix (\(\Sigma\))**: An n × n symmetric matrix representing the variances and covariances between assets.
+- **Covariance Matrix ($\Sigma$)**: An n × n symmetric matrix representing the variances and covariances between assets.
 
 These matrices are essential for calculating the optimal weights using quadratic programming or other optimization techniques.
 
@@ -205,7 +204,7 @@ Example:
 public class PortfolioOptimizer {
     public double[] optimizePortfolio(double[] expectedReturns, double[][] covarianceMatrix) {
         // Implement optimization logic to find optimal weights.
-        // This might involve solving a quadratic problem like: min w' * \(\Sigma\) * w - r' * w
+        // This might involve solving a quadratic problem like: min w' * $\Sigma$* w - r' * w
     }
 }
 ```
@@ -718,7 +717,7 @@ The main types of financial statements include:
 - **Income Statement**: Shows financial performance over a specific period, such as revenues and net profit.
 - **Cash Flow Statement**: Offers details on cash movements.
 
-These statements are crucial for understanding the firm's financial health and operations. For example, ROE (Return on Equity) is calculated by dividing net income by shareholders' equity: \( \text{ROE} = \frac{\text{Net Income}}{\text{Shareholders' Equity}} \).
+These statements are crucial for understanding the firm's financial health and operations. For example, ROE (Return on Equity) is calculated by dividing net income by shareholders' equity:$\text{ROE} = \frac{\text{Net Income}}{\text{Shareholders' Equity}}$.
 
 x??
 
@@ -766,8 +765,8 @@ Explanation of how to read and interpret financial highlights in an annual repor
 :p What are some key items in ADK's annual financial highlights?
 ??x
 Key items include:
-- **Total Net Revenues**: $102 billion in 2020 (versus $99 billion in 2021).
-- **Net Income**: $23 billion in 2020 (versus $25 billion in 2019).
+- **Total Net Revenues**: $102 billion in 2020 (versus$99 billion in 2021).
+- **Net Income**: $23 billion in 2020 (versus$25 billion in 2019).
 - **Return on Common Equity**: 11% in 2020 (versus 16% in 2019).
 - **Total Assets**: Over $3 trillion.
 - **Headcount**: 150,432 employees.

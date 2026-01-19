@@ -285,7 +285,8 @@ function parseMarkdownIntoDeck(
 				category: filename
 					.replace('.md', '')
 					.replace(/ /g, '')
-					.replace(/[^a-zA-Z]/g, '')
+					.replace(/[^a-zA-Z]/g, ''),
+				auto_newline: false
 			}
 		);
 		// console.log("created new terms", term);
@@ -602,7 +603,8 @@ function parseMarkdownCardsFromTermsModules(
 									reference_page: termData.reference_page,
 									reference_line: termData.reference_line || -1,
 									module_name: module.ABOUT.module_name,
-									category: module.ABOUT.category
+									category: module.ABOUT.category,
+									auto_newline: false
 								}
 							);
 							terms.push(term);

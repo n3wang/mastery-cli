@@ -10,12 +10,12 @@
 
 Background context: This section explains how to prove statements using induction, but starting from a natural number greater than 1. The p-test example is provided to illustrate this concept.
 
-:p What does it mean to start proving a statement with induction past the base case of \(n=1\)?
+:p What does it mean to start proving a statement with induction past the base case of $n=1$?
 
 ??x
-Inductive proof for natural numbers past a point involves setting a different base case (e.g., \(n=2\)) and assuming that the result holds for all previous values up to some \(k\). This is useful when the property being proven does not hold or is trivial at \(n=1\).
+Inductive proof for natural numbers past a point involves setting a different base case (e.g., $n=2 $) and assuming that the result holds for all previous values up to some $ k $. This is useful when the property being proven does not hold or is trivial at$ n=1$.
 
-Example: To prove that \(\sum_{i=1}^n \frac{1}{i}\) diverges for \(n \geq 2\), you would start with the base case of \(n=2\) and assume the result holds up to some \(k \in [2, n-1]\).
+Example: To prove that $\sum_{i=1}^n \frac{1}{i}$ diverges for $n \geq 2$, you would start with the base case of $ n=2$and assume the result holds up to some $ k \in [2, n-1]$.
 
 ```java
 public class PTest {
@@ -36,12 +36,12 @@ x??
 
 #### Combinatorial Proof: Binomial Theorem
 
-Background context: This section explains the combinatorial proof that \(\sum_{i=0}^n \binom{n}{i} = 2^n\). The base case starts at \(n=0\) and assumes it holds for all previous values up to some \(k\).
+Background context: This section explains the combinatorial proof that $\sum_{i=0}^n \binom{n}{i} = 2^n $. The base case starts at $ n=0 $and assumes it holds for all previous values up to some$ k$.
 
-:p What is the base case in proving \(\sum_{i=0}^n \binom{n}{i} = 2^n\)?
+:p What is the base case in proving $\sum_{i=0}^n \binom{n}{i} = 2^n$?
 
 ??x
-The base case for this proof is when \(n=0\). The binomial coefficient \(\binom{0}{0} = 1\) and since \(2^0 = 1\), the statement holds true at the base case.
+The base case for this proof is when $n=0 $. The binomial coefficient $\binom{0}{0} = 1 $ and since$2^0 = 1$, the statement holds true at the base case.
 
 ```java
 public class BinomialTheorem {
@@ -57,15 +57,15 @@ x??
 
 #### Strong Induction
 
-Background context: This concept explains the idea behind strong induction. Unlike regular induction where you prove \(S_{k+1}\) assuming \(S_k\), with strong induction, you assume all previous statements up to \(S_k\) are true.
+Background context: This concept explains the idea behind strong induction. Unlike regular induction where you prove $S_{k+1}$ assuming $S_k$, with strong induction, you assume all previous statements up to $ S_k$ are true.
 
 :p What is the principle of strong induction?
 
 ??x
-The principle of strong induction states that for a sequence of mathematical statements \(S_1, S_2, S_3, \ldots\):
+The principle of strong induction states that for a sequence of mathematical statements $S_1, S_2, S_3, \ldots$:
 
-- \(S_1\) is true.
-- For any \(k \in \mathbb{N}\), if all the previous statements \(S_1, S_2, \ldots, S_k\) are true, then \(S_{k+1}\) must be true.
+- $S_1$ is true.
+- For any $k \in \mathbb{N}$, if all the previous statements $ S_1, S_2, \ldots, S_k$are true, then $ S_{k+1}$ must be true.
 
 By this principle, you can prove that every statement in the sequence is true by showing both the base case and the induction step using multiple prior statements.
 
@@ -89,20 +89,20 @@ x??
 
 #### Fundamental Theorem of Arithmetic
 
-Background context: This theorem states that every integer \(n \geq 2\) can be expressed as a product of primes. The proof uses strong induction with the base case being \(n=2\), and assuming the statement is true for all integers up to some \(k\).
+Background context: This theorem states that every integer $n \geq 2 $ can be expressed as a product of primes. The proof uses strong induction with the base case being$n=2 $, and assuming the statement is true for all integers up to some $ k$.
 
 :p How does one prove the Fundamental Theorem of Arithmetic using strong induction?
 
 ??x
 To prove the Fundamental Theorem of Arithmetic, we use strong induction:
 
-- Base Case: For \(n = 2\), which is prime, it satisfies the theorem.
-- Inductive Hypothesis: Assume that for all integers up to some \(k \geq 2\), each integer can be expressed as a product of primes.
+- Base Case: For $n = 2$, which is prime, it satisfies the theorem.
+- Inductive Hypothesis: Assume that for all integers up to some $k \geq 2$, each integer can be expressed as a product of primes.
 
-To prove that \(k+1\) is also expressible as a product of primes:
+To prove that $k+1$ is also expressible as a product of primes:
 
-1. If \(k+1\) is prime, it trivially satisfies the theorem.
-2. Otherwise, let \(k+1 = st\) where \(s\) and \(t\) are integers such that \(1 < s, t < k+1\). By the inductive hypothesis, both \(s\) and \(t\) can be expressed as products of primes.
+1. If $k+1$ is prime, it trivially satisfies the theorem.
+2. Otherwise, let $k+1 = st $ where$s $ and$t $ are integers such that$1 < s, t < k+1 $. By the inductive hypothesis, both $ s $and$ t$ can be expressed as products of primes.
 
 ```java
 public class FundamentalTheoremOfArithmetic {
@@ -135,42 +135,42 @@ x??
 Background context: The provided text discusses strong induction, a method of mathematical proof that is used when the statement to be proved depends on more than just the immediate previous case. It involves proving that if all smaller cases are true, then the current case must also be true.
 
 The objective here is to understand how strong induction can handle cases where the next step relies on multiple preceding steps rather than just the immediately previous one.
-:p What does the text suggest about the limitations of regular induction when dealing with \( k+1 \)?
+:p What does the text suggest about the limitations of regular induction when dealing with $k+1$?
 ??x
-Regular induction often falters because it only considers the immediate previous case, which might not be sufficient to cover all scenarios for \( k+1 \). Strong induction, on the other hand, allows us to assume that all cases up to and including \( k \) are true, providing a more robust basis for proving statements about \( k+1 \).
+Regular induction often falters because it only considers the immediate previous case, which might not be sufficient to cover all scenarios for $k+1 $. Strong induction, on the other hand, allows us to assume that all cases up to and including $ k $ are true, providing a more robust basis for proving statements about $ k+1$.
 x??
 
 ---
 
 #### Prime or Composite Consideration
-Background context: The text explains how we can use strong induction by considering whether \( k+1 \) is prime or composite. If it's composite, then we know it has factors \( s \) and \( t \), both of which must be less than \( k+1 \). By the inductive hypothesis, these factors are either primes or products of primes.
+Background context: The text explains how we can use strong induction by considering whether $k+1 $ is prime or composite. If it's composite, then we know it has factors$s $ and$ t $, both of which must be less than $ k+1$. By the inductive hypothesis, these factors are either primes or products of primes.
 
 The objective here is to understand how to handle composite numbers within strong induction.
-:p If \( k+1 \) is composite, what does the text suggest about its factors?
+:p If $k+1$ is composite, what does the text suggest about its factors?
 ??x
-If \( k+1 \) is composite, it can be expressed as a product of two smaller integers \( s \) and \( t \). By the inductive hypothesis, both \( s \) and \( t \) must satisfy the theorem since they are less than \( k+1 \), meaning they are either primes or products of primes. Therefore, their product \( st = k+1 \) will also be a product of primes.
+If $k+1 $ is composite, it can be expressed as a product of two smaller integers$s $ and$ t $. By the inductive hypothesis, both $ s$and $ t$ must satisfy the theorem since they are less than $ k+1 $, meaning they are either primes or products of primes. Therefore, their product$ st = k+1$ will also be a product of primes.
 x??
 
 ---
 
 #### Base Case
-Background context: The base case for strong induction is often straightforward and involves checking the smallest value (in this example, 2). Here, it's noted that since 2 is prime, the statement holds true for \( n=2 \).
+Background context: The base case for strong induction is often straightforward and involves checking the smallest value (in this example, 2). Here, it's noted that since 2 is prime, the statement holds true for $n=2$.
 
 The objective here is to understand how to establish a simple but crucial starting point in an induction proof.
 :p What is the base case of the proof provided?
 ??x
-The base case is when \( n = 2 \). Since 2 is a prime number, it satisfies the statement that every positive integer greater than 2 can be written as a product of primes.
+The base case is when $n = 2$. Since 2 is a prime number, it satisfies the statement that every positive integer greater than 2 can be written as a product of primes.
 x??
 
 ---
 
 #### Inductive Step for Composite Numbers
-Background context: In the inductive step, if \( k+1 \) is composite, we use strong induction by expressing \( k+1 \) as a product of two integers \( s \) and \( t \). The text explains that since these factors are smaller than \( k+1 \), they must also be either primes or products of primes.
+Background context: In the inductive step, if $k+1 $ is composite, we use strong induction by expressing$k+1 $ as a product of two integers$ s $ and $ t $. The text explains that since these factors are smaller than $ k+1$, they must also be either primes or products of primes.
 
 The objective here is to understand the detailed process for handling composite numbers in strong induction.
-:p How does the proof handle the case where \( k+1 \) is composite?
+:p How does the proof handle the case where $k+1$ is composite?
 ??x
-If \( k+1 \) is composite, it can be written as \( s \times t \), where both \( s \) and \( t \) are smaller than \( k+1 \). By the inductive hypothesis, both \( s \) and \( t \) must be either primes or products of primes. Therefore, their product \( st = k+1 \) will also be a product of primes.
+If $k+1 $ is composite, it can be written as$s \times t $, where both$ s $and$ t $ are smaller than $ k+1 $. By the inductive hypothesis, both$ s $and$ t $ must be either primes or products of primes. Therefore, their product $st = k+1$ will also be a product of primes.
 x??
 
 ---
@@ -203,7 +203,7 @@ Background context: The base case establishes the simplest scenario, which is a 
 
 :p What does the base case prove in this induction proof?
 ??x
-The base case proves that for a 1×1 chocolate bar, no breaks are needed because it's already in its simplest form (an individual square). Mathematically, this is shown by \(0 = 1^1 - 1\), which correctly reflects one less than the number of squares (1) in the base case.
+The base case proves that for a 1×1 chocolate bar, no breaks are needed because it's already in its simplest form (an individual square). Mathematically, this is shown by $0 = 1^1 - 1$, which correctly reflects one less than the number of squares (1) in the base case.
 x??
 
 ---
@@ -212,16 +212,16 @@ Background context: The inductive hypothesis assumes that for all bars with at m
 
 :p What does the inductive hypothesis state?
 ??x
-The inductive hypothesis states that if a chocolate bar with \(k\) or fewer squares requires \(k - 1\) breaks, then any bar with more than \(k\) squares will require one less break than its number of squares. Formally, for all bars with up to \(k\) squares, the required number of breaks is \(k - 1\).
+The inductive hypothesis states that if a chocolate bar with $k $ or fewer squares requires$k - 1 $ breaks, then any bar with more than$ k $ squares will require one less break than its number of squares. Formally, for all bars with up to $ k $ squares, the required number of breaks is $k - 1$.
 x??
 
 ---
 #### Induction Step
-Background context: The induction step involves proving that if a bar with \((k + 1)\) squares requires one less break than its number of squares (i.e., \(k\)), then any bar larger than this can be broken down according to the same rule.
+Background context: The induction step involves proving that if a bar with $(k + 1)$ squares requires one less break than its number of squares (i.e.,$ k$), then any bar larger than this can be broken down according to the same rule.
 
 :p What does the induction step show in relation to breaking chocolate bars?
 ??x
-The induction step shows that if a chocolate bar with \((k + 1)\) squares requires \(k\) breaks, then for any bar with more than \(k + 1\) squares (specifically an \(m \times n\) bar), the number of breaks required is one less than the number of squares. This is proven by considering the first break which divides the bar into two smaller bars, and applying the inductive hypothesis to each.
+The induction step shows that if a chocolate bar with $(k + 1)$ squares requires $k$ breaks, then for any bar with more than $k + 1$ squares (specifically an $m \times n$ bar), the number of breaks required is one less than the number of squares. This is proven by considering the first break which divides the bar into two smaller bars, and applying the inductive hypothesis to each.
 x??
 
 ---
@@ -230,7 +230,7 @@ Background context: The conclusion uses strong induction to prove that any choco
 
 :p What does the overall proof demonstrate?
 ??x
-The overall proof demonstrates that for any size of a chocolate bar (whether it's an \(m \times n\) grid, a triangle shape, or even with missing pieces), the number of breaks required to break it into individual squares is always one less than the number of squares. This is achieved through strong induction, where each step relies on multiple previous cases.
+The overall proof demonstrates that for any size of a chocolate bar (whether it's an $m \times n$ grid, a triangle shape, or even with missing pieces), the number of breaks required to break it into individual squares is always one less than the number of squares. This is achieved through strong induction, where each step relies on multiple previous cases.
 x??
 
 ---
@@ -250,7 +250,7 @@ Background context: This concept explains how many breaks are required to increa
 
 :p How many breaks are needed to move from 1 chunk to T chunks?
 ??x
-The answer is \(T - 1\) breaks are needed because each break increases the number of chunks by 1. For example, with 2 breaks, you go from 1 chunk to 3 chunks (1 + 2 = 3).
+The answer is $T - 1$ breaks are needed because each break increases the number of chunks by 1. For example, with 2 breaks, you go from 1 chunk to 3 chunks (1 + 2 = 3).
 
 ```java
 // Pseudocode for calculating the number of breaks
@@ -302,18 +302,13 @@ x??
 ---
 
 #### Writing Numbers as 2a + 5b
-Background context: The proposition states that every natural number \(n \geq 11\) can be written as \(2a + 5b\), where \(a\) and \(b\) are non-negative integers. This is an application of strong induction, showing how to write numbers in a specific form.
+Background context: The proposition states that every natural number $n \geq 11 $ can be written as$2a + 5b $, where $ a $and$ b$ are non-negative integers. This is an application of strong induction, showing how to write numbers in a specific form.
 
-:p Can you explain the process for writing numbers greater than or equal to 11 as \(2a + 5b\) using strong induction?
+:p Can you explain the process for writing numbers greater than or equal to 11 as $2a + 5b$ using strong induction?
 ??x
 The process involves proving two base cases (n = 11 and n = 12) and then showing that if it works for all previous values up to k, it will work for k+1. For example:
-- Base case 1: \(11 = 2 \cdot 3 + 5 \cdot 1\)
-- Base case 2: \(12 = 2 \cdot 1 + 5 \cdot 2\)
-
-For any \(k \geq 12\), if \(k - 1\) can be written as \(2a + 5b\), then \(k\) can be written as:
-\[ k = 2(a+1) + 5b \]
-
-```java
+- Base case 1:$11 = 2 \cdot 3 + 5 \cdot 1 $- Base case 2:$12 = 2 \cdot 1 + 5 \cdot 2 $ For any$k \geq 12 $, if$ k - 1 $can be written as$2a + 5b $, then$ k$can be written as:
+$$k = 2(a+1) + 5b$$```java
 // Pseudocode for writing numbers using strong induction
 public boolean canWriteAsSum(int n) {
     if (n == 11) return true; // Base case 1
@@ -338,11 +333,11 @@ x??
 ---
 
 #### Strong Induction with Two Base Cases
-Background context: The given example demonstrates strong induction where two base cases are used to prove a proposition for all \(n \geq 11\). This method is necessary when each step relies on the previous few steps, not just one.
+Background context: The given example demonstrates strong induction where two base cases are used to prove a proposition for all $n \geq 11$. This method is necessary when each step relies on the previous few steps, not just one.
 
 :p How does this example use strong induction with two base cases?
 ??x
-This example uses strong induction by proving that if it holds for all numbers from 11 to k, then it must hold for \(k+1\). Two base cases (n = 11 and n = 12) are proven first. Then, the inductive step assumes it is true for some \(k \geq 12\) and proves it for \(k+1\).
+This example uses strong induction by proving that if it holds for all numbers from 11 to k, then it must hold for $k+1 $. Two base cases (n = 11 and n = 12) are proven first. Then, the inductive step assumes it is true for some $ k \geq 12 $and proves it for$ k+1$.
 
 ```java
 // Example pseudocode for strong induction with two base cases
@@ -373,11 +368,11 @@ x??
 ---
 
 #### Difference Between Regular and Strong Induction
-Background context: The text explains that regular induction relies only on the immediate preceding case, while strong induction allows using any number of earlier cases. This is demonstrated through examples where proving a statement for \(k+1\) requires more than just one previous step.
+Background context: The text explains that regular induction relies only on the immediate preceding case, while strong induction allows using any number of earlier cases. This is demonstrated through examples where proving a statement for $k+1$ requires more than just one previous step.
 
 :p What is the key difference between regular induction and strong induction?
 ??x
-Regular induction proves each case based solely on the immediately preceding case. In contrast, strong induction can use any number of earlier cases to prove a statement for the next case. For example, in the given proposition, proving \(n = k+1\) relies not just on the assumption that \(k-1\) works but also on knowing how \(k\) and possibly other previous values work.
+Regular induction proves each case based solely on the immediately preceding case. In contrast, strong induction can use any number of earlier cases to prove a statement for the next case. For example, in the given proposition, proving $n = k+1 $ relies not just on the assumption that$k-1 $ works but also on knowing how$k$ and possibly other previous values work.
 
 ```java
 // Pseudocode comparison between regular and strong induction
@@ -441,9 +436,9 @@ Background context explaining the concept of a flawed proof regarding the conver
 
 :p Why is the inductive step incorrect in this fake proof?
 ??x
-The inductive step is incorrect because it assumes that adding the next term (1/(k+1)) to the finite number F does not change its value. However, since \(F\) is actually a divergent series when extended indefinitely, adding 1/(k+1) will always result in a sum greater than 1.
+The inductive step is incorrect because it assumes that adding the next term (1/(k+1)) to the finite number F does not change its value. However, since $F$ is actually a divergent series when extended indefinitely, adding 1/(k+1) will always result in a sum greater than 1.
 
-The flaw lies in treating the harmonic series as if it converges to some finite number \(F\). In reality, the harmonic series diverges, meaning that its sum grows without bound. Therefore, the induction step should show that the sum of the first k+1 terms is still less than 1, which contradicts the known fact about the harmonic series.
+The flaw lies in treating the harmonic series as if it converges to some finite number $F$. In reality, the harmonic series diverges, meaning that its sum grows without bound. Therefore, the induction step should show that the sum of the first k+1 terms is still less than 1, which contradicts the known fact about the harmonic series.
 
 Code examples are not relevant for this logical proof.
 x??
@@ -455,14 +450,14 @@ These flashcards help familiarize you with common pitfalls in mathematical proof
 
 #### Inductive Proof of a Finite Sum
 
-Background context: The text presents an incorrect proof by induction, which claims that \(1 + \frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{k+1} < 1\). The objective is to identify the flaw in this proof and understand why it does not hold.
+Background context: The text presents an incorrect proof by induction, which claims that $1 + \frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{k+1} < 1$. The objective is to identify the flaw in this proof and understand why it does not hold.
 
 :p Identify the error in the provided proof.
 ??x
-The main issue with the given proof lies in its conclusion. The proof attempts to show that \(1 + \frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{k+1} < 1\) by induction, but it fails because the inequality is incorrect for any finite sum of unit fractions. Specifically:
+The main issue with the given proof lies in its conclusion. The proof attempts to show that $1 + \frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{k+1} < 1$ by induction, but it fails because the inequality is incorrect for any finite sum of unit fractions. Specifically:
 
-- For \( k = 1 \), \( 1 + \frac{1}{2} = 1.5 > 1 \).
-- The proof incorrectly assumes that if a statement holds for some \(k\), it must hold for \(k+1\) without properly verifying the inequality.
+- For $k = 1 $, $1 + \frac{1}{2} = 1.5 > 1$.
+- The proof incorrectly assumes that if a statement holds for some $k $, it must hold for $ k+1$ without properly verifying the inequality.
 
 Therefore, the base case and the inductive step do not correctly establish the desired result.
 x??
@@ -471,29 +466,30 @@ x??
 
 #### Geometric Series Formula
 
-Background context: A lemma is stated regarding geometric series where each term doubles. The formula given is \(\sum_{i=0}^{n} 2^i = 2^{n+1}-1\). This is a classic example of an inductive proof.
+Background context: A lemma is stated regarding geometric series where each term doubles. The formula given is $\sum_{i=0}^{n} 2^i = 2^{n+1}-1$. This is a classic example of an inductive proof.
 
 :p What does the inductive hypothesis look like for this lemma?
 ??x
 The inductive hypothesis can be stated as:
-\[ 1 + 2 + 4 + \cdots + 2^k = 2^{k+1} - 1. \]
-This assumption is made to prove the next term, i.e., \(1 + 2 + 4 + \cdots + 2^k + 2^{k+1}\).
+$$1 + 2 + 4 + \cdots + 2^k = 2^{k+1} - 1.$$
+
+This assumption is made to prove the next term, i.e.,$1 + 2 + 4 + \cdots + 2^k + 2^{k+1}$.
 
 To show that:
-\[ 1 + 2 + 4 + \cdots + 2^k + 2^{k+1} = 2^{(k+1)+1} - 1. \]
-x??
+$$1 + 2 + 4 + \cdots + 2^k + 2^{k+1} = 2^{(k+1)+1} - 1.$$x??
 
 ---
 
 #### Strong Induction for Binary Representation
 
-Background context: The text uses strong induction to prove that every natural number \( n \) can be represented uniquely as a sum of distinct powers of 2, i.e., its binary representation.
+Background context: The text uses strong induction to prove that every natural number $n$ can be represented uniquely as a sum of distinct powers of 2, i.e., its binary representation.
 
 :p How does the base case in the proof of unique binary representation work?
 ??x
-The base case is when \( n = 1 \). The statement asserts that:
-\[ 1 = 2^0. \]
-This is true and shows that 1 can be uniquely represented as a sum of distinct powers of 2, which is just \(2^0\).
+The base case is when $n = 1$. The statement asserts that:
+$$1 = 2^0.$$
+
+This is true and shows that 1 can be uniquely represented as a sum of distinct powers of 2, which is just $2^0$.
 
 To verify this, we note that any other representation would include at least one power of 2 greater than 1, making the sum larger than 1. Hence, there is only one valid way to represent 1.
 x??
@@ -501,21 +497,20 @@ x??
 ---
 #### Inductive Step for Binary Representation
 
-Background context: The inductive step involves proving that if every number up to \( k \) can be represented uniquely as a sum of distinct powers of 2, then \( k+1 \) can also be represented uniquely.
+Background context: The inductive step involves proving that if every number up to $k $ can be represented uniquely as a sum of distinct powers of 2, then$k+1$ can also be represented uniquely.
 
 :p What is the approach taken to prove the inductive step?
 ??x
-The inductive step assumes that for all natural numbers \( m \leq k \), they can be expressed uniquely as sums of distinct powers of 2. We need to show that \( k+1 \) can also be represented uniquely.
+The inductive step assumes that for all natural numbers $m \leq k $, they can be expressed uniquely as sums of distinct powers of 2. We need to show that $ k+1$ can also be represented uniquely.
 
-Consider the binary representation of \( k \):
-\[ k = a_0 + a_1 \cdot 2^1 + a_2 \cdot 2^2 + \cdots + a_k \cdot 2^k, \]
-where each \( a_i \) is either 0 or 1.
+Consider the binary representation of $k$:
+$$k = a_0 + a_1 \cdot 2^1 + a_2 \cdot 2^2 + \cdots + a_k \cdot 2^k,$$where each $ a_i$ is either 0 or 1.
 
-To represent \( k+1 \):
-- If the last bit of \( k \) (i.e., \( a_0 \)) is 0, then set it to 1 and all higher bits remain unchanged.
+To represent $k+1$:
+- If the last bit of $k $(i.e.,$ a_0$) is 0, then set it to 1 and all higher bits remain unchanged.
 - Otherwise, the last bit is 1. We need to adjust the previous bits according to the carry-over rules in binary addition.
 
-This adjustment ensures that \( k+1 \) can be represented uniquely by modifying only one or a few bits of its binary representation from \( k \).
+This adjustment ensures that $k+1 $ can be represented uniquely by modifying only one or a few bits of its binary representation from$k$.
 
 The inductive step thus confirms that every number has a unique binary representation.
 x??

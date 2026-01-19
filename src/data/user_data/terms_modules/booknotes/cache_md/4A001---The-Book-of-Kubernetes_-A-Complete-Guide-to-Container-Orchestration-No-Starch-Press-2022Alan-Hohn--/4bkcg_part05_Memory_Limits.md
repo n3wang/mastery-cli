@@ -107,7 +107,7 @@ To limit egress bandwidth, tools like `tc` (Traffic Control) can be used to appl
 The `tc qdisc add dev` command sets up a traffic control discipline on the specified network interface (`$IFACE`). Here, it adds a TBF (Token Bucket Filter) with a rate limit of 100mbit and burst size of 256kbit.
 
 ```bash
-root@host01:~# IFACE=$(ip -o addr | grep 192.168.61.11 | awk '{print $2}')
+root@host01:~# IFACE=$(ip -o addr | grep 192.168.61.11 | awk '{print$2}')
 root@host01:~# tc qdisc add dev $IFACE root tbf rate 100mbit \
     burst 256kbit latency 400ms
 ```

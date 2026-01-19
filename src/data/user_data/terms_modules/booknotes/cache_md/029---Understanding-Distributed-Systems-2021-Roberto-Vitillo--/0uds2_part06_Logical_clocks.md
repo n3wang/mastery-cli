@@ -36,7 +36,7 @@ This approach helps in determining causality without relying on physical time.
 ??x
 Lamport's algorithm ensures causal ordering by having each process increment its local clock counter before performing an operation. When a message is sent, it includes the sender's current logical timestamp, and upon receiving a message, the receiver updates its clock to be 1 plus the maximum of its current logical timestamp or the received timestamp.
 
-This way, if operation \(O_1\) happened-before operation \(O_2\), the logical timestamp of \(O_1\) will always be less than that of \(O_2\).
+This way, if operation $O_1 $ happened-before operation$O_2 $, the logical timestamp of$ O_1 $will always be less than that of$ O_2$.
 
 Example code:
 ```java
@@ -85,13 +85,13 @@ x??
 #### Vector Clocks: Introduction and Basic Concepts
 Vector clocks are a type of logical clock used to track causality between operations across distributed systems. Unlike physical clocks, vector clocks can handle partial orderings of events that happen on different processes. The basic idea is to use an array of counters, one for each process in the system.
 
-If a system has 3 processes \( P_1, P_2, \) and \( P_3 \), then each process maintains its own vector clock with an array of three counters: [𝐶𝑃₁, 𝐶𝑃₂, 𝐶𝑃₃].
+If a system has 3 processes $P_1, P_2,$ and $P_3$, then each process maintains its own vector clock with an array of three counters: [𝐶𝑃₁, 𝐶𝑃₂, 𝐶𝑃₃].
 
 :p What is the purpose of vector clocks in distributed systems?
 ??x
 Vector clocks are used to determine the order of events that occur across different processes in a distributed system. They help in maintaining causality by providing a way to partially order operations based on their logical timestamps.
 
-For example, if \( P_1 \) sends a message to \( P_2 \), both will increment their respective counters.
+For example, if $P_1 $ sends a message to$P_2$, both will increment their respective counters.
 x??
 
 ---
@@ -144,10 +144,10 @@ Operations can be ordered based on their vector clock timestamps. If one operati
 
 :p How are operations ordered using vector clocks?
 ??x
-Operations are ordered by comparing their vector clock timestamps. Specifically, if \( T1 \) (timestamp from one operation) has every counter less than or equal to the corresponding counter in \( T2 \), and there is at least one counter that strictly decreases, then the operation with \( T1 \) happened before the operation with \( T2 \).
+Operations are ordered by comparing their vector clock timestamps. Specifically, if $T1 $(timestamp from one operation) has every counter less than or equal to the corresponding counter in $ T2 $, and there is at least one counter that strictly decreases, then the operation with$ T1 $ happened before the operation with $ T2$.
 
 For example:
-- If \( T1 = [0, 3] \) and \( T2 = [1, 5] \), then \( O1 \) happened before \( O2 \).
+- If $T1 = [0, 3]$ and $T2 = [1, 5]$, then $ O1$happened before $ O2$.
 - If both are equal or no strict decrease is present, operations are considered concurrent.
 
 ```java

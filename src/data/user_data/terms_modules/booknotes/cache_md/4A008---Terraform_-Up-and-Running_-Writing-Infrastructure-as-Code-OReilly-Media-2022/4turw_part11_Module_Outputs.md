@@ -313,8 +313,7 @@ Background context: After initializing your Git repositories, you need to set up
 ??x
 You can add a remote origin and push the code using these commands:
 ```sh
-$ git remote add origin "(URL OF REMOTE GIT REPOSITORY)"
-$ git push origin main
+$git remote add origin "(URL OF REMOTE GIT REPOSITORY)"$ git push origin main
 ```
 Replace `(URL OF REMOTE GIT REPOSITORY)` with your actual Git repository URL.
 x??
@@ -353,8 +352,7 @@ Background context: When making changes to a module, you need to commit the upda
 ??x
 To push a new tag to a Git repository, use the following command:
 ```
-$ git tag -a "v0.0.2" -m "Second release of webserver-cluster"
-$ git push origin main --follow-tags
+$git tag -a "v0.0.2" -m "Second release of webserver-cluster"$ git push origin main --follow-tags
 ```
 
 This process tags the commit and pushes it to the `origin` remote repository, ensuring that all relevant tags are also pushed.

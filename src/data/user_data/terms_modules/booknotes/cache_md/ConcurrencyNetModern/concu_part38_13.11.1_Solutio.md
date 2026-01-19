@@ -889,19 +889,18 @@ Amdahl's Law describes the theoretical maximum speedup in latency of the executi
 
 :p How does Amdahl’s Law relate to scaling stateless servers?
 ??x
-Amdahl’s Law is crucial for understanding and predicting scalability in systems, especially those that are designed to be stateless. The law states that the theoretical speedup \( S \) from using multiple processors is limited by the fraction of the program that cannot be parallelized.
+Amdahl’s Law is crucial for understanding and predicting scalability in systems, especially those that are designed to be stateless. The law states that the theoretical speedup $S$ from using multiple processors is limited by the fraction of the program that cannot be parallelized.
 
 Formula:
-\[ S = \frac{1}{(1 - p + \frac{p}{n})} \]
-where:
-- \( p \) is the proportion of the application that can be made concurrent.
-- \( n \) is the number of processors used for concurrency.
+$$S = \frac{1}{(1 - p + \frac{p}{n})}$$where:
+- $p$ is the proportion of the application that can be made concurrent.
+- $n$ is the number of processors used for concurrency.
 
 In stateless server design, since no data is stored between requests, more operations can be parallelized. This allows for better scaling as you can distribute the load across multiple servers or processes without worrying about shared state.
 
 Example:
-If 80% of an application can be made concurrent (\( p = 0.8 \)), and 2 processors are used (\( n = 2 \)):
-\[ S = \frac{1}{(1 - 0.8 + \frac{0.8}{2})} = \frac{1}{(0.2 + 0.4)} = \frac{1}{0.6} \approx 1.67 \]
+If 80% of an application can be made concurrent ($p = 0.8 $), and 2 processors are used ($ n = 2$):
+$$S = \frac{1}{(1 - 0.8 + \frac{0.8}{2})} = \frac{1}{(0.2 + 0.4)} = \frac{1}{0.6} \approx 1.67$$
 This indicates that using two processors can speed up the application by approximately 1.67 times.
 
 x??

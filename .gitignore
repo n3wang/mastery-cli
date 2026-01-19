@@ -1,4 +1,5 @@
-src\data\user_data\daily_decks.json
+!**/cache.json
+
 */archive/*
 .claude/**
 **/user_data/*.md
@@ -9,6 +10,21 @@ current-quiz.md
 
 utils/dsa-cli/user_files/temp_settings.json
 utils/dsa-cli/user_files/*
+
+# User-specific local progress and settings #
+##############################################
+# Personal settings - contains user preferences, deck masks, objectives
+src/user_data/settings.json
+
+# Daily deck tracking - user's daily study progress
+src/data/user_data/daily_decks.json
+
+# All temp files - study sessions, queues, hashes, feedback
+src/data/user_data/temp/
+
+# Cache files - parsed binary data (but NOT the markdown content)
+src/data/user_data/terms_modules/**/cache.json
+
 # NPM #
 ##########
 # Ignore all directories called node_modules in current folder and any subfolders.

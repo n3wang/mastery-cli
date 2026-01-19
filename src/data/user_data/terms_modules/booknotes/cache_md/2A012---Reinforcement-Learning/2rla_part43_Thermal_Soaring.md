@@ -28,8 +28,9 @@ x??
 
 #### SARSA Algorithm Overview
 The SARSA (State-Action-Reward-State-Action) algorithm is a reinforcement learning method used to find an optimal policy for decision-making processes. It updates the Q-function, which estimates the expected future rewards given a current state and action taken. The update rule for the Q-function is as follows:
-\[Q(s,a) \rightarrow Q(s,a) + \eta (r + \beta Q(s',a') - Q(s,a))\]
-Here, \(r\) is the reward received after taking action \(a\) in state \(s\), and \(\eta\) is the learning rate. The parameter \(\beta\) influences how much future rewards are considered.
+$$Q(s,a) \rightarrow Q(s,a) + \eta (r + \beta Q(s',a') - Q(s,a))$$
+
+Here,$r $ is the reward received after taking action$a $ in state$s $, and $\eta $ is the learning rate. The parameter$\beta$ influences how much future rewards are considered.
 
 :p What is the SARSA algorithm used for?
 ??x
@@ -41,14 +42,16 @@ x??
 
 #### Q-Function Update Rule
 The Q-function is updated using the following formula at each step:
-\[Q(s,a) \rightarrow Q(s,a) + \eta (r + \beta Q(s',a') - Q(s,a))\]
-Where \(s\) and \(a\) are the current state and action, \(r\) is the reward received after taking \(a\) in state \(s\), and \(Q(s',a')\) is the estimated future reward.
+$$Q(s,a) \rightarrow Q(s,a) + \eta (r + \beta Q(s',a') - Q(s,a))$$
+
+Where $s $ and$a $ are the current state and action,$r $ is the reward received after taking$a $ in state$s $, and$ Q(s',a')$ is the estimated future reward.
 
 :p What formula updates the Q-function in SARSA?
 ??x
 The Q-function is updated using the following formula:
-\[Q(s,a) \rightarrow Q(s,a) + \eta (r + \beta Q(s',a') - Q(s,a))\]
-This equation adjusts the current estimate of the future rewards based on the actual reward \(r\) received and an estimate of the future value \(\beta Q(s',a')\).
+$$Q(s,a) \rightarrow Q(s,a) + \eta (r + \beta Q(s',a') - Q(s,a))$$
+
+This equation adjusts the current estimate of the future rewards based on the actual reward $r $ received and an estimate of the future value$\beta Q(s',a')$.
 x??
 
 ---
@@ -56,14 +59,16 @@ x??
 
 #### Policy Gradient Calculation
 The policy is encoded as:
-\[ \pi_{as} \propto \exp \left( -\frac{\hat{Q}(s,a)}{\tau_{temp}} \right) \]
-Where \(\hat{Q}(s,a)\) represents the Q-function value for state \(s\) and action \(a\), and \(\tau_{temp}\) is a temperature parameter. The policy approaches an optimal one as training progresses, with \(\tau_{temp}\) initially chosen large to allow exploration.
+$$\pi_{as} \propto \exp \left( -\frac{\hat{Q}(s,a)}{\tau_{temp}} \right)$$
+
+Where $\hat{Q}(s,a)$ represents the Q-function value for state $s$ and action $a$, and $\tau_{temp}$ is a temperature parameter. The policy approaches an optimal one as training progresses, with $\tau_{temp}$ initially chosen large to allow exploration.
 
 :p What equation calculates the probability of choosing actions in SARSA?
 ??x
-The probability of choosing an action according to the policy \(\pi\) is given by:
-\[ \pi_{as} \propto \exp \left( -\frac{\hat{Q}(s,a)}{\tau_{temp}} \right) \]
-This equation ensures that actions with higher Q-values are more likely to be chosen. The temperature parameter \(\tau_{temp}\) is initially set high to encourage exploration and reduced as training progresses.
+The probability of choosing an action according to the policy $\pi$ is given by:
+$$\pi_{as} \propto \exp \left( -\frac{\hat{Q}(s,a)}{\tau_{temp}} \right)$$
+
+This equation ensures that actions with higher Q-values are more likely to be chosen. The temperature parameter $\tau_{temp}$ is initially set high to encourage exploration and reduced as training progresses.
 x??
 
 ---
@@ -86,14 +91,13 @@ Background context: The excerpt introduces the SARSA algorithm, a model-free rei
 :p What is the SARSA algorithm?
 ??x
 The SARSA (State-Action-Reward-State-Action) algorithm is a policy-based reinforcement learning algorithm that finds the optimal policy by estimating the Q-value for every state-action pair, which represents the expected sum of future rewards. The key formula used to update the Q-function is:
-
-\[Q(s,a) \rightarrow Q(s,a) + \eta (r + \beta Q(s',a') - Q(s,a))\]
+$$Q(s,a) \rightarrow Q(s,a) + \eta (r + \beta Q(s',a') - Q(s,a))$$
 
 Here:
-- \(s\) and \(a\) represent the current state and action.
-- \(r\) is the received reward.
-- \(\eta\) is the learning rate.
-- \(\beta Q(s', a')\) is the expected future discounted reward.
+- $s $ and$a$ represent the current state and action.
+- $r$ is the received reward.
+- $\eta$ is the learning rate.
+- $\beta Q(s', a')$ is the expected future discounted reward.
 
 The algorithm updates its Q-function online without requiring any prior model of the environment, making it particularly useful for modeling decision-making processes in animals and other scenarios where the system dynamics are unknown.
 
@@ -126,17 +130,14 @@ Background context: The text explains how the policy derived from the SARSA algo
 :p How does the policy π approach its optimal value in SARSA?
 ??x
 The policy π approaches its optimal value through the following steps:
-1. Initially, the temperature parameter \( \tau_{temp} \) is set high to allow for exploration of different actions.
-2. As training progresses, \( \tau_{temp} \) is gradually reduced (annealed), making the policy more greedy and focusing on actions with higher Q-values.
+1. Initially, the temperature parameter $\tau_{temp}$ is set high to allow for exploration of different actions.
+2. As training progresses,$\tau_{temp}$ is gradually reduced (annealed), making the policy more greedy and focusing on actions with higher Q-values.
 
 The relationship between the Q-function and the policy π can be expressed as:
-
-\[ \pi_a(s) \propto \exp\left(\frac{C_0 - \hat{Q}(s,a)}{C_14/\tau_{temp}}\right) \]
+$$\pi_a(s) \propto \exp\left(\frac{C_0 - \hat{Q}(s,a)}{C_14/\tau_{temp}}\right)$$
 
 Where:
-- \( \hat{Q}(s,a) = \max_{a'} Q(s,a') - Q(s,a) / (\max_{a'} Q(s,a') - \min_{a'} Q(s,a')) \)
-
-This expression ensures that the policy smoothly transitions from exploring all actions to greedily choosing the best action, avoiding getting stuck in local optima.
+- $\hat{Q}(s,a) = \max_{a'} Q(s,a') - Q(s,a) / (\max_{a'} Q(s,a') - \min_{a'} Q(s,a'))$ This expression ensures that the policy smoothly transitions from exploring all actions to greedily choosing the best action, avoiding getting stuck in local optima.
 
 There is no specific code example provided, but here's an illustrative pseudocode:
 ```java
@@ -289,7 +290,7 @@ Background context: The selection of actions was based on a softmax distribution
 
 :p How are action probabilities computed in this model?
 ??x
-Action probabilities were calculated using a softmax function, with preferences adjusted by an eligibility trace parameter. Specifically, the action preference \( h(s, a, \theta) = \frac{\hat{q}(s, a, \theta)}{min_b \hat{q}(s, b, \theta) - max_b \hat{q}(s, b, \theta)} \), where \( \theta \) is the parameter vector and \( \hat{q} \) returns the relevant component for state-action pairs.
+Action probabilities were calculated using a softmax function, with preferences adjusted by an eligibility trace parameter. Specifically, the action preference $h(s, a, \theta) = \frac{\hat{q}(s, a, \theta)}{min_b \hat{q}(s, b, \theta) - max_b \hat{q}(s, b, \theta)}$, where $\theta $ is the parameter vector and $\hat{q}$ returns the relevant component for state-action pairs.
 x??
 
 ---
@@ -354,7 +355,7 @@ Background context: As the learning process progresses, the temperature paramete
 The action with the maximum estimated action value is given a preference of 1/⌧, and the action with the minimum estimated action value receives a preference of 0. The preferences of other actions are linearly scaled between these two values based on their relative estimated action values.
 
 For example, if ⌧ = 0.5 and there are three actions A, B, C with estimated values V(A) = 3, V(B) = 2, V(C) = 1:
-- Action A gets preference: \( \frac{1}{0.5} = 2 \)
+- Action A gets preference: $\frac{1}{0.5} = 2$
 - Action B gets a scaled value between 0 and 2 based on its relative value compared to A.
 - Action C gets the lowest preference.
 
@@ -446,17 +447,16 @@ x??
 
 
 #### General Value Functions and Cumulants
-Background context: The chapter discusses extending the concept of value functions to predict arbitrary signals, not just rewards. This is formalized as a general value function (GVF) with a cumulative signal \(C_t\). The GVF formula is given by:
-\[ v_\pi, \beta, C(s) = E\left[\sum_{k=t}^\infty \beta(S_i). C_{k+1}|S_t=s, A_t:1 \sim \pi\right] \]
+Background context: The chapter discusses extending the concept of value functions to predict arbitrary signals, not just rewards. This is formalized as a general value function (GVF) with a cumulative signal $C_t$. The GVF formula is given by:
+$$v_\pi, \beta, C(s) = E\left[\sum_{k=t}^\infty \beta(S_i). C_{k+1}|S_t=s, A_t:1 \sim \pi\right]$$
 
 This extension allows the agent to predict and control a variety of signals beyond rewards.
 :p What is a general value function (GVF) in reinforcement learning?
 ??x
-A general value function (GVF) is an extension of traditional value functions where predictions are made about arbitrary signals, not just long-term reward. It uses a cumulative signal \(C_t\) to represent the value function for any given prediction.
+A general value function (GVF) is an extension of traditional value functions where predictions are made about arbitrary signals, not just long-term reward. It uses a cumulative signal $C_t$ to represent the value function for any given prediction.
 
 Formally, it is defined as:
-\[ v_\pi, \beta, C(s) = E\left[\sum_{k=t}^\infty \beta(S_i). C_{k+1}|S_t=s, A_t:1 \sim \pi\right] \]
-where \(C\) represents the cumulative signal. The GVF can be used to approximate the ideal function in a parameterized form.
+$$v_\pi, \beta, C(s) = E\left[\sum_{k=t}^\infty \beta(S_i). C_{k+1}|S_t=s, A_t:1 \sim \pi\right]$$where $ C$ represents the cumulative signal. The GVF can be used to approximate the ideal function in a parameterized form.
 
 Example:
 ```java
@@ -740,8 +740,7 @@ Background context: The reward model for options calculates the expected return 
 :p What is the formula for calculating the reward in option models?
 ??x
 The reward in option models is calculated using the formula:
-\[ r(s, .) = E[R_1 + R_2 + ^2 R_3 + \cdots + ^{\tau} R_{\tau} | S_0=s, A_0:k-1 \sim \pi., \tau \sim \rho.] \]
-where \( \tau \) is the random time step at which the option terminates according to .
+$$r(s, .) = E[R_1 + R_2 + ^2 R_3 + \cdots + ^{\tau} R_{\tau} | S_0=s, A_0:k-1 \sim \pi., \tau \sim \rho.]$$where $\tau$ is the random time step at which the option terminates according to .
 x??
 
 ---
@@ -754,8 +753,7 @@ Background context: The state-transition model for options accounts for the fact
 :p What is the formula for calculating the state transition probabilities for options?
 ??x
 The state-transition probability for options is calculated using the formula:
-\[ p(s_0|s, .) = \sum_{k=1}^{\infty} ^k Pr\{S_k=s_0, \tau=k | S_0=s, A_0:k-1 \sim \pi., \tau \sim \rho.\} \]
-where \( \tau \) is the random time step at which the option terminates according to . Note that due to the factor of ^k, this p(s_0|s, .) is no longer a transition probability and does not sum to one over all values of s_0.
+$$p(s_0|s, .) = \sum_{k=1}^{\infty} ^k Pr\{S_k=s_0, \tau=k | S_0=s, A_0:k-1 \sim \pi., \tau \sim \rho.\}$$where $\tau$ is the random time step at which the option terminates according to . Note that due to the factor of ^k, this p(s_0|s, .) is no longer a transition probability and does not sum to one over all values of s_0.
 x??
 
 ---
@@ -767,22 +765,22 @@ x??
 In the context of option models, the transition part describes how options can be used to model complex actions or behaviors. This is particularly useful for hierarchical policies where low-level actions are a special case. The general Bellman equation for state values considering options is provided below.
 :p What does the general Bellman equation for state values in an option model look like?
 ??x
-The general Bellman equation for state values \( v_{\pi}(s) \) of a hierarchical policy \( \pi \) using options is:
-\[ v_{\pi}(s)=\sum_{o \in \Delta(s)} \pi(o|s)" r(s, o)+\sum_{s' p(s'|s, o)v_{\pi}(s') # \]
-where \( \Delta(s) \) denotes the set of options available in state \( s \).
+The general Bellman equation for state values $v_{\pi}(s)$ of a hierarchical policy $\pi$ using options is:
+$$v_{\pi}(s)=\sum_{o \in \Delta(s)} \pi(o|s)" r(s, o)+\sum_{s' p(s'|s, o)v_{\pi}(s') #$$where $\Delta(s)$ denotes the set of options available in state $s$.
 ??x
-In this equation, \( \Delta(s) \) is the set of all possible options that can be applied from state \( s \). The term \( r(s, o) \) represents the immediate reward associated with applying option \( o \) in state \( s \), and \( v_{\pi}(s') \) is the value function for the next states.
+In this equation, $\Delta(s)$ is the set of all possible options that can be applied from state $ s $. The term $ r(s, o)$represents the immediate reward associated with applying option $ o$in state $ s $, and $ v_{\pi}(s')$ is the value function for the next states.
 
 ---
 
 
 #### Bellman Equation for Low-Level Actions
-If the set of options \( \Delta(s) \) includes only low-level actions, then the above equation reduces to a form similar to the usual Bellman equation. However, since the option model does not include the explicit transition part, it behaves as if the policy is directly applied.
-:p What happens when the set of options \( \Delta(s) \) includes only low-level actions?
+If the set of options $\Delta(s)$ includes only low-level actions, then the above equation reduces to a form similar to the usual Bellman equation. However, since the option model does not include the explicit transition part, it behaves as if the policy is directly applied.
+:p What happens when the set of options $\Delta(s)$ includes only low-level actions?
 ??x
-When the set of options \( \Delta(s) \) includes only low-level actions, the Bellman equation reduces to:
-\[ v_{\pi}(s)=\sum_{a} \pi(a|s)" r(s, a)+\sum_{s' p(s'|s, a)v_{\pi}(s') # \]
-This is effectively similar to the standard Bellman equation for low-level actions. The term \( \pi(a|s) \) represents the probability of selecting action \( a \) in state \( s \), and \( p(s'|s, a) \) denotes the transition probability from state \( s \) to state \( s' \).
+When the set of options $\Delta(s)$ includes only low-level actions, the Bellman equation reduces to:
+$$v_{\pi}(s)=\sum_{a} \pi(a|s)" r(s, a)+\sum_{s' p(s'|s, a)v_{\pi}(s') #$$
+
+This is effectively similar to the standard Bellman equation for low-level actions. The term $\pi(a|s)$ represents the probability of selecting action $ a $ in state $ s $, and $ p(s'|s, a)$denotes the transition probability from state $ s$to state $ s'$.
 ??x
 This means that when low-level actions are considered, the equation behaves as if there is no hierarchical structure or options involved, simplifying the computation of state values.
 
@@ -794,8 +792,7 @@ Planning algorithms using options can be adapted to work similarly to their coun
 :p What is the value iteration algorithm with options?
 ??x
 The value iteration algorithm with options can be formulated analogous to its counterpart in standard reinforcement learning. It updates state values iteratively by considering all possible options available in each state.
-\[ v_{k+1}(s)=\max_{o \in \Delta(s)} " r(s, o)+\sum_{s'} p(s'|s, o)v_k(s') # \]
-for all \( s \in S \). If the set of options \( \Delta(s) \) includes all possible low-level actions in state \( s \), this algorithm converges to the conventional optimal policy.
+$$v_{k+1}(s)=\max_{o \in \Delta(s)} " r(s, o)+\sum_{s'} p(s'|s, o)v_k(s') #$$for all $ s \in S $. If the set of options$\Delta(s)$ includes all possible low-level actions in state $s$, this algorithm converges to the conventional optimal policy.
 ??x
 This algorithm iteratively improves the value function by considering the best option for each state, where the option's value is based on its immediate reward and future expected rewards.
 
@@ -807,13 +804,12 @@ Learning option models can be achieved through the use of generalized value func
 :p How can one learn an option model using GVFs?
 ??x
 To learn an option model using GVFs, you can define a GVF for each possible outcome of the option. For the reward part:
-- Choose \( C_t = R_t \) as the cumulant (reward).
+- Choose $C_t = R_t$ as the cumulant (reward).
 - Set the policy to be the same as the option's policy.
 - Define the termination function as the discount rate times the option’s termination function.
 
 For the state-transition part, you need to ensure that GVFs only accumulate values when the option terminates in a specific state. This can be achieved by setting:
-\[ C_{t}= \Delta(s) \cdot S_t=s_0 \]
-where \( \Delta(s) \) is the indicator function for the termination in state \( s_0 \).
+$$C_{t}= \Delta(s) \cdot S_t=s_0$$where $\Delta(s)$ is the indicator function for the termination in state $s_0$.
 ??x
 This setup ensures that GVFs only update their values when the option transitions to a specific state, making it easier to learn the transition dynamics.
 

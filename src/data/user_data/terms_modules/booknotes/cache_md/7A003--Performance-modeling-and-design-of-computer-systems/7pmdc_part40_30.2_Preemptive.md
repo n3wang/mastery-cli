@@ -12,18 +12,17 @@ Background context: The expression (30.3) is being converted into a summation fo
 :p How can we express (30.3) as a sum?
 ??x
 We can express (30.3) as:
-\[
-/tildewiderTQFCFS(s)=( 1−ρ)∞/\sum_{k=0}/parenleftBig \frac{ρ}{/tildewiderSe(s)}/parenrightBig^k =∞/\sum_{k=0}(1−ρ)\left(\frac{ρ}{/tildewiderSe(s)}\right)^k.
-\]
+$$/tildewiderTQFCFS(s)=( 1−ρ)∞/\sum_{k=0}/parenleftBig \frac{ρ}{/tildewiderSe(s)}/parenrightBig^k =∞/\sum_{k=0}(1−ρ)\left(\frac{ρ}{/tildewiderSe(s)}\right)^k.$$
+
 This transformation helps in understanding the delay transform more clearly and facilitates further analysis.
 
 ---
 #### Meaning of /parenleftBig /tildewiderSe(s)/parenrightBigk
-Background context: The term \(\left(\frac{\tilde{S}_e(s)}{ρ}\right)^k\) represents the Laplace transform of the sum of \(k\) i.i.d. instances of \(\tilde{S}_e\), where \(\tilde{S}_e(s)\) is the Laplace transform of the service time.
+Background context: The term $\left(\frac{\tilde{S}_e(s)}{ρ}\right)^k $ represents the Laplace transform of the sum of$k $ i.i.d. instances of$\tilde{S}_e $, where $\tilde{S}_e(s)$ is the Laplace transform of the service time.
 
 :p What does /parenleftBig /tildewiderSe(s)/parenrightBigk represent?
 ??x
-The term \(\left(\frac{\tilde{S}_e(s)}{ρ}\right)^k\) represents the Laplace transform of the sum of \(k\) i.i.d. instances of \(\tilde{S}_e\). Here, \(\tilde{S}_e(s)\) is the Laplace transform of a single service time in an M/G/1 queue.
+The term $\left(\frac{\tilde{S}_e(s)}{ρ}\right)^k $ represents the Laplace transform of the sum of$k $ i.i.d. instances of$\tilde{S}_e $. Here, $\tilde{S}_e(s)$ is the Laplace transform of a single service time in an M/G/1 queue.
 
 ---
 #### Deriving /tildewiderTQFCFS(s)
@@ -31,17 +30,11 @@ Background context: The delay transform for the M/G/1/FCFS system can be derived
 
 :p How do we derive /tildewiderTQFCFS(s)?
 ??x
-The derivation starts by noting that \(W_{\text{FCFS}}\) (the stationary work in an M/G/1/FCFS system) equals the expected delay of a Poisson arrival under FCFS. This is equivalent to the expected work content \(\tilde{W}_{\text{PS}}(s)\) in an M/G/1/PS system, since both are work-conserving.
+The derivation starts by noting that $W_{\text{FCFS}}$(the stationary work in an M/G/1/FCFS system) equals the expected delay of a Poisson arrival under FCFS. This is equivalent to the expected work content $\tilde{W}_{\text{PS}}(s)$ in an M/G/1/PS system, since both are work-conserving.
 
 Thus:
-\[
-\tildewider{TQFCFS(s)} = \tildewider{W_{\text{FCFS}}(s)} = \tildewider{W_{\text{PS}}(s)} = \sum_{k=0}^{\infty} \tildewider{W_{\text{PS}}(s|\text{arrival sees } k \text{ jobs})} \cdot P(\text{arrival sees } k \text{ jobs})
-\]
-\[
-= \sum_{k=0}^{\infty} \left(\frac{\tilde{S}_e(s)}{\rho}\right)^k \cdot (\rho (1-\rho))^k
-\]
-
----
+$$\tildewider{TQFCFS(s)} = \tildewider{W_{\text{FCFS}}(s)} = \tildewider{W_{\text{PS}}(s)} = \sum_{k=0}^{\infty} \tildewider{W_{\text{PS}}(s|\text{arrival sees } k \text{ jobs})} \cdot P(\text{arrival sees } k \text{ jobs})$$
+$$= \sum_{k=0}^{\infty} \left(\frac{\tilde{S}_e(s)}{\rho}\right)^k \cdot (\rho (1-\rho))^k$$---
 #### Preemptive-LCFS Policy Description
 Background context: The Preemptive-LCFS policy is a scheduling algorithm where an arriving job immediately preempts the currently running job, resuming its service only after all subsequent jobs are completed.
 
@@ -59,11 +52,11 @@ The non-preemptive LCFS policy had identical performance to FCFS, making it unsu
 
 ---
 #### Theorem 30.6 - Preemptive-LCFS Performance
-Background context: A theorem is presented that describes the expected completion time and slowdown for jobs in a Preemptive-LCFS (PLCFS) system. This theorem states that both measures are equal to \(\frac{x}{1-\rho}\), where \(x\) is the job size and \(\rho\) is the utilization factor.
+Background context: A theorem is presented that describes the expected completion time and slowdown for jobs in a Preemptive-LCFS (PLCFS) system. This theorem states that both measures are equal to $\frac{x}{1-\rho}$, where $ x$is the job size and $\rho$ is the utilization factor.
 
 :p What does Theorem 30.6 state about PLCFS performance?
 ??x
-Theorem 30.6 asserts that for a Preemptive-LCFS system, the expected completion time \(E[T(x)]_{\text{PLCFS}} = \frac{x}{1-\rho}\) and the expected slowdown \(E[\text{Slowdown}(x)]_{\text{PLCFS}} = \frac{1}{1-\rho}\).
+Theorem 30.6 asserts that for a Preemptive-LCFS system, the expected completion time $E[T(x)]_{\text{PLCFS}} = \frac{x}{1-\rho}$ and the expected slowdown $E[\text{Slowdown}(x)]_{\text{PLCFS}} = \frac{1}{1-\rho}$.
 
 ---
 #### Key Observation for PLCFS
@@ -72,10 +65,7 @@ Background context: An important observation in analyzing Preemptive-LCFS is tha
 :p What key observation supports the analysis of PLCFS?
 ??x
 A critical observation for PLCFS is that an interrupted job will only get back the processor when all subsequent jobs complete, which implies that the delay until resumption is equivalent to the length of a busy period in an M/G/1 queue. Thus, the expected time until the job gets back the processor is given by:
-\[
-E[\text{Time until job gets back processor}] = E[\text{Length of busy period}] = \frac{E[S]}{1-\rho},
-\]
-where \(S\) represents the service time.
+$$E[\text{Time until job gets back processor}] = E[\text{Length of busy period}] = \frac{E[S]}{1-\rho},$$where $ S$ represents the service time.
 
 ---
 #### Deriving Expected Time in PLCFS
@@ -83,12 +73,10 @@ Background context: To derive the expected completion time for a tagged job unde
 
 :p How do we calculate the expected time a job spends waiting or executing under PLCFS?
 ??x
-The expected completion time for a tagged job \(E[T(x)]_{\text{PLCFS}}\) can be derived as follows:
+The expected completion time for a tagged job $E[T(x)]_{\text{PLCFS}}$ can be derived as follows:
 
 Since the job will not resume until all subsequent jobs are completed, this is equivalent to the length of a busy period in an M/G/1 queue. The mean length of such a busy period is given by:
-\[
-E[\text{Time until job gets back processor}] = E[\text{Length of busy period}] = \frac{E[S]}{1-\rho}.
-\]
+$$E[\text{Time until job gets back processor}] = E[\text{Length of busy period}] = \frac{E[S]}{1-\rho}.$$
 
 This result holds because the service order does not affect the mean length of the busy period in an M/G/1 system, as long as it is work-conserving.
 
@@ -97,7 +85,7 @@ This result holds because the service order does not affect the mean length of t
 Background context explaining the difference between PLCFS and PS. The key point is that both policies have the same expected performance but PLCFS has fewer preemptions, leading to less wasted time.
 :p What is E[Slowdown (x)] for both PLCFS and PS?
 ??x
-For both PLCFS and PS, the mean slowdown \( E[\text{Slowdown}(x)] = \frac{1}{1 - \rho} \). This means that regardless of the job size, the average time a job spends in the system is the same under these two policies. The performance metrics are identical despite the different mechanisms for handling preemptions.
+For both PLCFS and PS, the mean slowdown $E[\text{Slowdown}(x)] = \frac{1}{1 - \rho}$. This means that regardless of the job size, the average time a job spends in the system is the same under these two policies. The performance metrics are identical despite the different mechanisms for handling preemptions.
 x??
 
 ---
@@ -153,31 +141,31 @@ x??
 ---
 
 #### Mathematical Exercise for FB Scheduling
-Background context explaining the transformation of job sizes in the derivation of \( E[T(x)] \) under FB scheduling. The goal is to compute the expected remaining work by transforming job sizes.
-:p What is the formula for \( E[S_x] \)?
+Background context explaining the transformation of job sizes in the derivation of $E[T(x)]$ under FB scheduling. The goal is to compute the expected remaining work by transforming job sizes.
+:p What is the formula for $E[S_x]$?
 ??x
-The expected size \( E[S_x] \) under the transformed distribution is given by:
-\[ E[S_x] = \int_0^x y f(y) dy + x (1 - F(x)) \]
-where \( F(x) \) is the cumulative distribution function of job sizes, and \( f(y) \) is the probability density function.
+The expected size $E[S_x]$ under the transformed distribution is given by:
+$$E[S_x] = \int_0^x y f(y) dy + x (1 - F(x))$$where $ F(x)$is the cumulative distribution function of job sizes, and $ f(y)$ is the probability density function.
 x??
 
 ---
 
 #### Expression for Expected Remaining Work
 Background context explaining how to compute the expected remaining work under FB scheduling by considering both initial state and new arrivals during processing.
-:p How do you derive \( E[T(x)] \) in FB scheduling?
+:p How do you derive $E[T(x)]$ in FB scheduling?
 ??x
-The derivation of \( E[T(x)] \) involves summing up:
-1. The size of job \( x \).
-2. The expected remaining work when job \( x \) arrives, considering jobs as having a service requirement no more than \( x \).
-3. The expected work due to new arrivals while job \( x \) is in the system.
+The derivation of $E[T(x)]$ involves summing up:
+1. The size of job $x$.
+2. The expected remaining work when job $x $ arrives, considering jobs as having a service requirement no more than$x$.
+3. The expected work due to new arrivals while job $x$ is in the system.
 
-The formula for \( E[T(x)] \) under FB scheduling is:
-\[ E[T(x)]_{\text{FB}} = x + \frac{\lambda E[S^2_x]}{2(1 - \rho_x)} + \lambda E[T(x)]_{\text{FB}} E[S_x] \]
+The formula for $E[T(x)]$ under FB scheduling is:
+$$E[T(x)]_{\text{FB}} = x + \frac{\lambda E[S^2_x]}{2(1 - \rho_x)} + \lambda E[T(x)]_{\text{FB}} E[S_x]$$
 
 Simplifying, we get:
-\[ E[T(x)]_{\text{FB}} (1 - \rho_x) = x + \frac{\lambda E[S^2_x]}{2(1 - \rho_x)} \]
-x??
+$$
+
+E[T(x)]_{\text{FB}} (1 - \rho_x) = x + \frac{\lambda E[S^2_x]}{2(1 - \rho_x)}$$x??
 
 ---
 
@@ -287,7 +275,7 @@ The problem develops a clearer understanding of Preemptive-Less-Attained-Service
 
 :p What is the Laplace transform for time in system under PLCFS?
 ??x
-The Laplace transform for time in system under PLCFS, \(\tilde{T}(s)\), can be determined by considering the response time of a job and how many times it gets interrupted. This involves breaking down the problem into simpler components: first finding the response time \(T(x)\) for jobs of size \(x\), then determining the number of interruptions and their contribution.
+The Laplace transform for time in system under PLCFS,$\tilde{T}(s)$, can be determined by considering the response time of a job and how many times it gets interrupted. This involves breaking down the problem into simpler components: first finding the response time $ T(x)$for jobs of size $ x$, then determining the number of interruptions and their contribution.
 
 ```java
 // Pseudocode example:

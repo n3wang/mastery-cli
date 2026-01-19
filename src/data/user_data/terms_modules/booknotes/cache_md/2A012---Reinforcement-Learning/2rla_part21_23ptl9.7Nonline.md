@@ -47,10 +47,10 @@ Background context explaining RBFs. Unlike binary features which are either pres
 
 :p What is the formula for calculating an RBF feature?
 ??x
-The formula for an RBF feature \( x_i(s) \) with respect to state \( s \), center state \( c_i \), and width \( \sigma_i \) is:
-\[ x_i(s) = e^{-\frac{\|s - c_i\|^2}{2\sigma_i^2}} \]
+The formula for an RBF feature $x_i(s)$ with respect to state $ s $, center state $ c_i$, and width $\sigma_i$ is:
+$$x_i(s) = e^{-\frac{\|s - c_i\|^2}{2\sigma_i^2}}$$
 
-This formula computes the Gaussian response of feature \( i \) at state \( s \). The value decreases as the distance from the center increases, creating a smooth transition.
+This formula computes the Gaussian response of feature $i $ at state$s$. The value decreases as the distance from the center increases, creating a smooth transition.
 
 ```java
 // Pseudocode for RBF calculation
@@ -95,15 +95,12 @@ x??
 
 
 #### Logistic Function as Activation Function
-Background context: The passage mentions using S-shaped or sigmoid functions such as the logistic function \(f(x) = \frac{1}{1 + e^{-x}}\) for activation. This function maps any real-valued number into the range (0, 1), making it useful in scenarios where a binary decision is needed.
+Background context: The passage mentions using S-shaped or sigmoid functions such as the logistic function $f(x) = \frac{1}{1 + e^{-x}}$ for activation. This function maps any real-valued number into the range (0, 1), making it useful in scenarios where a binary decision is needed.
 
 :p What is the formula for the logistic function?
 ??x
-The formula for the logistic function \(f(x)\) is:
-
-\[
-f(x) = \frac{1}{1 + e^{-x}}
-\]
+The formula for the logistic function $f(x)$ is:
+$$f(x) = \frac{1}{1 + e^{-x}}$$
 
 This function maps any real-valued number to a value between 0 and 1, which can be interpreted as a probability. The logistic function has an S-shaped curve and is commonly used in binary classification problems.
 
@@ -113,15 +110,12 @@ x??
 
 
 #### Rectifier Nonlinearity
-Background context: In addition to the logistic function, the passage mentions that sometimes the rectifier nonlinearity \(f(x) = \max(0, x)\) is used as an activation function. This function returns 0 for any negative input and retains the value of positive inputs.
+Background context: In addition to the logistic function, the passage mentions that sometimes the rectifier nonlinearity $f(x) = \max(0, x)$ is used as an activation function. This function returns 0 for any negative input and retains the value of positive inputs.
 
 :p What is the rectifier nonlinearity (ReLU) and how does it work?
 ??x
 The rectifier nonlinearity, also known as ReLU (Rectified Linear Unit), works by returning 0 for any negative input and retaining the value of positive inputs. Mathematically, it can be represented as:
-
-\[
-f(x) = \max(0, x)
-\]
+$$f(x) = \max(0, x)$$
 
 This function is simple to compute and has been found to work well in many deep learning applications due to its simplicity and efficiency.
 
@@ -139,8 +133,7 @@ Background context explaining the concept. ANNs are used to approximate complex 
 Artificial Neural Networks (ANNs) are computational models inspired by biological neural networks, which consist of interconnected nodes or "neurons." These networks approximate complex functions through a series of layers: input, hidden, and output. Each neuron computes a weighted sum of its inputs, applies an activation function to this sum, and passes the result to the next layer.
 
 For instance, a simple feedforward ANN can be represented as:
-\[ \text{Output} = f(WX + b) \]
-where \( W \) is the weight matrix, \( X \) is the input vector, \( b \) is the bias vector, and \( f \) is the activation function.
+$$\text{Output} = f(WX + b)$$where $ W $is the weight matrix,$ X $is the input vector,$ b $ is the bias vector, and $ f$ is the activation function.
 
 :p Can you explain why ANNs with a single hidden layer can approximate any continuous function?
 ??x
@@ -189,8 +182,7 @@ Background context explaining the concept. The objective function is used to mea
 :p What is an objective function in the context of training ANNs?
 ??x
 An objective function, also known as a loss function or cost function, measures how well the neural network's predictions match the true values. For example, in regression tasks, mean squared error (MSE) might be used:
-\[ \text{MSE} = \frac{1}{N}\sum_{i=1}^{N}(y_i - \hat{y}_i)^2 \]
-where \( y_i \) is the true output and \( \hat{y}_i \) is the predicted output.
+$$\text{MSE} = \frac{1}{N}\sum_{i=1}^{N}(y_i - \hat{y}_i)^2$$where $ y_i $ is the true output and $\hat{y}_i$ is the predicted output.
 
 :p How does SGD work in minimizing an objective function?
 ??x
@@ -367,17 +359,17 @@ Batch normalization uses statistics from subsets (mini-batches) of training exam
 Batch normalization normalizes the outputs of deep layers during both the forward pass and backpropagation in a neural network. This process standardizes the inputs, making them more consistent, which can lead to faster training convergence.
 
 Here's how it works:
-1. For each mini-batch of data, compute the mean (\(\mu\)) and variance (\(\sigma^2\)).
+1. For each mini-batch of data, compute the mean ($\mu $) and variance ($\sigma^2$).
 2. Normalize the activations using these statistics.
-3. Scale and shift by learned parameters \(\gamma\) (scale) and \(\beta\) (shift).
+3. Scale and shift by learned parameters $\gamma $(scale) and $\beta$(shift).
 
 The formula for batch normalization is:
-\[ x_{\text{norm}} = \frac{x - \mu}{\sqrt{\sigma^2 + \epsilon}} \cdot \gamma + \beta \]
+$$x_{\text{norm}} = \frac{x - \mu}{\sqrt{\sigma^2 + \epsilon}} \cdot \gamma + \beta$$
 
 Where:
-- \(x\) is the input feature.
-- \(\mu\) and \(\sigma^2\) are the mean and variance of the mini-batch.
-- \(\epsilon\) is a small constant to avoid division by zero.
+- $x$ is the input feature.
+- $\mu $ and$\sigma^2$ are the mean and variance of the mini-batch.
+- $\epsilon$ is a small constant to avoid division by zero.
 
 Example implementation in Python:
 ```python
@@ -491,27 +483,22 @@ x??
 #### Estimation Formulas in LSTD
 Background context: In LSTD, estimates of matrices A and b are computed using sums over time steps, ensuring that these approximations can be updated incrementally.
 
-:p What formulas are used to estimate \( \mathbf{b}_A^t \) and \( \mathbf{b}^t \)?
+:p What formulas are used to estimate $\mathbf{b}_A^t $ and$\mathbf{b}^t$?
 ??x
-The formulas for estimating \( \mathbf{b}_A^t \) and \( \mathbf{b}^t \) in LSTD are given by:
-\[
-\mathbf{b}_{A,t} = \sum_{k=0}^{t-1} x_k (x_k - x_{k+1})^\top + \epsilon I
-\]
-\[
-\mathbf{b}^t = \sum_{k=0}^{t-1} R_{k+1} x_k
-\]
-where \( I \) is the identity matrix and \( \epsilon > 0 \) ensures that \( \mathbf{b}_A^t \) is always invertible.
+The formulas for estimating $\mathbf{b}_A^t $ and$\mathbf{b}^t$ in LSTD are given by:
+$$\mathbf{b}_{A,t} = \sum_{k=0}^{t-1} x_k (x_k - x_{k+1})^\top + \epsilon I$$
+$$\mathbf{b}^t = \sum_{k=0}^{t-1} R_{k+1} x_k$$where $ I $ is the identity matrix and $\epsilon > 0 $ ensures that$\mathbf{b}_A^t$ is always invertible.
 x??
 
 ---
 
 
 #### Computational Complexity of LSTD
-Background context: Despite potentially high initial complexity, LSTD can be made computationally efficient through incremental updates. The outer product in the computation of \( \mathbf{b}_{A,t} \) requires careful handling to maintain efficiency.
+Background context: Despite potentially high initial complexity, LSTD can be made computationally efficient through incremental updates. The outer product in the computation of $\mathbf{b}_{A,t}$ requires careful handling to maintain efficiency.
 
-:p What is the computational complexity of updating \( \mathbf{b}_A^t \)?
+:p What is the computational complexity of updating $\mathbf{b}_A^t$?
 ??x
-The update for \( \mathbf{b}_{A,t} \) involves an outer product, which has a computational complexity of O(d²). However, this can be managed incrementally using techniques from earlier chapters to ensure constant time per step.
+The update for $\mathbf{b}_{A,t}$ involves an outer product, which has a computational complexity of O(d²). However, this can be managed incrementally using techniques from earlier chapters to ensure constant time per step.
 x??
 
 ---
@@ -522,10 +509,9 @@ Background context: The final step in LSTD involves using the computed matrices 
 
 :p How is the TD fixed point estimated in LSTD?
 ??x
-The TD fixed point \( \mathbf{w}_t \) in LSTD is estimated by:
-\[
-\mathbf{w}_t = (\mathbf{b}_{A,t}^{-1})^\top \mathbf{b}^t
-\]
+The TD fixed point $\mathbf{w}_t$ in LSTD is estimated by:
+$$\mathbf{w}_t = (\mathbf{b}_{A,t}^{-1})^\top \mathbf{b}^t$$
+
 This step uses the incremental updates to efficiently compute the fixed point without iterative methods.
 x??
 
@@ -549,7 +535,7 @@ Background context: This section discusses on-policy prediction, which involves 
 
 :p What is the purpose of LSTD in on-policy prediction?
 ??x
-The purpose of LSTD in on-policy prediction is to estimate the value function \( \hat{v} = w^T x(\cdot|\pi)\ ) for a given policy \( \pi \) using linear approximation methods. The goal is to minimize the error between predicted and actual values by adjusting parameters based on feature representations.
+The purpose of LSTD in on-policy prediction is to estimate the value function $\hat{v} = w^T x(\cdot|\pi)\ ) for a given policy \( \pi$ using linear approximation methods. The goal is to minimize the error between predicted and actual values by adjusting parameters based on feature representations.
 x??
 
 ---
@@ -621,7 +607,7 @@ Background context: The curse of dimensionality refers to the exponential growth
 
 :p How do memory-based methods address the curse of dimensionality?
 ??x
-Memory-based methods address the curse of dimensionality by storing examples for each state or state-action pair, requiring only linear memory proportional to the number of states \( n \) and not exponentially with the number of dimensions \( k \). This makes them more efficient in high-dimensional spaces.
+Memory-based methods address the curse of dimensionality by storing examples for each state or state-action pair, requiring only linear memory proportional to the number of states $n $ and not exponentially with the number of dimensions$k$. This makes them more efficient in high-dimensional spaces.
 x??
 
 ---

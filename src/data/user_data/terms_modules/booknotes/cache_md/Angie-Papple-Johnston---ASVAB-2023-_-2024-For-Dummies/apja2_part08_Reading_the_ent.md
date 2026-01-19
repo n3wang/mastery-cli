@@ -78,33 +78,24 @@ public class IsolateUnknownExample {
     }
 }
 ```
-:p How do you isolate an unknown variable in the equation \( ym = \$15,000 \) when \( y = 3 \)?
+:p How do you isolate an unknown variable in the equation $ym = \$15,000 $ when$y = 3$?
 ??x
-To solve for \( m \), we start with the equation:
+To solve for $m$, we start with the equation:
 
-\[
+$$
 y \times m = \$15,000
-\]
+$$Given that $ y = 3$:
 
-Given that \( y = 3 \):
-
-\[
+$$
 3 \times m = \$15,000
-\]
+$$We need to isolate $ m$. To do this, divide both sides of the equation by 3:
 
-We need to isolate \( m \). To do this, divide both sides of the equation by 3:
-
-\[
+$$
 m = \frac{\$15,000}{3}
-\]
-
-Performing the division gives us:
-
-\[
+$$Performing the division gives us:
+$$
 m = \$5,000
-\]
-
-So, Joan needs to save $5,000 each year.
+$$So, Joan needs to save$5,000 each year.
 x??
 
 ---

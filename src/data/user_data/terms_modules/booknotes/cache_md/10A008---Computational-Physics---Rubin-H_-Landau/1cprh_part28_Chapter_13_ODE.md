@@ -7,69 +7,46 @@
 
 
 #### Numerical Solution of the Schrödinger Equation
-To solve the Schrödinger equation numerically, we use an ODE solver. For a particle in a finite square well potential \(V(x)\), the wave function \(\psi(x)\) is determined by:
-\[
--\frac{\hbar^2}{2m} \frac{d^2\psi(x)}{dx^2} + V(x) \psi(x) = E \psi(x),
-\]
-where the potential \(V(x)\) is defined as:
-\[
-V(x) = 
+To solve the Schrödinger equation numerically, we use an ODE solver. For a particle in a finite square well potential $V(x)$, the wave function $\psi(x)$ is determined by:
+$$-\frac{\hbar^2}{2m} \frac{d^2\psi(x)}{dx^2} + V(x) \psi(x) = E \psi(x),$$where the potential $ V(x)$ is defined as:
+$$V(x) = 
 \begin{cases} 
 -V_0, & |x| \leq a, \\
 0, & |x| > a.
-\end{cases}
-\]
-
-:p How does the Schrödinger equation change for the finite square well potential?
+\end{cases}$$:p How does the Schrödinger equation change for the finite square well potential?
 ??x
 The Schrödinger equation changes to:
-\[
--\frac{\hbar^2}{2m} \frac{d^2\psi(x)}{dx^2} + V(x) \psi(x) = E \psi(x),
-\]
-where \(V(x)\) is the finite square well potential defined as:
-\[
-V(x) = 
+$$-\frac{\hbar^2}{2m} \frac{d^2\psi(x)}{dx^2} + V(x) \psi(x) = E \psi(x),$$where $ V(x)$ is the finite square well potential defined as:
+$$V(x) = 
 \begin{cases} 
 -V_0, & |x| \leq a, \\
 0, & |x| > a.
-\end{cases}
-\]
-For \(|x| \leq a\), it becomes:
-\[
--\frac{\hbar^2}{2m} \frac{d^2\psi(x)}{dx^2} - V_0 \psi(x) = E \psi(x),
-\]
-and for \(|x| > a\):
-\[
--\frac{\hbar^2}{2m} \frac{d^2\psi(x)}{dx^2} = E \psi(x).
-\]
+\end{cases}$$
 
-x??
+For $|x| \leq a$, it becomes:
+$$-\frac{\hbar^2}{2m} \frac{d^2\psi(x)}{dx^2} - V_0 \psi(x) = E \psi(x),$$and for $|x| > a$:
+$$-\frac{\hbar^2}{2m} \frac{d^2\psi(x)}{dx^2} = E \psi(x).$$x??
 
 ---
 
 
 #### Numerical Integration Method
-The numerical method involves integrating the wave function step-by-step. We start by assuming a wave function that satisfies the boundary condition at \(x \to -\infty\) and integrate towards the origin. Similarly, we assume another wave function satisfying the boundary condition at \(x \to +\infty\) and integrate backwards to the matching radius.
+The numerical method involves integrating the wave function step-by-step. We start by assuming a wave function that satisfies the boundary condition at $x \to -\infty $ and integrate towards the origin. Similarly, we assume another wave function satisfying the boundary condition at$x \to +\infty$ and integrate backwards to the matching radius.
 
 :p How is the wave function integrated for bound states?
 ??x
 The wave function is integrated step-by-step using an ODE solver. We start by assuming a wave function that satisfies:
-\[
-\psi(x) = e^{\kappa x} \quad \text{for } x \to -\infty.
-\]
-We then integrate this towards the origin, matching it with another solution at \(x_m\) where:
-\[
-\psi(x) = 
+$$\psi(x) = e^{\kappa x} \quad \text{for } x \to -\infty.$$
+
+We then integrate this towards the origin, matching it with another solution at $x_m$ where:
+$$\psi(x) = 
 \begin{cases} 
 e^{-\kappa (x-x_m)}, & \text{for } x > x_m, \\
 \psi_{R}(x), & \text{for } x < x_m.
-\end{cases}
-\]
+\end{cases}$$
+
 Similarly, for the right side:
-\[
-\psi(x) = e^{-\kappa x} \quad \text{for } x \to +\infty,
-\]
-and integrate backwards to \(x_m\) matching it with a solution on the left.
+$$\psi(x) = e^{-\kappa x} \quad \text{for } x \to +\infty,$$and integrate backwards to $ x_m$ matching it with a solution on the left.
 
 x??
 
@@ -81,10 +58,10 @@ The search algorithm involves integrating the wave function from both sides and 
 
 :p What is the role of the search algorithm in solving the eigenvalue problem?
 ??x
-The search algorithm integrates the wave function from both sides towards a matching radius \(x_m\). By varying the energy, we find values where the wave functions match at \(x_m\), indicating an eigenvalue. This process involves:
-1) Starting with a large negative \(x\) and integrating to the left.
-2) Starting with a large positive \(x\) and integrating to the right.
-3) Matching these solutions at some point \(x_m\) between \(-a\) and \(+a\).
+The search algorithm integrates the wave function from both sides towards a matching radius $x_m $. By varying the energy, we find values where the wave functions match at $ x_m$, indicating an eigenvalue. This process involves:
+1) Starting with a large negative $x$ and integrating to the left.
+2) Starting with a large positive $x$ and integrating to the right.
+3) Matching these solutions at some point $x_m $ between$-a $ and$+a$.
 
 This iterative approach helps in finding energy levels where the wave function is normalizable, thus solving the eigenvalue problem.
 
@@ -444,14 +421,13 @@ x??
 
 
 #### RK4 Method for Simultaneous ODEs
-Background context explaining the concept. The Runge-Kutta method of order 4 (RK4) is a numerical technique to solve ordinary differential equations (ODEs). For projectile motion with drag, we need to simultaneously solve two coupled first-order ODEs: one for the horizontal position \(x(t)\), and another for the vertical position \(y(t)\).
+Background context explaining the concept. The Runge-Kutta method of order 4 (RK4) is a numerical technique to solve ordinary differential equations (ODEs). For projectile motion with drag, we need to simultaneously solve two coupled first-order ODEs: one for the horizontal position $x(t)$, and another for the vertical position $ y(t)$.
 :p What is the primary method used to solve simultaneous ODEs in this context?
 ??x
 The Runge-Kutta method of order 4 (RK4) is applied. The ODEs are:
-\[
-\frac{dx}{dt} = v_x, \quad \frac{dy}{dt} = v_y
-\]
-Where \(v_x\) and \(v_y\) are the velocity components in the x and y directions respectively.
+$$\frac{dx}{dt} = v_x, \quad \frac{dy}{dt} = v_y$$
+
+Where $v_x $ and$v_y$ are the velocity components in the x and y directions respectively.
 ```java
 public void rk4(double[] dydt, double t, double h, double[] y) {
     double k1[], k2[], k3[], k4[];
@@ -472,7 +448,7 @@ x??
 Background context explaining the concept. Phase space trajectories are plotted to analyze the dynamics of projectile motion with drag by examining both position and velocity components over time.
 :p What is a phase space plot for projectile motion?
 ??x
-A phase space plot shows \([ x(t), ̇x(t) ]\) and \([ y(t), ̇y(t) ]\). These differ from bound state trajectories as they capture the full dynamics, including velocity components over time.
+A phase space plot shows $[ x(t), ̇x(t) ]$ and $[ y(t), ̇y(t) ]$. These differ from bound state trajectories as they capture the full dynamics, including velocity components over time.
 ```java
 for (double b = -1; b <= 1; b += 0.05) {
     double[] x, y;
@@ -487,10 +463,10 @@ x??
 
 
 #### Identifying Discontinuities in d𝜃/db
-Background context explaining the concept. Discontinuities in \( \frac{d\theta}{db} \) and thus \( \sigma(\theta) \) can be identified by analyzing characteristic features of trajectories.
+Background context explaining the concept. Discontinuities in $\frac{d\theta}{db}$ and thus $\sigma(\theta)$ can be identified by analyzing characteristic features of trajectories.
 :p What characteristics lead to discontinuities in the scattering angle?
 ??x
-Discontinuities in \( \frac{d\theta}{db} \) are caused by specific trajectory characteristics, such as sharp turns or sudden changes due to multiple scatterings. These discontinuities affect the differential cross-section \( \sigma(\theta) \).
+Discontinuities in $\frac{d\theta}{db}$ are caused by specific trajectory characteristics, such as sharp turns or sudden changes due to multiple scatterings. These discontinuities affect the differential cross-section $\sigma(\theta)$.
 ```java
 for (double b = -1; b <= 1; b += 0.05) {
     double[] x = new double[numPoints];
@@ -506,14 +482,13 @@ x??
 
 
 #### Modifying RK4 Program for Friction
-Background context explaining the concept. The Runge-Kutta method is modified to solve ODEs with friction, using \( n \) values of 1, 3/2, and 2 to model different velocities.
+Background context explaining the concept. The Runge-Kutta method is modified to solve ODEs with friction, using $n$ values of 1, 3/2, and 2 to model different velocities.
 :p How do you modify the RK4 program for projectile motion with drag?
 ??x
 The RK4 program is adapted to solve the coupled ODEs:
-\[
-\frac{dx}{dt} = v_x, \quad \frac{dy}{dt} = v_y
-\]
-Where \( n \) represents different models of air resistance. For low velocities (\( n=1 \)), medium (\( n=3/2 \)), and high (\( n=2 \)) velocities, appropriate values of \( k \) are adjusted to ensure the initial friction force is consistent.
+$$\frac{dx}{dt} = v_x, \quad \frac{dy}{dt} = v_y$$
+
+Where $n $ represents different models of air resistance. For low velocities ($n=1 $), medium ($ n=3/2 $), and high ($ n=2 $) velocities, appropriate values of$ k$ are adjusted to ensure the initial friction force is consistent.
 ```java
 public void rk4Friction(double[] dydt, double t, double h, double[] y) {
     // Adjust equations for friction based on n value

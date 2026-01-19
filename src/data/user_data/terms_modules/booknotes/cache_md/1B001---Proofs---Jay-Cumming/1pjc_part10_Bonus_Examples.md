@@ -227,26 +227,26 @@ x??
 
 ---
 #### Fundamental Theorem of Arithmetic - Proof by Minimal Counterexample
-The fundamental theorem of arithmetic states that every integer \( n \geq 2 \) is either prime or a product of primes. This proof uses a minimal counterexample to show this assertion.
+The fundamental theorem of arithmetic states that every integer $n \geq 2$ is either prime or a product of primes. This proof uses a minimal counterexample to show this assertion.
 :p What is the theorem we are proving using minimal counterexample?
 ??x
-We are proving the Fundamental Theorem of Arithmetic, which asserts that every integer \( n \geq 2 \) is either prime or a product of primes.
+We are proving the Fundamental Theorem of Arithmetic, which asserts that every integer $n \geq 2$ is either prime or a product of primes.
 x??
 
 ---
 #### Proof Steps for Fundamental Theorem of Arithmetic - Minimal Counterexample
-In the proof, we first assume there exists a minimal counterexample \( N \), an integer at least 2 which is neither prime nor a product of primes. Then, since \( N \) is composite, it can be expressed as \( ab \). Given that \( a \) and \( b \) are smaller than \( N \), they must satisfy the theorem by minimality.
-:p What does the proof assume about the minimal counterexample \( N \)?
+In the proof, we first assume there exists a minimal counterexample $N $, an integer at least 2 which is neither prime nor a product of primes. Then, since $ N $ is composite, it can be expressed as $ ab $. Given that$ a $ and $ b $ are smaller than $ N$, they must satisfy the theorem by minimality.
+:p What does the proof assume about the minimal counterexample $N$?
 ??x
-The proof assumes that there exists a minimal counterexample \( N \geq 2 \) which is neither prime nor a product of primes. This means both \( a \) and \( b \), where \( N = ab \), must satisfy the theorem because they are smaller than \( N \).
+The proof assumes that there exists a minimal counterexample $N \geq 2 $ which is neither prime nor a product of primes. This means both$a $ and$ b $, where $ N = ab$, must satisfy the theorem because they are smaller than $ N$.
 x??
 
 ---
 #### Contradiction in Fundamental Theorem Proof
-Given that \( a \) and \( b \) are composite, their factors also factorize \( N \). This leads to a contradiction since \( N \) was assumed to be a counterexample.
-:p What is the contradiction derived from assuming \( N \) as a minimal counterexample?
+Given that $a $ and$b $ are composite, their factors also factorize$ N $. This leads to a contradiction since $ N$ was assumed to be a counterexample.
+:p What is the contradiction derived from assuming $N$ as a minimal counterexample?
 ??x
-The contradiction arises because if both \( a \) and \( b \) are composite, then they can each be factored further into primes. This means their product \( N = ab \) would also be a product of primes, contradicting the assumption that \( N \) is not a product of primes.
+The contradiction arises because if both $a $ and$b $ are composite, then they can each be factored further into primes. This means their product$ N = ab $ would also be a product of primes, contradicting the assumption that $N$ is not a product of primes.
 x??
 
 ---
@@ -262,26 +262,26 @@ x??
 Reductio ad absurdum, or proof by contradiction, is used here to assume the negation of the theorem and derive a logical inconsistency. In this case, assuming there exists a minimal counterexample leads to a contradiction when analyzing its factors.
 :p What technique does the proof use to prove the Fundamental Theorem of Arithmetic?
 ??x
-The proof uses reductio ad absurdum (proof by contradiction) by assuming that not every integer \( n \geq 2 \) is either prime or a product of primes, leading to a minimal counterexample. This assumption ultimately results in a contradiction.
+The proof uses reductio ad absurdum (proof by contradiction) by assuming that not every integer $n \geq 2$ is either prime or a product of primes, leading to a minimal counterexample. This assumption ultimately results in a contradiction.
 x??
 
 ---
 #### Minimal Counterexample Logic
-In the proof, if we assume there exists a smallest counterexample \( N \), then both factors \( a \) and \( b \) (where \( N = ab \)) must be smaller than \( N \). Since they are smaller, by minimality, they must satisfy the theorem. This leads to a contradiction.
+In the proof, if we assume there exists a smallest counterexample $N $, then both factors $ a $ and $ b $ (where $ N = ab $) must be smaller than$ N$. Since they are smaller, by minimality, they must satisfy the theorem. This leads to a contradiction.
 :p How do you handle the minimal counterexample in this proof?
 ??x
-You handle the minimal counterexample by assuming it exists and then showing that its factors (which are smaller) also must satisfy the theorem. However, their product \( N \) cannot be a counterexample if both factors are prime or products of primes, leading to a contradiction.
+You handle the minimal counterexample by assuming it exists and then showing that its factors (which are smaller) also must satisfy the theorem. However, their product $N$ cannot be a counterexample if both factors are prime or products of primes, leading to a contradiction.
 x??
 
 ---
 
 
 #### Existence of Division Algorithm Proof
-Background context: The proof for the division algorithm, as mentioned, asserts that for any integers \(a\) and \(m > 0\), there exist unique integers \(q\) and \(r\) such that \(a = mq + r\) where \(0 \leq r < m\). This is a fundamental concept in number theory.
+Background context: The proof for the division algorithm, as mentioned, asserts that for any integers $a $ and$m > 0 $, there exist unique integers$ q $and$ r $such that$ a = mq + r $where$0 \leq r < m$. This is a fundamental concept in number theory.
 
-:p What does the proof aim to demonstrate about the existence of integers \(q\) and \(r\)?
+:p What does the proof aim to demonstrate about the existence of integers $q $ and$r$?
 ??x
-The proof aims to show that for any integer \(a\) and positive integer \(m\), there exist integers \(q\) and \(r\) such that \(a = mq + r\) with the constraint \(0 \leq r < m\). This is demonstrated by considering different cases for \(a\).
+The proof aims to show that for any integer $a $ and positive integer$m $, there exist integers$ q $and$ r $such that$ a = mq + r $with the constraint$0 \leq r < m $. This is demonstrated by considering different cases for$ a$.
 
 Include relevant code or pseudocode:
 ```java
@@ -297,11 +297,11 @@ x??
 ---
 
 #### Uniqueness of Division Algorithm Proof
-Background context: The uniqueness part of the proof involves showing that there is only one pair \((q, r)\) for a given \(a\) and \(m\). This is crucial because it ensures the theorem's assertion about the integers \(q\) and \(r\) is unique.
+Background context: The uniqueness part of the proof involves showing that there is only one pair $(q, r)$ for a given $a$ and $m$. This is crucial because it ensures the theorem's assertion about the integers $ q$and $ r$ is unique.
 
-:p How does the proof ensure the uniqueness of \(q\) and \(r\)?
+:p How does the proof ensure the uniqueness of $q $ and$r$?
 ??x
-The proof ensures the uniqueness of \(q\) and \(r\) by assuming that there are two different representations for \(a\): \(a = mq + r\) and \(a = m q_0 + r_0\). By manipulating these equations, it shows that this assumption leads to a contradiction, thus proving that only one pair \((q, r)\) can satisfy the condition.
+The proof ensures the uniqueness of $q $ and$r $ by assuming that there are two different representations for$ a $:$ a = mq + r $and$ a = m q_0 + r_0 $. By manipulating these equations, it shows that this assumption leads to a contradiction, thus proving that only one pair$(q, r)$ can satisfy the condition.
 
 Include relevant code or pseudocode:
 ```java
@@ -322,7 +322,7 @@ Background context: The proof employs a method called proof by minimal counterex
 
 :p How does the proof use the concept of a minimal counterexample?
 ??x
-The proof uses the concept of a minimal counterexample to show that if any positive integer \(a\) can be expressed as \(a = mq + r\) with \(0 \leq r < m\), then no smaller positive integer could fail this condition. By contradiction, it demonstrates that assuming there is a smallest such \(a\) leads to a logical inconsistency.
+The proof uses the concept of a minimal counterexample to show that if any positive integer $a $ can be expressed as$a = mq + r $ with$0 \leq r < m $, then no smaller positive integer could fail this condition. By contradiction, it demonstrates that assuming there is a smallest such $ a$ leads to a logical inconsistency.
 
 Include relevant code or pseudocode:
 ```java
@@ -338,16 +338,12 @@ x??
 ---
 
 #### Case Analysis in Proof
-Background context: The proof analyzes different cases to handle all possible values of \(a\) relative to \(m\). This ensures that every scenario is considered, from \(a < m\) to \(a > m\), and \(a = m\).
+Background context: The proof analyzes different cases to handle all possible values of $a $ relative to$m $. This ensures that every scenario is considered, from $ a < m $to$ a > m $, and$ a = m$.
 
 :p What are the main cases considered in the proof?
 ??x
 The main cases considered in the proof are:
-1. \(a < m\)
-2. \(a = m\)
-3. \(a > m\)
-
-Each case is handled separately to ensure that for any integer \(a\) and positive integer \(m\), there exists a pair \((q, r)\) such that \(a = mq + r\) with \(0 \leq r < m\).
+1. $a < m $2.$ a = m $3.$ a > m $Each case is handled separately to ensure that for any integer$ a $and positive integer$ m $, there exists a pair$(q, r)$ such that $a = mq + r$ with $0 \leq r < m$.
 
 Include relevant code or pseudocode:
 ```java
@@ -363,11 +359,11 @@ x??
 ---
 
 #### Example of Division Algorithm Application
-Background context: The text provides an example to illustrate how the theorem works. It shows that if \(a = 13\) and \(m = 3\), then both \(13 = 4 \times 3 + 1\) and \(-13 = -5 \times 3 + 2\).
+Background context: The text provides an example to illustrate how the theorem works. It shows that if $a = 13 $ and$m = 3 $, then both$13 = 4 \times 3 + 1 $ and$-13 = -5 \times 3 + 2$.
 
 :p How does the proof handle negative integers in the context of the division algorithm?
 ??x
-The proof handles negative integers by noting that if a positive integer \(a\) can be expressed as \(a = mq + r\) with \(0 \leq r < m\), then \(-a\) can also be expressed similarly. By considering the expression for \(-a\) and manipulating it, the proof shows that the theorem still holds for negative integers.
+The proof handles negative integers by noting that if a positive integer $a $ can be expressed as$a = mq + r $ with$0 \leq r < m $, then$-a $ can also be expressed similarly. By considering the expression for$-a$ and manipulating it, the proof shows that the theorem still holds for negative integers.
 
 Include relevant code or pseudocode:
 ```java
@@ -387,7 +383,7 @@ Background context: The proof uses contradiction to show that there cannot be a 
 
 :p How does the proof use contradiction to prove the existence part of the division algorithm?
 ??x
-The proof uses contradiction by assuming there is a smallest positive integer \(a\) for which the theorem fails, i.e., it cannot be expressed as \(a = mq + r\) with \(0 \leq r < m\). By considering the number \(a - m\), which is both positive and smaller than \(a\), it derives that this assumption leads to a contradiction, proving that such a smallest counterexample cannot exist.
+The proof uses contradiction by assuming there is a smallest positive integer $a $ for which the theorem fails, i.e., it cannot be expressed as$a = mq + r $ with$0 \leq r < m $. By considering the number $ a - m $, which is both positive and smaller than$ a$, it derives that this assumption leads to a contradiction, proving that such a smallest counterexample cannot exist.
 
 Include relevant code or pseudocode:
 ```java
@@ -431,11 +427,11 @@ x??
 ---
 
 #### Induction Proof
-Induction proofs are particularly useful when dealing with statements about all natural numbers or integers. The method involves proving a base case and then showing that if the statement holds for some number \( k \), it also holds for \( k+1 \).
+Induction proofs are particularly useful when dealing with statements about all natural numbers or integers. The method involves proving a base case and then showing that if the statement holds for some number $k $, it also holds for $ k+1$.
 
 :p What is the primary challenge in identifying mistakes during an induction proof?
 ??x
-In an induction proof, making a mistake within the induction step can make it difficult to identify because the error might not be immediately apparent until you try to apply the inductive hypothesis. If the proof does not hold for \( k+1 \), it could indicate that there was an error earlier in the base case or the inductive step.
+In an induction proof, making a mistake within the induction step can make it difficult to identify because the error might not be immediately apparent until you try to apply the inductive hypothesis. If the proof does not hold for $k+1$, it could indicate that there was an error earlier in the base case or the inductive step.
 
 ```java
 public class InductionExample {
@@ -452,7 +448,7 @@ x??
 ---
 
 #### Proof by Contradiction
-Proof by contradiction involves assuming the negation of what you want to prove (i.e., \( \neg Q \) given \( P \)) and deriving a contradiction. This method is particularly useful when dealing with "for every" or "for all" statements.
+Proof by contradiction involves assuming the negation of what you want to prove (i.e., $\neg Q $ given$P$) and deriving a contradiction. This method is particularly useful when dealing with "for every" or "for all" statements.
 
 :p Why is proof by contradiction more prone to errors than direct proofs?
 ??x
@@ -533,7 +529,7 @@ public class ContrapositiveExample {
 }
 ```
 
-The contrapositive in this example effectively means checking if \(x \leq 5\).
+The contrapositive in this example effectively means checking if $x \leq 5$.
 
 ```java
 // Example of proof by contradiction
@@ -577,13 +573,13 @@ x??
 
 Background context: This exercise involves proving properties of rational and irrational numbers. Specifically, it examines the product of a rational number with an irrational number.
 
-:p Prove that if \(a\) is rational and \(ab\) is irrational, then \(b\) must be irrational.
+:p Prove that if $a $ is rational and$ab $ is irrational, then$b$ must be irrational.
 ??x
-To prove this statement, we can use proof by contradiction. Assume that both \(a\) and \(b\) are rational numbers. Since \(a\) is rational, it can be expressed as \(\frac{p}{q}\) where \(p\) and \(q\) are integers and \(q \neq 0\). If \(ab\) is irrational but we assume \(b\) to also be rational, then \(b\) can be expressed as \(\frac{r}{s}\), where \(r\) and \(s\) are integers and \(s \neq 0\).
+To prove this statement, we can use proof by contradiction. Assume that both $a $ and$b $ are rational numbers. Since$a $ is rational, it can be expressed as$\frac{p}{q}$ where $p$ and $q$ are integers and $q \neq 0$. If $ ab$is irrational but we assume $ b$to also be rational, then $ b$can be expressed as $\frac{r}{s}$, where $ r$and $ s$are integers and $ s \neq 0$.
 
-The product \(ab = a \cdot b = \left(\frac{p}{q}\right) \cdot \left(\frac{r}{s}\right) = \frac{pr}{qs}\). Since both \(p, q, r,\) and \(s\) are integers with no common factors (assuming they are in simplest form), the product \(\frac{pr}{qs}\) would be a rational number. This contradicts our assumption that \(ab\) is irrational.
+The product $ab = a \cdot b = \left(\frac{p}{q}\right) \cdot \left(\frac{r}{s}\right) = \frac{pr}{qs}$. Since both $ p, q, r,$and $ s$are integers with no common factors (assuming they are in simplest form), the product $\frac{pr}{qs}$ would be a rational number. This contradicts our assumption that $ab$ is irrational.
 
-Therefore, if \(a\) is rational and \(ab\) is irrational, \(b\) cannot be rational; it must be irrational.
+Therefore, if $a $ is rational and$ab $ is irrational,$ b$ cannot be rational; it must be irrational.
 
 ```java
 // Pseudocode for proof by contradiction
@@ -605,7 +601,7 @@ public class RationalMultiplicationProof {
 }
 ```
 
-In the pseudocode, we check that the product of two rational numbers would result in a rational number. The contradiction arises when this does not hold, thus proving \(b\) must be irrational.
+In the pseudocode, we check that the product of two rational numbers would result in a rational number. The contradiction arises when this does not hold, thus proving $b$ must be irrational.
 
 x??
 
@@ -614,25 +610,25 @@ x??
 
 Background context: This exercise compares direct proofs and proof by contradiction to prove a statement about positive rational numbers and their properties.
 
-:p Prove that if \(x \in Q^+\), then there exists some \(y \in Q^+\) such that \(y < x\). Provide two proofs: one using a direct proof, and one using proof by contradiction.
+:p Prove that if $x \in Q^+$, then there exists some $ y \in Q^+$such that $ y < x$. Provide two proofs: one using a direct proof, and one using proof by contradiction.
 ??x
-**Direct Proof**: To prove the statement directly, we need to construct a rational number \(y\) that is strictly less than any given positive rational number \(x \in Q^+\).
+**Direct Proof**: To prove the statement directly, we need to construct a rational number $y $ that is strictly less than any given positive rational number$x \in Q^+$.
 
-1. Let \(x = \frac{p}{q}\) where \(p\) and \(q\) are integers with \(q > 0\).
-2. Choose \(y = \frac{p}{q + 1}\). Since \(q + 1 > q\), we have that \(\frac{p}{q + 1} < \frac{p}{q} = x\).
+1. Let $x = \frac{p}{q}$ where $p$ and $q$ are integers with $q > 0$.
+2. Choose $y = \frac{p}{q + 1}$. Since $ q + 1 > q$, we have that $\frac{p}{q + 1} < \frac{p}{q} = x$.
 
-Thus, \(y = \frac{p}{q + 1}\) is a positive rational number and \(y < x\).
+Thus, $y = \frac{p}{q + 1}$ is a positive rational number and $y < x$.
 
-**Proof by Contradiction**: Assume the statement is false. That is, suppose for every \(y \in Q^+\), we have \(y \geq x\). Let’s consider the value of \(x = \frac{p}{q}\) again.
+**Proof by Contradiction**: Assume the statement is false. That is, suppose for every $y \in Q^+$, we have $ y \geq x$. Let’s consider the value of $ x = \frac{p}{q}$ again.
 
-1. Suppose there exists no positive rational number \(y\) such that \(y < x\).
-2. Then any candidate \(y = \frac{r}{s}\) (where \(r, s > 0\)) must satisfy \(y \geq x\), which means \(\frac{r}{s} \geq \frac{p}{q}\).
+1. Suppose there exists no positive rational number $y $ such that$y < x$.
+2. Then any candidate $y = \frac{r}{s}$(where $ r, s > 0$) must satisfy $ y \geq x$, which means $\frac{r}{s} \geq \frac{p}{q}$.
 
-By choosing \(s < q + 1\) and \(r = p - 1\), we get a new rational number \(y' = \frac{p-1}{q+1}\). Notice that:
+By choosing $s < q + 1 $ and$r = p - 1 $, we get a new rational number$ y' = \frac{p-1}{q+1}$. Notice that:
 
-\[ y' = \frac{p - 1}{q + 1} = \frac{p - 1}{q + 1} < \frac{p}{q} = x. \]
+$$y' = \frac{p - 1}{q + 1} = \frac{p - 1}{q + 1} < \frac{p}{q} = x.$$
 
-This contradicts the assumption that \(y \geq x\) for all positive rational numbers \(y\). Therefore, there must exist some \(y \in Q^+\) such that \(y < x\).
+This contradicts the assumption that $y \geq x $ for all positive rational numbers$y $. Therefore, there must exist some$ y \in Q^+$such that $ y < x$.
 
 ```java
 // Direct Proof Example in Java
@@ -645,7 +641,7 @@ public class DirectProof {
 }
 ```
 
-The function checks that \(y\) is indeed less than the given positive rational number \(x\).
+The function checks that $y $ is indeed less than the given positive rational number$x$.
 
 ```java
 // Proof by Contradiction Example in Java
@@ -664,7 +660,7 @@ public class ProofByContradiction {
 }
 ```
 
-In the proof by contradiction example, we try to find a \(y\) that is less than \(x\), but since it exists, this approach would theoretically always find one.
+In the proof by contradiction example, we try to find a $y $ that is less than$x$, but since it exists, this approach would theoretically always find one.
 
 x??
 
@@ -672,20 +668,20 @@ x??
 
 
 #### Functions: Definition and Basic Properties
-Functions are a fundamental concept in mathematics, often introduced early on but deeply explored throughout one's mathematical education. A function \( f \) from set \( A \) to set \( B \), denoted as \( f : A \to B \), assigns each element \( x \in A \) exactly one value \( y = f(x) \in B \). The domain of the function is the set \( A \), the codomain is \( B \), and the range (or image) is the subset of \( B \) that includes all values attained by \( f \).
+Functions are a fundamental concept in mathematics, often introduced early on but deeply explored throughout one's mathematical education. A function $f $ from set$A $ to set$ B $, denoted as $ f : A \to B$, assigns each element $ x \in A$exactly one value $ y = f(x) \in B$. The domain of the function is the set $ A$, the codomain is $ B$, and the range (or image) is the subset of $ B$that includes all values attained by $ f$.
 
-:p Define a function from set \( A \) to set \( B \).
+:p Define a function from set $A $ to set$B$.
 ??x
-A function \( f : A \to B \) assigns each element in the domain \( A \) exactly one value in the codomain \( B \). The notation is such that for every \( x \in A \), there exists a unique \( y \in B \) where \( y = f(x) \).
+A function $f : A \to B $ assigns each element in the domain$A $ exactly one value in the codomain$ B $. The notation is such that for every $ x \in A$, there exists a unique $ y \in B$where $ y = f(x)$.
 x??
 
 ---
 #### Domain, Codomain, and Range
-The terms domain, codomain, and range are crucial in understanding functions. The domain consists of all possible inputs (elements from set \( A \)), the codomain is the entire potential output space (set \( B \)), and the range is the actual subset of the codomain that is achieved by the function.
+The terms domain, codomain, and range are crucial in understanding functions. The domain consists of all possible inputs (elements from set $A $), the codomain is the entire potential output space (set $ B$), and the range is the actual subset of the codomain that is achieved by the function.
 
 :p Explain the difference between the codomain and the range.
 ??x
-The codomain \( B \) is the complete set of possible outputs for a function, whereas the range is the specific subset of the codomain that includes all actual output values produced by the function. For example, if \( f(x) = x^2 \) with domain \( \mathbb{R} \), the codomain might be \( \mathbb{R} \) (all real numbers), but the range is only non-negative reals \( [0, +\infty) \).
+The codomain $B $ is the complete set of possible outputs for a function, whereas the range is the specific subset of the codomain that includes all actual output values produced by the function. For example, if$f(x) = x^2 $ with domain$\mathbb{R}$, the codomain might be $\mathbb{R}$(all real numbers), but the range is only non-negative reals $[0, +\infty)$.
 x??
 
 ---
@@ -712,11 +708,11 @@ x??
 
 ---
 #### Examples of Functions
-Various examples illustrate the concept of functions. For instance, \( f(x) = \lfloor x \rfloor \), known as the floor function, rounds down to the nearest integer. Another example is a function mapping integers to their squares with restrictions.
+Various examples illustrate the concept of functions. For instance, $f(x) = \lfloor x \rfloor$, known as the floor function, rounds down to the nearest integer. Another example is a function mapping integers to their squares with restrictions.
 
 :p Provide an example of a floor function.
 ??x
-The floor function \( f(x) = \lfloor x \rfloor \) maps any real number \( x \) to the greatest integer less than or equal to \( x \). For instance, \( \lfloor 3.2 \rfloor = 3 \) and \( \lfloor -4.7 \rfloor = -5 \).
+The floor function $f(x) = \lfloor x \rfloor $ maps any real number$x $ to the greatest integer less than or equal to$ x $. For instance,$\lfloor 3.2 \rfloor = 3 $ and$\lfloor -4.7 \rfloor = -5$.
 
 ```java
 public class FloorFunction {
@@ -729,11 +725,11 @@ x??
 
 ---
 #### Cartesian Product in Functions
-Functions can also involve more complex domains or codomains, such as the Cartesian product of sets. The function \( f(x) = (5 \cos(x), 5 \sin(x)) \) maps real numbers to points on a circle centered at the origin with radius 5.
+Functions can also involve more complex domains or codomains, such as the Cartesian product of sets. The function $f(x) = (5 \cos(x), 5 \sin(x))$ maps real numbers to points on a circle centered at the origin with radius 5.
 
 :p Describe the function mapping real numbers to a circle.
 ??x
-The function \( f(x) = (5 \cos(x), 5 \sin(x)) \) maps each real number \( x \) to a point on a circle of radius 5 centered at the origin. This is because for any angle \( x \), \( \cos(x) \) and \( \sin(x) \) describe coordinates on the unit circle, scaled by 5.
+The function $f(x) = (5 \cos(x), 5 \sin(x))$ maps each real number $ x $ to a point on a circle of radius 5 centered at the origin. This is because for any angle $ x $,$\cos(x)$ and $\sin(x)$ describe coordinates on the unit circle, scaled by 5.
 
 ```java
 public class CircleMapping {

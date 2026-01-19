@@ -32,8 +32,7 @@ Background context: For normalized numbers in singles, the exponent range is fro
 :p How do you calculate the value represented by a single precision floating-point number?
 ??x
 The value of a single-precision floating-point number is calculated using the formula:
-\[ \text{Value} = (-1)^s \times 1.f \times 2^{(e - 127)} \]
-where \( s \) is the sign bit, \( f \) is the fractional part of the mantissa, and \( e \) is the exponent adjusted by bias.
+$$\text{Value} = (-1)^s \times 1.f \times 2^{(e - 127)}$$where $ s $is the sign bit,$ f $ is the fractional part of the mantissa, and $ e$ is the exponent adjusted by bias.
 
 ```java
 // Pseudocode to calculate a single precision floating-point number value
@@ -296,7 +295,7 @@ x??
 #### Calculate Volume of Sphere (Vol.py)
 Background context: You need to modify the existing program to calculate and print the volume of a sphere instead of an area.
 
-:p How do you change the `Area.py` program so it computes the volume \( \frac{4}{3} \pi r^3 \) of a sphere?
+:p How do you change the `Area.py` program so it computes the volume $\frac{4}{3} \pi r^3$ of a sphere?
 ??x
 To compute the volume of a sphere, update the relevant part of your code to use the correct formula:
 
@@ -343,9 +342,9 @@ x??
 #### Machine Precision
 Background context: This topic explores the precision limits of floating-point numbers and how they affect calculations.
 
-:p What is machine precision (\(\epsilon_m\))?
+:p What is machine precision ($\epsilon_m$)?
 ??x
-Machine precision \(\epsilon_m\) is defined as the maximum positive number that can be added to a number stored as 1 without changing it. In essence, it indicates the smallest difference between two representable floating-point numbers:
+Machine precision $\epsilon_m$ is defined as the maximum positive number that can be added to a number stored as 1 without changing it. In essence, it indicates the smallest difference between two representable floating-point numbers:
 
 ```python
 # Example calculation of machine precision using double-precision floats in Python
@@ -438,11 +437,11 @@ x??
 
 
 #### Independent Variable and Dependent Variable Placement
-Background context: The text mentions that the independent variable \( x \) should typically be placed along the abscissa (horizontal axis) while the dependent variable \( y = f(x) \) is plotted along the ordinate (vertical axis).
+Background context: The text mentions that the independent variable $x $ should typically be placed along the abscissa (horizontal axis) while the dependent variable$y = f(x)$ is plotted along the ordinate (vertical axis).
 
 :p Where should the independent and dependent variables be placed in a plot?
 ??x
-The independent variable \( x \) should be placed on the horizontal (abscissa) axis, while the dependent variable \( y = f(x) \) should be placed on the vertical (ordinate) axis. This standard placement facilitates easy interpretation of the data.
+The independent variable $x $ should be placed on the horizontal (abscissa) axis, while the dependent variable$y = f(x)$ should be placed on the vertical (ordinate) axis. This standard placement facilitates easy interpretation of the data.
 
 ```python
 # Example code snippet from EasyVisual.py

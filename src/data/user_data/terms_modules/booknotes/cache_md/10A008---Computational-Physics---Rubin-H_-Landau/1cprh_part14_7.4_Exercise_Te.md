@@ -8,9 +8,9 @@
 
 #### Numerical Inverse of a Matrix
 
-Background context: Finding the numerical inverse of a matrix is crucial for solving systems of linear equations. The provided matrix \( A \) can be inverted to find its numerical inverse, and then checking this inverse by verifying if \( AA^{-1} = I \). This also helps in understanding the precision of the calculation.
+Background context: Finding the numerical inverse of a matrix is crucial for solving systems of linear equations. The provided matrix $A $ can be inverted to find its numerical inverse, and then checking this inverse by verifying if$AA^{-1} = I$. This also helps in understanding the precision of the calculation.
 
-:p Find the numerical inverse of the matrix \( A = \begin{bmatrix} 4 & -2 & 1 \\ 3 & 6 & -4 \\ 2 & 1 & 8 \end{bmatrix} \).
+:p Find the numerical inverse of the matrix $A = \begin{bmatrix} 4 & -2 & 1 \\ 3 & 6 & -4 \\ 2 & 1 & 8 \end{bmatrix}$.
 
 ??x
 To find the numerical inverse, you can use a NumPy function such as `numpy.linalg.inv`. Here's how you might do it:
@@ -29,9 +29,9 @@ A_inv = np.linalg.inv(A)
 print('Numerical Inverse:', A_inv)
 ```
 
-This code will give you the numerical inverse of matrix \( A \).
+This code will give you the numerical inverse of matrix $A$.
 
-To verify that this is indeed the correct inverse, check if multiplying \( A \) by its inverse gives the identity matrix:
+To verify that this is indeed the correct inverse, check if multiplying $A$ by its inverse gives the identity matrix:
 
 ```python
 # Check if AA^-1 = I
@@ -49,13 +49,11 @@ x??
 
 #### Solving Linear Equations
 
-Background context: Given a matrix \( A \) and vectors \( b_1, b_2, b_3 \), we need to solve for the vector \( x \) such that \( Ax = b_i \). This involves using NumPy's `numpy.linalg.solve` function.
+Background context: Given a matrix $A $ and vectors$b_1, b_2, b_3 $, we need to solve for the vector$ x $such that$ Ax = b_i$. This involves using NumPy's `numpy.linalg.solve` function.
 
-:p Consider the same matrix \( A \) as in the previous problem. Solve for the vectors \( x_1, x_2, x_3 \) corresponding to different right-hand side (RHS) vectors:
+:p Consider the same matrix $A $ as in the previous problem. Solve for the vectors$x_1, x_2, x_3$ corresponding to different right-hand side (RHS) vectors:
 
-- \( b_1 = \begin{bmatrix} 12 \\ -25 \\ 32 \end{bmatrix} \)
-- \( b_2 = \begin{bmatrix} 4 \\ -10 \\ 22 \end{bmatrix} \)
-- \( b_3 = \begin{bmatrix} 20 \\ -30 \\ 40 \end{bmatrix} \)
+- $b_1 = \begin{bmatrix} 12 \\ -25 \\ 32 \end{bmatrix}$-$ b_2 = \begin{bmatrix} 4 \\ -10 \\ 22 \end{bmatrix}$-$ b_3 = \begin{bmatrix} 20 \\ -30 \\ 40 \end{bmatrix}$
 
 ??x
 To solve the linear equations, you can use NumPy's `numpy.linalg.solve` function. Here is how:
@@ -85,13 +83,11 @@ x3 = np.linalg.solve(A, b3)
 print('Solution for x3:', x3)
 ```
 
-This code will output the solutions \( x_1, x_2, x_3 \) corresponding to each \( b_i \).
+This code will output the solutions $x_1, x_2, x_3 $ corresponding to each$b_i$.
 
 The expected solutions are:
 
-- \( x_1 = \begin{bmatrix} 1 \\ -2 \\ 4 \end{bmatrix} \)
-- \( x_2 = \begin{bmatrix} 0.312 \\ -0.038 \\ 2.677 \end{bmatrix} \)
-- \( x_3 = \begin{bmatrix} 2.319 \\ -2.965 \\ 4.79 \end{bmatrix} \)
+- $x_1 = \begin{bmatrix} 1 \\ -2 \\ 4 \end{bmatrix}$-$ x_2 = \begin{bmatrix} 0.312 \\ -0.038 \\ 2.677 \end{bmatrix}$-$ x_3 = \begin{bmatrix} 2.319 \\ -2.965 \\ 4.79 \end{bmatrix}$
 
 x??
 
@@ -100,13 +96,11 @@ x??
 
 #### Eigenvalues and Eigenvectors
 
-Background context: The eigenvalue problem is a fundamental concept in linear algebra, where we find the eigenvalues and eigenvectors of a matrix \( I \) such that \( I\omega = \lambda\omega \). This helps in understanding the principal axes of a cube.
+Background context: The eigenvalue problem is a fundamental concept in linear algebra, where we find the eigenvalues and eigenvectors of a matrix $I $ such that$I\omega = \lambda\omega$. This helps in understanding the principal axes of a cube.
 
 :p Solve for the eigenvalues and eigenvectors of the matrix:
 
-\[ I = \begin{bmatrix} 0.6667 & -0.25 \\ -0.25 & 0.6667 \end{bmatrix} \]
-
-??x
+$$I = \begin{bmatrix} 0.6667 & -0.25 \\ -0.25 & 0.6667 \end{bmatrix}$$??x
 To solve the eigenvalue problem, you can use NumPy's `numpy.linalg.eig` function.
 
 ```python
@@ -123,9 +117,9 @@ print('Eigenvalues:', E_vals)
 print('Eigenvector Matrix:', E_vectors)
 ```
 
-This code will output the eigenvalues and eigenvectors of matrix \( I \).
+This code will output the eigenvalues and eigenvectors of matrix $I$.
 
-To verify that the equation \( I\omega = \lambda\omega \) holds, you can check:
+To verify that the equation $I\omega = \lambda\omega$ holds, you can check:
 
 ```python
 # Extract first eigenvector
@@ -149,15 +143,9 @@ x??
 
 Background context: A system of linear equations can often be solved using known matrices like the Hilbert matrix. This type of problem is common in numerical analysis and provides an opportunity to practice solving systems with well-known structures.
 
-:p Solve for \( x \) values in a system where:
+:p Solve for $x$ values in a system where:
 
-\[ [A_{ij}] = a = \begin{bmatrix} 1 & 1/2 & 1/3 & \cdots & 1/100 \\ 1/2 & 1/3 & 1/4 & \cdots & 1/101 \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 1/100 & 1/101 & 1/102 & \cdots & 1 \end{bmatrix} \]
-
-and
-
-\[ [b_i] = b = \begin{bmatrix} 1 \\ 1/2 \\ 1/3 \\ \vdots \\ 1/100 \end{bmatrix} \]
-
-??x
+$$[A_{ij}] = a = \begin{bmatrix} 1 & 1/2 & 1/3 & \cdots & 1/100 \\ 1/2 & 1/3 & 1/4 & \cdots & 1/101 \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 1/100 & 1/101 & 1/102 & \cdots & 1 \end{bmatrix}$$and$$[b_i] = b = \begin{bmatrix} 1 \\ 1/2 \\ 1/3 \\ \vdots \\ 1/100 \end{bmatrix}$$??x
 To solve the system of linear equations with a Hilbert matrix and its first column vector, you can use NumPy's `numpy.linalg.solve` function:
 
 ```python
@@ -174,9 +162,9 @@ x = np.linalg.solve(A, b)
 print('Solution vector:', x)
 ```
 
-This code constructs the Hilbert matrix \( A \) and the vector \( b \), then solves for the vector \( x \).
+This code constructs the Hilbert matrix $A $ and the vector$b $, then solves for the vector$ x$.
 
-The result will be a solution vector that approximates the values of \( x \) satisfying \( Ax = b \). Due to the nature of the Hilbert matrix, the solution can be quite sensitive to numerical precision issues.
+The result will be a solution vector that approximates the values of $x $ satisfying$Ax = b$. Due to the nature of the Hilbert matrix, the solution can be quite sensitive to numerical precision issues.
 
 x??
 
@@ -231,10 +219,9 @@ Background context explaining the concept of difference derivatives, which are u
 
 :p How can you optimize a calculation of forward and central difference derivatives using NumPy?
 ??x
-Forward and central difference derivatives can be optimized elegantly using vectorized operations in NumPy. For instance, given an array `x` of values, the first-order derivative at each point \(x_i\) can be approximated as follows:
+Forward and central difference derivatives can be optimized elegantly using vectorized operations in NumPy. For instance, given an array `x` of values, the first-order derivative at each point $x_i$ can be approximated as follows:
 
-- Forward difference: \(\frac{f(x_{i+1}) - f(x_i)}{\Delta x}\)
-- Central difference: \(\frac{f(x_{i+1}) - f(x_{i-1})}{2\Delta x}\)
+- Forward difference:$\frac{f(x_{i+1}) - f(x_i)}{\Delta x}$- Central difference:$\frac{f(x_{i+1}) - f(x_{i-1})}{2\Delta x}$
 
 Here’s an example using the provided array `x`:
 ```python

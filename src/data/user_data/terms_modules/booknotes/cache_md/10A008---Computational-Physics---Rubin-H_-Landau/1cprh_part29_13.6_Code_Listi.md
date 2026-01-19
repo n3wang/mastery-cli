@@ -7,17 +7,16 @@
 
 
 #### Newton's Law of Gravitation and Planetary Orbits
-Background context explaining how Newton used his laws to explain planetary motion. The formula for gravitational force between a planet \(m\) and the sun \(M\) is given by:
-\[ F_g = -\frac{G m M}{r^2} \]
-where \( r \) is the distance from the planet to the sun, and \( G \) is the universal gravitational constant. The equations of motion are derived from Newton's second law:
-\[ F_x = F_{gx} r = F_g \cos\theta \sqrt{x^2 + y^2}, \]
-\[ F_y = F_{gy} r = -F_g \sin\theta \sqrt{x^2 + y^2}. \]
+Background context explaining how Newton used his laws to explain planetary motion. The formula for gravitational force between a planet $m $ and the sun$M$ is given by:
+$$F_g = -\frac{G m M}{r^2}$$where $ r $ is the distance from the planet to the sun, and $ G$ is the universal gravitational constant. The equations of motion are derived from Newton's second law:
+$$F_x = F_{gx} r = F_g \cos\theta \sqrt{x^2 + y^2},$$
+$$
 
-:p What are the equations of motion for a planet under the influence of gravity from the sun?
+F_y = F_{gy} r = -F_g \sin\theta \sqrt{x^2 + y^2}.$$:p What are the equations of motion for a planet under the influence of gravity from the sun?
 ??x
 The equations of motion are:
-\[ d^2x/dt^2 = -\frac{GM x}{(x^2+y^2)^{3/2}}, \]
-\[ d^2y/dt^2 = -\frac{GM y}{(x^2+y^2)^{3/2}}. \]
+$$d^2x/dt^2 = -\frac{GM x}{(x^2+y^2)^{3/2}},$$
+$$d^2y/dt^2 = -\frac{GM y}{(x^2+y^2)^{3/2}}.$$
 
 These equations are derived from Newton's second law and the gravitational force formula.
 
@@ -130,7 +129,7 @@ Background context on how Neptune was discovered by observing perturbations in U
 ??x
 To predict Neptune's influence on Uranus using orbital mechanics:
 
-1. Define the constants for gravitational constant \( G \), mass of the sun \( M_s \), and masses and distances of both planets.
+1. Define the constants for gravitational constant $G $, mass of the sun $ M_s$, and masses and distances of both planets.
 2. Calculate their angular velocities based on their periods.
 3. Initialize their initial positions and velocities.
 4. Use a numerical integration method like RK4 to update the positions and velocities over time.
@@ -203,7 +202,7 @@ The `Numerov` function computes the wave function values given a set of paramete
 
 :p What does the `setk2` function do in this context?
 ??x
-The `setk2` function calculates the value of \( k^2 \) (where \( k = \sqrt{2m(E - V(x))} / \hbar c \)) at each point `i` in the computational domain. This value is used by the Numerov method to solve for the wave functions.
+The `setk2` function calculates the value of $k^2 $(where $ k = \sqrt{2m(E - V(x))} / \hbar c$) at each point `i` in the computational domain. This value is used by the Numerov method to solve for the wave functions.
 
 ```python
 def setk2(e):
@@ -226,7 +225,7 @@ Background context: The code initializes the left (`uL`) and right (`uR`) wave f
 ??x
 The purpose of `uL` and `uR` is to store the computed values of the left and right wave functions, respectively. These wave functions are used by the Numerov method to solve the time-independent Schrödinger equation iteratively.
 
-These arrays are initialized with specific boundary conditions, such as \( u(0) = 0 \), and then updated using the Numerov algorithm at each step.
+These arrays are initialized with specific boundary conditions, such as $u(0) = 0$, and then updated using the Numerov algorithm at each step.
 x??
 
 ---
@@ -276,10 +275,10 @@ x??
 
 
 #### Bisection Algorithm for Finding Eigenvalues
-Background context: The provided Python script uses a bisection algorithm to find an eigenvalue \(E\) that satisfies a specific condition. This is done by repeatedly dividing the interval between two guesses, \(E_{max}\) and \(E_{min}\), until the difference in the derivative of the wave function at the boundaries falls below a specified tolerance \(\epsilon\). The script also uses a function `diff(E, h)` to evaluate the condition.
+Background context: The provided Python script uses a bisection algorithm to find an eigenvalue $E $ that satisfies a specific condition. This is done by repeatedly dividing the interval between two guesses,$ E_{max}$ and $E_{min}$, until the difference in the derivative of the wave function at the boundaries falls below a specified tolerance $\epsilon$. The script also uses a function `diff(E, h)` to evaluate the condition.
 :p What is the primary method used in this script to find an eigenvalue?
 ??x
-The bisection algorithm. This method repeatedly narrows down the interval between \(E_{max}\) and \(E_{min}\) by evaluating the derivative difference at the boundaries of the current interval, halving it each time until the desired tolerance is met.
+The bisection algorithm. This method repeatedly narrows down the interval between $E_{max}$ and $E_{min}$ by evaluating the derivative difference at the boundaries of the current interval, halving it each time until the desired tolerance is met.
 
 Code Example:
 ```python
@@ -307,10 +306,10 @@ x??
 
 
 #### Iterative Process for Eigenvalue Calculation
-Background context: The script iteratively calculates an eigenvalue \(E\) using a bisection algorithm. It starts with initial guesses for \(E_{max}\) and \(E_{min}\), then repeatedly narrows the interval by evaluating the function `diff(E, h)` until the difference in derivatives at both ends of the interval falls below a specified tolerance \(\epsilon\).
+Background context: The script iteratively calculates an eigenvalue $E $ using a bisection algorithm. It starts with initial guesses for$E_{max}$ and $E_{min}$, then repeatedly narrows the interval by evaluating the function `diff(E, h)` until the difference in derivatives at both ends of the interval falls below a specified tolerance $\epsilon$.
 :p What happens during each iteration of the main loop?
 ??x
-During each iteration, the script calculates the midpoint \(E = (E_{max} + E_{min}) / 2\) and evaluates the function `diff(E, h)` to determine if the current interval should be adjusted. If the product of `Diff` and the derivative at the upper boundary is positive, it updates \(E_{max}\) to the midpoint; otherwise, it updates \(E_{min}\). The loop continues until the absolute value of `Diff` falls below \(\epsilon\) or a maximum number of iterations (`count_max`) is reached.
+During each iteration, the script calculates the midpoint $E = (E_{max} + E_{min}) / 2 $ and evaluates the function `diff(E, h)` to determine if the current interval should be adjusted. If the product of `Diff` and the derivative at the upper boundary is positive, it updates$E_{max}$ to the midpoint; otherwise, it updates $E_{min}$. The loop continues until the absolute value of `Diff` falls below $\epsilon$ or a maximum number of iterations (`count_max`) is reached.
 
 Code Example:
 ```python
@@ -357,7 +356,7 @@ x??
 Background context: The script uses the Runge-Kutta (RK4) method to numerically integrate the wave function. This is a fourth-order method that provides a good balance between accuracy and computational efficiency.
 :p What does the `rk4` function do in this script?
 ??x
-The `rk4` function performs a single step of the fourth-order Runge-Kutta (RK4) integration method. It calculates the intermediate values \(k1\), \(k2\), \(k3\), and \(k4\) to estimate the slope at different points, then uses these slopes to determine the next value of the wave function.
+The `rk4` function performs a single step of the fourth-order Runge-Kutta (RK4) integration method. It calculates the intermediate values $k1 $, $ k2 $,$ k3 $, and$ k4$ to estimate the slope at different points, then uses these slopes to determine the next value of the wave function.
 
 Code Example:
 ```python
@@ -388,7 +387,7 @@ x??
 
 
 #### Projectile Motion with Air Resistance
-Background context: The script models the trajectory of a projectile in two scenarios: one without air resistance and another with air resistance using a drag coefficient \(kf\). It calculates the time to reach maximum height, total flight time, and range for both cases. Then it uses numerical integration (RK4) to plot the trajectory with and without air resistance.
+Background context: The script models the trajectory of a projectile in two scenarios: one without air resistance and another with air resistance using a drag coefficient $kf$. It calculates the time to reach maximum height, total flight time, and range for both cases. Then it uses numerical integration (RK4) to plot the trajectory with and without air resistance.
 :p What are the main differences between the trajectories calculated in this script?
 ??x
 The main difference is that the trajectory with air resistance follows a different path compared to the one without air resistance due to the drag force. The projectile with air resistance will reach its maximum height more quickly, have a shorter range, and follow a parabolic path that is less symmetrical than the frictionless case.
@@ -447,27 +446,24 @@ x??
 
 
 #### Measuring Fractal Dimension Empirically
-Background context: The fractal dimension can be empirically determined by analyzing how the total mass \( M \) of an object scales with its size \( L \). For a Sierpiński gasket, each dot has a mass of 1, and the density is defined as the mass per unit area.
+Background context: The fractal dimension can be empirically determined by analyzing how the total mass $M $ of an object scales with its size$L$. For a Sierpiński gasket, each dot has a mass of 1, and the density is defined as the mass per unit area.
 
 :p How can you determine the fractal dimension empirically for a Sierpiński gasket?
 ??x
-To determine the fractal dimension empirically, you need to analyze how the total mass \( M \) scales with the size \( L \). For a Sierpiński gasket:
+To determine the fractal dimension empirically, you need to analyze how the total mass $M $ scales with the size$L$. For a Sierpiński gasket:
 
 1. **Mass and Length Relationship**: Assume each dot has a mass of 1.
-2. **Density Calculation**: The density \( \rho \) is given by:
-   \[ \rho = \frac{M}{\text{Area}}. \]
-3. **Scaling Relationship**: For successive iterations, the density changes according to:
-   - For \( L = r \): 
-     \[ \rho(L=r) \propto M r^2 = m r^2 \text{def}=\rho_0. \]
-   - For \( L = 2r \):
-     \[ \rho(L=2r) \propto (M = 3m)(2r)^2 = 3/4 \cdot \rho_0. \]
-   - For \( L = 4r \):
-     \[ \rho(L=4r) \propto (M = 9m)(4r)^2 = (3/4)^2 \cdot \rho_0. \]
+2. **Density Calculation**: The density $\rho$ is given by:
+   $$\rho = \frac{M}{\text{Area}}.$$3. **Scaling Relationship**: For successive iterations, the density changes according to:
+   - For $L = r$: 
+     $$\rho(L=r) \propto M r^2 = m r^2 \text{def}=\rho_0.$$- For $ L = 2r$:
+     $$\rho(L=2r) \propto (M = 3m)(2r)^2 = 3/4 \cdot \rho_0.$$- For $ L = 4r$:
+     $$\rho(L=4r) \propto (M = 9m)(4r)^2 = (3/4)^2 \cdot \rho_0.$$
 
-Using these relationships, you can plot \( \log(\rho) \) versus \( \log(L) \) and find the slope of the line, which corresponds to \( d_f - 2 \).
+Using these relationships, you can plot $\log(\rho)$ versus $\log(L)$ and find the slope of the line, which corresponds to $d_f - 2$.
 
 The fractal dimension is then:
-\[ d_f = 2 + \Delta \log(\rho(L)) / \Delta \log(L). \]
+$$d_f = 2 + \Delta \log(\rho(L)) / \Delta \log(L).$$
 
 x??
 

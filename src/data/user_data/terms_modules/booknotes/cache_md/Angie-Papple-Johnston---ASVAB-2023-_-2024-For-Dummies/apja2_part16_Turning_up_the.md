@@ -115,18 +115,19 @@ Background context explaining that this question involves solving a linear equat
 
 :p The sum of two numbers is 70. One number is 8 more than the other. What’s the smaller number?
 ??x
-Let's denote the smaller number by \(x\). Then the larger number would be \(x + 8\).
+Let's denote the smaller number by $x $. Then the larger number would be $ x + 8$.
 The equation based on the problem statement is:
-\[ x + (x + 8) = 70 \]
-Simplifying, we get:
-\[ 2x + 8 = 70 \]
-Subtract 8 from both sides:
-\[ 2x = 62 \]
-Divide by 2:
-\[ x = 31 \]
+$$x + (x + 8) = 70$$
 
-??x
-The smaller number is \(A\) or 31.
+Simplifying, we get:
+$$2x + 8 = 70$$
+
+Subtract 8 from both sides:
+$$2x = 62$$
+
+Divide by 2:
+$$x = 31$$??x
+The smaller number is $A$ or 31.
 x??
 
 ---

@@ -42,11 +42,9 @@ x??
 
 ??x
 Linear TD(λ) converges in the on-policy case if the step-size parameter is reduced over time according to the usual conditions. These conditions are often represented as:
-\[ \sum_{k=0}^{\infty} \alpha_k = \infty \]
-and
-\[ \sum_{k=0}^{\infty} \alpha_k^2 < \infty \]
+$$\sum_{k=0}^{\infty} \alpha_k = \infty$$and$$\sum_{k=0}^{\infty} \alpha_k^2 < \infty$$
 
-Where \( \alpha_k \) is the step-size parameter at time k.
+Where $\alpha_k$ is the step-size parameter at time k.
 
 This ensures that the updates are sufficiently large initially but reduce over time, leading to convergence. Convergence is not necessarily to the minimum-error weight vector; instead, it converges to a nearby vector that depends on λ.
 
@@ -77,12 +75,12 @@ x??
 :p What is the formula for the truncated λ-return and how does it differ from the regular λ-return?
 
 ??x
-The truncated λ-return \( G_t^{\lambda, h} \) is defined as:
-\[ G_t^{\lambda, h} = (1 - \lambda)^{h-t-1} \sum_{n=1}^{h-t} \lambda^{n-1} G_{t:t+n} + \lambda^{h-t-1} G_{t:h}, \quad 0 \leq t < h \leq T. \]
+The truncated λ-return $G_t^{\lambda, h}$ is defined as:
+$$G_t^{\lambda, h} = (1 - \lambda)^{h-t-1} \sum_{n=1}^{h-t} \lambda^{n-1} G_{t:t+n} + \lambda^{h-t-1} G_{t:h}, \quad 0 \leq t < h \leq T.$$
 
-This formula truncates the λ-return after a horizon \( h \), making it feasible to compute in real-time without waiting for the entire episode.
+This formula truncates the λ-return after a horizon $h$, making it feasible to compute in real-time without waiting for the entire episode.
 
-The key difference is that \( G_t^{\lambda, h} \) uses rewards up to time \( h \) rather than extending all the way to time \( T \). This makes the truncated λ-return more practical and faster to calculate.
+The key difference is that $G_t^{\lambda, h}$ uses rewards up to time $ h $ rather than extending all the way to time $T$. This makes the truncated λ-return more practical and faster to calculate.
 
 ```java
 // Pseudocode for calculating truncated lambda return
@@ -107,14 +105,13 @@ x??
 
 ??x
 The error term in the off-line λ-return algorithm can be written as:
-\[ \sum_{t=0}^{T-1} (G_t^{\lambda} - w^T s_t) \]
+$$\sum_{t=0}^{T-1} (G_t^{\lambda} - w^T s_t)$$
 
-This can be approximated by expressing it as the sum of TD errors for a single fixed weight vector \( w \). Specifically, if we denote the error term in off-line λ-return as:
-\[ E_t = G_t^{\lambda} - w^T s_t, \]
-and use the recursive relationship obtained from Exercise 12.1 to express each step's contribution as a TD update.
+This can be approximated by expressing it as the sum of TD errors for a single fixed weight vector $w$. Specifically, if we denote the error term in off-line λ-return as:
+$$E_t = G_t^{\lambda} - w^T s_t,$$and use the recursive relationship obtained from Exercise 12.1 to express each step's contribution as a TD update.
 
-For example, using (6.6) and the recursive relationship of \( G_t^{\lambda} \):
-\[ E_t = \sum_{n=0}^{T-t-1} \lambda^n (R_{t+n+1} - w^T s_{t+n+1}) + \lambda^{T-t-1}(G_{t:T} - w^T s_T). \]
+For example, using (6.6) and the recursive relationship of $G_t^{\lambda}$:
+$$E_t = \sum_{n=0}^{T-t-1} \lambda^n (R_{t+n+1} - w^T s_{t+n+1}) + \lambda^{T-t-1}(G_{t:T} - w^T s_T).$$
 
 The sum of these terms over all t can be shown to match the sum of TD(λ) updates.
 
@@ -140,9 +137,9 @@ x??
 :p If the weight updates over an episode were computed on each step but not actually used to change the weights, what would be the sum of these updates compared to the off-line λ-return algorithm?
 
 ??x
-If the weight updates over an episode were computed on each step but not actually used to change the weights (i.e., \( w \) remained fixed), then the sum of TD(λ)'s weight updates would be the same as the sum of the off-line λ-return algorithm's updates.
+If the weight updates over an episode were computed on each step but not actually used to change the weights (i.e.,$w$ remained fixed), then the sum of TD(λ)'s weight updates would be the same as the sum of the off-line λ-return algorithm's updates.
 
-This is because both algorithms compute the same errors at each step, and the accumulation over time would yield identical sums. The key insight here is that the recursive relationship in \( G_t^{\lambda} \) and the TD(λ) update rule are essentially equivalent when considering just the error terms.
+This is because both algorithms compute the same errors at each step, and the accumulation over time would yield identical sums. The key insight here is that the recursive relationship in $G_t^{\lambda}$ and the TD(λ) update rule are essentially equivalent when considering just the error terms.
 
 For example:
 ```java
@@ -189,17 +186,17 @@ x??
 
 
 #### Proving Equation (12.10)
-Equation (12.10) states that \( G_{t:t+n} = \hat{v}(S_t, w_{t-1}) + \sum_{i=t+1}^{t+n-1} (\gamma^{\alpha_i}) (R_{i+1} + \hat{v}(S_{i+1}, w_i) - \hat{v}(S_t, w_{t-1})) \).
+Equation (12.10) states that $G_{t:t+n} = \hat{v}(S_t, w_{t-1}) + \sum_{i=t+1}^{t+n-1} (\gamma^{\alpha_i}) (R_{i+1} + \hat{v}(S_{i+1}, w_i) - \hat{v}(S_t, w_{t-1}))$.
 
 :p How can we prove equation (12.10)?
 ??x
-To prove equation (12.10), we need to show that the `k-step Ө-return` \( G_{t:t+k} \) can be written as a sum of a value estimate and discounted future rewards.
+To prove equation (12.10), we need to show that the `k-step Ө-return` $G_{t:t+k}$ can be written as a sum of a value estimate and discounted future rewards.
 
 Starting from the definition, the truncated Ө-return is:
-\[ G_{t:h} = (1 - \theta)^{h-t-1} \sum_{n=1}^{h-t} \theta^{n-1}G_{t:t+n} + \theta^{h-t-1} G_{t:h}. \]
+$$G_{t:h} = (1 - \theta)^{h-t-1} \sum_{n=1}^{h-t} \theta^{n-1}G_{t:t+n} + \theta^{h-t-1} G_{t:h}.$$
 
-For the specific case of \( k \)-step return:
-\[ G_{t:t+k} = \hat{v}(S_t, w_{t-1}) + \sum_{i=t+1}^{t+k} (\gamma^{\alpha_i}) (R_{i+1} + \hat{v}(S_{i+1}, w_i) - \hat{v}(S_t, w_{t-1})). \]
+For the specific case of $k$-step return:
+$$G_{t:t+k} = \hat{v}(S_t, w_{t-1}) + \sum_{i=t+1}^{t+k} (\gamma^{\alpha_i}) (R_{i+1} + \hat{v}(S_{i+1}, w_i) - \hat{v}(S_t, w_{t-1})).$$
 
 This equation shows that the return can be decomposed into a value estimate at time `t` and a sum of discounted future rewards, validating the use of TD errors in updating the value function.
 x??
@@ -208,14 +205,14 @@ x??
 
 
 #### Concept of Redoing Updates
-Redoing updates involves revisiting previous steps to incorporate new data, starting from the initial weights \( w_0 \) every time the horizon is extended.
+Redoing updates involves revisiting previous steps to incorporate new data, starting from the initial weights $w_0$ every time the horizon is extended.
 
 :p How does redoing updates work in the online Ө-return algorithm?
 ??x
-In the online Ө-return algorithm, updates are redone on each step by extending the horizon. Starting with the initial weights \( w_0 \), as new data becomes available, the targets for updates are recalculated to include this data, leading to more accurate value function estimates.
+In the online Ө-return algorithm, updates are redone on each step by extending the horizon. Starting with the initial weights $w_0$, as new data becomes available, the targets for updates are recalculated to include this data, leading to more accurate value function estimates.
 
 For example:
-- At time `t=1`, update target is \( G_{0:1} = R_1 + \hat{v}(S_1, w_0) - \hat{v}(S_0, w_0) \).
+- At time `t=1`, update target is $G_{0:1} = R_1 + \hat{v}(S_1, w_0) - \hat{v}(S_0, w_0)$.
 - When data horizon extends to step 2, targets are recalculated using new weights and data.
 x??
 
@@ -223,12 +220,12 @@ x??
 
 
 #### Update Target Calculation
-The update target for the first time step is \( G_{t:h} = \hat{v}(S_t, w_{t-1}) + \sum_{i=t+1}^{t+h-1} (\gamma^{\alpha_i}) (R_{i+1} + \hat{v}(S_{i+1}, w_i) - \hat{v}(S_t, w_{t-1})) \).
+The update target for the first time step is $G_{t:h} = \hat{v}(S_t, w_{t-1}) + \sum_{i=t+1}^{t+h-1} (\gamma^{\alpha_i}) (R_{i+1} + \hat{v}(S_{i+1}, w_i) - \hat{v}(S_t, w_{t-1}))$.
 
 :p How is the update target calculated for each time step in the online Ө-return algorithm?
 ??x
-The update target for each time step \( t \) in the online Ө-return algorithm is calculated by bootstrapping from previous value estimates and incorporating future rewards. Specifically:
-\[ G_{t:h} = \hat{v}(S_t, w_{t-1}) + \sum_{i=t+1}^{t+h-1} (\gamma^{\alpha_i}) (R_{i+1} + \hat{v}(S_{i+1}, w_i) - \hat{v}(S_t, w_{t-1})). \]
+The update target for each time step $t$ in the online Ө-return algorithm is calculated by bootstrapping from previous value estimates and incorporating future rewards. Specifically:
+$$G_{t:h} = \hat{v}(S_t, w_{t-1}) + \sum_{i=t+1}^{t+h-1} (\gamma^{\alpha_i}) (R_{i+1} + \hat{v}(S_{i+1}, w_i) - \hat{v}(S_t, w_{t-1})).$$
 
 This target uses the latest weights and data to provide a more accurate estimate of the return.
 x??
@@ -238,19 +235,15 @@ x??
 
 #### Example Update Sequence
 An example sequence for updating weight vectors in the online Ө-return algorithm is given as follows:
-\[ h=1: \quad w_1^1 = w_1^0 + \alpha (G_{0:1} - \hat{v}(S_0, w_1^0)) r(S_0, w_1^0), \]
-\[ h=2: \quad w_2^1 = w_2^0 + \alpha (G_{0:2} - \hat{v}(S_0, w_2^0)) r(S_0, w_2^0), \quad w_2^2 = w_2^1 + \alpha (G_{1:2} - \hat{v}(S_1, w_2^1)) r(S_1, w_2^1). \]
-
-:p How does the online Ө-return algorithm update weight vectors?
+$$h=1: \quad w_1^1 = w_1^0 + \alpha (G_{0:1} - \hat{v}(S_0, w_1^0)) r(S_0, w_1^0),$$
+$$h=2: \quad w_2^1 = w_2^0 + \alpha (G_{0:2} - \hat{v}(S_0, w_2^0)) r(S_0, w_2^0), \quad w_2^2 = w_2^1 + \alpha (G_{1:2} - \hat{v}(S_1, w_2^1)) r(S_1, w_2^1).$$:p How does the online Ө-return algorithm update weight vectors?
 ??x
 The online Ө-return algorithm updates weight vectors by extending the horizon and recalculating targets for each step. For instance:
 
-- At \( h=1 \):
-\[ w_1^1 = w_1^0 + \alpha (G_{0:1} - \hat{v}(S_0, w_1^0)) r(S_0, w_1^0). \]
-
-- At \( h=2 \):
-\[ w_2^1 = w_2^0 + \alpha (G_{0:2} - \hat{v}(S_0, w_2^0)) r(S_0, w_2^0), \]
-\[ w_2^2 = w_2^1 + \alpha (G_{1:2} - \hat{v}(S_1, w_2^1)) r(S_1, w_2^1). \]
+- At $h=1$:
+$$w_1^1 = w_1^0 + \alpha (G_{0:1} - \hat{v}(S_0, w_1^0)) r(S_0, w_1^0).$$- At $ h=2$:
+$$w_2^1 = w_2^0 + \alpha (G_{0:2} - \hat{v}(S_0, w_2^0)) r(S_0, w_2^0),$$
+$$w_2^2 = w_2^1 + \alpha (G_{1:2} - \hat{v}(S_1, w_2^1)) r(S_1, w_2^1).$$
 
 This process ensures that each update uses the latest information to provide a more accurate value function estimate.
 x??
@@ -268,15 +261,8 @@ The key difference lies in how weight vectors are handled. Instead of maintainin
 
 **Relevant formulas:** 
 - The update rule for wt+1 is given by:
-  \[
-  w_{t+1} = w_t + \alpha \lambda^t z_t + \alpha x_t^\top (\lambda^t (z_t - z_{t-1}) x_t)
-  \]
-  where \( z_t \) and \( z_{t-1} \) are defined as:
-  \[
-  z_t = \lambda z_{t-1} + \frac{\lambda}{\alpha} x_t^\top (x_t - V^*)
-  \]
-
-**C/Java code example:**
+$$w_{t+1} = w_t + \alpha \lambda^t z_t + \alpha x_t^\top (\lambda^t (z_t - z_{t-1}) x_t)$$where $ z_t $ and $ z_{t-1}$ are defined as:
+$$z_t = \lambda z_{t-1} + \frac{\lambda}{\alpha} x_t^\top (x_t - V^*)$$**C/Java code example:**
 ```java
 public class TrueOnlineTDAlgorithm {
     private double alpha; // Step size
@@ -309,10 +295,7 @@ x??
 
 **Relevant formulas:**
 - The sequence of weight vectors is organized as a triangle:
-  \[
-  w_{0}^{0}, w_{1}^{0}, w_{1}^{1}, w_{2}^{0}, w_{2}^{1}, w_{2}^{2}, \ldots, w_{T}^{0}, w_{T}^{1}, \ldots, w_{T}^{T}
-  \]
-- The diagonal elements \( w_t^t \) are the only ones necessary for efficient computation.
+$$w_{0}^{0}, w_{1}^{0}, w_{1}^{1}, w_{2}^{0}, w_{2}^{1}, w_{2}^{2}, \ldots, w_{T}^{0}, w_{T}^{1}, \ldots, w_{T}^{T}$$- The diagonal elements $ w_t^t$ are the only ones necessary for efficient computation.
 
 **C/Java code example:**
 ```java
@@ -329,7 +312,7 @@ public class DiagonalWeightVectors {
 
 :p What are the diagonal weight vectors in the true online TD(λ) algorithm?
 ??x
-The diagonal weight vectors \( w_t^t \) in the true online TD(λ) algorithm refer to the sequence of weight vectors along the main diagonal of the triangle. These vectors play a key role in the n-step returns and are used to compute new weight vectors efficiently.
+The diagonal weight vectors $w_t^t$ in the true online TD(λ) algorithm refer to the sequence of weight vectors along the main diagonal of the triangle. These vectors play a key role in the n-step returns and are used to compute new weight vectors efficiently.
 x??
 
 ---
@@ -406,15 +389,8 @@ x??
 
 **Relevant formulas:**
 - The update rule is given by:
-  \[
-  w_{t+1} = w_t + \alpha \lambda^t z_t + \alpha x_t^\top (\lambda^t (z_t - z_{t-1}) x_t)
-  \]
-  where \( z_t \) and \( z_{t-1} \) are defined as:
-  \[
-  z_t = \lambda z_{t-1} + \frac{\lambda}{\alpha} x_t^\top (x_t - V^*)
-  \]
-
-**C/Java code example:**
+$$w_{t+1} = w_t + \alpha \lambda^t z_t + \alpha x_t^\top (\lambda^t (z_t - z_{t-1}) x_t)$$where $ z_t $ and $ z_{t-1}$ are defined as:
+$$z_t = \lambda z_{t-1} + \frac{\lambda}{\alpha} x_t^\top (x_t - V^*)$$**C/Java code example:**
 ```java
 public class UpdateRule {
     private double alpha; // Step size
@@ -436,13 +412,8 @@ public class UpdateRule {
 :p What is the update rule for true online TD(λ)?
 ??x
 The update rule for true online TD(λ) involves updating weight vectors using a combination of eligibility traces and value function estimates. The formula is:
-\[
-w_{t+1} = w_t + \alpha \lambda^t z_t + \alpha x_t^\top (\lambda^t (z_t - z_{t-1}) x_t)
-\]
-where \( z_t \) is updated as:
-\[
-z_t = \lambda z_{t-1} + \frac{\lambda}{\alpha} x_t^\top (x_t - V^*)
-\]
+$$w_{t+1} = w_t + \alpha \lambda^t z_t + \alpha x_t^\top (\lambda^t (z_t - z_{t-1}) x_t)$$where $ z_t$ is updated as:
+$$z_t = \lambda z_{t-1} + \frac{\lambda}{\alpha} x_t^\top (x_t - V^*)$$
 
 This rule ensures that the algorithm efficiently updates weight vectors while maintaining performance close to the full online TD(λ) algorithm.
 x??

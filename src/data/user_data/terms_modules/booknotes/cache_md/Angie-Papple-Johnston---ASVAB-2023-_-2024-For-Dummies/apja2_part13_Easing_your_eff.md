@@ -9,9 +9,7 @@
 #### Levers and Mechanical Advantage
 Levers are simple machines that work by using a fulcrum to reduce resistance and multiply the effect of effort. The mechanical advantage (MA) of a lever is determined by:
 
-\[ \text{Mechanical Advantage} = \frac{\text{Length of Effort Arm}}{\text{Length of Resistance Arm}} \]
-
-- Effort arm: Distance from the fulcrum where effort is applied.
+$$\text{Mechanical Advantage} = \frac{\text{Length of Effort Arm}}{\text{Length of Resistance Arm}} $$- Effort arm: Distance from the fulcrum where effort is applied.
 - Resistance arm: Distance from the fulcrum where resistance is applied.
 
 The longer the effort arm compared to the resistance arm, the greater the mechanical advantage.
@@ -24,8 +22,7 @@ A lever works by using a fulcrum (a pivot point) to reduce the force needed to m
 - Load/Resistance: The weight that needs to be moved.
 
 The mechanical advantage can be calculated using:
-
-\[ \text{Mechanical Advantage} = \frac{\text{Length of Effort Arm}}{\text{Length of Resistance Arm}} \]
+$$\text{Mechanical Advantage} = \frac{\text{Length of Effort Arm}}{\text{Length of Resistance Arm}} $$
 
 For example, if an effort arm is 6 inches and a resistance arm is 3 inches, the MA would be 2.
 
@@ -46,9 +43,7 @@ x??
 
 
 #### Inclined Plane
-An inclined plane, also known as a ramp, is another simple machine that makes moving an object easier. It spreads the work over a longer distance, reducing the force needed to do the work.
-
-\[ \text{Mechanical Advantage} = \frac{\text{Length of Ramp}}{\text{Height of Ramp}} \]
+An inclined plane, also known as a ramp, is another simple machine that makes moving an object easier. It spreads the work over a longer distance, reducing the force needed to do the work.$$\text{Mechanical Advantage} = \frac{\text{Length of Ramp}}{\text{Height of Ramp}} $$
 
 :p What is an inclined plane and how does it work?
 ??x

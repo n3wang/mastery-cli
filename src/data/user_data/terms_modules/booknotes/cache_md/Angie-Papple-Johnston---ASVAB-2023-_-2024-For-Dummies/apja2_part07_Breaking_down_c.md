@@ -11,13 +11,13 @@ Background context: In this example, a combined figure is presented as two recta
 
 :p How would you calculate the area of a combined figure that includes a half-circle and a rectangle?
 ??x
-You first find the area of the full circle using \( A = \pi r^2 \), then halve it since only a half-circle is present. Add this to the area of the rectangle, which is calculated as \( A = lw \).
+You first find the area of the full circle using $A = \pi r^2 $, then halve it since only a half-circle is present. Add this to the area of the rectangle, which is calculated as $ A = lw$.
 
 For example:
 - The radius of the circle is 2.5 inches.
-- The area of the full circle is \( \pi (2.5)^2 \).
-- Halve it for the half-circle: \( \frac{\pi (2.5)^2}{2} \).
-- Area of the rectangle: \( 10 \times 5 = 50 \) square inches.
+- The area of the full circle is $\pi (2.5)^2$.
+- Halve it for the half-circle: $\frac{\pi (2.5)^2}{2}$.
+- Area of the rectangle: $10 \times 5 = 50$ square inches.
 - Sum these areas to get the total area.
 
 Code Example:
@@ -47,18 +47,18 @@ x??
 
 
 #### Coordinate Grids and Slope-Intercept Form
-Background context explaining the concept. A coordinate grid includes a horizontal x-axis and a vertical y-axis, with every point having coordinates (x, y). The slope-intercept form of a linear equation is \(y = mx + b\), where \(m\) is the slope and \(b\) is the y-intercept.
+Background context explaining the concept. A coordinate grid includes a horizontal x-axis and a vertical y-axis, with every point having coordinates (x, y). The slope-intercept form of a linear equation is $y = mx + b $, where $ m $is the slope and$ b$ is the y-intercept.
 :p What is the formula for finding the y-intercept of a line given its slope and a point it passes through?
 ??x
-To find the y-intercept, we use the slope-intercept form \(y = mx + b\). Given that the line has a slope of 4 and passes through the point \((-1, -6)\), we can substitute these values into the equation to solve for \(b\):
+To find the y-intercept, we use the slope-intercept form $y = mx + b $. Given that the line has a slope of 4 and passes through the point $(-1, -6)$, we can substitute these values into the equation to solve for $ b$:
 
 Given: 
-\[ y = mx + b \]
+$$y = mx + b$$
 
 Substitute the given values:
-\[ -6 = 4(-1) + b \]
-\[ -6 = -4 + b \]
-\[ b = -2 \]
+$$-6 = 4(-1) + b$$
+$$-6 = -4 + b$$
+$$b = -2$$
 
 The correct answer is Choice (A): –2.
 x??
@@ -67,21 +67,21 @@ x??
 
 
 #### Pythagorean Theorem Application
-Background context explaining the concept. The Pythagorean theorem states that in a right triangle, the square of the hypotenuse (the side opposite the right angle) is equal to the sum of the squares of the other two sides (\(a^2 + b^2 = c^2\)).
+Background context explaining the concept. The Pythagorean theorem states that in a right triangle, the square of the hypotenuse (the side opposite the right angle) is equal to the sum of the squares of the other two sides ($a^2 + b^2 = c^2$).
 
 :p How can you use the Pythagorean theorem to find the length of the hypotenuse in a right triangle if the lengths of the other two sides are 3 and 4?
 ??x
-Using the Pythagorean theorem \(a^2 + b^2 = c^2\), where \(a\) and \(b\) are the legs of the right triangle, and \(c\) is the hypotenuse:
+Using the Pythagorean theorem $a^2 + b^2 = c^2 $, where $ a $and$ b $are the legs of the right triangle, and$ c$ is the hypotenuse:
 
 Given:
-\[ a = 3 \]
-\[ b = 4 \]
+$$a = 3$$
+$$b = 4$$
 
 Substitute these values into the formula:
-\[ 3^2 + 4^2 = c^2 \]
-\[ 9 + 16 = c^2 \]
-\[ 25 = c^2 \]
-\[ c = 5 \]
+$$3^2 + 4^2 = c^2$$
+$$9 + 16 = c^2$$
+$$25 = c^2$$
+$$c = 5$$
 
 The length of the hypotenuse is 5.
 x??

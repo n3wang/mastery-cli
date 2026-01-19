@@ -32,7 +32,7 @@ Background context explaining how SetFit generates training data by creating pos
 SetFit generates the required training data by sampling sentence pairs: 
 - Positive (similar) pairs are created within a class.
 - Negative (dissimilar) pairs are generated across different classes.
-For example, if there are 16 sentences in a class, positive pairs can be calculated as \( \frac{16 * (16 - 1)}{2} = 120 \). Negative pairs are created by selecting sentences from other classes.
+For example, if there are 16 sentences in a class, positive pairs can be calculated as $\frac{16 * (16 - 1)}{2} = 120$. Negative pairs are created by selecting sentences from other classes.
 
 Example:
 ```python

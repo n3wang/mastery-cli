@@ -7,35 +7,35 @@
 
 
 #### Time-Reversibility of CTMCs
-Background context: A Continuous-Time Markov Chain (CTMC) is time-reversible if for every pair of states \(i, j\), the rate of transitions from state \(i\) to state \(j\) equals the rate of transitions from state \(j\) to state \(i\). This can be mathematically expressed as \(\pi_i q_{ij} = \pi_j q_{ji}\) and \(\sum_i \pi_i = 1\).
+Background context: A Continuous-Time Markov Chain (CTMC) is time-reversible if for every pair of states $i, j $, the rate of transitions from state $ i $to state$ j $equals the rate of transitions from state$ j $to state$ i $. This can be mathematically expressed as$\pi_i q_{ij} = \pi_j q_{ji}$ and $\sum_i \pi_i = 1$.
 :p What is time-reversibility in the context of CTMCs?
 ??x
-Time-reversibility means that for a CTMC, the rate of transitions from state \(i\) to state \(j\) equals the rate of transitions from state \(j\) to state \(i\). This property ensures that the forward process and its reverse are statistically identical. The rates \(\pi_i q_{ij}\) and \(\pi_j q_{ji}\) being equal is a key condition for time-reversibility.
+Time-reversibility means that for a CTMC, the rate of transitions from state $i $ to state$j $ equals the rate of transitions from state$ j $ to state $ i $. This property ensures that the forward process and its reverse are statistically identical. The rates $\pi_i q_{ij}$ and $\pi_j q_{ji}$ being equal is a key condition for time-reversibility.
 x??
 
 ---
 
 #### Reversal of CTMCs
-Background context: If a CTMC is time-reversible, then the reverse chain is statistically identical to the forwards chain. This means that the reverse chain can be described by the same CTMC as the forwards chain. The proof relies on the fact that if \(\pi_i q_{ij} = \pi_j q_{ji}\), then \(q_{ij} = q_{*ij}\) and thus the rates defining the CTMC are identical.
+Background context: If a CTMC is time-reversible, then the reverse chain is statistically identical to the forwards chain. This means that the reverse chain can be described by the same CTMC as the forwards chain. The proof relies on the fact that if $\pi_i q_{ij} = \pi_j q_{ji}$, then $ q_{ij} = q_{*ij}$ and thus the rates defining the CTMC are identical.
 :p How does time-reversibility affect the reverse process of a CTMC?
 ??x
-Time-reversibility implies that the forwards and reverse processes have the same transition rates. Therefore, if the original process is described by \(\pi_i q_{ij}\), the reversed process will also be described by these same transition rates \(q_{ij} = q_{*ij}\). This means that the embedded discrete-time Markov chain (DTMC) for both processes are identical.
+Time-reversibility implies that the forwards and reverse processes have the same transition rates. Therefore, if the original process is described by $\pi_i q_{ij}$, the reversed process will also be described by these same transition rates $ q_{ij} = q_{*ij}$. This means that the embedded discrete-time Markov chain (DTMC) for both processes are identical.
 x??
 
 ---
 
 #### Burke’s Theorem
 Background context: For an M/M/1 queue, Burke's theorem states that if the system starts in a steady state, then:
-1. The interdeparture times are exponentially distributed with rate \(\lambda\).
-2. At each time \(t\), the number of jobs in the system is independent of the sequence of departure times prior to time \(t\).
+1. The interdeparture times are exponentially distributed with rate $\lambda$.
+2. At each time $t $, the number of jobs in the system is independent of the sequence of departure times prior to time $ t$.
 
-The proof involves showing that departures in the forward process correspond to arrivals in the reverse process, and since the reverse process is statistically identical to the forwards process, the interdeparture times are Poisson with rate \(\lambda\).
+The proof involves showing that departures in the forward process correspond to arrivals in the reverse process, and since the reverse process is statistically identical to the forwards process, the interdeparture times are Poisson with rate $\lambda$.
 :p What does Burke's Theorem state for an M/M/1 queue?
 ??x
 Burke’s Theorem states that for an M/M/1 queue:
-1. Interdeparture times are exponentially distributed with rate \(\lambda\).
+1. Interdeparture times are exponentially distributed with rate $\lambda$.
 2. The number of jobs in the system at any time is independent of previous departure times or patterns.
-The theorem implies that the departure process is Poisson (with rate \(\lambda\)) and that the sequence of departures prior to time \(t\) does not affect the current state of the system, given it starts in a steady state.
+The theorem implies that the departure process is Poisson (with rate $\lambda $) and that the sequence of departures prior to time $ t$ does not affect the current state of the system, given it starts in a steady state.
 x??
 
 ---
@@ -45,7 +45,7 @@ Background context: Burke's Theorem holds for M/M/1 queues but may fail for more
 
 :p Can you provide an example of a queueing network where part (2) of Burke’s theorem fails?
 ??x
-Part (2) of Burke's Theorem states that at any time \(t\), the number of jobs in the system is independent of previous departure times or patterns. However, this does not hold for certain queueing networks with complex dependencies.
+Part (2) of Burke's Theorem states that at any time $t$, the number of jobs in the system is independent of previous departure times or patterns. However, this does not hold for certain queueing networks with complex dependencies.
 
 For example, consider a Jackson network where two queues are interconnected and there is feedback between them (e.g., jobs can loop back to a previous queue). In such a case, knowing that recently there was a stream of closely spaced departures could indicate that the number of jobs in the system currently might be below average due to the feedback mechanism.
 
@@ -146,11 +146,10 @@ Background context: The performance comparison involves two systems where each s
 
 :p Which of these systems in Figure 16.9 has better performance?
 ??x
-Both systems have the same performance because their expected number of jobs \(E[N]\) can be expressed as:
-\[ E[N] = \frac{\rho_1}{1-\rho_1} + \frac{\rho_2}{1-\rho_2} \]
-where \(\rho_1 = \frac{\lambda}{3}\) and \(\rho_2 = \frac{\lambda}{6}\).
+Both systems have the same performance because their expected number of jobs $E[N]$ can be expressed as:
+$$E[N] = \frac{\rho_1}{1-\rho_1} + \frac{\rho_2}{1-\rho_2}$$where $\rho_1 = \frac{\lambda}{3}$ and $\rho_2 = \frac{\lambda}{6}$.
 
-This is derived from the properties of M/M/1 queues under Poisson arrivals, where \(E[N] = \frac{\rho_i}{1-\rho_i}\) for each server. Since both configurations have the same arrival rates and service rates per node in isolation, they will exhibit identical performance.
+This is derived from the properties of M/M/1 queues under Poisson arrivals, where $E[N] = \frac{\rho_i}{1-\rho_i}$ for each server. Since both configurations have the same arrival rates and service rates per node in isolation, they will exhibit identical performance.
 
 :p What does this imply about the systems?
 ??x
@@ -168,21 +167,16 @@ Burke’s theorem states two key points:
 1. The arrival process into a server is a Poisson process.
 2. The number of jobs at different servers are independent given the arrival processes.
 
-Thus, for \(k\) servers, the probability that there are \(n_1\) jobs at server 1, \(n_2\) jobs at server 2, ..., and \(n_k\) jobs at server k is:
-\[ \pi_{n_1, n_2, \ldots, n_k} = P\{n_1 \text{ jobs at server 1}\} \cdot P\{n_2 \text{ jobs at server 2}\} \cdots P\{n_k \text{ jobs at server k}\} = \rho_{n_1} (1 - \rho_1) \cdot \rho_{n_2} (1 - \rho_2) \cdots \rho_{n_k} (1 - \rho_k). \]
-
-:p How do we calculate the probability of having \(N_i = n_i\) jobs at server \(i\)?
+Thus, for $k $ servers, the probability that there are$n_1 $ jobs at server 1,$n_2 $ jobs at server 2, ..., and$n_k$ jobs at server k is:
+$$\pi_{n_1, n_2, \ldots, n_k} = P\{n_1 \text{ jobs at server 1}\} \cdot P\{n_2 \text{ jobs at server 2}\} \cdots P\{n_k \text{ jobs at server k}\} = \rho_{n_1} (1 - \rho_1) \cdot \rho_{n_2} (1 - \rho_2) \cdots \rho_{n_k} (1 - \rho_k).$$:p How do we calculate the probability of having $ N_i = n_i $ jobs at server $ i$?
 ??x
-The probability of having \(N_i = n_i\) jobs at server \(i\) is given by:
-\[ P\{N_i = n_i\} = \rho_{n_i} (1 - \rho_i) \]
-where \(\rho_i = \frac{\lambda}{\mu_i}\), and \(\mu_i\) is the service rate for server \(i\).
+The probability of having $N_i = n_i $ jobs at server$i$ is given by:
+$$P\{N_i = n_i\} = \rho_{n_i} (1 - \rho_i)$$where $\rho_i = \frac{\lambda}{\mu_i}$, and $\mu_i $ is the service rate for server $i$.
 
-For example, if we have a server with arrival rate \(\lambda\) and service rate \(\mu\):
-\[ P\{N_i = n_i\} = \left( \frac{\lambda}{\mu} \right)^{n_i} \frac{(1 - \frac{\lambda}{\mu})^{n_i}}{n_i!}. \]
-
-:p How does this formula relate to the performance of each server?
+For example, if we have a server with arrival rate $\lambda $ and service rate$\mu$:
+$$P\{N_i = n_i\} = \left( \frac{\lambda}{\mu} \right)^{n_i} \frac{(1 - \frac{\lambda}{\mu})^{n_i}}{n_i!}.$$:p How does this formula relate to the performance of each server?
 ??x
-This formula relates directly to the performance as it describes the probability distribution of jobs at each server in an M/M/1 queue. The term \(\rho = \frac{\lambda}{\mu}\) is the traffic intensity, which determines how full a server is likely to be. A lower \(\rho\) means fewer jobs and better performance.
+This formula relates directly to the performance as it describes the probability distribution of jobs at each server in an M/M/1 queue. The term $\rho = \frac{\lambda}{\mu}$ is the traffic intensity, which determines how full a server is likely to be. A lower $\rho$ means fewer jobs and better performance.
 
 :p How can we use this formula in practice?
 ??x
@@ -210,7 +204,7 @@ public class QueuePerformance {
 }
 ```
 
-This code calculates the probability of having \(N_i = n\) jobs at a server given the arrival and service rates. The `probabilityOfNJobs` method uses the formula derived from Burke’s theorem to compute the desired probabilities.
+This code calculates the probability of having $N_i = n$ jobs at a server given the arrival and service rates. The `probabilityOfNJobs` method uses the formula derived from Burke’s theorem to compute the desired probabilities.
 
 ---
 

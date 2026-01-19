@@ -285,13 +285,12 @@ Explanation: If you try to access a service running inside a container on `local
 ??x
 When you run a Docker container without mapping ports, the service running inside the container will be accessible only from within the container. Attempting to access it via `localhost` on the host machine will result in a "Connection refused" error.
 ```bash
-$ docker run -it training/webapp python app.py
+$docker run -it training/webapp python app.py
 ```
 
 You then try:
 
-```bash
-$ curl localhost:5000
+```bash$ curl localhost:5000
 curl: (7) Failed to connect to localhost port 5000: Connection refused
 ```
 x??
@@ -324,9 +323,7 @@ To enable Kubernetes on Docker Desktop, check the "Enable Kubernetes" checkbox i
 
 ```bash
 # Install kubectl and configure it.
-$ curl -LO https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/stable-server/binaries.list | grep /linux/amd64/kubectl)
-$ chmod +x ./kubectl
-$ sudo mv ./kubectl /usr/local/bin/
+$curl -LO https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/stable-server/binaries.list | grep /linux/amd64/kubectl)$ chmod +x ./kubectl$ sudo mv ./kubectl /usr/local/bin/
 ```
 
 You will need to update the configuration file located in `$HOME/.kube/config` so that `kubectl` knows which Kubernetes cluster to connect to. When you enable Kubernetes through Docker Desktop, it updates this config file for you by adding a `docker-desktop` entry.
@@ -337,14 +334,13 @@ You will need to update the configuration file located in `$HOME/.kube/config` s
 To use the `docker-desktop` context with `kubectl`, run:
 
 ```bash
-$ kubectl config use-context docker-desktop
+$kubectl config use-context docker-desktop
 Switched to context "docker-desktop".
 ```
 
 This command tells `kubectl` which cluster configuration to use. After running this, you can check if your Kubernetes cluster is working by using the following command:
 
-```bash
-$ kubectl get nodes
+```bash$ kubectl get nodes
 ```
 
 If everything is set up correctly, you should see information about the node(s) in your local cluster.
@@ -424,8 +420,7 @@ To deploy resources like Deployments and Services, you use the `kubectl apply` c
 Example usage:
 
 ```bash
-$ kubectl apply -f deployment.yaml
-$ kubectl apply -f service.yaml
+$kubectl apply -f deployment.yaml$ kubectl apply -f service.yaml
 ```
 
 Here, `-f` specifies the file containing the YAML configuration for the Deployment or Service you want to create.

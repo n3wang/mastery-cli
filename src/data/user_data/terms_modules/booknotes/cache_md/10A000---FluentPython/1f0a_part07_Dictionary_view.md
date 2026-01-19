@@ -327,7 +327,7 @@ The Chardet package is a Python library designed to automatically detect charact
 Chardet includes a command-line utility, `chardetect`, which can be used to check the encoding of text files. For example:
 
 ```sh
-$ chardetect 04-text-byte.asciidoc
+$chardetect 04-text-byte.asciidoc
 04-text-byte.asciidoc: utf-8 with confidence 0.99
 ```
 
@@ -335,8 +335,7 @@ This indicates that the file "04-text-byte.asciidoc" is likely encoded in UTF-8,
 ??x
 Chardet works by analyzing byte frequency and patterns within a text file to determine its encoding. The `chardetect` command-line utility can be used to automatically detect the character encoding of files.
 
-```sh
-$ chardetect 04-text-byte.asciidoc
+```sh$ chardetect 04-text-byte.asciidoc
 04-text-byte.asciidoc: utf-8 with confidence 0.99
 ```
 

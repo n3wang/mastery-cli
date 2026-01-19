@@ -134,13 +134,13 @@ The P-K formula provides a simple and elegant solution for calculating the mean 
 ??x
 The P-K formula is given by:
 
-\[ E[D] = \frac{E[S]}{\lambda(1 - \rho)} + \frac{2\sigma^2}{3\lambda} \]
+$$E[D] = \frac{E[S]}{\lambda(1 - \rho)} + \frac{2\sigma^2}{3\lambda}$$
 
 Where:
-- \( E[S] \) is the mean service time,
-- \( \lambda \) is the arrival rate,
-- \( \rho = \frac{\lambda E[S]}{E[S]} \) is the traffic intensity,
-- \( \sigma^2 \) is the variance of the service time.
+- $E[S]$ is the mean service time,
+- $\lambda$ is the arrival rate,
+- $\rho = \frac{\lambda E[S]}{E[S]}$ is the traffic intensity,
+- $\sigma^2$ is the variance of the service time.
 
 This formula simplifies the analysis of M/G/1 systems and provides a straightforward way to estimate mean delay without requiring detailed simulations.
 ??x
@@ -205,24 +205,20 @@ x??
 ---
 
 
-#### Probability of a Job Living Beyond Age \( b \) Given it Has Survived to Age \( a \)
+#### Probability of a Job Living Beyond Age $b $ Given it Has Survived to Age$a $ Background context explaining the concept. The provided text explains how to calculate the probability that a job with CPU age$ a $ will survive to a CPU age $ b $, where $ b > a$.
 
-Background context explaining the concept. The provided text explains how to calculate the probability that a job with CPU age \( a \) will survive to a CPU age \( b \), where \( b > a \).
-
-For a Pareto distribution with \( \alpha = 1 \):
-\[ P\{Life > b | Life \geq a, a > 1\} = \frac{a}{b}. \]
+For a Pareto distribution with $\alpha = 1$:
+$$P\{Life > b | Life \geq a, a > 1\} = \frac{a}{b}.$$
 
 This means that if we consider all the jobs currently of age 1 second, half of them will live to an age of at least 2 seconds. Similarly:
-- The probability that a job of age 1 second uses more than \( T \) seconds of CPU is given by:
-  \[ P\{Life > T | Life \geq 1\} = \frac{1}{T}. \]
-- The probability that a job of age \( T \) seconds lives to be at least \( 2T \) seconds old is:
-  \[ P\{Life \geq 2T | Life \geq T, T > 0\} = \frac{T}{2T} = \frac{1}{2}. \]
-
-:p Under the Pareto distribution with \(\alpha = 1\), what is the probability that a job of CPU age \( a \) lives to CPU age \( b \)?
+- The probability that a job of age 1 second uses more than $T$ seconds of CPU is given by:
+$$P\{Life > T | Life \geq 1\} = \frac{1}{T}.$$- The probability that a job of age $ T $ seconds lives to be at least $2T$ seconds old is:
+$$P\{Life \geq 2T | Life \geq T, T > 0\} = \frac{T}{2T} = \frac{1}{2}.$$:p Under the Pareto distribution with $\alpha = 1 $, what is the probability that a job of CPU age $ a $ lives to CPU age $ b$?
 ??x
-For a Pareto distribution with \( \alpha = 1 \):
-\[ P\{Life > b | Life \geq a, a > 1\} = \frac{a}{b}. \]
-This means that the probability of a job surviving from age \( a \) to age \( b \) is directly proportional to the ratio of the initial age \( a \) to the final age \( b \).
+For a Pareto distribution with $\alpha = 1$:
+$$P\{Life > b | Life \geq a, a > 1\} = \frac{a}{b}.$$
+
+This means that the probability of a job surviving from age $a $ to age$b $ is directly proportional to the ratio of the initial age$ a $ to the final age $b$.
 
 x??
 

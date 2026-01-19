@@ -11,12 +11,13 @@ Background context: The weak law of large numbers (WLLN) provides a probabilisti
 
 :p What does the Weak Law of Large Numbers state?
 ??x
-The WLLN states that if \(X_1, X_2, \ldots\) are independent and identically distributed (i.i.d.) random variables with mean \(E[X]\), then the sample mean \(Y_n = \frac{S_n}{n}\) converges in probability to \(E[X]\). Formally:
-\[ Y_n \xrightarrow{P} E[X], \text{ as } n \to \infty. \]
-This is shorthand for: 
-\[ \forall k > 0, \lim_{n \to \infty} P\{|Y_n - E[X]| > k\} = 0. \]
+The WLLN states that if $X_1, X_2, \ldots $ are independent and identically distributed (i.i.d.) random variables with mean$E[X]$, then the sample mean $ Y_n = \frac{S_n}{n}$converges in probability to $ E[X]$. Formally:
+$$Y_n \xrightarrow{P} E[X], \text{ as } n \to \infty.$$
 
-In simpler terms, the probability that the difference between \(Y_n\) and the mean \(E[X]\) exceeds any positive constant \(k\) goes to zero as \(n\) increases.
+This is shorthand for:
+$$\forall k > 0, \lim_{n \to \infty} P\{|Y_n - E[X]| > k\} = 0.$$
+
+In simpler terms, the probability that the difference between $Y_n $ and the mean$E[X]$ exceeds any positive constant $k$ goes to zero as $n$ increases.
 x??
 
 ---
@@ -27,12 +28,13 @@ Background context: The strong law of large numbers (SLLN) provides a determinis
 
 :p What does the Strong Law of Large Numbers state?
 ??x
-The SLLN states that if \(X_1, X_2, \ldots\) are independent and identically distributed (i.i.d.) random variables with mean \(E[X]\), then the sample mean \(Y_n = \frac{S_n}{n}\) converges almost surely to \(E[X]\). Formally:
-\[ Y_n \xrightarrow{\text{a.s.}} E[X], \text{ as } n \to \infty. \]
-This is shorthand for: 
-\[ \forall k > 0, P\left\{ \lim_{n \to \infty} |Y_n - E[X]| \geq k \right\} = 0. \]
+The SLLN states that if $X_1, X_2, \ldots $ are independent and identically distributed (i.i.d.) random variables with mean$E[X]$, then the sample mean $ Y_n = \frac{S_n}{n}$converges almost surely to $ E[X]$. Formally:
+$$Y_n \xrightarrow{\text{a.s.}} E[X], \text{ as } n \to \infty.$$
 
-In simpler terms, almost every sample path of the sequence will eventually get arbitrarily close to \(E[X]\) and stay there as \(n\) increases.
+This is shorthand for:
+$$\forall k > 0, P\left\{ \lim_{n \to \infty} |Y_n - E[X]| \geq k \right\} = 0.$$
+
+In simpler terms, almost every sample path of the sequence will eventually get arbitrarily close to $E[X]$ and stay there as $n$ increases.
 x??
 
 ---
@@ -42,23 +44,21 @@ x??
 #### Tim and Enzo's Simulation Approaches
 Tim, who viewed the world as a timeline, used one long sequence of coin flips to simulate the queue over an extended period. He recorded the number of jobs in the system every second for millions of samples and then took the average of these samples.
 
-Enzo approached this from a more 2-dimensional perspective. He ran 1,000 shorter simulations each lasting 1,000 seconds. At time \( t = 1,000 \), he sampled the number of jobs in the system for each simulation and then averaged these values over all his experiments.
+Enzo approached this from a more 2-dimensional perspective. He ran 1,000 shorter simulations each lasting 1,000 seconds. At time $t = 1,000$, he sampled the number of jobs in the system for each simulation and then averaged these values over all his experiments.
 
 :p Who is "right"? Tim or Enzo?
 ??x
 Both Tim and Enzo are correct but from different perspectives. Tim's approach calculates the time average by observing a single long sample path, while Enzo's method calculates the ensemble average by averaging over multiple short sample paths. Both methods provide valid ways to estimate the expected number of jobs in the system.
 
 Tim's time average is given by:
-\[
-N_{\text{Time Avg}} = \lim_{t \to \infty} \frac{\int_0^t N(v) dv}{t}
-\]
-Enzo's ensemble average is given by:
-\[
-N_{\text{Ensemble Avg}} = \lim_{t \to \infty} E[N(t)] = \sum_{i=0}^\infty i p_i
-\]
-where \( p_i = \lim_{t \to \infty} P\{N(t) = i\} \).
+$$N_{\text{Time Avg}} = \lim_{t \to \infty} \frac{\int_0^t N(v) dv}{t}$$
 
-In practice, both methods converge to the same value as \( t \) approaches infinity.
+Enzo's ensemble average is given by:
+$$
+
+N_{\text{Ensemble Avg}} = \lim_{t \to \infty} E[N(t)] = \sum_{i=0}^\infty i p_i$$where $ p_i = \lim_{t \to \infty} P\{N(t) = i\}$.
+
+In practice, both methods converge to the same value as $t$ approaches infinity.
 x??
 
 ---
@@ -68,20 +68,14 @@ x??
 The time average of a process is defined as the limit of the integral of the number of jobs in the system divided by time over an infinite period. It captures the long-term behavior of a single sample path.
 
 Formally, it is given by:
-\[
-N_{\text{Time Avg}}(ω) = \lim_{t \to ∞} \frac{\int_0^t N(v, ω) dv}{t}
-\]
-where \( N(v, ω) \) represents the number of jobs in the system at time \( v \) under sample path \( ω \).
+$$N_{\text{Time Avg}}(ω) = \lim_{t \to ∞} \frac{\int_0^t N(v, ω) dv}{t}$$where $ N(v, ω)$represents the number of jobs in the system at time $ v$under sample path $ω$.
 
 :p What is the definition of the time average?
 ??x
 The time average of a process is defined as the limit of the integral of the number of jobs in the system over an infinite period divided by time. This approach focuses on observing one long sequence to determine the average behavior.
 
 Mathematically, it is given by:
-\[
-N_{\text{Time Avg}}(ω) = \lim_{t \to ∞} \frac{\int_0^t N(v, ω) dv}{t}
-\]
-where \( N(v, ω) \) represents the number of jobs in the system at time \( v \) under sample path \( ω \).
+$$N_{\text{Time Avg}}(ω) = \lim_{t \to ∞} \frac{\int_0^t N(v, ω) dv}{t}$$where $ N(v, ω)$represents the number of jobs in the system at time $ v$under sample path $ω$.
 x??
 
 ---
@@ -91,20 +85,14 @@ x??
 The ensemble average is defined as the limit of the expected value of the number of jobs in the system over an infinite period. It involves averaging multiple short simulations to capture the long-term behavior.
 
 Formally, it is given by:
-\[
-N_{\text{Ensemble Avg}} = \lim_{t \to ∞} E[N(t)] = \sum_{i=0}^\infty i p_i
-\]
-where \( p_i = \lim_{t \to ∞} P\{N(t) = i\} \), which represents the mass of sample paths with value \( i \) at time \( t \).
+$$N_{\text{Ensemble Avg}} = \lim_{t \to ∞} E[N(t)] = \sum_{i=0}^\infty i p_i$$where $ p_i = \lim_{t \to ∞} P\{N(t) = i\}$, which represents the mass of sample paths with value $ i$at time $ t$.
 
 :p What is the definition of the ensemble average?
 ??x
 The ensemble average is defined as the limit of the expected number of jobs in the system over an infinite period. It involves averaging multiple short simulations to determine the long-term behavior.
 
 Mathematically, it is given by:
-\[
-N_{\text{Ensemble Avg}} = \lim_{t \to ∞} E[N(t)] = \sum_{i=0}^\infty i p_i
-\]
-where \( p_i = \lim_{t \to ∞} P\{N(t) = i\} \), which represents the mass of sample paths with value \( i \) at time \( t \).
+$$N_{\text{Ensemble Avg}} = \lim_{t \to ∞} E[N(t)] = \sum_{i=0}^\infty i p_i$$where $ p_i = \lim_{t \to ∞} P\{N(t) = i\}$, which represents the mass of sample paths with value $ i$at time $ t$.
 x??
 
 ---
@@ -193,11 +181,10 @@ Background context explaining the difference between time average and ensemble a
 Tim measures the time average, which involves averaging over time along a single sample path. Enzo measures the ensemble average, which involves averaging over many different sample paths at a specific point in time.
 
 Ensemble average:
-\[ \text{N}_{\text{Ensemble}} = \frac{1}{N} \sum_{i=1}^{N} Y(\omega_i) \]
+$$\text{N}_{\text{Ensemble}} = \frac{1}{N} \sum_{i=1}^{N} Y(\omega_i)$$
 
 Time average along a single path:
-\[ \text{N}_{\text{Time Avg}} = \lim_{T \to \infty} \frac{1}{T} \int_0^T Y(t) dt \]
-x??
+$$\text{N}_{\text{Time Avg}} = \lim_{T \to \infty} \frac{1}{T} \int_0^T Y(t) dt$$x??
 
 ---
 
@@ -223,7 +210,7 @@ Background context explaining under what conditions the time average equals the 
 
 :p Under what conditions does the time average equal the ensemble average according to Theorem 5.9?
 ??x
-According to Theorem 5.9, for an ergodic system, the time average along a single path converges to the ensemble average with probability one as \( T \) approaches infinity. This equivalence holds because in an irreducible and positive recurrent system, states are revisited infinitely often with finite mean times between visits.
+According to Theorem 5.9, for an ergodic system, the time average along a single path converges to the ensemble average with probability one as $T$ approaches infinity. This equivalence holds because in an irreducible and positive recurrent system, states are revisited infinitely often with finite mean times between visits.
 
 x??
 
@@ -297,8 +284,8 @@ The average time in the system can be defined from either a single long run (tim
 :p How is the average time in the system calculated?
 ??x
 The average time in the system can be calculated as follows:
-- For a single long run: \( T_{\text{Time Avg}} = \lim_{t \to \infty} \frac{\sum_{i=1}^{A(t)} T_i}{A(t)} \), where \( A(t) \) is the number of arrivals by time \( t \) and \( T_i \) is the time in system for the \( i \)-th arrival.
-- For multiple short runs: \( T_{\text{Ensemble}} = \lim_{i \to \infty} E[T_i] \), where \( E[T_i] \) is the average time in system of the \( i \)-th job, averaged over all sample paths.
+- For a single long run:$T_{\text{Time Avg}} = \lim_{t \to \infty} \frac{\sum_{i=1}^{A(t)} T_i}{A(t)}$, where $ A(t)$is the number of arrivals by time $ t$and $ T_i $ is the time in system for the $i$-th arrival.
+- For multiple short runs: $T_{\text{Ensemble}} = \lim_{i \to \infty} E[T_i]$, where $ E[T_i]$is the average time in system of the $ i$-th job, averaged over all sample paths.
 x??
 
 ---
@@ -317,11 +304,11 @@ Example: If you know the average service time and arrival rate, you can use oper
 x??
 
 #### Little's Law
-Background context: Little’s Law is one of the most important operational laws discussed. It relates the mean number of jobs in any system (L) to the mean response time experienced by arrivals (W), expressed as \( L = \lambda W \).
+Background context: Little’s Law is one of the most important operational laws discussed. It relates the mean number of jobs in any system (L) to the mean response time experienced by arrivals (W), expressed as $L = \lambda W$.
 
 :p What does Little's Law relate?
 ??x
-Little's Law relates the mean number of jobs in a system (L) to the mean response time experienced by arrivals (W). The relationship is given by \( L = \lambda W \), where \(\lambda\) represents the arrival rate.
+Little's Law relates the mean number of jobs in a system (L) to the mean response time experienced by arrivals (W). The relationship is given by $L = \lambda W $, where $\lambda$ represents the arrival rate.
 x??
 
 #### Application of Operational Laws
@@ -331,7 +318,7 @@ Background context: Operational laws are particularly useful for "what-if" quest
 ??x
 Operational laws provide a framework to analyze the impact of changes on system performance without detailed modeling. By understanding how different parameters affect response time and throughput, you can determine which modifications are likely to yield better results.
 
-Example: If increasing CPU speed by a factor of 2 decreases the service time (\(1/\mu\)), while increasing I/O device speed by a factor of 3 only slightly reduces interarrival times or increases service rates, Little's Law helps evaluate whether the overall response time and throughput improve significantly.
+Example: If increasing CPU speed by a factor of 2 decreases the service time ($1/\mu$), while increasing I/O device speed by a factor of 3 only slightly reduces interarrival times or increases service rates, Little's Law helps evaluate whether the overall response time and throughput improve significantly.
 x??
 
 #### Asymptotic Bounds
@@ -349,7 +336,7 @@ Background context: Chapter 7 focuses on using operational laws to prove asympto
 ??x
 By combining multiple operational laws, one can derive formulas that describe system behavior under various conditions. For example, Little's Law combined with other operational principles can help prove how changes in parameters like service times or arrival rates affect the overall performance metrics of a closed system.
 
-Example: Using operational laws, you might derive an expression for mean response time \( W \) as a function of multiprogramming level \( n \), and then take limits to understand its behavior at very high or low values of \( n \).
+Example: Using operational laws, you might derive an expression for mean response time $W $ as a function of multiprogramming level$n $, and then take limits to understand its behavior at very high or low values of$ n$.
 x??
 
 --- 
@@ -360,10 +347,10 @@ These flashcards cover key concepts from the provided text related to operationa
 
 
 #### Little's Law for Open Systems
-Background context explaining the concept. Little's Law states that the average number of jobs \(E[N]\) in a system is equal to the product of the average arrival rate into the system \(\lambda\) and the mean time jobs spend in the system \(E[T]\). Mathematically, this can be expressed as:
-\[ E[N] = \lambda E[T] \]
+Background context explaining the concept. Little's Law states that the average number of jobs $E[N]$ in a system is equal to the product of the average arrival rate into the system $\lambda$ and the mean time jobs spend in the system $E[T]$. Mathematically, this can be expressed as:
+$$E[N] = \lambda E[T]$$
 
-This law applies to both open and closed systems and holds true regardless of assumptions about the arrival process, service time distributions, network topology, or service order. The setup for Little's Law involves considering a system with jobs arriving at an average rate \(\lambda\) and spending some amount of time \(T\) in the system.
+This law applies to both open and closed systems and holds true regardless of assumptions about the arrival process, service time distributions, network topology, or service order. The setup for Little's Law involves considering a system with jobs arriving at an average rate $\lambda $ and spending some amount of time$T$ in the system.
 
 :p What does Little's Law state?
 ??x
@@ -377,8 +364,7 @@ x??
 Background context explaining the concept. An ergodic open system refers to systems where, over an extended period, all possible states are visited and the long-term behavior of the system is predictable based on the steady-state probabilities.
 
 The theorem for Little's Law in such a system can be expressed as:
-\[ E[N] = \lambda E[T] \]
-where \(E[N]\) is the expected number of jobs in the system, \(\lambda\) is the average arrival rate into the system, and \(E[T]\) is the mean time jobs spend in the system.
+$$E[N] = \lambda E[T]$$where $ E[N]$ is the expected number of jobs in the system,$\lambda $ is the average arrival rate into the system, and$E[T]$ is the mean time jobs spend in the system.
 
 :p What does ergodicity imply about open systems?
 ??x
@@ -389,14 +375,15 @@ x??
 
 
 #### Application of Little's Law
-Background context explaining the concept. The application of Little's Law involves leveraging known quantities (such as \(E[N]\) or \(\lambda\)) to find unknowns (\(E[T]\)) in queueing systems.
+Background context explaining the concept. The application of Little's Law involves leveraging known quantities (such as $E[N]$ or $\lambda$) to find unknowns ($ E[T]$) in queueing systems.
 
 :p How can we use Little's Law to find unknown values in a system?
 ??x
-We can use Little's Law by rearranging the formula. For example, if you know \(E[N]\) and \(\lambda\), you can find \(E[T]\) as follows:
-\[ E[T] = \frac{E[N]}{\lambda} \]
-Similarly, if you know \(E[T]\) and \(\lambda\), you can find \(E[N]\):
-\[ E[N] = \lambda E[T] \]
+We can use Little's Law by rearranging the formula. For example, if you know $E[N]$ and $\lambda$, you can find $ E[T]$ as follows:
+$$E[T] = \frac{E[N]}{\lambda}$$
+
+Similarly, if you know $E[T]$ and $\lambda$, you can find $ E[N]$:
+$$E[N] = \lambda E[T]$$
 
 This law is particularly useful in network analysis and system design.
 x??
@@ -405,28 +392,26 @@ x??
 
 
 #### Open System Setup
-Background context explaining the concept. The setup for Little's Law involves a system with arrivals at an average rate \(\lambda\), departures, and jobs spending time \(T\) in the system.
+Background context explaining the concept. The setup for Little's Law involves a system with arrivals at an average rate $\lambda $, departures, and jobs spending time $ T$ in the system.
 
 The diagram provided (Figure 6.1) shows:
-- Arrivals (rate \(\lambda\))
+- Arrivals (rate $\lambda$)
 - Departures
-- Time in system, \(T\)
-
-:p What elements are involved in the setup for Little's Law?
+- Time in system, $T$:p What elements are involved in the setup for Little's Law?
 ??x
-The elements involved in the setup for Little's Law include arrivals at an average rate \(\lambda\), departures from the system, and the time jobs spend in the system, denoted as \(T\).
+The elements involved in the setup for Little's Law include arrivals at an average rate $\lambda $, departures from the system, and the time jobs spend in the system, denoted as $ T$.
 x??
 
 ---
 
 
 #### Open Systems Example
-Background context explaining the concept. To illustrate the use of Little's Law, consider a simple example where you have a queueing system with an arrival rate \(\lambda = 10\) jobs per minute and the average time spent in the system is \(E[T] = 2\) minutes.
+Background context explaining the concept. To illustrate the use of Little's Law, consider a simple example where you have a queueing system with an arrival rate $\lambda = 10 $ jobs per minute and the average time spent in the system is$E[T] = 2$ minutes.
 
-:p Calculate \(E[N]\) using Little's Law.
+:p Calculate $E[N]$ using Little's Law.
 ??x
-Given \(\lambda = 10\) jobs/minute and \(E[T] = 2\) minutes, we can calculate \(E[N]\) as follows:
-\[ E[N] = \lambda E[T] = 10 \times 2 = 20 \text{ jobs} \]
+Given $\lambda = 10 $ jobs/minute and$E[T] = 2 $ minutes, we can calculate$E[N]$ as follows:
+$$E[N] = \lambda E[T] = 10 \times 2 = 20 \text{ jobs}$$
 
 Thus, the expected number of jobs in the system is 20.
 x??
@@ -435,12 +420,12 @@ x??
 
 
 #### Open Systems and Markov Chains
-Background context explaining the concept. When studying Markov chains, many techniques are used to compute \(E[N]\). Applying Little's Law will then immediately yield \(E[T]\).
+Background context explaining the concept. When studying Markov chains, many techniques are used to compute $E[N]$. Applying Little's Law will then immediately yield $ E[T]$.
 
 :p How does applying Little's Law help when studying Markov chains?
 ??x
-Applying Little's Law helps by providing a straightforward way to find \(E[T]\) once \(E[N]\) and \(\lambda\) are known. If you have computed \(E[N]\) using techniques from Markov chains, you can directly use the formula:
-\[ E[T] = \frac{E[N]}{\lambda} \]
+Applying Little's Law helps by providing a straightforward way to find $E[T]$ once $E[N]$ and $\lambda$ are known. If you have computed $E[N]$ using techniques from Markov chains, you can directly use the formula:
+$$E[T] = \frac{E[N]}{\lambda}$$
 This simplifies the process of finding the mean time jobs spend in the system.
 x??
 

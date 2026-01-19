@@ -170,9 +170,9 @@ ReLU is defined such that it outputs 0 for negative inputs and equals the input 
 ??x
 The ReLU activation function ensures that the output from a neuron is zero if the input is negative, and the input itself if the input is positive. This introduces non-linearity into the model, allowing it to learn complex patterns.
 
-Mathematically, for an input \( x \):
+Mathematically, for an input $x$:
 
-\[ \text{ReLU}(x) = \max(0, x) \]
+$$\text{ReLU}(x) = \max(0, x)$$
 
 This function helps in preventing units from dying or saturating and ensures gradients are non-zero.
 
@@ -195,11 +195,10 @@ LeakyReLU is similar to ReLU but returns a small negative value for inputs less 
 Both ReLU and LeakyReLU introduce non-linearity by setting outputs of negative values to zero or a small value. However, while ReLU sets all negative values to zero, LeakyReLU returns a small negative slope (α) for inputs less than 0.
 
 Mathematically:
-
-\[ \text{LeakyReLU}(x) = \begin{cases} 
+$$\text{LeakyReLU}(x) = \begin{cases} 
 x & \text{if } x > 0 \\
 \alpha x & \text{if } x < 0 
-\end{cases} \]
+\end{cases}$$
 
 This ensures that the gradient is never zero, helping in preventing units from dying.
 
@@ -221,10 +220,7 @@ The softmax function converts logits into probabilities by exponentiating and no
 The softmax function takes a vector of real numbers (logits) and transforms it into a probability distribution. It ensures that all outputs are positive and sum up to 1, which is useful in scenarios where we need to predict the likelihood of multiple mutually exclusive classes.
 
 Mathematically:
-
-\[ \text{softmax}(x_i) = \frac{e^{x_i}}{\sum_j e^{x_j}} \]
-
-```python
+$$\text{softmax}(x_i) = \frac{e^{x_i}}{\sum_j e^{x_j}}$$```python
 import tensorflow.keras as keras
 
 output_layer = keras.layers.Dense(units=10, activation='softmax')(x)
@@ -239,12 +235,10 @@ x??
 #### ReLU Activation Function
 Background context: The Rectified Linear Unit (ReLU) activation function is widely used in deep neural networks due to its simplicity and effectiveness. It helps encourage stable training by avoiding issues like vanishing gradients.
 
-Relevant formulas: \( f(x) = \max(0, x) \)
-
-Explanation: ReLU outputs the input directly if it is positive; otherwise, it outputs zero. This non-linearity allows the network to learn complex patterns.
+Relevant formulas:$f(x) = \max(0, x)$ Explanation: ReLU outputs the input directly if it is positive; otherwise, it outputs zero. This non-linearity allows the network to learn complex patterns.
 :p What is the ReLU activation function?
 ??x
-The ReLU activation function outputs the input value \( x \) if \( x > 0 \); otherwise, it outputs 0. This helps in maintaining gradients during backpropagation and avoiding vanishing gradient problems.
+The ReLU activation function outputs the input value $x $ if$x > 0$; otherwise, it outputs 0. This helps in maintaining gradients during backpropagation and avoiding vanishing gradient problems.
 
 Example:
 ```python
@@ -259,12 +253,12 @@ x??
 #### Leaky ReLU Activation Function
 Background context: The Leaky Rectified Linear Unit (LeakyReLU) is a modification of the standard ReLU function. It allows small, non-zero gradients for negative inputs to help mitigate the “dying ReLU” problem.
 
-Relevant formulas: \( f(x) = \max(\alpha x, x) \)
+Relevant formulas: $f(x) = \max(\alpha x, x)$
 
 Explanation: Unlike regular ReLU, which outputs 0 for any negative input, LeakyReLU can output a small positive value (αx) for negative inputs. This helps in maintaining gradient flow and preventing the neuron from dying.
 :p What is the difference between ReLU and LeakyReLU?
 ??x
-The key difference between ReLU and LeakyReLU is that while ReLU outputs 0 for any input \( x \leq 0 \), LeakyReLU allows a small, non-zero gradient for negative inputs by outputting \( \max(\alpha x, x) \).
+The key difference between ReLU and LeakyReLU is that while ReLU outputs 0 for any input $x \leq 0 $, LeakyReLU allows a small, non-zero gradient for negative inputs by outputting $\max(\alpha x, x)$.
 
 Example:
 ```python
@@ -279,7 +273,7 @@ x??
 #### Sigmoid Activation Function
 Background context: The sigmoid activation function is useful when you need to scale the output between 0 and 1. It is particularly applicable for binary classification problems.
 
-Relevant formulas: \( f(x) = \frac{1}{1 + e^{-x}} \)
+Relevant formulas: $f(x) = \frac{1}{1 + e^{-x}}$
 
 Explanation: The sigmoid function maps any real-valued number into a range between 0 and 1, making it suitable for binary classification tasks where the output represents probabilities.
 :p When is the sigmoid activation function used?
@@ -299,7 +293,7 @@ x??
 #### Softmax Activation Function
 Background context: The softmax function normalizes the output to ensure that the total sum of the outputs is 1. It is commonly used in multiclass classification problems.
 
-Relevant formulas: \( y_i = \frac{e^{x_i}}{\sum_{j=1}^J e^{x_j}} \)
+Relevant formulas: $y_i = \frac{e^{x_i}}{\sum_{j=1}^J e^{x_j}}$
 
 Explanation: Softmax converts a vector of real numbers into a probability distribution over classes, making the sum of all outputs equal to 1. This is crucial for tasks where each input can belong to exactly one class.
 :p When do you use the softmax activation function?
@@ -384,17 +378,15 @@ x??
 ---
 #### Dense Layer Parameters Calculation
 Background context explaining how to calculate the number of parameters in a dense layer. The formula for calculating the number of parameters is given by: 
-\[ \text{Number of parameters} = (\text{input\_units} + 1) \times \text{output\_units} \]
-where each unit in a given layer has an additional bias term that always outputs 1.
+$$\text{Number of parameters} = (\text{input\_units} + 1) \times \text{output\_units}$$where each unit in a given layer has an additional bias term that always outputs 1.
 
 :p How do you calculate the number of parameters in a dense layer?
 ??x
 To calculate the number of parameters in a dense layer, use the formula:
-\[ (\text{input\_units} + 1) \times \text{output\_units} \]
-For example, if there is a Dense layer with 200 units and an input size of 3,072, then the calculation would be:
-\[ (3072 + 1) \times 200 = 614600 \]
+$$(\text{input\_units} + 1) \times \text{output\_units}$$
 
-```python
+For example, if there is a Dense layer with 200 units and an input size of 3,072, then the calculation would be:
+$$(3072 + 1) \times 200 = 614600$$```python
 # Example calculation in Python
 input_units = 3072
 output_units = 200
@@ -441,8 +433,7 @@ Background context explaining different types of loss functions and their use ca
 :p What is the formula for categorical cross-entropy, and when should it be used?
 ??x
 Categorical cross-entropy is defined as:
-\[ -\sum_{i=1}^{n} y_i \log p_i \]
-where \(y_i\) is the true label and \(p_i\) is the predicted probability. It is appropriate for classification tasks where each observation belongs to one class.
+$$-\sum_{i=1}^{n} y_i \log p_i$$where $ y_i $ is the true label and $ p_i$ is the predicted probability. It is appropriate for classification tasks where each observation belongs to one class.
 
 ```python
 # Example of categorical cross-entropy calculation in Python (not exact, but illustrative)

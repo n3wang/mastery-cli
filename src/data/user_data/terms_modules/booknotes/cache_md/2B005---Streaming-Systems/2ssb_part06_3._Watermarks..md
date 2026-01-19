@@ -107,10 +107,10 @@ x??
 
 ---
 #### Completeness Property
-The watermark allows you to correctly emit any aggregations at or before the current watermark timestamp \( T \), as no more on-time events will occur past this timestamp due to its monotonic nature.
+The watermark allows you to correctly emit any aggregations at or before the current watermark timestamp $T$, as no more on-time events will occur past this timestamp due to its monotonic nature.
 :p What does the completeness property of a watermark guarantee?
 ??x
-The completeness property guarantees that once the watermark has advanced past some timestamp \( T \), no more processing will occur for on-time (non-late) data at or before \( T \). This ensures that any aggregations emitted up to this point are complete and can be trusted.
+The completeness property guarantees that once the watermark has advanced past some timestamp $T $, no more processing will occur for on-time (non-late) data at or before $ T$. This ensures that any aggregations emitted up to this point are complete and can be trusted.
 x??
 
 ---

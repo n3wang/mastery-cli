@@ -7,9 +7,8 @@
 
 
 #### Q-learning: Off-policy TD Control
-Background context explaining the concept. Q-learning is an off-policy temporal difference control algorithm that directly approximates the optimal action-value function \(q^\star\) independent of the policy being followed. The update rule for Q-learning is given by:
-\[ Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha [R_{t+1} + \max_a Q(S_{t+1}, a) - Q(S_t, A_t)] \]
-where \(S_t\) and \(A_t\) are the state and action at time step \(t\), \(R_{t+1}\) is the reward received after taking action \(A_t\), and \(\alpha\) is the learning rate.
+Background context explaining the concept. Q-learning is an off-policy temporal difference control algorithm that directly approximates the optimal action-value function $q^\star$ independent of the policy being followed. The update rule for Q-learning is given by:
+$$Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha [R_{t+1} + \max_a Q(S_{t+1}, a) - Q(S_t, A_t)]$$where $ S_t $ and $ A_t $ are the state and action at time step $ t $,$ R_{t+1}$is the reward received after taking action $ A_t$, and $\alpha$ is the learning rate.
 
 :p What is the main difference between Q-learning and Sarsa in terms of policy?
 ??x
@@ -21,8 +20,7 @@ x??
 
 #### Stochastic Wind in Gridworld
 The background context explains how the wind's effect is now stochastic, sometimes varying by 1 cell from the mean values given for each column. The update rule remains similar but now accounts for the stochasticity:
-\[ Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha [R_{t+1} + \max_a Q(S_{t+1}, a) - Q(S_t, A_t)] \]
-with \(R_{t+1}\) adjusted for the stochastic wind effect.
+$$Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha [R_{t+1} + \max_a Q(S_{t+1}, a) - Q(S_t, A_t)]$$with $ R_{t+1}$ adjusted for the stochastic wind effect.
 
 :p How does the stochasticity in wind affect the reward calculation?
 ??x
@@ -38,7 +36,7 @@ The backup diagram illustrates how the update rule (6.8) works by showing that i
 
 :p What is the structure of the backup diagram in Q-learning?
 ??x
-In the backup diagram, the top node is a filled action node representing \(Q(S_t, A_t)\), and the bottom nodes are all possible actions for the next state. An arc across these "next action" nodes indicates taking the maximum value.
+In the backup diagram, the top node is a filled action node representing $Q(S_t, A_t)$, and the bottom nodes are all possible actions for the next state. An arc across these "next action" nodes indicates taking the maximum value.
 ```
          Q(S,A)
             |
@@ -63,11 +61,11 @@ x??
 
 
 #### Cliff Walking Example
-The background context provides an example where the gridworld environment includes a dangerous region ("The Cliff"). Sarsa learns the safer path while Q-learning converges to the optimal policy but with occasional failures due to \(\epsilon\)-greedy action selection.
+The background context provides an example where the gridworld environment includes a dangerous region ("The Cliff"). Sarsa learns the safer path while Q-learning converges to the optimal policy but with occasional failures due to $\epsilon$-greedy action selection.
 
 :p Why does Q-learning often fail to follow the optimal path in the cliff walking problem?
 ??x
-Q-learning's \(\epsilon\)-greedy action selection can lead it to occasionally choose suboptimal actions, causing it to fall off the cliff. While this method ultimately converges to the optimal policy, these occasional errors during training result in worse online performance compared to Sarsa.
+Q-learning's $\epsilon$-greedy action selection can lead it to occasionally choose suboptimal actions, causing it to fall off the cliff. While this method ultimately converges to the optimal policy, these occasional errors during training result in worse online performance compared to Sarsa.
 x??
 
 ---
@@ -78,7 +76,7 @@ The background context explains that an off-policy algorithm learns about a targ
 
 :p How does Q-learning ensure it can learn the optimal policy even when using a non-optimal policy for action selection?
 ??x
-Q-learning updates based on a behavior policy but aims to converge to the optimal action-value function \(q^\star\). By allowing the use of any arbitrary policy during updates, Q-learning can explore more effectively and potentially find better policies than those used in exploration.
+Q-learning updates based on a behavior policy but aims to converge to the optimal action-value function $q^\star$. By allowing the use of any arbitrary policy during updates, Q-learning can explore more effectively and potentially find better policies than those used in exploration.
 x??
 
 ---
@@ -89,7 +87,7 @@ The background context explains that if actions are selected greedily, Q-learnin
 
 :p If action selection is greedy, will Q-learning be exactly the same as Sarsa?
 ??x
-Yes, if action selection is always greedy (i.e., \(\epsilon = 0\)), Q-learning and Sarsa become identical. They will make the same action selections and perform the same weight updates because they both use the greedy policy to select actions.
+Yes, if action selection is always greedy (i.e., $\epsilon = 0$), Q-learning and Sarsa become identical. They will make the same action selections and perform the same weight updates because they both use the greedy policy to select actions.
 x??
 
 ---
@@ -101,10 +99,8 @@ x??
 Expected Sarsa is an algorithm that modifies Q-learning by using the expected value of the next state-action values instead of the maximum over all possible actions. This change makes it move deterministically towards better policy-improving moves, similar to how Sarsa behaves in expectation.
 
 The update rule for Expected Sarsa is:
-\[ Q(St, At) \leftarrow Q(St, At) + \alpha \left[ R_{t+1} + \mathbb{E}_{\pi}[Q(S_{t+1}, A_{t+1}) | S_{t+1}] - Q(St, At) \right] \]
-\[ = Q(St, At) + \alpha \left[ R_{t+1} + \sum_a \pi(a|S_{t+1})Q(S_{t+1}, a) - Q(St, At) \right] \]
-
-:p How does Expected Sarsa differ from Q-learning in its update rule?
+$$Q(St, At) \leftarrow Q(St, At) + \alpha \left[ R_{t+1} + \mathbb{E}_{\pi}[Q(S_{t+1}, A_{t+1}) | S_{t+1}] - Q(St, At) \right]$$
+$$= Q(St, At) + \alpha \left[ R_{t+1} + \sum_a \pi(a|S_{t+1})Q(S_{t+1}, a) - Q(St, At) \right]$$:p How does Expected Sarsa differ from Q-learning in its update rule?
 ??x
 Expected Sarsa uses the expected value of the next state-action values under the current policy instead of taking the maximum over all possible actions. This leads to a more deterministic move towards better policies, as it averages over the possible next actions according to their probabilities.
 
@@ -182,7 +178,7 @@ x??
 
 #### Performance of Expected Sarsa Compared to Q-Learning and Sarsa
 
-Expected Sarsa generally performs better than both Q-learning and Sarsa in the cliff walking task for all learning rates. This is particularly evident when using an \(\epsilon\)-greedy policy with \(\epsilon = 0.1\).
+Expected Sarsa generally performs better than both Q-learning and Sarsa in the cliff walking task for all learning rates. This is particularly evident when using an $\epsilon $-greedy policy with $\epsilon = 0.1$.
 
 The optimal learning rate for Expected Sarsa on this problem, especially for a smaller number of episodes (n=100), tends to be higher, indicating its advantage in deterministic environments.
 
@@ -223,27 +219,27 @@ x??
 
 
 #### Q-learning and Expected Sarsa Comparison
-Background context: The text compares the performance of Q-learning, Expected Sarsa, and their variants on the cliff walking task. It discusses how different learning rates (\(\alpha\)) affect the algorithms' performance over episodes.
+Background context: The text compares the performance of Q-learning, Expected Sarsa, and their variants on the cliff walking task. It discusses how different learning rates ($\alpha$) affect the algorithms' performance over episodes.
 
-:p What does the text say about the performance comparison between Q-learning and Expected Sarsa for different values of \(\alpha\)?
+:p What does the text say about the performance comparison between Q-learning and Expected Sarsa for different values of $\alpha$?
 ??x
-The text states that for \(n = 100,000\), the average return is equal for all \(\alpha\) values in case of Expected Sarsa and Q-learning. However, for smaller \(n = 100\):
+The text states that for $n = 100,000 $, the average return is equal for all $\alpha $ values in case of Expected Sarsa and Q-learning. However, for smaller$n = 100$:
 
-- For Expected Sarsa, the performance comes close to the performance of Q-learning only for \(\alpha = 0.1\).
-- For large \(\alpha\), the performance for \(n = 100,000\) even drops below the performance for \(n = 100\). The reason is that high values of \(\alpha\) cause divergence in Q-values, leading to a worse policy over time.
+- For Expected Sarsa, the performance comes close to the performance of Q-learning only for $\alpha = 0.1$.
+- For large $\alpha $, the performance for $ n = 100,000 $even drops below the performance for$ n = 100 $. The reason is that high values of$\alpha$ cause divergence in Q-values, leading to a worse policy over time.
 
-For \(n = 100,000\), all algorithms have converged long before the end of the run since there is no effect from the initial learning phase.
+For $n = 100,000$, all algorithms have converged long before the end of the run since there is no effect from the initial learning phase.
 x??
 
 ---
 
 
 #### Interim and Asymptotic Performance
-Background context: The text discusses the interim and asymptotic performance of various TD control methods (Q-learning, Expected Sarsa) on the cliff walking task. It uses an \(\epsilon\)-greedy policy with \(\epsilon = 0.1\) to evaluate the algorithms.
+Background context: The text discusses the interim and asymptotic performance of various TD control methods (Q-learning, Expected Sarsa) on the cliff walking task. It uses an $\epsilon $-greedy policy with $\epsilon = 0.1$ to evaluate the algorithms.
 
 :p How does the text describe the performance difference between interim and asymptotic phases for Q-learning?
 ??x
-The text states that during the initial learning phase (\(n = 100\) episodes), the policies are still improving, but divergence in Q-values due to large \(\alpha\) leads to worse performance over time. However, as the number of episodes increases (\(n = 100,000\)), all algorithms converge quickly, and there is no significant difference in their average returns.
+The text states that during the initial learning phase ($n = 100 $ episodes), the policies are still improving, but divergence in Q-values due to large$\alpha $ leads to worse performance over time. However, as the number of episodes increases ($ n = 100,000$), all algorithms converge quickly, and there is no significant difference in their average returns.
 
 The interim phase (first 100 episodes) shows a mix of good and bad policies due to ongoing learning, while the asymptotic phase (100,000 episodes) reveals stable performance.
 x??
@@ -254,7 +250,7 @@ x??
 
 
 #### Expected Sarsa vs. Sarsa
-Background context explaining the concept of Expected Sarsa and Sarsa, including their differences and performance characteristics over a wide range of step-size parameters. The text mentions that in deterministic state transitions with randomness from the policy (like in cliff walking), Expected Sarsa can use a larger step-size parameter (`\(\alpha = 1\)`) without degrading asymptotic performance, whereas Sarsa performs well only at small values of `\(\alpha\)` where short-term performance is poor. The empirical advantage of Expected Sarsa over Sarsa is highlighted.
+Background context explaining the concept of Expected Sarsa and Sarsa, including their differences and performance characteristics over a wide range of step-size parameters. The text mentions that in deterministic state transitions with randomness from the policy (like in cliff walking), Expected Sarsa can use a larger step-size parameter (`$\alpha = 1 $`) without degrading asymptotic performance, whereas Sarsa performs well only at small values of `$\alpha$` where short-term performance is poor. The empirical advantage of Expected Sarsa over Sarsa is highlighted.
 
 :p What are the key differences between Expected Sarsa and Sarsa as described in the text?
 ??x
@@ -291,7 +287,7 @@ Background context explaining the example of cliff walking where state transitio
 
 :p In what scenario does Expected Sarsa outperform Sarsa in the cliff walking problem?
 ??x
-In the cliff walking problem, Expected Sarsa outperforms Sarsa when state transitions are deterministic and randomness comes from the policy. This is because Expected Sarsa can safely set a larger step-size parameter (\(\alpha = 1\)) without degrading asymptotic performance, whereas Sarsa performs well only at small values of \(\alpha\) where short-term performance is poor.
+In the cliff walking problem, Expected Sarsa outperforms Sarsa when state transitions are deterministic and randomness comes from the policy. This is because Expected Sarsa can safely set a larger step-size parameter ($\alpha = 1 $) without degrading asymptotic performance, whereas Sarsa performs well only at small values of $\alpha$ where short-term performance is poor.
 x??
 
 ---
@@ -319,7 +315,7 @@ Background context: In reinforcement learning, particularly when using -greedy a
 Maximization bias occurs because when using -greedy action selection, we choose the best (highest estimated) action with probability 1-. The remaining actions are chosen randomly. If an action has been visited frequently and thus its value estimate is high due to positive reinforcement, it will be selected more often. This increases the chances of further positive reinforcement, leading to a biased overestimation of this action's true value.
 
 In Q-learning, the update rule uses the maximum action value in the target function:
-\[ Q(s,a) \leftarrow Q(s,a) + \alpha [R_{t+1} + \gamma \max_{a'}Q(s',a') - Q(s,a)] \]
+$$Q(s,a) \leftarrow Q(s,a) + \alpha [R_{t+1} + \gamma \max_{a'}Q(s',a') - Q(s,a)]$$
 
 This can lead to a positive bias if the maximum value is always slightly overestimated.
 x??
@@ -336,13 +332,10 @@ Background context: The double learning approach addresses the issue of maximiza
 By splitting the plays into two sets, we can use one set to determine the best action (argmax) and another set to estimate the value of this action. This separation ensures that the same samples are not used both for selecting the maximizing action and estimating its value, thus mitigating the maximization bias.
 
 For example, in Q-learning with double learning:
-- Set 1 is used to determine the best action: \( A_t = \arg\max_a Q_1(s_t, a) \)
-- Set 2 is used to estimate the value of this action: \( Q_2(s_t, A_t) \)
+- Set 1 is used to determine the best action:$A_t = \arg\max_a Q_1(s_t, a)$- Set 2 is used to estimate the value of this action:$ Q_2(s_t, A_t)$ This method provides an unbiased estimate because:
+$$E[Q_2(A_t)] = q(A_t)$$
 
-This method provides an unbiased estimate because:
-\[ E[Q_2(A_t)] = q(A_t) \]
-
-Where \( q(a) \) is the true value of action \( a \).
+Where $q(a)$ is the true value of action $a$.
 x??
 
 ---
@@ -356,18 +349,18 @@ Background context: The double learning approach extends naturally to algorithms
 ??x
 In Double Q-learning, the action selection and value estimation processes are separated:
 
-1. **Action Selection**: Use one estimate \( Q_1 \) to select the best action:
-   \[ A_t = \arg\max_a Q_1(s_t, a) \]
-
-2. **Value Estimation**: Use another estimate \( Q_2 \) to get the value of this action:
-   \[ Q_2(s_t, A_t) \]
+1. **Action Selection**: Use one estimate $Q_1$ to select the best action:
+   $$A_t = \arg\max_a Q_1(s_t, a)$$2. **Value Estimation**: Use another estimate $ Q_2$ to get the value of this action:
+$$Q_2(s_t, A_t)$$
 
 This approach avoids using the same samples for both selection and estimation, thus reducing bias.
 
 The update rule in Double Q-learning is similar to Q-learning but uses two different estimates:
-\[ Q_1(s_t, a) \leftarrow Q_1(s_t, a) + \alpha [r_{t+1} + \gamma Q_2(s_{t+1}, A_t) - Q_1(s_t, a)] \]
+$$
 
-Where \( r_{t+1} \) is the reward at time \( t+1 \), and \( \gamma \) is the discount factor.
+Q_1(s_t, a) \leftarrow Q_1(s_t, a) + \alpha [r_{t+1} + \gamma Q_2(s_{t+1}, A_t) - Q_1(s_t, a)]$$
+
+Where $r_{t+1}$ is the reward at time $ t+1 $, and $\gamma$ is the discount factor.
 x??
 
 ---
@@ -381,7 +374,7 @@ Background context: The implementation involves dividing the steps into two part
 ??x
 To implement a simple version of Double Q-learning:
 
-1. **Initialization**: Initialize two separate Q-value functions \( Q_1 \) and \( Q_2 \).
+1. **Initialization**: Initialize two separate Q-value functions $Q_1 $ and$Q_2$.
 
 2. **Action Selection**: On each time step, use one estimate to select the action:
    ```java
@@ -414,17 +407,17 @@ x??
 
 #### Double Q-learning Update Rule
 
-Background context: In reinforcement learning, Double Q-learning is a method that aims to mitigate the maximization bias present in standard Q-learning. The update rule involves two action-value functions, \(Q_1\) and \(Q_2\), which are updated based on whether the coin flip results in heads or tails.
+Background context: In reinforcement learning, Double Q-learning is a method that aims to mitigate the maximization bias present in standard Q-learning. The update rule involves two action-value functions, $Q_1 $ and$Q_2$, which are updated based on whether the coin flip results in heads or tails.
 
 Relevant formulas:
-\[ Q_1(S_t, A_t) \leftarrow Q_1(S_t, A_t) + \alpha \left( R_{t+1} + Q_2(S_{t+1}, \arg\max_a Q_1(S_{t+1}, a)) - Q_1(S_t, A_t) \right) \]
+$$Q_1(S_t, A_t) \leftarrow Q_1(S_t, A_t) + \alpha \left( R_{t+1} + Q_2(S_{t+1}, \arg\max_a Q_1(S_{t+1}, a)) - Q_1(S_t, A_t) \right)$$
 
 If the coin comes up tails, then:
-\[ Q_2(S_t, A_t) \leftarrow Q_2(S_t, A_t) + \alpha \left( R_{t+1} + Q_1(S_{t+1}, \arg\max_a Q_2(S_{t+1}, a)) - Q_2(S_t, A_t) \right) \]
+$$
 
-:p What is the update rule for Double Q-learning?
+Q_2(S_t, A_t) \leftarrow Q_2(S_t, A_t) + \alpha \left( R_{t+1} + Q_1(S_{t+1}, \arg\max_a Q_2(S_{t+1}, a)) - Q_2(S_t, A_t) \right)$$:p What is the update rule for Double Q-learning?
 ??x
-The update rule alternates between updating \(Q_1\) and \(Q_2\) based on whether the coin flip results in heads or tails. The key idea is to use one action-value function to select the next state's action, while using the other to predict its value.
+The update rule alternates between updating $Q_1 $ and$Q_2$ based on whether the coin flip results in heads or tails. The key idea is to use one action-value function to select the next state's action, while using the other to predict its value.
 
 Code example:
 ```java
@@ -444,9 +437,9 @@ x??
 
 Background context: While the provided text focuses on Double Q-learning, it also mentions that there are double versions of SARSA and Expected SARSA. This question is specifically about the update rule for Double Expected SARSA.
 
-:p What are the update equations for Double Expected Sarsa with an \(\epsilon\)-greedy target policy?
+:p What are the update equations for Double Expected Sarsa with an $\epsilon$-greedy target policy?
 ??x
-The update equations for Double Expected SARSA would be similar to those in Double Q-learning, but they would incorporate the target policy into the expectation. The key difference is that instead of choosing actions based on a coin flip, you use the \(\epsilon\)-greedy policy.
+The update equations for Double Expected SARSA would be similar to those in Double Q-learning, but they would incorporate the target policy into the expectation. The key difference is that instead of choosing actions based on a coin flip, you use the $\epsilon$-greedy policy.
 
 Code example:
 ```java
@@ -497,7 +490,7 @@ Background context: Jack's Car Rental problem involves managing the number of ca
 ??x
 The task of Jack's Car Rental can be reformulated by focusing on states that occur immediately after an action is taken, such as moving cars from one location to another. By doing this, we reduce the complexity of the state space because many state transitions become deterministic once an action is chosen.
 
-For instance, if an action involves transferring \(x\) cars from location 1 to location 2, then the next state is fully determined by this transfer, and no additional information about previous states is needed. This simplifies learning since we can directly update values based on afterstates.
+For instance, if an action involves transferring $x$ cars from location 1 to location 2, then the next state is fully determined by this transfer, and no additional information about previous states is needed. This simplifies learning since we can directly update values based on afterstates.
 
 Code example:
 ```java

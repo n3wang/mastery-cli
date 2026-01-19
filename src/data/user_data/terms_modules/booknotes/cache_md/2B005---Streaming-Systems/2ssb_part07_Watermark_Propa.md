@@ -241,11 +241,11 @@ x??
 
 #### Overlapping Windows with Special Logic
 
-Background context: Beam provides special logic to ensure overlapping windows emit results in a timely manner by setting the output timestamp for each window \(N+1\) greater than the end of window \(N\).
+Background context: Beam provides special logic to ensure overlapping windows emit results in a timely manner by setting the output timestamp for each window $N+1 $ greater than the end of window$N$.
 
 :p How does Beam handle overlapping windows to avoid delays?
 ??x
-Beam uses special logic where the output timestamp for each window \(N+1\) is set to be greater than the end time of window \(N\). This ensures that completed windows can be emitted promptly, avoiding unnecessary delays.
+Beam uses special logic where the output timestamp for each window $N+1 $ is set to be greater than the end time of window$N$. This ensures that completed windows can be emitted promptly, avoiding unnecessary delays.
 x??
 
 ---

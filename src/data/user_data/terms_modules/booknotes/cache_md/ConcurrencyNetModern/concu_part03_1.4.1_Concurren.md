@@ -883,12 +883,12 @@ x??
 
 #### Selecting Number of Tasks for QuicksortParallelWithDepth
 Background context explaining the concept. The selection of tasks' number is crucial when dealing with varying task runtimes, such as those found in quicksort. In `quicksortParallelWithDepth`, the depth argument influences how many subtasks are created, which can exceed the core count.
-Formula: \[ \text{Number of tasks} = 2^{\log_2(\text{ProcessorCount}) + 4} \]
+Formula: $$\text{Number of tasks} = 2^{\log_2(\text{ProcessorCount}) + 4}$$
 
-This results in approximately \(16 \times \text{ProcessorCount}\) tasks. The number of tasks is limited to avoid overwhelming the system, ensuring that the workload remains balanced and efficient.
+This results in approximately $16 \times \text{ProcessorCount}$ tasks. The number of tasks is limited to avoid overwhelming the system, ensuring that the workload remains balanced and efficient.
 :p How does the formula for task depth ensure an even distribution among cores?
 ??x
-The formula ensures a balanced workload by calculating the number of tasks based on the processor count. By setting the depth as \(\log_2(\text{ProcessorCount}) + 4\), it creates approximately \(16 \times \text{ProcessorCount}\) concurrent tasks, which can be managed across cores to avoid saturation.
+The formula ensures a balanced workload by calculating the number of tasks based on the processor count. By setting the depth as $\log_2(\text{ProcessorCount}) + 4 $, it creates approximately $16 \times \text{ProcessorCount}$ concurrent tasks, which can be managed across cores to avoid saturation.
 ```java
 int depth = (int)(Math.log(Math.max(1, ProcessorCount)) / Math.log(2)) + 4;
 ```
@@ -917,7 +917,7 @@ x??
 Background context explaining the concept. The performance of parallel quicksort varies based on array size and core count. For small arrays, overhead from thread creation can outweigh benefits, while larger arrays benefit significantly.
 :p How does the number of tasks affect the performance of parallel quicksort?
 ??x
-The number of tasks affects performance by balancing work distribution among cores. Too few tasks may underutilize resources, while too many can overwhelm the system. The formula \(16 \times \text{ProcessorCount}\) helps ensure a balanced workload without overloading processors.
+The number of tasks affects performance by balancing work distribution among cores. Too few tasks may underutilize resources, while too many can overwhelm the system. The formula $16 \times \text{ProcessorCount}$ helps ensure a balanced workload without overloading processors.
 ```csharp
 // Pseudocode to calculate and limit number of tasks
 int maxTasks = (int)Math.Pow(2, Math.Log(processorCount, 2)) * 16;

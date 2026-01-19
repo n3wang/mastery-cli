@@ -11,7 +11,8 @@ Background context: The 2D sine-Gordon equation (2DSGE) can describe wave propag
 :p What is the form of the 2D sine-Gordon equation (2DSGE)?
 ??x
 The 2D sine-Gordon equation is given by:
-\[\frac{1}{c^2} \frac{\partial^2 u}{\partial t^2} - \frac{\partial^2 u}{\partial x^2} - \frac{\partial^2 u}{\partial y^2} = \sin u.\]
+$$\frac{1}{c^2} \frac{\partial^2 u}{\partial t^2} - \frac{\partial^2 u}{\partial x^2} - \frac{\partial^2 u}{\partial y^2} = \sin u.$$
+
 This equation models wave propagation in a 2D nonlinear elastic medium.
 x??
 
@@ -23,7 +24,8 @@ Background context: To numerically solve the 2D sine-Gordon equation, we discret
 :p How do you set up the initial condition for solving the 2D sine-Gordon equation?
 ??x
 The initial condition is given by:
-\[u(x,y,t=0) = 4 \tan^{-1}(\exp(-\sqrt{x^2 + y^2}/3)), \quad \frac{\partial u}{\partial t}(x,y,t=0) = 0.\]
+$$u(x,y,t=0) = 4 \tan^{-1}(\exp(-\sqrt{x^2 + y^2}/3)), \quad \frac{\partial u}{\partial t}(x,y,t=0) = 0.$$
+
 This represents a pulse-like initial waveform with the surface at rest.
 x??
 
@@ -34,14 +36,12 @@ x??
 Background context: The numerical solution involves setting up an array to store values on a grid, applying boundary conditions, and updating the lattice using finite difference approximations. This approach is used to simulate wave propagation in a 2D space-time domain.
 :p How do you set up the initial conditions for the first two time steps?
 ??x
-For the initial conditions at \(t=0\):
-\[u[m,l,1] = 4 \tan^{-1}(\exp(-\sqrt{(m \Delta x)^2 + (l \Delta y)^2}/3)),\]
-and for the second time step:
-\[u[m,l,2] = u[m,l,1].\]
+For the initial conditions at $t=0$:
+$$u[m,l,1] = 4 \tan^{-1}(\exp(-\sqrt{(m \Delta x)^2 + (l \Delta y)^2}/3)),$$and for the second time step:
+$$u[m,l,2] = u[m,l,1].$$
 
 The initial velocity condition is satisfied as:
-\[u[m,l,2] = u[m,l,0].\]
-x??
+$$u[m,l,2] = u[m,l,0].$$x??
 
 ---
 
@@ -51,10 +51,8 @@ Background context: To ensure stability in the numerical solution, boundary cond
 :p How do you apply boundary conditions for the 2D sine-Gordon equation?
 ??x
 Boundary conditions are imposed as follows:
-\[ \frac{\partial u}{\partial x}(x_0, y, t) = \frac{u(x_0 + \Delta x, y, t) - u(x_0, y, t)}{\Delta x} = 0,\]
-which implies that the values at the edges are replicated:
-\[ u(1,l,n) = u(2,l,n),\]
-and similarly for other boundaries.
+$$ \frac{\partial u}{\partial x}(x_0, y, t) = \frac{u(x_0 + \Delta x, y, t) - u(x_0, y, t)}{\Delta x} = 0,$$which implies that the values at the edges are replicated:
+$$ u(1,l,n) = u(2,l,n),$$and similarly for other boundaries.
 x??
 
 ---
@@ -74,18 +72,18 @@ x??
 
 #### Advection Equation Solution via Lax-Wendroff Scheme
 
-Background context: The provided Python script solves the advection equation using the Lax-Wendroff scheme. This method is used to approximate solutions of hyperbolic partial differential equations, such as the advection equation which models the transport of a quantity \(u(x,t)\) with velocity \(c\).
+Background context: The provided Python script solves the advection equation using the Lax-Wendroff scheme. This method is used to approximate solutions of hyperbolic partial differential equations, such as the advection equation which models the transport of a quantity $u(x,t)$ with velocity $c$.
 
 The advection equation is given by:
-\[ \frac{\partial u}{\partial t} + c \cdot \frac{\partial (u^2/2)}{\partial x} = 0 \]
+$$\frac{\partial u}{\partial t} + c \cdot \frac{\partial (u^2/2)}{\partial x} = 0$$
 
-Initial condition: 
-\[ u(x, t=0) = \exp(-300(x-0.12)^2) \]
-This is a Gaussian initial profile centered at \(x=0.12\).
+Initial condition:
+$$u(x, t=0) = \exp(-300(x-0.12)^2)$$
+
+This is a Gaussian initial profile centered at $x=0.12$.
 
 The script uses the Lax-Wendroff scheme for numerical solution:
-\[ u^{n+1}_i = (1 - \beta^2)u^n_i - 0.5\beta(1-\beta)u^n_{i+1} + 0.5\beta(1+\beta)u^n_{i-1} \]
-where \( \beta = c \cdot dt/dx \).
+$$u^{n+1}_i = (1 - \beta^2)u^n_i - 0.5\beta(1-\beta)u^n_{i+1} + 0.5\beta(1+\beta)u^n_{i-1}$$where $\beta = c \cdot dt/dx$.
 
 :p What is the Lax-Wendroff scheme used for in this script?
 ??x
@@ -104,7 +102,7 @@ x??
 
 #### Plotting Initial and Exact Solutions
 
-Background context: The script plots the initial Gaussian profile of \(u(x, t=0)\), as well as the exact solution at a final time. This helps in visualizing how the numerical solution compares to the analytical one.
+Background context: The script plots the initial Gaussian profile of $u(x, t=0)$, as well as the exact solution at a final time. This helps in visualizing how the numerical solution compares to the analytical one.
 
 :p What is the purpose of plotting initial and exact solutions?
 ??x
@@ -129,9 +127,7 @@ x??
 Background context: The script solves the Korteweg-de Vries (KdV) equation to model solitons. A soliton is a wave that maintains its shape while propagating at constant speed. The initial condition given is for "bore" conditions, which are typically waves that rise rapidly.
 
 The KdV equation is:
-\[ \frac{\partial u}{\partial t} + 6u\frac{\partial u}{\partial x} + \frac{1}{2}\frac{\partial^3 u}{\partial x^3} = 0 \]
-
-:p What type of waves does the script model?
+$$\frac{\partial u}{\partial t} + 6u\frac{\partial u}{\partial x} + \frac{1}{2}\frac{\partial^3 u}{\partial x^3} = 0$$:p What type of waves does the script model?
 ??x
 The script models solitons, which are stable wave packets that maintain their shape and speed as they propagate. Specifically, it uses "bore" initial conditions to simulate a rising wave.
 ```python
@@ -146,11 +142,11 @@ x??
 
 #### Numerical Solution of KdV Equation
 
-Background context: The script numerically solves the KdV equation using a finite difference method. It iterates over time steps and updates the solution array \(u\) based on the Lax-Wendroff scheme.
+Background context: The script numerically solves the KdV equation using a finite difference method. It iterates over time steps and updates the solution array $u$ based on the Lax-Wendroff scheme.
 
 :p How does the script update the numerical solution at each time step?
 ??x
-The script updates the numerical solution by iterating over time steps and applying the Lax-Wendroff scheme to update the solution array. It uses a loop to update the values of \(u\) based on neighboring points.
+The script updates the numerical solution by iterating over time steps and applying the Lax-Wendroff scheme to update the solution array. It uses a loop to update the values of $u$ based on neighboring points.
 ```python
 # Example pseudocode for updating u at each time step
 for j in range(1, max+1):
@@ -205,9 +201,8 @@ Background context: The continuity equation describes how mass is conserved in a
 :p What is the continuity equation and what does it represent?
 ??x
 The continuity equation represents the conservation of mass in a fluid system:
-\[
-\frac{\partial \rho(x,t)}{\partial t} + \nabla \cdot \mathbf{j} = 0, \quad \mathbf{j} \text{def}= \rho \mathbf{v}(x,t).
-\]
+$$\frac{\partial \rho(x,t)}{\partial t} + \nabla \cdot \mathbf{j} = 0, \quad \mathbf{j} \text{def}= \rho \mathbf{v}(x,t).$$
+
 This equation ensures that the total mass within a fluid system remains constant over time.
 
 ---
@@ -219,10 +214,9 @@ Background context: The Navier-Stokes equations describe the motion of fluids by
 :p What is the Navier-Stokes equation and what does it represent?
 ??x
 The Navier-Stokes equation represents the balance between inertial forces, pressure gradients, and viscous forces within a fluid. It can be written as:
-\[
-\frac{D \mathbf{v}}{Dt} = -\nabla p + \nu \nabla^2 \mathbf{v}.
-\]
-Here, \(\frac{D \mathbf{v}}{Dt}\) is the material derivative representing the rate of change of velocity as seen from a stationary frame, \(p\) is the pressure, and \(\nu\) is the kinematic viscosity.
+$$\frac{D \mathbf{v}}{Dt} = -\nabla p + \nu \nabla^2 \mathbf{v}.$$
+
+Here,$\frac{D \mathbf{v}}{Dt}$ is the material derivative representing the rate of change of velocity as seen from a stationary frame,$p $ is the pressure, and$\nu$ is the kinematic viscosity.
 
 ---
 
@@ -233,9 +227,8 @@ Background context: The material derivative (or substantial derivative) describe
 :p What is the material derivative and what does it represent?
 ??x
 The material derivative represents the rate of change of a property (like velocity) as seen from a moving frame, incorporating both convective acceleration and local acceleration:
-\[
-\frac{D \mathbf{v}}{Dt} = (\mathbf{v} \cdot \nabla)\mathbf{v} + \frac{\partial \mathbf{v}}{\partial t}.
-\]
+$$\frac{D \mathbf{v}}{Dt} = (\mathbf{v} \cdot \nabla)\mathbf{v} + \frac{\partial \mathbf{v}}{\partial t}.$$
+
 This derivative is particularly important in fluid dynamics because it captures the nonlinearity introduced by velocity gradients.
 
 ---
@@ -247,15 +240,9 @@ Background context: The Navier-Stokes equations are nonlinear and typically do n
 :p What is the form of the Navier-Stokes equation used for computational purposes?
 ??x
 For computational fluid dynamics (CFD), the Cartesian form of the Navier-Stokes equation is often used:
-\[
-\frac{\partial v_x}{\partial t} + \sum_{j=x} v_j \frac{\partial v_x}{\partial x_j} = \nu \sum_{j=x} \frac{\partial^2 v_x}{\partial x_j^2} - \frac{1}{\rho} \frac{\partial P}{\partial x},
-\]
-\[
-\frac{\partial v_y}{\partial t} + \sum_{j=x} v_j \frac{\partial v_y}{\partial x_j} = \nu \sum_{j=x} \frac{\partial^2 v_y}{\partial x_j^2} - \frac{1}{\rho} \frac{\partial P}{\partial y},
-\]
-\[
-\frac{\partial v_z}{\partial t} + \sum_{j=x} v_j \frac{\partial v_z}{\partial x_j} = \nu \sum_{j=x} \frac{\partial^2 v_z}{\partial x_j^2} - \frac{1}{\rho} \frac{\partial P}{\partial z}.
-\]
+$$\frac{\partial v_x}{\partial t} + \sum_{j=x} v_j \frac{\partial v_x}{\partial x_j} = \nu \sum_{j=x} \frac{\partial^2 v_x}{\partial x_j^2} - \frac{1}{\rho} \frac{\partial P}{\partial x},$$
+$$\frac{\partial v_y}{\partial t} + \sum_{j=x} v_j \frac{\partial v_y}{\partial x_j} = \nu \sum_{j=x} \frac{\partial^2 v_y}{\partial x_j^2} - \frac{1}{\rho} \frac{\partial P}{\partial y},$$
+$$\frac{\partial v_z}{\partial t} + \sum_{j=x} v_j \frac{\partial v_z}{\partial x_j} = \nu \sum_{j=x} \frac{\partial^2 v_z}{\partial x_j^2} - \frac{1}{\rho} \frac{\partial P}{\partial z}.$$
 These equations describe the momentum transfer within a fluid region, accounting for both viscous forces and pressure gradients.
 
 ---

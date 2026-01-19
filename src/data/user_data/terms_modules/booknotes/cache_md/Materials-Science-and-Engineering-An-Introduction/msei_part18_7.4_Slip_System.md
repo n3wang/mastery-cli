@@ -52,18 +52,15 @@ x??
 Background context: The resolved shear stress (𝜏R) is a critical component in understanding how slip occurs. It depends on the applied stress, orientation of the slip plane normal, and the slip direction relative to the stress.
 
 Formula:
-\[ \tau_R = \sigma \cos\phi \cos\lambda \]
-
-:p What is the formula for resolved shear stress (𝜏R)?
+$$\tau_R = \sigma \cos\phi \cos\lambda$$:p What is the formula for resolved shear stress (𝜏R)?
 ??x
 The formula for resolved shear stress (𝜏R) is given by:
-
-\[ \tau_R = \sigma \cos\phi \cos\lambda \]
+$$\tau_R = \sigma \cos\phi \cos\lambda$$
 
 Where:
-- \(\sigma\) is the applied stress,
-- \(\phi\) is the angle between the normal to the slip plane and the direction of the applied stress,
-- \(\lambda\) is the angle between the slip direction and the direction of the applied stress.
+- $\sigma$ is the applied stress,
+- $\phi$ is the angle between the normal to the slip plane and the direction of the applied stress,
+- $\lambda$ is the angle between the slip direction and the direction of the applied stress.
 
 This formula helps in determining which orientation of the slip system will have the maximum resolved shear stress, thus initiating plastic deformation.
 x??
@@ -75,17 +72,17 @@ x??
 Background context: The critical resolved shear stress (𝜏crss) represents the minimum shear stress required to initiate slip. It is a material property and determines when yielding occurs.
 
 Formula:
-\[ \sigma_y = \tau_{crss} (\cos\phi \cos\lambda)_{max} \]
+$$\sigma_y = \tau_{crss} (\cos\phi \cos\lambda)_{max}$$
 
-:p What is the formula for yield strength (\(\sigma_y\)) in terms of critical resolved shear stress (𝜏crss)?
+:p What is the formula for yield strength ($\sigma_y$) in terms of critical resolved shear stress (𝜏crss)?
 ??x
-The yield strength (\(\sigma_y\)) can be expressed as:
+The yield strength ($\sigma_y$) can be expressed as:
 
-\[ \sigma_y = \tau_{crss} (\cos\phi \cos\lambda)_{max} \]
+$$\sigma_y = \tau_{crss} (\cos\phi \cos\lambda)_{max}$$
 
 Where:
-- \(\tau_{crss}\) is the critical resolved shear stress,
-- \((\cos\phi \cos\lambda)_{max}\) represents the maximum value of the product of the cosines involved.
+- $\tau_{crss}$ is the critical resolved shear stress,
+- $(\cos\phi \cos\lambda)_{max}$ represents the maximum value of the product of the cosines involved.
 
 This formula indicates that the applied stress required to initiate yielding depends on both the critical resolved shear stress and the orientation of the slip system.
 x??
@@ -96,11 +93,11 @@ x??
 #### Slip in a Single Crystal
 Background context: In single crystals, deformation occurs along preferred slip systems. The most favorable slip system has the highest resolved shear stress, which initiates plastic deformation when it reaches the critical value.
 
-:p What happens to a metal single crystal when the maximum resolved shear stress (\(\tau_{R(max)}\)) equals the critical resolved shear stress (𝜏crss)?
+:p What happens to a metal single crystal when the maximum resolved shear stress ($\tau_{R(max)}$) equals the critical resolved shear stress (𝜏crss)?
 ??x
-When the maximum resolved shear stress (\(\tau_{R(max)}\)) equals the critical resolved shear stress (𝜏crss), the metal single crystal starts to plastically deform or yield. This means that yielding occurs, and the magnitude of the applied stress required to initiate this deformation is given by:
+When the maximum resolved shear stress ($\tau_{R(max)}$) equals the critical resolved shear stress (𝜏crss), the metal single crystal starts to plastically deform or yield. This means that yielding occurs, and the magnitude of the applied stress required to initiate this deformation is given by:
 
-\[ \sigma_y = \tau_{crss} (\cos\phi \cos\lambda)_{max} \]
+$$\sigma_y = \tau_{crss} (\cos\phi \cos\lambda)_{max}$$
 
 This condition indicates that the material has reached its yield point.
 x??
@@ -129,28 +126,20 @@ Background context: The example problem demonstrates the calculation of resolved
 To calculate the resolved shear stress (𝜏R) for a single crystal of BCC iron oriented such that a tensile stress is applied along [010], follow these steps:
 
 1. **Identify the given values:**
-   - Tensile stress (\(\sigma\)) = 52 MPa
+   - Tensile stress ($\sigma$) = 52 MPa
    - Slip plane: (110)
    - Slip direction: [1 11]
-   - Given \(\phi\) and \(\lambda\) angles.
+   - Given $\phi $ and$\lambda$ angles.
 
-2. **Calculate \(\phi\):**
-   - \(\phi\) is the angle between the normal to the (110) slip plane ([110]) and the applied stress direction ([010]).
+2. **Calculate $\phi$:**
+   - $\phi$ is the angle between the normal to the (110) slip plane ([110]) and the applied stress direction ([010]).
    - Use Equation 7.6:
-     \[ \phi = \cos^{-1} \left( \frac{(1)(0) + (1)(1) + (0)(0)}{\sqrt{(1)^2 + (1)^2 + (0)^2} \cdot \sqrt{(0)^2 + (1)^2 + (0)^2}} \right) = 45^\circ \]
-
-3. **Calculate \(\lambda\):**
-   - \(\lambda\) is the angle between the slip direction ([1 11]) and the applied stress direction ([010]).
+$$\phi = \cos^{-1} \left( \frac{(1)(0) + (1)(1) + (0)(0)}{\sqrt{(1)^2 + (1)^2 + (0)^2} \cdot \sqrt{(0)^2 + (1)^2 + (0)^2}} \right) = 45^\circ$$3. **Calculate $\lambda$:**
+   - $\lambda$ is the angle between the slip direction ([1 11]) and the applied stress direction ([010]).
    - Use Equation 7.6:
-     \[ \lambda = \cos^{-1} \left( \frac{(1)(0) + (1)(1) + (1)(0)}{\sqrt{(1)^2 + (1)^2 + (1)^2} \cdot \sqrt{(0)^2 + (1)^2 + (0)^2}} \right) = 45^\circ \]
-
-4. **Substitute into the resolved shear stress formula:**
-   - \(\tau_R = \sigma \cos\phi \cos\lambda\)
-   - Substitute the values:
-     \[ \tau_R = 52 \, \text{MPa} \times \cos(45^\circ) \times \cos(45^\circ) \]
-     \[ \tau_R = 52 \, \text{MPa} \times \left(\frac{\sqrt{2}}{2}\right) \times \left(\frac{\sqrt{2}}{2}\right) \]
-     \[ \tau_R = 52 \, \text{MPa} \times \frac{1}{2} \]
-     \[ \tau_R = 26 \, \text{MPa} \]
+$$\lambda = \cos^{-1} \left( \frac{(1)(0) + (1)(1) + (1)(0)}{\sqrt{(1)^2 + (1)^2 + (1)^2} \cdot \sqrt{(0)^2 + (1)^2 + (0)^2}} \right) = 45^\circ$$4. **Substitute into the resolved shear stress formula:**
+   -$\tau_R = \sigma \cos\phi \cos\lambda$- Substitute the values:
+$$\tau_R = 52 \, \text{MPa} \times \cos(45^\circ) \times \cos(45^\circ)$$$$\tau_R = 52 \, \text{MPa} \times \left(\frac{\sqrt{2}}{2}\right) \times \left(\frac{\sqrt{2}}{2}\right)$$$$\tau_R = 52 \, \text{MPa} \times \frac{1}{2}$$$$\tau_R = 26 \, \text{MPa}$$
 
 Therefore, the resolved shear stress along the (110) plane in a [1 11] direction is 26 MPa.
 x??
@@ -163,13 +152,13 @@ Background context: The critical resolved shear stress (𝜏crss) is the minimum
 
 :p What is the difference between resolved shear stress (𝜏R) and critical resolved shear stress (𝜏crss)?
 ??x
-Resolved shear stress (\(\tau_R\)) is the actual shear stress experienced by a dislocation moving along a particular slip system, which depends on the orientation of both the applied stress and the slip plane/direction.
+Resolved shear stress ($\tau_R$) is the actual shear stress experienced by a dislocation moving along a particular slip system, which depends on the orientation of both the applied stress and the slip plane/direction.
 
-Critical resolved shear stress (\(\tau_{crss}\)) is the minimum value of \(\tau_R\) required to initiate plastic deformation (yielding) in a material. It represents the threshold stress needed for dislocation movement, making it a material property that determines when yielding begins.
+Critical resolved shear stress ($\tau_{crss}$) is the minimum value of $\tau_R$ required to initiate plastic deformation (yielding) in a material. It represents the threshold stress needed for dislocation movement, making it a material property that determines when yielding begins.
 
 In summary:
-- \(\tau_R\): Actual shear stress at any given orientation.
-- \(\tau_{crss}\): Minimum stress required to start slip and initiate plastic deformation.
+- $\tau_R$: Actual shear stress at any given orientation.
+- $\tau_{crss}$: Minimum stress required to start slip and initiate plastic deformation.
 x??
 
 ---
@@ -178,23 +167,17 @@ x??
 
 
 #### Calculation of Yield Strength for a Polycrystalline Material
-Background context: The text explains how to calculate the yield strength \(\sigma_y\) of a material under slip, using specific crystallographic directions and angles. It includes formulas from Equations 7.2 and 7.4.
+Background context: The text explains how to calculate the yield strength $\sigma_y$ of a material under slip, using specific crystallographic directions and angles. It includes formulas from Equations 7.2 and 7.4.
 
-:p What is the formula used to compute the resolved shear stress \(\tau_R\) for a given orientation in a polycrystalline material?
+:p What is the formula used to compute the resolved shear stress $\tau_R$ for a given orientation in a polycrystalline material?
 ??x
-The formula to compute the resolved shear stress \(\tau_R\) is:
-\[
-\tau_R = \sigma \cos \varphi \cos \lambda
-\]
-where \(\sigma\) is the applied stress, \(\varphi\) is the angle between the applied stress and the normal to the slip plane, and \(\lambda\) is the angle between the resolved shear vector on the slip plane and the direction of the dislocation.
+The formula to compute the resolved shear stress $\tau_R$ is:
+$$\tau_R = \sigma \cos \varphi \cos \lambda$$where $\sigma $ is the applied stress,$\varphi $ is the angle between the applied stress and the normal to the slip plane, and$\lambda$ is the angle between the resolved shear vector on the slip plane and the direction of the dislocation.
 
-:p What is the formula used to compute the yield strength \(\sigma_y\) for a given orientation in a polycrystalline material?
+:p What is the formula used to compute the yield strength $\sigma_y$ for a given orientation in a polycrystalline material?
 ??x
-The formula to compute the yield strength \(\sigma_y\) is:
-\[
-\sigma_y = 30 \text{ MPa} (\cos 45^\circ)(\cos 54.7^\circ)
-\]
-where \(30 \text{ MPa}\) is the applied stress, and \(45^\circ\) and \(54.7^\circ\) are the angles as defined in part (a).
+The formula to compute the yield strength $\sigma_y$ is:
+$$\sigma_y = 30 \text{ MPa} (\cos 45^\circ)(\cos 54.7^\circ)$$where $30 \text{ MPa}$ is the applied stress, and $45^\circ$ and $54.7^\circ$ are the angles as defined in part (a).
 
 :p What are slip lines visible on the surface of a deformed polycrystalline specimen?
 ??x

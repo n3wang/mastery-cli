@@ -116,7 +116,7 @@ Background context explaining the concept. The masked self-attention mechanism i
 
 :p What is the purpose of masking in the decoder's attention layer?
 ??x
-Masking ensures that when generating a token at position \( t \), the model can only attend to positions earlier than \( t \). This prevents "looking into the future" and helps maintain the autoregressive nature of language generation.
+Masking ensures that when generating a token at position $t $, the model can only attend to positions earlier than $ t$. This prevents "looking into the future" and helps maintain the autoregressive nature of language generation.
 x??
 
 ---

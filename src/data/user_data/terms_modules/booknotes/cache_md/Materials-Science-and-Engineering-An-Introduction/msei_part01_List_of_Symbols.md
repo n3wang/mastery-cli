@@ -7,62 +7,62 @@
 
 
 #### Atomic Packing Factor (APF)
-Background context: The atomic packing factor (APF) or \( \text{APF} \) is a measure of how efficiently atoms pack together in a crystal structure. It relates to the volume occupied by atoms within the unit cell.
+Background context: The atomic packing factor (APF) or $\text{APF}$ is a measure of how efficiently atoms pack together in a crystal structure. It relates to the volume occupied by atoms within the unit cell.
 
 :p What is the atomic packing factor (APF)?
 ??x
-The atomic packing factor (\(\text{APF}\)) is a measure of how densely atoms can be packed in a crystal structure, representing the ratio of the total atomic volume to the unit cell volume.
+The atomic packing factor ($\text{APF}$) is a measure of how densely atoms can be packed in a crystal structure, representing the ratio of the total atomic volume to the unit cell volume.
 x??
 
 ---
 
 
 #### Lattice Parameter (a)
-Background context: The lattice parameter \( a \) represents the length of one side of the unit cell in a crystal structure. It is fundamental for understanding the geometry and properties of crystalline materials.
+Background context: The lattice parameter $a$ represents the length of one side of the unit cell in a crystal structure. It is fundamental for understanding the geometry and properties of crystalline materials.
 
-:p What does \( a \) represent?
+:p What does $a$ represent?
 ??x
-\( a \) denotes the lattice parameter, which is the length of one side of the unit cell in a crystal structure. This value is crucial for describing the geometric arrangement of atoms.
+$a$ denotes the lattice parameter, which is the length of one side of the unit cell in a crystal structure. This value is crucial for describing the geometric arrangement of atoms.
 x??
 
 ---
 
 
 #### Crack Length (a)
-Background context: The symbol \( a \) can also represent the crack length of a surface crack, which is important in fracture mechanics and material science.
+Background context: The symbol $a$ can also represent the crack length of a surface crack, which is important in fracture mechanics and material science.
 
-:p What does \( a \) represent when used with cracks?
+:p What does $a$ represent when used with cracks?
 ??x
-\( a \) represents the crack length of a surface crack. This parameter is significant in studying the propagation and behavior of cracks in materials.
+$a$ represents the crack length of a surface crack. This parameter is significant in studying the propagation and behavior of cracks in materials.
 x??
 
 ---
 
 
 #### Magnetic Flux Density (B)
-Background context: The magnetic flux density, also known as induction and denoted by \( B \), is a measure of the strength of a magnetic field at a given point.
+Background context: The magnetic flux density, also known as induction and denoted by $B$, is a measure of the strength of a magnetic field at a given point.
 
-:p What does \( B \) represent in magnetism?
+:p What does $B$ represent in magnetism?
 ??x
-\( B \) represents the magnetic flux density or induction. It measures the strength of a magnetic field at a specific location.
+$B$ represents the magnetic flux density or induction. It measures the strength of a magnetic field at a specific location.
 x??
 
 ---
 
 
 #### Magnetic Remanence (Br)
-Background context: The symbol \( B_r \), or magnetic remanence, is the residual magnetic flux density in a ferromagnetic material after removal of an external magnetic field.
+Background context: The symbol $B_r$, or magnetic remanence, is the residual magnetic flux density in a ferromagnetic material after removal of an external magnetic field.
 
-:p What does \( B_r \) represent?
+:p What does $B_r$ represent?
 ??x
-\( B_r \) represents the magnetic remanence, which is the residual magnetic flux density remaining in a ferromagnetic material after an applied external magnetic field has been removed.
+$B_r$ represents the magnetic remanence, which is the residual magnetic flux density remaining in a ferromagnetic material after an applied external magnetic field has been removed.
 x??
 
 ---
 
 
 #### Body-Centered Cubic Crystal Structure (BCC)
-Background context: The body-centered cubic crystal structure, denoted by \( \text{BCC} \), is one of several common types of lattice structures found in metals and other materials.
+Background context: The body-centered cubic crystal structure, denoted by $\text{BCC}$, is one of several common types of lattice structures found in metals and other materials.
 
 :p What does BCC represent?
 ??x

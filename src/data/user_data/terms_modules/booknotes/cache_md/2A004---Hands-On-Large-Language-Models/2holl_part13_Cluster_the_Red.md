@@ -333,13 +333,13 @@ Formally, LDA models the generative process as follows:
 ??x
 In LDA, the generative process is modeled as follows:
 
-1. **Document-Topic Distribution**: Each document \( d \) in the corpus is associated with a probability distribution over K topics: \( \theta_d = [\theta_{d1}, \theta_{d2}, ..., \theta_{dK}] \).
+1. **Document-Topic Distribution**: Each document $d $ in the corpus is associated with a probability distribution over K topics:$\theta_d = [\theta_{d1}, \theta_{d2}, ..., \theta_{dK}]$.
    
-2. **Word-Topic Distribution**: Each topic \( k \) has a probability distribution over V words in the vocabulary: \( \beta_k = [\beta_{k1}, \beta_{k2}, ..., \beta_{kV}] \).
+2. **Word-Topic Distribution**: Each topic $k $ has a probability distribution over V words in the vocabulary:$\beta_k = [\beta_{k1}, \beta_{k2}, ..., \beta_{kV}]$.
 
 3. **Document-Words Generation**:
-   - For each word position in document \( d \), we first select a topic \( z_{di} \) from \( \theta_d \).
-   - Then, given the selected topic, we choose a word \( w_{di} \) from the corresponding word distribution \( \beta_{z_{di}} \).
+   - For each word position in document $d $, we first select a topic $ z_{di}$from $\theta_d$.
+   - Then, given the selected topic, we choose a word $w_{di}$ from the corresponding word distribution $\beta_{z_{di}}$.
 
 The parameters are estimated using an iterative algorithm such as Variational Inference or Gibbs Sampling.
 

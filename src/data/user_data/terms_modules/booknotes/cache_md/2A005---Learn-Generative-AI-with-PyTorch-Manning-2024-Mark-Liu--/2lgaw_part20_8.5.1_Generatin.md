@@ -25,7 +25,7 @@ x??
 
 
 #### LSTM Model Initialization and Training Setup
-Background context: After initializing the weights of the LSTM model, we use pairs of (x, y) to train the model. The Adam optimizer is used with a learning rate of \(0.0001\), and the loss function is cross-entropy because this is essentially a multi-category classification problem.
+Background context: After initializing the weights of the LSTM model, we use pairs of (x, y) to train the model. The Adam optimizer is used with a learning rate of $0.0001$, and the loss function is cross-entropy because this is essentially a multi-category classification problem.
 
 :p What are the steps involved in setting up an LSTM model for training?
 ??x
@@ -35,7 +35,7 @@ To set up the LSTM model for training, we first initialize it by calling `WordLS
    ```python
    model = WordLSTM().to(device)
    ```
-2. Set up the Adam optimizer with a learning rate of \(0.0001\):
+2. Set up the Adam optimizer with a learning rate of $0.0001$:
    ```python
    lr = 0.0001
    optimizer = torch.optim.Adam(model.parameters(), lr=lr)
@@ -52,15 +52,15 @@ x??
 
 
 #### Training Process Overview
-Background context: During each epoch of training, we pass through all data batches (x, y) in the training set. The LSTM model processes the input sequence \(x\) to generate a predicted output sequence \(\hat{y}\), which is then compared with the actual output sequence \(y\). Adjustments are made to minimize the cross-entropy loss.
+Background context: During each epoch of training, we pass through all data batches (x, y) in the training set. The LSTM model processes the input sequence $x $ to generate a predicted output sequence$\hat{y}$, which is then compared with the actual output sequence $ y$. Adjustments are made to minimize the cross-entropy loss.
 
 :p How does the training process for an LSTM model work?
 ??x
 The training process involves several steps:
 1. For each epoch, iterate through all data batches (x, y) in the training set.
-2. Initialize hidden states \(h\) and \(c\).
-3. Feed the input sequence \(x\) into the model to get a predicted output \(\hat{y}\).
-4. Compute the cross-entropy loss by comparing \(\hat{y}\) with the actual output \(y\).
+2. Initialize hidden states $h $ and$c$.
+3. Feed the input sequence $x $ into the model to get a predicted output$\hat{y}$.
+4. Compute the cross-entropy loss by comparing $\hat{y}$ with the actual output $y$.
 5. Backpropagate the gradients through time.
 6. Update the model parameters using the optimizer.
 
@@ -98,22 +98,16 @@ x??
 
 
 #### Hidden State Update and Backpropagation
-Background context: During training, the hidden state \(h\) and cell state \(c\) are updated after each sequence step. The model uses these states to maintain a summary of the information from previous tokens.
+Background context: During training, the hidden state $h $ and cell state$c$ are updated after each sequence step. The model uses these states to maintain a summary of the information from previous tokens.
 
 :p How do hidden states and cell states update during an LSTM's forward pass?
 ??x
-During each time step in the LSTM's forward pass, the hidden state \(h_t\) and cell state \(c_t\) are updated as follows:
-- **Hidden State Update**: 
-  \[
-  h_{t} = f(h_{t-1}, c_{t-1}, x_{t})
-  \]
-  where \(f\) is a function that combines the previous hidden state, cell state, and current input to produce the new hidden state.
+During each time step in the LSTM's forward pass, the hidden state $h_t $ and cell state$c_t$ are updated as follows:
+- **Hidden State Update**:
+$$h_{t} = f(h_{t-1}, c_{t-1}, x_{t})$$where $ f$ is a function that combines the previous hidden state, cell state, and current input to produce the new hidden state.
 
 - **Cell State Update**:
-  \[
-  c_{t} = i \odot h_{t-1} + f \odot c_{t-1}
-  \]
-  where \(i\) is the input gate, \(f\) is the forget gate, and \(\odot\) denotes element-wise multiplication.
+$$c_{t} = i \odot h_{t-1} + f \odot c_{t-1}$$where $ i $is the input gate,$ f $is the forget gate, and$\odot$ denotes element-wise multiplication.
 
 After computing these states for each time step, they are used to generate predictions. The hidden state at the final time step can be fed into the next sequence or used as an initial state in a new sequence.
 x??
@@ -122,14 +116,14 @@ x??
 
 
 #### Batch Processing and Iteration
-Background context: During training, batches of data (x, y) are processed iteratively over multiple epochs. Each iteration involves feeding the input sequence \(x\) to the LSTM model and computing the loss for each batch.
+Background context: During training, batches of data (x, y) are processed iteratively over multiple epochs. Each iteration involves feeding the input sequence $x$ to the LSTM model and computing the loss for each batch.
 
 :p How do we handle batch processing in the training loop?
 ??x
-In the training loop, batches of data are processed one by one within each epoch. This is done using a data loader that returns batches of input sequences \(x\) and their corresponding target sequences \(y\). For each batch:
+In the training loop, batches of data are processed one by one within each epoch. This is done using a data loader that returns batches of input sequences $x $ and their corresponding target sequences$y$. For each batch:
 1. The model receives the input sequence `inputs` on the device.
 2. The optimizer's gradients are zeroed to reset them before the backpropagation step.
-3. A forward pass is performed, generating predictions \(\hat{y}\).
+3. A forward pass is performed, generating predictions $\hat{y}$.
 4. The loss is computed using the cross-entropy loss function.
 5. Backpropagation updates the model parameters.
 
@@ -782,7 +776,7 @@ Relevant formulas are not provided here but can be described in natural language
 ??x
 The input embedding for "How are you?" forms a tensor with dimensions (4, 256), where 4 represents the number of tokens and 256 is the dimensionality of each embedding. This tensor combines word embeddings with positional encoding to provide both semantic meaning and position information.
 
-Explanation: The shape \((4, 256)\) reflects that there are four tokens (how, are, you, ?), each represented by a 256-dimensional vector.
+Explanation: The shape $(4, 256)$ reflects that there are four tokens (how, are, you, ?), each represented by a 256-dimensional vector.
 x??
 
 ---
@@ -840,7 +834,7 @@ Background context explaining the concept. After building the model structure, t
 Relevant formulas are not provided here but can be described in natural language.
 :p How does the encoder process the phrase "How are you?"?
 ??x
-The encoder processes the phrase "How are you?" by breaking it down into tokens [how, are, you, ?]. Each token is represented by a 256-dimensional vector (word embedding), and positional encoding is added to these vectors. These input embeddings form a tensor of shape \((4, 256)\) for the phrase "How are you?".
+The encoder processes the phrase "How are you?" by breaking it down into tokens [how, are, you, ?]. Each token is represented by a 256-dimensional vector (word embedding), and positional encoding is added to these vectors. These input embeddings form a tensor of shape $(4, 256)$ for the phrase "How are you?".
 
 Explanation: The encoder uses word embeddings and positional encoding to provide both semantic meaning and position information.
 x??
@@ -869,32 +863,36 @@ In the self-attention mechanism, the input embedding X is passed through three l
 :p How are query (Q), key (K), and value (V) vectors calculated?
 ??x
 The query, key, and value vectors are calculated using matrix multiplications of the input embedding X with their respective weights:
-\[ Q = X * WQ \]
-\[ K = X * WK \]
-\[ V = X * WV \]
+$$Q = X * WQ$$
+$$
 
-These weights \(WQ\), \(WK\), and \(WV\) are first randomly initialized and then learned from the training data. Each weight matrix has a dimension of 256 × 256, and the input embedding X also has a dimension of 4 × 256.
+K = X * WK$$
+$$
+
+V = X * WV$$
+
+These weights $WQ $,$ WK $, and$ WV$ are first randomly initialized and then learned from the training data. Each weight matrix has a dimension of 256 × 256, and the input embedding X also has a dimension of 4 × 256.
 x??
 
 ---
 
 
 #### Scaled Dot-Product Attention
-The scaled dot-product attention is computed by first calculating the dot product between the query vector (Q) and key vector (K). This is then scaled by dividing by the square root of the key's dimension, \(dk\), and applying a softmax function to obtain an attention weight. The final attention score is obtained by multiplying this weight with the value vector (V).
+The scaled dot-product attention is computed by first calculating the dot product between the query vector (Q) and key vector (K). This is then scaled by dividing by the square root of the key's dimension,$dk$, and applying a softmax function to obtain an attention weight. The final attention score is obtained by multiplying this weight with the value vector (V).
 
 :p How is the scaled dot-product attention calculated?
 ??x
 The scaled dot-product attention is calculated using the following steps:
 1. Compute the dot product between query (Q) and key (K).
-2. Scale the result by dividing it by the square root of the dimension of K, \(dk\).
+2. Scale the result by dividing it by the square root of the dimension of K, $dk$.
 3. Apply a softmax function to obtain an attention weight.
 4. Multiply this weight with value V.
 
 The formula for scaled dot-product attention is:
-\[ \text{Attention}(Q, K, V) = \text{softmax} \left( \frac{QK^\top}{\sqrt{dk}} \right) V \]
+$$\text{Attention}(Q, K, V) = \text{softmax} \left( \frac{QK^\top}{\sqrt{dk}} \right) V$$
 
-For example, in the sentence "How are you?", if we assume \(dk = 256\), the scaled attention score for each word would be computed as:
-\[ \text{Attention}(Q, K, V) = \frac{QK^\top}{\sqrt{256}} \cdot V \]
+For example, in the sentence "How are you?", if we assume $dk = 256$, the scaled attention score for each word would be computed as:
+$$\text{Attention}(Q, K, V) = \frac{QK^\top}{\sqrt{256}} \cdot V$$
 
 This ensures that the dot product is appropriately scaled before applying the softmax function.
 x??
@@ -909,12 +907,8 @@ As an example, consider the sentence "How are you?". The input embedding X is pr
 ??x
 For the sentence "How are you?", let's assume each word (token) is represented by a 4 × 256 embedding matrix X. Each word will pass through three linear layers to obtain query Q, key K, and value V.
 
-1. **Query (Q)**: \( Q = X * WQ \)
-2. **Key (K)**: \( K = X * WK \)
-3. **Value (V)**: \( V = X * WV \)
-
-The scaled dot-product attention for each word would be computed as:
-\[ \text{Attention}(Q, K, V) = \frac{QK^\top}{\sqrt{256}} \cdot V \]
+1. **Query (Q)**:$Q = X * WQ $2. **Key (K)**:$ K = X * WK $3. **Value (V)**:$ V = X * WV$ The scaled dot-product attention for each word would be computed as:
+$$\text{Attention}(Q, K, V) = \frac{QK^\top}{\sqrt{256}} \cdot V$$
 
 This process ensures that the words in the sentence "How are you?" can effectively attend to one another, capturing the dependencies between them.
 x??

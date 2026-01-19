@@ -12,7 +12,7 @@ Background context: This section discusses the efficiency of sample updates vers
 
 :p How do sample updates compare to expected updates for large b values?
 ??x
-Sample updates are more efficient than expected updates when b is moderately large. For these cases, many state-action pairs can be improved dramatically within the same time that a single state-action pair undergoes an expected update. Sample updates reduce the error based on \( q b^{t} \), where t is the number of sample updates performed.
+Sample updates are more efficient than expected updates when b is moderately large. For these cases, many state-action pairs can be improved dramatically within the same time that a single state-action pair undergoes an expected update. Sample updates reduce the error based on $q b^{t}$, where t is the number of sample updates performed.
 
 This efficiency arises because for large b, the error reduces significantly with a small fraction of b updates. The key advantage lies in improving many state-action pairs to be close to their optimal values faster than performing a single expected update.
 x??
@@ -127,7 +127,7 @@ The experiment in Figure 8.8 was replicated to understand the impact of differen
 
 :p What did the authors do in Exercise 8.8, and what can you discuss about their results?
 ??x
-In Exercise 8.8, the authors replicated the experiment shown in the lower part of Figure 8.8 but with a different branching factor \( b = 3 \). This was done to investigate how varying the branching factor affects learning curves.
+In Exercise 8.8, the authors replicated the experiment shown in the lower part of Figure 8.8 but with a different branching factor $b = 3$. This was done to investigate how varying the branching factor affects learning curves.
 
 The results likely showed differences in convergence and performance based on the branching factor. Higher branching factors might lead to more varied exploration, potentially improving long-term performance compared to smaller factors where initial focus might be too narrow.
 

@@ -65,10 +65,10 @@ x??
 
 
 #### State Features and Action Constraints
-The system uses six integer-valued features to represent states. However, the constraints (sets \(A(S_t)\)) are defined by a broader set of factors related to timing and resource constraints that must be satisfied by the hardware implementation.
+The system uses six integer-valued features to represent states. However, the constraints (sets $A(S_t)$) are defined by a broader set of factors related to timing and resource constraints that must be satisfied by the hardware implementation.
 :p What differentiates the state features used in tile coding from those used in action constraints?
 ??x
-The state features used for defining the action-value function through tile coding are derived primarily from the contents of the transaction queue (e.g., number of read/write requests). In contrast, the action constraint sets \(A(S_t)\) depend on more complex factors like timing and resource availability, ensuring that exploration does not compromise the integrity of the physical system.
+The state features used for defining the action-value function through tile coding are derived primarily from the contents of the transaction queue (e.g., number of read/write requests). In contrast, the action constraint sets $A(S_t)$ depend on more complex factors like timing and resource availability, ensuring that exploration does not compromise the integrity of the physical system.
 x??
 
 ---
@@ -79,8 +79,9 @@ The scheduling agent uses the SARSA algorithm to learn an action-value function.
 :p How is the Sarsa learning algorithm applied in this context?
 ??x
 SARSA updates the action-value function using the formula:
-\[Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha [R_{t+1} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t)]\]
-Where \(S_t\) and \(A_t\) are the current state and action, \(R_{t+1}\) is the reward from taking action \(A_t\) in state \(S_t\), \(\alpha\) is the learning rate, and \(\gamma\) is the discount factor. This ensures that the agent learns optimal actions based on immediate rewards and future predictions.
+$$Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha [R_{t+1} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t)]$$
+
+Where $S_t $ and$A_t $ are the current state and action,$R_{t+1}$ is the reward from taking action $ A_t $ in state $ S_t $,$\alpha $ is the learning rate, and$\gamma$ is the discount factor. This ensures that the agent learns optimal actions based on immediate rewards and future predictions.
 x??
 
 ---
@@ -121,10 +122,10 @@ x??
 
 
 #### -Greedy Exploration Strategy
-Exploration is implemented using \(\epsilon\)-greedy with \(\epsilon = 0.05\). This balances exploration (trying new actions) and exploitation (choosing known good actions).
-:p What is the purpose of using an \(\epsilon\)-greedy strategy in this context?
+Exploration is implemented using $\epsilon $-greedy with $\epsilon = 0.05$. This balances exploration (trying new actions) and exploitation (choosing known good actions).
+:p What is the purpose of using an $\epsilon$-greedy strategy in this context?
 ??x
-The \(\epsilon\)-greedy strategy encourages the agent to explore different actions by randomly selecting a suboptimal action with probability \(\epsilon = 0.05\) and choosing the optimal action otherwise, ensuring that exploration continues while leveraging existing knowledge.
+The $\epsilon $-greedy strategy encourages the agent to explore different actions by randomly selecting a suboptimal action with probability $\epsilon = 0.05$ and choosing the optimal action otherwise, ensuring that exploration continues while leveraging existing knowledge.
 ```java
 public class EpsilonGreedyAgent {
     double epsilon;
@@ -609,12 +610,12 @@ x??
 
 
 #### Exploration vs Exploitation with ε-Greedy Policy
-DQN employed an \(\epsilon\)-greedy policy, where \(\epsilon\) (epsilon) decreases linearly over the first million frames of training. After this initial phase, \(\epsilon\) remained at a low value for the rest of the learning session.
+DQN employed an $\epsilon $-greedy policy, where $\epsilon $(epsilon) decreases linearly over the first million frames of training. After this initial phase,$\epsilon$ remained at a low value for the rest of the learning session.
 
 This strategy balanced exploration and exploitation by initially exploring more aggressively but gradually focusing on exploiting known good actions.
 :p How did DQN handle exploration vs exploitation?
 ??x
-DQN used an \(\epsilon\)-greedy policy to balance exploration and exploitation. Initially, \(\epsilon\) decreased linearly over the first million frames of training to encourage exploration. After this phase, \(\epsilon\) was kept low to focus on exploiting known good actions.
+DQN used an $\epsilon $-greedy policy to balance exploration and exploitation. Initially, $\epsilon $ decreased linearly over the first million frames of training to encourage exploration. After this phase,$\epsilon$ was kept low to focus on exploiting known good actions.
 x??
 
 ---
@@ -622,17 +623,17 @@ x??
 
 #### Q-Learning Update Mechanism
 DQN used a semi-gradient form of Q-learning for updating its network weights based on the experiences it had stored in a replay memory. The update formula was:
-\[ w_{t+1} = w_t + \alpha (r_t + \gamma \max_a q(S_{t+1}, a, w_t) - q(S_t, A_t, w_t)) \]
+$$w_{t+1} = w_t + \alpha (r_t + \gamma \max_a q(S_{t+1}, a, w_t) - q(S_t, A_t, w_t))$$
 
-Here, \(w_t\) is the vector of network weights, \(A_t\) is the action selected at time step \(t\), and \(S_t\) and \(S_{t+1}\) are respectively the preprocessed image stacks input to the network at time steps \(t\) and \(t+1\).
+Here,$w_t $ is the vector of network weights,$A_t $ is the action selected at time step$t $, and $ S_t $and$ S_{t+1}$are respectively the preprocessed image stacks input to the network at time steps $ t$and $ t+1$.
 
 The gradient in this formula was computed using backpropagation.
 :p How did DQN update its weights?
 ??x
 DQN used a semi-gradient form of Q-learning for updating its network weights. The update rule is:
-\[ w_{t+1} = w_t + \alpha (r_t + \gamma \max_a q(S_{t+1}, a, w_t) - q(S_t, A_t, w_t)) \]
+$$w_{t+1} = w_t + \alpha (r_t + \gamma \max_a q(S_{t+1}, a, w_t) - q(S_t, A_t, w_t))$$
 
-Here, \(w_t\) represents the vector of network weights, \(A_t\) is the action selected at time step \(t\), and \(S_t\) and \(S_{t+1}\) are the preprocessed image stacks input to the network. The gradient was computed using backpropagation.
+Here,$w_t $ represents the vector of network weights,$A_t $ is the action selected at time step$t $, and $ S_t $and$ S_{t+1}$ are the preprocessed image stacks input to the network. The gradient was computed using backpropagation.
 x??
 
 ---
@@ -641,10 +642,10 @@ x??
 #### Experience Replay Technique
 Experience replay stored the agent's experience at each time step in a replay memory, which was used to perform weight updates later on.
 
-The process worked as follows: after executing action \(A_t\) in state represented by image stack \(S_t\), receiving reward \(R_{t+1}\) and new image stack \(S_{t+1}\), the agent added the tuple \((S_t, A_t, R_{t+1}, S_{t+1})\) to the replay memory. Experiences were sampled uniformly at random from this memory for Q-learning updates.
+The process worked as follows: after executing action $A_t $ in state represented by image stack$S_t $, receiving reward $ R_{t+1}$and new image stack $ S_{t+1}$, the agent added the tuple $(S_t, A_t, R_{t+1}, S_{t+1})$ to the replay memory. Experiences were sampled uniformly at random from this memory for Q-learning updates.
 :p How did DQN implement experience replay?
 ??x
-Experience replay stored the agent's experience in a replay memory after each action. The process was as follows: after executing \(A_t\), receiving reward \(R_{t+1}\) and new image stack \(S_{t+1}\), the agent added the tuple \((S_t, A_t, R_{t+1}, S_{t+1})\) to the replay memory. Experiences were then sampled uniformly at random from this memory for Q-learning updates.
+Experience replay stored the agent's experience in a replay memory after each action. The process was as follows: after executing $A_t $, receiving reward $ R_{t+1}$and new image stack $ S_{t+1}$, the agent added the tuple $(S_t, A_t, R_{t+1}, S_{t+1})$ to the replay memory. Experiences were then sampled uniformly at random from this memory for Q-learning updates.
 x??
 
 ---
@@ -682,7 +683,7 @@ In standard Q-learning, the target value depends on the current action-value fun
 
 :p How does the dependency of the target on the current weights (parameters) affect the stability of Q-learning?
 ??x
-The dependency of the target on the current weights complicates the update process because it introduces a feedback loop that can destabilize the learning. For instance, in the formula given by \( w_{t+1} = w_t + \alpha \left( r_{t+1} + \max_a q(S_{t+1}, a, w_t) - q(S_t, A_t, w_t) \right) \), the target value \( \max_a q(S_{t+1}, a, w_t) \) depends on the weights being updated, leading to potential oscillations or divergence.
+The dependency of the target on the current weights complicates the update process because it introduces a feedback loop that can destabilize the learning. For instance, in the formula given by $w_{t+1} = w_t + \alpha \left( r_{t+1} + \max_a q(S_{t+1}, a, w_t) - q(S_t, A_t, w_t) \right)$, the target value $\max_a q(S_{t+1}, a, w_t)$ depends on the weights being updated, leading to potential oscillations or divergence.
 ??
 
 ---
@@ -693,7 +694,7 @@ Mnih et al. introduced a method that brings Q-learning closer to supervised lear
 
 :p How does Mnih et al.'s technique address the stability issues in standard Q-learning?
 ??x
-Mnih et al.'s approach addresses stability issues by using a separate target network that is updated less frequently. Whenever a certain number, \( C \), of updates have been done to the weights \( w \) of the action-value network, the current weights are copied into a fixed target network. The outputs from this target network are then used as targets for the Q-learning update rule during the next \( C \) weight updates.
+Mnih et al.'s approach addresses stability issues by using a separate target network that is updated less frequently. Whenever a certain number, $C $, of updates have been done to the weights $ w $ of the action-value network, the current weights are copied into a fixed target network. The outputs from this target network are then used as targets for the Q-learning update rule during the next $ C$ weight updates.
 ??
 
 ---
@@ -701,14 +702,12 @@ Mnih et al.'s approach addresses stability issues by using a separate target net
 
 #### Implementation Details
 The updated rule using the target network is given by:
-\[ w_{t+1} = w_t + \alpha \left( r_{t+1} + \max_a \tilde{q}(S_{t+1}, a, w_t) - q(S_t, A_t, w_t) \right) \]
-where \( \tilde{q} \) is the output of the duplicate network.
+$$w_{t+1} = w_t + \alpha \left( r_{t+1} + \max_a \tilde{q}(S_{t+1}, a, w_t) - q(S_t, A_t, w_t) \right)$$where $\tilde{q}$ is the output of the duplicate network.
 
 :p What is the updated rule for Q-learning with target networks?
 ??x
 The updated rule using the target network is:
-\[ w_{t+1} = w_t + \alpha \left( r_{t+1} + \max_a \tilde{q}(S_{t+1}, a, w_t) - q(S_t, A_t, w_t) \right) \]
-where \( \tilde{q} \) is the output of the duplicate network. This rule stabilizes the learning process by decoupling the target values from the current weights being updated.
+$$w_{t+1} = w_t + \alpha \left( r_{t+1} + \max_a \tilde{q}(S_{t+1}, a, w_t) - q(S_t, A_t, w_t) \right)$$where $\tilde{q}$ is the output of the duplicate network. This rule stabilizes the learning process by decoupling the target values from the current weights being updated.
 ??
 ---
 
@@ -720,7 +719,7 @@ Background context explaining the modification of standard Q-learning to enhance
 
 :p What is the modification made to Q-learning to improve its stability?
 ??x
-The modification involved clipping the error term \( R_{t+1} + \max_{a'} q(S_{t+1}, a', w_t) - q(S_t, A_t, w_t) \) so that it remained within the interval [–1, 1]. This ensured that the learning process was more stable and reliable.
+The modification involved clipping the error term $R_{t+1} + \max_{a'} q(S_{t+1}, a', w_t) - q(S_t, A_t, w_t)$ so that it remained within the interval [–1, 1]. This ensured that the learning process was more stable and reliable.
 
 ```java
 // Pseudocode for error term clipping in Q-learning
@@ -820,7 +819,7 @@ Background context explaining why methods that succeeded in other games were not
 
 :p Why have programs struggled to achieve human-level performance in the game of Go?
 ??x
-Methods that successfully achieved high levels of play in other games have not been able to produce strong Go programs due to the unique challenges posed by the game. The complexity and strategic depth of Go, combined with the vast number of possible moves (over \(10^{170}\) possible board positions), made it a difficult task for previous AI approaches. However, recent advancements have seen significant improvements in Go program performance.
+Methods that successfully achieved high levels of play in other games have not been able to produce strong Go programs due to the unique challenges posed by the game. The complexity and strategic depth of Go, combined with the vast number of possible moves (over $10^{170}$ possible board positions), made it a difficult task for previous AI approaches. However, recent advancements have seen significant improvements in Go program performance.
 
 ```java
 // Pseudocode for evaluating Go programs

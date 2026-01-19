@@ -7,7 +7,7 @@
 
 
 #### Optimistic Initial Values
-Background context: The initial action-value estimates, \(Q_1(a)\), can significantly influence the performance of action-value methods. These methods may be biased initially but this bias diminishes over time. Setting optimistic initial values can encourage exploration.
+Background context: The initial action-value estimates, $Q_1(a)$, can significantly influence the performance of action-value methods. These methods may be biased initially but this bias diminishes over time. Setting optimistic initial values can encourage exploration.
 
 :p How do optimistic initial values work in the 10-armed testbed scenario?
 ??x
@@ -53,11 +53,10 @@ x??
 #### Upper-Conﬁdence-Bound Action Selection (UCB)
 Background context: UCB action selection addresses the issue of exploration by selecting actions that maximize an upper bound on their possible true values. This approach takes into account both the accuracy of current estimates and the uncertainty in those estimates.
 
-:p What is the formula for calculating the UCB value for action \(a\) at time step \(t\), and how does it work?
+:p What is the formula for calculating the UCB value for action $a $ at time step$t$, and how does it work?
 ??x
-The UCB value for action \(a\) at time step \(t\) is given by:
-\[ \text{UCB}_t(a) = Q_t(a) + c \sqrt{\frac{\ln t}{N_t(a)}} \]
-where \(Q_t(a)\) is the current estimate of action \(a\), \(N_t(a)\) is the number of times action \(a\) has been selected, and \(c > 0\) controls the degree of exploration.
+The UCB value for action $a $ at time step$t$ is given by:
+$$\text{UCB}_t(a) = Q_t(a) + c \sqrt{\frac{\ln t}{N_t(a)}}$$where $ Q_t(a)$is the current estimate of action $ a$,$ N_t(a)$is the number of times action $ a$has been selected, and $ c > 0$ controls the degree of exploration.
 
 ```java
 // Pseudocode for UCB action selection
@@ -86,7 +85,7 @@ Gradient bandit algorithms aim to learn a numerical preference for each action w
 
 :p What is the primary method used by gradient bandit algorithms to adjust their action preferences?
 ??x
-The primary method used by gradient bandit algorithms involves updating action preferences \(H_t(a)\) based on the difference between the reward and the baseline reward, proportional to the probability of taking the current action. This update ensures that actions with higher rewards are preferred more often.
+The primary method used by gradient bandit algorithms involves updating action preferences $H_t(a)$ based on the difference between the reward and the baseline reward, proportional to the probability of taking the current action. This update ensures that actions with higher rewards are preferred more often.
 
 ```java
 // Pseudocode for updating action preferences in a gradient bandit algorithm
@@ -111,10 +110,9 @@ The soft-max distribution is used to determine the probability of taking an acti
 
 :p How does the soft-max distribution work in determining action probabilities?
 ??x
-The soft-max distribution determines the probability of taking action \(a\) at time \(t\) as:
-\[
-\Pi_t(a) = \frac{e^{H_t(a)}}{\sum_{b=1}^k e^{H_t(b)}}
-\]
+The soft-max distribution determines the probability of taking action $a $ at time$t$ as:
+$$\Pi_t(a) = \frac{e^{H_t(a)}}{\sum_{b=1}^k e^{H_t(b)}}$$
+
 This formula normalizes the exponential preferences to form a probability distribution. Higher preferences result in higher probabilities, but only relative differences between preferences matter.
 
 ```java
@@ -141,11 +139,8 @@ The gradient bandit algorithm can be viewed as a stochastic approximation to gra
 
 :p How does the gradient bandit algorithm relate to stochastic gradient ascent?
 ??x
-The gradient bandit algorithm relates to stochastic gradient ascent by updating action preferences \(H_t(a)\) in a way that approximates exact gradient ascent. The update rule:
-\[
-H_{t+1}(a) = H_t(a) + \alpha \left(\frac{R_t - \bar{R}_t}{\Pi_t(a)}\right)
-\]
-is equivalent to the stochastic gradient ascent formula when averaged over many steps, where \(R_t\) is the actual reward and \(\bar{R}_t\) is the average baseline.
+The gradient bandit algorithm relates to stochastic gradient ascent by updating action preferences $H_t(a)$ in a way that approximates exact gradient ascent. The update rule:
+$$H_{t+1}(a) = H_t(a) + \alpha \left(\frac{R_t - \bar{R}_t}{\Pi_t(a)}\right)$$is equivalent to the stochastic gradient ascent formula when averaged over many steps, where $ R_t $ is the actual reward and $\bar{R}_t$ is the average baseline.
 
 ```java
 // Pseudocode for understanding the connection between gradient bandit and stochastic gradient ascent
@@ -170,7 +165,7 @@ The baseline term in the gradient bandit algorithm adjusts for differences betwe
 
 :p Why is the baseline term important in the gradient bandit algorithm?
 ??x
-The baseline term \(\bar{R}_t\) is crucial because it helps adjust the action preferences relative to an average reward level rather than just based on absolute rewards. This ensures that the algorithm correctly learns from positive deviations and adapts to changes over time.
+The baseline term $\bar{R}_t$ is crucial because it helps adjust the action preferences relative to an average reward level rather than just based on absolute rewards. This ensures that the algorithm correctly learns from positive deviations and adapts to changes over time.
 
 Without the baseline, the algorithm would be more sensitive to initial conditions and might not converge properly as seen in Figure 2.5 where performance is significantly worse without a baseline term.
 
@@ -190,16 +185,10 @@ The update rule for the gradient bandit algorithm can be derived from principles
 
 :p How is the update rule for the gradient bandit algorithm derived?
 ??x
-The update rule for the gradient bandit algorithm is derived by recognizing that the exact performance gradient should incrementally adjust preferences based on the difference between actual rewards and the baseline. This can be shown using calculus to convert the expected reward gradient into a form that matches our algorithm's update.
+The update rule for the gradient bandit algorithm is derived by recognizing that the exact performance gradient should incrementally adjust preferences based on the difference between actual rewards and the baseline. This can be shown using calculus to convert the expected reward gradient into a form that matches our algorithm's update.$$\frac{\partial E[R_t]}{\partial H_t(a)} = \sum_x q_\pi(x) \cdot \frac{\partial \Pi_t(x)}{\partial H_t(a)}$$
 
-\[
-\frac{\partial E[R_t]}{\partial H_t(a)} = \sum_x q_\pi(x) \cdot \frac{\partial \Pi_t(x)}{\partial H_t(a)}
-\]
-
-By including a baseline \(B_t\) and using the expected reward, this can be transformed into:
-\[
-H_{t+1}(a) = H_t(a) + \alpha \left(\frac{R_t - B_t}{\Pi_t(a)}\right)
-\]
+By including a baseline $B_t$ and using the expected reward, this can be transformed into:
+$$H_{t+1}(a) = H_t(a) + \alpha \left(\frac{R_t - B_t}{\Pi_t(a)}\right)$$
 
 This derivation shows that our algorithm is indeed a stochastic approximation of gradient ascent.
 
@@ -385,9 +374,9 @@ Approximate reinforcement learning methods can help by providing a practical way
 ---
 
 
-#### Nonstationary Case and Constant-Step-Size \(\epsilon\)-Greedy Algorithm
+#### Nonstationary Case and Constant-Step-Size $\epsilon$-Greedy Algorithm
 
-Background context: The topic discusses making a figure analogous to Figure 2.6 for the nonstationary case outlined in Exercise 2.5, specifically focusing on the constant-step-size \(\epsilon\)-greedy algorithm with \(\epsilon = 0.1\). This involves running an experiment for 200,000 steps and evaluating performance based on average rewards over the last 100,000 steps.
+Background context: The topic discusses making a figure analogous to Figure 2.6 for the nonstationary case outlined in Exercise 2.5, specifically focusing on the constant-step-size $\epsilon $-greedy algorithm with $\epsilon = 0.1$. This involves running an experiment for 200,000 steps and evaluating performance based on average rewards over the last 100,000 steps.
 
 :p What is the nonstationary case in the context of the k-armed bandit problem?
 ??x
@@ -413,7 +402,7 @@ for each step in 200,000 steps {
 }
 ```
 
-Here, `epsilon_greedy_policy` is a function that selects an action using \(\epsilon\)-greedy strategy. The `update_action_value` updates the estimate of the expected reward for the selected action.
+Here, `epsilon_greedy_policy` is a function that selects an action using $\epsilon$-greedy strategy. The `update_action_value` updates the estimate of the expected reward for the selected action.
 
 ---
 
@@ -490,17 +479,12 @@ Here, `gradient_policy` selects an action based on the estimated gradient of the
 
 
 #### Soft-Max Action Selection Rule
-Background context explaining the soft-max action selection rule. The term "soft-max" is due to Bridle (1990) and this rule appears to have been first proposed by Luce (1959). It is a method used in reinforcement learning for selecting actions based on their values, where the probability of choosing an action \(a\) is proportional to the exponentiated value function \(Q(s, a)\).
+Background context explaining the soft-max action selection rule. The term "soft-max" is due to Bridle (1990) and this rule appears to have been first proposed by Luce (1959). It is a method used in reinforcement learning for selecting actions based on their values, where the probability of choosing an action $a $ is proportional to the exponentiated value function$Q(s, a)$.
 
 :p What is the soft-max action selection rule?
 ??x
-The soft-max action selection rule assigns probabilities to each action based on their respective values. The probability of selecting action \(a\) given state \(s\) is defined as:
-
-\[
-P(a|s) = \frac{\exp(Q(s, a))}{\sum_{a'} \exp(Q(s, a'))}
-\]
-
-where \(Q(s, a)\) is the value function that estimates the expected future reward of taking action \(a\) in state \(s\).
+The soft-max action selection rule assigns probabilities to each action based on their respective values. The probability of selecting action $a $ given state$s$ is defined as:
+$$P(a|s) = \frac{\exp(Q(s, a))}{\sum_{a'} \exp(Q(s, a'))}$$where $ Q(s, a)$is the value function that estimates the expected future reward of taking action $ a$in state $ s$.
 
 ??x
 This rule provides a way to balance exploration and exploitation by assigning higher probabilities to actions with high values while still allowing for some randomness. This is useful because it helps the learning agent to explore less promising but potentially better options.

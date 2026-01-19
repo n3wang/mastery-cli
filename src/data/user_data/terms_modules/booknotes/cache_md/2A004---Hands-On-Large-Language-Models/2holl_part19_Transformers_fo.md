@@ -56,9 +56,9 @@ Mean average precision (MAP) is a metric used to evaluate the quality of search 
 ??x
 Mean average precision (MAP) measures the quality of search results by averaging the precision at relevant documents for each query in a test suite. The formula can be expressed as:
 
-\[ \text{MAP} = \frac{\sum_{i=1}^{N} P@k_i}{N} \]
+$$\text{MAP} = \frac{\sum_{i=1}^{N} P@k_i}{N}$$
 
-Where \( N \) is the number of queries, and \( k_i \) represents the position at which the first relevant document appears for each query.
+Where $N $ is the number of queries, and$k_i$ represents the position at which the first relevant document appears for each query.
 
 ```java
 // Pseudocode example

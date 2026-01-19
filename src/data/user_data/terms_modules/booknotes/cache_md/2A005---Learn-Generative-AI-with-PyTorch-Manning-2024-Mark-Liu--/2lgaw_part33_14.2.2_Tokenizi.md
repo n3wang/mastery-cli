@@ -50,9 +50,9 @@ Cross-entropy loss measures the dissimilarity between the predicted probability 
 
 The formula for cross-entropy loss is:
 
-\[ L = -\sum_{i} y_i \log(p_i) \]
+$$L = -\sum_{i} y_i \log(p_i)$$
 
-Where \( y_i \) is the target probability distribution and \( p_i \) is the predicted probability distribution over all event tokens.
+Where $y_i $ is the target probability distribution and$p_i$ is the predicted probability distribution over all event tokens.
 
 ```java
 // Pseudocode for calculating cross-entropy loss
@@ -118,23 +118,21 @@ x??
 #### Cross-Entropy Loss Calculation
 Cross-entropy loss is a common objective function used in classification tasks, including predicting the next token in a sequence. In this context, it measures how well the model's predicted probabilities match the true labels.
 
-The cross-entropy loss \(L\) for one sample can be calculated as:
-\[ L = -\sum_{i} y_i \log(p_i) \]
-where:
-- \(y_i\) is the ground truth (1 if the token at position \(i\) matches, 0 otherwise),
-- \(p_i\) is the predicted probability that the model assigns to the true token.
+The cross-entropy loss $L$ for one sample can be calculated as:
+$$L = -\sum_{i} y_i \log(p_i)$$where:
+- $y_i $ is the ground truth (1 if the token at position$i$ matches, 0 otherwise),
+- $p_i$ is the predicted probability that the model assigns to the true token.
 
 The goal during training is to minimize this loss.
 
 :p How do you calculate cross-entropy loss for a single sample?
 ??x
 To calculate the cross-entropy loss for one sample:
-\[ L = -\sum_{i} y_i \log(p_i) \]
-where \(y_i\) indicates whether the true token matches the predicted probability \(p_i\).
+$$L = -\sum_{i} y_i \log(p_i)$$where $ y_i $ indicates whether the true token matches the predicted probability $ p_i$.
 
 For example, if you have four tokens and their ground truth labels are [1, 0, 0, 0] (assuming the first is correct), and your model predicts probabilities as [0.8, 0.1, 0.1, 0.0], then:
-\[ L = -(1 \cdot \log(0.8) + 0 \cdot \log(0.1) + 0 \cdot \log(0.1) + 0 \cdot \log(0.0)) \]
-\(L\) can be calculated as the negative log of the probability of the true token.
+$$L = -(1 \cdot \log(0.8) + 0 \cdot \log(0.1) + 0 \cdot \log(0.1) + 0 \cdot \log(0.0))$$
+$L$ can be calculated as the negative log of the probability of the true token.
 
 ```python
 import numpy as np
@@ -169,7 +167,7 @@ Key steps in training a music Transformer include:
 5. **Model Training**: Use these batches to train the model by adjusting parameters to minimize cross-entropy loss.
 
 For example, you would start with a sequence like:
-\[ \text{"C4_0.5", "D4_0.25", "E4_1.0"} \]
+$$\text{"C4_0.5", "D4_0.25", "E4_1.0"}$$
 and transform it into an input-output pair for training.
 
 ```python

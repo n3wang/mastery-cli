@@ -10,27 +10,23 @@
 Background context: The Discrete Fourier Transform (DFT) is a way to represent a finite sequence of data points as a series of complex exponentials. It can be used for both periodic and non-periodic functions, though it may not provide accurate results at the endpoints of non-periodic functions.
 
 Formula:
-\[ y_k = \sqrt{\frac{2\pi}{N}} \sum_{n=1}^{N} Z^{-nk} Y_n, \quad Z = e^{-2\pi i / N}, \]
-\[ Y_n = \frac{1}{\sqrt{2\pi N}} \sum_{k=1}^{N} Z^{nk} y_k, \quad Z^{nk} \equiv [Z^n]^k. \]
+$$y_k = \sqrt{\frac{2\pi}{N}} \sum_{n=1}^{N} Z^{-nk} Y_n, \quad Z = e^{-2\pi i / N},$$
+$$
 
-:p What does the DFT and its inverse represent in terms of formulas?
+Y_n = \frac{1}{\sqrt{2\pi N}} \sum_{k=1}^{N} Z^{nk} y_k, \quad Z^{nk} \equiv [Z^n]^k.$$:p What does the DFT and its inverse represent in terms of formulas?
 ??x
 The DFT and its inverse are mathematical transformations used to convert time-domain data into frequency-domain data and vice versa.
 
-For a function \(y(t)\) sampled at \(N\) points, the DFT is given by:
-
-\[ y_k = \sqrt{\frac{2\pi}{N}} \sum_{n=1}^{N} Z^{-nk} Y_n, \]
-
-where:
-- \(Z = e^{-2\pi i / N}\),
-- \(Y_n\) are the frequency-domain coefficients,
-- \(y_k\) are the time-domain values.
+For a function $y(t)$ sampled at $N$ points, the DFT is given by:
+$$y_k = \sqrt{\frac{2\pi}{N}} \sum_{n=1}^{N} Z^{-nk} Y_n,$$where:
+- $Z = e^{-2\pi i / N}$,
+- $Y_n$ are the frequency-domain coefficients,
+- $y_k$ are the time-domain values.
 
 The inverse DFT is:
+$$Y_n = \frac{1}{\sqrt{2\pi N}} \sum_{k=1}^{N} Z^{nk} y_k.$$
 
-\[ Y_n = \frac{1}{\sqrt{2\pi N}} \sum_{k=1}^{N} Z^{nk} y_k. \]
-
-Here, \(Z^n\) represents raising the complex number \(Z\) to the power of \(n\), and the summation is over all sampled points.
+Here,$Z^n $ represents raising the complex number$Z $ to the power of$ n$, and the summation is over all sampled points.
 
 ??x
 The DFT converts time-domain data into frequency-domain coefficients, while the inverse DFT reconstructs the original time-domain signal from these coefficients.
@@ -65,16 +61,16 @@ x??
 
 
 #### Efficient Computation Using FFT
-Background context: The Fast Fourier Transform (FFT) is an efficient algorithm to compute the DFT. It reduces the computational complexity from \(O(N^2)\) for a direct implementation of DFT to \(O(N \log N)\).
+Background context: The Fast Fourier Transform (FFT) is an efficient algorithm to compute the DFT. It reduces the computational complexity from $O(N^2)$ for a direct implementation of DFT to $O(N \log N)$.
 
 :p How does the FFT algorithm reduce the computation time compared to the direct DFT?
 ??x
-The Fast Fourier Transform (FFT) is an efficient algorithm that significantly speeds up the computation of the Discrete Fourier Transform (DFT). It reduces the computational complexity from \(O(N^2)\), which would be required for a naive implementation, to \(O(N \log N)\).
+The Fast Fourier Transform (FFT) is an efficient algorithm that significantly speeds up the computation of the Discrete Fourier Transform (DFT). It reduces the computational complexity from $O(N^2)$, which would be required for a naive implementation, to $ O(N \log N)$.
 
 This efficiency is achieved by exploiting the symmetry and periodicity properties of the DFT. The FFT breaks down the DFT into smaller DFTs through a divide-and-conquer approach.
 
 ??x
-The FFT algorithm reduces computation time from \(O(N^2)\) for direct DFT to \(O(N \log N)\), making it much faster for large datasets.
+The FFT algorithm reduces computation time from $O(N^2)$ for direct DFT to $O(N \log N)$, making it much faster for large datasets.
 ```java
 // Pseudocode for FFT
 public class FastFourierTransform {
@@ -110,16 +106,14 @@ x??
 Background context: Aliasing occurs when high-frequency components of a signal are incorrectly interpreted as lower frequency components due to insufficient sampling. This happens because the Nyquist criterion is not met, meaning that frequencies above half the sampling rate (Nyquist frequency) cannot be accurately represented.
 
 Formula:
-\[ \text{Aliasing} \quad \text{occurs if} \quad f > \frac{s}{2}, \]
-where \(s = N / T\) is the sample rate.
+$$\text{Aliasing} \quad \text{occurs if} \quad f > \frac{s}{2},$$where $ s = N / T$ is the sample rate.
 
 :p What is aliasing and when does it occur?
 ??x
 Aliasing occurs when high-frequency components of a signal are incorrectly interpreted as lower frequency components due to insufficient sampling. This happens because the Nyquist criterion is not met, meaning that frequencies above half the sampling rate (Nyquist frequency) cannot be accurately represented.
 
 The Nyquist criterion states:
-\[ \text{Aliasing} \quad \text{occurs if} \quad f > \frac{s}{2}, \]
-where \(s = N / T\) is the sample rate, and \(f\) are the actual frequencies of the signal.
+$$\text{Aliasing} \quad \text{occurs if} \quad f > \frac{s}{2},$$where $ s = N / T $ is the sample rate, and $ f$ are the actual frequencies of the signal.
 
 ??x
 High-frequency components may appear as lower frequencies when sampled too infrequently. This phenomenon is called aliasing.
@@ -154,9 +148,9 @@ Background context: The accuracy of high-frequency components in Fourier analyse
 
 :p What factors affect the accuracy and potential aliasing of high-frequency components in Fourier analyses?
 ??x
-Increasing the number of samples \( N \) while keeping the sampling time \( T \) constant improves frequency resolution but can introduce aliasing if not managed properly. The Nyquist criterion states that when a signal containing frequencies up to \( f \) is sampled at a rate of \( s = N/T \), with \( s \leq f/2 \), aliasing occurs.
+Increasing the number of samples $N $ while keeping the sampling time$T $ constant improves frequency resolution but can introduce aliasing if not managed properly. The Nyquist criterion states that when a signal containing frequencies up to$ f $ is sampled at a rate of $ s = N/T $, with $ s \leq f/2$, aliasing occurs.
 
-To avoid aliasing, the sampling rate must be higher than twice the highest frequency component in the signal. This can be achieved by either increasing the number of samples or extending the total sampling time \( T \).
+To avoid aliasing, the sampling rate must be higher than twice the highest frequency component in the signal. This can be achieved by either increasing the number of samples or extending the total sampling time $T$.
 
 ```java
 // Pseudocode for DFT with increased samples to improve accuracy
@@ -184,7 +178,7 @@ Background context: Accurate low-frequency components are critical in Fourier an
 
 :p How does increasing the number of samples affect the DFT for a fixed sampling rate?
 ??x
-Increasing the number of samples \( N \) while keeping the total sampling time \( T = Nh \ ) constant reduces the timestep \( h = T/N \). This results in a smaller frequency step size and improved resolution, capturing higher frequencies more accurately. However, it can introduce aliasing if not managed properly.
+Increasing the number of samples $N $ while keeping the total sampling time$T = Nh \ ) constant reduces the timestep \( h = T/N$. This results in a smaller frequency step size and improved resolution, capturing higher frequencies more accurately. However, it can introduce aliasing if not managed properly.
 
 To avoid this, one approach is to pad the dataset with zeros to increase the effective number of samples without changing the total sampling time. This technique does not affect the lower frequencies but improves the accuracy of higher frequency components.
 
@@ -206,12 +200,12 @@ Background context: Sampling discrete signals for analysis using DFT requires de
 
 :p How do you decompose a simple analytic input signal and verify its components?
 ??x
-Decompose the given signal \( y(t) = 3\cos(\omega t) + 2\cos(3\omega t) + \cos(5\omega t) \) into its components:
+Decompose the given signal $y(t) = 3\cos(\omega t) + 2\cos(3\omega t) + \cos(5\omega t)$ into its components:
 
 1. Identify the individual cosine terms.
 2. Verify that their amplitudes are in the ratio 3:2:1 for a linear spectrum or 9:4:1 for the power spectrum.
 
-To verify, compute the DFT and check if the component frequencies match \( \omega, 3\omega, 5\omega \).
+To verify, compute the DFT and check if the component frequencies match $\omega, 3\omega, 5\omega$.
 
 ```java
 // Pseudocode to decompose signal components
@@ -240,9 +234,9 @@ Background context: Analyzing oscillators with nonlinear perturbations requires 
 
 :p How do you analyze a nonlinear oscillator using DFT?
 ??x
-Analyze a nonlinear oscillator by decomposing its solution into a Fourier series. For very small amplitudes \( x \ll 1/\alpha \), the solution should be dominated by the first term. However, to check for higher harmonic contributions, you can compute the Fourier coefficients and compare their relative magnitudes.
+Analyze a nonlinear oscillator by decomposing its solution into a Fourier series. For very small amplitudes $x \ll 1/\alpha$, the solution should be dominated by the first term. However, to check for higher harmonic contributions, you can compute the Fourier coefficients and compare their relative magnitudes.
 
-For example, if you fix \( \alpha \) such that \( \alpha x_{\text{max}} \approx 0.1 \times x_{\text{max}} \), decompose the numerical solution into a discrete Fourier spectrum.
+For example, if you fix $\alpha $ such that$\alpha x_{\text{max}} \approx 0.1 \times x_{\text{max}}$, decompose the numerical solution into a discrete Fourier spectrum.
 
 ```java
 // Pseudocode to analyze nonlinear oscillator using DFT
@@ -271,9 +265,9 @@ Background context: Analyzing oscillators with nonlinear perturbations involves 
 
 :p How do you analyze a nonlinearly perturbed oscillator using DFT?
 ??x
-Analyze a nonlinearly perturbed oscillator by decomposing its numerical solution into a Fourier series. For very small amplitudes \( x \ll 1/\alpha \), the first term should dominate. However, to check for higher harmonic contributions, you can compute the Fourier coefficients and plot their percentage importance as a function of initial displacement.
+Analyze a nonlinearly perturbed oscillator by decomposing its numerical solution into a Fourier series. For very small amplitudes $x \ll 1/\alpha$, the first term should dominate. However, to check for higher harmonic contributions, you can compute the Fourier coefficients and plot their percentage importance as a function of initial displacement.
 
-For example, if you fix \( \alpha \) such that \( \alpha x_{\text{max}} \approx 0.1 \times x_{\text{max}} \), decompose the numerical solution into a discrete Fourier spectrum and verify that higher harmonics become more important as amplitude increases.
+For example, if you fix $\alpha $ such that$\alpha x_{\text{max}} \approx 0.1 \times x_{\text{max}}$, decompose the numerical solution into a discrete Fourier spectrum and verify that higher harmonics become more important as amplitude increases.
 
 ```java
 // Pseudocode to analyze nonlinearly perturbed oscillator using DFT
@@ -301,11 +295,10 @@ x??
 Background context: Windowed sinc filters are used to separate different bands of frequencies in a signal. They are popular because they can effectively remove high-frequency noise while preserving low-frequency signals.
 
 Formula for the sinc function:
-\[ \int_{-\infty}^{\infty} d\omega e^{-i\omega t} \text{rect}(\omega) = \frac{\sin(\pi t / 2)}{\pi t / 2} \]
+$$\int_{-\infty}^{\infty} d\omega e^{-i\omega t} \text{rect}(\omega) = \frac{\sin(\pi t / 2)}{\pi t / 2}$$
 
 Filter response in time domain:
-\[ h[i] = \frac{\sin(2\pi \omega_c (i - M/2))}{\pi (i - M/2)}, \quad 0 \leq t \leq M \]
-where \(M\) is the number of points, and \(\omega_c\) is the cutoff frequency.
+$$h[i] = \frac{\sin(2\pi \omega_c (i - M/2))}{\pi (i - M/2)}, \quad 0 \leq t \leq M$$where $ M $ is the number of points, and $\omega_c$ is the cutoff frequency.
 
 :p What is the sinc filter used for in digital signal processing?
 ??x
@@ -316,18 +309,18 @@ x??
 
 
 #### Rectangular Function and Its Fourier Transform
-Background context: The rectangular function \(\text{rect}(\omega)\) is constant within a finite frequency interval, representing an ideal low-pass filter that passes all frequencies below a cutoff frequency \(\omega_c\) and blocks higher frequencies.
+Background context: The rectangular function $\text{rect}(\omega)$ is constant within a finite frequency interval, representing an ideal low-pass filter that passes all frequencies below a cutoff frequency $\omega_c$ and blocks higher frequencies.
 
 Formula for the rect function:
-\[ \text{rect}\left( \frac{\omega}{2\omega_c} \right) = \begin{cases} 1 & \text{if } |\omega| \leq 1/2 \\ 0 & \text{otherwise} \end{cases} \]
+$$\text{rect}\left( \frac{\omega}{2\omega_c} \right) = \begin{cases} 1 & \text{if } |\omega| \leq 1/2 \\ 0 & \text{otherwise} \end{cases}$$
 
 Fourier transform of the sinc function:
-\[ \int_{-\infty}^{\infty} d\omega e^{-i\omega t} \text{rect}(\omega) = \frac{\sin(\pi t / 2)}{\pi t / 2} \]
+$$\int_{-\infty}^{\infty} d\omega e^{-i\omega t} \text{rect}(\omega) = \frac{\sin(\pi t / 2)}{\pi t / 2}$$
 
 :p What is the Fourier transform of a rectangular pulse?
 ??x
-The Fourier transform of a rectangular pulse in the frequency domain results in a sinc function in the time domain. Specifically, the Fourier transform of rect(\(\omega\)) is given by:
-\[ \int_{-\infty}^{\infty} d\omega e^{-i\omega t} \text{rect}(\omega) = \frac{\sin(\pi t / 2)}{\pi t / 2} \]
+The Fourier transform of a rectangular pulse in the frequency domain results in a sinc function in the time domain. Specifically, the Fourier transform of rect($\omega$) is given by:
+$$\int_{-\infty}^{\infty} d\omega e^{-i\omega t} \text{rect}(\omega) = \frac{\sin(\pi t / 2)}{\pi t / 2}$$
 x??
 
 ---

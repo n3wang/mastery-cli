@@ -48,8 +48,7 @@ Background context: The text explains how design stress (𝜎d) and safe stress 
 :p How is the design stress (𝜎d) defined?
 ??x
 Design stress (𝜎d) is defined as the calculated stress level (𝜎c) based on the estimated maximum load, multiplied by a design factor (N'). The formula for this is:
-\[ \sigma_d = N' \cdot \sigma_c \]
-where \( N' > 1 \). This ensures that the chosen material has a yield strength at least as high as the design stress.
+$$\sigma_d = N' \cdot \sigma_c$$where $ N' > 1$. This ensures that the chosen material has a yield strength at least as high as the design stress.
 
 ??x
 The question about this concept is how to calculate the design stress (𝜎d) for an application.
@@ -59,12 +58,13 @@ x??
 
 
 #### Factor of Safety in Design Stress
-Background context: The factor of safety \( N \) is used to determine safe stress. It involves dividing the yield strength (\(\sigma_y\)) by a factor of safety.
+Background context: The factor of safety $N $ is used to determine safe stress. It involves dividing the yield strength ($\sigma_y$) by a factor of safety.
 
 :p How does the safe stress (𝜎w) relate to the yield strength and factor of safety?
 ??x
-Safe stress (𝜎w) is calculated based on the yield strength of the material divided by a factor of safety \( N \). The formula for this is:
-\[ \sigma_w = \frac{\sigma_y}{N} \]
+Safe stress (𝜎w) is calculated based on the yield strength of the material divided by a factor of safety $N$. The formula for this is:
+$$\sigma_w = \frac{\sigma_y}{N}$$
+
 This ensures that even if there are uncertainties in estimating the maximum applied stress, the structure can still handle it safely.
 
 ??x
@@ -84,7 +84,7 @@ Background context: A tensile-testing apparatus must withstand a maximum load of
 
 :p What factor of safety should be chosen for the support posts?
 ??x
-A factor of safety of \( N = 5 \) is recommended to ensure sufficient margin against failure. This value helps in calculating a working stress that balances cost and safety.
+A factor of safety of $N = 5$ is recommended to ensure sufficient margin against failure. This value helps in calculating a working stress that balances cost and safety.
 x??
 
 ---
@@ -92,25 +92,19 @@ x??
 
 #### Safe Stress Computation
 
-To determine the safe (or working) stress, the factor of safety (N) is applied to the yield strength (\(\sigma_y\)) of the material.
+To determine the safe (or working) stress, the factor of safety (N) is applied to the yield strength ($\sigma_y$) of the material.
 
-Formula: \(\sigma_w = \frac{\sigma_y}{N}\)
-
-Where:
-- \(\sigma_w\) is the working stress
-- \(\sigma_y\) is the yield strength
+Formula: $\sigma_w = \frac{\sigma_y}{N}$ Where:
+- $\sigma_w$ is the working stress
+- $\sigma_y$ is the yield strength
 - N is the factor of safety
 
 :p How do you compute the safe stress for a given factor of safety and material's yield strength?
 ??x
-The safe stress (\(\sigma_w\)) can be calculated using the formula: 
-\[
-\sigma_w = \frac{\sigma_y}{N}
-\]
-For example, with a yield strength (\(\sigma_y\)) of 310 MPa and a factor of safety (N) of 5:
-\[
-\sigma_w = \frac{310 \text{ MPa}}{5} = 62 \text{ MPa}
-\]
+The safe stress ($\sigma_w$) can be calculated using the formula: 
+$$\sigma_w = \frac{\sigma_y}{N}$$
+For example, with a yield strength ($\sigma_y$) of 310 MPa and a factor of safety (N) of 5:
+$$\sigma_w = \frac{310 \text{ MPa}}{5} = 62 \text{ MPa}$$
 x??
 
 ---
@@ -118,39 +112,24 @@ x??
 
 #### Design Example for Support-Post Diameter
 
-For the tensile-testing apparatus, the working stress (\(\sigma_w\)) is determined by dividing the yield strength (\(\sigma_y\)) by the factor of safety (N). The material's diameter (d) can then be calculated using the formula:
-\[
-d = \sqrt{\frac{4F}{\pi \sigma_w}}
-\]
-Where \( F \) is the applied force.
+For the tensile-testing apparatus, the working stress ($\sigma_w $) is determined by dividing the yield strength ($\sigma_y$) by the factor of safety (N). The material's diameter (d) can then be calculated using the formula:
+$$d = \sqrt{\frac{4F}{\pi \sigma_w}}$$
+
+Where $F$ is the applied force.
 
 :p What is the diameter required for each support post?
 ??x
 The diameter of each support post can be calculated as follows:
 
 1. Given: 
-   - Total load \( F_{total} = 220,000 \text{ N} \)
-   - Each post supports half the load: \( F = \frac{F_{total}}{2} = 110,000 \text{ N} \)
-   - Yield strength of material (\(\sigma_y\)) = 310 MPa
+   - Total load $F_{total} = 220,000 \text{ N}$- Each post supports half the load:$ F = \frac{F_{total}}{2} = 110,000 \text{ N}$
+   - Yield strength of material ($\sigma_y$) = 310 MPa
    - Factor of safety (N) = 5
 
 2. Calculate working stress:
-   \[
-   \sigma_w = \frac{\sigma_y}{N} = \frac{310 \text{ MPa}}{5} = 62 \text{ MPa}
-   \]
-
-3. Use the formula for diameter \( d \):
-   \[
-   d = \sqrt{\frac{4F}{\pi \sigma_w}} = \sqrt{\frac{4 \times 110,000 \text{ N}}{\pi \times 62 \times 10^6 \text{ Pa}}} 
-   \]
-
-4. Simplify:
-   \[
-   d = \sqrt{\frac{440,000}{\pi \times 62 \times 10^6}} = \sqrt{\frac{440,000}{195.6 \times 10^6}} 
-   \]
-   \[
-   d = \sqrt{0.2237} \approx 0.4728 \text{ m}
-   \]
+   $$\sigma_w = \frac{\sigma_y}{N} = \frac{310 \text{ MPa}}{5} = 62 \text{ MPa}$$3. Use the formula for diameter $ d$:
+   $$d = \sqrt{\frac{4F}{\pi \sigma_w}} = \sqrt{\frac{4 \times 110,000 \text{ N}}{\pi \times 62 \times 10^6 \text{ Pa}}}$$4. Simplify:
+$$d = \sqrt{\frac{440,000}{\pi \times 62 \times 10^6}} = \sqrt{\frac{440,000}{195.6 \times 10^6}}$$$$d = \sqrt{0.2237} \approx 0.4728 \text{ m}$$
 
 Therefore, the diameter of each support post should be approximately 47.5 mm (1.87 inches).
 
@@ -161,39 +140,32 @@ x??
 
 #### Specification for Pressurized Cylindrical Tube
 
-For a thin-walled cylindrical tube used to transport pressurized gas, the circumferential stress (\(\sigma\)) can be calculated using:
-\[
-\sigma = \frac{r_i \Delta p}{t}
-\]
-Where \( r_i \) is the inner radius, \( \Delta p \) is the pressure difference, and \( t \) is the wall thickness.
+For a thin-walled cylindrical tube used to transport pressurized gas, the circumferential stress ($\sigma$) can be calculated using:
+$$\sigma = \frac{r_i \Delta p}{t}$$
+
+Where $r_i $ is the inner radius,$\Delta p $ is the pressure difference, and$t$ is the wall thickness.
 
 To ensure safety, this stress should not exceed the material's yield strength divided by the factor of safety (N).
 
-Formula: 
-\[
-\sigma_y = N \frac{r_i \Delta p}{t}
-\]
+Formula:
+$$\sigma_y = N \frac{r_i \Delta p}{t}$$
 
 :p Which metals and alloys are suitable for a pressurized cylindrical tube?
 ??x
 To determine which metals and alloys are suitable, we need to ensure that their yield strength divided by the factor of safety (N) is greater than or equal to the calculated circumferential stress.
 
 Given:
-- Inner radius (\( r_i \)) = 50 mm
-- Wall thickness (\( t \)) = 2 mm
-- Inside pressure (\( p_{inside} \)) = 2 atm (2.027 MPa)
-- Outside pressure (\( p_{outside} \)) = 0.5 atm (0.057 MPa)
-- Pressure difference (\( \Delta p \)) = \( p_{inside} - p_{outside} = 2.027 \text{ MPa} - 0.057 \text{ MPa} = 1.97 \text{ MPa} \)
+- Inner radius ($r_i$) = 50 mm
+- Wall thickness ($t$) = 2 mm
+- Inside pressure ($p_{inside}$) = 2 atm (2.027 MPa)
+- Outside pressure ($p_{outside}$) = 0.5 atm (0.057 MPa)
+- Pressure difference ($\Delta p $) = $ p_{inside} - p_{outside} = 2.027 \text{ MPa} - 0.057 \text{ MPa} = 1.97 \text{ MPa}$
 
 Calculate the required yield strength:
-\[
-\sigma_y = N \frac{r_i \Delta p}{t} = 4.0 \times \frac{50 \text{ mm} \times 1.97 \text{ MPa}}{2 \text{ mm}} 
-\]
-\[
-= 4.0 \times \frac{50 \times 1.97 \times 10^6 \text{ Pa} \cdot \text{mm}}{2 \text{ mm}} = 4.0 \times 492,500 \text{ Pa} = 1.97 \times 10^6 \text{ Pa}
-\]
+$$\sigma_y = N \frac{r_i \Delta p}{t} = 4.0 \times \frac{50 \text{ mm} \times 1.97 \text{ MPa}}{2 \text{ mm}}$$
+$$= 4.0 \times \frac{50 \times 1.97 \times 10^6 \text{ Pa} \cdot \text{mm}}{2 \text{ mm}} = 4.0 \times 492,500 \text{ Pa} = 1.97 \times 10^6 \text{ Pa}$$
 
-Therefore, the yield strength of the material must be at least \( 1.97 \times 10^6 \) Pa / 4.0 = 492,500 Pa.
+Therefore, the yield strength of the material must be at least $1.97 \times 10^6$ Pa / 4.0 = 492,500 Pa.
 
 x??
 
@@ -204,21 +176,21 @@ x??
 
 #### Yield Strength and Selection of Suitable Alloys
 
-Background context: The selection process for a suitable alloy involves calculating the yield strength (\(\sigma_y\)) required for a pressurized tube. The given equation is used to find \(\sigma_y\) based on certain parameters, and then the alloys from Table 6.8 are evaluated based on their yield strengths.
+Background context: The selection process for a suitable alloy involves calculating the yield strength ($\sigma_y $) required for a pressurized tube. The given equation is used to find $\sigma_y$ based on certain parameters, and then the alloys from Table 6.8 are evaluated based on their yield strengths.
 
-Relevant formula: 
-\[ \sigma_y = N \cdot r_i \cdot (\Delta p - \frac{t^2}{4r_i}) / (2t) \]
+Relevant formula:
+$$\sigma_y = N \cdot r_i \cdot (\Delta p - \frac{t^2}{4r_i}) / (2t)$$
 
 Where:
-- \(N\): A constant factor
-- \(r_i\): Inside radius of the tube
-- \(\Delta p\): Pressure difference across the tube wall
-- \(t\): Thickness of the tube wall
+- $N$: A constant factor
+- $r_i$: Inside radius of the tube
+- $\Delta p$: Pressure difference across the tube wall
+- $t$: Thickness of the tube wall
 
 :p What is the yield strength equation used in this selection process?
 ??x
-The yield strength (\(\sigma_y\)) is calculated using the formula:
-\[ \sigma_y = N \cdot r_i \cdot (\Delta p - \frac{t^2}{4r_i}) / (2t) \]
+The yield strength ($\sigma_y$) is calculated using the formula:
+$$\sigma_y = N \cdot r_i \cdot (\Delta p - \frac{t^2}{4r_i}) / (2t)$$
 This equation helps determine if an alloy's yield strength meets or exceeds the required value for a pressurized tube.
 
 x??
@@ -243,7 +215,7 @@ Background context: Engineering stress is defined as the instantaneous load divi
 
 :p What is engineering stress and how is it calculated?
 ??x
-Engineering stress (\(\sigma\)) is calculated using the formula \(\sigma = \frac{F}{A_0}\), where \(F\) is the instantaneous applied force, and \(A_0\) is the initial cross-sectional area of the specimen.
+Engineering stress ($\sigma $) is calculated using the formula $\sigma = \frac{F}{A_0}$, where $ F$is the instantaneous applied force, and $ A_0$ is the initial cross-sectional area of the specimen.
 
 ```java
 public class StressCalculation {
@@ -262,7 +234,7 @@ Background context: Engineering strain is expressed as the change in length (in 
 
 :p What is engineering strain and how is it calculated?
 ??x
-Engineering strain (\(\epsilon\)) is calculated using the formula \(\epsilon = \frac{\Delta l}{l_0}\), where \(\Delta l\) is the change in length, and \(l_0\) is the original length of the specimen.
+Engineering strain ($\epsilon $) is calculated using the formula $\epsilon = \frac{\Delta l}{l_0}$, where $\Delta l $ is the change in length, and $l_0$ is the original length of the specimen.
 
 ```java
 public class StrainCalculation {
@@ -281,7 +253,7 @@ Background context: When a material is stressed first, it undergoes elastic or n
 
 :p What happens when a material is initially subjected to stress?
 ??x
-When a material is initially subjected to stress, it undergoes elastic (nonpermanent) deformation where stress and strain are proportional up to the yield point. This behavior can be represented by Hooke's law, \(\sigma = E\epsilon\), in the linear region of the stress-strain curve.
+When a material is initially subjected to stress, it undergoes elastic (nonpermanent) deformation where stress and strain are proportional up to the yield point. This behavior can be represented by Hooke's law,$\sigma = E\epsilon$, in the linear region of the stress-strain curve.
 
 ```java
 public class ElasticDeformation {
@@ -324,12 +296,9 @@ Background context: Ductility measures the degree to which a material plasticall
 
 :p What is ductility, and how is it measured?
 ??x
-Ductility is a measure of a material's ability to undergo plastic deformation without fracturing. Percent elongation (\(percentEL\)) and percent reduction in area (\(percentRA\)) are used to quantify ductility:
+Ductility is a measure of a material's ability to undergo plastic deformation without fracturing. Percent elongation ($percentEL $) and percent reduction in area ($ percentRA$) are used to quantify ductility:
 
-- \(percentEL = \left(\frac{L_f - L_0}{L_0}\right) \times 100\)
-- \(percentRA = \left(\frac{A_0 - A_f}{A_0}\right) \times 100\)
-
-where \(L_f\) is the final length, \(L_0\) is the original length, \(A_0\) is the initial cross-sectional area, and \(A_f\) is the final cross-sectional area.
+- $percentEL = \left(\frac{L_f - L_0}{L_0}\right) \times 100 $-$ percentRA = \left(\frac{A_0 - A_f}{A_0}\right) \times 100 $where$ L_f $is the final length,$ L_0 $is the original length,$ A_0 $is the initial cross-sectional area, and$ A_f$ is the final cross-sectional area.
 
 ```java
 public class DuctilityCalculations {
@@ -352,9 +321,7 @@ Background context: The modulus of elasticity (E) is the slope of the linear ela
 
 :p What is the modulus of elasticity, and when is it used?
 ??x
-The modulus of elasticity (E) is the measure of a material's stiffness, defined as the ratio of stress to strain in the linear elastic range:
-
-\(\sigma = E \epsilon\)
+The modulus of elasticity (E) is the measure of a material's stiffness, defined as the ratio of stress to strain in the linear elastic range:$\sigma = E \epsilon$
 
 It is used to describe how much stress is required to produce a unit strain within the elastic limit.
 
@@ -371,15 +338,11 @@ x??
 
 
 #### Poisson's Ratio
-Background context: Poisson’s ratio (\(\nu\)) is the negative ratio of transverse and longitudinal strains. It helps describe how a material will deform under load.
+Background context: Poisson’s ratio ($\nu$) is the negative ratio of transverse and longitudinal strains. It helps describe how a material will deform under load.
 
 :p What is Poisson’s ratio, and how is it defined?
 ??x
-Poisson’s ratio (\(\nu\)) is defined as:
-
-\(\nu = -\frac{\epsilon_x}{\epsilon_z}\)
-
-where \(\epsilon_x\) is the longitudinal strain and \(\epsilon_z\) is the transverse strain.
+Poisson’s ratio ($\nu $) is defined as:$\nu = -\frac{\epsilon_x}{\epsilon_z}$ where $\epsilon_x$ is the longitudinal strain and $\epsilon_z$ is the transverse strain.
 
 ```java
 public class PoissonsRatio {
@@ -398,9 +361,9 @@ Background context: The modulus of resilience is the strain energy per unit volu
 
 :p What is modulus of resilience, and how is it calculated?
 ??x
-The modulus of resilience (\(U_e\)) is the area under the elastic portion of the engineering stress-strain curve:
+The modulus of resilience ($U_e$) is the area under the elastic portion of the engineering stress-strain curve:
 
-\[ U_e = \int_{0}^{\sigma_y} d\sigma \epsilon \]
+$$U_e = \int_{0}^{\sigma_y} d\sigma \epsilon$$
 
 This represents the energy absorbed per unit volume up to the yield point.
 
@@ -418,16 +381,13 @@ x??
 
 
 #### True Stress and True Strain
-Background context: True stress (\(\sigma_T\)) is defined as the instantaneous applied load divided by the instantaneous cross-sectional area. True strain (\(\epsilon_T\)) is the natural logarithm of the ratio of instantaneous and original specimen lengths.
+Background context: True stress ($\sigma_T $) is defined as the instantaneous applied load divided by the instantaneous cross-sectional area. True strain ($\epsilon_T$) is the natural logarithm of the ratio of instantaneous and original specimen lengths.
 
 :p What are true stress and true strain, and how are they calculated?
 ??x
-True stress (\(\sigma_T\)) and true strain (\(\epsilon_T\)) are defined as:
+True stress ($\sigma_T $) and true strain ($\epsilon_T$) are defined as:
 
-- \(\sigma_T = \frac{F}{A_i}\)
-- \(\epsilon_T = \ln\left(\frac{l_i}{l_0}\right)\)
-
-where \(F\) is the instantaneous applied load, \(A_i\) is the instantaneous cross-sectional area, and \(l_i\) and \(l_0\) are the instantaneous and original lengths of the specimen.
+- $\sigma_T = \frac{F}{A_i}$-$\epsilon_T = \ln\left(\frac{l_i}{l_0}\right)$ where $F$ is the instantaneous applied load,$A_i $ is the instantaneous cross-sectional area, and$l_i $ and $ l_0$ are the instantaneous and original lengths of the specimen.
 
 ```java
 public class TrueStressAndTrueStrain {
@@ -480,15 +440,13 @@ x??
 
 
 #### Safe Stress in Design
-Background context: Safe stress (\(\sigma_w\)) is dependent on the yield strength and factor of safety. It ensures that a material can safely withstand applied loads without failing.
+Background context: Safe stress ($\sigma_w$) is dependent on the yield strength and factor of safety. It ensures that a material can safely withstand applied loads without failing.
 
 :p What is safe (or working) stress, and how is it determined?
 ??x
-Safe (working) stress (\(\sigma_w\)) is calculated using the formula:
+Safe (working) stress ($\sigma_w$) is calculated using the formula:
 
-\[ \sigma_w = \frac{\sigma_y}{N} \]
-
-where \(\sigma_y\) is the yield strength of the material and \(N\) is the factor of safety.
+$$\sigma_w = \frac{\sigma_y}{N}$$where $\sigma_y $ is the yield strength of the material and$N$ is the factor of safety.
 
 ```java
 public class SafeStressCalculation {
@@ -505,9 +463,8 @@ x??
 #### Instantaneous Specimen Length Parameters
 Background context explaining the different length parameters used in material testing. These parameters are essential for measuring deformation and strain during load application.
 
-:p What does \( l_i \) represent in material testing?
-??x
-\( l_i \) represents the instantaneous specimen length during load application. This parameter is critical as it helps in determining the true strain of the material by comparing its current length to its initial length, which is necessary for understanding the plastic deformation process.
+:p What does $l_i$ represent in material testing?
+??x $l_i$ represents the instantaneous specimen length during load application. This parameter is critical as it helps in determining the true strain of the material by comparing its current length to its initial length, which is necessary for understanding the plastic deformation process.
 
 Example:
 ```java
@@ -529,9 +486,9 @@ x??
 #### Strain Values
 Background context explaining the various strain values used in material testing, including transverse and longitudinal strains. These are fundamental to understanding the behavior of materials under stress.
 
-:p What is the difference between \( \epsilon_x \) and \( \epsilon_y \)?
+:p What is the difference between $\epsilon_x $ and$\epsilon_y$?
 ??x
-\( \epsilon_x \) represents the strain values perpendicular to the direction of load application (transverse direction), while \( \epsilon_y \) represents the strain value in the direction of load application (longitudinal direction). This distinction is important because it helps in analyzing how materials deform under different loading conditions.
+$\epsilon_x $ represents the strain values perpendicular to the direction of load application (transverse direction), while$\epsilon_y$ represents the strain value in the direction of load application (longitudinal direction). This distinction is important because it helps in analyzing how materials deform under different loading conditions.
 
 Example:
 ```java
@@ -556,7 +513,7 @@ Background context explaining the concepts of true strain and true stress, which
 
 :p What is true strain?
 ??x
-True strain (\( \epsilon_t \)) is a measure of deformation that accounts for changes in the specimen's length during loading. It is calculated using the natural logarithm of the ratio of current length to initial length, making it more accurate than engineering strain when dealing with significant plastic deformations.
+True strain ($\epsilon_t$) is a measure of deformation that accounts for changes in the specimen's length during loading. It is calculated using the natural logarithm of the ratio of current length to initial length, making it more accurate than engineering strain when dealing with significant plastic deformations.
 
 Example:
 ```java
@@ -577,9 +534,9 @@ x??
 #### Modulus of Elasticity (E)
 Background context explaining the modulus of elasticity, including its definition and significance in material testing.
 
-:p What is the modulus of elasticity \( E \)?
+:p What is the modulus of elasticity $E$?
 ??x
-The modulus of elasticity \( E \) represents the material's stiffness or resistance to elastic deformation. It is defined as the ratio of stress to strain under elastic conditions, providing a measure of how much a material will deform elastically when subjected to a given force.
+The modulus of elasticity $E$ represents the material's stiffness or resistance to elastic deformation. It is defined as the ratio of stress to strain under elastic conditions, providing a measure of how much a material will deform elastically when subjected to a given force.
 
 Example:
 ```java

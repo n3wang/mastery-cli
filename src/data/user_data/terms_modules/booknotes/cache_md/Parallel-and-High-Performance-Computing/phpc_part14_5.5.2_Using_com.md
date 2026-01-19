@@ -31,9 +31,8 @@ Background context: The load factor helps in understanding how much data is stor
 :p What is the formula for hash load factor?
 ??x
 The hash load factor (λ) is defined as:
-\[
-\lambda = \frac{\text{Number of filled entries}}{\text{Hash table size}}
-\]
+$$\lambda = \frac{\text{Number of filled entries}}{\text{Hash table size}}$$
+
 For a 1.25 size multiplier, λ would be 0.8.
 x??
 
@@ -358,7 +357,7 @@ size_t hash_size = icells.ibasesize * two_to_the(icells.levmax) *
 int *hash = (int *) malloc(hash_size * sizeof(int));
 ```
 
-Here, `two_to_the` is a macro that defines \(2^n\) as the result of shifting 1 left by `n`. The hash table size is calculated to accommodate all possible cell indices in the input mesh based on its base resolution and refinement levels.
+Here, `two_to_the` is a macro that defines $2^n$ as the result of shifting 1 left by `n`. The hash table size is calculated to accommodate all possible cell indices in the input mesh based on its base resolution and refinement levels.
 
 The cells are written into this hash table:
 
@@ -531,7 +530,7 @@ Background context: The prefix sum operation can be performed as an exclusive sc
 
 :p What are the differences between exclusive and inclusive scans?
 ??x
-In an **exclusive scan**, each element \(y[i]\) is computed as the sum of all elements before \(x[i]\), excluding \(x[i]\) itself. In contrast, in an **inclusive scan**, each element \(y[i]\) includes the current value \(x[i]\).
+In an **exclusive scan**, each element $y[i]$ is computed as the sum of all elements before $x[i]$, excluding $ x[i]$itself. In contrast, in an **inclusive scan**, each element $ y[i]$includes the current value $ x[i]$.
 
 **Exclusive Scan Example:**
 ```plaintext
@@ -558,7 +557,7 @@ Background context: The prefix sum can be parallelized using a tree-based reduct
 ??x
 The tree-based reduction method for prefix sum works by structuring the data into a binary tree. Each node in this tree represents an element or a partial sum of elements from the original array. The leaf nodes contain the actual values, and each internal node is responsible for summing its children's values.
 
-For example, consider the array \(x = [3, 4, 6, 3, 8, 7, 5, 4]\). The tree would be structured as follows:
+For example, consider the array $x = [3, 4, 6, 3, 8, 7, 5, 4]$. The tree would be structured as follows:
 
 ```
         y[0]
@@ -595,8 +594,9 @@ Background context explaining the serial inclusive scan operation. This involves
 The process iterates through each element and updates it with the cumulative sum from the start of the array up to that point.
 :p What does the serial inclusive scan operation do?
 ??x
-The serial inclusive scan operation calculates the prefix sum for an array by sequentially updating each element. For example, given an array \(X = \{x_0, x_1, x_2, \ldots, x_n\}\), the output \(S\) would be:
-\[ S_i = \sum_{j=0}^{i} X_j \]
+The serial inclusive scan operation calculates the prefix sum for an array by sequentially updating each element. For example, given an array $X = \{x_0, x_1, x_2, \ldots, x_n\}$, the output $ S$would be:
+$$S_i = \sum_{j=0}^{i} X_j$$
+
 This operation is performed step by step, as shown in Listing 5.15.
 ```java
 public class SerialScan {
@@ -615,10 +615,10 @@ x??
 #### Parallel Inclusive Scan Operation (Step-Efficient)
 Background context explaining the step-efficient parallel scan. This operation aims to perform the same task as the serial inclusive scan but in a more efficient manner by leveraging multiple processes.
 
-The step-efficient algorithm uses a binary tree approach to compute the prefix sum, requiring only \(O(\log n)\) steps.
+The step-efficient algorithm uses a binary tree approach to compute the prefix sum, requiring only $O(\log n)$ steps.
 :p What is the key characteristic of the step-efficient parallel scan?
 ??x
-The key characteristic of the step-efficient parallel scan is its use of a logarithmic number of steps (\(O(\log n)\)) to perform the prefix sum. This efficiency comes at the cost of increased work, as each process needs to do more operations compared to the serial method.
+The key characteristic of the step-efficient parallel scan is its use of a logarithmic number of steps ($O(\log n)$) to perform the prefix sum. This efficiency comes at the cost of increased work, as each process needs to do more operations compared to the serial method.
 
 For instance, in Figure 5.17, the algorithm processes the array in a binary tree fashion, combining values from two subarrays to form larger sums.
 ```java
@@ -649,7 +649,7 @@ The work-efficient parallel scan stands out by reducing the total amount of work
 1. **Upsweep Phase**: This phase processes the array in a right-sweep manner, where each thread works on half its previous range.
 2. **Downsweep Phase**: After zeroing the last value, it performs a left-sweep to complete the prefix sum.
 
-The upsweep and downsweep phases together ensure that the total operations are minimized while still using \(O(\log n)\) steps.
+The upsweep and downsweep phases together ensure that the total operations are minimized while still using $O(\log n)$ steps.
 ```java
 public class WorkEfficientScan {
     public static void workEfficientUpsweep(int[] arr) {
@@ -865,7 +865,7 @@ By summing smaller values first, we ensure they contribute more significant digi
 ??x
 Global summation in parallel computing addresses the issue by ensuring that smaller values are summed first to increase their significance before adding larger ones. This approach avoids the high cost of sorting data while maintaining accuracy.
 
-For example, consider summing two regions with half the values at \(1 \times 10^{-1}\) and the other half at \(1 \times 10^{-10}\). By summing the smaller values first:
+For example, consider summing two regions with half the values at $1 \times 10^{-1}$ and the other half at $1 \times 10^{-10}$. By summing the smaller values first:
 
 ```java
 public class GlobalSummation {
@@ -989,10 +989,7 @@ Background context: The Kahan summation algorithm is designed to reduce the erro
 The key idea behind the Kahan summation algorithm is to keep a running sum (`sum`) and an accumulated compensation for lost low-order bits (`c`). During each iteration, it calculates the difference between the current number and the compensation, adds this difference to `sum`, and updates the compensation based on the actual value added.
 
 The formula used in Kahan summation:
-- Let \( y = x - c \)
-- Calculate \( t = sum + y \)
-- Update \( sum \) with \( t \)
-- Update \( c \) with \( (y - t) + c \)
+- Let $y = x - c $- Calculate$ t = sum + y $- Update$ sum $with$ t $- Update$ c $with$(y - t) + c$
 
 This approach ensures that the compensation `c` captures and corrects the rounding errors, making it a more accurate summation method than simple addition.
 
@@ -1137,13 +1134,13 @@ x??
 
 
 #### Locality for Operations
-Avoiding unnecessary operations on all data can help maintain complexity and performance. This is referred to as "locality of operations." A classic example is spatial hashing which keeps interactions local and reduces the complexity from \(O(N^2)\) to \(O(N)\).
+Avoiding unnecessary operations on all data can help maintain complexity and performance. This is referred to as "locality of operations." A classic example is spatial hashing which keeps interactions local and reduces the complexity from $O(N^2)$ to $O(N)$.
 
 :p What does "locality of operations" mean in parallel algorithms?
 ??x
 "Locality of operations" means avoiding unnecessary computations on all data when only a subset is needed. For instance, if you are simulating particle interactions, you typically only need to consider particles that are close to each other.
 
-Spatial hashing is a technique that keeps the complexity of particle interactions at \(O(N)\) instead of \(O(N^2)\). Here's an example implementation:
+Spatial hashing is a technique that keeps the complexity of particle interactions at $O(N)$ instead of $O(N^2)$. Here's an example implementation:
 ```java
 class SpatialHash {
     private final int[] hashTable;

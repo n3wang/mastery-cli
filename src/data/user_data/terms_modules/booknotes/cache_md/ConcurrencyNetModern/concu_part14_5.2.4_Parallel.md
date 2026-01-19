@@ -10,8 +10,7 @@
 Background context explaining the concept of divide and conquer. This pattern involves breaking down a problem into smaller sub-problems until they are small enough to be solved directly. It is particularly useful for algorithms like Quicksort, where problems are recursively divided.
 
 The recursive formula for divide and conquer can be represented as:
-\[ T(n) = aT\left(\frac{n}{b}\right) + f(n) \]
-where \(a\) is the number of sub-problems, \(\frac{n}{b}\) is the size of each sub-problem, and \(f(n)\) represents the cost of dividing the problem.
+$$T(n) = aT\left(\frac{n}{b}\right) + f(n)$$where $ a $is the number of sub-problems,$\frac{n}{b}$ is the size of each sub-problem, and $f(n)$ represents the cost of dividing the problem.
 
 :p What is the divide and conquer pattern?
 ??x
@@ -525,11 +524,8 @@ x??
 Background context: In functional programming, a monoid is an algebraic structure with a binary operation (like multiplication) that combines elements to produce another element of the same type. A monoid has two properties: closure and associativity. Additionally, it must have an identity element.
 :p What is a monoid in functional programming?
 ??x
-A monoid is a set equipped with an associative binary operation and an identity element such that for any elements \(a\), \(b\), and \(c\) in the set:
-- Associativity: \((a * b) * c = a * (b * c)\)
-- Identity Element: There exists an element \(e\) such that for every element \(a\), \(a * e = e * a = a\)
-
-For example, with integer multiplication, 1 is the identity element because multiplying any number by 1 does not change its value. 
+A monoid is a set equipped with an associative binary operation and an identity element such that for any elements $a $, $ b $, and$ c$ in the set:
+- Associativity:$(a * b) * c = a * (b * c)$- Identity Element: There exists an element $ e$such that for every element $ a$,$ a * e = e * a = a$ For example, with integer multiplication, 1 is the identity element because multiplying any number by 1 does not change its value. 
 x??
 
 ---
@@ -539,10 +535,8 @@ x??
 Background context: The factorial operation can be computed in parallel using divide and conquer strategy where the problem space is split into smaller sub-problems that can be solved concurrently.
 :p How would you calculate the factorial of a number in parallel?
 ??x
-You can calculate the factorial of a number by splitting the sequence into two halves, calculating their factorials separately, and then combining the results. Here's an example for \(8!\):
-- Core 1: Calculates \((2! * 3!) = M1\)
-- Core 2: Calculates \((4! * 5!) = M2\)
-- After that, combine these results: \((6! * 7!) * (8 * M1) = M3 * M4\)
+You can calculate the factorial of a number by splitting the sequence into two halves, calculating their factorials separately, and then combining the results. Here's an example for $8!$:
+- Core 1: Calculates $(2! * 3!) = M1 $- Core 2: Calculates $(4! * 5!) = M2 $- After that, combine these results:$(6! * 7!) * (8 * M1) = M3 * M4$
 
 The final result can be achieved by combining all intermediate results.
 x??

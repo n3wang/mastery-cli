@@ -696,7 +696,7 @@ Background context: An N-way set associative cache provides multiple locations t
 
 :p What is an N-way set associative cache and how does it differ from a direct-mapped cache?
 ??x
-An N-way set associative cache allows data blocks to be loaded into any of the \(N\) possible cache locations within a set. This provides more flexibility compared to a direct-mapped cache, where each block maps to exactly one location.
+An N-way set associative cache allows data blocks to be loaded into any of the $N$ possible cache locations within a set. This provides more flexibility compared to a direct-mapped cache, where each block maps to exactly one location.
 ```java
 // Example of addressing in an N-way set associative cache
 byte[] array1 = new byte[1024];
@@ -840,10 +840,10 @@ Arithmetic intensity measures how much computation (flops) is performed per unit
 Arithmetic intensity is defined as the ratio of floating-point operations to bytes of memory accessed. It helps in understanding the efficiency of an algorithm, especially when considering cache usage.
 
 The formula for arithmetic intensity is:
-\[ \text{Arithmetic intensity} = \frac{\text{flops}}{\text{bytes}} \]
+$$\text{Arithmetic intensity} = \frac{\text{flops}}{\text{bytes}}$$
 
 In the given example, the arithmetic intensity is calculated as:
-\[ \text{Arithmetic intensity} = \frac{5 \times 2000 \times 2000}{64.1 \, \text{MB}} = 0.312 \, \text{FLOPs/byte} \]
+$$\text{Arithmetic intensity} = \frac{5 \times 2000 \times 2000}{64.1 \, \text{MB}} = 0.312 \, \text{FLOPs/byte}$$
 
 This value indicates that for every byte of data accessed, there are approximately 0.312 floating-point operations.
 

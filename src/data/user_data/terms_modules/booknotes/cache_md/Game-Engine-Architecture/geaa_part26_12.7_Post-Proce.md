@@ -154,11 +154,11 @@ x??
 Background context explaining how quaternions are stored and optimized. Quaternions are normalized, meaning they always lie on a unit sphere. This allows us to store only three components (x, y, z) and infer the fourth component (w) during runtime.
 
 Relevant formulas:
-- The normalization condition for a quaternion: \( q = (x, y, z, w) \), where \( x^2 + y^2 + z^2 + w^2 = 1 \).
+- The normalization condition for a quaternion: $q = (x, y, z, w)$, where $ x^2 + y^2 + z^2 + w^2 = 1$.
 
 :p How can quaternions be stored efficiently?
 ??x
-We store only the three components of the quaternion (x, y, z) and infer the fourth component (w) during runtime. This is feasible because the normalization condition ensures that \( w \) can be computed as \( w = \sqrt{1 - x^2 - y^2 - z^2} \).
+We store only the three components of the quaternion (x, y, z) and infer the fourth component (w) during runtime. This is feasible because the normalization condition ensures that $w $ can be computed as$w = \sqrt{1 - x^2 - y^2 - z^2}$.
 x??
 
 ---
@@ -169,7 +169,7 @@ Background context explaining how channels with constant poses are stored. Chann
 
 :p How do we handle constant channels in animations?
 ??x
-We store the channel as a single sample at time \( t=0 \) and add one bit to indicate that the channel is constant for all other values of \( t \). This reduces the overall number of channels required.
+We store the channel as a single sample at time $t=0 $ and add one bit to indicate that the channel is constant for all other values of$t$. This reduces the overall number of channels required.
 x??
 
 ---
@@ -179,8 +179,8 @@ x??
 Background context explaining how quantization can reduce storage by reducing precision. Typically, floating-point numbers are stored in 32-bit IEEE format with 23 bits of precision and an 8-bit exponent.
 
 Relevant formulas:
-- The range for a unit quaternion: \( -1 \leq x, y, z, w \leq 1 \).
-- The number of intervals \( N = 2^n \), where \( n \) is the number of bits used in the quantization process.
+- The range for a unit quaternion: $-1 \leq x, y, z, w \leq 1$.
+- The number of intervals $N = 2^n $, where $ n$ is the number of bits used in the quantization process.
 
 :p What is quantization?
 ??x
@@ -195,7 +195,7 @@ Background context explaining how to implement quantization in practice.
 
 :p How can we implement encoding for a 16-bit quantized quaternion?
 ??x
-To encode a 32-bit IEEE float into a 16-bit integer, we first divide the range \([-1, 1]\) (or any valid range) into \( N = 2^{16} = 65536 \) intervals. We then map each floating-point value to its corresponding interval index.
+To encode a 32-bit IEEE float into a 16-bit integer, we first divide the range $[-1, 1]$(or any valid range) into $ N = 2^{16} = 65536$ intervals. We then map each floating-point value to its corresponding interval index.
 
 For example:
 ```java

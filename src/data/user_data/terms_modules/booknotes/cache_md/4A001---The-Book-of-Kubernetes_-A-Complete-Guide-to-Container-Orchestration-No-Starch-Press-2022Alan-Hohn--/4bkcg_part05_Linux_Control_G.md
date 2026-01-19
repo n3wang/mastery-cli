@@ -160,7 +160,7 @@ To launch a container with predefined CPU limits, follow these steps:
    ```
 2. **Create and Start the Container**:
    ```sh
-   CCL_ID=$(crictl create $PCL_ID co-clim.yaml po-clim.yaml)
+   CCL_ID=$(crictl create$ PCL_ID co-clim.yaml po-clim.yaml)
    crictl start $CCL_ID
    ```
 
@@ -272,7 +272,7 @@ Background context: The text explains how to use `tc` (Traffic Control) to set a
 ??x
 To limit egress bandwidth using `tc`, you can configure the Traffic Control settings as follows:
 ```bash
-IFACE=$(ip -o addr | grep 192.168.61.11 | awk '{print $2}')
+IFACE=$(ip -o addr | grep 192.168.61.11 | awk '{print$2}')
 tc qdisc add dev $IFACE root tbf rate 100mbit burst 256kbit latency 400ms
 ```
 This command sets a Traffic Control (TBF) queue discloser on the specified interface (`$IFACE`), limiting the outgoing traffic to `100mbit` with a burst size of `256kbit` and a latency of `400ms`.

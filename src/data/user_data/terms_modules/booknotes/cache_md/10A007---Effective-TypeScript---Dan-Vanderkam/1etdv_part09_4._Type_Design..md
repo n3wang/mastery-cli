@@ -27,11 +27,11 @@ If this type is used correctly, it ensures that any state passed to functions li
 // Example function with invalid state handling
 function renderPage(state: State) {
   if (state.error) {
-    return `Error. Unable to load ${currentPage}: ${state.error}`;
+    return `Error. Unable to load ${currentPage}:${state.error}`;
   } else if (state.isLoading) {
     return `Loading ${currentPage}...`;
   }
-  return `<h1>${currentPage}</h1> ${state.pageText}`;
+  return `<h1>${currentPage}</h1>${state.pageText}`;
 }
 ```
 ??x
@@ -61,7 +61,7 @@ async function changePage(state: State, newPage: string) {
   try {
     const response = await fetch(getUrlForPage(newPage));
     if (!response.ok) { // Corrected condition to check for non-OK status
-      throw new Error(`Unable to load ${newPage}: ${response.statusText}`);
+      throw new Error(`Unable to load ${newPage}:${response.statusText}`);
     }
     const text = await response.text();
     state.isLoading = false; // Set isLoading back to false after successful fetch
@@ -88,7 +88,7 @@ async function changePage(state: State, newPage: string) {
   try {
     const response = await fetch(getUrlForPage(newPage));
     if (response.ok) { // Corrected condition to check for OK status
-      throw new Error(`Unable to load ${newPage}: ${response.statusText}`);
+      throw new Error(`Unable to load ${newPage}:${response.statusText}`);
     }
     const text = await response.text();
     state.isLoading = false; // Set isLoading back to false after successful fetch
@@ -109,7 +109,7 @@ async function changePage(state: State, newPage: string) {
   try {
     const response = await fetch(getUrlForPage(newPage));
     if (!response.ok) { // Corrected condition to check for non-OK status
-      throw new Error(`Unable to load ${newPage}: ${response.statusText}`);
+      throw new Error(`Unable to load ${newPage}:${response.statusText}`);
     }
     const text = await response.text();
     state.isLoading = false; // Set isLoading back to false after successful fetch
@@ -230,9 +230,9 @@ function renderPage(state: State) {
         case 'pending': 
             return `Loading ${currentPage}...`;
         case 'error':
-            return `Error. Unable to load ${currentPage}: ${requestState.error}`;
+            return `Error. Unable to load ${currentPage}:${requestState.error}`;
         case 'ok':
-            return `<h1>${currentPage}</h1> ${requestState.pageText}`;
+            return `<h1>${currentPage}</h1>${requestState.pageText}`;
     }
 }
 ```
@@ -252,7 +252,7 @@ async function changePage(state: State, newPage: string) {
     try {
         const response = await fetch(getUrlForPage(newPage));
         if (!response.ok) {
-            throw new Error(`Unable to load ${newPage}: ${response.statusText}`);
+            throw new Error(`Unable to load ${newPage}:${response.statusText}`);
         }
         const pageText = await response.text();
         state.requests[newPage] = {state: 'ok', pageText};

@@ -253,7 +253,7 @@ function formatHike({miles, hours}, config: AppConfig) {
         value: miles / hours,
         units: 'mph'  // Missing unitSystem, leading to inconsistent display.
     });
-    return `${distanceDisplay} at ${paceDisplay}`;
+    return `${distanceDisplay} at${paceDisplay}`;
 }
 ```
 This can result in incorrect unit conversions and a confusing user experience.
@@ -302,7 +302,7 @@ x??
 Adding optional properties to large interfaces can lead to a combinatorial explosion of possible combinations, making it difficult to test all valid states.
 :p Why is managing optional properties in large interfaces problematic?
 ??x
-Managing optional properties in large interfaces can become overwhelming due to the exponential increase in potential combinations. For instance, if you have 10 optional properties, there are \(2^{10} = 1024\) possible combinations.
+Managing optional properties in large interfaces can become overwhelming due to the exponential increase in potential combinations. For instance, if you have 10 optional properties, there are $2^{10} = 1024$ possible combinations.
 
 Testing all these combinations is impractical, and it's hard to ensure that all combinations make sense or are valid states for your application. This can lead to inconsistencies and bugs in your codebase.
 
@@ -315,7 +315,7 @@ interface LargeInterface {
 }
 ```
 
-With 10 optional properties, you have \(2^{10} = 1024\) combinations. Testing all these states can be challenging and error-prone.
+With 10 optional properties, you have $2^{10} = 1024$ combinations. Testing all these states can be challenging and error-prone.
 
 x??
 

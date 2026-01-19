@@ -152,18 +152,20 @@ x??
 Background context explaining how weight matrices in large language models can be approximated using smaller matrices, leading to significant efficiency gains during training.
 :p How does LoRA approximate the weight matrices used in LLMs?
 ??x
-LoRA approximates the weight matrices found in large language models by breaking them into smaller, lower-rank matrices. This is achieved through matrix decomposition techniques where a single large weight matrix \( W \) of size \( M \times N \) can be represented as a product of two smaller matrices: \( U \cdot V^T \), where \( U \) and \( V \) are much smaller in size than \( W \).
+LoRA approximates the weight matrices found in large language models by breaking them into smaller, lower-rank matrices. This is achieved through matrix decomposition techniques where a single large weight matrix $W $ of size$M \times N $ can be represented as a product of two smaller matrices:$U \cdot V^T $, where$ U $ and $ V $ are much smaller in size than $ W$.
 
 For example, if we have a 10x10 weight matrix:
-\[ W = \begin{bmatrix}
+$$W = \begin{bmatrix}
 w_{11} & w_{12} & \cdots & w_{1,10}\\
 w_{21} & w_{22} & \cdots & w_{2,10}\\
 \vdots & \vdots & \ddots & \vdots\\
 w_{10,1} & w_{10,2} & \cdots & w_{10,10}
-\end{bmatrix} \]
+\end{bmatrix}$$
 
 LoRA can approximate this matrix using two smaller matrices:
-\[ W \approx U \cdot V^T = \begin{bmatrix}
+$$
+
+W \approx U \cdot V^T = \begin{bmatrix}
 u_1 \\
 u_2 \\
 \vdots \\
@@ -171,7 +173,7 @@ u_{10}
 \end{bmatrix} \cdot
 \begin{bmatrix}
 v_1 & v_2 & \cdots & v_{10}
-\end{bmatrix} \]
+\end{bmatrix}$$
 
 This reduces the number of parameters from 100 (for a full matrix) to just 20, significantly reducing computational load.
 x??
@@ -221,18 +223,20 @@ x??
 Background context on how decomposing large weight matrices into smaller matrices helps in making fine-tuning more efficient during training.
 :p How does decomposing large weight matrices help in making fine-tuning more efficient?
 ??x
-Decomposing large weight matrices into smaller, lower-rank matrices helps in making the fine-tuning process more efficient. This is achieved by approximating a large matrix \( W \) of size \( M \times N \) using two smaller matrices: \( U \cdot V^T \), where \( U \) and \( V \) are much smaller.
+Decomposing large weight matrices into smaller, lower-rank matrices helps in making the fine-tuning process more efficient. This is achieved by approximating a large matrix $W $ of size$M \times N $ using two smaller matrices:$U \cdot V^T $, where$ U $ and $ V$ are much smaller.
 
 By doing this, the number of parameters required for training is significantly reduced. For example, if we have a 10x10 matrix:
-\[ W = \begin{bmatrix}
+$$W = \begin{bmatrix}
 w_{11} & w_{12} & \cdots & w_{1,10}\\
 w_{21} & w_{22} & \cdots & w_{2,10}\\
 \vdots & \vdots & \ddots & \vdots\\
 w_{10,1} & w_{10,2} & \cdots & w_{10,10}
-\end{bmatrix} \]
+\end{bmatrix}$$
 
 We can approximate this matrix using two smaller matrices:
-\[ W \approx U \cdot V^T = \begin{bmatrix}
+$$
+
+W \approx U \cdot V^T = \begin{bmatrix}
 u_1 \\
 u_2 \\
 \vdots \\
@@ -240,7 +244,7 @@ u_{10}
 \end{bmatrix} \cdot
 \begin{bmatrix}
 v_1 & v_2 & \cdots & v_{10}
-\end{bmatrix} \]
+\end{bmatrix}$$
 
 This reduces the number of parameters from 100 (for a full matrix) to just 20, making the training process much faster and more resource-efficient.
 
@@ -513,8 +517,7 @@ x??
 Perplexity is a measure used to evaluate how well a language model predicts the next token in a sequence. It provides insights into the confidence with which the model can predict the correct next word given the context.
 
 The formula for perplexity is defined as:
-\[ \text{Perplexity} = 2^{-\frac{\sum_{i=1}^n \log_2 P(w_i|w_{1:i-1})}{n}} \]
-where \(P(w_i|w_{1:i-1})\) is the probability of the next word given all previous words, and \(n\) is the number of tokens.
+$$\text{Perplexity} = 2^{-\frac{\sum_{i=1}^n \log_2 P(w_i|w_{1:i-1})}{n}}$$where $ P(w_i|w_{1:i-1})$is the probability of the next word given all previous words, and $ n$ is the number of tokens.
 
 The model performs better when it gives higher probabilities to the correct next token. A lower perplexity score indicates a better model.
 
@@ -570,8 +573,7 @@ BLEU uses a brevity penalty that adjusts for the length of the generated text re
 BLEU (Bilingual Evaluation Understudy) measures the similarity between a candidate translation and one or more reference translations by comparing n-grams. It evaluates both the quality and the fluency of translated sentences using precision metrics.
 
 The formula for BLEU is:
-\[ \text{BLEU} = \text{BP} \times \text{exp}\left( \sum_{n=1}^{N} \log p_n / N \right) \]
-where \(p_n\) is the n-gram precision, and BP is the brevity penalty.
+$$\text{BLEU} = \text{BP} \times \text{exp}\left( \sum_{n=1}^{N} \log p_n / N \right)$$where $ p_n$ is the n-gram precision, and BP is the brevity penalty.
 
 The brevity penalty (BP) ensures that shorter translations are not favored unfairly. If the candidate translation is shorter than the shortest reference, the score is penalized. Otherwise, it’s adjusted based on the length ratio of the candidate to the reference.
 

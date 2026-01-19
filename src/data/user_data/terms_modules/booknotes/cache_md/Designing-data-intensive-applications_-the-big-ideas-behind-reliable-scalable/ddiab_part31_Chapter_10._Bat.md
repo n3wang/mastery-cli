@@ -103,7 +103,7 @@ To omit CSS files, modify `awk` to exclude lines where the URL ends in `.css`:
 
 ```sh
 cat /var/log/nginx/access.log | \
-awk '{if ($7 !~ /\.css$/) {print $7}}'  # Exclude URLs ending with .css
+awk '{if ($7 !~ /\.css $/) {print $7}}'  # Exclude URLs ending with .css
 ```
 
 :p How can the command line approach be modified if you want to count top client IP addresses instead of top pages?

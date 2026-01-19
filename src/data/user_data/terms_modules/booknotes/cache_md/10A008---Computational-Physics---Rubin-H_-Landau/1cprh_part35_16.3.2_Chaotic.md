@@ -17,7 +17,7 @@ The three main types of long-term phase space behavior are:
 2. Running solution: The pendulum keeps going over the top.
 3. Chaotic motion: Paths in the phase space are close enough to appear as bands.
 
-These behaviors can be visualized by plotting the position of one pendulum against another, or using a lag plot where \( \theta(t+\tau) \) is plotted against \( \theta(t) \). Here, \( \tau \) is a lag time that should be chosen as some fraction of a characteristic time for the system. 
+These behaviors can be visualized by plotting the position of one pendulum against another, or using a lag plot where $\theta(t+\tau)$ is plotted against $\theta(t)$. Here,$\tau$ is a lag time that should be chosen as some fraction of a characteristic time for the system. 
 
 For example:
 ```java
@@ -42,9 +42,9 @@ x??
 
 #### Phase Space Without Velocities
 
-When you measure the displacement of a system as a function of time, you can still generate a phase space plot by plotting \( \theta(t+\tau) \) versus \( \theta(t) \). This approach effectively approximates the velocity using the forward difference formula.
+When you measure the displacement of a system as a function of time, you can still generate a phase space plot by plotting $\theta(t+\tau)$ versus $\theta(t)$. This approach effectively approximates the velocity using the forward difference formula.
 
-:p Create a phase space plot from chaotic pendulum data by plotting \( \theta(t+\tau) \) against \( \theta(t) \).
+:p Create a phase space plot from chaotic pendulum data by plotting $\theta(t+\tau)$ against $\theta(t)$.
 ??x
 To create a phase space plot without explicit velocity data, use the following approach:
 
@@ -62,9 +62,9 @@ public class PhaseSpacePlotter {
 
 This method effectively approximates the velocity as:
 
-\[ v(t) \approx \frac{\theta(t+\tau) - \theta(t)}{\tau} \]
+$$v(t) \approx \frac{\theta(t+\tau) - \theta(t)}{\tau}$$
 
-By plotting \( \theta(t+\tau) \) against \( \theta(t) \), you can visualize the phase space dynamics.
+By plotting $\theta(t+\tau)$ against $\theta(t)$, you can visualize the phase space dynamics.
 
 x??
 
@@ -77,29 +77,27 @@ x??
 
 Background context: A bifurcation diagram is a graphical tool that shows how the behavior of a dynamical system changes as a parameter varies. In this case, we are looking at a chaotic pendulum with a vibrating pivot point and its response to varying driving forces. The equation governing the system is given by:
 
-\[ \frac{d^2\theta}{dt^2} = -\alpha \frac{d\theta}{dt} - (\omega_0^2 + f \cos(\omega t)) \sin(\theta) \]
-
-where \( \alpha \) is the damping coefficient, \( \omega_0 \) is the natural frequency of the pendulum, \( \omega \) is the driving force's angular frequency, and \( f \) is the amplitude of the driving force. The initial conditions are \( \theta(0) = 1 \) and \( \dot{\theta}(0) = 1 \).
+$$\frac{d^2\theta}{dt^2} = -\alpha \frac{d\theta}{dt} - (\omega_0^2 + f \cos(\omega t)) \sin(\theta)$$where $\alpha $ is the damping coefficient,$\omega_0 $ is the natural frequency of the pendulum,$\omega $ is the driving force's angular frequency, and$f $ is the amplitude of the driving force. The initial conditions are$\theta(0) = 1 $ and$\dot{\theta}(0) = 1$.
 
 To obtain the bifurcation diagram:
 
-1. Set \( \alpha = 0.1 \), \( \omega_0 = 1 \), \( \omega = 2 \).
-2. Vary \( f \) from 0 to 2.25.
-3. After each value of \( f \), wait for 150 periods of the driver before sampling.
-4. Sample \( \dot{\theta} \) at points where \( \dot{\theta} = 0 \) (i.e., when the pendulum passes through its equilibrium position).
-5. Plot the absolute values of \( \dot{\theta} \) versus \( f \).
+1. Set $\alpha = 0.1 $, $\omega_0 = 1 $, $\omega = 2$.
+2. Vary $f$ from 0 to 2.25.
+3. After each value of $f$, wait for 150 periods of the driver before sampling.
+4. Sample $\dot{\theta}$ at points where $\dot{\theta} = 0$ (i.e., when the pendulum passes through its equilibrium position).
+5. Plot the absolute values of $\dot{\theta}$ versus $f$.
 
 :p How do you generate a bifurcation diagram for a chaotic pendulum with a vibrating pivot?
 ??x
 To generate a bifurcation diagram, follow these steps:
 
-1. Set initial conditions: \( \theta(0) = 1 \) and \( \dot{\theta}(0) = 1 \).
-2. Choose parameters: \( \alpha = 0.1 \), \( \omega_0 = 1 \), \( \omega = 2 \).
-3. Vary the driving force \( f \) from 0 to 2.25.
-4. For each value of \( f \):
+1. Set initial conditions: $\theta(0) = 1 $ and$\dot{\theta}(0) = 1$.
+2. Choose parameters: $\alpha = 0.1 $, $\omega_0 = 1 $, $\omega = 2$.
+3. Vary the driving force $f$ from 0 to 2.25.
+4. For each value of $f$:
    - Allow the system to settle by waiting for 150 periods of the driver.
-   - Sample the angular velocity \( \dot{\theta} \) at points where it crosses zero.
-5. Plot these sampled values of \( \dot{\theta} \) against \( f \).
+   - Sample the angular velocity $\dot{\theta}$ at points where it crosses zero.
+5. Plot these sampled values of $\dot{\theta}$ against $f$.
 
 This process reveals how the system's behavior changes as the driving force varies, showing the onset and continuation of chaotic behavior.
 
@@ -156,7 +154,7 @@ Background context: In a chaotic system like the one described, the behavior is 
 ??x
 In a chaotic pendulum, the system tends to oscillate between different modes or states rather than exhibiting all possible frequencies at once. Instead, it exhibits a series of dominant frequencies that appear sequentially as the driving force changes.
 
-This behavior is observed in the bifurcation diagram, where the sampled angular velocities \( \dot{\theta} \) are plotted against the driving force \( f \). The diagram shows how the system jumps from one oscillatory mode to another, reflecting the presence of distinct dominant frequencies that the system gets attracted to as it evolves.
+This behavior is observed in the bifurcation diagram, where the sampled angular velocities $\dot{\theta}$ are plotted against the driving force $f$. The diagram shows how the system jumps from one oscillatory mode to another, reflecting the presence of distinct dominant frequencies that the system gets attracted to as it evolves.
 
 ```java
 // Pseudocode for analyzing chaotic pendulum frequencies
@@ -201,7 +199,7 @@ Background context: The behavior of a nonlinear pendulum, driven by external sin
 
 :p What are the major frequencies contained in one-, three-, and five-cycle structures of a chaotic pendulum?
 ??x
-The major frequencies in these structures can be deduced from the driving frequency \(\omega\) and the natural frequency \(\omega_0\). For a three-cycle structure, you would typically find three Fourier components corresponding to \(3\omega\), \(\omega\), and possibly other harmonics. Similarly, for a five-cycle structure, more complex combinations of frequencies are expected.
+The major frequencies in these structures can be deduced from the driving frequency $\omega $ and the natural frequency$\omega_0 $. For a three-cycle structure, you would typically find three Fourier components corresponding to $3\omega $, $\omega$, and possibly other harmonics. Similarly, for a five-cycle structure, more complex combinations of frequencies are expected.
 
 To analyze these structures:
 1. Dust off your program for analyzing signals into Fourier components.
@@ -262,13 +260,13 @@ Background context: The double pendulum has two coupled motions, making its equa
 :p What are the equations of motion for the double pendulum?
 ??x
 The equations of motion for the double pendulum can be derived from the Lagrangian formulation:
-\[ L = \frac{1}{2}(m_1 + m_2)l_1^2\dot{\theta}_1^2 + \frac{1}{2}m_2 l_2^2\dot{\theta}_2^2 + m_2 l_1 l_2 \dot{\theta}_1 \dot{\theta}_2 \cos(\theta_1 - \theta_2) + (m_1 + m_2)g l_1 \cos(\theta_1) + m_2 g l_2 \cos(\theta_2) \]
+$$L = \frac{1}{2}(m_1 + m_2)l_1^2\dot{\theta}_1^2 + \frac{1}{2}m_2 l_2^2\dot{\theta}_2^2 + m_2 l_1 l_2 \dot{\theta}_1 \dot{\theta}_2 \cos(\theta_1 - \theta_2) + (m_1 + m_2)g l_1 \cos(\theta_1) + m_2 g l_2 \cos(\theta_2)$$
 
 From this Lagrangian, the equations of motion are:
-\[ \ddot{\theta}_1 = -\frac{m_2 l_2}{I_{12}} \sin(\theta_1 - \theta_2) + \frac{g (m_1 + m_2) \cos(\theta_1)}{l_1} \]
-\[ \ddot{\theta}_2 = \frac{m_2 l_1}{I_{12}} \sin(\theta_1 - \theta_2) - \frac{g m_2 \cos(\theta_2)}{l_2} \]
+$$\ddot{\theta}_1 = -\frac{m_2 l_2}{I_{12}} \sin(\theta_1 - \theta_2) + \frac{g (m_1 + m_2) \cos(\theta_1)}{l_1}$$
+$$\ddot{\theta}_2 = \frac{m_2 l_1}{I_{12}} \sin(\theta_1 - \theta_2) - \frac{g m_2 \cos(\theta_2)}{l_2}$$
 
-Where \( I_{12} = (m_1 + m_2) l_1^2 + m_2 l_2^2 - m_2 l_1 l_2 \cos(\theta_1 - \theta_2) \).
+Where $I_{12} = (m_1 + m_2) l_1^2 + m_2 l_2^2 - m_2 l_1 l_2 \cos(\theta_1 - \theta_2)$.
 
 Code Example (Pseudocode):
 ```java
@@ -297,7 +295,7 @@ To compute trajectories for the given billiard systems:
 1. Define the geometry of each type of billiard.
 2. Use initial conditions to track the particle’s path as it bounces off the walls.
 
-For example, in a square billiard (Figure 16.12a and 16.12c), the particle will follow straight lines until it hits one of the four walls. Upon hitting a wall, the particle reflects according to the law of reflection: \(\theta_i = \theta_r\).
+For example, in a square billiard (Figure 16.12a and 16.12c), the particle will follow straight lines until it hits one of the four walls. Upon hitting a wall, the particle reflects according to the law of reflection: $\theta_i = \theta_r$.
 
 Code Example (Pseudocode):
 ```java

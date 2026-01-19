@@ -176,7 +176,7 @@ CUDA_LIB=`which nvcc | sed -e 's./bin/nvcc..'`/lib
 CUDA_LIB64=`which nvcc | sed -e 's./bin/nvcc..'`/lib64
 
 percent.o : percent.cu
-    ${NVCC} ${NVCC_FLAGS} -c $< -o $@
+    ${NVCC}${NVCC_FLAGS} -c $< -o$@
 
 StreamTriad: StreamTriad.o timer.o
     ${CXX} -o $@ $^ -L${CUDA_LIB} -lcudart

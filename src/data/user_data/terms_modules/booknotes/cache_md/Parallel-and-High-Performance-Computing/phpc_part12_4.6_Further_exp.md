@@ -12,18 +12,18 @@ In parallel computing, a reduction operation is an operation where a multidimens
 Example: Consider an array of cell counts across several processors that needs to be summed up into a single value.
 :p What is the reduction operation described here?
 ??x
-The reduction operation is an example where multiple processors collaborate to sum up all their local data (e.g., cell counts) into a single global result. This operation can be performed in a tree-like pattern, reducing communication hops to \(\log_2 N\), where \(N\) is the number of ranks (processors).
+The reduction operation is an example where multiple processors collaborate to sum up all their local data (e.g., cell counts) into a single global result. This operation can be performed in a tree-like pattern, reducing communication hops to $\log_2 N $, where $ N$ is the number of ranks (processors).
 x??
 
 ---
 
 
 #### Pair-Wise Reduction with Tree-Like Pattern
-A reduction operation can also be performed using a pair-wise fashion in a tree-like pattern. In such a scenario, the number of communication hops required for an array of size \(N\) to complete the reduction would typically be \(\log_2 N\).
+A reduction operation can also be performed using a pair-wise fashion in a tree-like pattern. In such a scenario, the number of communication hops required for an array of size $N $ to complete the reduction would typically be$\log_2 N$.
 
 :p How many communication hops are needed for a pair-wise reduction in parallel computing?
 ??x
-For a pair-wise reduction with a tree-like pattern, the number of communication hops is \(\log_2 N\), where \(N\) represents the number of processors (ranks) involved. This logarithmic relationship means that as the number of processors increases exponentially, the number of hops only grows linearly.
+For a pair-wise reduction with a tree-like pattern, the number of communication hops is $\log_2 N $, where $ N$ represents the number of processors (ranks) involved. This logarithmic relationship means that as the number of processors increases exponentially, the number of hops only grows linearly.
 x??
 
 ---

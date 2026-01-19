@@ -9,11 +9,10 @@
 #### Nonlocal Potential Binding
 Background context: In quantum mechanics, particles can interact through a many-body medium. To simplify this problem, an effective one-particle potential is often used. This potential depends on both the position of the particle and the wave function at other positions due to interactions with other particles, making it nonlocal.
 Relevant formulas:
-\[ V(r) \psi(r) \rightarrow \int dr' V(r,r') \psi(r') \]
-The Schrödinger equation then becomes:
-\[ -\frac{\hbar^2}{2m} \frac{d^2\psi(r)}{dr^2} + \int dr' V(r,r') \psi(r') = E \psi(r) \]
+$$V(r) \psi(r) \rightarrow \int dr' V(r,r') \psi(r')$$
 
-:p What is the concept of nonlocal potential binding?
+The Schrödinger equation then becomes:
+$$-\frac{\hbar^2}{2m} \frac{d^2\psi(r)}{dr^2} + \int dr' V(r,r') \psi(r') = E \psi(r)$$:p What is the concept of nonlocal potential binding?
 ??x
 This concept deals with simplifying a complex many-body interaction problem by using an effective one-particle potential. The effective potential depends on both the position and wave function at other positions due to interactions, hence it's called nonlocal.
 x??
@@ -25,8 +24,9 @@ x??
 Background context: To solve integro-differential equations more directly, the momentum-space version of the Schrödinger equation is used. This equation allows for a more straightforward numerical approach.
 
 Relevant formulas:
-\[ k^2 \frac{\psi_n(k)}{2m} + 2\pi \int_0^\infty dp p^2 V(k,p) \psi_n(p) = E_n \psi_n(k) \]
-Where \( V(k,p) \) is the momentum-space representation of the coordinate-space potential.
+$$k^2 \frac{\psi_n(k)}{2m} + 2\pi \int_0^\infty dp p^2 V(k,p) \psi_n(p) = E_n \psi_n(k)$$
+
+Where $V(k,p)$ is the momentum-space representation of the coordinate-space potential.
 
 :p What is the momentum-space Schrödinger equation?
 ??x
@@ -40,7 +40,8 @@ x??
 Background context: The integral equation can be transformed into a matrix equation using numerical techniques like Gaussian quadrature. This allows for solving the problem with standard matrix methods.
 
 Relevant formulas:
-\[ \int_0^\infty dp p^2 V(k,p) \psi_n(p) \approx \sum_{j=1}^{N} w_j k_j^2 V(k,k_j) \psi_n(k_j) \]
+$$\int_0^\infty dp p^2 V(k,p) \psi_n(p) \approx \sum_{j=1}^{N} w_j k_j^2 V(k,k_j) \psi_n(k_j)$$
+
 This approximation converts the integral equation into a set of coupled linear equations.
 
 :p How is the integral transformed into a matrix equation?
@@ -55,51 +56,54 @@ x??
 Background context: The resulting set of coupled linear equations from the integral transformation is written in matrix form to solve for the wave function values and energy eigenvalues.
 
 Relevant formulas:
-\[ [H][\psi_n] = E_n [\psi_n] \]
-Where \( H \) is a matrix containing coefficients from the transformed equation, and \( \psi_n \) are the unknown wave functions at grid points.
+$$[H][\psi_n] = E_n [\psi_n]$$
+
+Where $H $ is a matrix containing coefficients from the transformed equation, and$\psi_n$ are the unknown wave functions at grid points.
 
 :p What form do the coupled equations take?
 ??x
 The coupled linear equations are written in matrix form as:
-\[ [H][\psi_n] = E_n [\psi_n] \]
-Where \( H \) is a matrix with coefficients from the transformed integral equation, and \( \psi_n \) represents the wave function values at specific grid points.
+$$[H][\psi_n] = E_n [\psi_n]$$
+
+Where $H $ is a matrix with coefficients from the transformed integral equation, and$\psi_n$ represents the wave function values at specific grid points.
 x??
 
 ---
 
 
 #### Eigenvalue Problem
-Background context: The matrix form of the equations can be viewed as an eigenvalue problem. For a nontrivial solution to exist, the determinant of \( [H - E_n I] \) must vanish.
+Background context: The matrix form of the equations can be viewed as an eigenvalue problem. For a nontrivial solution to exist, the determinant of $[H - E_n I]$ must vanish.
 
 Relevant formulas:
-\[ \det[H - E_n I] = 0 \]
-This is the condition that needs to be satisfied for a unique bound-state solution, where \( E_n \) are the eigenvalues.
+$$\det[H - E_n I] = 0$$
+
+This is the condition that needs to be satisfied for a unique bound-state solution, where $E_n$ are the eigenvalues.
 
 :p What is the matrix equation's relationship to an eigenvalue problem?
 ??x
-The matrix equation represents an eigenvalue problem. For nontrivial solutions to exist, the determinant of the matrix \( [H - E_n I] \) must be zero, indicating that \( E_n \) are the eigenvalues.
+The matrix equation represents an eigenvalue problem. For nontrivial solutions to exist, the determinant of the matrix $[H - E_n I]$ must be zero, indicating that $E_n$ are the eigenvalues.
 x??
 
 ---
 
 
 #### Determinant and Eigenvalues
-Background context: Solving for the energy eigenvalues involves finding the roots of the determinant equation. Only certain values of \( E_n \) will satisfy this condition.
+Background context: Solving for the energy eigenvalues involves finding the roots of the determinant equation. Only certain values of $E_n$ will satisfy this condition.
 
 :p What role does the determinant play in solving for bound-state energies?
 ??x
-The determinant plays a crucial role by determining which values of \( E_n \) are valid solutions to the matrix equation, i.e., eigenvalues corresponding to bound states.
+The determinant plays a crucial role by determining which values of $E_n$ are valid solutions to the matrix equation, i.e., eigenvalues corresponding to bound states.
 x??
 
 ---
 
 
 #### Grid Points and Solving
-Background context: The wave function is solved at specific grid points. For \( N \) grid points, there are \( N+1 \) unknowns (wave functions and energy), which must be solved together.
+Background context: The wave function is solved at specific grid points. For $N $ grid points, there are$N+1$ unknowns (wave functions and energy), which must be solved together.
 
 :p How many equations are needed for the system to have a solution?
 ??x
-To solve the system, we need an additional equation beyond the number of wave function values. This is because the determinant condition provides one such equation, giving \( N+1 \) unknowns (wave functions at grid points and energy).
+To solve the system, we need an additional equation beyond the number of wave function values. This is because the determinant condition provides one such equation, giving $N+1$ unknowns (wave functions at grid points and energy).
 x??
 
 ---
@@ -108,15 +112,14 @@ x??
 
 
 #### Bound State Equation
-The provided text mentions a transcendental equation that determines the bound state energy for the delta-shell potential: \( e^{-2\varphi b} - 1 = 2 \frac{\lambda}{\sqrt{2mE}} \), where \(\varphi\) is related to the wave vector by \(\varphi^2 = -\frac{2E}{m}\).
+The provided text mentions a transcendental equation that determines the bound state energy for the delta-shell potential:$e^{-2\varphi b} - 1 = 2 \frac{\lambda}{\sqrt{2mE}}$, where $\varphi $ is related to the wave vector by $\varphi^2 = -\frac{2E}{m}$.
 
 :p What is the equation that determines the energy for a bound state in the delta-shell potential?
 ??x
-The transcendental equation for finding the bound state energy \(E_n\) in the delta-shell potential is given by:
+The transcendental equation for finding the bound state energy $E_n$ in the delta-shell potential is given by:
+$$e^{-2\varphi b} - 1 = 2 \frac{\lambda}{\sqrt{2mE}}.$$
 
-\[ e^{-2\varphi b} - 1 = 2 \frac{\lambda}{\sqrt{2mE}}. \]
-
-Here, \(\varphi\) is related to the wave vector \(\varphi\) through \(\varphi^2 = -\frac{2E}{m}\). To find the bound state energy, one must solve this equation numerically for \(E\), with the constraint that \(\lambda < 0\) for attractive potentials.
+Here,$\varphi $ is related to the wave vector$\varphi $ through$\varphi^2 = -\frac{2E}{m}$. To find the bound state energy, one must solve this equation numerically for $ E$, with the constraint that $\lambda < 0$ for attractive potentials.
 x??
 
 ---
@@ -129,9 +132,9 @@ The text suggests setting up a numerical computation to find eigenvalues. This i
 ??x
 To numerically compute the eigenvalues and eigenvectors for the delta-shell potential, follow these steps:
 
-1. **Set the Scale**: Set \(2m = 1\) and \(b = 10\).
-2. **Setup Potential and Hamiltonian Matrices**: Use Gaussian quadrature with at least \(N=16\) grid points to approximate the integral.
-3. **Adjust \(\lambda\) for Bound States**: Start with a large negative value for \(\lambda\) and make it progressively less negative. As you adjust \(\lambda\), observe how the eigenvalues move in energy.
+1. **Set the Scale**: Set $2m = 1 $ and$b = 10$.
+2. **Setup Potential and Hamiltonian Matrices**: Use Gaussian quadrature with at least $N=16$ grid points to approximate the integral.
+3. **Adjust $\lambda $ for Bound States**: Start with a large negative value for$\lambda $ and make it progressively less negative. As you adjust$\lambda$, observe how the eigenvalues move in energy.
 4. **Solve Eigenvalue Problem**: Use an eigenvalue solver to find both the energies (eigenvalues) and wave functions (eigenvectors). The true bound state will appear at a negative energy and should change little as the number of grid points changes.
 
 Here is a simplified pseudocode example for setting up the Hamiltonian matrix using Gaussian quadrature:
@@ -159,7 +162,7 @@ for i in range(N):
 
 ```
 
-This code sets up the potential \(V(k', k)\) using Gaussian quadrature and initializes a Hamiltonian matrix. The actual eigenvalue problem would then be solved using a numerical solver.
+This code sets up the potential $V(k', k)$ using Gaussian quadrature and initializes a Hamiltonian matrix. The actual eigenvalue problem would then be solved using a numerical solver.
 x??
 
 ---
@@ -170,7 +173,7 @@ The text suggests adjusting the number of grid points to observe how the energy 
 
 :p How does changing the number of grid points affect the computed energy for the delta-shell potential?
 ??x
-Changing the number of grid points in the Gaussian quadrature can significantly impact the accuracy and stability of the numerical solution. Initially, starting with a smaller number of grid points (e.g., \(N=16\)) provides an initial estimate. Increasing the number of grid points (e.g., to 24, 32, 64) helps improve the precision of the energy eigenvalues.
+Changing the number of grid points in the Gaussian quadrature can significantly impact the accuracy and stability of the numerical solution. Initially, starting with a smaller number of grid points (e.g.,$N=16$) provides an initial estimate. Increasing the number of grid points (e.g., to 24, 32, 64) helps improve the precision of the energy eigenvalues.
 
 Here is a pseudocode example for increasing the number of grid points and observing the effect on the energy:
 
@@ -205,7 +208,7 @@ print("Energy at N=32:", energies_32)
 print("Energy at N=64:", energies_64)
 ```
 
-By increasing the number of grid points, you can observe how the energy values stabilize and become more accurate. The true bound state energy should change little as \(N\) increases.
+By increasing the number of grid points, you can observe how the energy values stabilize and become more accurate. The true bound state energy should change little as $N$ increases.
 x??
 
 ---
@@ -325,7 +328,7 @@ Background context: The coordinate-space wave function ψn(r) is determined usin
 :p Determine the coordinate-space wave function ψn(r).
 ??x
 To determine the coordinate-space wave function ψn(r), use the Bessel transform:
-\[ \psi_n(r) = \int_0^\infty dk \, \psi_n(k) \frac{\sin(kr)}{kr} \sqrt{k}. \]
+$$\psi_n(r) = \int_0^\infty dk \, \psi_n(k) \frac{\sin(kr)}{kr} \sqrt{k}.$$
 
 This integral can be evaluated using the same points and weights used for evaluating the integral in the original problem. For instance:
 
@@ -386,7 +389,7 @@ Background context: The determined ψn(r) should be compared to the analytical f
 To compare the r-dependence of your numerically obtained ψn(r) with the analytical wave function, plot both against r and visually inspect the similarity.
 
 The analytical form is:
-\[ \psi_n(r) \propto \begin{cases} e^{-\alpha r} - e^{\alpha r}, & \text{for } r < b, \\ e^{-\alpha r}, & \text{for } r > b. \end{cases} \]
+$$\psi_n(r) \propto \begin{cases} e^{-\alpha r} - e^{\alpha r}, & \text{for } r < b, \\ e^{-\alpha r}, & \text{for } r > b. \end{cases}$$
 
 You can implement the analytical function as:
 ```c
@@ -411,14 +414,16 @@ Background context: The scattering phase shift δ needs to be determined using t
 :p Calculate the scattering phase shift δ for this scattering problem.
 ??x
 To calculate the scattering phase shift δ, solve the Lippmann–Schwinger equation:
-\[ R(k', k) = V(k', k) + \frac{2\pi}{i} \mathcal{P} \int_0^\infty dp \frac{p^2 V(k', p) R(p, k)}{(k_0^2 - p^2)/2m}. \]
+$$
 
-Here, \(R\) is the reaction matrix related to the scattering amplitude and can be found by solving this equation. The initial and final COM momenta \(k\) and \(k'\) are momentum-space variables.
+R(k', k) = V(k', k) + \frac{2\pi}{i} \mathcal{P} \int_0^\infty dp \frac{p^2 V(k', p) R(p, k)}{(k_0^2 - p^2)/2m}.$$
+
+Here,$R $ is the reaction matrix related to the scattering amplitude and can be found by solving this equation. The initial and final COM momenta$k $ and$ k'$ are momentum-space variables.
 
 The scattering phase shift δ is obtained from:
-\[ R(k_0, k_0) = -\tan \delta_0, \quad \rho = 2mk_0. \]
+$$R(k_0, k_0) = -\tan \delta_0, \quad \rho = 2mk_0.$$
 
-To find δ, you need to solve the integral equation numerically for various \(k'\) and then use the diagonal elements (when \(k' = k_0\)) to extract the phase shift.
+To find δ, you need to solve the integral equation numerically for various $k'$ and then use the diagonal elements (when $k' = k_0$) to extract the phase shift.
 
 This process involves evaluating singular integrals carefully using principal value prescriptions as indicated in the text.
 ??x
@@ -430,11 +435,9 @@ This process involves evaluating singular integrals carefully using principal va
 Background context explaining the concept. The integral equation can be converted into a set of linear equations by approximating integrals with sums over Gaussian quadrature points.
 
 The integral equation:
-\[ R(k',k) = V(k',k) + 2\pi \int_0^\infty dp \frac{p^2 V(k',p)}{p^2 - k_0^2} R(p,k), \]
+$$R(k',k) = V(k',k) + 2\pi \int_0^\infty dp \frac{p^2 V(k',p)}{p^2 - k_0^2} R(p,k),$$is converted to a linear system using Gaussian quadrature.
 
-is converted to a linear system using Gaussian quadrature.
-
-:p How is the integral equation \( R(k',k) = V(k',k) + 2\pi \int_0^\infty dp \frac{p^2 V(k',p)}{p^2 - k_0^2} R(p,k) \) converted to a set of linear equations?
+:p How is the integral equation $R(k',k) = V(k',k) + 2\pi \int_0^\infty dp \frac{p^2 V(k',p)}{p^2 - k_0^2} R(p,k)$ converted to a set of linear equations?
 ??x
 The integral equation is converted by approximating the integral with sums over Gaussian quadrature points. This process results in a set of linear equations that can be solved for the unknown values.
 
@@ -471,15 +474,12 @@ x??
 Background context explaining the concept. The linear system is expressed in matrix form for easier manipulation.
 
 The linear equation:
-\[ R - D V R = [1 - D V] R = V, \]
-
-is represented in matrix form where \( D \) combines denominators and weights.
+$$R - D V R = [1 - D V] R = V,$$is represented in matrix form where $ D$ combines denominators and weights.
 
 :p How does the integral equation result in a matrix form?
 ??x
 The integral equation results in a matrix form by combining all terms into vectors and matrices. The matrix form is:
-\[ (R - D V R) = [1 - D V] R = V, \]
-where \( R \) and \( V \) are vectors of length \( N+1 \), and \( D \) is a vector that combines denominators and weights.
+$$(R - D V R) = [1 - D V] R = V,$$where $ R $ and $ V $ are vectors of length $ N+1 $, and$ D$ is a vector that combines denominators and weights.
 
 ```java
 // Pseudocode illustrating the matrix form in linear system
@@ -516,10 +516,10 @@ x??
 
 
 #### Wave Matrix and Reduction to Standard Form
-Background context: The integral equation is reduced to a matrix form \([F][R] = [V]\) where \(F_{ij} = \delta_{ij} - D_j V_{ij}\). This transformation allows us to use standard linear algebra routines for solving the problem.
+Background context: The integral equation is reduced to a matrix form $[F][R] = [V]$ where $F_{ij} = \delta_{ij} - D_j V_{ij}$. This transformation allows us to use standard linear algebra routines for solving the problem.
 :p What is the wave matrix and how does it transform the integral equation into a matrix equation?
 ??x
-The wave matrix, denoted as \(F\), is derived from the integral equation by transforming it into a discrete form. Each element of the matrix \(F_{ij}\) represents the interaction between basis functions in the discretized space. Specifically, \(F_{ij} = \delta_{ij} - D_j V_{ij}\), where \(\delta_{ij}\) is the Kronecker delta indicating no interaction when \(i = j\), and \(D_j\) accounts for some constant or coefficient that modifies the interaction.
+The wave matrix, denoted as $F $, is derived from the integral equation by transforming it into a discrete form. Each element of the matrix $ F_{ij}$ represents the interaction between basis functions in the discretized space. Specifically,$ F_{ij} = \delta_{ij} - D_j V_{ij}$, where $\delta_{ij}$ is the Kronecker delta indicating no interaction when $i = j$, and $ D_j$ accounts for some constant or coefficient that modifies the interaction.
 ```python
 # Pseudocode to illustrate matrix construction
 def construct_F_matrix(D, Vij):
@@ -543,7 +543,7 @@ x??
 
 #### Gaussian Elimination Method
 Background context: While a direct matrix inversion is possible, using Gaussian elimination or other linear algebra methods can be more efficient. This method is also supported by standard libraries.
-:p What is the more efficient approach to solve for \(R\) compared to matrix inversion?
+:p What is the more efficient approach to solve for $R$ compared to matrix inversion?
 ??x
 A more efficient approach involves solving the system of equations through Gaussian elimination instead of directly inverting the matrix. Libraries such as NumPy provide functions that perform these operations, making it a preferred method over direct inversion when efficiency matters.
 ```python
@@ -562,7 +562,7 @@ x??
 Background context: The exercises involve programming a solution to the scattering problem using matrix methods and comparing numerical results with an analytic solution.
 :p What is the first exercise in solving the scattering problem numerically?
 ??x
-The first exercise involves writing programs to create matrices \(V\), \(D\), and \(F\) based on the given potential function. You should use at least 16 Gaussian quadrature points for your grid to ensure accuracy.
+The first exercise involves writing programs to create matrices $V $, $ D $, and$ F$ based on the given potential function. You should use at least 16 Gaussian quadrature points for your grid to ensure accuracy.
 ```python
 # Pseudocode for creating F matrix with N=16 points
 def construct_F_matrix(N):

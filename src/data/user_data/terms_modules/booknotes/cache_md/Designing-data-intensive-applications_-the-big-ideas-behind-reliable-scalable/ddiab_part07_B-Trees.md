@@ -275,10 +275,10 @@ x??
 ---
 
 #### B-Tree Depth and Performance
-A B-tree with \( n \) keys always has a depth of \( O(\log n) \). Most databases fit into a tree that is three or four levels deep.
+A B-tree with $n $ keys always has a depth of$O(\log n)$. Most databases fit into a tree that is three or four levels deep.
 :p What determines the depth of a B-tree?
 ??x
-The depth of a B-tree is determined by the number of keys it contains. Specifically, for a B-tree with \( n \) keys, the depth is logarithmic in nature, i.e., \( O(\log n) \). This ensures efficient lookup and traversal.
+The depth of a B-tree is determined by the number of keys it contains. Specifically, for a B-tree with $n $ keys, the depth is logarithmic in nature, i.e.,$ O(\log n)$. This ensures efficient lookup and traversal.
 
 For example:
 ```java

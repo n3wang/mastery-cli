@@ -198,15 +198,15 @@ Background context: The text explains the application of the nonlinear TD rule, 
 ??x
 The nonlinear TD rule updates the network weights based on the difference between predicted values at consecutive states, as shown in equation (15.1):
 
-\[ w_{t+1} = w_t + \alpha \left( R_{t+1} + \gamma \hat{v}(S_{t+1}, w_t) - \hat{v}(S_t, w_t) \right) \hat{v}(S_t, w_t) e_t \]
+$$w_{t+1} = w_t + \alpha \left( R_{t+1} + \gamma \hat{v}(S_{t+1}, w_t) - \hat{v}(S_t, w_t) \right) \hat{v}(S_t, w_t) e_t$$
 
 Where:
-- \( w_t \) is the vector of modifiable parameters (network weights).
-- \( \alpha \) is the learning rate.
-- \( R_{t+1} \) is the reward at time \( t+1 \), which is zero except upon winning.
-- \( \gamma \) is the discount factor, usually set to 1 in this application.
-- \( \hat{v}(S_t, w_t) \) is the estimated value function for state \( S_t \).
-- \( e_t \) is a vector of eligibility traces.
+- $w_t$ is the vector of modifiable parameters (network weights).
+- $\alpha$ is the learning rate.
+- $R_{t+1}$ is the reward at time $t+1$, which is zero except upon winning.
+- $\gamma$ is the discount factor, usually set to 1 in this application.
+- $\hat{v}(S_t, w_t)$ is the estimated value function for state $S_t$.
+- $e_t$ is a vector of eligibility traces.
 
 ```java
 // Pseudocode for updating weights using TD rule
@@ -283,15 +283,15 @@ Background context: The text describes the application of equation (15.1) for up
 ??x
 The TD rule updates the network weights based on the difference between predicted values at consecutive states, which can be computed efficiently using backpropagation. The update rule is given by:
 
-\[ w_{t+1} = w_t + \alpha \left( R_{t+1} + \gamma \hat{v}(S_{t+1}, w_t) - \hat{v}(S_t, w_t) \right) \hat{v}(S_t, w_t) e_t \]
+$$w_{t+1} = w_t + \alpha \left( R_{t+1} + \gamma \hat{v}(S_{t+1}, w_t) - \hat{v}(S_t, w_t) \right) \hat{v}(S_t, w_t) e_t$$
 
 Where:
-- \( w_t \) are the network weights.
-- \( \alpha \) is the learning rate.
-- \( R_{t+1} \) is the reward at time \( t+1 \), which is zero except upon winning.
-- \( \gamma \) is the discount factor, usually 1 in this application.
-- \( \hat{v}(S_t, w_t) \) is the estimated value function for state \( S_t \).
-- \( e_t \) is a vector of eligibility traces.
+- $w_t$ are the network weights.
+- $\alpha$ is the learning rate.
+- $R_{t+1}$ is the reward at time $t+1$, which is zero except upon winning.
+- $\gamma$ is the discount factor, usually 1 in this application.
+- $\hat{v}(S_t, w_t)$ is the estimated value function for state $S_t$.
+- $e_t$ is a vector of eligibility traces.
 
 ```java
 // Pseudocode for applying TD rule using backpropagation
@@ -397,13 +397,13 @@ Background context explaining how a neural network computes its estimated value 
 
 :p What is the formula for calculating the output of a hidden unit in the network?
 ??x
-The output \( h(j) \) of hidden unit \( j \) is computed as a nonlinear sigmoid function of the weighted sum:
+The output $h(j)$ of hidden unit $j$ is computed as a nonlinear sigmoid function of the weighted sum:
 
-\[ h(j) = \frac{1}{1 + e^{-\sum_{i=1}^{424} w_{ij} x_i}} \]
+$$h(j) = \frac{1}{1 + e^{-\sum_{i=1}^{424} w_{ij} x_i}}$$
 
 Where:
-- \( w_{ij} \) represents the weight of the connection from input unit \( i \) to hidden unit \( j \).
-- \( x_i \) is the value of input unit \( i \).
+- $w_{ij}$ represents the weight of the connection from input unit $ i $ to hidden unit $j$.
+- $x_i $ is the value of input unit$i$.
 
 This formula ensures that the output is always between 0 and 1, which can be interpreted as a probability.
 
@@ -428,25 +428,25 @@ x??
 #### Error Backpropagation and TD-Gammon
 Background context on the error backpropagation algorithm used in TD-Gammon, which updates network weights based on the difference between expected and actual outputs.
 
-:p What is the general update rule for the weight vector \( w_t \) in the TD-Gammon learning process?
+:p What is the general update rule for the weight vector $w_t$ in the TD-Gammon learning process?
 ??x
-The general update rule for the weight vector \( w_t \) is given by:
+The general update rule for the weight vector $w_t$ is given by:
 
-\[ w_{t+1} = w_t + \alpha [h(R_{t+1} + \gamma v(S_{t+1}, w_t)) - h(v(S_t, w_t))] z_t \]
+$$w_{t+1} = w_t + \alpha [h(R_{t+1} + \gamma v(S_{t+1}, w_t)) - h(v(S_t, w_t))] z_t$$
 
 Where:
-- \( w_t \) is the vector of all modifiable parameters (network weights).
-- \( \alpha \) is the learning rate.
-- \( h \) is the sigmoid function.
-- \( R_{t+1} \) is the reward at time step \( t+1 \), which is zero except upon winning.
-- \( v(S, w_t) \) is the network's estimated value for state \( S \).
-- \( z_t \) is a vector of eligibility traces.
+- $w_t$ is the vector of all modifiable parameters (network weights).
+- $\alpha$ is the learning rate.
+- $h$ is the sigmoid function.
+- $R_{t+1}$ is the reward at time step $t+1$, which is zero except upon winning.
+- $v(S, w_t)$ is the network's estimated value for state $S$.
+- $z_t$ is a vector of eligibility traces.
 
-The eligibility trace \( z_t \) is updated as:
+The eligibility trace $z_t$ is updated as:
 
-\[ z_t = \rho z_{t-1} + r h(v(S_t, w_t)) \]
+$$z_t = \rho z_{t-1} + r h(v(S_t, w_t))$$
 
-With \( z_0 = 0 \).
+With $z_0 = 0$.
 
 ```java
 public class TDGammon {
@@ -898,20 +898,20 @@ x??
 
 
 #### Action Values for Wagering
-Background context: The action value \( \hat{q}(s, bet) \) represents the expected utility of taking a specific action (bet) in a given state. Watson calculates these values to make informed betting decisions.
+Background context: The action value $\hat{q}(s, bet)$ represents the expected utility of taking a specific action (bet) in a given state. Watson calculates these values to make informed betting decisions.
 
-:p What is an action value (\( \hat{q}(s, bet) \)) and how does it help in making DD bets?
+:p What is an action value ($\hat{q}(s, bet)$) and how does it help in making DD bets?
 ??x
-An action value \( \hat{q}(s, bet) \) represents the expected utility of taking a specific action (bet) from a given state. It helps Watson make informed betting decisions by estimating the likelihood of winning based on the current game state and potential outcomes.
+An action value $\hat{q}(s, bet)$ represents the expected utility of taking a specific action (bet) from a given state. It helps Watson make informed betting decisions by estimating the likelihood of winning based on the current game state and potential outcomes.
 
-The formula for calculating \( \hat{q}(s, bet) \):
+The formula for calculating $\hat{q}(s, bet)$:
 
-\[ \hat{q}(s, bet) = p_{DD} \cdot \hat{v}(SW + bet, ...) + (1 - p_{DD}) \cdot \hat{v}(SW - bet, ...) \]
+$$\hat{q}(s, bet) = p_{DD} \cdot \hat{v}(SW + bet, ...) + (1 - p_{DD}) \cdot \hat{v}(SW - bet, ...)$$
 
 Where:
-- \( SW \) is Watson's current score.
-- \( p_{DD} \) is the in-category DD confidence, representing the likelihood of a correct response to the DD clue.
-- \( \hat{v}(s, w) \) is an estimated value function that provides the probability of winning from state \( s \).
+- $SW$ is Watson's current score.
+- $p_{DD}$ is the in-category DD confidence, representing the likelihood of a correct response to the DD clue.
+- $\hat{v}(s, w)$ is an estimated value function that provides the probability of winning from state $s$.
 
 This formula considers both possible outcomes: Watson answering correctly or incorrectly, and calculates the expected utility based on these scenarios.
 
@@ -920,14 +920,14 @@ This formula considers both possible outcomes: Watson answering correctly or inc
 ---
 
 
-#### Learning Value Function (\( \hat{v} \))
-Background context: The value function \( \hat{v}(s, w) \) is learned using reinforcement learning techniques. It estimates the probability of winning from any game state and is crucial for calculating action values.
+#### Learning Value Function ($\hat{v}$)
+Background context: The value function $\hat{v}(s, w)$ is learned using reinforcement learning techniques. It estimates the probability of winning from any game state and is crucial for calculating action values.
 
-:p How was the value function \( \hat{v}(s, w) \) learned in Watson's system?
+:p How was the value function $\hat{v}(s, w)$ learned in Watson's system?
 ??x
-The value function \( \hat{v}(s, w) \) was learned using a reinforcement learning approach based on TD-Gammon. Specifically:
+The value function $\hat{v}(s, w)$ was learned using a reinforcement learning approach based on TD-Gammon. Specifically:
 
-- A multi-layer artificial neural network (ANN) with nonlinear TD(\( \lambda \)) updates.
+- A multi-layer artificial neural network (ANN) with nonlinear TD($\lambda$) updates.
 - Weights of the ANN were trained by backpropagating TD errors during many simulated games.
 - State representations were tailored for Jeopardy, including features like player scores, remaining DD squares, and clue values.
 

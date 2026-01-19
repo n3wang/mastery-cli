@@ -28,22 +28,22 @@ x??
 
 
 #### Force Formula
-Background context: The force (\(F\)) acting on an object can be determined using Newton's second law of motion. According to this law, force equals mass (\(m\)) times acceleration (\(a\)), expressed as \( \vec{F} = m\vec{a} \).
+Background context: The force ($F $) acting on an object can be determined using Newton's second law of motion. According to this law, force equals mass ($ m $) times acceleration ($ a $), expressed as$\vec{F} = m\vec{a}$.
 
 :p What formula is used to determine the force?
 ??x
-The formula used to determine the force is \( \vec{F} = m\vec{a} \). This means that the force acting on an object is directly proportional to its mass and the acceleration it experiences.
+The formula used to determine the force is $\vec{F} = m\vec{a}$. This means that the force acting on an object is directly proportional to its mass and the acceleration it experiences.
 x??
 
 ---
 
 
 #### Force Calculation
-Background context explaining Newton's second law of motion which states that force equals mass times acceleration (\(F = m \times a\)). This relationship helps determine how much force is exerted on an object.
+Background context explaining Newton's second law of motion which states that force equals mass times acceleration ($F = m \times a$). This relationship helps determine how much force is exerted on an object.
 
 :p How do you calculate the force exerted on an object?
 ??x
-You calculate the force using the formula \(F = m \times a\), where \(m\) is the mass of the object and \(a\) is its acceleration.
+You calculate the force using the formula $F = m \times a $, where $ m $is the mass of the object and$ a$ is its acceleration.
 x??
 
 ---

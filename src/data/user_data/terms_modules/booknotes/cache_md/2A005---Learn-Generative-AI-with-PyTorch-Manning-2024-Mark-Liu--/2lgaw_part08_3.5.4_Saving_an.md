@@ -82,11 +82,8 @@ x??
 
 Background context: In this chapter, you will delve into building and training GANs to generate high-resolution color images. GANs consist of two networks: a generator that creates images from random noise, and a discriminator that evaluates the quality of these images. The goal is to train both networks in an adversarial manner, where the generator tries to fool the discriminator by generating more realistic images.
 
-Relevant formula: The training process involves updating the generator \(G\) and the discriminator \(D\). The objective functions for each network are:
-- For the generator: Minimize \(\mathbb{E}_{z \sim p(z)} [ D(G(z)) ]\)
-- For the discriminator: Maximize \(\mathbb{E}_{x \sim p_{data}} [ D(x) ] + \mathbb{E}_{z \sim p(z)} [ 1 - D(G(z)) ]\)
-
-:p What are the two main components of a Generative Adversarial Network (GAN)?
+Relevant formula: The training process involves updating the generator $G $ and the discriminator$D$. The objective functions for each network are:
+- For the generator: Minimize $\mathbb{E}_{z \sim p(z)} [ D(G(z)) ]$- For the discriminator: Maximize $\mathbb{E}_{x \sim p_{data}} [ D(x) ] + \mathbb{E}_{z \sim p(z)} [ 1 - D(G(z)) ]$:p What are the two main components of a Generative Adversarial Network (GAN)?
 ??x
 The generator and discriminator. The generator creates images from random noise, while the discriminator evaluates whether these images are real or fake.
 
@@ -245,30 +242,30 @@ x??
 #### 2D Convolutional Operation on Images
 The 2D convolution operation is fundamental in image processing and neural networks. It involves sliding a filter (also known as a kernel) over the input image to extract features like edges, textures, or patterns.
 
-Mathematically, if \( I \) represents an image of size \( H \times W \), and \( K \) represents a 2D kernel of size \( h \times w \), then the output feature map \( O \) can be calculated as:
+Mathematically, if $I $ represents an image of size$H \times W $, and$ K $represents a 2D kernel of size$ h \times w $, then the output feature map$ O$ can be calculated as:
 
-\[ O[i][j] = \sum_{m=0}^{h-1}\sum_{n=0}^{w-1} I[i+m][j+n] * K[m][n] + b \]
+$$O[i][j] = \sum_{m=0}^{h-1}\sum_{n=0}^{w-1} I[i+m][j+n] * K[m][n] + b$$
 
 Where:
-- \( i, j \) are the indices of the output feature map.
-- \( m, n \) are the indices within the kernel.
-- \( * \) denotes element-wise multiplication.
+- $i, j$ are the indices of the output feature map.
+- $m, n$ are the indices within the kernel.
+- $*$ denotes element-wise multiplication.
 
 :p What is the 2D convolution operation?
 ??x
 The 2D convolution operation involves using a filter (kernel) to slide over an image and compute dot products at each position. This process helps in extracting features like edges, textures, or patterns from images.
 
 Mathematically:
-\[ O[i][j] = \sum_{m=0}^{h-1}\sum_{n=0}^{w-1} I[i+m][j+n] * K[m][n] + b \]
+$$O[i][j] = \sum_{m=0}^{h-1}\sum_{n=0}^{w-1} I[i+m][j+n] * K[m][n] + b$$
 
 Here:
-- \( O \) is the output feature map.
-- \( I \) is the input image.
-- \( K \) is the kernel/filter.
-- \( h, w \) are the height and width of the kernel.
-- \( m, n \) index the elements within the kernel.
+- $O$ is the output feature map.
+- $I$ is the input image.
+- $K$ is the kernel/filter.
+- $h, w$ are the height and width of the kernel.
+- $m, n$ index the elements within the kernel.
 
-The bias term \( b \) can be added to improve model performance. This operation is crucial for feature extraction in image processing tasks.
+The bias term $b$ can be added to improve model performance. This operation is crucial for feature extraction in image processing tasks.
 
 ```python
 # Example Pseudocode
@@ -294,15 +291,15 @@ x??
 #### 2D Transposed Convolution and Upsampling
 The 2D transposed convolution operation, also known as a deconvolution or up-convolution, is used to generate higher-resolution feature maps. It effectively "upsamples" the input by inserting gaps between values.
 
-For an output feature map of size \( H \times W \) from a transposed convolution with kernel size \( h \times w \), and stride \( s \):
+For an output feature map of size $H \times W $ from a transposed convolution with kernel size$h \times w $, and stride$ s$:
 
-\[ O[i][j] = I\left[\frac{i}{s}\right]\left[\frac{j}{s}\right] + b \]
+$$O[i][j] = I\left[\frac{i}{s}\right]\left[\frac{j}{s}\right] + b$$
 
 Where:
-- \( O \) is the output feature map.
-- \( I \) is the input feature map.
-- \( h, w \) are the height and width of the kernel.
-- \( s \) is the stride.
+- $O$ is the output feature map.
+- $I$ is the input feature map.
+- $h, w$ are the height and width of the kernel.
+- $s$ is the stride.
 
 This operation can be seen as inserting zeros between values to increase spatial dimensions while maintaining feature information from the original image.
 
@@ -311,9 +308,9 @@ This operation can be seen as inserting zeros between values to increase spatial
 A 2D transposed convolution, or deconvolution, upsamples an input by generating new values (often initialized with zeros) and applying them in between existing values. This effectively increases the spatial dimensions of the feature map while preserving the information from the original image.
 
 Mathematically:
-\[ O[i][j] = I\left[\frac{i}{s}\right]\left[\frac{j}{s}\right] + b \]
+$$O[i][j] = I\left[\frac{i}{s}\right]\left[\frac{j}{s}\right] + b$$
 
-Here, \( O \) is the output feature map, and \( I \) is the input feature map. The stride \( s \) determines how many gaps are inserted between values.
+Here,$O $ is the output feature map, and$I $ is the input feature map. The stride$s$ determines how many gaps are inserted between values.
 
 For example, if the input is a 2x2 matrix and the stride is 2, the transposed convolution will insert zeros in between to produce an 8x8 output:
 ```python
@@ -345,14 +342,13 @@ x??
 Dense layers (fully connected layers) are used in both the generator and discriminator networks to process features. Each neuron in a dense layer is fully connected to every neuron in the previous and next layer.
 
 The output of a dense layer can be calculated as:
-
-\[ O = \sigma(WX + b) \]
+$$O = \sigma(WX + b)$$
 
 Where:
-- \( W \) is the weight matrix.
-- \( X \) is the input vector.
-- \( b \) is the bias term.
-- \( \sigma \) is an activation function (e.g., ReLU, sigmoid).
+- $W$ is the weight matrix.
+- $X$ is the input vector.
+- $b$ is the bias term.
+- $\sigma$ is an activation function (e.g., ReLU, sigmoid).
 
 Dense layers are effective for tasks requiring dense feature extraction but can result in a large number of parameters, making them computationally expensive.
 
@@ -361,14 +357,13 @@ Dense layers are effective for tasks requiring dense feature extraction but can 
 Dense layers, also known as fully connected layers, are used extensively in both the generator and discriminator networks to process features. Each neuron in a dense layer is connected to every neuron in the previous and next layer. This allows for complex feature extraction but can lead to a large number of parameters.
 
 The output of a dense layer is calculated using the formula:
-
-\[ O = \sigma(WX + b) \]
+$$O = \sigma(WX + b)$$
 
 Where:
-- \( W \) is the weight matrix.
-- \( X \) is the input vector.
-- \( b \) is the bias term.
-- \( \sigma \) is an activation function (e.g., ReLU, sigmoid).
+- $W$ is the weight matrix.
+- $X$ is the input vector.
+- $b$ is the bias term.
+- $\sigma$ is an activation function (e.g., ReLU, sigmoid).
 
 Dense layers are used to transform and process feature maps into higher-level representations.
 
@@ -399,7 +394,7 @@ Convolutional Neural Networks (CNNs) are particularly effective at handling high
 
 Each neuron in a CNN layer is connected only to a small region of the input, reducing the number of parameters and making the network more efficient. The local connectivity helps in capturing detailed features at various scales.
 
-For example, a Conv2D layer with kernel size \( h \times w \) will process each patch of the image of size \( h \times w \).
+For example, a Conv2D layer with kernel size $h \times w $ will process each patch of the image of size$h \times w$.
 
 :p Why are CNNs effective for high-resolution images?
 ??x
@@ -407,7 +402,7 @@ CNNs are effective for high-resolution images because they treat images as multi
 
 Each neuron in a CNN layer is connected only to a small region of the input, which reduces the number of parameters and makes the network more efficient compared to fully connected layers.
 
-The local connectivity helps in capturing detailed features at various scales. For example, a Conv2D layer with kernel size \( h \times w \) will process each patch of the image of size \( h \times w \).
+The local connectivity helps in capturing detailed features at various scales. For example, a Conv2D layer with kernel size $h \times w $ will process each patch of the image of size$h \times w$.
 
 This approach is particularly useful for tasks like generating high-resolution color images where spatial resolution and detail are crucial.
 

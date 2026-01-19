@@ -11,39 +11,37 @@ Background context: This problem involves finding roots and understanding how th
 
 :p What is the fourth root of 16?
 ??x
-The fourth root of a number \( n \) can be expressed as:
+The fourth root of a number $n$ can be expressed as:
 
-\[ \sqrt[4]{n} = n^{1/4} \]
+$$\sqrt[4]{n} = n^{1/4}$$
 
 For 16:
+$$\sqrt[4]{16} = 16^{1/4} = (2^4)^{1/4} = 2$$
 
-\[ \sqrt[4]{16} = 16^{1/4} = (2^4)^{1/4} = 2 \]
-
-\( 2 \)
+$2$
 x??
 
 ---
 
 
 #### Linear Equations
-Background context: This problem involves finding the equation of a line passing through two given points. The general form is \( y = mx + b \), where \( m \) is the slope and \( b \) is the y-intercept.
+Background context: This problem involves finding the equation of a line passing through two given points. The general form is $y = mx + b $, where $ m $ is the slope and $ b$ is the y-intercept.
 
 :p What is the equation of a line that passes through the points (0, –1) and (2, 3)?
 ??x
-First, calculate the slope \( m \):
+First, calculate the slope $m$:
 
-\[ m = \frac{y_2 - y_1}{x_2 - x_1} = \frac{3 - (-1)}{2 - 0} = \frac{4}{2} = 2 \]
+$$m = \frac{y_2 - y_1}{x_2 - x_1} = \frac{3 - (-1)}{2 - 0} = \frac{4}{2} = 2$$
 
-Using the point (0, –1), we can find \( b \):
+Using the point (0, –1), we can find $b$:
 
-\[ y = mx + b \]
-\[ -1 = 2(0) + b \Rightarrow b = -1 \]
+$$y = mx + b$$
+$$-1 = 2(0) + b \Rightarrow b = -1$$
 
 Thus, the equation is:
+$$y = 2x - 1$$
 
-\[ y = 2x - 1 \]
-
-\( y = 2x - 1 \)
+$y = 2x - 1$
 x??
 
 ---
@@ -52,17 +50,17 @@ x??
 #### Exponent Rules
 Background context: This problem tests understanding of exponent rules and simplification.
 
-:p Simplify \( x^3 \cdot x^4 \).
+:p Simplify $x^3 \cdot x^4$.
 ??x
 Using the property of exponents that states:
 
-\[ a^m \cdot a^n = a^{m+n} \]
+$$a^m \cdot a^n = a^{m+n}$$
 
-For \( x^3 \cdot x^4 \):
+For $x^3 \cdot x^4$:
 
-\[ x^3 \cdot x^4 = x^{3+4} = x^7 \]
+$$x^3 \cdot x^4 = x^{3+4} = x^7$$
 
-\( x^7 \)
+$x^7$
 x??
 
 ---

@@ -8,113 +8,114 @@
 
 #### M/H 2/1 Queue - Excess and Expected Time in Queue
 
-Background context: In an \(M/H_{2/1}\) queue, jobs arrive according to a Poisson process with rate \(\lambda\), and the job sizes are specified as follows:
-- With probability \(p\), a job has size 0.
-- With probability \(q = 1 - p\), a job has an exponentially distributed service time with mean \(\frac{1}{2}\).
+Background context: In an $M/H_{2/1}$ queue, jobs arrive according to a Poisson process with rate $\lambda$, and the job sizes are specified as follows:
+- With probability $p$, a job has size 0.
+- With probability $q = 1 - p $, a job has an exponentially distributed service time with mean $\frac{1}{2}$.
 
-The key performance measures of interest are the expected excess time in the system (Excess) and the expected time spent in the queue (\(E[TQ]\)).
+The key performance measures of interest are the expected excess time in the system (Excess) and the expected time spent in the queue ($E[TQ]$).
 
-:p What is \(E[Excess]\) for an \(M/H_{2/1}\) queue?
+:p What is $E[Excess]$ for an $M/H_{2/1}$ queue?
 ??x
-To derive \(E[Excess]\), we need to consider both the service times of jobs with size 0 and those that require actual processing. The excess time in the system for a job can be thought of as its waiting time plus any additional time spent beyond being processed.
+To derive $E[Excess]$, we need to consider both the service times of jobs with size 0 and those that require actual processing. The excess time in the system for a job can be thought of as its waiting time plus any additional time spent beyond being processed.
 
-For a job of size 0, the excess is simply the waiting time in the queue because it does not consume any service time. For a job with size \(\frac{1}{2}\), the excess includes both the waiting time and the service time minus its actual processing time (which is zero).
+For a job of size 0, the excess is simply the waiting time in the queue because it does not consume any service time. For a job with size $\frac{1}{2}$, the excess includes both the waiting time and the service time minus its actual processing time (which is zero).
 
-The key equation for \(E[Excess]\) involves integrating over the probability distribution of job sizes and their corresponding times:
-\[ E[Excess] = p \cdot E[W_0] + q \cdot \left( E[W] + \frac{1}{2} - 0 \right) \]
-Where \(W\) is the waiting time in the queue for a job with non-zero service time.
+The key equation for $E[Excess]$ involves integrating over the probability distribution of job sizes and their corresponding times:
+$$E[Excess] = p \cdot E[W_0] + q \cdot \left( E[W] + \frac{1}{2} - 0 \right)$$
 
-Given that the arrival rate and mean service time are such that \(\rho = \lambda \cdot E[S] < 1\), we can use Little's Law to express \(E[W]\):
-\[ E[W] = \frac{\rho}{\mu} \]
+Where $W$ is the waiting time in the queue for a job with non-zero service time.
 
-Thus, the final expression for \(E[Excess]\) becomes:
-\[ E[Excess] = p \cdot E[W_0] + q \cdot \left( \frac{\rho}{2} + \frac{1}{4} \right) \]
+Given that the arrival rate and mean service time are such that $\rho = \lambda \cdot E[S] < 1 $, we can use Little's Law to express $ E[W]$:
+$$E[W] = \frac{\rho}{\mu}$$
 
-:p What is \(E[TQ]\) for an \(M/H_{2/1}\) queue?
+Thus, the final expression for $E[Excess]$ becomes:
+$$E[Excess] = p \cdot E[W_0] + q \cdot \left( \frac{\rho}{2} + \frac{1}{4} \right)$$:p What is $ E[TQ]$for an $ M/H_{2/1}$ queue?
 ??x
-The expected time a job spends in the queue (\(E[TQ]\)) can be derived using Little's Law, which states that:
-\[ E[TQ] = \frac{\rho}{\mu} \]
-Where \(\rho\) is the traffic intensity and \(\mu\) is the service rate.
+The expected time a job spends in the queue ($E[TQ]$) can be derived using Little's Law, which states that:
+$$E[TQ] = \frac{\rho}{\mu}$$
 
-For an \(M/H_{2/1}\) queue with job sizes specified as above:
+Where $\rho $ is the traffic intensity and$\mu$ is the service rate.
+
+For an $M/H_{2/1}$ queue with job sizes specified as above:
 - Jobs of size 0 do not contribute to the average waiting time.
-- Jobs of size \(\frac{1}{2}\) have a mean service time of \(\frac{1}{4}\).
+- Jobs of size $\frac{1}{2}$ have a mean service time of $\frac{1}{4}$.
 
-The overall traffic intensity \(\rho\) is given by the arrival rate and mean service time:
-\[ \rho = \lambda \cdot E[S] \]
+The overall traffic intensity $\rho$ is given by the arrival rate and mean service time:
+$$\rho = \lambda \cdot E[S]$$
 
-Given that \(E[S]\) can be calculated as follows:
-\[ E[S] = p \cdot 0 + q \cdot \frac{1}{2} = \frac{q}{2} = \frac{1 - p}{2} \]
+Given that $E[S]$ can be calculated as follows:
+$$E[S] = p \cdot 0 + q \cdot \frac{1}{2} = \frac{q}{2} = \frac{1 - p}{2}$$
 
 Thus, the traffic intensity is:
-\[ \rho = \lambda \cdot \frac{1 - p}{2} \]
+$$\rho = \lambda \cdot \frac{1 - p}{2}$$
 
-Therefore, the expected time in queue \(E[TQ]\) for an \(M/H_{2/1}\) queue can be expressed as:
-\[ E[TQ] = \frac{\rho}{\mu} = \frac{\lambda (1 - p)}{2 \mu} \]
+Therefore, the expected time in queue $E[TQ]$ for an $M/H_{2/1}$ queue can be expressed as:
+$$E[TQ] = \frac{\rho}{\mu} = \frac{\lambda (1 - p)}{2 \mu}$$
 
 ??x
-The derived expression for the expected time in the queue (\(E[TQ]\)) is:
-\[ E[TQ] = \frac{\lambda (1 - p)}{2 \mu} \]
-Where \(\lambda\) is the arrival rate, \(p\) is the probability of a job having size 0, and \(\mu\) is the service rate.
+The derived expression for the expected time in the queue ($E[TQ]$) is:
+$$E[TQ] = \frac{\lambda (1 - p)}{2 \mu}$$
 
-:p What are the steps to derive \(E[Excess]\) in an \(M/H_{2/1}\) queue?
+Where $\lambda $ is the arrival rate,$p $ is the probability of a job having size 0, and$\mu$ is the service rate.
+
+:p What are the steps to derive $E[Excess]$ in an $M/H_{2/1}$ queue?
 ??x
-To derive \(E[Excess]\) in an \(M/H_{2/1}\) queue:
+To derive $E[Excess]$ in an $M/H_{2/1}$ queue:
 
 1. **Identify Job Sizes and Their Probabilities:**
-   - Jobs have size 0 with probability \(p\).
-   - Jobs have a service time of \(\frac{1}{2}\) (exponentially distributed) with probability \(q = 1 - p\).
+   - Jobs have size 0 with probability $p$.
+   - Jobs have a service time of $\frac{1}{2}$(exponentially distributed) with probability $ q = 1 - p$.
 
 2. **Determine Waiting Time for Each Job Type:**
    - For jobs of size 0, the waiting time is simply the queue length divided by the arrival rate.
-   - For jobs of size \(\frac{1}{2}\), the waiting time plus service time minus actual processing time (which is zero) needs to be considered.
+   - For jobs of size $\frac{1}{2}$, the waiting time plus service time minus actual processing time (which is zero) needs to be considered.
 
 3. **Use Little's Law:**
    - The expected excess for a job with non-zero service time involves both the waiting time and the service time.
-   - For jobs of size 0, the excess is just their waiting time \(E[W_0]\).
-   - For jobs of size \(\frac{1}{2}\), the excess is:
-     \[ E[W] + \frac{1}{4} = \frac{\rho}{\mu} + \frac{1}{4} \]
+   - For jobs of size 0, the excess is just their waiting time $E[W_0]$.
+   - For jobs of size $\frac{1}{2}$, the excess is:
+     $$E[W] + \frac{1}{4} = \frac{\rho}{\mu} + \frac{1}{4}$$4. **Combine Probabilities:**$$
 
-4. **Combine Probabilities:**
-   \[ E[Excess] = p \cdot E[W_0] + q \cdot \left( \frac{\rho}{2} + \frac{1}{4} \right) \]
-   Where \(E[W]\) is the expected waiting time, which can be expressed as:
-   \[ E[W] = \frac{\lambda (1 - p)}{2\mu} \]
+E[Excess] = p \cdot E[W_0] + q \cdot \left( \frac{\rho}{2} + \frac{1}{4} \right)$$
 
-5. **Substitute and Simplify:**
-   \[ E[Excess] = p \cdot E[W_0] + q \cdot \left( \frac{\rho}{2} + \frac{1}{4} \right) \]
-   Given that \(E[W_0]\) is typically 0 for jobs of size 0, the expression simplifies to:
-   \[ E[Excess] = (1 - p) \cdot \left( \frac{\rho}{2} + \frac{1}{4} \right) \]
+Where $E[W]$ is the expected waiting time, which can be expressed as:
+$$E[W] = \frac{\lambda (1 - p)}{2\mu}$$5. **Substitute and Simplify:**$$
 
-??x
-The steps to derive \(E[Excess]\) are as follows:
+E[Excess] = p \cdot E[W_0] + q \cdot \left( \frac{\rho}{2} + \frac{1}{4} \right)$$
+
+Given that $E[W_0]$ is typically 0 for jobs of size 0, the expression simplifies to:
+$$E[Excess] = (1 - p) \cdot \left( \frac{\rho}{2} + \frac{1}{4} \right)$$??x
+The steps to derive $E[Excess]$ are as follows:
 
 1. Identify the probability and size of jobs.
 2. Use Little's Law for waiting time.
 3. Combine probabilities to get the final expression.
 
-:p What is \(E[TQ]\) in an \(M/H_{2/1}\) queue?
+:p What is $E[TQ]$ in an $M/H_{2/1}$ queue?
 ??x
-The expected time a job spends in the queue (\(E[TQ]\)) in an \(M/H_{2/1}\) queue can be derived using Little's Law, which states:
-\[ E[TQ] = \frac{\rho}{\mu} \]
-Where \(\rho\) is the traffic intensity and \(\mu\) is the service rate.
+The expected time a job spends in the queue ($E[TQ]$) in an $ M/H_{2/1}$ queue can be derived using Little's Law, which states:
+$$E[TQ] = \frac{\rho}{\mu}$$
 
-For an \(M/H_{2/1}\) queue with job sizes specified as follows:
-- Jobs have size 0 with probability \(p\).
-- Jobs have a service time of \(\frac{1}{4}\) (exponentially distributed) with probability \(q = 1 - p\).
+Where $\rho $ is the traffic intensity and$\mu$ is the service rate.
 
-The traffic intensity \(\rho\) is given by the arrival rate and mean service time:
-\[ \rho = \lambda \cdot E[S] = \lambda \cdot \frac{1 - p}{2} \]
+For an $M/H_{2/1}$ queue with job sizes specified as follows:
+- Jobs have size 0 with probability $p$.
+- Jobs have a service time of $\frac{1}{4}$(exponentially distributed) with probability $ q = 1 - p$.
 
-Given that \(\mu\) (the service rate) can be derived from the service times, we have:
-\[ \mu = 2 \times \text{(mean of exponential distribution)} = 2 \times \frac{1}{4} = \frac{1}{2} \]
+The traffic intensity $\rho$ is given by the arrival rate and mean service time:
+$$\rho = \lambda \cdot E[S] = \lambda \cdot \frac{1 - p}{2}$$
 
-Thus, the expected time in queue \(E[TQ]\) is:
-\[ E[TQ] = \frac{\lambda (1 - p)}{2 \cdot \mu} = \frac{\lambda (1 - p)}{2 \cdot \frac{1}{2}} = \lambda (1 - p) \]
+Given that $\mu$(the service rate) can be derived from the service times, we have:
+$$\mu = 2 \times \text{(mean of exponential distribution)} = 2 \times \frac{1}{4} = \frac{1}{2}$$
+
+Thus, the expected time in queue $E[TQ]$ is:
+$$E[TQ] = \frac{\lambda (1 - p)}{2 \cdot \mu} = \frac{\lambda (1 - p)}{2 \cdot \frac{1}{2}} = \lambda (1 - p)$$
 
 ??x
-The expected time a job spends in the queue (\(E[TQ]\)) for an \(M/H_{2/1\) queue is:
-\[ E[TQ] = \lambda (1 - p) \]
-Where \(\lambda\) is the arrival rate, and \(p\) is the probability of a job having size 0.
+The expected time a job spends in the queue ($E[TQ]$) for an $ M/H_{2/1$queue is:
+$$E[TQ] = \lambda (1 - p)$$
+
+Where $\lambda $ is the arrival rate, and$p$ is the probability of a job having size 0.
 
 ---
 ---

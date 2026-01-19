@@ -152,7 +152,7 @@ x??
 Background context: A non-repeatable read occurs when a transaction sees different values of the same data during its execution. In the case of read skew, a transaction might see different states of the database at different points in time, leading to inconsistent readings.
 :p What is an example scenario that leads to nonrepeatable reads and read skew?
 ??x
-An example where a nonrepeatable read or read skew occurs is when Alice observes her bank account balances in the middle of a transaction. If she checks her balance during a transfer process, she might see one account with $500 (before the transfer) and another with $400 (after the transfer), leading to an incorrect total.
+An example where a nonrepeatable read or read skew occurs is when Alice observes her bank account balances in the middle of a transaction. If she checks her balance during a transfer process, she might see one account with $500 (before the transfer) and another with$400 (after the transfer), leading to an incorrect total.
 x??
 
 ---

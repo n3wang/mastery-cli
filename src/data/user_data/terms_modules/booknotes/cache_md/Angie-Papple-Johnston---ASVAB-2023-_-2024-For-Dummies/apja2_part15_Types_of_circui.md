@@ -44,8 +44,9 @@ Background context: Calculating resistance involves understanding series, parall
 
 :p How do you calculate total resistance in a series circuit?
 ??x
-In a series circuit, the total resistance \( R_{total} \) is simply the sum of all individual resistances. For example:
-\[ R_{total} = R_1 + R_2 + R_3 \]
+In a series circuit, the total resistance $R_{total}$ is simply the sum of all individual resistances. For example:
+$$R_{total} = R_1 + R_2 + R_3$$
+
 This means if multiple loads are connected in series, their resistances add up.
 
 ```java
@@ -61,16 +62,15 @@ x??
 
 
 #### Parallel Circuits and Total Resistance
-Background context: In a parallel circuit, the total resistance \( R_{total} \) can be calculated using the formula involving the reciprocal of each individual resistance.
+Background context: In a parallel circuit, the total resistance $R_{total}$ can be calculated using the formula involving the reciprocal of each individual resistance.
 
 :p How do you calculate total resistance in a parallel circuit?
 ??x
 In a parallel circuit, the total resistance is given by:
-\[ \frac{1}{R_{total}} = \frac{1}{R_1} + \frac{1}{R_2} + \ldots + \frac{1}{R_n} \]
-For example, if you have two resistors \( R_1 \) and \( R_2 \):
-\[ R_{total} = \left( \frac{1}{R_1} + \frac{1}{R_2} \right)^{-1} \]
+$$\frac{1}{R_{total}} = \frac{1}{R_1} + \frac{1}{R_2} + \ldots + \frac{1}{R_n}$$
 
-```java
+For example, if you have two resistors $R_1 $ and$R_2$:
+$$R_{total} = \left( \frac{1}{R_1} + \frac{1}{R_2} \right)^{-1}$$```java
 public class ParallelResistanceCalculation {
     public double calculateParallelResistance(double r1, double r2) {
         return 1 / (1/r1 + 1/r2);
@@ -84,18 +84,17 @@ x??
 
 #### Power Calculation Using Voltage and Current
 Power (P) in watts can be calculated using the formula:
-\[ P = V \times I \]
-where \(V\) is the voltage (in volts) and \(I\) is the current (in amperes).
+$$
+
+P = V \times I$$where $ V $ is the voltage (in volts) and $ I$ is the current (in amperes).
 
 :p How do you calculate power when given voltage and current?
 ??x
 To calculate power, use the formula:
-\[ P = V \times I \]
+$$P = V \times I$$
 
-For example, if the voltage \(V = 120\) volts and the current \(I = 5\) amperes:
-\[ P = 120 \times 5 = 600 \, \text{watts} \]
-
-x??
+For example, if the voltage $V = 120 $ volts and the current$I = 5$ amperes:
+$$P = 120 \times 5 = 600 \, \text{watts}$$x??
 
 ---
 
@@ -106,11 +105,12 @@ Electricity passing through conductors causes them to heat up due to resistance.
 :p What is the heat effect of electricity?
 ??x
 The heat effect occurs because current must overcome the resistance of the wire, generating heat:
-\[ P = I^2 R \]
-where \(P\) is power (watts), \(I\) is current (amperes), and \(R\) is resistance (\(\Omega\)).
+$$
+
+P = I^2 R$$where $ P $is power (watts),$ I $is current (amperes), and$ R $is resistance ($\Omega$).
 
 For example, if 10 amperes of current flow through a 5-ohm resistor:
-\[ P = 10^2 \times 5 = 500 \, \text{watts} \]
+$$P = 10^2 \times 5 = 500 \, \text{watts}$$
 
 x??
 

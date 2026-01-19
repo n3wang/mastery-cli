@@ -92,13 +92,13 @@ Branch prediction can significantly impact performance. The cost associated with
 
 The formula for the total branch penalty (Bp) includes both the branch prediction cost (Bc) and the missed prefetch cost (Pc):
 
-\[ Bp = \frac{NbBf(Bc + Pc)}{v} \]
+$$Bp = \frac{NbBf(Bc + Pc)}{v}$$
 
 Where:
-- \( Nb \) is the number of times the branch is encountered.
-- \( Bf \) is the branch miss frequency.
+- $Nb$ is the number of times the branch is encountered.
+- $Bf$ is the branch miss frequency.
 
-For typical architectures, \( Bc \approx 16 \) cycles and \( Pc \approx 112 \) cycles are used as empirical values.
+For typical architectures,$Bc \approx 16 $ cycles and$Pc \approx 112$ cycles are used as empirical values.
 
 ```java
 // Pseudocode to calculate branch penalty
@@ -115,12 +115,11 @@ Loop overhead is another key factor in performance modeling, especially for smal
 :p What does the loop penalty (Lp) represent?
 ??x
 The loop penalty (Lp) represents the cost associated with looping constructs, including branch handling and control flow management. For small loops of unknown length, a typical estimate is about 20 cycles per exit:
-
-\[ Lp = \frac{Lc}{v} \]
+$$Lp = \frac{Lc}{v}$$
 
 Where:
-- \( Lc \) is the loop overhead cost.
-- \( v \) is the processor frequency.
+- $Lc$ is the loop overhead cost.
+- $v$ is the processor frequency.
 
 ```java
 // Pseudocode to calculate loop penalty
@@ -242,12 +241,10 @@ Using a conditional access pattern in the algorithm can lead to significant perf
 - The probability of a branch prediction miss is high because branches are taken infrequently.
 
 The overall performance model (PM) includes these factors:
-
-\[ PM = \frac{4N_c(N_m + 1)}{8/\text{Stream}} + B_p F_f N_c N_m \]
+$$PM = \frac{4N_c(N_m + 1)}{8/\text{Stream}} + B_p F_f N_c N_m$$
 
 Where:
-- \(B_p = 0.7\)
-- \(F_f\) is the filled fraction.
+- $B_p = 0.7 $-$ F_f$ is the filled fraction.
 
 This results in a higher memory bandwidth requirement, making the algorithm slower compared to simply skipping conditional checks and adding zeros.
 

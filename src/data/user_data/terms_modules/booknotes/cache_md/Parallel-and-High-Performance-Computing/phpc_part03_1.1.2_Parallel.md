@@ -22,7 +22,7 @@ x??
 #### Strong Scaling
 Background context: Strong scaling refers to the time to solution with respect to the number of processors for a fixed total problem size. This means that as the number of processors increases, each processor works on a smaller portion of the same-sized problem.
 
-Formula: \( \text{SpeedUp (N)} = \frac{1}{S + P/N} \)
+Formula: $\text{SpeedUp (N)} = \frac{1}{S + P/N}$
 
 :p What is strong scaling?
 ??x
@@ -37,7 +37,7 @@ x??
 #### Weak Scaling
 Background context: Weak scaling refers to the time to solution with respect to the number of processors for a fixed-sized problem per processor. This means that as more processors are added, the size of the problem also grows proportionally.
 
-Formula: \( \text{SpeedUp (N)} = N - S * (N - 1) \)
+Formula: $\text{SpeedUp (N)} = N - S * (N - 1)$
 
 :p What is weak scaling?
 ??x
@@ -531,10 +531,10 @@ Background context: The text explains how tasks can be further split among multi
 :p What is the formula for calculating the theoretical speedup in this scenario?
 ??x
 The theoretical speedup can be calculated using the following formula:
-\[ \text{Speedup} = \text{Number of Nodes} \times (\text{Cores per Node}) \times \left( \frac{\text{Vector Unit Width}}{\text{Data Type Size}} \right) \]
+$$\text{Speedup} = \text{Number of Nodes} \times (\text{Cores per Node}) \times \left( \frac{\text{Vector Unit Width}}{\text{Data Type Size}} \right)$$
 
 For a setup with 2 nodes, 4 cores per node, and a vector unit that processes 256-bit data (double precision is 64 bits):
-\[ \text{Speedup} = 2 \times 4 \times \left( \frac{256}{64} \right) = 32x \]
+$$\text{Speedup} = 2 \times 4 \times \left( \frac{256}{64} \right) = 32x$$
 
 This formula helps in understanding the potential performance gains from parallelizing tasks across multiple nodes.
 x??

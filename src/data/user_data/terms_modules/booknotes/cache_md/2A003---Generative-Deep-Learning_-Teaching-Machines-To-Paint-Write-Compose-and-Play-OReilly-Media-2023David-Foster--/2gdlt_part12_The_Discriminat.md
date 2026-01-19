@@ -90,12 +90,10 @@ The key difference lies in the loss function:
 - **WGAN**: Uses the Wasserstein distance as the objective function, which directly optimizes the true distance between distributions.
 
 The loss for WGAN is defined as:
-\[ \min_G \max_D V(D, G) = \mathbb{E}_{\boldsymbol{x} \sim p_{data}(\boldsymbol{x})} [D(\boldsymbol{x})] - \mathbb{E}_{\boldsymbol{z} \sim p_z(\boldsymbol{z})} [D(G(\boldsymbol{z}))] \]
-where \( D \) is the discriminator, and \( G \) is the generator.
+$$\min_G \max_D V(D, G) = \mathbb{E}_{\boldsymbol{x} \sim p_{data}(\boldsymbol{x})} [D(\boldsymbol{x})] - \mathbb{E}_{\boldsymbol{z} \sim p_z(\boldsymbol{z})} [D(G(\boldsymbol{z}))]$$where $ D $ is the discriminator, and $ G$ is the generator.
 
 To enforce Lipschitz continuity (a property that ensures smooth gradients), a gradient penalty term can be added:
-\[ \lambda \mathbb{E}_{\boldsymbol{\epsilon} \sim U[0,1]} [\| \nabla_{\boldsymbol{x}} D(G(\boldsymbol{\epsilon}\boldsymbol{z})) \| - 1]^2 \]
-where \( \lambda \) is a hyperparameter that controls the strength of the penalty.
+$$\lambda \mathbb{E}_{\boldsymbol{\epsilon} \sim U[0,1]} [\| \nabla_{\boldsymbol{x}} D(G(\boldsymbol{\epsilon}\boldsymbol{z})) \| - 1]^2$$where $\lambda$ is a hyperparameter that controls the strength of the penalty.
 ??x
 
 ---

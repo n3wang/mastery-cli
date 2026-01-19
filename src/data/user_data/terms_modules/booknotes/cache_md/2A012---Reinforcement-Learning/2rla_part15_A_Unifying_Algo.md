@@ -7,68 +7,63 @@
 
 
 #### n-step Bootstrapping Overview
-Background context: This section introduces the idea of using bootstrapping methods for estimating action values, specifically focusing on the \(n\)-step version. The goal is to combine different types of backup algorithms into a unified framework.
+Background context: This section introduces the idea of using bootstrapping methods for estimating action values, specifically focusing on the $n$-step version. The goal is to combine different types of backup algorithms into a unified framework.
 
-:p What is the main purpose of \(n\)-step bootstrapping?
+:p What is the main purpose of $n$-step bootstrapping?
 ??x
-The primary purpose of \(n\)-step bootstrapping is to unify different action-value algorithms by allowing a flexible approach between sampling and expectation, thereby providing a versatile method for estimating the value function. This approach bridges Sarsa's sample-based updates, tree backup's fully branched state-to-action transitions, and expected Sarsa’s mixed update strategy.
+The primary purpose of $n$-step bootstrapping is to unify different action-value algorithms by allowing a flexible approach between sampling and expectation, thereby providing a versatile method for estimating the value function. This approach bridges Sarsa's sample-based updates, tree backup's fully branched state-to-action transitions, and expected Sarsa’s mixed update strategy.
 x??
 
 ---
 
 
 #### n-step Q(α) Algorithm
-Background context: The \(n\)-step Q(\(\alpha\)) algorithm is a unified method that allows for flexible sampling or expectation on each step. This is achieved by setting \(\alpha_t\) between 0 and 1, where \(\alpha = 1\) means full sampling (like Sarsa), \(\alpha = 0\) means pure expectation (like tree backup), and values in-between mix the two.
+Background context: The $n $-step Q($\alpha $) algorithm is a unified method that allows for flexible sampling or expectation on each step. This is achieved by setting $\alpha_t $ between 0 and 1, where$\alpha = 1 $ means full sampling (like Sarsa),$\alpha = 0$ means pure expectation (like tree backup), and values in-between mix the two.
 
-:p How does \(n\)-step Q(\(\alpha\)) unify different action-value algorithms?
+:p How does $n $-step Q($\alpha$) unify different action-value algorithms?
 ??x
-\(n\)-step Q(\(\alpha\)) unifies different action-value algorithms by allowing a flexible approach where \(\alpha_t\) is set on a step-by-step basis. If \(\alpha_t = 1\), it behaves like Sarsa, sampling the next action based on the policy. If \(\alpha_t = 0\), it acts like tree backup, taking expectations over all possible actions. Values of \(\alpha_t\) between 0 and 1 mix these two approaches, providing a continuous range of methods for updating the action-value function.
+$n $-step Q($\alpha $) unifies different action-value algorithms by allowing a flexible approach where $\alpha_t $ is set on a step-by-step basis. If$\alpha_t = 1 $, it behaves like Sarsa, sampling the next action based on the policy. If $\alpha_t = 0 $, it acts like tree backup, taking expectations over all possible actions. Values of $\alpha_t$ between 0 and 1 mix these two approaches, providing a continuous range of methods for updating the action-value function.
 x??
 
 ---
 
 
 #### n-step Q(α) Update Equation
-Background context: The update equation for \(n\)-step Q(\(\alpha\)) combines elements of Sarsa and tree backup by smoothly transitioning between sampling and expectation based on \(\alpha_t\).
+Background context: The update equation for $n $-step Q($\alpha $) combines elements of Sarsa and tree backup by smoothly transitioning between sampling and expectation based on $\alpha_t$.
 
-:p What is the update equation for \(n\)-step Q(\(\alpha\))?
+:p What is the update equation for $n $-step Q($\alpha$)?
 ??x
-The update equation for \(n\)-step Q(\(\alpha\)) is given by:
+The update equation for $n $-step Q($\alpha$) is given by:
 
-\[ G_{t:h} = R_{t+1} + \alpha_t \left( \alpha_{t+1}\gamma^{h-t-1} T(S_{t+1}, A_{t+1}; S_h, A_h) + (1 - \alpha_{t+1})V_h^{\pi}(S_{t+1}) \right) + (1 - \alpha_t)V_{h-1}^{\pi}(S_t), \]
-
-where \( G_{t:h} \) is the return from time step \( t \) to horizon \( h = t+n \). The equation linearly interpolates between sampling and expectation based on \(\alpha_t\).
+$$G_{t:h} = R_{t+1} + \alpha_t \left( \alpha_{t+1}\gamma^{h-t-1} T(S_{t+1}, A_{t+1}; S_h, A_h) + (1 - \alpha_{t+1})V_h^{\pi}(S_{t+1}) \right) + (1 - \alpha_t)V_{h-1}^{\pi}(S_t),$$where $ G_{t:h}$is the return from time step $ t$to horizon $ h = t+n $. The equation linearly interpolates between sampling and expectation based on $\alpha_t$.
 
 :p How does this update equation work?
 ??x
-This update equation works by combining elements of Sarsa and tree backup. If \(\alpha_{t+1} = 1\) (full sampling), the term \( \alpha_{t+1}\gamma^{h-t-1} T(S_{t+1}, A_{t+1}; S_h, A_h) \) takes the form of a sample-based update like in Sarsa. If \(\alpha_{t+1} = 0\) (pure expectation), it uses \( V_h^{\pi}(S_{t+1}) \) to take expectations over all actions. Values between 0 and 1 smoothly transition between these two extremes, allowing for a flexible approach.
+This update equation works by combining elements of Sarsa and tree backup. If $\alpha_{t+1} = 1 $(full sampling), the term $\alpha_{t+1}\gamma^{h-t-1} T(S_{t+1}, A_{t+1}; S_h, A_h)$ takes the form of a sample-based update like in Sarsa. If $\alpha_{t+1} = 0$(pure expectation), it uses $ V_h^{\pi}(S_{t+1})$ to take expectations over all actions. Values between 0 and 1 smoothly transition between these two extremes, allowing for a flexible approach.
 x??
 
 ---
 
 
 #### n-step Q(α) Algorithm Steps
-Background context: The algorithm describes the process of updating action values using \(n\)-step Q(\(\alpha\)), where \(\alpha_t\) is set on a step-by-step basis. This allows for different behaviors depending on whether to sample or take expectations.
+Background context: The algorithm describes the process of updating action values using $n $-step Q($\alpha $), where $\alpha_t$ is set on a step-by-step basis. This allows for different behaviors depending on whether to sample or take expectations.
 
-:p What are the key steps in implementing the \(n\)-step Q(\(\alpha\)) algorithm?
+:p What are the key steps in implementing the $n $-step Q($\alpha$) algorithm?
 ??x
-The key steps in implementing the \(n\)-step Q(\(\alpha\)) algorithm are as follows:
+The key steps in implementing the $n $-step Q($\alpha$) algorithm are as follows:
 
-1. **Initialization**: Initialize action-value function \(Q(s, a)\) and policy \(\pi\) (e.g., \(\epsilon\)-greedy with respect to \(Q\)).
+1. **Initialization**: Initialize action-value function $Q(s, a)$ and policy $\pi$(e.g.,$\epsilon $-greedy with respect to $ Q$).
 2. **Episode Loop**: For each episode:
    - Initialize the state.
-   - Choose an action based on the behavior policy \(b(a|s)\).
-3. **Time Step Loop**: For each time step \(t\) until termination:
+   - Choose an action based on the behavior policy $b(a|s)$.
+3. **Time Step Loop**: For each time step $t$ until termination:
    - Take the chosen action and observe the reward and next state.
    - If the next state is terminal, terminate the episode.
    - Otherwise, choose another action for the next step based on the behavior policy.
 4. **Update**: Update the return using the equation:
+$$G_{t:h} = R_{t+1} + \alpha_t \left( \alpha_{t+1}\gamma^{h-t-1} T(S_{t+1}, A_{t+1}; S_h, A_h) + (1 - \alpha_{t+1})V_h^{\pi}(S_{t+1}) \right) + (1 - \alpha_t)V_{h-1}^{\pi}(S_t),$$5. **Policy Update**: If the policy is being learned, ensure that it is greedy with respect to $ Q$.
 
-\[ G_{t:h} = R_{t+1} + \alpha_t \left( \alpha_{t+1}\gamma^{h-t-1} T(S_{t+1}, A_{t+1}; S_h, A_h) + (1 - \alpha_{t+1})V_h^{\pi}(S_{t+1}) \right) + (1 - \alpha_t)V_{h-1}^{\pi}(S_t), \]
-
-5. **Policy Update**: If the policy is being learned, ensure that it is greedy with respect to \(Q\).
-
-:p Can you provide a pseudocode for the \(n\)-step Q(\(\alpha\)) algorithm?
+:p Can you provide a pseudocode for the $n $-step Q($\alpha$) algorithm?
 ??x
 ```java
 // n-step Q(alpha) Algorithm
@@ -115,46 +110,43 @@ x??
 ---
 
 
-#### Ongoing \(n\)-step Q(α) Algorithm
-Background context: The ongoing version of the \(n\)-step Q(\(\alpha\)) algorithm continues to update the action-value function using a sliding window approach, ensuring that the most recent data is given more weight.
+#### Ongoing $n$-step Q(α) Algorithm
+Background context: The ongoing version of the $n $-step Q($\alpha$) algorithm continues to update the action-value function using a sliding window approach, ensuring that the most recent data is given more weight.
 
-:p How does the ongoing \(n\)-step Q(\(\alpha\)) algorithm handle updates?
+:p How does the ongoing $n $-step Q($\alpha$) algorithm handle updates?
 ??x
-The ongoing \(n\)-step Q(\(\alpha\)) algorithm handles updates by continuously updating the action-value function within a sliding window. For each time step \(\tau\), it calculates the return using the equation:
+The ongoing $n $-step Q($\alpha $) algorithm handles updates by continuously updating the action-value function within a sliding window. For each time step $\tau$, it calculates the return using the equation:
 
-\[ G_{\tau:\tau+n} = R_{\tau+1} + \alpha_{\tau+1} \left( \alpha_{\tau+2}\gamma^{n-1} T(S_{\tau+1}, A_{\tau+1}; S_{\tau+n}, A_{\tau+n}) + (1 - \alpha_{\tau+2})V_{\tau+n}^{\pi}(S_{\tau+1}) \right) + (1 - \alpha_{\tau+1})V_{\tau}^{\pi}(S_\tau). \]
+$$G_{\tau:\tau+n} = R_{\tau+1} + \alpha_{\tau+1} \left( \alpha_{\tau+2}\gamma^{n-1} T(S_{\tau+1}, A_{\tau+1}; S_{\tau+n}, A_{\tau+n}) + (1 - \alpha_{\tau+2})V_{\tau+n}^{\pi}(S_{\tau+1}) \right) + (1 - \alpha_{\tau+1})V_{\tau}^{\pi}(S_\tau).$$
 
-This update is applied to the action-value function for the state-action pair at time \(\tau\) using:
+This update is applied to the action-value function for the state-action pair at time $\tau$ using:
+$$Q(S_\tau, A_\tau) \leftarrow Q(S_\tau, A_\tau) + \alpha [G_{\tau:\tau+n} - Q(S_\tau, A_\tau)].$$
 
-\[ Q(S_\tau, A_\tau) \leftarrow Q(S_\tau, A_\tau) + \alpha [G_{\tau:\tau+n} - Q(S_\tau, A_\tau)]. \]
-
-This approach ensures that the most recent data is given more weight by using a sliding window of length \(n+1\).
+This approach ensures that the most recent data is given more weight by using a sliding window of length $n+1$.
 x??
 
 ---
 
 
 #### Detailed Example
-Background context: The example demonstrates how to implement and use the ongoing \(n\)-step Q(\(\alpha\)) algorithm in practice, including setting up the environment, initializing the action-value function, and performing updates.
+Background context: The example demonstrates how to implement and use the ongoing $n $-step Q($\alpha$) algorithm in practice, including setting up the environment, initializing the action-value function, and performing updates.
 
-:p Can you provide a detailed example of implementing an ongoing \(n\)-step Q(\(\alpha\)) algorithm?
+:p Can you provide a detailed example of implementing an ongoing $n $-step Q($\alpha$) algorithm?
 ??x
 Sure! Here is a detailed example:
 
 1. **Environment Setup**: Define the state space, action space, reward function, and transition dynamics.
-2. **Initialization**: Initialize the action-value function \(Q(s, a)\) and policy \(\pi\) (e.g., \(\epsilon\)-greedy).
+2. **Initialization**: Initialize the action-value function $Q(s, a)$ and policy $\pi$(e.g.,$\epsilon$-greedy).
 3. **Episode Loop**: For each episode:
    - Initialize the state.
-   - Choose an action based on the behavior policy \(b(a|s)\).
-4. **Time Step Loop**: For each time step \(t\):
+   - Choose an action based on the behavior policy $b(a|s)$.
+4. **Time Step Loop**: For each time step $t$:
    - Take the chosen action and observe the reward and next state.
    - If the next state is terminal, terminate the episode.
    - Otherwise, choose another action for the next step based on the behavior policy.
 5. **Update**: Update the return using the equation:
 
-\[ G_{t:t+n} = R_{t+1} + \alpha_t \left( \alpha_{t+1}\gamma^{n-1} T(S_{t+1}, A_{t+1}; S_{t+n}, A_{t+n}) + (1 - \alpha_{t+1})V_{t+n}^{\pi}(S_{t+1}) \right) + (1 - \alpha_t)V_{t-1}^{\pi}(S_t), \]
-
-6. **Policy Update**: Ensure the policy is greedy with respect to \(Q\).
+$$G_{t:t+n} = R_{t+1} + \alpha_t \left( \alpha_{t+1}\gamma^{n-1} T(S_{t+1}, A_{t+1}; S_{t+n}, A_{t+n}) + (1 - \alpha_{t+1})V_{t+n}^{\pi}(S_{t+1}) \right) + (1 - \alpha_t)V_{t-1}^{\pi}(S_t),$$6. **Policy Update**: Ensure the policy is greedy with respect to $ Q$.
 
 Here's a simplified pseudocode example:
 
@@ -202,7 +194,7 @@ public class OngoingNStepQAlpha {
 }
 ```
 
-This example provides a basic framework to implement and use the ongoing \(n\)-step Q(\(\alpha\)) algorithm.
+This example provides a basic framework to implement and use the ongoing $n $-step Q($\alpha$) algorithm.
 x??
 
 ---
@@ -213,18 +205,18 @@ Background context: This section introduces a range of temporal-difference (TD) 
 
 :p What are n-step TD methods?
 ??x
-n-step TD methods look ahead to the next \(n\) rewards, states, and actions before updating estimates. This approach combines the advantages of both one-step TD methods and Monte Carlo methods by providing a balance between bootstrapping and using actual returns.
+n-step TD methods look ahead to the next $n$ rewards, states, and actions before updating estimates. This approach combines the advantages of both one-step TD methods and Monte Carlo methods by providing a balance between bootstrapping and using actual returns.
 x??
 
 ---
 
 
 #### State-Value Update for n-step TD
-Background context: The state-value update is for \(n\)-step TD with importance sampling, which involves bootstrapping over \(n\) steps to estimate the value function.
+Background context: The state-value update is for $n $-step TD with importance sampling, which involves bootstrapping over $ n$ steps to estimate the value function.
 
 :p What does the state-value update for n-step TD look like?
 ??x
-The state-value update for \(n\)-step TD with importance sampling updates the value of a state based on the returns observed within the next \(n\) time steps. The update involves multiplying the return by the behavior policy's probability, which is the importance sampling weight.
+The state-value update for $n $-step TD with importance sampling updates the value of a state based on the returns observed within the next $ n$ time steps. The update involves multiplying the return by the behavior policy's probability, which is the importance sampling weight.
 
 ```java
 // Pseudocode for updating V(s)
@@ -242,11 +234,11 @@ x??
 
 
 #### Action-Value Update for n-step Q()
-Background context: The action-value update is for \(n\)-step Q-learning, which generalizes Expected Sarsa and Q-learning by considering the next \(n\) rewards.
+Background context: The action-value update is for $n $-step Q-learning, which generalizes Expected Sarsa and Q-learning by considering the next $ n$ rewards.
 
 :p What does the action-value update for n-step Q() look like?
 ??x
-The action-value update for \(n\)-step Q-learning updates the value of an action taken in a state based on the returns observed within the next \(n\) time steps. This method involves no importance sampling but may involve bootstrapping over only a few steps even if \(n\) is large.
+The action-value update for $n $-step Q-learning updates the value of an action taken in a state based on the returns observed within the next $ n $time steps. This method involves no importance sampling but may involve bootstrapping over only a few steps even if$ n$ is large.
 
 ```java
 // Pseudocode for updating Q(s, a)
@@ -264,14 +256,14 @@ x??
 
 
 #### Concept of n-step Return
-Background context: The idea of \(n\)-step returns was introduced by Watkins (1989), who also discussed their error reduction properties. These methods were initially considered impractical in the first edition but are now recognized as completely practical.
+Background context: The idea of $n$-step returns was introduced by Watkins (1989), who also discussed their error reduction properties. These methods were initially considered impractical in the first edition but are now recognized as completely practical.
 
 :p What is an n-step return?
 ??x
-An \(n\)-step return is a sum of rewards over the next \(n\) time steps, which is used to update value estimates in \(n\)-step TD learning methods. It combines both bootstrapping and using actual returns to estimate the value function.
+An $n $-step return is a sum of rewards over the next $ n $time steps, which is used to update value estimates in$ n$-step TD learning methods. It combines both bootstrapping and using actual returns to estimate the value function.
 
-The formula for an n-step return \(G_t\) starting from time step \(t\) is:
-\[ G_t = R_{t+1} + \gamma R_{t+2} + \ldots + \gamma^{n-1} R_{t+n} + \gamma^n V(S_{t+n}) \]
+The formula for an n-step return $G_t $ starting from time step$t$ is:
+$$G_t = R_{t+1} + \gamma R_{t+2} + \ldots + \gamma^{n-1} R_{t+n} + \gamma^n V(S_{t+n})$$
 
 This approach provides a balance between the immediate feedback of Monte Carlo methods and the delayed updates of one-step TD learning.
 x??
@@ -284,7 +276,7 @@ Background context: Importance sampling is used to correct for differences betwe
 
 :p What role does importance sampling play in n-step methods?
 ??x
-Importance sampling is used in \(n\)-step TD learning with a focus on updating value estimates. It helps adjust the updates based on the difference between the behavior policy and the target policy, ensuring that the algorithm learns from both exploration (behavior policy) and exploitation (target policy).
+Importance sampling is used in $n$-step TD learning with a focus on updating value estimates. It helps adjust the updates based on the difference between the behavior policy and the target policy, ensuring that the algorithm learns from both exploration (behavior policy) and exploitation (target policy).
 
 However, if the policies are very different, importance sampling can lead to high variance in the updates.
 
@@ -303,11 +295,11 @@ x??
 
 
 #### Tree-backup Updates for n-step Methods
-Background context: The tree-backup algorithm, introduced by Precup, Sutton, and Singh (2000), is a natural extension of Q-learning to the multi-step case with stochastic target policies. It involves no importance sampling but may span only a few steps even if \(n\) is large.
+Background context: The tree-backup algorithm, introduced by Precup, Sutton, and Singh (2000), is a natural extension of Q-learning to the multi-step case with stochastic target policies. It involves no importance sampling but may span only a few steps even if $n$ is large.
 
 :p What are tree-backup updates in n-step methods?
 ??x
-Tree-backup updates are used in n-step Q-learning and generalize Q-learning by considering multiple future steps. They involve no importance sampling, making the algorithm simpler to implement. However, they may only span a few steps even if \(n\) is large due to stochastic target policies.
+Tree-backup updates are used in n-step Q-learning and generalize Q-learning by considering multiple future steps. They involve no importance sampling, making the algorithm simpler to implement. However, they may only span a few steps even if $n$ is large due to stochastic target policies.
 
 The update rule for tree-backup involves traversing a backup tree to aggregate returns over multiple time steps:
 
@@ -329,13 +321,13 @@ x??
 
 
 #### Conceptual Clarity of n-step Methods
-Background context: Despite their complexity, \(n\)-step methods are conceptually clear and can be effectively used for off-policy learning. However, they require more memory and computation compared to one-step methods.
+Background context: Despite their complexity,$n$-step methods are conceptually clear and can be effectively used for off-policy learning. However, they require more memory and computation compared to one-step methods.
 
 :p Why are n-step methods important?
 ??x
-\(n\)-step methods are important because they strike a balance between the immediate feedback of Monte Carlo methods and the delayed updates of one-step TD learning. They provide better performance than either extreme by combining bootstrapping with actual returns over \(n\) steps. Although more complex, these methods are conceptually clear and can be effectively used for off-policy learning.
+$n $-step methods are important because they strike a balance between the immediate feedback of Monte Carlo methods and the delayed updates of one-step TD learning. They provide better performance than either extreme by combining bootstrapping with actual returns over $ n$ steps. Although more complex, these methods are conceptually clear and can be effectively used for off-policy learning.
 
-They require more memory to store state, action, reward sequences over \(n\) time steps but offer a trade-off in terms of computational efficiency compared to one-step methods.
+They require more memory to store state, action, reward sequences over $n$ time steps but offer a trade-off in terms of computational efficiency compared to one-step methods.
 x??
 
 ---

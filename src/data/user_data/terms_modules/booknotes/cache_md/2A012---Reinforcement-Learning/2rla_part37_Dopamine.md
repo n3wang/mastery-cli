@@ -33,7 +33,7 @@ Background context explaining the reward prediction error hypothesis and its rel
 
 :p What does the reward prediction error hypothesis propose about dopamine neuron activity?
 ??x
-The reward prediction error hypothesis proposes that dopamine neurons signal reward prediction errors, rather than direct rewards. This means that their phasic responses correspond to \[R_t + V(S_t) - V(S_{t-1})\] at time \(t\), not directly to the reward \(R_t\). This distinction is crucial for understanding how reinforcement learning algorithms can reconcile traditional views with the new hypothesis.
+The reward prediction error hypothesis proposes that dopamine neurons signal reward prediction errors, rather than direct rewards. This means that their phasic responses correspond to $$R_t + V(S_t) - V(S_{t-1})$$at time $ t $, not directly to the reward$ R_t$. This distinction is crucial for understanding how reinforcement learning algorithms can reconcile traditional views with the new hypothesis.
 
 ```java
 // Example of a simple TD update rule in pseudocode
@@ -128,11 +128,10 @@ Background context explaining the concept. The text outlines a simplified scenar
 ??x
 The agent's task in this scenario is to learn accurate predictions of future reward for a sequence of states it experiences. This can be formally described as a prediction task, more technically known as a policy-evaluation task. The goal is to learn the value function for a fixed policy, where the value function assigns to each state the expected return if the agent follows that policy from that state onward.
 
-The value function \(V(s)\) for a state \(s\) under a given policy \(\pi\) can be defined as:
-\[ V_{\pi}(s) = E[\sum_{t=0}^{\infty} \gamma^{t} R_{t+1} | S_0=s, A_t \sim \pi] \]
-where \(R_{t+1}\) is the reward at time step \(t+1\), and \(\gamma\) is the discount factor.
+The value function $V(s)$ for a state $s$ under a given policy $\pi$ can be defined as:
+$$V_{\pi}(s) = E[\sum_{t=0}^{\infty} \gamma^{t} R_{t+1} | S_0=s, A_t \sim \pi]$$where $ R_{t+1}$is the reward at time step $ t+1$, and $\gamma$ is the discount factor.
 
-In simpler terms, the value function estimates the expected return from state \(s\).
+In simpler terms, the value function estimates the expected return from state $s$.
 
 :p How can this task be simplified according to the text?
 ??x
@@ -162,9 +161,7 @@ x??
 In reinforcement learning, the Temporal Difference (TD) error is used to update value function approximations based on the difference between the expected return and the current estimate. This process is analogous to the phasic activation of dopamine neurons in the brain, which respond to unexpected rewards.
 
 The TD error is given by: 
-\[ \delta_t = R_{t+1} + \gamma V(s_{t+1}) - V(s_t) \]
-
-where \( \delta_t \) is the TD error at time step \( t \), \( R_{t+1} \) is the reward received after state \( s_t \), and \( \gamma \) is the discount factor.
+$$\delta_t = R_{t+1} + \gamma V(s_{t+1}) - V(s_t)$$where $\delta_t $ is the TD error at time step$t $,$ R_{t+1}$is the reward received after state $ s_t$, and $\gamma$ is the discount factor.
 
 :p How does the TD error relate to dopamine neuron activity in the brain?
 ??x
@@ -177,10 +174,8 @@ x??
 #### State Representation and Learning Algorithm
 The state representation influences how closely the TD error corresponds to the activity of dopamine neurons. In this context, a common assumption involves using a Context-Sensitive Code (CSC) representation where there is a separate internal stimulus for each state visited at each time step in a trial.
 
-For simplicity, we assume the agent uses the TD(0) algorithm, which updates value function estimates based on the difference between actual and predicted rewards. The value function \( V \) is initialized to zero for all states and updated using the formula:
-\[ V(s_t) = V(s_t) + \alpha (\delta_t) \]
-
-where \( \alpha \) is the learning rate.
+For simplicity, we assume the agent uses the TD(0) algorithm, which updates value function estimates based on the difference between actual and predicted rewards. The value function $V$ is initialized to zero for all states and updated using the formula:
+$$V(s_t) = V(s_t) + \alpha (\delta_t)$$where $\alpha$ is the learning rate.
 
 :p How does the CSC representation affect the learning process in reinforcement learning?
 ??x
@@ -193,13 +188,13 @@ x??
 
 
 #### Reward Signal and Value Function
-In this context, the reward signal \( R \) is zero throughout most of a trial but becomes non-zero at the end when the agent reaches the rewarding state. The goal of TD learning is to predict the return for each state visited in a trial.
+In this context, the reward signal $R$ is zero throughout most of a trial but becomes non-zero at the end when the agent reaches the rewarding state. The goal of TD learning is to predict the return for each state visited in a trial.
 
-The value function \( V \) is updated based on these rewards and predictions. For an undiscounted case, where \( \gamma \approx 1 \), the update rule simplifies as mentioned above.
+The value function $V $ is updated based on these rewards and predictions. For an undiscounted case, where$\gamma \approx 1$, the update rule simplifies as mentioned above.
 
 :p What is the role of the reward signal in TD learning?
 ??x
-The reward signal plays a critical role in TD learning by providing feedback about the quality of actions taken during each trial. When the agent reaches the rewarding state, it receives a positive reward, which guides the updates to the value function \( V \). This helps the algorithm learn the correct values for states that lead to rewards and those that do not.
+The reward signal plays a critical role in TD learning by providing feedback about the quality of actions taken during each trial. When the agent reaches the rewarding state, it receives a positive reward, which guides the updates to the value function $V$. This helps the algorithm learn the correct values for states that lead to rewards and those that do not.
 
 In essence, the reward signal acts as a reinforcement mechanism, driving the learning process towards actions that yield higher cumulative rewards.
 x??
@@ -208,14 +203,14 @@ x??
 
 
 #### TD Error Dynamics
-During early stages of learning, the initial value function \( V \) is set to zero. The TD error starts positive as it predicts future rewards based on the actual rewards received.
+During early stages of learning, the initial value function $V$ is set to zero. The TD error starts positive as it predicts future rewards based on the actual rewards received.
 
 As learning progresses and the value function becomes more accurate, the earliest predictive states start showing positive TD errors, while at the time of receiving the non-zero reward, the TD error becomes negative.
 
 :p How does the TD error change over the course of learning?
 ??x
 Over the course of learning, the TD error evolves as follows:
-- **Early Learning:** Initially, the value function \( V \) is set to zero. The TD error is positive because it predicts future rewards based on actual rewards received.
+- **Early Learning:** Initially, the value function $V$ is set to zero. The TD error is positive because it predicts future rewards based on actual rewards received.
 - **Learning Complete:** As the value function accurately predicts future rewards, the earliest predictive states show positive TD errors. At the time of receiving the non-zero reward, the prediction is correct, leading to a negative TD error.
 
 This dynamic reflects how dopamine neurons release their neurotransmitters in response to both expected and unexpected rewards, with a negative TD error indicating an accurate prediction.
@@ -241,18 +236,17 @@ x??
 
 #### TD Error and Value Estimation at Early Stages
 
-Background context explaining the concept. The TD error is a critical component of Temporal Difference (TD) learning, used to update value estimates based on the difference between predicted rewards and actual rewards. In this specific scenario, the reward signal is zero except for one state which is rewarding. The \(V\) values start at 0 across all states.
+Background context explaining the concept. The TD error is a critical component of Temporal Difference (TD) learning, used to update value estimates based on the difference between predicted rewards and actual rewards. In this specific scenario, the reward signal is zero except for one state which is rewarding. The $V$ values start at 0 across all states.
 
 :p What does the TD error signify during the initial stages of learning in this scenario?
 ??x
-The TD error starts as zero until it reaches the rewarding state because initially, there are no expected rewards, and thus \( V_t = 0 \) for all states. The reward signal only appears at the rewarding state, making the TD error equal to the immediate reward when the agent transitions into this state.
+The TD error starts as zero until it reaches the rewarding state because initially, there are no expected rewards, and thus $V_t = 0$ for all states. The reward signal only appears at the rewarding state, making the TD error equal to the immediate reward when the agent transitions into this state.
 
-For a transition from time \( t-1 \) to \( t \):
-\[ \delta_t = R_t + V_{t} - V_{t-1} = 0 + 0 - 0 = 0 \]
+For a transition from time $t-1 $ to$t$:
+$$\delta_t = R_t + V_{t} - V_{t-1} = 0 + 0 - 0 = 0$$
+
 This remains true until the rewarding state is reached, where:
-\[ \delta_t = R_t + V_{t} - V_{t-1} = R? + 0 - 0 = R? \]
-
-where \( R? \) is the reward at the final state.
+$$\delta_t = R_t + V_{t} - V_{t-1} = R? + 0 - 0 = R?$$where $ R?$ is the reward at the final state.
 x??
 
 ---
@@ -260,18 +254,19 @@ x??
 
 #### TD Error Calculation and State Value Updates
 
-Background context explaining the concept. In this example, the first trial time courses of \(V\) (value function) are shown early in learning and after complete learning. The value updates spread from the rewarding state backward to earlier states as the algorithm learns.
+Background context explaining the concept. In this example, the first trial time courses of $V$(value function) are shown early in learning and after complete learning. The value updates spread from the rewarding state backward to earlier states as the algorithm learns.
 
 :p How do the value estimates change during the learning process?
 ??x
-The value estimates increase successively starting from the earliest reward-predicting state back to the first state, until they converge to the correct return predictions \( R? \). This spreading of value increases is a key aspect of the TD(0) algorithm.
+The value estimates increase successively starting from the earliest reward-predicting state back to the first state, until they converge to the correct return predictions $R?$. This spreading of value increases is a key aspect of the TD(0) algorithm.
 
 For transitions from a state predicting rewards to another state:
-\[ V_{t-1} = 0 + R? = R? \]
+$$V_{t-1} = 0 + R? = R?$$
 
 And for transitions to the rewarding state:
-\[ V_t = R_t + V_{t-1} - V_{t-1} = R? + 0 - 0 = R? \]
-x??
+$$
+
+V_t = R_t + V_{t-1} - V_{t-1} = R? + 0 - 0 = R?$$x??
 
 ---
 
@@ -285,9 +280,8 @@ Background context explaining the concept. The text draws parallels between the 
 The TD error shows a positive value when transitioning to the earliest reward-predicting state because it is an unexpected event. This mirrors how dopamine neurons respond more strongly to unpredicted rewards, such as the onset of training or an unexpected reward.
 
 For example:
-\[ \delta_t = R_t + V_{t} - V_{t-1} = 0 + 0 - 0 = 0 \]
-becomes positive when transitioning from a state with \( V_{t-1} = 0 \) to the earliest reward-predicting state:
-\[ \delta_t = 0 + R? - 0 = R? \]
+$$\delta_t = R_t + V_{t} - V_{t-1} = 0 + 0 - 0 = 0$$becomes positive when transitioning from a state with $ V_{t-1} = 0$ to the earliest reward-predicting state:
+$$\delta_t = 0 + R? - 0 = R?$$
 
 After complete learning, transitions to the rewarding state produce zero TD error because the value is now accurate. This parallels how dopamine neurons have a reduced response to fully predicted rewards.
 x??
@@ -301,8 +295,8 @@ Background context explaining the concept. Once learning is complete and values 
 
 :p What happens to the TD error when the reward is omitted after complete learning?
 ??x
-When the reward \( R? \) is suddenly omitted after complete learning, the value of the latest reward-predicting state becomes overestimated. The TD error then goes negative as:
-\[ \delta_t = R_t + V_{t} - V_{t-1} = 0 + 0 - R? = -R? \]
+When the reward $R?$ is suddenly omitted after complete learning, the value of the latest reward-predicting state becomes overestimated. The TD error then goes negative as:
+$$\delta_t = R_t + V_{t} - V_{t-1} = 0 + 0 - R? = -R?$$
 
 This mirrors how dopamine neurons decrease their activity below baseline levels when an expected reward is omitted.
 x??

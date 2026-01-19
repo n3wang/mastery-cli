@@ -11,31 +11,29 @@
 Background context: In continuing problems, there are no episode boundaries, and performance is defined as the average rate of reward per time step. This differs from episodic tasks where a fixed number of steps or episodes define the task.
 
 Relevant formula:
-\[ J(\theta) = \lim_{h \to \infty} \frac{1}{h}\sum_{t=1}^h E[R_t | S_0, A_0:t-1 \sim \pi] \]
+$$J(\theta) = \lim_{h \to \infty} \frac{1}{h}\sum_{t=1}^h E[R_t | S_0, A_0:t-1 \sim \pi]$$
 
-Explanation: The performance \(J(\theta)\) is the long-term average reward per time step. This requires the steady-state distribution \(\mu(s)\), which represents the probability of being in state \(s\) after many steps.
+Explanation: The performance $J(\theta)$ is the long-term average reward per time step. This requires the steady-state distribution $\mu(s)$, which represents the probability of being in state $ s$ after many steps.
 
-:p What does \(J(\theta)\) represent in continuing problems?
-??x
-\(J(\theta)\) represents the long-term average reward per time step for a given policy parameterized by \(\theta\).
+:p What does $J(\theta)$ represent in continuing problems?
+??x $J(\theta)$ represents the long-term average reward per time step for a given policy parameterized by $\theta$.
 
 ---
 
 
 #### Steady-State Distribution
 
-Background context: The steady-state distribution \(\mu(s)\) is crucial for understanding the performance of policies over an indefinite number of steps. It must exist and be independent of the initial state \(S_0\) (ergodicity assumption).
+Background context: The steady-state distribution $\mu(s)$ is crucial for understanding the performance of policies over an indefinite number of steps. It must exist and be independent of the initial state $S_0$(ergodicity assumption).
 
 Relevant formula:
-\[ \lim_{t \to \infty} P(S_t = s | A_0:t-1 \sim \pi) = \mu(s) \]
+$$\lim_{t \to \infty} P(S_t = s | A_0:t-1 \sim \pi) = \mu(s)$$
 
-Explanation: This means that over many steps, the probability of being in state \(s\) remains constant regardless of how the initial state is chosen.
+Explanation: This means that over many steps, the probability of being in state $s$ remains constant regardless of how the initial state is chosen.
 
 :p What does the steady-state distribution represent?
 ??x
-The steady-state distribution represents the long-term probability of being in any given state under a policy. It ensures that if actions are selected according to \(\pi\), the system will remain in this distribution over time: 
-\[ \sum_{s} \mu(s) \sum_{a} \pi(a|s, \theta)p(s'|s,a) = \mu(s') \]
-for all \(s' \in S\).
+The steady-state distribution represents the long-term probability of being in any given state under a policy. It ensures that if actions are selected according to $\pi$, the system will remain in this distribution over time: 
+$$\sum_{s} \mu(s) \sum_{a} \pi(a|s, \theta)p(s'|s,a) = \mu(s')$$for all $ s' \in S$.
 
 ---
 
@@ -47,15 +45,10 @@ Background context: The actor-critic algorithm is used to optimize policies by e
 :p What is the pseudocode for the actor-critic algorithm with eligibility traces in a continuing case?
 ??x
 ```pseudocode
-Input: A differentiable policy parameterization \(\pi(a|s,\theta)\)
-Input: A differentiable state-value function parameterization \(v(s,w)\)
-
-Algorithm parameters: \(\lambda_w \in [0, 1], \lambda_\theta \in [0, 1], \alpha_w > 0, \alpha_\theta > 0, \alpha_{\bar{R}} > 0\)
-
-Initialize \(\bar{R} \in \mathbb{R}\) (e.g., to 0)
-Initialize state-value weights \(w \in \mathbb{R}^d\) and policy parameter \(\theta \in \mathbb{R}^{d_0}\) (e.g., to 0)
-Initialize \(S \in S\) (e.g., to \(s_0\))
-Initialize eligibility traces: \(z_w \leftarrow 0\) (d-component vector), \(z_\theta \leftarrow 0\) (d_0-component vector)
+Input: A differentiable policy parameterization $\pi(a|s,\theta)$ Input: A differentiable state-value function parameterization $v(s,w)$ Algorithm parameters:$\lambda_w \in [0, 1], \lambda_\theta \in [0, 1], \alpha_w > 0, \alpha_\theta > 0, \alpha_{\bar{R}} > 0 $ Initialize$\bar{R} \in \mathbb{R}$(e.g., to 0)
+Initialize state-value weights $w \in \mathbb{R}^d $ and policy parameter$\theta \in \mathbb{R}^{d_0}$(e.g., to 0)
+Initialize $S \in S $(e.g., to $ s_0$)
+Initialize eligibility traces: $z_w \leftarrow 0 $(d-component vector),$ z_\theta \leftarrow 0$(d_0-component vector)
 
 Loop forever:
     A \sim \pi(·|S, \theta)
@@ -74,22 +67,22 @@ x??
 
 #### Value Definitions for Continuing Problems
 
-Background context: In continuing problems, the value and state-action values (q-values) are defined with respect to the differential return \(G_t = R_{t+1} - r(\pi) + R_{t+2} - r(\pi) + \ldots\).
+Background context: In continuing problems, the value and state-action values (q-values) are defined with respect to the differential return $G_t = R_{t+1} - r(\pi) + R_{t+2} - r(\pi) + \ldots$.
 
 Relevant formula:
-\[ G_t = R_{t+1} - r(\pi) + R_{t+2} - r(\pi) + R_{t+3} - r(\pi) + \cdots \]
+$$G_t = R_{t+1} - r(\pi) + R_{t+2} - r(\pi) + R_{t+3} - r(\pi) + \cdots$$
 
-Explanation: This differential return captures the cumulative reward beyond what is expected from following policy \(\pi\).
+Explanation: This differential return captures the cumulative reward beyond what is expected from following policy $\pi$.
 
-:p What are \(v_\pi(s)\) and \(q_\pi(s,a)\) in continuing problems?
+:p What are $v_\pi(s)$ and $q_\pi(s,a)$ in continuing problems?
 ??x
-In continuing problems, \(v_\pi(s)\) represents the state value function:
-\[ v_\pi(s) = E^\pi[G_t | S_t = s] \]
+In continuing problems,$v_\pi(s)$ represents the state value function:
+$$v_\pi(s) = E^\pi[G_t | S_t = s]$$
 
-And \(q_\pi(s,a)\) is the state-action value function:
-\[ q_\pi(s,a) = E^\pi[G_t | S_t = s, A_t = a] \]
+And $q_\pi(s,a)$ is the state-action value function:
+$$q_\pi(s,a) = E^\pi[G_t | S_t = s, A_t = a]$$
 
-These definitions are crucial for understanding how much reward can be expected starting from state \(s\) or taking action \(a\).
+These definitions are crucial for understanding how much reward can be expected starting from state $s $ or taking action$a$.
 
 ---
 
@@ -99,15 +92,14 @@ These definitions are crucial for understanding how much reward can be expected 
 Background context: The policy gradient theorem states that the gradient of performance with respect to the policy parameters is proportional to the expectation of the state-action values.
 
 Relevant formula:
-\[ \nabla_\theta J(\theta) = E^\pi \left[ G_t \cdot \log (\pi(a|s,\theta)) \right] \]
+$$\nabla_\theta J(\theta) = E^\pi \left[ G_t \cdot \log (\pi(a|s,\theta)) \right]$$
 
 Explanation: In continuing problems, this theorem remains valid, and it can be derived similarly to episodic cases but considering the infinite horizon.
 
 :p What is the policy gradient theorem in continuing problems?
 ??x
 The policy gradient theorem for continuing problems states:
-\[ \nabla_\theta J(\theta) = E^\pi[G_t \cdot \log (\pi(a|s,\theta))], \]
-where \(G_t\) is the differential return and \(\pi(a|s,\theta)\) is the policy parameterization.
+$$\nabla_\theta J(\theta) = E^\pi[G_t \cdot \log (\pi(a|s,\theta))],$$where $ G_t $ is the differential return and $\pi(a|s,\theta)$ is the policy parameterization.
 
 This theorem helps in optimizing policies by directly updating parameters based on the expected increase in performance.
 
@@ -118,15 +110,16 @@ This theorem helps in optimizing policies by directly updating parameters based 
 Policy-based methods offer practical ways of dealing with large action spaces, even continuous ones. Instead of computing learned probabilities for each of the many actions, we learn statistics (mean and standard deviation) of the probability distribution.
 
 For example, if actions are real numbers chosen from a normal (Gaussian) distribution, the probability density function is given by:
-\[ p(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}} \]
+$$p(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$$
 
-Where \( \mu \) and \( \sigma \) are the mean and standard deviation of the normal distribution.
+Where $\mu $ and$\sigma$ are the mean and standard deviation of the normal distribution.
 
 :p What is the probability density function for a Gaussian distribution?
 ??x
 The probability density function for a Gaussian distribution is:
-\[ p(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}} \]
-This formula gives the density of the probability at \( x \), which can be greater than 1, but the total area under the curve must sum to 1. The parameters \( \mu \) and \( \sigma \) represent the mean and standard deviation of the distribution.
+$$p(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$$
+
+This formula gives the density of the probability at $x $, which can be greater than 1, but the total area under the curve must sum to 1. The parameters $\mu $ and$\sigma$ represent the mean and standard deviation of the distribution.
 x??
 
 ---
@@ -136,15 +129,16 @@ x??
 In policy-based methods for continuous action spaces, policies are parameterized using parametric function approximators that learn the mean and standard deviation of a Gaussian distribution.
 
 The policy is defined as:
-\[ \pi(a|s, \theta) = \frac{1}{\sqrt{2\pi\sigma^2(s,\theta)}} e^{-\frac{(a-\mu(s,\theta))^2}{2\sigma^2(s,\theta)}} \]
+$$\pi(a|s, \theta) = \frac{1}{\sqrt{2\pi\sigma^2(s,\theta)}} e^{-\frac{(a-\mu(s,\theta))^2}{2\sigma^2(s,\theta)}}$$
 
-Where \( \mu(s,\theta) \) and \( \sigma(s,\theta) \) are the mean and standard deviation approximated by parameterized function approximators. The state feature vectors \( x_\mu(s) \) and \( x_\sigma(s) \) are used to compute these values.
+Where $\mu(s,\theta)$ and $\sigma(s,\theta)$ are the mean and standard deviation approximated by parameterized function approximators. The state feature vectors $x_\mu(s)$ and $x_\sigma(s)$ are used to compute these values.
 
 :p How is a policy defined for continuous action spaces?
 ??x
 A policy for continuous action spaces is defined as:
-\[ \pi(a|s, \theta) = \frac{1}{\sqrt{2\pi\sigma^2(s,\theta)}} e^{-\frac{(a-\mu(s,\theta))^2}{2\sigma^2(s,\theta)}} \]
-Here, \( \mu(s,\theta) \) and \( \sigma(s,\theta) \) are approximated using parameterized function approximators that depend on the state. The feature vectors \( x_\mu(s) \) and \( x_\sigma(s) \) are used to compute these values.
+$$\pi(a|s, \theta) = \frac{1}{\sqrt{2\pi\sigma^2(s,\theta)}} e^{-\frac{(a-\mu(s,\theta))^2}{2\sigma^2(s,\theta)}}$$
+
+Here,$\mu(s,\theta)$ and $\sigma(s,\theta)$ are approximated using parameterized function approximators that depend on the state. The feature vectors $x_\mu(s)$ and $x_\sigma(s)$ are used to compute these values.
 x??
 
 ---
@@ -154,35 +148,29 @@ x??
 To derive eligibility vectors for a Gaussian policy, we need to calculate the gradients of the log probability with respect to the parameters.
 
 Given:
-\[ r\ln\pi(a|s,\theta_\mu) = \frac{r\pi(a|s,\theta_\mu)}{\pi(a|s,\theta_\mu)} - (a-\mu(s,\theta)) x_\mu(s) \]
-and
-\[ r\ln\pi(a|s,\theta_\sigma) = r\pi(a|s,\theta_\sigma) - \frac{(a-\mu(s,\theta))^2}{\sigma^2(s,\theta)} + \frac{1}{\sigma(s,\theta)} x_\sigma(s) \]
-
-:p What are the parts of the eligibility vector for a Gaussian policy?
+$$r\ln\pi(a|s,\theta_\mu) = \frac{r\pi(a|s,\theta_\mu)}{\pi(a|s,\theta_\mu)} - (a-\mu(s,\theta)) x_\mu(s)$$and$$r\ln\pi(a|s,\theta_\sigma) = r\pi(a|s,\theta_\sigma) - \frac{(a-\mu(s,\theta))^2}{\sigma^2(s,\theta)} + \frac{1}{\sigma(s,\theta)} x_\sigma(s)$$:p What are the parts of the eligibility vector for a Gaussian policy?
 ??x
 The eligibility vector has two parts:
-\[ r\ln\pi(a|s, \theta_\mu) = \frac{r\pi(a|s, \theta_\mu)}{\pi(a|s, \theta_\mu)} - (a-\mu(s, \theta)) x_\mu(s) \]
-and
-\[ r\ln\pi(a|s, \theta_\sigma) = r\pi(a|s, \theta_\sigma) - \frac{(a-\mu(s, \theta))^2}{\sigma^2(s, \theta)} + \frac{1}{\sigma(s, \theta)} x_\sigma(s) \]
-These expressions are derived by computing the gradients of the log probability with respect to \( \theta_\mu \) and \( \theta_\sigma \).
+$$r\ln\pi(a|s, \theta_\mu) = \frac{r\pi(a|s, \theta_\mu)}{\pi(a|s, \theta_\mu)} - (a-\mu(s, \theta)) x_\mu(s)$$and$$r\ln\pi(a|s, \theta_\sigma) = r\pi(a|s, \theta_\sigma) - \frac{(a-\mu(s, \theta))^2}{\sigma^2(s, \theta)} + \frac{1}{\sigma(s, \theta)} x_\sigma(s)$$
+
+These expressions are derived by computing the gradients of the log probability with respect to $\theta_\mu $ and$\theta_\sigma$.
 x??
 
 ---
 
 
 #### Bernoulli-Logistic Unit
-A Bernoulli-logistic unit is a stochastic neuron-like unit used in some ANNs. Its output, \( A_t \), is a random variable with values 0 or 1, based on the policy parameter \( \theta_t \).
+A Bernoulli-logistic unit is a stochastic neuron-like unit used in some ANNs. Its output, $A_t $, is a random variable with values 0 or 1, based on the policy parameter $\theta_t$.
 
 If the exponential softmax distribution is used:
-\[ P(A_t=1) = \frac{1}{1 + e^{-\theta^T x(s)}} \]
+$$P(A_t=1) = \frac{1}{1 + e^{-\theta^T x(s)}}$$
 
-Where \( \theta \) is the weight vector and \( x(s) \) is the input feature vector.
+Where $\theta $ is the weight vector and$x(s)$ is the input feature vector.
 
 :p How does the Bernoulli-logistic unit's output probability relate to its policy parameter?
 ??x
 The output probability of a Bernoulli-logistic unit, given by:
-\[ P(A_t=1) = \frac{1}{1 + e^{-\theta^T x(s)}} \]
-relates directly to the policy parameter \( \theta \). This is known as the logistic function.
+$$P(A_t=1) = \frac{1}{1 + e^{-\theta^T x(s)}}$$relates directly to the policy parameter $\theta$. This is known as the logistic function.
 x??
 
 ---
@@ -191,22 +179,23 @@ x??
 #### Monte-Carlo REINFORCE Update for Bernoulli-Logistic Unit
 The Monte Carlo REINFORCE update for a Bernoulli-logistic unit involves updating the parameters based on the return received.
 
-If \( h(s,0,\theta) \) and \( h(s,1,\theta) \) are the preferences in state \( s \) for the unit’s two actions given policy parameter \( \theta \), and assuming:
-\[ h(s,1,\theta) - h(s,0,\theta) = \theta^T x(s) \]
+If $h(s,0,\theta)$ and $h(s,1,\theta)$ are the preferences in state $ s $ for the unit’s two actions given policy parameter $\theta$, and assuming:
+$$h(s,1,\theta) - h(s,0,\theta) = \theta^T x(s)$$
 
 Then:
-\[ P_t = \pi(1|s_t, \theta_t) = \frac{1}{1 + e^{-\theta_t^T x(s_t)}} \]
+$$
+
+P_t = \pi(1|s_t, \theta_t) = \frac{1}{1 + e^{-\theta_t^T x(s_t)}}$$
 
 The REINFORCE update rule is:
-\[ \theta_{t+1} = \theta_t + \alpha G_t A_t \]
+$$\theta_{t+1} = \theta_t + \alpha G_t A_t$$
 
-Where \( G_t \) is the return and \( A_t \) is the action taken.
+Where $G_t $ is the return and$A_t$ is the action taken.
 
 :p What is the Monte-Carlo REINFORCE update for a Bernoulli-logistic unit?
 ??x
 The Monte-Carlo REINFORCE update for a Bernoulli-logistic unit is:
-\[ \theta_{t+1} = \theta_t + \alpha G_t A_t \]
-where \( G_t \) is the return and \( A_t \) is the action taken. This rule updates the parameters based on the return received.
+$$\theta_{t+1} = \theta_t + \alpha G_t A_t$$where $ G_t $ is the return and $ A_t$ is the action taken. This rule updates the parameters based on the return received.
 x??
 
 ---

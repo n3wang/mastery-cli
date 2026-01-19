@@ -11,17 +11,17 @@ Background context explaining how the effective potential affects orbits and the
 
 :p Describe how the orbits within this potential change with different energies.
 ??x
-The orbits are influenced by the total energy \(E\), which is a sum of kinetic and potential terms. The effective potential determines the stable, unstable, and circular orbits based on the value of \(E\).
+The orbits are influenced by the total energy $E $, which is a sum of kinetic and potential terms. The effective potential determines the stable, unstable, and circular orbits based on the value of $ E$.
 
-- For low \(E\): Orbits can be highly elliptical or even spiral in.
-- For moderate \(E\): Stable orbits (elliptical) are possible.
-- For high \(E\): Orbits tend to be hyperbolic or parabolic.
+- For low $E$: Orbits can be highly elliptical or even spiral in.
+- For moderate $E$: Stable orbits (elliptical) are possible.
+- For high $E$: Orbits tend to be hyperbolic or parabolic.
 
 The specific details depend on the balance between the kinetic and potential energies. The effective potential has maxima and minima, which indicate different types of orbits:
 - Maxima: Unstable orbits (small perturbations lead to rapid divergence).
 - Minima: Stable orbits (perturbations lead to oscillatory motion around the equilibrium).
 
-The circular orbit exists at a specific radius where \(dV_{\text{eff}}/dr = 0\) and \(d^2 V_{\text{eff}}/dr^2 > 0\).
+The circular orbit exists at a specific radius where $dV_{\text{eff}}/dr = 0 $ and$d^2 V_{\text{eff}}/dr^2 > 0$.
 x??
 
 ---
@@ -30,13 +30,12 @@ x??
 #### Finding Maximum and Minimum of Effective Potential
 Background context explaining how to find the critical points of the effective potential.
 
-:p At what values of \(r'\) does the effective potential have a maximum and minimum?
+:p At what values of $r'$ does the effective potential have a maximum and minimum?
 ??x
-To find the maxima and minima, we take the first derivative of \(V_{\text{eff}}(r')\) with respect to \(r'\) and set it to zero:
+To find the maxima and minima, we take the first derivative of $V_{\text{eff}}(r')$ with respect to $r'$ and set it to zero:
+$$\frac{d V_{\text{eff}}}{d r'} = -\frac{G M}{r'^2} + \frac{\ell'^4}{r'^3} + 3 G M \ell'^2 / r'^4 = 0$$
 
-\[ \frac{d V_{\text{eff}}}{d r'} = -\frac{G M}{r'^2} + \frac{\ell'^4}{r'^3} + 3 G M \ell'^2 / r'^4 = 0 \]
-
-Solving this equation numerically for specific values of \(G\), \(M\), and \(\ell'\) gives the critical points.
+Solving this equation numerically for specific values of $G $,$ M $, and$\ell'$ gives the critical points.
 
 For example, using Python to solve it:
 
@@ -63,17 +62,15 @@ x??
 #### Circular Orbit Existence
 Background context explaining how to determine if a circular orbit exists and its stability.
 
-:p At what value of \(r'\) does a circular orbit exist?
+:p At what value of $r'$ does a circular orbit exist?
 ??x
 To find the radius for a circular orbit, we set the effective potential's first derivative to zero:
-
-\[ \frac{d V_{\text{eff}}}{d r'} = -\frac{G M}{r'^2} + \frac{\ell'^4}{r'^3} + 3 G M \ell'^2 / r'^4 = 0 \]
+$$\frac{d V_{\text{eff}}}{d r'} = -\frac{G M}{r'^2} + \frac{\ell'^4}{r'^3} + 3 G M \ell'^2 / r'^4 = 0$$
 
 And the second derivative should be positive to ensure stability:
+$$\frac{d^2 V_{\text{eff}}}{d r'^2} > 0$$
 
-\[ \frac{d^2 V_{\text{eff}}}{d r'^2} > 0 \]
-
-For \(\ell' = 4.3\), solving these equations numerically will give us the radius of a circular orbit.
+For $\ell' = 4.3$, solving these equations numerically will give us the radius of a circular orbit.
 
 ```python
 from scipy.optimize import fsolve
@@ -99,9 +96,8 @@ Background context explaining how to use energy conservation and the ODE derived
 
 :p Use your ODE solver to explore various orbits corresponding to different initial conditions and energies.
 ??x
-To explore orbits, we use the equation for angular momentum \(u' = M / r'\) and solve the second-order differential equation:
-
-\[ \frac{d^2 u'}{d \phi^2} = -u' + \frac{G M}{\ell'^2} (1 + 3 G M u') \]
+To explore orbits, we use the equation for angular momentum $u' = M / r'$ and solve the second-order differential equation:
+$$\frac{d^2 u'}{d \phi^2} = -u' + \frac{G M}{\ell'^2} (1 + 3 G M u')$$
 
 The initial conditions are derived from the energy integral. We use a numerical solver to plot orbits.
 
@@ -140,11 +136,10 @@ Background context explaining how to find orbits corresponding to the minimum of
 
 :p Choose an energy that corresponds to the minimum in the effective potential and plot nearby orbits. Examine the sensitivity of these orbits to the choice of initial conditions.
 ??x
-To find orbits near the minimum of the effective potential, we first identify the radius where \(V_{\text{eff}}\) has a minimum. This is typically done by solving:
+To find orbits near the minimum of the effective potential, we first identify the radius where $V_{\text{eff}}$ has a minimum. This is typically done by solving:
+$$\frac{d V_{\text{eff}}}{d r'} = 0$$
 
-\[ \frac{d V_{\text{eff}}}{d r'} = 0 \]
-
-For a specific \(\ell'\), this gives us a critical point. The minimum of the effective potential can be numerically found and used to determine stable orbits.
+For a specific $\ell'$, this gives us a critical point. The minimum of the effective potential can be numerically found and used to determine stable orbits.
 
 ```python
 def find_minimal_energy(G, M, l_prime):
@@ -184,14 +179,10 @@ x??
 
 Background context: The text provides a differential equation derived from the geodesic equation to describe the motion of particles in GR. This equation helps understand how orbits are affected by the curvature of spacetime.
 
-:p What is the final differential equation that relates distance \( r \) and angle \( \phi \) for a planetary orbit?
+:p What is the final differential equation that relates distance $r $ and angle$\phi$ for a planetary orbit?
 ??x
-The final differential equation relating distance \( r \) and angle \( \phi \) for a planetary orbit in GR is:
-\[
-\left( \frac{dr}{d\phi} \right)^2 = r^4 L^2 \left[ \left(1 - \frac{r_s}{R}\right)\left(1 + \frac{L^2}{R^2}\right) - \left(1 - \frac{r_s}{r}\right)\left(1 + \frac{L^2}{r^2}\right) \right]
-\]
-
----
+The final differential equation relating distance $r $ and angle$\phi$ for a planetary orbit in GR is:
+$$\left( \frac{dr}{d\phi} \right)^2 = r^4 L^2 \left[ \left(1 - \frac{r_s}{R}\right)\left(1 + \frac{L^2}{R^2}\right) - \left(1 - \frac{r_s}{r}\right)\left(1 + \frac{L^2}{r^2}\right) \right]$$---
 
 
 #### Precession of Mercury
@@ -209,18 +200,13 @@ The text mentions that the precession of Mercury's perihelion is 9.55 minutes of
 
 Background context: The text derives a differential equation to describe the motion in terms of distance and angle, starting from the geodesic equation.
 
-:p How does the text derive the differential equation for the rate of change of distance with respect to angle \( \phi \)?
+:p How does the text derive the differential equation for the rate of change of distance with respect to angle $\phi$?
 ??x
 The derivation starts with the time-like geodesic equation:
-\[
-\left( \frac{d\tau}{dt} \right)^2 = (1 - \frac{r_s}{r}) - \frac{\dot{r}^2}{1 - r_s/r} - r^2 \dot{\phi}^2
-\]
-Using the definitions for \( d\tau/dt \) and \( d\phi/dt \), the equation is transformed into a differential equation relating distance \( r \) and angle \( \phi \):
-\[
-\left( \frac{dr}{d\phi} \right)^2 = r^4 L^2 \left[ \left(1 - \frac{r_s}{R}\right)\left(1 + \frac{L^2}{R^2}\right) - \left(1 - \frac{r_s}{r}\right)\left(1 + \frac{L^2}{r^2}\right) \right]
-\]
+$$\left( \frac{d\tau}{dt} \right)^2 = (1 - \frac{r_s}{r}) - \frac{\dot{r}^2}{1 - r_s/r} - r^2 \dot{\phi}^2$$
 
----
+Using the definitions for $d\tau/dt $ and$d\phi/dt $, the equation is transformed into a differential equation relating distance$ r $and angle$\phi$:
+$$\left( \frac{dr}{d\phi} \right)^2 = r^4 L^2 \left[ \left(1 - \frac{r_s}{R}\right)\left(1 + \frac{L^2}{R^2}\right) - \left(1 - \frac{r_s}{r}\right)\left(1 + \frac{L^2}{r^2}\right) \right]$$---
 
 ---
 
@@ -231,28 +217,22 @@ Background context: The problem involves solving for the perihelion precession u
 
 Relevant formulas:
 
-1. \((\frac{du}{d\phi})^2 = \frac{r_s}{R} (u-1)(u-u_+)(u-u_-)\)
-2. \( u_{\pm} = -\frac{b \pm \sqrt{b^2-4ac}}{2a}, a=\frac{r_s}{R}, b=a-1, c=b+\frac{r_s L^2}{R}\)
+1.$(\frac{du}{d\phi})^2 = \frac{r_s}{R} (u-1)(u-u_+)(u-u_-)$2.$ u_{\pm} = -\frac{b \pm \sqrt{b^2-4ac}}{2a}, a=\frac{r_s}{R}, b=a-1, c=b+\frac{r_s L^2}{R}$ Where:
+- $u$ is the inverse distance
+- $r_s $ and$R$ are constants related to gravitational parameters
 
-Where:
-- \(u\) is the inverse distance
-- \(r_s\) and \(R\) are constants related to gravitational parameters
-
-The perihelion precession angle \(\Delta\phi\) can be written as:
-
-\[ \Delta\phi = 2\pi - 2\int_{1}^{u^-} \frac{du}{\sqrt{(u-u_+)(u-u_-)(u-1)}} \]
-
-:p How is the perihelion precession angle expressed in terms of the integral?
+The perihelion precession angle $\Delta\phi$ can be written as:
+$$\Delta\phi = 2\pi - 2\int_{1}^{u^-} \frac{du}{\sqrt{(u-u_+)(u-u_-)(u-1)}}$$:p How is the perihelion precession angle expressed in terms of the integral?
 ??x
-The expression for the perihelion precession angle \(\Delta\phi\) uses an integral form to account for the gravitational effects described by general relativity. The integral is over the range from 1 (the starting point, often related to a specific coordinate system origin) to \(u^-\), which represents one of the roots in the transformed equation.
+The expression for the perihelion precession angle $\Delta\phi $ uses an integral form to account for the gravitational effects described by general relativity. The integral is over the range from 1 (the starting point, often related to a specific coordinate system origin) to$u^-$, which represents one of the roots in the transformed equation.
 
 The integral itself:
 
-\[ \Delta\phi = 2\pi - 2\int_{1}^{u^-} \frac{du}{\sqrt{(u-u_+)(u-u_-)(u-1)}} \]
+$$\Delta\phi = 2\pi - 2\int_{1}^{u^-} \frac{du}{\sqrt{(u-u_+)(u-u_-)(u-1)}}$$
 
 This form arises because the integrand involves the square root of a product that encapsulates the relativistic effects on the trajectory, leading to a precession in the perihelion.
 
-The factor \(2\pi\) is subtracted because it represents the full circle without considering the relativistic correction. The integral captures the deviation from this full circle due to gravitational influences.
+The factor $2\pi$ is subtracted because it represents the full circle without considering the relativistic correction. The integral captures the deviation from this full circle due to gravitational influences.
 x??
 
 ---
@@ -260,29 +240,24 @@ x??
 
 #### Perihelion Precession Calculation - Numerical Value
 
-Background context: Given specific numerical values for the perihelion parameters, we need to calculate \(\Delta\phi\) and compare it with a reference value provided by Landau and Lifshitz.
+Background context: Given specific numerical values for the perihelion parameters, we need to calculate $\Delta\phi$ and compare it with a reference value provided by Landau and Lifshitz.
 
 Relevant data:
-- \(r_s = 2950m\)
-- \(r_a = 69.82 \times 10^9 m\) (apoapsis radius)
-- \(r_p = 46.00 \times 10^9 m\) (perihelion radius)
+- $r_s = 2950m $-$ r_a = 69.82 \times 10^9 m$(apoapsis radius)
+- $r_p = 46.00 \times 10^9 m$(perihelion radius)
 
-:p How can we compute the perihelion precession angle \(\Delta\phi\) using given parameters?
+:p How can we compute the perihelion precession angle $\Delta\phi$ using given parameters?
 ??x
-Using the provided parameters, we need to calculate the perihelion precession angle \(\Delta\phi\) by solving the integral:
-
-\[ \Delta\phi = 2\pi - 2\int_{1}^{u^-} \frac{du}{\sqrt{(u-u_+)(u-u_-)(u-1)}} \]
+Using the provided parameters, we need to calculate the perihelion precession angle $\Delta\phi$ by solving the integral:
+$$\Delta\phi = 2\pi - 2\int_{1}^{u^-} \frac{du}{\sqrt{(u-u_+)(u-u_-)(u-1)}}$$
 
 Where:
-- \( u^-, u_+, u_- \) are roots of the quadratic equation derived from the transformed general relativity equation.
-- These roots can be found using the quadratic formula: 
-\[ u_{\pm} = -\frac{b \pm \sqrt{b^2-4ac}}{2a}, a=\frac{r_s}{R}, b=a-1, c=b+\frac{r_s L^2}{R} \]
+- $u^-, u_+, u_-$ are roots of the quadratic equation derived from the transformed general relativity equation.
+- These roots can be found using the quadratic formula:
+$$u_{\pm} = -\frac{b \pm \sqrt{b^2-4ac}}{2a}, a=\frac{r_s}{R}, b=a-1, c=b+\frac{r_s L^2}{R}$$
 
 Given:
-- \( r_s = 2950m \)
-- \( R = \text{(a reference value related to the problem context)} \)
-
-To compute this numerically, we would use a numerical integration method (such as Simpson's rule or trapezoidal rule) on the interval from 1 to \( u^- \). The result should be compared with Landau and Lifshitz's value of \(5.02 \times 10^{-7}\).
+- $r_s = 2950m $-$ R = \text{(a reference value related to the problem context)}$To compute this numerically, we would use a numerical integration method (such as Simpson's rule or trapezoidal rule) on the interval from 1 to $ u^-$. The result should be compared with Landau and Lifshitz's value of $5.02 \times 10^{-7}$.
 
 Example Python code snippet for numerical integration could look like this:
 
@@ -298,10 +273,10 @@ phi_precession = 2 * np.pi - 2 * result
 
 In this code:
 - `integrand` is the function to integrate.
-- `quad` performs the numerical integration from 1 to \(u^-\).
-- The final precession angle \(\Delta\phi\) is computed by subtracting twice the integral value from \(2\pi\).
+- `quad` performs the numerical integration from 1 to $u^-$.
+- The final precession angle $\Delta\phi $ is computed by subtracting twice the integral value from$2\pi$.
 
-Note: Ensure that the values for \(u_plus, u_minus\) are correctly calculated based on the quadratic roots.
+Note: Ensure that the values for $u_plus, u_minus$ are correctly calculated based on the quadratic roots.
 x??
 
 ---

@@ -18,11 +18,11 @@ x??
 
 
 #### Successive Over-Relaxation (SOR)
-Background context: The SOR technique is an improvement over the basic iterative methods, aiming to accelerate convergence by adjusting the update step size using a relaxation parameter \(\omega\).
+Background context: The SOR technique is an improvement over the basic iterative methods, aiming to accelerate convergence by adjusting the update step size using a relaxation parameter $\omega$.
 
 :p What does the SOR technique adjust in the basic iterative methods?
 ??x
-The SOR technique introduces a relaxation parameter \(\omega\) that modifies the correction term added to the potential values. This can lead to faster convergence if chosen appropriately.
+The SOR technique introduces a relaxation parameter $\omega$ that modifies the correction term added to the potential values. This can lead to faster convergence if chosen appropriately.
 x??
 
 ---
@@ -33,29 +33,29 @@ Background context: The problem involves solving Laplace's equation for a capaci
 
 :p How would you set up the boundary conditions for this problem?
 ??x
-The boundary conditions are \(U = 100\) on the top plate and \(U = -100\) on the bottom plate. The rest of the boundary (the grounded box) should have \(U = 0\).
+The boundary conditions are $U = 100 $ on the top plate and$U = -100 $ on the bottom plate. The rest of the boundary (the grounded box) should have$U = 0$.
 x??
 
 ---
 
 
 #### Capacitor Problem - Finite Dielectric Material Plates
-Background context: This version includes dielectric materials with uniform charge densities \(\rho\) on the top and \(-\rho\) on the bottom, requiring Poisson's equation to be solved in the region between plates.
+Background context: This version includes dielectric materials with uniform charge densities $\rho $ on the top and$-\rho$ on the bottom, requiring Poisson's equation to be solved in the region between plates.
 
 :p How would you set up the equations for this problem?
 ??x
-You need to solve Poisson's equation (\(\nabla^2 U = -\frac{\rho}{\epsilon_0}\)) in the region including the plates and Laplace's equation elsewhere. The goal is to find a value of \(\rho\) that gives potential similar to fixed voltage plates.
+You need to solve Poisson's equation ($\nabla^2 U = -\frac{\rho}{\epsilon_0}$) in the region including the plates and Laplace's equation elsewhere. The goal is to find a value of $\rho$ that gives potential similar to fixed voltage plates.
 x??
 
 ---
 
 
 #### Capacitor Problem - Finite Thickness Conducting Plates
-Background context: This final version involves finite thickness conducting plates, requiring solving Laplace’s equation for \(U(x,y)\) and then Poisson's equation to determine the charge density.
+Background context: This final version involves finite thickness conducting plates, requiring solving Laplace’s equation for $U(x,y)$ and then Poisson's equation to determine the charge density.
 
 :p How would you solve this problem?
 ??x
-First, solve Laplace’s equation (\(\nabla^2 U = 0\)) with the appropriate boundary conditions. Then substitute \(U(x,y)\) into Poisson’s equation (\(\nabla^2 U = \frac{\rho}{\epsilon_0}\)) to find charge density distribution.
+First, solve Laplace’s equation ($\nabla^2 U = 0 $) with the appropriate boundary conditions. Then substitute $ U(x,y)$ into Poisson’s equation ($\nabla^2 U = \frac{\rho}{\epsilon_0}$) to find charge density distribution.
 x??
 
 ---
@@ -151,7 +151,7 @@ x??
 
 #### Parabolic Heat Equation
 
-Background context: The parabolic heat equation describes how temperature evolves over time in a material. It is given by \(\frac{\partial T(x,t)}{\partial t} = K \frac{C}{\rho} \frac{\partial^2 T(x,t)}{\partial x^2}\), where \(K\) is the thermal conductivity, \(C/\rho\) is the heat capacity per unit volume, and \(\frac{\partial^2 T(x,t)}{\partial x^2}\) represents the second spatial derivative of temperature. This equation models how heat diffuses through a one-dimensional bar.
+Background context: The parabolic heat equation describes how temperature evolves over time in a material. It is given by $\frac{\partial T(x,t)}{\partial t} = K \frac{C}{\rho} \frac{\partial^2 T(x,t)}{\partial x^2}$, where $ K$is the thermal conductivity,$ C/\rho $is the heat capacity per unit volume, and$\frac{\partial^2 T(x,t)}{\partial x^2}$ represents the second spatial derivative of temperature. This equation models how heat diffuses through a one-dimensional bar.
 
 :p What does the parabolic heat equation describe?
 ??x
@@ -163,11 +163,11 @@ x??
 
 #### Analytic Solution via Separation of Variables
 
-Background context: The analytic solution for the one-dimensional heat equation uses separation of variables. Assuming \(T(x,t) = X(x)\Phi(t)\), substituting into the PDE leads to two ordinary differential equations (ODEs).
+Background context: The analytic solution for the one-dimensional heat equation uses separation of variables. Assuming $T(x,t) = X(x)\Phi(t)$, substituting into the PDE leads to two ordinary differential equations (ODEs).
 
 :p What is the form assumed for the solution in the analytic method?
 ??x
-The form assumed for the solution is a product of functions depending only on space and time, i.e., \(T(x,t) = X(x)\Phi(t)\).
+The form assumed for the solution is a product of functions depending only on space and time, i.e., $T(x,t) = X(x)\Phi(t)$.
 x??
 
 ---
@@ -179,7 +179,7 @@ Background context: The boundary conditions are crucial. For this problem, the e
 
 :p What are the given boundary conditions for the aluminum bar?
 ??x
-The boundary conditions are \(T(x=0,t) = T(x=L,t) = 0^\circ C\), and the initial condition is \(T(x,t=0) = 100^\circ C\).
+The boundary conditions are $T(x=0,t) = T(x=L,t) = 0^\circ C $, and the initial condition is $ T(x,t=0) = 100^\circ C$.
 x??
 
 ---
@@ -199,11 +199,11 @@ x??
 
 #### Discretization of Heat Equation
 
-Background context: The differential equation \(\frac{\partial T(x,t)}{\partial t} = K \frac{C}{\rho} \frac{\partial^2 T(x,t)}{\partial x^2}\) is discretized into a difference equation. This involves approximating the time and space derivatives using finite differences.
+Background context: The differential equation $\frac{\partial T(x,t)}{\partial t} = K \frac{C}{\rho} \frac{\partial^2 T(x,t)}{\partial x^2}$ is discretized into a difference equation. This involves approximating the time and space derivatives using finite differences.
 
 :p How are the time and spatial derivatives approximated in the leapfrog algorithm?
 ??x
-The time derivative is approximated as \(\frac{T(x,t+\Delta t) - T(x,t)}{\Delta t}\), while the second spatial derivative is approximated as \(\frac{T(x+\Delta x, t) + T(x-\Delta x, t) - 2T(x, t)}{(\Delta x)^2}\).
+The time derivative is approximated as $\frac{T(x,t+\Delta t) - T(x,t)}{\Delta t}$, while the second spatial derivative is approximated as $\frac{T(x+\Delta x, t) + T(x-\Delta x, t) - 2T(x, t)}{(\Delta x)^2}$.
 x??
 
 ---
@@ -215,7 +215,7 @@ Background context: The stability of numerical solutions to partial differential
 
 :p What is the von Neumann stability condition for the heat equation using the leapfrog algorithm?
 ??x
-The von Neumann stability condition requires \(|\xi(k)| < 1\), where \(\xi(k)\) represents the amplification factor of the numerical solution in each time step. This ensures that the solution does not grow unboundedly with time.
+The von Neumann stability condition requires $|\xi(k)| < 1 $, where $\xi(k)$ represents the amplification factor of the numerical solution in each time step. This ensures that the solution does not grow unboundedly with time.
 x??
 
 ---
@@ -227,9 +227,8 @@ Background context: The leapfrog algorithm updates temperatures based on known v
 
 :p How is the temperature updated using the leapfrog method?
 ??x
-The temperature \(T(x,t+\Delta t)\) is computed as:
-\[ T_{i,j+1} = T_{i,j} + \eta [T_{i+1,j} + T_{i-1,j} - 2T_{i,j}] \]
-where \(\eta = K\frac{\Delta t}{C\rho (\Delta x)^2}\).
+The temperature $T(x,t+\Delta t)$ is computed as:
+$$T_{i,j+1} = T_{i,j} + \eta [T_{i+1,j} + T_{i-1,j} - 2T_{i,j}]$$where $\eta = K\frac{\Delta t}{C\rho (\Delta x)^2}$.
 x??
 
 ---

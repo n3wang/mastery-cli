@@ -10,9 +10,9 @@
 
 Background context: The text discusses whether using a discounted setting for problems with function approximation is appropriate. In tabular cases, where states can be clearly identified and averaged separately, discounting has been useful. However, when using approximate methods (like feature vectors), this approach might not make sense due to lack of clear state differentiation.
 
-:p What would the sequence of \(R_{t+1}^{\bar{R}}\) errors and \(\Delta_t\) be in a discounted setting?
+:p What would the sequence of $R_{t+1}^{\bar{R}}$ errors and $\Delta_t$ be in a discounted setting?
 ??x
-The sequence of \(R_{t+1}^{\bar{R}}\) errors and \(\Delta_t\) (using equation 10.10) would reflect the difference between the actual returns and their estimated values at each time step, considering the discount factor \(\gamma\). The average reward (\(r(\pi)\)) is more stable because it smooths out short-term fluctuations in rewards over a long period.
+The sequence of $R_{t+1}^{\bar{R}}$ errors and $\Delta_t$(using equation 10.10) would reflect the difference between the actual returns and their estimated values at each time step, considering the discount factor $\gamma $. The average reward ($ r(\pi)$) is more stable because it smooths out short-term fluctuations in rewards over a long period.
 
 ??x
 ```java
@@ -32,11 +32,11 @@ x??
 
 #### The Proportionality of Average Discounted Return to Average Reward
 
-Background context: In a continuing setting with function approximation, discounting does not add significant value. The average of the discounted returns is proportional to the average reward for any policy \(\pi\), specifically \(r(\pi)/(1 - \gamma)\).
+Background context: In a continuing setting with function approximation, discounting does not add significant value. The average of the discounted returns is proportional to the average reward for any policy $\pi $, specifically $ r(\pi)/(1 - \gamma)$.
 
 :p How does the discounted return relate to the average reward in a continuing problem?
 ??x
-The discounted return in a continuing problem relates to the average reward through the discount factor \(\gamma\). For policy \(\pi\), the average of the discounted returns is always \(r(\pi)/(1 - \gamma)\), making it essentially the average reward. This relationship holds because each time step is identical, and the weight on each reward is determined by the discount factor.
+The discounted return in a continuing problem relates to the average reward through the discount factor $\gamma $. For policy $\pi $, the average of the discounted returns is always $ r(\pi)/(1 - \gamma)$, making it essentially the average reward. This relationship holds because each time step is identical, and the weight on each reward is determined by the discount factor.
 
 ??x
 ```java
@@ -117,7 +117,7 @@ This section introduces a variant of semi-gradient Sarsa that supports n-step bo
 
 :p What is the key idea behind differential semi-gradient n-step Sarsa?
 ??x
-The key idea in differential semi-gradient n-step Sarsa is to generalize the traditional one-step updates to multi-step updates (n steps). This involves defining an n-step return \( G_{t:t+n} \) which combines future rewards and bootstraps with function approximation. The algorithm then uses this n-step return to update the value function using a semi-gradient method.
+The key idea in differential semi-gradient n-step Sarsa is to generalize the traditional one-step updates to multi-step updates (n steps). This involves defining an n-step return $G_{t:t+n}$ which combines future rewards and bootstraps with function approximation. The algorithm then uses this n-step return to update the value function using a semi-gradient method.
 
 Code Example:
 ```python
@@ -134,17 +134,16 @@ x??
 
 
 #### n-Step Return Definition
-The definition of \( G_{t:t+n} \) is given by combining future rewards with function approximation. This involves estimating the sum of future rewards up to step \( t+n \).
+The definition of $G_{t:t+n}$ is given by combining future rewards with function approximation. This involves estimating the sum of future rewards up to step $t+n$.
 
-:p How is the n-step return \( G_{t:t+n} \) defined in differential semi-gradient n-step Sarsa?
+:p How is the n-step return $G_{t:t+n}$ defined in differential semi-gradient n-step Sarsa?
 ??x
-The n-step return \( G_{t:t+n} \) is defined as:
-\[ G_{t:t+n}=R_{t+1}-\bar{R}_{t+n-1} + \cdots + R_{t+n}-\bar{R}_{t+n-1}+\hat{q}(S_{t+n}, A_{t+n}, w_{t+n-1}) \]
-where \( \bar{R} \) is an estimate of the average reward \( r(\pi) \).
+The n-step return $G_{t:t+n}$ is defined as:
+$$G_{t:t+n}=R_{t+1}-\bar{R}_{t+n-1} + \cdots + R_{t+n}-\bar{R}_{t+n-1}+\hat{q}(S_{t+n}, A_{t+n}, w_{t+n-1})$$where $\bar{R}$ is an estimate of the average reward $r(\pi)$.
 
-If \( t+n < T \), the n-step return continues as usual. Otherwise, it is defined similarly to traditional returns.
+If $t+n < T$, the n-step return continues as usual. Otherwise, it is defined similarly to traditional returns.
 
-This definition allows for better handling of delayed rewards by considering a sequence of future rewards up to step \( t+n \).
+This definition allows for better handling of delayed rewards by considering a sequence of future rewards up to step $t+n$.
 x??
 
 ---
@@ -155,10 +154,10 @@ The TD error in differential semi-gradient n-step Sarsa is calculated using the 
 
 :p How is the TD error computed in differential semi-gradient n-step Sarsa?
 ??x
-In differential semi-gradient n-step Sarsa, the TD error \( \delta_t \) is defined as:
-\[ \delta_t = G_{t:t+n} - \hat{q}(S_t, A_t, w) \]
+In differential semi-gradient n-step Sarsa, the TD error $\delta_t$ is defined as:
+$$\delta_t = G_{t:t+n} - \hat{q}(S_t, A_t, w)$$
 
-This error is then used to update the weights \( w \) of the value function using a semi-gradient method.
+This error is then used to update the weights $w$ of the value function using a semi-gradient method.
 
 Code Example:
 ```python
@@ -213,15 +212,14 @@ x??
 
 
 #### Using Unbiased Constant-Step-Size Trick
-The step-size parameter on the average reward \( \bar{R} \) needs to be small so that it becomes a good long-term estimate. However, this can introduce bias due to its initial value.
+The step-size parameter on the average reward $\bar{R}$ needs to be small so that it becomes a good long-term estimate. However, this can introduce bias due to its initial value.
 
 :p How can the unbiased constant-step-size trick be applied in differential semi-gradient n-step Sarsa?
 ??x
-To address the issue of the step-size parameter \(  \) being small and potentially biased by its initial value, one can use the unbiased constant-step-size trick from Exercise 2.7. This involves adapting the average reward estimate \( \bar{R} \) using a small but non-zero step size.
+To address the issue of the step-size parameter $  $ being small and potentially biased by its initial value, one can use the unbiased constant-step-size trick from Exercise 2.7. This involves adapting the average reward estimate $ \bar{R} $ using a small but non-zero step size.
 
-Specifically, instead of directly updating \( \bar{R} \), you can update it as:
-\[ \bar{R} = (1 - \gamma) \bar{R}_{old} + \gamma \frac{\sum_{i=0}^{n-1} R_{t+i+1}}{n} \]
-where \( \gamma \) is a small step size.
+Specifically, instead of directly updating $\bar{R}$, you can update it as:
+$$\bar{R} = (1 - \gamma) \bar{R}_{old} + \gamma \frac{\sum_{i=0}^{n-1} R_{t+i+1}}{n}$$where $\gamma$ is a small step size.
 
 This ensures that the average reward estimate adapts quickly in the short term and slowly over time, reducing bias.
 x??
@@ -234,23 +232,15 @@ x??
 #### Semi-gradient Sarsa with Function Approximation
 Background context: Rummery and Niranjan (1994) first explored semi-gradient Sarsa with function approximation. Linear semi-gradient Sarsa with ε-greedy action selection does not converge in the usual sense, but it can enter a bounded region near the best solution (Gordon, 1996a, 2001). Precup and Perkins (2003) showed convergence under a differentiable action selection setting.
 
-The algorithm for semi-gradient Sarsa with function approximation is an extension of the tabular case but with function approximation. The update rule for state-action values \( \hat{q} \) in this context is given by:
-
-\[
-\hat{q}(s_t, a_t) \leftarrow \hat{q}(s_t, a_t) + \alpha [r_{t+1} + \gamma \hat{q}(s_{t+1}, a_{t+1}) - \hat{q}(s_t, a_t)]
-\]
-
-where \( \alpha \) is the learning rate and \( \gamma \) is the discount factor.
+The algorithm for semi-gradient Sarsa with function approximation is an extension of the tabular case but with function approximation. The update rule for state-action values $\hat{q}$ in this context is given by:
+$$\hat{q}(s_t, a_t) \leftarrow \hat{q}(s_t, a_t) + \alpha [r_{t+1} + \gamma \hat{q}(s_{t+1}, a_{t+1}) - \hat{q}(s_t, a_t)]$$where $\alpha $ is the learning rate and$\gamma$ is the discount factor.
 
 :p What does the update rule for semi-gradient Sarsa with function approximation look like?
 ??x
-The update rule for semi-gradient Sarsa with function approximation involves adjusting the state-action value function \( \hat{q}(s_t, a_t) \) based on the difference between the actual reward and the predicted future reward. The new estimate of the action value is:
+The update rule for semi-gradient Sarsa with function approximation involves adjusting the state-action value function $\hat{q}(s_t, a_t)$ based on the difference between the actual reward and the predicted future reward. The new estimate of the action value is:
+$$\hat{q}(s_t, a_t) = \hat{q}(s_t, a_t) + \alpha [r_{t+1} + \gamma \hat{q}(s_{t+1}, a_{t+1}) - \hat{q}(s_t, a_t)]$$
 
-\[
-\hat{q}(s_t, a_t) = \hat{q}(s_t, a_t) + \alpha [r_{t+1} + \gamma \hat{q}(s_{t+1}, a_{t+1}) - \hat{q}(s_t, a_t)]
-\]
-
-Here, \( r_{t+1} \) is the immediate reward received after taking action \( a_t \), and \( \hat{q}(s_{t+1}, a_{t+1}) \) is the predicted future action value based on the next state-action pair.
+Here,$r_{t+1}$ is the immediate reward received after taking action $ a_t $, and $\hat{q}(s_{t+1}, a_{t+1})$ is the predicted future action value based on the next state-action pair.
 x??
 
 ---
@@ -265,16 +255,12 @@ In the case of linear function approximation for off-policy learning, convergenc
 ??x
 The main challenges with oﬀ-policy methods using function approximation include:
 
-1. **Target of Update**: The target of the update needs to be carefully managed, as it is not straightforward how to use data from a behavior policy \( \beta \) to estimate values for a target policy \( \pi \).
+1. **Target of Update**: The target of the update needs to be carefully managed, as it is not straightforward how to use data from a behavior policy $\beta $ to estimate values for a target policy$\pi$.
 2. **Distribution of Updates**: The distribution of updates can lead to instability or non-convergence due to the mismatch between the behavior and target policies.
 
 For example, in linear function approximation with off-policy methods like Q-learning:
 
-\[
-Q(s_t, a_t) = Q(s_t, a_t) + \alpha [r_{t+1} - Q(s_t, a_t)] \delta_t
-\]
-
-where \( \delta_t \) is the temporal difference error and can lead to oscillatory behavior if not handled correctly.
+$$Q(s_t, a_t) = Q(s_t, a_t) + \alpha [r_{t+1} - Q(s_t, a_t)] \delta_t$$where $\delta_t$ is the temporal difference error and can lead to oscillatory behavior if not handled correctly.
 
 x??
 
@@ -374,13 +360,10 @@ Background context: To extend off-policy learning algorithms like TD(0) to funct
 
 :p How does the one-step, state-value semi-gradient off-policy TD(0) update rule differ from its on-policy counterpart?
 ??x
-The key difference lies in incorporating the importance sampling ratio. The update for \( w \) (the weight vector) is given by:
-
-\[ w_{t+1} = w_t + \alpha \cdot \rho_t \cdot \Delta V(\mathbf{s}_t, w_t), \]
-
-where:
-- \( \rho_t = \frac{\pi(A_t | S_t)}{b(A_t | S_t)} \) is the importance sampling ratio.
-- \( \Delta V(S_t, w_t) \) represents the change in value function with respect to \( w_t \).
+The key difference lies in incorporating the importance sampling ratio. The update for $w$(the weight vector) is given by:
+$$w_{t+1} = w_t + \alpha \cdot \rho_t \cdot \Delta V(\mathbf{s}_t, w_t),$$where:
+- $\rho_t = \frac{\pi(A_t | S_t)}{b(A_t | S_t)}$ is the importance sampling ratio.
+- $\Delta V(S_t, w_t)$ represents the change in value function with respect to $w_t$.
 
 The update rule incorporates this ratio to adjust the updates so that they are consistent with the on-policy distribution.
 
@@ -402,11 +385,9 @@ Background context: Extending the concept to action values involves updating the
 ??x
 The update rule for the one-step, state-action value semi-gradient off-policy Expected Sarsa is:
 
-\[ w_{t+1} = w_t + \alpha \cdot \rho_t \cdot \Delta Q(\mathbf{s}_t, a_t, w_t), \]
-
-where:
-- \( \rho_t = \frac{\pi(A_t | S_t)}{b(A_t | S_t)} \) is the importance sampling ratio.
-- \( \Delta Q(S_t, A_t, w_t) \) represents the change in action value with respect to \( w_t \).
+$$w_{t+1} = w_t + \alpha \cdot \rho_t \cdot \Delta Q(\mathbf{s}_t, a_t, w_t),$$where:
+- $\rho_t = \frac{\pi(A_t | S_t)}{b(A_t | S_t)}$ is the importance sampling ratio.
+- $\Delta Q(S_t, A_t, w_t)$ represents the change in action value with respect to $w_t$.
 
 The importance sampling ratio ensures that the updates are aligned with the on-policy distribution.
 
@@ -442,7 +423,7 @@ Background context: This concept discusses the importance of using or avoiding i
 
 :p What are the key differences between tabular and function approximation methods regarding importance sampling?
 ??x
-In tabular methods, actions are sampled directly from the policy being used to update values, so there is no need for importance sampling because only one action \( A_t \) is considered. However, in function approximation, different state-action pairs contribute to the overall approximation, making it less clear how to weight them appropriately without using importance sampling. This issue is particularly relevant in multi-step algorithms.
+In tabular methods, actions are sampled directly from the policy being used to update values, so there is no need for importance sampling because only one action $A_t$ is considered. However, in function approximation, different state-action pairs contribute to the overall approximation, making it less clear how to weight them appropriately without using importance sampling. This issue is particularly relevant in multi-step algorithms.
 x??
 
 ---
@@ -454,12 +435,10 @@ Background context: The text introduces the n-step version of semi-gradient expe
 :p What formula describes the update rule for the n-step semi-gradient expected SARSA?
 ??x
 The update rule for the n-step semi-gradient expected SARSA is given by:
-\[ w_{t+n} = w_{t+n-1} + \alpha \cdot \rho_t^{n-t+1} \left[ G_{t:t+n} - \hat{q}(S_t, A_t, w_{t+n-1}) \right] \]
-where \( \rho_t^{n-t+1} = \prod_{k=t+1}^{t+n-1} \frac{\pi(A_k|S_k)}{\mu(A_k|S_k)} \) is the importance sampling ratio, and:
-\[ G_{t:t+n} = R_{t+1} + \gamma R_{t+2} + \cdots + \gamma^{n-t-1} R_{t+n} + \gamma^n \hat{q}(S_{t+n}, A_{t+n}, w_{t+n-1}) \]
-for the continuing case, and
-\[ G_{t:t+n} = R_{t+1} - \bar{R}_{t+1} + \cdots + R_{t+n} - \bar{R}_{t+n-1} + \gamma^n \hat{q}(S_{t+n}, A_{t+n}, w_{t+n-1}) \]
-for the episodic case.
+$$w_{t+n} = w_{t+n-1} + \alpha \cdot \rho_t^{n-t+1} \left[ G_{t:t+n} - \hat{q}(S_t, A_t, w_{t+n-1}) \right]$$where $\rho_t^{n-t+1} = \prod_{k=t+1}^{t+n-1} \frac{\pi(A_k|S_k)}{\mu(A_k|S_k)}$ is the importance sampling ratio, and:
+$$G_{t:t+n} = R_{t+1} + \gamma R_{t+2} + \cdots + \gamma^{n-t-1} R_{t+n} + \gamma^n \hat{q}(S_{t+n}, A_{t+n}, w_{t+n-1})$$for the continuing case, and$$
+
+G_{t:t+n} = R_{t+1} - \bar{R}_{t+1} + \cdots + R_{t+n} - \bar{R}_{t+n-1} + \gamma^n \hat{q}(S_{t+n}, A_{t+n}, w_{t+n-1})$$for the episodic case.
 x??
 
 ---
@@ -471,12 +450,12 @@ Background context: The text introduces the n-step tree backup algorithm, which 
 :p What is the update rule for the n-step tree backup algorithm?
 ??x
 The update rule for the n-step tree backup algorithm is given by:
-\[ w_{t+n} = w_{t+n-1} + \alpha \left[ G_{t:t+n} - \hat{q}(S_t, A_t, w_{t+n-1}) \right] \]
-where
-\[ G_{t:t+n} = \hat{q}(S_t, A_t, w_{t-1}) + \prod_{k=t+1}^{t+n-1} \pi(A_k | S_k) \]
-for the continuing case, and for the episodic case:
-\[ G_{t:t+n} = \hat{q}(S_t, A_t, w_{t-1}) + \sum_{k=t+1}^{t+n-1} (\gamma^{k-t-1} - \bar{\gamma}^{k-t-1}) \pi(A_k | S_k) + (R_{t+1} - \bar{R}_{t+1}) \]
-x??
+$$w_{t+n} = w_{t+n-1} + \alpha \left[ G_{t:t+n} - \hat{q}(S_t, A_t, w_{t+n-1}) \right]$$where$$
+
+G_{t:t+n} = \hat{q}(S_t, A_t, w_{t-1}) + \prod_{k=t+1}^{t+n-1} \pi(A_k | S_k)$$for the continuing case, and for the episodic case:
+$$
+
+G_{t:t+n} = \hat{q}(S_t, A_t, w_{t-1}) + \sum_{k=t+1}^{t+n-1} (\gamma^{k-t-1} - \bar{\gamma}^{k-t-1}) \pi(A_k | S_k) + (R_{t+1} - \bar{R}_{t+1})$$x??
 
 ---
 
@@ -498,12 +477,11 @@ Background context: This exercise asks you to convert the equation of n-step off
 :p How would you write the semi-gradient version of the n-step off-policy TD update rule?
 ??x
 The semi-gradient version of the n-step off-policy TD update rule is:
-\[ w_{t+n} = w_{t+n-1} + \alpha \left[ G_{t:t+n} - \hat{q}(S_t, A_t, w_{t+n-1}) \right] \]
-where
-\[ G_{t:t+n} = R_{t+1} + \gamma R_{t+2} + \cdots + \gamma^{n-t-1} R_{t+n} + \gamma^n \hat{q}(S_{t+n}, A_{t+n}, w_{t+n-1}) \]
-for the continuing case, and
-\[ G_{t:t+n} = R_{t+1} - \bar{R}_{t+1} + \cdots + R_{t+n} - \bar{R}_{t+n-1} + \gamma^n \hat{q}(S_{t+n}, A_{t+n}, w_{t+n-1}) \]
-for the episodic case.
+$$w_{t+n} = w_{t+n-1} + \alpha \left[ G_{t:t+n} - \hat{q}(S_t, A_t, w_{t+n-1}) \right]$$where$$
+
+G_{t:t+n} = R_{t+1} + \gamma R_{t+2} + \cdots + \gamma^{n-t-1} R_{t+n} + \gamma^n \hat{q}(S_{t+n}, A_{t+n}, w_{t+n-1})$$for the continuing case, and$$
+
+G_{t:t+n} = R_{t+1} - \bar{R}_{t+1} + \cdots + R_{t+n} - \bar{R}_{t+n-1} + \gamma^n \hat{q}(S_{t+n}, A_{t+n}, w_{t+n-1})$$for the episodic case.
 x??
 
 ---
@@ -515,12 +493,11 @@ Background context: This exercise asks you to convert the equations of n-step Q(
 :p What are the semi-gradient versions of the n-step Q(α) algorithms?
 ??x
 The semi-gradient version of the n-step Q(α) algorithm is:
-\[ w_{t+n} = w_{t+n-1} + \alpha \left[ G_{t:t+n} - \hat{q}(S_t, A_t, w_{t+n-1}) \right] \]
-where
-\[ G_{t:t+n} = Q(S_t, A_t, w_{t-1}) + \sum_{k=t+1}^{t+n-1} (\gamma^{k-t-1} - \bar{\gamma}^{k-t-1}) \pi(A_k | S_k) + (R_{t+1} - \bar{R}_{t+1}) \]
-for the episodic case, and
-\[ G_{t:t+n} = Q(S_t, A_t, w_{t-1}) + \prod_{k=t+1}^{t+n-1} \pi(A_k | S_k) + (R_{t+1} - \bar{R}_{t+1}) \]
-for the continuing case.
+$$w_{t+n} = w_{t+n-1} + \alpha \left[ G_{t:t+n} - \hat{q}(S_t, A_t, w_{t+n-1}) \right]$$where$$
+
+G_{t:t+n} = Q(S_t, A_t, w_{t-1}) + \sum_{k=t+1}^{t+n-1} (\gamma^{k-t-1} - \bar{\gamma}^{k-t-1}) \pi(A_k | S_k) + (R_{t+1} - \bar{R}_{t+1})$$for the episodic case, and$$
+
+G_{t:t+n} = Q(S_t, A_t, w_{t-1}) + \prod_{k=t+1}^{t+n-1} \pi(A_k | S_k) + (R_{t+1} - \bar{R}_{t+1})$$for the continuing case.
 x??
 
 ---
@@ -530,17 +507,15 @@ x??
 
 #### Concept: Oﬀ-Policy Divergence Example
 
-Background context explaining the concept. The provided example illustrates a scenario where oﬀ-policy learning with function approximation can lead to instability and divergence. In this specific case, there are two states whose values are linearly dependent on a parameter vector \( \mathbf{w} \), which consists of only one component \( w \). This setup is common in simpler MDPs where feature vectors for the states are single-component vectors.
+Background context explaining the concept. The provided example illustrates a scenario where oﬀ-policy learning with function approximation can lead to instability and divergence. In this specific case, there are two states whose values are linearly dependent on a parameter vector $\mathbf{w}$, which consists of only one component $ w$. This setup is common in simpler MDPs where feature vectors for the states are single-component vectors.
 
 Relevant formulas include:
-- The value function estimates: \( v_1 = w \) and \( v_2 = 2w \).
-- The transition dynamics between states: from state 1 to state 2 with a deterministic reward of \( 0.2w + 2ww \).
+- The value function estimates: $v_1 = w $ and$v_2 = 2w$.
+- The transition dynamics between states: from state 1 to state 2 with a deterministic reward of $0.2w + 2ww$.
 
 The example involves semi-gradient TD(0) updates, where the update rule is given by:
 
-\[ w_{t+1} = w_t + \alpha \hat{\psi}(S_t, w_t)^T (\hat{v}(S_{t+1}, w_t) - \hat{v}(S_t, w_t)) \]
-
-where \( \hat{\psi}(S_t, w_t) \) and \( \hat{v}(S_t, w_t) \) are the feature vector and value function estimate for state \( S_t \), respectively. In this case, due to the linear dependency of states on \( w \), the update rule simplifies significantly.
+$$w_{t+1} = w_t + \alpha \hat{\psi}(S_t, w_t)^T (\hat{v}(S_{t+1}, w_t) - \hat{v}(S_t, w_t))$$where $\hat{\psi}(S_t, w_t)$ and $\hat{v}(S_t, w_t)$ are the feature vector and value function estimate for state $ S_t $, respectively. In this case, due to the linear dependency of states on $ w$, the update rule simplifies significantly.
 
 :p What is the key issue illustrated in this example?
 ??x
@@ -552,19 +527,16 @@ x??
 
 #### Concept: Importance Sampling Ratio
 
-Background context explaining the concept. The importance sampling ratio \( \rho_t \) is crucial in oﬀ-policy learning as it adjusts the update based on the difference between the behavior policy and the target policy.
+Background context explaining the concept. The importance sampling ratio $\rho_t$ is crucial in oﬀ-policy learning as it adjusts the update based on the difference between the behavior policy and the target policy.
 
-In this example, since there is only one action available from the first state, the probability of taking that action under both the target and behavior policies is 1. Thus, \( \rho_t = 1 \).
+In this example, since there is only one action available from the first state, the probability of taking that action under both the target and behavior policies is 1. Thus, $\rho_t = 1$.
 
 Relevant formulas include:
 - The TD error calculation: 
-\[ E_{t} = R_{t+1} + \hat{v}(S_{t+1}, w_t) - \hat{v}(S_t, w_t) \]
-- The semi-gradient TD(0) update rule with importance sampling:
-\[ w_{t+1} = w_t + \alpha \rho_t \hat{\psi}(S_t, w_t)^T (\hat{v}(S_{t+1}, w_t) - \hat{v}(S_t, w_t)) \]
-
-:p How does the importance sampling ratio \( \rho_t \) affect the update rule in this example?
+$$E_{t} = R_{t+1} + \hat{v}(S_{t+1}, w_t) - \hat{v}(S_t, w_t)$$- The semi-gradient TD(0) update rule with importance sampling:
+$$w_{t+1} = w_t + \alpha \rho_t \hat{\psi}(S_t, w_t)^T (\hat{v}(S_{t+1}, w_t) - \hat{v}(S_t, w_t))$$:p How does the importance sampling ratio $\rho_t$ affect the update rule in this example?
 ??x
-The importance sampling ratio \( \rho_t \) affects the update rule by scaling the TD error. In this specific example, since there is only one action available from the first state and both policies choose that action with probability 1, \( \rho_t = 1 \). Thus, the importance sampling term does not alter the update rule.
+The importance sampling ratio $\rho_t $ affects the update rule by scaling the TD error. In this specific example, since there is only one action available from the first state and both policies choose that action with probability 1,$\rho_t = 1$. Thus, the importance sampling term does not alter the update rule.
 x??
 
 ---
@@ -573,13 +545,12 @@ x??
 #### Concept: Unstable Update Rule
 
 Background context explaining the concept. The update rule in this example can be written as:
-\[ w_{t+1} = w_t + \alpha (2w - w_t) \]
-This simplifies to:
-\[ w_{t+1} = w_t(1 + 2\alpha - \alpha) = w_t(1 + \alpha (2 - 1)) = w_t(1 + \alpha) \]
+$$w_{t+1} = w_t + \alpha (2w - w_t)$$
 
-:p Why does the update rule lead to instability?
+This simplifies to:
+$$w_{t+1} = w_t(1 + 2\alpha - \alpha) = w_t(1 + \alpha (2 - 1)) = w_t(1 + \alpha)$$:p Why does the update rule lead to instability?
 ??x
-The update rule leads to instability because it amplifies \( w \) in each iteration. Specifically, if \( \alpha > 0 \), then \( 1 + \alpha (2 - 1) = 1 + \alpha \). If this constant is greater than 1, the system becomes unstable and \( w \) will grow without bound, either positively or negatively depending on its initial value.
+The update rule leads to instability because it amplifies $w $ in each iteration. Specifically, if$\alpha > 0 $, then $1 + \alpha (2 - 1) = 1 + \alpha $. If this constant is greater than 1, the system becomes unstable and $ w$ will grow without bound, either positively or negatively depending on its initial value.
 x??
 
 ---
@@ -590,7 +561,7 @@ Off-policy training allows the behavior policy to take actions that the target p
 
 :p What distinguishes off-policy training from on-policy training in terms of action selection?
 ??x
-In off-policy training, the behavior policy can choose actions that the target policy does not. Therefore, it's possible for the behavior policy to take an action that the target policy never would, and no update is made for those transitions because the probability ratio \( \frac{\pi(s',a')}{b(s,a)} \) becomes zero.
+In off-policy training, the behavior policy can choose actions that the target policy does not. Therefore, it's possible for the behavior policy to take an action that the target policy never would, and no update is made for those transitions because the probability ratio $\frac{\pi(s',a')}{b(s,a)}$ becomes zero.
 
 In on-policy training, every transition follows the target policy exactly, so the probability ratio is always 1. Each transition increases or decreases weights based on the value function until convergence.
 x??
@@ -625,7 +596,7 @@ The Markov Decision Process (MDP) used by Baird consists of seven states, with a
 
 :p Describe the structure and policies involved in Baird's example.
 ??x
-Baird’s MDP has seven states. The dashed action is chosen with probability \( \frac{6}{7} \) and can take the system to any of six upper states equally likely, while the solid action is chosen with probability \( \frac{1}{7} \), always leading to a specific state. The behavior policy selects actions according to these probabilities, whereas the target policy consistently chooses the solid action.
+Baird’s MDP has seven states. The dashed action is chosen with probability $\frac{6}{7}$ and can take the system to any of six upper states equally likely, while the solid action is chosen with probability $\frac{1}{7}$, always leading to a specific state. The behavior policy selects actions according to these probabilities, whereas the target policy consistently chooses the solid action.
 x??
 
 ---
@@ -675,7 +646,7 @@ x??
 Background context: The text discusses the concerns about Q-learning diverging, especially when the behavior policy is not close enough to the target policy. It mentions that considerable effort has gone into finding solutions or weaker guarantees for this issue.
 :p What are the concerns regarding Q-learning in relation to behavioral policies?
 ??x
-The primary concern with Q-learning is its potential divergence if the behavior policy significantly differs from the target policy, particularly when it's not \(\epsilon\)-greedy. However, theoretical analysis has not yet confirmed whether Q-learning will diverge under such conditions.
+The primary concern with Q-learning is its potential divergence if the behavior policy significantly differs from the target policy, particularly when it's not $\epsilon$-greedy. However, theoretical analysis has not yet confirmed whether Q-learning will diverge under such conditions.
 x??
 
 ---

@@ -187,7 +187,7 @@ The steps for deploying infrastructure code using Terraform include:
 3. **Manual Testing**: Use tools like `curl` or other tests to verify the deployed infrastructure works as expected.
    For example:
    ```bash
-   $ curl hello-world-stage-477699288.us-east-2.elb.amazonaws.com 
+   $curl hello-world-stage-477699288.us-east-2.elb.amazonaws.com 
    Hello, World v2
    ```
 4. **Automated Testing**: Run automated tests with `go test` to ensure the changes don’t break anything.
@@ -240,8 +240,7 @@ Background context: Consistent coding style is important for maintainability, re
 The `terraform fmt` command automatically reformats your Terraform code to match a predefined style guide, ensuring that all contributions follow the same formatting rules. This helps maintain uniformity and readability across different contributors' code.
 
 Example usage:
-```bash
-$ terraform fmt
+```bash$ terraform fmt
 ```
 This command should be integrated into the commit process to ensure that any code committed adheres to the chosen coding conventions.
 x??
@@ -258,7 +257,7 @@ Running `terraform plan` before applying a configuration provides a "diff" showi
 
 Example usage:
 ```bash
-$ terraform plan
+$terraform plan
 ```
 You should integrate this command into your code review process, such as using tools like Atlantis, which automatically runs `terraform plan` on commits and adds the output as a comment to pull requests.
 x??
@@ -359,8 +358,7 @@ To secure your CI server, follow these steps:
 For example, you can configure a firewall rule to allow HTTPS traffic only:
 
 ```bash
-# Example of configuring a firewall rule with iptables
-$ sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT
+# Example of configuring a firewall rule with iptables$ sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT
 ```
 x??
 

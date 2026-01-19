@@ -80,8 +80,8 @@ ax.plot(x1, y1, 'c', linewidth=4)
 ax.set_xlim((0, 2 * np.pi))
 ax.set_ylim((0, 5))
 ax.set_xticks([0, np.pi, 2 * np.pi])
-ax.set_xticklabels(['0', '\(\pi\)', '2\(\pi\)'])
-ax.set_ylabel(r'\(f(x) = x \,\sin^2 x \)', fontsize=20)
+ax.set_xticklabels(['0', '$\pi $', '2 $\pi$'])
+ax.set_ylabel(r'$f(x) = x \,\sin^2 x$', fontsize=20)
 ax.set_xlabel('x', fontsize=20)
 fig.patch.set_visible(False)
 
@@ -93,7 +93,7 @@ j = 0  # Counter for points inside the curve
 
 :p What is the role of `fx(x)` in this script?
 ??x
-The `fx(x)` function defines the integrand \( f(x) = x \cdot \sin^2(x) \), which represents the mathematical function to be integrated. This function is used later in the integration process, specifically when using the von Neumann rejection method for Monte Carlo simulation.
+The `fx(x)` function defines the integrand $f(x) = x \cdot \sin^2(x)$, which represents the mathematical function to be integrated. This function is used later in the integration process, specifically when using the von Neumann rejection method for Monte Carlo simulation.
 x??
 
 --- 
@@ -182,10 +182,12 @@ Background context: These errors occur when simplifying mathematical models to m
 
 :p What is an example of an approximation error?
 ??x
-An example is the Taylor series expansion of \(\sin(x)\), where:
-\[ \sin(x) = \sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{(2n-1)!} x^{2n-1} \]
-This infinite series can be approximated by a finite sum, say \(N\):
-\[ \sin(x) \approx \sum_{n=1}^{N} \frac{(-1)^{n-1}}{(2n-1)!} x^{2n-1} + O(x^{N+1}) \]
+An example is the Taylor series expansion of $\sin(x)$, where:
+$$\sin(x) = \sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{(2n-1)!} x^{2n-1}$$
+
+This infinite series can be approximated by a finite sum, say $N$:
+$$\sin(x) \approx \sum_{n=1}^{N} \frac{(-1)^{n-1}}{(2n-1)!} x^{2n-1} + O(x^{N+1})$$
+
 The approximation error is the difference between the actual series and the finite sum.
 x??
 
@@ -197,17 +199,18 @@ Background context: These errors arise from using a finite number of digits to s
 
 :p What is an example illustrating round-off errors?
 ??x
-An example is storing \(\frac{1}{3}\) and \(\frac{2}{3}\) with four decimal places:
-\[ 1/3 = 0.3333 \]
-\[ 2/3 = 0.6667 \]
-When performing a simple calculation like \(2(1/3) - 2/3\):
+An example is storing $\frac{1}{3}$ and $\frac{2}{3}$ with four decimal places:
+$$1/3 = 0.3333$$
+$$2/3 = 0.6667$$
+
+When performing a simple calculation like $2(1/3) - 2/3$:
 ```python
 # Python code example
 result = 2 * (1/3) - 2/3
 print(result)
 ```
 The result is:
-\[ 2(1/3) - 2/3 = 0.6666 - 0.6667 = -0.0001 \neq 0 \]
+$$2(1/3) - 2/3 = 0.6666 - 0.6667 = -0.0001 \neq 0$$
 x??
 
 ---

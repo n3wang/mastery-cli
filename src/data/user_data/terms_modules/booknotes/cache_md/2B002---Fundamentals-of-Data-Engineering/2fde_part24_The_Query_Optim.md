@@ -203,7 +203,7 @@ Background context: Row explosion occurs when join keys have many-to-many matche
 
 :p How does row explosion occur in joins?
 ??x
-Row explosion happens due to repeated values in join keys from both tables involved in the join operation. For example, if a value in table A repeats five times and a value in table B repeats 10 times, the cross-join will generate \(5 \times 10 = 50\) rows.
+Row explosion happens due to repeated values in join keys from both tables involved in the join operation. For example, if a value in table A repeats five times and a value in table B repeats 10 times, the cross-join will generate $5 \times 10 = 50$ rows.
 
 ```sql
 -- Example of a join that might lead to row explosion

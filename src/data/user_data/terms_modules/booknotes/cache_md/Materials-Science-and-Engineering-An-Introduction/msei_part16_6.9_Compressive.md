@@ -8,27 +8,27 @@
 
 ---
 #### Strain-Hardening Exponent Calculation
-Background context: The strain-hardening exponent \( n \) is a parameter used to describe the relationship between true stress (\( \sigma_T \)) and true strain (\( \epsilon_T \)) according to Equation 6.19, which is derived from the power law of metal strengthening. This equation is often used in materials science and mechanical engineering to model how metals behave under tensile loading.
+Background context: The strain-hardening exponent $n $ is a parameter used to describe the relationship between true stress ($\sigma_T $) and true strain ($\epsilon_T$) according to Equation 6.19, which is derived from the power law of metal strengthening. This equation is often used in materials science and mechanical engineering to model how metals behave under tensile loading.
 
 Relevant formulas: 
-\[ \sigma_T = K \cdot \epsilon_T^n \]
+$$\sigma_T = K \cdot \epsilon_T^n$$
+
 Where:
-- \( \sigma_T \) is true stress,
-- \( K \) is a material constant,
-- \( n \) is the strain-hardening exponent.
+- $\sigma_T$ is true stress,
+- $K$ is a material constant,
+- $n$ is the strain-hardening exponent.
 
-Explanation: To find \( n \), we take logarithms of both sides of Equation 6.19 to linearize it, making \( n \) easier to calculate:
-\[ \log(\sigma_T) = \log(K) + n \cdot \log(\epsilon_T) \]
-
-:p How do you compute the strain-hardening exponent \( n \) given true stress and true strain?
+Explanation: To find $n $, we take logarithms of both sides of Equation 6.19 to linearize it, making $ n$ easier to calculate:
+$$\log(\sigma_T) = \log(K) + n \cdot \log(\epsilon_T)$$:p How do you compute the strain-hardening exponent $ n$ given true stress and true strain?
 ??x
-To compute \( n \), we rearrange the logarithmic equation as follows:
-\[ n = \frac{\log(\sigma_T) - \log(K)}{\log(\epsilon_T)} \]
+To compute $n$, we rearrange the logarithmic equation as follows:
+$$n = \frac{\log(\sigma_T) - \log(K)}{\log(\epsilon_T)}$$
 
-For example, if a true stress of 415 MPa (\( \sigma_T = 415 \)) produces a true strain of 0.10, and \( K = 1035 \) MPa:
-\[ n = \frac{\log(415) - \log(1035)}{\log(0.1)} \]
+For example, if a true stress of 415 MPa ($\sigma_T = 415 $) produces a true strain of 0.10, and $ K = 1035$ MPa:
+$$n = \frac{\log(415) - \log(1035)}{\log(0.1)}$$
+
 This results in:
-\[ n = \frac{2.6187 - 3.0162}{-1} = 0.3975 \approx 0.40 \]
+$$n = \frac{2.6187 - 3.0162}{-1} = 0.3975 \approx 0.40$$
 
 x?
 
@@ -40,9 +40,9 @@ Background context: After unloading a material from its plastic deformation, som
 
 Relevant formulas:
 - The slope of the unloading line gives an indication of the modulus of resilience or the material's ability to recover elastic energy.
-- The initial yield strength (\( \sigma_y0 \)) and yield strength after unloading (\( \sigma_yi \)) are important parameters in this context.
+- The initial yield strength ($\sigma_y0 $) and yield strength after unloading ($\sigma_yi$) are important parameters in this context.
 
-Explanation: In Figure 6.17, point D marks the end of loading, and upon unloading, the stress-strain curve follows a near straight line back to approximately \( \epsilon_T = 0 \). The slope of this unloading line is related to the material's modulus of resilience (\( R_e \)).
+Explanation: In Figure 6.17, point D marks the end of loading, and upon unloading, the stress-strain curve follows a near straight line back to approximately $\epsilon_T = 0 $. The slope of this unloading line is related to the material's modulus of resilience ($ R_e$).
 
 :p How does elastic recovery manifest in a tensile test?
 ??x
@@ -54,16 +54,16 @@ x?
 
 
 #### Power Law Relationship in Metal Strengthening
-Background context: The power law relationship between true stress and true strain (\( \sigma_T = K \cdot \epsilon_T^n \)) is fundamental to understanding how metals behave under tensile loading. This equation helps engineers predict material behavior during deformation processes, such as forging or drawing.
+Background context: The power law relationship between true stress and true strain ($\sigma_T = K \cdot \epsilon_T^n$) is fundamental to understanding how metals behave under tensile loading. This equation helps engineers predict material behavior during deformation processes, such as forging or drawing.
 
 Relevant formulas:
-\[ \sigma_T = K \cdot \epsilon_T^n \]
+$$\sigma_T = K \cdot \epsilon_T^n$$
 
-Explanation: The strain-hardening exponent \( n \) quantifies the rate at which true stress increases with increasing true strain. Materials with higher values of \( n \) become more difficult to deform plastically, indicating better strength and hardness.
+Explanation: The strain-hardening exponent $n $ quantifies the rate at which true stress increases with increasing true strain. Materials with higher values of$n$ become more difficult to deform plastically, indicating better strength and hardness.
 
 :p What is the significance of the strain-hardening exponent in metal strengthening?
 ??x
-The strain-hardening exponent \( n \) is significant because it quantifies the rate at which true stress increases during plastic deformation. A higher value of \( n \) indicates that a material becomes more difficult to deform plastically, leading to increased strength and hardness.
+The strain-hardening exponent $n $ is significant because it quantifies the rate at which true stress increases during plastic deformation. A higher value of$n$ indicates that a material becomes more difficult to deform plastically, leading to increased strength and hardness.
 
 x?
 ---
@@ -212,10 +212,11 @@ Background context explaining the correlation between hardness (specifically Bri
 
 :p What is the relationship between Brinell hardness (HB) and tensile strength (TS) for most steels?
 ??x
-The relationship is given by the formula: 
-\[ TS \, (\text{MPa}) = 3.45 \times HB \]
-or in psi:
-\[ TS \, (\text{psi}) = 500 \times HB \]
+The relationship is given by the formula:
+$$TS \, (\text{MPa}) = 3.45 \times HB$$or in psi:
+$$
+
+TS \, (\text{psi}) = 500 \times HB$$
 
 This formula provides a rough conversion from Brinell hardness to tensile strength for most steels.
 
@@ -310,13 +311,13 @@ x??
 
 
 #### Types of Material Properties
-Background context: Different mechanical properties of metals include modulus of elasticity (E), yield strength (\(\sigma_y\)), tensile strength (TS), ductility, modulus of resilience (Ur), toughness, and hardness. Each property provides insights into the material's behavior under different types of loading.
+Background context: Different mechanical properties of metals include modulus of elasticity (E), yield strength ($\sigma_y$), tensile strength (TS), ductility, modulus of resilience (Ur), toughness, and hardness. Each property provides insights into the material's behavior under different types of loading.
 
 :p List some common mechanical properties of metals.
 ??x
 Common mechanical properties of metals include:
 - Modulus of elasticity (E)
-- Yield strength (\(\sigma_y\))
+- Yield strength ($\sigma_y$)
 - Tensile strength (TS)
 - Ductility, measured as percentEL or percentRA
 - Modulus of resilience (Ur)
@@ -333,14 +334,16 @@ Background context: To handle variability in data, engineers often calculate the
 :p How is the average tensile strength (TS) calculated?
 ??x
 The average tensile strength (TS) is calculated by summing all measured values and dividing by the number of measurements:
-\[ TS = \frac{\sum_{i=1}^{n}(TS)_i}{n} \]
-Where \( n \) is the number of observations, and \((TS)_i\) is the value of a discrete measurement.
+$$TS = \frac{\sum_{i=1}^{n}(TS)_i}{n}$$
+
+Where $n $ is the number of observations, and$(TS)_i$ is the value of a discrete measurement.
 
 :p How is the standard deviation of tensile strength calculated?
 ??x
 The standard deviation of tensile strength is calculated using the following formula:
-\[ s = \left[ \frac{\sum_{i=1}^{n}( (TS)_i - TS)^2}{n-1} \right]^{\frac{1}{2}} \]
-Where \( n \) is the number of observations, \((TS)_i\) are the individual tensile strength measurements, and \( TS \) is the average tensile strength.
+$$s = \left[ \frac{\sum_{i=1}^{n}( (TS)_i - TS)^2}{n-1} \right]^{\frac{1}{2}}$$
+
+Where $n $ is the number of observations,$(TS)_i $ are the individual tensile strength measurements, and$TS$ is the average tensile strength.
 
 :p Provide a numerical example to compute the average and standard deviation.
 ??x
@@ -351,11 +354,9 @@ Example: Compute the average and standard deviation for four specimens with the 
 - Sample 4: 522 MPa
 
 Solution:
-(a) The average tensile strength is computed using Equation 6.21 with \( n = 4 \):
-\[ TS = \frac{520 + 512 + 515 + 522}{4} = 517 \, \text{MPa} \]
-
-(b) For the standard deviation, using Equation 6.22:
-\[ s = \left[ \frac{(520 - 517)^2 + (512 - 517)^2 + (515 - 517)^2 + (522 - 517)^2}{4-1} \right]^{\frac{1}{2}} = 4.6 \, \text{MPa} \]
+(a) The average tensile strength is computed using Equation 6.21 with $n = 4$:
+$$TS = \frac{520 + 512 + 515 + 522}{4} = 517 \, \text{MPa}$$(b) For the standard deviation, using Equation 6.22:
+$$s = \left[ \frac{(520 - 517)^2 + (512 - 517)^2 + (515 - 517)^2 + (522 - 517)^2}{4-1} \right]^{\frac{1}{2}} = 4.6 \, \text{MPa}$$
 
 Code Example to Calculate Average and Standard Deviation:
 ```java

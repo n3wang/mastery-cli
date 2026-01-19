@@ -126,7 +126,7 @@ x??
 Background context explaining the concept. The symbols @ (means “there does not exist”) and 9 (means “there exists a unique”) were mentioned, but the focus is on the quantifiers 8 (for all) and 9 (there exists). These are used to express mathematical statements in formal logic.
 :p What does the quantifier 8 represent?
 ??x
-The quantifier 8 represents "for all" or "for every." It is used to state that a property holds for every element in a given set. For example, if we say \( 8x2R, P(x) \), it means that property \( P(x) \) is true for all real numbers \( x \).
+The quantifier 8 represents "for all" or "for every." It is used to state that a property holds for every element in a given set. For example, if we say $8x2R, P(x)$, it means that property $ P(x)$is true for all real numbers $ x$.
 ```
 // Example
 public class QuantifiersExample {
@@ -143,7 +143,7 @@ x??
 Background context explaining that changing the order of quantifiers can drastically change the meaning of a statement. The examples given show two statements with different quantifier orders, one being true and the other false.
 :p What is the difference between these two statements?
 ??x
-The first statement \( 8x2R,9y2Rsuch thatx^2=y \) means "for every real number \( x \), there exists some real number \( y \) such that \( x^2 = y \)," which is true. The second statement \( 9x2R,8y2R,x^2=y \) means "there exists a real number \( x \) such that for all real numbers \( y \), \( x^2 = y \)," which is false because not every real number can be the square root of any given real number.
+The first statement $8x2R,9y2Rsuch thatx^2=y $ means "for every real number$x $, there exists some real number$ y $such that$ x^2 = y $," which is true. The second statement$9x2R,8y2R,x^2=y $ means "there exists a real number$ x $ such that for all real numbers $ y $,$ x^2 = y$," which is false because not every real number can be the square root of any given real number.
 ```
 // Example
 public class QuantifiersOrder {
@@ -161,9 +161,9 @@ x??
 ---
 #### Negations of Statements
 Background context explaining how to negate statements using logical operators. Examples are given with De Morgan’s Laws and the negation of quantifiers.
-:p What is the negation of \( 8x2R,9y2Rsuch thatx^2=y \)?
+:p What is the negation of $8x2R,9y2Rsuch thatx^2=y$?
 ??x
-The negation of \( 8x2R,9y2Rsuch thatx^2=y \) can be stated as \( 9x2R,8y2R,x^2 \neq y \). This means "there exists a real number \( x \) such that for all real numbers \( y \), \( x^2 \) is not equal to \( y \)," which reflects the fact that not every real number can be squared to get any arbitrary value.
+The negation of $8x2R,9y2Rsuch thatx^2=y $ can be stated as$9x2R,8y2R,x^2 \neq y $. This means "there exists a real number $ x $ such that for all real numbers $ y $,$ x^2 $ is not equal to $ y$," which reflects the fact that not every real number can be squared to get any arbitrary value.
 ```
 // Example
 public class NegationExample {
@@ -178,9 +178,9 @@ x??
 ---
 #### Examples with De Morgan’s Laws
 Background context explaining De Morgan's Laws in logic and how they are applied to statements.
-:p Using De Morgan’s Laws, what is the negation of \( P: Socrates was a dog and Aristotle was a cat \)?
+:p Using De Morgan’s Laws, what is the negation of $P: Socrates was a dog and Aristotle was a cat$?
 ??x
-Using De Morgan’s Laws, the negation of \( P: Socrates was a dog and Aristotle was a cat \) can be expressed as \( P: Socrates was not a dog or Aristotle was not a cat \). This means "either Socrates was not a dog or Aristotle was not a cat."
+Using De Morgan’s Laws, the negation of $P: Socrates was a dog and Aristotle was a cat $ can be expressed as$P: Socrates was not a dog or Aristotle was not a cat$. This means "either Socrates was not a dog or Aristotle was not a cat."
 ```
 // Example
 public class DeMorgansLawExample {
@@ -200,48 +200,36 @@ Background context explaining the concept. In logic, De Morgan’s Laws describe
 :p How does De Morgan's Law apply to negating logical expressions?
 ??x
 De Morgan's Law states that the negation of a conjunction (AND) is equivalent to the disjunction (OR) of the negations. Formally:
-\[
-\neg(P \land Q) \equiv \neg P \lor \neg Q
-\]
-This can be understood as: if \(P\) and \(Q\) are both true, their conjunction (\(P \land Q\)) is true; but for this to not hold (i.e., the negation), either \(P\) or \(Q\) must be false. This rule can be extended to multiple terms:
-\[
-\neg(P_1 \land P_2 \land \dots \land P_n) \equiv \neg P_1 \lor \neg P_2 \lor \dots \lor \neg P_n
-\]
+$$\neg(P \land Q) \equiv \neg P \lor \neg Q$$
+
+This can be understood as: if $P $ and$Q $ are both true, their conjunction ($P \land Q $) is true; but for this to not hold (i.e., the negation), either$ P $or$ Q$must be false. This rule can be extended to multiple terms:
+$$\neg(P_1 \land P_2 \land \dots \land P_n) \equiv \neg P_1 \lor \neg P_2 \lor \dots \lor \neg P_n$$
 :p How do we negate a statement involving quantifiers?
 ??x
 Negating statements with quantifiers involves changing the scope of quantification. Specifically:
-- The negation of "for all" (\(\forall\)) is "there exists" (\(\exists\)).
-- Conversely, the negation of "there exists" (\(\exists\)) is "for all" (\(\forall\)).
+- The negation of "for all" ($\forall $) is "there exists" ($\exists$).
+- Conversely, the negation of "there exists" ($\exists $) is "for all" ($\forall$).
 Formally:
-\[
-\neg (\forall x \in R, P(x)) \equiv \exists x \in R, \neg P(x)
-\]
-and
-\[
-\neg (\exists x \in R, P(x)) \equiv \forall x \in R, \neg P(x)
-\]
-:p Why does "for all" turn into "there exists" and not "there does not exist" in the negation?
+$$\neg (\forall x \in R, P(x)) \equiv \exists x \in R, \neg P(x)$$and$$\neg (\exists x \in R, P(x)) \equiv \forall x \in R, \neg P(x)$$:p Why does "for all" turn into "there exists" and not "there does not exist" in the negation?
 ??x
 The negation of a universal quantifier ("for all") is an existential quantifier ("there exists"). This is because if something must be true for all elements, then there can be no counterexample. Conversely, if there is at least one element that fails to satisfy the condition, it contradicts "for all." Therefore:
-\[
-\neg (\forall x \in R, P(x)) \equiv \exists x \in R, \neg P(x)
-\]
-This means if every real number \(x\) has a cube root (i.e., for all \(x \in \mathbb{R}\), there exists \(y \in \mathbb{R}\) such that \(y^3 = x\)), then the negation is that there exists some real number \(x\) which does not have a cube root.
+$$\neg (\forall x \in R, P(x)) \equiv \exists x \in R, \neg P(x)$$
+
+This means if every real number $x $ has a cube root (i.e., for all$x \in \mathbb{R}$, there exists $ y \in \mathbb{R}$such that $ y^3 = x$), then the negation is that there exists some real number $ x$ which does not have a cube root.
 :p How do we negate implications?
 ??x
 The negation of an implication (P → Q) involves considering when the implication can be false. An implication P → Q is false only if P is true and Q is false. Thus:
-\[
-\neg(P \rightarrow Q) \equiv P \land \neg Q
-\]
-If \(P\) implies \(Q\), then its negation means \(P\) is true but \(Q\) is false.
+$$\neg(P \rightarrow Q) \equiv P \land \neg Q$$
+
+If $P $ implies$Q $, then its negation means$ P $is true but$ Q$ is false.
 :p How do we negate statements with multiple quantifiers?
 ??x
 Negating a statement with multiple quantifiers requires considering the scope of each quantifier. For example:
-- \(\neg (\forall x, \exists y, P(x, y))\) means there exists an \(x\) such that for all \(y\), \(P(x, y)\) is false.
-- \(\neg (\exists x, \forall y, P(x, y))\) means for all \(x\), there exists a \(y\) such that \(P(x, y)\) is false.
+- $\neg (\forall x, \exists y, P(x, y))$ means there exists an $x$ such that for all $y$,$ P(x, y)$ is false.
+- $\neg (\exists x, \forall y, P(x, y))$ means for all $x$, there exists a $ y$such that $ P(x, y)$ is false.
 :p How does the context of the universe affect negation?
 ??x
-The universe of discourse or context in which quantifiers are applied determines the scope of the negation. For instance, if statements involve real numbers (\(\mathbb{R}\)), then the negation still refers to elements within \(\mathbb{R}\). If a statement about NBA players is negated, it must stay within the universe of NBA players.
+The universe of discourse or context in which quantifiers are applied determines the scope of the negation. For instance, if statements involve real numbers ($\mathbb{R}$), then the negation still refers to elements within $\mathbb{R}$. If a statement about NBA players is negated, it must stay within the universe of NBA players.
 :x??
 The answer with detailed explanations. The context and background are crucial for understanding how quantifiers work in logical statements. Negating quantifiers involves changing their scope, as explained above.
 :x??
@@ -254,21 +242,21 @@ The answer with detailed explanations. The context and background are crucial fo
 #### Logical Negation of a Statement
 Background context explaining the logical negation process, including how to negate quantified statements and implications.
 :p What is the statement S and its negation ˜S?
-??x The statement \( S \) is "For every natural number \( n \), if \( 3 \mid n \), then \( 6 \mid n \)." Its negation \( \neg S \) is "There exists some natural number \( n \) which is divisible by 3 but not by 6."
+??x The statement $S $ is "For every natural number$n $, if$3 \mid n $, then $6 \mid n $." Its negation $\neg S $ is "There exists some natural number$n$ which is divisible by 3 but not by 6."
 x??
 
 ---
 #### Contrapositive of an Implication
 Explanation on what a contrapositive is and how to derive it from a given implication.
-:p What does the contrapositive of \( P \rightarrow Q \) look like?
-??x The contrapositive of \( P \rightarrow Q \) is \( \neg Q \rightarrow \neg P \).
+:p What does the contrapositive of $P \rightarrow Q$ look like?
+??x The contrapositive of $P \rightarrow Q $ is$\neg Q \rightarrow \neg P$.
 x??
 
 ---
 #### Truth Table for Implication and Contrapositive
 Explanation on constructing truth tables for implications and their contrapositives.
-:p How do you construct the truth table for an implication \( P \rightarrow Q \)?
-??x To construct the truth table for \( P \rightarrow Q \), we first list all possible combinations of truth values for \( P \) and \( Q \). Then, we compute the truth value of \( P \rightarrow Q \) for each combination. The contrapositive \( \neg Q \rightarrow \neg P \) will have the same final column as \( P \rightarrow Q \).
+:p How do you construct the truth table for an implication $P \rightarrow Q$?
+??x To construct the truth table for $P \rightarrow Q $, we first list all possible combinations of truth values for $ P $ and $ Q $. Then, we compute the truth value of$ P \rightarrow Q $ for each combination. The contrapositive $\neg Q \rightarrow \neg P $ will have the same final column as$P \rightarrow Q$.
 
 Truth table:
 ```
@@ -283,10 +271,10 @@ x??
 ---
 #### Logical Equivalence of Implication and Contrapositive
 Explanation on the logical equivalence between an implication and its contrapositive.
-:p Why is \( P \rightarrow Q \) logically equivalent to \( \neg Q \rightarrow \neg P \)?
-??x The truth tables for \( P \rightarrow Q \) and \( \neg Q \rightarrow \neg P \) have identical final columns, which means they are logically equivalent. This can be seen from the truth table provided.
+:p Why is $P \rightarrow Q $ logically equivalent to$\neg Q \rightarrow \neg P$?
+??x The truth tables for $P \rightarrow Q $ and$\neg Q \rightarrow \neg P$ have identical final columns, which means they are logically equivalent. This can be seen from the truth table provided.
 
-In mathematical notation: \( (P \rightarrow Q) \equiv (\neg Q \rightarrow \neg P) \).
+In mathematical notation: $(P \rightarrow Q) \equiv (\neg Q \rightarrow \neg P)$.
 x??
 
 ---
@@ -294,8 +282,8 @@ x??
 Explanation on how logical equivalence can help in understanding seemingly different statements.
 :p How do you interpret the riddle "Good food is not cheap" and "Cheap food is not good" using contrapositives?
 ??x The statements are:
-- \( F \) is good \( \rightarrow F \) is not cheap
-- \( F \) is cheap \( \rightarrow F \) is not good
+- $F $ is good$\rightarrow F$ is not cheap
+- $F $ is cheap$\rightarrow F$ is not good
 
 Using logical equivalence, these two statements have the same truth value. They can be seen as equivalent in logic even though they seem to assert different things.
 x??
@@ -303,7 +291,7 @@ x??
 ---
 #### Conclusion on Logical Equivalence
 Summary of the importance and implications of the logical equivalence between an implication and its contrapositive.
-:p Why is it important that \( P \rightarrow Q \) is logically equivalent to \( \neg Q \rightarrow \neg P \)?
+:p Why is it important that $P \rightarrow Q $ is logically equivalent to$\neg Q \rightarrow \neg P$?
 ??x It's important because it provides a way to transform statements while preserving their meaning. This can be useful in various proofs, especially when dealing with contrapositives, which often simplify the logical structure of arguments.
 x??
 
@@ -323,7 +311,7 @@ x??
 Background context: In 1901, Bertrand Russell discovered a paradox in set theory that highlighted an inconsistency within the field. The paradox involved a set R defined as all sets x such that x is not a member of itself (R = {x : x ∉ x}). This definition led to a contradiction when considering whether R is a member of itself.
 :p What was Russell's paradox, and why was it significant?
 ??x
-Russell's paradox arises from defining the set \( R \) as "the set of all sets that are not members of themselves." The issue occurs because if \( R \) were to be a member of itself, then by its definition, it should not be. Conversely, if \( R \) is not a member of itself, then according to its definition, it must be.
+Russell's paradox arises from defining the set $R $ as "the set of all sets that are not members of themselves." The issue occurs because if$R $ were to be a member of itself, then by its definition, it should not be. Conversely, if$R$ is not a member of itself, then according to its definition, it must be.
 
 This paradox showed a fundamental flaw in the naive set theory and led to a deeper understanding of the need for formal axiomatic systems to avoid such inconsistencies.
 x??
@@ -352,49 +340,44 @@ x??
 
 
 #### Proof by Epsilon-Delta for Sequence Limits
-Background context explaining the concept. The text discusses proving that a sequence converges to a limit using the epsilon-delta method. Specifically, it shows how to prove that the sequence \(a_n = \frac{3n+1}{n+2}\) converges to 3.
+Background context explaining the concept. The text discusses proving that a sequence converges to a limit using the epsilon-delta method. Specifically, it shows how to prove that the sequence $a_n = \frac{3n+1}{n+2}$ converges to 3.
 If applicable, add code examples with explanations.
 
 :p What is the purpose of this proof?
 ??x
-The purpose of this proof is to demonstrate that for any given positive number \(\epsilon\), there exists a natural number \(N\) such that for all \(n > N\), the terms of the sequence \(a_n = \frac{3n+1}{n+2}\) are within \(\epsilon\) of 3.
+The purpose of this proof is to demonstrate that for any given positive number $\epsilon $, there exists a natural number $ N $such that for all$ n > N $, the terms of the sequence$ a_n = \frac{3n+1}{n+2}$are within $\epsilon$ of 3.
 x??
 
 ---
 #### Deriving the Inequality
-The text demonstrates algebraic manipulation to derive an inequality from the given limit condition. It starts with the expression for the absolute difference between \(a_n\) and its limit, then simplifies it step by step.
+The text demonstrates algebraic manipulation to derive an inequality from the given limit condition. It starts with the expression for the absolute difference between $a_n$ and its limit, then simplifies it step by step.
 
 :p How does the author manipulate the sequence term to derive the inequality?
 ??x
 To derive the inequality, the author first writes down the absolute difference:
-\[ \left| \frac{3n+1}{n+2} - 3 \right| < \epsilon. \]
+$$\left| \frac{3n+1}{n+2} - 3 \right| < \epsilon.$$
 
 The next steps involve algebraic manipulation:
 
 1. Rewrite the expression inside the absolute value:
-   \[ \left| \frac{(3n+1) - 3(n+2)}{n+2} \right| = \left| \frac{3n + 1 - 3n - 6}{n+2} \right| = \left| \frac{-5}{n+2} \right| = \frac{5}{n+2}. \]
+$$\left| \frac{(3n+1) - 3(n+2)}{n+2} \right| = \left| \frac{3n + 1 - 3n - 6}{n+2} \right| = \left| \frac{-5}{n+2} \right| = \frac{5}{n+2}.$$2. The goal is to find a value of $ N$ such that:
+$$\frac{5}{n+2} < \epsilon.$$3. Solving for $ n$, we get:
+   $$n + 2 > \frac{5}{\epsilon},$$$$n > \frac{5}{\epsilon} - 2.$$
 
-2. The goal is to find a value of \(N\) such that:
-   \[ \frac{5}{n+2} < \epsilon. \]
-
-3. Solving for \(n\), we get:
-   \[ n + 2 > \frac{5}{\epsilon}, \]
-   \[ n > \frac{5}{\epsilon} - 2. \]
-
-Thus, setting \(N = \frac{5}{\epsilon} - 2\) ensures that for all \(n > N\), the inequality holds.
+Thus, setting $N = \frac{5}{\epsilon} - 2 $ ensures that for all$n > N$, the inequality holds.
 x??
 
 ---
 #### Proof Construction
-The text provides a formal proof by epsilon-delta to show that \(a_n = \frac{3n+1}{n+2}\) converges to 3. It includes setting up the initial conditions and completing the algebraic steps.
+The text provides a formal proof by epsilon-delta to show that $a_n = \frac{3n+1}{n+2}$ converges to 3. It includes setting up the initial conditions and completing the algebraic steps.
 
 :p What is the structure of the formal proof given in the text?
 ??x
 The structure of the formal proof involves:
 
-1. Fixing any \(\epsilon > 0\).
-2. Setting \(N = \frac{5}{\epsilon} - 2\).
-3. Showing that for all \(n > N\), the inequality \(\left| \frac{3n+1}{n+2} - 3 \right| < \epsilon\) holds.
+1. Fixing any $\epsilon > 0$.
+2. Setting $N = \frac{5}{\epsilon} - 2$.
+3. Showing that for all $n > N $, the inequality $\left| \frac{3n+1}{n+2} - 3 \right| < \epsilon$ holds.
 
 The proof is constructed as follows:
 
@@ -418,13 +401,13 @@ x??
 
 ---
 #### Logical Implications and Truth Tables
-The text discusses logical implications, particularly focusing on the implication that if \(P\) is false, then \(P \rightarrow Q\) is considered true. However, this case rarely comes up in advanced mathematics.
+The text discusses logical implications, particularly focusing on the implication that if $P $ is false, then$P \rightarrow Q$ is considered true. However, this case rarely comes up in advanced mathematics.
 
 :p What does the text say about the truth value of an implication when the antecedent is false?
 ??x
-The text states that if \(P\) is false, then the implication \(P \rightarrow Q\) is considered true. This concept can be confusing because it means that even if the condition \(P\) is not met, the entire statement \(P \rightarrow Q\) is still valid.
+The text states that if $P $ is false, then the implication$P \rightarrow Q $ is considered true. This concept can be confusing because it means that even if the condition$P $ is not met, the entire statement$P \rightarrow Q$ is still valid.
 
-This peculiar behavior of logical implications where \(P \rightarrow Q\) is true when \(P\) is false and \(Q\) can be either true or false, does not often play a significant role in advanced mathematics. In most mathematical contexts, we assume that the conditions are true, and thus this case rarely arises.
+This peculiar behavior of logical implications where $P \rightarrow Q $ is true when$P $ is false and$Q$ can be either true or false, does not often play a significant role in advanced mathematics. In most mathematical contexts, we assume that the conditions are true, and thus this case rarely arises.
 x??
 
 ---
@@ -433,9 +416,9 @@ The text provides several tips on how to think formally about logic and highligh
 
 :p What is one of the key pro-tips given in the text regarding logical implications?
 ??x
-One key pro-tip from the text is that if \(P\) is false, then the implication \(P \rightarrow Q\) is considered true. This concept can be confusing because it means that even if the condition \(P\) is not met, the entire statement \(P \rightarrow Q\) is still valid.
+One key pro-tip from the text is that if $P $ is false, then the implication$P \rightarrow Q $ is considered true. This concept can be confusing because it means that even if the condition$P $ is not met, the entire statement$P \rightarrow Q$ is still valid.
 
-This peculiar behavior of logical implications where \(P \rightarrow Q\) is true when \(P\) is false and \(Q\) can be either true or false, does not often play a significant role in advanced mathematics. In most mathematical contexts, we assume that the conditions are true, and thus this case rarely arises.
+This peculiar behavior of logical implications where $P \rightarrow Q $ is true when$P $ is false and$Q$ can be either true or false, does not often play a significant role in advanced mathematics. In most mathematical contexts, we assume that the conditions are true, and thus this case rarely arises.
 x??
 
 ---
@@ -445,10 +428,10 @@ The text provides tips on using "if-then" sentences correctly in English, emphas
 :p How should one use "if-then" sentences in English according to the text?
 ??x
 According to the text, in English, every "if-then" sentence should be separated by a comma. Examples provided include:
-- If \(n\) is odd, then \(n^2\) is odd.
-- If \(p\) and \(p+2\) are both prime, then \(p\) is called a twin prime.
-- If \(p\) and \(p+4\) are both prime, then \(p\) is called a cousin prime.
-- If \(p\) and \(p+6\) are both prime, then \(p\) is called a sexy prime.
+- If $n $ is odd, then$n^2$ is odd.
+- If $p $ and$p+2 $ are both prime, then$p$ is called a twin prime.
+- If $p $ and$p+4 $ are both prime, then$p$ is called a cousin prime.
+- If $p $ and$p+6 $ are both prime, then$p$ is called a sexy prime.
 
 The text also notes that while these "if" sentences are used in definitions, they often mean "if and only if," which adds another layer of complexity to the language.
 x??
@@ -459,7 +442,7 @@ The text highlights the misuse of "if" in mathematical definitions, explaining t
 
 :p How does the text differentiate between "if" and "if and only if" in mathematical contexts?
 ??x
-In mathematical contexts, the text points out that when we use "if," it often means "if and only if." For example, a statement like "n is even if \(n = 2k\) for some \(k \in \mathbb{Z}\)" actually means that \(n\) being even is equivalent to there existing an integer \(k\) such that \(n = 2k\).
+In mathematical contexts, the text points out that when we use "if," it often means "if and only if." For example, a statement like "n is even if $n = 2k $ for some$k \in \mathbb{Z}$" actually means that $ n$being even is equivalent to there existing an integer $ k$such that $ n = 2k$.
 
 This distinction is important because it implies a two-way relationship: both conditions must hold, rather than just one direction.
 x??
@@ -486,17 +469,17 @@ Background context: In logic, an implication (P → Q) states that if P is true,
 #### Density of Rational Numbers
 Background context: The set of rational numbers (Q) is dense in the real line. For any two distinct rational numbers x and y, there exists another rational number z such that x < z < y.
 
-:p Prove that for all \( x, y \in \mathbb{Q} \), there exists some \( z \in \mathbb{Q} \) such that \( x < z < y \).
+:p Prove that for all $x, y \in \mathbb{Q}$, there exists some $ z \in \mathbb{Q}$such that $ x < z < y$.
 ??x
-To prove this, consider the rational numbers \( x \) and \( y \) with \( x < y \). We can choose \( z = \frac{x + y}{2} \).
+To prove this, consider the rational numbers $x $ and$y $ with$ x < y $. We can choose $ z = \frac{x + y}{2}$.
 
-Since both \( x \) and \( y \) are rational, their sum \( x + y \) is also rational. Dividing a rational number by 2 results in another rational number, so \( z \) is rational.
+Since both $x $ and$y $ are rational, their sum$ x + y $ is also rational. Dividing a rational number by 2 results in another rational number, so $z$ is rational.
 
-To show that \( x < z < y \):
-- Since \( x < y \), we have \( 2x < x + y \). Dividing both sides by 2 gives \( x < \frac{x + y}{2} \).
-- Similarly, \( x + y < 2y \) implies \( \frac{x + y}{2} < y \).
+To show that $x < z < y$:
+- Since $x < y $, we have $2x < x + y $. Dividing both sides by 2 gives $ x < \frac{x + y}{2}$.
+- Similarly, $x + y < 2y $ implies$\frac{x + y}{2} < y$.
 
-Thus, \( x < z < y \), and we have found a rational number \( z \) between any two distinct rational numbers \( x \) and \( y \).
+Thus, $x < z < y $, and we have found a rational number $ z $ between any two distinct rational numbers $ x $ and $ y$.
 
 ```java
 // Pseudocode to demonstrate the logic
@@ -511,13 +494,13 @@ public boolean findRationalBetween(double x, double y) {
 ---
 
 #### Fermat’s Last Theorem and Goldbach’s Conjecture
-Background context: Fermat’s Last Theorem states that no three positive integers a, b, and c can satisfy the equation \( a^n + b^n = c^n \) for any integer value of n greater than 2. It was proven by Andrew Wiles in 1994.
+Background context: Fermat’s Last Theorem states that no three positive integers a, b, and c can satisfy the equation $a^n + b^n = c^n$ for any integer value of n greater than 2. It was proven by Andrew Wiles in 1994.
 
 Goldbach’s Conjecture posits that every even integer greater than 2 can be expressed as the sum of two prime numbers. Despite extensive testing, this conjecture remains unproven.
 
 :p Write down Fermat’s Last Theorem and Goldbach’s Conjecture.
 ??x
-- Fermat’s Last Theorem: There are no three positive integers a, b, c such that \( a^n + b^n = c^n \) for any integer value of n greater than 2.
+- Fermat’s Last Theorem: There are no three positive integers a, b, c such that $a^n + b^n = c^n$ for any integer value of n greater than 2.
 - Goldbach’s Conjecture: Every even integer greater than 2 can be expressed as the sum of two prime numbers.
 
 ??x
@@ -529,17 +512,17 @@ Background context: A statement is a sentence that is either true or false, whil
 :p Convert each of the following into a statement or open sentence: 
 (a) The number 27 is both odd and is divisible by 3.
 (b) Either x = 0 or y = 0.
-(c) \( x \neq y \).
-(d) \( x < y \).
+(c) $x \neq y$.
+(d) $x < y$.
 ??x
 - (a) "The number 27 is both odd and is divisible by 3." 
-  - This can be written as a statement: \( P \land Q \), where \( P = 27 \) is odd, and \( Q = 27 \) is divisible by 3.
+  - This can be written as a statement: $P \land Q $, where $ P = 27 $ is odd, and $ Q = 27$ is divisible by 3.
 - (b) "Either x = 0 or y = 0."
-  - This is an open sentence: \( x = 0 \lor y = 0 \).
-- (c) \( x \neq y \).
-  - This is an open sentence: \( x \neq y \).
-- (d) \( x < y \).
-  - This is an open sentence: \( x < y \).
+  - This is an open sentence: $x = 0 \lor y = 0$.
+- (c) $x \neq y$.
+  - This is an open sentence: $x \neq y$.
+- (d) $x < y$.
+  - This is an open sentence: $x < y$.
 
 ??x
 ---
@@ -548,18 +531,10 @@ Background context: A statement is a sentence that is either true or false, whil
 Background context: To prove logical equivalences, construct truth tables for the expressions and compare them.
 
 :p Construct truth tables to prove the following logical equivalences:
-(a) \( (\neg P \land \neg Q) \land Q \)
-(b) \( \neg(\neg P \land Q) \)
-(c) \( \neg(P \land \neg Q) \land \neg P \)
-(d) \( \neg(\neg P \land \neg Q) \)
-(e) \( (P \lor Q) \land (\neg P \land \neg Q) \)
-(f) \( (P \land Q) \lor \neg R \)
-(g) \( (P \land Q) \land (P \land R) \)
-(h) \( \neg(P) \land Q \)
-(i) \( P \land (Q \land R) \)
+(a) $(\neg P \land \neg Q) \land Q $(b)$\neg(\neg P \land Q)$(c)$\neg(P \land \neg Q) \land \neg P $(d)$\neg(\neg P \land \neg Q)$(e)$(P \lor Q) \land (\neg P \land \neg Q)$(f)$(P \land Q) \lor \neg R $(g)$(P \land Q) \land (P \land R)$(h)$\neg(P) \land Q $(i)$ P \land (Q \land R)$
 
 ??x
-- (a) \( (\neg P \land \neg Q) \land Q \):
+- (a) $(\neg P \land \neg Q) \land Q$:
   - Truth Table:
     ```markdown
     P | Q | ¬P | ¬Q | (¬P ∧ ¬Q) | (¬P ∧ ¬Q) ∧ Q
@@ -570,7 +545,7 @@ Background context: To prove logical equivalences, construct truth tables for th
      F | F | T  | T  |   T       |      F
     ```
 
-- (b) \( \neg(\neg P \land Q) \):
+- (b) $\neg(\neg P \land Q)$:
   - Truth Table:
     ```markdown
     P | Q | ¬P | ¬Q | (¬P ∧ Q) | ¬(¬P ∧ Q)
@@ -581,7 +556,7 @@ Background context: To prove logical equivalences, construct truth tables for th
      F | F | T  | T  |   T      |    F
     ```
 
-- (c) \( \neg(P \land \neg Q) \land \neg P \):
+- (c) $\neg(P \land \neg Q) \land \neg P$:
   - Truth Table:
     ```markdown
     P | Q | ¬P | ¬Q | (¬Q) | (P ∧ ¬Q) | ¬(P ∧ ¬Q) | ¬(P ∧ ¬Q) ∧ ¬P
@@ -592,7 +567,7 @@ Background context: To prove logical equivalences, construct truth tables for th
      F | F | T  | T  |  T   |    F     |     T      |       F
     ```
 
-- (d) \( \neg(\neg P \land \neg Q) \):
+- (d) $\neg(\neg P \land \neg Q)$:
   - Truth Table:
     ```markdown
     P | Q | ¬P | ¬Q | (¬P ∧ ¬Q) | ¬(¬P ∧ ¬Q)
@@ -603,7 +578,7 @@ Background context: To prove logical equivalences, construct truth tables for th
      F | F | T  | T  |   T      |    F
     ```
 
-- (e) \( (P \lor Q) \land (\neg P \land \neg Q) \):
+- (e) $(P \lor Q) \land (\neg P \land \neg Q)$:
   - Truth Table:
     ```markdown
     P | Q | ¬P | ¬Q | (P ∨ Q) | (¬P ∧ ¬Q) | (P ∨ Q) ∧ (¬P ∧ ¬Q)
@@ -614,7 +589,7 @@ Background context: To prove logical equivalences, construct truth tables for th
      F | F | T  | T  |   F    |   T      |       F
     ```
 
-- (f) \( (P \land Q) \lor \neg R \):
+- (f) $(P \land Q) \lor \neg R$:
   - Truth Table:
     ```markdown
     P | Q | R | ¬R | (P ∧ Q) | (P ∧ Q) ∨ ¬R
@@ -629,7 +604,7 @@ Background context: To prove logical equivalences, construct truth tables for th
      F | F | F | T   |   F    |      T
     ```
 
-- (g) \( (P \land Q) \land (P \land R) \):
+- (g) $(P \land Q) \land (P \land R)$:
   - Truth Table:
     ```markdown
     P | Q | R | (P ∧ Q) | (P ∧ R) | (P ∧ Q) ∧ (P ∧ R)
@@ -644,7 +619,7 @@ Background context: To prove logical equivalences, construct truth tables for th
      F | F | F |   F    |   F    |      F
     ```
 
-- (h) \( \neg(P) \land Q \):
+- (h) $\neg(P) \land Q$:
   - Truth Table:
     ```markdown
     P | Q | ¬P | ¬P ∧ Q
@@ -655,7 +630,7 @@ Background context: To prove logical equivalences, construct truth tables for th
      F | F | T  |  F
     ```
 
-- (i) \( P \land (Q \land R) \):
+- (i) $P \land (Q \land R)$:
   - Truth Table:
     ```markdown
     P | Q | R | (Q ∧ R) | P ∧ (Q ∧ R)
@@ -683,7 +658,7 @@ Background context: The motto of Oceania in George Orwell's novel "1984" consist
 
 ??x
 - (a) "War is Peace":
-  - Truth Table for \( P \land Q \):
+  - Truth Table for $P \land Q$:
     ```markdown
     P | Q 
     --|--
@@ -693,7 +668,7 @@ Background context: The motto of Oceania in George Orwell's novel "1984" consist
   - This statement is logically inconsistent since both parts cannot be true simultaneously.
 
 - (b) "Freedom is Slavery":
-  - Truth Table for \( P \land Q \):
+  - Truth Table for $P \land Q$:
     ```markdown
     P | Q 
     --|--
@@ -703,7 +678,7 @@ Background context: The motto of Oceania in George Orwell's novel "1984" consist
   - This statement is also logically inconsistent for the same reason as above.
 
 - (c) "Ignorance is Strength":
-  - Truth Table for \( P \land Q \):
+  - Truth Table for $P \land Q$:
     ```markdown
     P | Q 
     --|--
@@ -731,7 +706,7 @@ Background context: The motto of Oceania in George Orwell's novel "1984" consist
      T| F
      F| T
     ```
-  - This statement can be represented as \( P \land \neg Q \):
+  - This statement can be represented as $P \land \neg Q$:
     - When P = True and Q = False, the statement "War is Peace" holds true.
     - When P = False and Q = True, the statement "War is not Peace" holds true.
 
@@ -743,7 +718,7 @@ Background context: The motto of Oceania in George Orwell's novel "1984" consist
      T| F
      F| T
     ```
-  - This statement can be represented as \( P \land \neg Q \):
+  - This statement can be represented as $P \land \neg Q$:
     - When P = True and Q = False, the statement "Freedom is not Slavery" holds true.
     - When P = False and Q = True, the statement "Freedom is Slavery" holds true.
 
@@ -754,9 +729,9 @@ Background context: The motto of Oceania in George Orwell's novel "1984" consist
 #### Logical Equivalence A
 Logical equivalence refers to statements that are always true under the same conditions. We will check each pair of logical expressions to see if they are equivalent by converting them into simpler forms or using truth tables.
 
-:p Explain why \(P \leftrightarrow \neg(\neg P)\) is a tautology.
+:p Explain why $P \leftrightarrow \neg(\neg P)$ is a tautology.
 ??x
-The statement \(P \leftrightarrow \neg(\neg P)\) is always true. This can be shown using the double negation law, which states that \(\neg(\neg P) \equiv P\). Therefore, \(P \leftrightarrow \neg(\neg P)\) simplifies to \(P \leftrightarrow P\), which is a tautology because it is always true.
+The statement $P \leftrightarrow \neg(\neg P)$ is always true. This can be shown using the double negation law, which states that $\neg(\neg P) \equiv P$. Therefore,$ P \leftrightarrow \neg(\neg P)$simplifies to $ P \leftrightarrow P$, which is a tautology because it is always true.
 
 ```java
 // Example code to demonstrate logical equivalence in Java
@@ -771,11 +746,11 @@ x??
 ---
 
 #### Implication and Equivalence B
-Implication and equivalence are key concepts in logic. The statement \((P \rightarrow Q) \leftrightarrow (\neg P \vee Q)\) is an equivalence, meaning it holds true for all possible truth values of \(P\) and \(Q\).
+Implication and equivalence are key concepts in logic. The statement $(P \rightarrow Q) \leftrightarrow (\neg P \vee Q)$ is an equivalence, meaning it holds true for all possible truth values of $P$ and $Q$.
 
-:p Explain the logical structure of \( (P \rightarrow Q) \leftrightarrow (\neg P \vee Q) \).
+:p Explain the logical structure of $(P \rightarrow Q) \leftrightarrow (\neg P \vee Q)$.
 ??x
-The statement \( (P \rightarrow Q) \leftrightarrow (\neg P \vee Q) \) is a tautology because it expresses that an implication \(P \rightarrow Q\) is logically equivalent to the disjunction of the negation of \(P\) and \(Q\). This can be verified by constructing a truth table or by understanding that if \(P\) is false, then \(P \rightarrow Q\) is true regardless of \(Q\), which aligns with \(\neg P \vee Q\) being true. If \(P\) is true, then \(Q\) must also be true for the implication to hold, again matching \(\neg P \vee Q\).
+The statement $(P \rightarrow Q) \leftrightarrow (\neg P \vee Q)$ is a tautology because it expresses that an implication $ P \rightarrow Q $ is logically equivalent to the disjunction of the negation of $P$ and $Q$. This can be verified by constructing a truth table or by understanding that if $ P$is false, then $ P \rightarrow Q$is true regardless of $ Q$, which aligns with $\neg P \vee Q $ being true. If $ P $ is true, then $ Q $ must also be true for the implication to hold, again matching $\neg P \vee Q$.
 
 ```java
 // Example code to demonstrate equivalence in Java
@@ -795,26 +770,22 @@ Quantifiers are used to express statements about all or some elements of a set. 
 :p Translate the sentence "Every natural number, when squared, remains a natural number" into symbolic logic.
 ??x
 The statement "Every natural number, when squared, remains a natural number" translates to:
-\[
-\forall x (x \in \mathbb{N} \rightarrow x^2 \in \mathbb{N})
-\]
+$$\forall x (x \in \mathbb{N} \rightarrow x^2 \in \mathbb{N})$$
 
-This means that for all \(x\) in the set of natural numbers \(\mathbb{N}\), if \(x\) is a natural number, then \(x^2\) is also a natural number.
+This means that for all $x $ in the set of natural numbers$\mathbb{N}$, if $ x$is a natural number, then $ x^2$ is also a natural number.
 x??
 
 ---
 
 #### Negation D
-Negation involves changing the truth value of a statement. The negation of "There exists some \(n \in \mathbb{N}\) such that \(3n + 4 = 6n + 13\)" translates to a universal statement.
+Negation involves changing the truth value of a statement. The negation of "There exists some $n \in \mathbb{N}$ such that $3n + 4 = 6n + 13$" translates to a universal statement.
 
-:p What is the negation of the sentence "There exists some \(n \in \mathbb{N}\) such that \(3n + 4 = 6n + 13\)"?
+:p What is the negation of the sentence "There exists some $n \in \mathbb{N}$ such that $3n + 4 = 6n + 13$"?
 ??x
-The negation of "There exists some \(n \in \mathbb{N}\) such that \(3n + 4 = 6n + 13\)" is:
-\[
-\forall n (n \in \mathbb{N} \rightarrow 3n + 4 \neq 6n + 13)
-\]
+The negation of "There exists some $n \in \mathbb{N}$ such that $3n + 4 = 6n + 13$" is:
+$$\forall n (n \in \mathbb{N} \rightarrow 3n + 4 \neq 6n + 13)$$
 
-This means that for all natural numbers \(n\), it is not the case that \(3n + 4 = 6n + 13\).
+This means that for all natural numbers $n $, it is not the case that$3n + 4 = 6n + 13$.
 x??
 
 ---
@@ -822,9 +793,9 @@ x??
 #### Tautologies E
 A tautology is a statement that is always true. We can determine if an expression is a tautology by constructing its truth table.
 
-:p Determine whether \(\neg(P \wedge \neg P)\) is a tautology.
+:p Determine whether $\neg(P \wedge \neg P)$ is a tautology.
 ??x
-The statement \(\neg(P \wedge \neg P)\) is a tautology because \(P \wedge \neg P\) is always false (a contradiction), and the negation of a contradiction is always true. This can be verified through a truth table.
+The statement $\neg(P \wedge \neg P)$ is a tautology because $P \wedge \neg P$ is always false (a contradiction), and the negation of a contradiction is always true. This can be verified through a truth table.
 
 ```java
 // Example code to demonstrate tautology in Java
@@ -844,21 +815,19 @@ Truth value determination involves checking the validity of a statement under gi
 :p Translate the sentence "Not every integer has a square root in the reals" into symbolic logic.
 ??x
 The statement "Not every integer has a square root in the reals" translates to:
-\[
-\neg \forall x (x \in \mathbb{Z} \rightarrow \exists y (y \in \mathbb{R}, y^2 = x))
-\]
+$$\neg \forall x (x \in \mathbb{Z} \rightarrow \exists y (y \in \mathbb{R}, y^2 = x))$$
 
-This means that there exists at least one integer \(x\) for which no real number \(y\) satisfies the equation \(y^2 = x\).
+This means that there exists at least one integer $x $ for which no real number$y $ satisfies the equation $ y^2 = x$.
 x??
 
 ---
 
 #### Logical Equivalence G
-Logical equivalence is a fundamental concept in logic. The statement \((P \rightarrow Q) \leftrightarrow (P \wedge (\neg P \vee Q))\) can be verified through logical transformations.
+Logical equivalence is a fundamental concept in logic. The statement $(P \rightarrow Q) \leftrightarrow (P \wedge (\neg P \vee Q))$ can be verified through logical transformations.
 
-:p Explain why \((P \rightarrow Q) \leftrightarrow (P \wedge (\neg P \vee Q))\) is a tautology.
+:p Explain why $(P \rightarrow Q) \leftrightarrow (P \wedge (\neg P \vee Q))$ is a tautology.
 ??x
-The statement \((P \rightarrow Q) \leftrightarrow (P \wedge (\neg P \vee Q))\) can be verified by understanding the logical equivalence. The implication \(P \rightarrow Q\) means that if \(P\) is true, then \(Q\) must also be true. This can be rewritten as \(P \wedge (\neg P \vee Q)\), which holds because when \(P\) is true, \(\neg P\) is false, making the disjunction \(\neg P \vee Q\) equivalent to \(Q\).
+The statement $(P \rightarrow Q) \leftrightarrow (P \wedge (\neg P \vee Q))$ can be verified by understanding the logical equivalence. The implication $P \rightarrow Q$ means that if $P$ is true, then $Q$ must also be true. This can be rewritten as $P \wedge (\neg P \vee Q)$, which holds because when $ P$is true,$\neg P $ is false, making the disjunction$\neg P \vee Q $ equivalent to$Q$.
 
 ```java
 // Example code to demonstrate logical equivalence in Java
@@ -878,11 +847,9 @@ Quantifiers are used to make general statements about elements of a set. The sta
 :p Translate the sentence "There exists a smallest natural number" into symbolic logic.
 ??x
 The statement "There exists a smallest natural number" translates to:
-\[
-\exists x (x \in \mathbb{N} \wedge \forall y (y \in \mathbb{N} \rightarrow x \leq y))
-\]
+$$\exists x (x \in \mathbb{N} \wedge \forall y (y \in \mathbb{N} \rightarrow x \leq y))$$
 
-This means that there is some \(x\) in the set of natural numbers such that for all \(y\) in the set of natural numbers, \(x \leq y\).
+This means that there is some $x $ in the set of natural numbers such that for all$y $ in the set of natural numbers,$x \leq y$.
 x??
 
 ---
@@ -893,21 +860,19 @@ Quantifiers are used to make general statements about elements of a set. The sta
 :p Translate the sentence "There exists a largest negative integer" into symbolic logic.
 ??x
 The statement "There exists a largest negative integer" translates to:
-\[
-\exists x (x \in \mathbb{Z} \wedge x < 0 \wedge \forall y (y \in \mathbb{Z} \rightarrow y < 0 \rightarrow y \leq x))
-\]
+$$\exists x (x \in \mathbb{Z} \wedge x < 0 \wedge \forall y (y \in \mathbb{Z} \rightarrow y < 0 \rightarrow y \leq x))$$
 
-This means that there is some \(x\) in the set of integers such that \(x\) is negative and for all other \(y\) in the set of integers, if \(y\) is also negative, then \(y \leq x\).
+This means that there is some $x $ in the set of integers such that$x $ is negative and for all other $ y $ in the set of integers, if $ y $ is also negative, then $ y \leq x$.
 x??
 
 ---
 
 #### Logical Equivalence J
-Logical equivalence involves comparing two expressions to see if they are always true under the same conditions. The statement \((P \rightarrow Q) \leftrightarrow (P \wedge (\neg P \vee Q))\) can be verified through logical transformations.
+Logical equivalence involves comparing two expressions to see if they are always true under the same conditions. The statement $(P \rightarrow Q) \leftrightarrow (P \wedge (\neg P \vee Q))$ can be verified through logical transformations.
 
-:p Explain why \((P \rightarrow Q) \leftrightarrow (P \wedge (\neg P \vee Q))\) is a tautology.
+:p Explain why $(P \rightarrow Q) \leftrightarrow (P \wedge (\neg P \vee Q))$ is a tautology.
 ??x
-The statement \((P \rightarrow Q) \leftrightarrow (P \wedge (\neg P \vee Q))\) can be verified by understanding the logical equivalence. The implication \(P \rightarrow Q\) means that if \(P\) is true, then \(Q\) must also be true. This can be rewritten as \(P \wedge (\neg P \vee Q)\), which holds because when \(P\) is true, \(\neg P\) is false, making the disjunction \(\neg P \vee Q\) equivalent to \(Q\).
+The statement $(P \rightarrow Q) \leftrightarrow (P \wedge (\neg P \vee Q))$ can be verified by understanding the logical equivalence. The implication $P \rightarrow Q$ means that if $P$ is true, then $Q$ must also be true. This can be rewritten as $P \wedge (\neg P \vee Q)$, which holds because when $ P$is true,$\neg P $ is false, making the disjunction$\neg P \vee Q $ equivalent to$Q$.
 
 ```java
 // Example code to demonstrate logical equivalence in Java
@@ -927,11 +892,9 @@ Quantifiers are used to make general statements about elements of a set. The sta
 :p Translate the sentence "For every real number, when multiplied by zero, equals 0" into symbolic logic.
 ??x
 The statement "For every real number, when multiplied by zero, equals 0" translates to:
-\[
-\forall x (x \in \mathbb{R} \rightarrow x \cdot 0 = 0)
-\]
+$$\forall x (x \in \mathbb{R} \rightarrow x \cdot 0 = 0)$$
 
-This means that for all \(x\) in the set of real numbers, multiplying \(x\) by 0 results in 0.
+This means that for all $x $ in the set of real numbers, multiplying$x$ by 0 results in 0.
 x??
 
 ---
@@ -942,21 +905,19 @@ Quantifiers are used to make general statements about elements of a set. The sta
 :p Translate the sentence "For every natural number, when squared remains a natural number" into symbolic logic.
 ??x
 The statement "For every natural number, when squared remains a natural number" translates to:
-\[
-\forall x (x \in \mathbb{N} \rightarrow x^2 \in \mathbb{N})
-\]
+$$\forall x (x \in \mathbb{N} \rightarrow x^2 \in \mathbb{N})$$
 
-This means that for all \(x\) in the set of natural numbers \(\mathbb{N}\), if \(x\) is a natural number, then \(x^2\) is also a natural number.
+This means that for all $x $ in the set of natural numbers$\mathbb{N}$, if $ x$is a natural number, then $ x^2$ is also a natural number.
 x??
 
 ---
 
 #### Logical Equivalence M
-Logical equivalence involves comparing two expressions to see if they are always true under the same conditions. The statement \((P \rightarrow Q) \leftrightarrow ((\neg P \vee Q) \wedge (\neg Q \vee P))\) can be verified through logical transformations.
+Logical equivalence involves comparing two expressions to see if they are always true under the same conditions. The statement $(P \rightarrow Q) \leftrightarrow ((\neg P \vee Q) \wedge (\neg Q \vee P))$ can be verified through logical transformations.
 
-:p Explain why \((P \rightarrow Q) \leftrightarrow ((\neg P \vee Q) \wedge (\neg Q \vee P))\) is a tautology.
+:p Explain why $(P \rightarrow Q) \leftrightarrow ((\neg P \vee Q) \wedge (\neg Q \vee P))$ is a tautology.
 ??x
-The statement \((P \rightarrow Q) \leftrightarrow ((\neg P \vee Q) \wedge (\neg Q \vee P))\) can be verified by understanding the logical equivalence. The implication \(P \rightarrow Q\) means that if \(P\) is true, then \(Q\) must also be true. This can be rewritten as a conjunction of two parts: one where \(\neg P \vee Q\) (if not \(P\), then \(Q\)) and another where \(\neg Q \vee P\) (if not \(Q\), then \(P\)). Together, these form the biconditional statement.
+The statement $(P \rightarrow Q) \leftrightarrow ((\neg P \vee Q) \wedge (\neg Q \vee P))$ can be verified by understanding the logical equivalence. The implication $P \rightarrow Q$ means that if $P$ is true, then $Q$ must also be true. This can be rewritten as a conjunction of two parts: one where $\neg P \vee Q$(if not $ P$, then $ Q$) and another where $\neg Q \vee P $(if not $ Q$, then $ P$). Together, these form the biconditional statement.
 
 ```java
 // Example code to demonstrate logical equivalence in Java
@@ -976,11 +937,9 @@ Quantifiers are used to make general statements about elements of a set. The sta
 :p Translate the sentence "For every real number, there exists some natural number that is less than or equal to it" into symbolic logic.
 ??x
 The statement "For every real number, there exists some natural number that is less than or equal to it" translates to:
-\[
-\forall x (x \in \mathbb{R} \rightarrow \exists y (y \in \mathbb{N}, y \leq x))
-\]
+$$\forall x (x \in \mathbb{R} \rightarrow \exists y (y \in \mathbb{N}, y \leq x))$$
 
-This means that for all \(x\) in the set of real numbers, there exists some \(y\) in the set of natural numbers such that \(y \leq x\).
+This means that for all $x $ in the set of real numbers, there exists some$y $ in the set of natural numbers such that $ y \leq x$.
 x??
 
 ---
@@ -991,11 +950,9 @@ Quantifiers are used to make general statements about elements of a set. The sta
 :p Translate the sentence "For every natural number, there exists some rational number that is less than or equal to it" into symbolic logic.
 ??x
 The statement "For every natural number, there exists some rational number that is less than or equal to it" translates to:
-\[
-\forall x (x \in \mathbb{N} \rightarrow \exists y (y \in \mathbb{Q}, y \leq x))
-\]
+$$\forall x (x \in \mathbb{N} \rightarrow \exists y (y \in \mathbb{Q}, y \leq x))$$
 
-This means that for all \(x\) in the set of natural numbers \(\mathbb{N}\), there exists some \(y\) in the set of rational numbers such that \(y \leq x\).
+This means that for all $x $ in the set of natural numbers$\mathbb{N}$, there exists some $ y$in the set of rational numbers such that $ y \leq x$.
 x??
 
 ---
@@ -1006,11 +963,9 @@ Quantifiers are used to make general statements about elements of a set. The sta
 :p Translate the sentence "For every real number, when squared remains positive" into symbolic logic.
 ??x
 The statement "For every real number, when squared remains positive" translates to:
-\[
-\forall x (x \in \mathbb{R} \rightarrow x^2 > 0)
-\]
+$$\forall x (x \in \mathbb{R} \rightarrow x^2 > 0)$$
 
-This means that for all \(x\) in the set of real numbers, squaring \(x\) results in a positive number. Note that this statement is not true because if \(x = 0\), then \(x^2 = 0\).
+This means that for all $x $ in the set of real numbers, squaring$x $ results in a positive number. Note that this statement is not true because if $ x = 0 $, then$ x^2 = 0$.
 x??
 
 ---
@@ -1021,11 +976,9 @@ Quantifiers are used to make general statements about elements of a set. The sta
 :p Translate the sentence "For every natural number, when squared remains non-negative" into symbolic logic.
 ??x
 The statement "For every natural number, when squared remains non-negative" translates to:
-\[
-\forall x (x \in \mathbb{N} \rightarrow x^2 \geq 0)
-\]
+$$\forall x (x \in \mathbb{N} \rightarrow x^2 \geq 0)$$
 
-This means that for all \(x\) in the set of natural numbers \(\mathbb{N}\), squaring \(x\) results in a non-negative number.
+This means that for all $x $ in the set of natural numbers$\mathbb{N}$, squaring $ x$ results in a non-negative number.
 x??
 
 ---

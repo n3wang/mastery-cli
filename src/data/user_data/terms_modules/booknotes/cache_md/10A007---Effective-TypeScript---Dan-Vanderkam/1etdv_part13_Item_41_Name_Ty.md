@@ -209,7 +209,7 @@ Background context: The text explains how to use tools like `jq` and `json-schem
 ??x
 To extract the schema definition for "CreateCommentRequest" from an OpenAPI JSON file named `schema.json`, you can use the following command:
 ```bash
-$ jq '.components.schemas.CreateCommentRequest' schema.json > comment.json
+$jq '.components.schemas.CreateCommentRequest' schema.json > comment.json
 ```
 This command uses `jq` to filter and output only the relevant schema section.
 ??x
@@ -222,8 +222,7 @@ Background context: The text demonstrates how to generate a TypeScript interface
 :p How can you generate a TypeScript interface from a JSON schema file?
 ??x
 You can use the `json-schema-to-typescript` tool to generate a TypeScript interface. For example, if your JSON schema is in `comment.json`, you would run:
-```bash
-$ npx json-schema-to-typescript comment.json > comment.ts
+```bash$ npx json-schema-to-typescript comment.json > comment.ts
 ```
 This command generates a TypeScript file named `comment.ts` that contains the appropriate interfaces.
 ??x

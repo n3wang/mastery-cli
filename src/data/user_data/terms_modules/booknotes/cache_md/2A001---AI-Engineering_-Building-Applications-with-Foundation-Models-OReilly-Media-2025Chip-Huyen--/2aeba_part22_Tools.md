@@ -14,13 +14,11 @@ Background context: The passage discusses how agents, when performing tasks invo
 The increase in the number of steps reduces the overall accuracy exponentially. If each step has a 95% success rate, over 10 steps, the cumulative accuracy drops to approximately 60%, and over 100 steps, it decreases to only about 0.6%.
 
 This can be calculated using the formula:
-\[ \text{Overall Accuracy} = (\text{Accuracy per Step})^{\text{Number of Steps}} \]
+$$\text{Overall Accuracy} = (\text{Accuracy per Step})^{\text{Number of Steps}}$$
 
 For example, with a step accuracy of 95% (or 0.95):
-\[ \text{Overall Accuracy after 10 steps} = 0.95^{10} \approx 0.60 \]
-\[ \text{Overall Accuracy after 100 steps} = 0.95^{100} \approx 0.006 \]
-
-x??
+$$\text{Overall Accuracy after 10 steps} = 0.95^{10} \approx 0.60$$
+$$\text{Overall Accuracy after 100 steps} = 0.95^{100} \approx 0.006$$x??
 
 ---
 
@@ -126,7 +124,7 @@ Planning involves generating a sequence of steps to achieve a goal, while execut
 :p What is decoupling planning from execution in the context of agents?
 ??x
 Decoupling planning and execution means first generating potential plans for how to achieve a goal, then validating these plans before executing them. This approach helps ensure that only reasonable and feasible plans are executed, saving time and resources.
-For example, if an agent is tasked with finding companies without revenue but having raised at least $1 billion, it might generate a plan that first searches for all such companies (Option 1) or filters by raised capital then checks for non-revenue status (Option 2). Validating the plans using heuristics ensures more efficient execution.
+For example, if an agent is tasked with finding companies without revenue but having raised at least$1 billion, it might generate a plan that first searches for all such companies (Option 1) or filters by raised capital then checks for non-revenue status (Option 2). Validating the plans using heuristics ensures more efficient execution.
 ```python
 # Pseudocode to demonstrate plan generation and validation
 def validate_plan(plan):

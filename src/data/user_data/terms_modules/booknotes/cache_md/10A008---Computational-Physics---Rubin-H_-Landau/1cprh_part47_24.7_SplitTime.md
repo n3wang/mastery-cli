@@ -18,7 +18,7 @@ x??
 
 
 #### Plotting Time Delay vs Wave Packet Momentum
-Background context on plotting the relationship between time delay and momentum to look for indications of chaos such as sharp peaks or rapid changes. The literature suggests high degrees of multiple scatterings occur when \( \frac{a}{R} \approx 6.245 \).
+Background context on plotting the relationship between time delay and momentum to look for indications of chaos such as sharp peaks or rapid changes. The literature suggests high degrees of multiple scatterings occur when $\frac{a}{R} \approx 6.245$.
 
 :p What should be plotted to look for indications of chaos in wave packets?
 ??x
@@ -29,11 +29,11 @@ x??
 
 
 #### Finite Difference Time Domain (FDTD) Simulation for Electromagnetic Waves
-Background context on using FDTD simulations to model electromagnetic waves, emphasizing the coupling between \( E \) and \( H \) fields where variations in one vector generate the other. The initial conditions are given as sinusoidal spatial variation.
+Background context on using FDTD simulations to model electromagnetic waves, emphasizing the coupling between $E $ and$H$ fields where variations in one vector generate the other. The initial conditions are given as sinusoidal spatial variation.
 
 :p What is the FDTD method used for simulating electromagnetic waves?
 ??x
-The Finite Difference Time Domain (FDTD) method is used to simulate electromagnetic waves by approximating the time and space derivatives of the electric \( E \) and magnetic \( H \) fields using finite differences. The method involves updating the fields at each lattice point in both time and space steps.
+The Finite Difference Time Domain (FDTD) method is used to simulate electromagnetic waves by approximating the time and space derivatives of the electric $E $ and magnetic$H$ fields using finite differences. The method involves updating the fields at each lattice point in both time and space steps.
 x??
 
 ---
@@ -44,20 +44,13 @@ Background context on how Maxwell’s equations describe electromagnetic wave pr
 
 :p What are Maxwell's equations for describing the propagation of an electromagnetic wave in free space?
 ??x
-Maxwell's equations for describing the propagation of an electromagnetic wave in free space along the \( z \)-dimension can be written as:
-\[
-\nabla \cdot E = 0 \Rightarrow \frac{\partial Ex(z,t)}{\partial x} = 0,
-\]
-\[
-\nabla \cdot H = 0 \Rightarrow \frac{\partial Hy(z,t)}{\partial y} = 0,
-\]
-\[
-\frac{\partial E}{\partial t} + \frac{1}{\epsilon_0} \nabla \times H \Rightarrow \frac{\partial Ex(z,t)}{\partial t} = -\frac{1}{\epsilon_0} \frac{\partial Hy(z,t)}{\partial z},
-\]
-\[
-\frac{\partial H}{\partial t} - \frac{1}{\mu_0} \nabla \times E \Rightarrow \frac{\partial Hy(z,t)}{\partial t} = -\frac{1}{\mu_0} \frac{\partial Ex(z,t)}{\partial z}.
-\]
-These equations describe the interdependence of \( E \) and \( H \) fields as they propagate.
+Maxwell's equations for describing the propagation of an electromagnetic wave in free space along the $z$-dimension can be written as:
+$$\nabla \cdot E = 0 \Rightarrow \frac{\partial Ex(z,t)}{\partial x} = 0,$$
+$$\nabla \cdot H = 0 \Rightarrow \frac{\partial Hy(z,t)}{\partial y} = 0,$$
+$$\frac{\partial E}{\partial t} + \frac{1}{\epsilon_0} \nabla \times H \Rightarrow \frac{\partial Ex(z,t)}{\partial t} = -\frac{1}{\epsilon_0} \frac{\partial Hy(z,t)}{\partial z},$$
+$$\frac{\partial H}{\partial t} - \frac{1}{\mu_0} \nabla \times E \Rightarrow \frac{\partial Hy(z,t)}{\partial t} = -\frac{1}{\mu_0} \frac{\partial Ex(z,t)}{\partial z}.$$
+
+These equations describe the interdependence of $E $ and$H$ fields as they propagate.
 x??
 
 ---
@@ -69,13 +62,10 @@ Background context on solving coupled partial differential equations using centr
 :p How does the split-time FDTD method solve Maxwell's equations?
 ??x
 The split-time FDTD method solves Maxwell’s equations by approximating first derivatives using central differences. For instance:
-\[
-\frac{\partial E(z,t)}{\partial t} \approx \frac{E( z, t+\Delta t/2) - E( z, t-\Delta t/2)}{\Delta t},
-\]
-\[
-\frac{\partial E(z,t)}{\partial z} \approx \frac{E( z+\Delta z/2, t) - E( z-\Delta z/2, t)}{\Delta z}.
-\]
-These approximations are substituted into the equations to form an algorithm that advances the solution in time. The algorithm uses an interleaved lattice structure where electric fields \( E \) are determined at half-integer space steps and integer time steps, while magnetic fields \( H \) are determined at integer space steps and half-integer time steps.
+$$\frac{\partial E(z,t)}{\partial t} \approx \frac{E( z, t+\Delta t/2) - E( z, t-\Delta t/2)}{\Delta t},$$
+$$\frac{\partial E(z,t)}{\partial z} \approx \frac{E( z+\Delta z/2, t) - E( z-\Delta z/2, t)}{\Delta z}.$$
+
+These approximations are substituted into the equations to form an algorithm that advances the solution in time. The algorithm uses an interleaved lattice structure where electric fields $E $ are determined at half-integer space steps and integer time steps, while magnetic fields$H$ are determined at integer space steps and half-integer time steps.
 x??
 
 ---
@@ -86,11 +76,8 @@ Background context on renormalizing the electric fields to have the same dimensi
 
 :p Why is it useful to renormalize the electric fields?
 ??x
-Renormalizing the electric fields \( E \) by setting:
-\[
-\tilde{E} = \sqrt{\epsilon_0 \mu_0} E,
-\]
-helps in making the dimensions of the electric and magnetic fields consistent, simplifying the stability analysis of the algorithm. This renormalization ensures that both fields are on the same scale.
+Renormalizing the electric fields $E$ by setting:
+$$\tilde{E} = \sqrt{\epsilon_0 \mu_0} E,$$helps in making the dimensions of the electric and magnetic fields consistent, simplifying the stability analysis of the algorithm. This renormalization ensures that both fields are on the same scale.
 x??
 
 ---
@@ -100,27 +87,27 @@ x??
 
 #### Split-Time FDTD Algorithm for Electromagnetic Waves
 
-Background context: The provided text discusses the implementation of a split-time finite-difference time-domain (FDTD) algorithm for simulating electromagnetic wave propagation. Key components include the update equations for electric field \( \tilde{E}_{k, n+1/2}^x \) and magnetic field \( H_{k+1/2, n+1}^y \), as well as stability conditions derived from the Courant-Friedrichs-Lewy (CFL) condition. The speed of light in vacuum is denoted by \( c \), and the grid velocity ratio \( \beta = \frac{c \Delta z}{\Delta t} \).
+Background context: The provided text discusses the implementation of a split-time finite-difference time-domain (FDTD) algorithm for simulating electromagnetic wave propagation. Key components include the update equations for electric field $\tilde{E}_{k, n+1/2}^x $ and magnetic field$H_{k+1/2, n+1}^y $, as well as stability conditions derived from the Courant-Friedrichs-Lewy (CFL) condition. The speed of light in vacuum is denoted by$ c $, and the grid velocity ratio$\beta = \frac{c \Delta z}{\Delta t}$.
 
 Relevant formulas:
-\[ \tilde{E}_{k, n+1/2}^x = \tilde{E}_{k, n-1/2}^x + \beta (H_{k-1/2, n}^y - H_{k+1/2, n}^y), \]
-\[ H_{k+1/2, n+1}^y = H_{k+1/2, n}^y + \beta (\tilde{E}_{k, n+1/2}^x - \tilde{E}_{k+1, n+1/2}^x), \]
-\[ \beta = \frac{c \Delta z}{\Delta t}, \quad c = \sqrt{\frac{1}{\epsilon_0 \mu_0}}. \]
+$$\tilde{E}_{k, n+1/2}^x = \tilde{E}_{k, n-1/2}^x + \beta (H_{k-1/2, n}^y - H_{k+1/2, n}^y),$$
+$$
 
-The space step \( \Delta z \) and time step \( \Delta t \) must be chosen so that the algorithm remains stable. Typically, a minimum of 10 grid points per wavelength is required for stability:
+H_{k+1/2, n+1}^y = H_{k+1/2, n}^y + \beta (\tilde{E}_{k, n+1/2}^x - \tilde{E}_{k+1, n+1/2}^x),$$
+$$\beta = \frac{c \Delta z}{\Delta t}, \quad c = \sqrt{\frac{1}{\epsilon_0 \mu_0}}.$$
 
-\[ \Delta z \leq \frac{\lambda}{10}. \]
+The space step $\Delta z $ and time step$\Delta t$ must be chosen so that the algorithm remains stable. Typically, a minimum of 10 grid points per wavelength is required for stability:
+$$\Delta z \leq \frac{\lambda}{10}.$$
 
 Stability is also ensured by the Courant-Friedrichs-Lewy (CFL) condition, which limits the time step based on the speed of light and grid spacing:
-\[ \beta = \frac{c \Delta z}{\Delta t} \leq 1/2. \]
+$$\beta = \frac{c \Delta z}{\Delta t} \leq 1/2.$$
 
 Making the time step smaller improves precision but requires a simultaneous decrease in the space step to maintain stability.
 
-:p What is the relationship between the space step \( \Delta z \) and the wavelength \( \lambda \) for ensuring at least 10 grid points per wavelength?
+:p What is the relationship between the space step $\Delta z $ and the wavelength$\lambda$ for ensuring at least 10 grid points per wavelength?
 ??x
 To ensure that at least 10 grid points fit within one wavelength, we must set the condition:
-
-\[ \Delta z \leq \frac{\lambda}{10}. \]
+$$\Delta z \leq \frac{\lambda}{10}.$$
 
 This ensures sufficient spatial resolution to capture the details of the propagating wave.
 x??
@@ -133,16 +120,20 @@ x??
 Background context: The provided code example demonstrates a simple implementation of the FDTD algorithm for a 200-site lattice. Initial conditions are set as sinusoidal variations in both electric and magnetic fields, with periodic boundary conditions applied at the ends of the spatial region.
 
 Relevant formulas:
-\[ E_x(z,t=0) = 0.1 \sin\left(\frac{2\pi z}{100}\right), \]
-\[ H_y(z,t=0) = 0.1 \sin\left(\frac{2\pi z}{100}\right). \]
+$$
+
+E_x(z,t=0) = 0.1 \sin\left(\frac{2\pi z}{100}\right),$$
+$$
+
+H_y(z,t=0) = 0.1 \sin\left(\frac{2\pi z}{100}\right).$$
 
 The algorithm steps out in time, updating the fields based on the provided equations.
 
-:p What is the initial condition for the electric field \( E_x \) at \( t = 0 \)?
+:p What is the initial condition for the electric field $E_x $ at$t = 0$?
 ??x
-The initial condition for the electric field \( E_x \) at \( t = 0 \) is given by:
+The initial condition for the electric field $E_x $ at$t = 0$ is given by:
 
-\[ E_x(z,t=0) = 0.1 \sin\left(\frac{2\pi z}{100}\right). \]
+$$E_x(z,t=0) = 0.1 \sin\left(\frac{2\pi z}{100}\right).$$
 
 This represents a sinusoidal variation in the electric field with an amplitude of 0.1 and a spatial frequency corresponding to one complete wave over 100 grid points.
 x??
@@ -155,19 +146,16 @@ x??
 Background context: The stability condition for the FDTD algorithm is derived from the Courant-Friedrichs-Lewy (CFL) condition, ensuring that information does not propagate faster than the speed of light on the numerical grid.
 
 Relevant formulas:
-\[ \beta = \frac{c \Delta z}{\Delta t} \leq 1/2. \]
+$$\beta = \frac{c \Delta z}{\Delta t} \leq 1/2.$$
 
-The CFL condition ensures that the time step \( \Delta t \) is small enough relative to the spatial step \( \Delta z \):
+The CFL condition ensures that the time step $\Delta t $ is small enough relative to the spatial step$\Delta z$:
 
-\[ \Delta t \geq \frac{\Delta z}{2c}. \]
-
-:p What does the stability condition for the FDTD algorithm state?
+$$\Delta t \geq \frac{\Delta z}{2c}.$$:p What does the stability condition for the FDTD algorithm state?
 ??x
 The stability condition for the FDTD algorithm states that:
+$$\beta = \frac{c \Delta z}{\Delta t} \leq 1/2.$$
 
-\[ \beta = \frac{c \Delta z}{\Delta t} \leq 1/2. \]
-
-This ensures that the time step \( \Delta t \) is small enough such that information does not propagate faster than the speed of light on the numerical grid, maintaining stability.
+This ensures that the time step $\Delta t$ is small enough such that information does not propagate faster than the speed of light on the numerical grid, maintaining stability.
 x??
 
 ---
@@ -175,19 +163,18 @@ x??
 
 #### Courant-Friedrichs-Lewy (CFL) Condition
 
-Background context: The Courant-Friedrichs-Lewy (CFL) condition is a necessary and sufficient condition for ensuring the stability of the FDTD algorithm. It limits the time step \( \Delta t \) based on the spatial resolution \( \Delta z \) and the speed of light \( c \):
+Background context: The Courant-Friedrichs-Lewy (CFL) condition is a necessary and sufficient condition for ensuring the stability of the FDTD algorithm. It limits the time step $\Delta t $ based on the spatial resolution$\Delta z $ and the speed of light$c$:
 
-\[ \beta = \frac{c \Delta z}{\Delta t} \leq 1/2. \]
+$$\beta = \frac{c \Delta z}{\Delta t} \leq 1/2.$$
 
 Ensuring this condition helps maintain numerical stability in simulations.
 
 :p What is the Courant-Friedrichs-Lewy (CFL) condition for FDTD?
 ??x
 The Courant-Friedrichs-Lewy (CFL) condition for FDTD states that:
+$$\beta = \frac{c \Delta z}{\Delta t} \leq 1/2.$$
 
-\[ \beta = \frac{c \Delta z}{\Delta t} \leq 1/2. \]
-
-This ensures that the time step \( \Delta t \) is small enough such that information does not propagate faster than the speed of light on the numerical grid, maintaining stability.
+This ensures that the time step $\Delta t$ is small enough such that information does not propagate faster than the speed of light on the numerical grid, maintaining stability.
 x??
 
 ---
@@ -212,10 +199,10 @@ for (int k = 0; k < numCells - 1; k++) {
 Explanation:
 - `Ex` is the electric field array.
 - `numCells` is the number of cells in the lattice.
-- `beta` is defined as \( \frac{c \Delta z}{\Delta t} \).
+- `beta` is defined as $\frac{c \Delta z}{\Delta t}$.
 - The loop iterates over all cells except the last one, since periodic boundary conditions are applied at both ends.
 
-This pseudocode updates the electric field at position \( k \) and time step \( n + 1/2 \) based on the magnetic fields at neighboring positions.
+This pseudocode updates the electric field at position $k $ and time step$n + 1/2$ based on the magnetic fields at neighboring positions.
 x??
 
 ---
@@ -227,9 +214,9 @@ x??
 
 Background context: When simulating electromagnetic waves, periodic boundary conditions are often imposed to avoid artificial reflections at the spatial boundaries. This is particularly useful for waveguide simulations or when studying propagation over a large distance.
 
-:p How do you impose periodic boundary conditions on the fields \(Ex\) and \(Hy\)?
+:p How do you impose periodic boundary conditions on the fields $Ex $ and$Hy$?
 ??x
-To impose periodic boundary conditions, we assume that the values of the fields at the edges are wrapped around to the opposite edge. For instance, if the spatial domain has \(k = 0\) and \(k = x_{max} - 1\), the values can be considered as:
+To impose periodic boundary conditions, we assume that the values of the fields at the edges are wrapped around to the opposite edge. For instance, if the spatial domain has $k = 0 $ and$k = x_{max} - 1$, the values can be considered as:
 
 ```python
 # Example pseudocode for periodic boundary conditions
@@ -249,15 +236,13 @@ x??
 
 #### Courant Condition Testing
 
-Background context: The Courant condition is crucial for ensuring numerical stability in simulations of wave propagation. It involves checking the relationship between time step \(\Delta t\) and spatial step \(\Delta z\). For electromagnetic waves, it ensures that the information does not propagate faster than allowed by the speed of light.
+Background context: The Courant condition is crucial for ensuring numerical stability in simulations of wave propagation. It involves checking the relationship between time step $\Delta t $ and spatial step$\Delta z$. For electromagnetic waves, it ensures that the information does not propagate faster than allowed by the speed of light.
 
-:p How do you test the Courant condition using different values of \(\Delta z\) and \(\Delta t\)?
+:p How do you test the Courant condition using different values of $\Delta z $ and$\Delta t$?
 ??x
-To test the Courant condition, we simulate the system with varying time steps (\(\Delta t\)) and spatial steps (\(\Delta z\)). The stability of the solution depends on whether these parameters satisfy the Courant-Friedrichs-Lewy (CFL) condition:
+To test the Courant condition, we simulate the system with varying time steps ($\Delta t $) and spatial steps ($\Delta z$). The stability of the solution depends on whether these parameters satisfy the Courant-Friedrichs-Lewy (CFL) condition:
 
-\[ \frac{\Delta t}{\Delta z} < \frac{1}{c}, \]
-
-where \(c\) is the speed of light in the medium.
+$$\frac{\Delta t}{\Delta z} < \frac{1}{c},$$where $ c$ is the speed of light in the medium.
 
 For example, in Python, you could implement this by iterating over different values and checking for convergence or stability:
 
@@ -278,11 +263,11 @@ x??
 
 #### Pulse Propagation Verification
 
-Background context: The direction of pulse propagation can be verified by checking the initial conditions and how they evolve over time. For linearly polarized waves, the fields \(Ex\) and \(Hy\) should propagate in a specific direction based on their relative phases.
+Background context: The direction of pulse propagation can be verified by checking the initial conditions and how they evolve over time. For linearly polarized waves, the fields $Ex $ and$Hy$ should propagate in a specific direction based on their relative phases.
 
-:p How do you verify that pulses propagate both to the right and left with no initial \(H\) field?
+:p How do you verify that pulses propagate both to the right and left with no initial $H$ field?
 ??x
-To verify this, we set up an initial condition where only \(Ex\) has non-zero values:
+To verify this, we set up an initial condition where only $Ex$ has non-zero values:
 
 ```python
 # Example pseudocode for setting initial conditions
@@ -291,7 +276,7 @@ Ex[0, 0] = cos(t - z / c)  # Initial condition for Ex
 Hy[k, 0] = 0  # No initial H field
 ```
 
-The pulse will propagate to the right because \(Ex\) and \(Hy\) are in phase. To get pulses that also travel to the left, we need to introduce a relative phase difference between \(Ex\) and \(Hy\):
+The pulse will propagate to the right because $Ex $ and$Hy $ are in phase. To get pulses that also travel to the left, we need to introduce a relative phase difference between$Ex $ and$Hy$:
 
 ```python
 # Example pseudocode for setting initial conditions with relative phases
@@ -299,7 +284,7 @@ Ex[0, 0] = cos(t - z / c + phi_x)
 Hy[0, 0] = cos(t - z / c + phi_y)
 ```
 
-If \(\phi_x - \phi_y = \pi/2\), the pulse will propagate to both directions.
+If $\phi_x - \phi_y = \pi/2$, the pulse will propagate to both directions.
 
 x??
 
@@ -310,9 +295,9 @@ x??
 
 Background context: Simulating a Gaussian pulse involves setting up initial conditions that mimic a Gaussian function in time. This can be used to study wave propagation with localized energy distributions.
 
-:p How do you modify the program to include an initial \(H\) field and an \(E\) field with Gaussian shapes?
+:p How do you modify the program to include an initial $H $ field and an$E$ field with Gaussian shapes?
 ??x
-To modify the simulation for a Gaussian pulse, we set both \(Ex\) and \(Hy\) with Gaussian functions:
+To modify the simulation for a Gaussian pulse, we set both $Ex $ and$Hy$ with Gaussian functions:
 
 ```python
 # Example pseudocode for setting Gaussian pulses
@@ -325,7 +310,7 @@ Ex[0, 0] = gaussian(t - t0, 0, sigma_t)
 Hy[0, 0] = gaussian(t - t0, 0, sigma_t)
 ```
 
-Here, \(t_0\) is the center of the pulse in time and \(\sigma_t\) controls the width.
+Here,$t_0 $ is the center of the pulse in time and$\sigma_t$ controls the width.
 
 x??
 
@@ -391,7 +376,7 @@ Ex[k, 0] = cos(t - z / c)
 Hy[k, 0] = cos(t - z / c)
 ```
 
-Upon entering the quarter-wave plate, the relative phase between \(Ex\) and \(Hy\) is shifted by \(\lambda/4\):
+Upon entering the quarter-wave plate, the relative phase between $Ex $ and$Hy $ is shifted by$\lambda/4$:
 
 ```python
 # Example pseudocode for applying phase shift in the wave plate
@@ -416,12 +401,9 @@ Background context: Maxwell's equations are given to describe the propagation of
 :p What are Maxwell's equations for wave propagation described in this context?
 ??x
 Maxwell's equations for wave propagation along the z-axis are:
-\[
-\frac{\partial H_x}{\partial t} = \frac{1}{\mu_0} \frac{\partial E_y}{\partial z}, \quad \frac{\partial H_y}{\partial t} = -\frac{1}{\mu_0} \frac{\partial E_x}{\partial z}
-\]
-\[
-\frac{\partial E_x}{\partial t} = -\frac{1}{\epsilon_0} \frac{\partial H_y}{\partial z}, \quad \frac{\partial E_y}{\partial t} = \frac{1}{\epsilon_0} \frac{\partial H_x}{\partial z}
-\]
+$$\frac{\partial H_x}{\partial t} = \frac{1}{\mu_0} \frac{\partial E_y}{\partial z}, \quad \frac{\partial H_y}{\partial t} = -\frac{1}{\mu_0} \frac{\partial E_x}{\partial z}$$
+$$\frac{\partial E_x}{\partial t} = -\frac{1}{\epsilon_0} \frac{\partial H_y}{\partial z}, \quad \frac{\partial E_y}{\partial t} = \frac{1}{\epsilon_0} \frac{\partial H_x}{\partial z}$$
+
 These equations describe the interdependencies of electric and magnetic fields in EM wave propagation.
 x??
 
@@ -434,19 +416,20 @@ Background context: The Finite-Difference Time-Domain (FDTD) approach is used to
 :p What are the equations derived from the FDTD approach in this context?
 ??x
 The FDTD algorithm leads to the following symmetric equations:
-\[
-E_{k,n+1}^{x} = E_{k,n}^{x} + \beta(H_{k+1,n}^{y} - H_{k,n}^{y})
-\]
-\[
-E_{k,n+1}^{y} = E_{k,n}^{y} + \beta(H_{k+1,n}^{x} - H_{k,n}^{x})
-\]
-\[
-H_{k,n+1}^{x} = H_{k,n}^{x} + \beta(E_{k+1,n}^{y} - E_{k,n}^{y})
-\]
-\[
-H_{k,n+1}^{y} = H_{k,n}^{y} + \beta(E_{k+1,n}^{x} - E_{k,n}^{x})
-\]
-Here, \( \beta \) is a small value used to ensure stability and symmetry in the solution.
+$$
+
+E_{k,n+1}^{x} = E_{k,n}^{x} + \beta(H_{k+1,n}^{y} - H_{k,n}^{y})$$
+$$
+
+E_{k,n+1}^{y} = E_{k,n}^{y} + \beta(H_{k+1,n}^{x} - H_{k,n}^{x})$$
+$$
+
+H_{k,n+1}^{x} = H_{k,n}^{x} + \beta(E_{k+1,n}^{y} - E_{k,n}^{y})$$
+$$
+
+H_{k,n+1}^{y} = H_{k,n}^{y} + \beta(E_{k+1,n}^{x} - E_{k,n}^{x})$$
+
+Here,$\beta$ is a small value used to ensure stability and symmetry in the solution.
 x??
 
 ---
@@ -458,16 +441,12 @@ Background context: The model describes a twin-lead transmission line with two p
 :p What are the equations describing the voltage and current for a segment of the twin lead transmission line?
 ??x
 The telegrapher's equations describe the voltage and current for a segment of the twin-lead transmission line:
-\[
-\frac{\partial V(x,t)}{\partial x} = -R I(x,t) - L \frac{\partial I(x,t)}{\partial t}
-\]
-\[
-\frac{\partial I(x,t)}{\partial x} = -G V(x,t) - C \frac{\partial V(x,t)}{\partial t}
-\]
+$$\frac{\partial V(x,t)}{\partial x} = -R I(x,t) - L \frac{\partial I(x,t)}{\partial t}$$
+$$\frac{\partial I(x,t)}{\partial x} = -G V(x,t) - C \frac{\partial V(x,t)}{\partial t}$$
+
 For lossless transmission lines (R = G = 0), these equations simplify to:
-\[
-\frac{\partial V(x,t)}{\partial x} = -L \frac{\partial I(x,t)}{\partial t}, \quad \frac{\partial I(x,t)}{\partial x} = -C \frac{\partial V(x,t)}{\partial t}
-\]
+$$\frac{\partial V(x,t)}{\partial x} = -L \frac{\partial I(x,t)}{\partial t}, \quad \frac{\partial I(x,t)}{\partial x} = -C \frac{\partial V(x,t)}{\partial t}$$
+
 Differentiating and substituting leads to the familiar 1D wave equation.
 x??
 
@@ -480,10 +459,9 @@ Background context: The leapfrog algorithm is applied to solve the telegrapher's
 :p What is the CFL condition in this context?
 ??x
 The CFL condition ensures numerical stability when using the leapfrog algorithm. For the given equations, it states:
-\[
-\frac{c \Delta t}{\Delta x} \leq 1
-\]
-Where \( c = \frac{1}{\sqrt{LC}} \), ensuring that the time step \( \Delta t \) is appropriately chosen to maintain stability.
+$$\frac{c \Delta t}{\Delta x} \leq 1$$
+
+Where $c = \frac{1}{\sqrt{LC}}$, ensuring that the time step $\Delta t$ is appropriately chosen to maintain stability.
 x??
 
 ---
@@ -496,7 +474,7 @@ Background context: The problem involves experimenting to find better precision 
 
 :p What are the key factors to consider when choosing Δx and Δt for numerical simulations?
 ??x
-When selecting Δx and Δt, the primary considerations include ensuring stability and accuracy. The Courant-Friedrichs-Lewy (CFL) condition often provides a guideline that must be met: \( \Delta t < \frac{c \cdot \Delta x}{L} \), where \( c \) is the wave speed or propagation constant, and \( L \) is the length of the transmission line. Smaller Δx and Δt can improve accuracy but may require more computational resources.
+When selecting Δx and Δt, the primary considerations include ensuring stability and accuracy. The Courant-Friedrichs-Lewy (CFL) condition often provides a guideline that must be met: $\Delta t < \frac{c \cdot \Delta x}{L}$, where $ c$is the wave speed or propagation constant, and $ L$ is the length of the transmission line. Smaller Δx and Δt can improve accuracy but may require more computational resources.
 
 For stability, one must ensure that the numerical scheme remains stable under the chosen step sizes. This involves checking conditions such as those derived from Von Neumann analysis for specific problems like wave equations or Schrödinger's equation.
 
@@ -515,7 +493,7 @@ Background context: The boundary conditions specify the values of the wave funct
 
 :p What do the given boundary conditions (V(0,t) = V(L,t) = 0) imply?
 ??x
-The boundary conditions \( V(0, t) = V(L, t) = 0 \) imply that at both ends of the transmission line (at positions 0 and L), the wave function is zero for any time \( t \). This represents an idealized scenario where the ends of the line are clamped or grounded. These conditions ensure that no voltage can exist at these points, which is typical in scenarios like electronic circuits with short-circuited lines.
+The boundary conditions $V(0, t) = V(L, t) = 0 $ imply that at both ends of the transmission line (at positions 0 and L), the wave function is zero for any time$t$. This represents an idealized scenario where the ends of the line are clamped or grounded. These conditions ensure that no voltage can exist at these points, which is typical in scenarios like electronic circuits with short-circuited lines.
 
 Example code snippet:
 ```python

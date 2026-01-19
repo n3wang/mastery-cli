@@ -1072,10 +1072,10 @@ Background context: The passage explains that consensus algorithms require a str
 For fault tolerance in consensus algorithms, you need a minimum of three nodes to tolerate one failure (as the remaining two out of three form a majority). To tolerate two failures, you would need at least five nodes (with the remaining three forming a majority).
 
 ??x
-The answer is based on the requirement for a strict majority. In a system with \( N \) nodes, the minimum number of nodes required to tolerate \( f \) failures is \( 2f + 1 \). For one failure tolerance:
-- Nodes = 3 (since \( 2*1 + 1 = 3 \))
+The answer is based on the requirement for a strict majority. In a system with $N $ nodes, the minimum number of nodes required to tolerate$f $ failures is$2f + 1$. For one failure tolerance:
+- Nodes = 3 (since $2*1 + 1 = 3$)
 For two failure tolerance:
-- Nodes = 5 (since \( 2*2 + 1 = 5 \))
+- Nodes = 5 (since $2*2 + 1 = 5$)
 
 Example for three nodes and one failure tolerance:
 ```java
@@ -1180,7 +1180,7 @@ Background context: The passage outlines the limitations of consensus algorithms
 ??x
 Key limitations of consensus algorithms include:
 - **Synchronous Nature**: They often require a strict majority to operate, making them inherently synchronous.
-- **Minimum Node Requirement**: To tolerate \( f \) failures, at least \( 2f + 1 \) nodes are required.
+- **Minimum Node Requirement**: To tolerate $f $ failures, at least$2f + 1$ nodes are required.
 - **Dynamic Membership Challenges**: Adding or removing nodes dynamically is difficult due to the fixed set of participants.
 - **Network Unreliability Sensitivity**: They can be sensitive to network issues and may experience frequent leader elections during transient failures.
 

@@ -37,9 +37,9 @@ Background context explaining the concept. An illustration of how read skew can 
 :p Explain the example given for non-repeatable reads or read skew.
 ??x
 In the provided example:
-- Alice has two bank accounts each with $500, totaling $1,000.
+- Alice has two bank accounts each with $500, totaling$1,000.
 - A transaction transfers $100 from one account to the other.
-- If Alice checks her balances at a time when the transfer is being processed, she might see an inconsistent state: one account with $400 and the other with $600.
+- If Alice checks her balances at a time when the transfer is being processed, she might see an inconsistent state: one account with $400 and the other with$600.
 
 x??
 

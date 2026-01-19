@@ -279,10 +279,7 @@ The F1 score balances both precision and recall by calculating their harmonic me
 :p What is the formula for calculating the F1 score?
 ??x
 The F1 score is calculated using the formula: 
-\[
-F1 = 2 \times \frac{Precision \times Recall}{Precision + Recall}
-\]
-where Precision = \( \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}} \) and Recall = \( \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}} \).
+$$F1 = 2 \times \frac{Precision \times Recall}{Precision + Recall}$$where Precision =$\frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}}$ and Recall =$\frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}}$.
 
 This score provides a balanced view of the model's performance, especially useful when dealing with imbalanced datasets.
 x??

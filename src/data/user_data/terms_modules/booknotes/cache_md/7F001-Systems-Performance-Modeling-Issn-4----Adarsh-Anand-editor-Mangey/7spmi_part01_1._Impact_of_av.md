@@ -53,27 +53,27 @@ Anand et al. integrated fault management with vulnerability handling by consider
 Background context: This section introduces the notations used for developing a model to optimize resource allocation for software vulnerability correction. These notations help in formulating an optimization problem where the objective is to maximize the number of vulnerabilities corrected while minimizing resource usage.
 
 Notation explanation:
-- \( M \): Number of severity level groups pertaining to software vulnerabilities.
-- \( i \): Variable representing the severity level group, with \( i = 1, 2,..., M \).
-- \( N_{Ri} \): Expected number of vulnerabilities in the \( i^{th} \) severity group.
-- \( r_{Ri} \): Vulnerability removal rate for the \( i^{th} \) severity group.
-- \( y_i(t) \): Resource utilization at time \( t \) for the \( i^{th} \) severity group, with \( Y_i(t) = \int_0^t y_i(w) dw \).
-- \( Y^*_i \): Optimal value of \( Y_i \), for \( i = 1,2,...,M \).
-- \( Z \): Total resources available.
-- \( \Omega_{Ri}(t) \): Mean number of vulnerabilities removed in the \( (0,t) \) interval for the \( i^{th} \) severity group, a function of the Non Homogeneous Poisson Process (NHPP).
-- \( \Omega_{Ri}(Y_i(t)) \): Cumulative number of vulnerabilities removed using resources \( Y_i(t) \) in time \( (0,t) \).
-- \( T \): Total time available for the vulnerability removal process.
+- $M$: Number of severity level groups pertaining to software vulnerabilities.
+- $i $: Variable representing the severity level group, with $ i = 1, 2,..., M$.
+- $N_{Ri}$: Expected number of vulnerabilities in the $ i^{th}$ severity group.
+- $r_{Ri}$: Vulnerability removal rate for the $ i^{th}$ severity group.
+- $y_i(t)$: Resource utilization at time $ t$for the $ i^{th}$severity group, with $ Y_i(t) = \int_0^t y_i(w) dw$.
+- $Y^*_i $: Optimal value of $ Y_i $, for$ i = 1,2,...,M$.
+- $Z$: Total resources available.
+- $\Omega_{Ri}(t)$: Mean number of vulnerabilities removed in the $(0,t)$ interval for the $i^{th}$ severity group, a function of the Non Homogeneous Poisson Process (NHPP).
+- $\Omega_{Ri}(Y_i(t))$: Cumulative number of vulnerabilities removed using resources $ Y_i(t)$in time $(0,t)$.
+- $T$: Total time available for the vulnerability removal process.
 
 :p What are the key notations introduced in this section?
 ??x
 The key notations introduced include:
-- \( M \): Number of severity level groups.
-- \( N_{Ri} \): Expected number of vulnerabilities per group.
-- \( r_{Ri} \): Removal rate for each group.
-- \( y_i(t) \): Resource utilization at time t for a specific group, and its optimal value \( Y^*_i \).
-- \( Z \): Total available resources.
-- \( \Omega_{Ri}(t) \): Mean number of vulnerabilities removed by the ith severity group in (0,t).
-- \( T \): Total time available to remove vulnerabilities.
+- $M$: Number of severity level groups.
+- $N_{Ri}$: Expected number of vulnerabilities per group.
+- $r_{Ri}$: Removal rate for each group.
+- $y_i(t)$: Resource utilization at time t for a specific group, and its optimal value $ Y^*_i$.
+- $Z$: Total available resources.
+- $\Omega_{Ri}(t)$: Mean number of vulnerabilities removed by the ith severity group in (0,t).
+- $T$: Total time available to remove vulnerabilities.
 
 These notations are used to formulate an optimization problem for resource allocation.
 x??
@@ -99,11 +99,11 @@ Background context: The optimization problem discussed here involves balancing t
 ??x
 The optimization problem is formulated as maximizing the number of vulnerabilities corrected (vulnerability correction) while trying to minimize resource utilization (resource usage). The objective function can be represented as:
 
-\[ \text{Maximize } \sum_{i=1}^{M} \Omega_{Ri}(Y_i(t)) - \text{Minimize } Y^*_i \]
+$$\text{Maximize } \sum_{i=1}^{M} \Omega_{Ri}(Y_i(t)) - \text{Minimize } Y^*_i$$
 
 Where:
-- \( \Omega_{Ri}(Y_i(t)) \) is the cumulative number of vulnerabilities removed using resources \( Y_i(t) \) in time \( (0,t) \).
-- \( Y^*_i \) represents the optimal value of resource utilization for each severity group.
+- $\Omega_{Ri}(Y_i(t))$ is the cumulative number of vulnerabilities removed using resources $Y_i(t)$ in time $(0,t)$.
+- $Y^*_i$ represents the optimal value of resource utilization for each severity group.
 
 This problem is typically solved through optimization techniques to find the best allocation strategy.
 x??
@@ -116,13 +116,13 @@ Background context: The text presents a mathematical model defining the relation
 
 :p How does the differential equation relate effort consumption with vulnerability detection?
 ??x
-The differential equation \( \frac{d\Omega_{it}}{dt} = C30 x_{it} / r_i N_i - \Omega_{it} \) (1:1), where:
-- \( \Omega_{it} \) is the number of vulnerabilities detected by time t.
-- \( x_{it} \) represents resources or effort spent in vulnerability detection.
-- \( r_i \) is the detection rate for severity level i.
+The differential equation $\frac{d\Omega_{it}}{dt} = C30 x_{it} / r_i N_i - \Omega_{it}$ (1:1), where:
+- $\Omega_{it}$ is the number of vulnerabilities detected by time t.
+- $x_{it}$ represents resources or effort spent in vulnerability detection.
+- $r_i$ is the detection rate for severity level i.
 
 The solution to this equation gives us: 
-\[ \Omega_{it} = N_i (1 - e^{-r_i X_{it}}) / C16/C17, \] where \(N_i\) is the total number of vulnerabilities detected at severity level i.
+$$\Omega_{it} = N_i (1 - e^{-r_i X_{it}}) / C16/C17,$$where $ N_i$ is the total number of vulnerabilities detected at severity level i.
 x??
 
 ---
@@ -134,11 +134,10 @@ Background context: The text formulates an optimization problem to maximize the 
 :p What is the objective function in the optimization problem?
 ??x
 The objective function aims to maximize:
-\[ \sum_{i=1}^{M} \Omega_{Ri}(Y_i) = \sum_{i=1}^{M} N_i (1 - e^{-r_Ri Y_i}) / C16/C17, \] subject to constraints:
-- \( \sum_{i=1}^{M} Y_i \leq Z \)
-- \( Y_i \geq 0 \) for all \( i = 1, ..., M \).
+$$\sum_{i=1}^{M} \Omega_{Ri}(Y_i) = \sum_{i=1}^{M} N_i (1 - e^{-r_Ri Y_i}) / C16/C17,$$subject to constraints:
+- $\sum_{i=1}^{M} Y_i \leq Z $-$ Y_i \geq 0 $ for all $ i = 1, ..., M$.
 
-Here, \( Z \) is the total available resources.
+Here, $Z$ is the total available resources.
 x??
 
 ---
@@ -317,7 +316,7 @@ Background context: The infinite server queueing modeling approach is an extensi
 
 :p How does the infinite server queueing modeling approach extend Yamada’s delayed S-shaped model?
 ??x
-The infinite server queueing modeling approach extends by providing a flexible description of uncertainties in both software failure occurrence and fault-removal times. It assumes that the total number of detected failures follows a nonhomogeneous Poisson process with mean \(H(t)\), and fault removal times are independently and identically distributed according to the cumulative probability distribution function \(G(t)\).
+The infinite server queueing modeling approach extends by providing a flexible description of uncertainties in both software failure occurrence and fault-removal times. It assumes that the total number of detected failures follows a nonhomogeneous Poisson process with mean $H(t)$, and fault removal times are independently and identically distributed according to the cumulative probability distribution function $ G(t)$.
 x??
 
 ---
@@ -349,72 +348,68 @@ x??
 
 #### Mathematical Formulation of Infinite Server Queueing
 
-Background context: This model assumes that software failures follow a nonhomogeneous Poisson process with mean \(H(t)\), and fault removal times are independently and identically distributed according to the cumulative distribution function \(G(t)\).
+Background context: This model assumes that software failures follow a nonhomogeneous Poisson process with mean $H(t)$, and fault removal times are independently and identically distributed according to the cumulative distribution function $ G(t)$.
 
 :p How would you represent the mathematical formulation for the infinite server queueing approach?
 ??x
 The infinite server queueing approach can be represented by:
-- Failure occurrences follow a nonhomogeneous Poisson process with rate \(\lambda(t) = H'(t)\).
-- Fault removal times are independently and identically distributed according to \(G(t)\).
+- Failure occurrences follow a nonhomogeneous Poisson process with rate $\lambda(t) = H'(t)$.
+- Fault removal times are independently and identically distributed according to $G(t)$.
 
 Mathematically, the mean value function for the failure occurrence is:
-\[ E[N(t)] = \int_0^t H(s) ds \]
-And the distribution of fault removal time \(T\) follows \(G(t)\).
+$$E[N(t)] = \int_0^t H(s) ds$$
+
+And the distribution of fault removal time $T $ follows$G(t)$.
 x??
 
 ---
 
 
-#### Stochastic Process \(A(t)\)
-Background context: The stochastic process \(A(t)\) represents the cumulative number of software failures observed during the interval \((0, t]\). This is a fundamental concept for understanding the failure behavior over time.
+#### Stochastic Process $A(t)$ Background context: The stochastic process $A(t)$ represents the cumulative number of software failures observed during the interval $(0, t]$. This is a fundamental concept for understanding the failure behavior over time.
 
-:p What does the stochastic process \(A(t)\) represent?
+:p What does the stochastic process $A(t)$ represent?
 ??x
-The stochastic process \(A(t)\), where \(t \geq 0\), represents the cumulative number of software failures observed during the interval \((0, t]\). This process helps in tracking the evolution of software failures over time.
+The stochastic process $A(t)$, where $ t \geq 0$, represents the cumulative number of software failures observed during the interval $(0, t]$. This process helps in tracking the evolution of software failures over time.
 
 ---
 
 
-#### Stochastic Process \(B(t)\)
-Background context: The stochastic process \(B(t)\) denotes the number of faults removed over the interval \((0, t]\). It is formulated based on the probability that a software fault causing an observed failure will be removed by time \(t\).
+#### Stochastic Process $B(t)$ Background context: The stochastic process $B(t)$ denotes the number of faults removed over the interval $(0, t]$. It is formulated based on the probability that a software fault causing an observed failure will be removed by time $ t$.
 
-:p What does the stochastic process \(B(t)\) represent?
+:p What does the stochastic process $B(t)$ represent?
 ??x
-The stochastic process \(B(t)\), where \(t \geq 0\), represents the number of faults removed over the interval \((0, t]\). It is formulated to capture the debugging activities and their effectiveness over time.
+The stochastic process $B(t)$, where $ t \geq 0$, represents the number of faults removed over the interval $(0, t]$. It is formulated to capture the debugging activities and their effectiveness over time.
 
 ---
 
 
-#### Function \(c(t)\)
-Background context: The function \(c(t)\) models the probability that a software fault causing an observed failure will be removed by time \(t\). It involves the Stieltjes convolution of the software fault removal time distribution and the conditional distribution of the time of a software failure given \(A(t)=i\).
+#### Function $c(t)$ Background context: The function $c(t)$ models the probability that a software fault causing an observed failure will be removed by time $t$. It involves the Stieltjes convolution of the software fault removal time distribution and the conditional distribution of the time of a software failure given $ A(t)=i$.
 
-:p What is the formula for \(c(t)\)?
+:p What is the formula for $c(t)$?
 ??x
-The function \(c(t)\) is formulated as:
-\[ c(t) = \int_0^t G_{t-y}(H(y)) \, dH(y) \]
-where \(G_{t-y}\) represents the conditional distribution of the time of a software failure given that there are \(i\) failures observed over \((0, t]\), and \(H(y)\) is the cumulative fault removal function.
+The function $c(t)$ is formulated as:
+$$c(t) = \int_0^t G_{t-y}(H(y)) \, dH(y)$$where $ G_{t-y}$represents the conditional distribution of the time of a software failure given that there are $ i$failures observed over $(0, t]$, and $ H(y)$ is the cumulative fault removal function.
 
 ---
 
 
 #### Nonhomogeneous Poisson Process
-Background context: The process \(B(t)\) can be treated as a nonhomogeneous Poisson process. This allows for the expectation of \(B(t)\) to be formulated using appropriate functions of \(G_t\) and \(H_t\).
+Background context: The process $B(t)$ can be treated as a nonhomogeneous Poisson process. This allows for the expectation of $B(t)$ to be formulated using appropriate functions of $G_t$ and $H_t$.
 
-:p How is the process \(B(t)\) related to a nonhomogeneous Poisson process?
+:p How is the process $B(t)$ related to a nonhomogeneous Poisson process?
 ??x
-The process \(B(t)\), where \(t \geq 0\), can be treated as a nonhomogeneous Poisson process. This implies that its expectation can be formulated using appropriate functions of \(G_t\) and \(H_t\). Specifically, the expectation is given by:
-\[ E[B(t)] = \int_0^t G_{t-y} H(y) \, dy \]
-
----
+The process $B(t)$, where $ t \geq 0$, can be treated as a nonhomogeneous Poisson process. This implies that its expectation can be formulated using appropriate functions of $ G_t$and $ H_t$. Specifically, the expectation is given by:
+$$E[B(t)] = \int_0^t G_{t-y} H(y) \, dy$$---
 
 
 #### Example with Exponential Distributions
-Background context: An example of how to model the debugging process using specific functions for \(G_t\) and \(H_t\). Here, both distributions are assumed to follow exponential models.
+Background context: An example of how to model the debugging process using specific functions for $G_t $ and$H_t$. Here, both distributions are assumed to follow exponential models.
 
 :p What happens when we assume that fault removal times follow an exponential distribution?
 ??x
-When assuming that fault removal times follow an exponential distribution with parameter \(\theta > 0\), i.e., \(G_t = 1 - e^{-\theta t}\), and the software failure observations follow a nonhomogeneous Poisson process with mean \(H_t = \omega (1 - e^{-\theta t})\), where \(\omega\) is a constant, we can derive:
-\[ \int_0^t G_{t-y} H(y) \, dy = \frac{\omega}{1 + \theta t} e^{-\theta t} \]
+When assuming that fault removal times follow an exponential distribution with parameter $\theta > 0 $, i.e., $ G_t = 1 - e^{-\theta t}$, and the software failure observations follow a nonhomogeneous Poisson process with mean $ H_t = \omega (1 - e^{-\theta t})$, where $\omega $ is a constant, we can derive:
+$$\int_0^t G_{t-y} H(y) \, dy = \frac{\omega}{1 + \theta t} e^{-\theta t}$$
+
 This result matches the mathematical structure of Yamada's delayed S-shaped model.
 
 ---
@@ -425,7 +420,7 @@ Background context: The provided text outlines a detailed model for understandin
 
 :p What is the overall purpose of this modeling approach?
 ??x
-The overall purpose of this modeling approach is to provide a comprehensive framework for understanding and predicting the debugging process in software reliability. By formulating \(B(t)\) based on specific probability distributions, such as exponential functions, we can better assess the quality and reliability of software systems over time.
+The overall purpose of this modeling approach is to provide a comprehensive framework for understanding and predicting the debugging process in software reliability. By formulating $B(t)$ based on specific probability distributions, such as exponential functions, we can better assess the quality and reliability of software systems over time.
 
 ---
 
@@ -461,22 +456,20 @@ x??
 
 
 #### Basic Assumptions of Phase-Type Modeling Approach
-Background context explaining the basic assumptions underlying the phase-type modeling approach, including how they define the stochastic process \(B_{\text{PH}}(t)\).
+Background context explaining the basic assumptions underlying the phase-type modeling approach, including how they define the stochastic process $B_{\text{PH}}(t)$.
 
 :p What are the key assumptions that define the phase-type model in software fault debugging?
 ??x
 The key assumptions that define the phase-type model in software fault debugging include:
-1. The software contains \(\Omega_0\) software faults before testing, where \(\Omega_0\) is a random variable taking nonnegative integer values.
-2. The software failure observation and fault-removing processes are considered as successive debugging processes, with each process's completion time following an independent and identical cumulative probability distribution function \(E_{\text{PH}}(t)\).
+1. The software contains $\Omega_0 $ software faults before testing, where$\Omega_0$ is a random variable taking nonnegative integer values.
+2. The software failure observation and fault-removing processes are considered as successive debugging processes, with each process's completion time following an independent and identical cumulative probability distribution function $E_{\text{PH}}(t)$.
 3. No new faults are introduced during the debugging process, and any faults causing observed software failures are perfectly debugged.
 
-The number of faults removed over \((0, t]\) is denoted by the process \(B_{\text{PH}}(t)\), which follows the probability:
-\[ Pr(B_{\text{PH}}(t) = b) = \sum_{i=b}^{\infty} E_{\text{PH}}(t)^b (1 - E_{\text{PH}}(t))^{i-b} P(\Omega_0 = i), \]
-where \(P(\Omega_0 = i)\) is the probability mass function of \(\Omega_0\).
+The number of faults removed over $(0, t]$ is denoted by the process $B_{\text{PH}}(t)$, which follows the probability:
+$$Pr(B_{\text{PH}}(t) = b) = \sum_{i=b}^{\infty} E_{\text{PH}}(t)^b (1 - E_{\text{PH}}(t))^{i-b} P(\Omega_0 = i),$$where $ P(\Omega_0 = i)$is the probability mass function of $\Omega_0$.
 
-If \(\Omega_0\) follows a Poisson distribution with mean \(\alpha (> 0)\), then:
-\[ Pr(B_{\text{PH}}(t) = b) = \frac{1}{b!} (\alpha E_{\text{PH}}(t))^b e^{-\alpha E_{\text{PH}}(t)}, \]
-for \(b=0, 1, 2, ...\).
+If $\Omega_0 $ follows a Poisson distribution with mean$\alpha (> 0)$, then:
+$$Pr(B_{\text{PH}}(t) = b) = \frac{1}{b!} (\alpha E_{\text{PH}}(t))^b e^{-\alpha E_{\text{PH}}(t)},$$for $ b=0, 1, 2, ...$.
 
 ```java
 // Pseudocode to illustrate the probability calculation for phase-type model
@@ -510,11 +503,11 @@ Background context explaining the concept of time-dependent expectation and its 
 
 :p How does the phase-type model account for the time-dependent nature of fault removal rates?
 ??x
-The phase-type model accounts for the time-dependent nature of fault removal rates by allowing the expected completion time \(E_{\text{PH}}(t)\) to vary with time. This means that as time progresses, the probability and distribution of faults being removed can change.
+The phase-type model accounts for the time-dependent nature of fault removal rates by allowing the expected completion time $E_{\text{PH}}(t)$ to vary with time. This means that as time progresses, the probability and distribution of faults being removed can change.
 
 In the context of software reliability growth models, this is crucial because the debugging process may not follow a constant rate of fault removal; rather, it could depend on factors like the number of faults remaining, the complexity of those faults, or the efficiency of the debugging tools and techniques used over time.
 
-The expected number of faults removed by time \(t\), denoted as \(\alpha E_{\text{PH}}(t)\), incorporates this variability. Here, \(\alpha\) represents the initial rate at which faults are being identified and removed, while \(E_{\text{PH}}(t)\) captures how quickly these removals occur over time.
+The expected number of faults removed by time $t $, denoted as $\alpha E_{\text{PH}}(t)$, incorporates this variability. Here,$\alpha $ represents the initial rate at which faults are being identified and removed, while$E_{\text{PH}}(t)$ captures how quickly these removals occur over time.
 
 ```java
 // Pseudocode to illustrate the calculation of expected fault removal with time dependency
@@ -573,16 +566,12 @@ x??
 Background context: The text introduces a method to model software fault debugging processes using continuous-time absorbing Markov chains. This approach helps in assessing and predicting the reliability of software systems by understanding the dynamics of faults being detected and removed.
 
 Relevant formulas:
-- \( E_{PH}(t) = 1 - \pi_0 e^{St} / C_{138} \)
-- \( I = -\frac{d}{d} \left( \begin{array}{ccc} 0 & 0 \\ 0 & -dd \end{array} \right) \)
-
-:p What is the infinitesimal generator matrix for the absorbing Markov chain in this context?
+- $E_{PH}(t) = 1 - \pi_0 e^{St} / C_{138}$-$ I = -\frac{d}{d} \left( \begin{array}{ccc} 0 & 0 \\ 0 & -dd \end{array} \right)$:p What is the infinitesimal generator matrix for the absorbing Markov chain in this context?
 ??x
-The infinitesimal generator matrix \( I \) is given by:
+The infinitesimal generator matrix $I$ is given by:
+$$I = -\frac{d}{d} \left( \begin{array}{ccc} 0 & 0 \\ 0 & -dd \end{array} \right)$$
 
-\[ I = -\frac{d}{d} \left( \begin{array}{ccc} 0 & 0 \\ 0 & -dd \end{array} \right) \]
-
-This matrix represents the rates of transition between states. The first row and column indicate that there are no transitions from state \( V_T \) to any other state, while the second row indicates self-transitions within \( V_A \).
+This matrix represents the rates of transition between states. The first row and column indicate that there are no transitions from state $V_T $ to any other state, while the second row indicates self-transitions within$V_A$.
 
 :x??
 
@@ -594,13 +583,13 @@ This matrix represents the rates of transition between states. The first row and
 Background context: The text discusses the use of continuous-time absorbing Markov chains for modeling software reliability growth. This approach helps in understanding and predicting how software faults are detected and removed over time.
 
 Relevant formulas:
-- \( E_{PH}(t) = 1 - \pi_0 e^{St} / C_{138} \)
+- $E_{PH}(t) = 1 - \pi_0 e^{St} / C_{138}$
 
 :p What is the mathematical structure of the mean value function reflecting software fault debugging processes?
 ??x
 The mean value function reflecting the software faults debugging processes can be obtained as:
 
-\[ \alpha E_{PH}(t) = \alpha (1 - (1 + dt) e^{-dt}) \]
+$$\alpha E_{PH}(t) = \alpha (1 - (1 + dt) e^{-dt})$$
 
 This is essentially the same mathematical structure as the delayed S-shaped model, indicating a similar growth pattern in fault detection and removal over time.
 
@@ -614,9 +603,7 @@ This is essentially the same mathematical structure as the delayed S-shaped mode
 Background context: The reliability of software systems can be assessed by modeling the debugging processes using techniques like infinite server queueing and phase-type distributions. These models help predict how faults are removed as testing progresses.
 
 Relevant formulas:
-- \( E_{PH}(t) = 1 - \pi_0 e^{St} / C_{138} \)
-
-:p How do these modeling approaches contribute to software reliability assessment?
+- $E_{PH}(t) = 1 - \pi_0 e^{St} / C_{138}$:p How do these modeling approaches contribute to software reliability assessment?
 ??x
 These modeling approaches, such as infinite server queueing and phase-type distributions, help in understanding the dynamics of fault detection and removal. By analyzing the efficiency of debugging activities during testing, they enable better prediction and management of software quality.
 
@@ -910,17 +897,15 @@ x??
 
 
 #### OBU (On-Board Unit) Availability Model
-Background context: The On-Board Unit (OBU) is a critical component of vehicular cloud computing, containing various sub-components such as CU (Control Unit), GPS, GPRS, I/O Interface, and Various Sensors. The overall availability \( A_{OBU} \) of the OBU can be calculated using the formula provided below.
+Background context: The On-Board Unit (OBU) is a critical component of vehicular cloud computing, containing various sub-components such as CU (Control Unit), GPS, GPRS, I/O Interface, and Various Sensors. The overall availability $A_{OBU}$ of the OBU can be calculated using the formula provided below.
 
 The equation for the availability of the OBU is given by:
-\[ A_{OBU} = A_{CU} \times A_{GPS} \times A_{GPRS} \times A_{I/O} \times A_{Sensors}. \]
+$$A_{OBU} = A_{CU} \times A_{GPS} \times A_{GPRS} \times A_{I/O} \times A_{Sensors}.$$
 
-Each term \( A_i \) represents the availability of the \( i^{th} \) component, where \( i \in \{ CU, GPS, GPRS, I/O, Sensors \} \).
+Each term $A_i $ represents the availability of the$i^{th}$ component, where $i \in \{ CU, GPS, GPRS, I/O, Sensors \}$.
 
 The availability of each component can be calculated using:
-\[ \text{Availability} = \frac{\text{MTBF}}{\text{MTBF} + \text{MTTR}}, \]
-
-where MTBF is the Mean Time Between Failures and MTTR is the Mean Time To Repair.
+$$\text{Availability} = \frac{\text{MTBF}}{\text{MTBF} + \text{MTTR}},$$where MTBF is the Mean Time Between Failures and MTTR is the Mean Time To Repair.
 
 :p What does the equation for OBU availability represent?
 ??x
@@ -945,10 +930,8 @@ x??
 #### V2V Communication Availability Model
 Background context: Vehicle-to-Vehicle (V2V) communication involves vehicles communicating directly with each other. The availability of the V2V network is determined by the number of functioning OBUs within a specified transmission range.
 
-The formula for V2V availability \( A_{V2V} \) is:
-\[ A_{V2V} = \sum_{k=2}^{N} {N \choose k} (A_{OBU})^k \left(1 - A_{OBU}\right)^{N-k}, \]
-
-where \( N \) is the total number of OBUs in the network, and \( A_{OBU} \) can be obtained from the OBU availability equation provided earlier.
+The formula for V2V availability $A_{V2V}$ is:
+$$A_{V2V} = \sum_{k=2}^{N} {N \choose k} (A_{OBU})^k \left(1 - A_{OBU}\right)^{N-k},$$where $ N $ is the total number of OBUs in the network, and $ A_{OBU}$ can be obtained from the OBU availability equation provided earlier.
 
 :p How is V2V communication availability calculated?
 ??x
@@ -984,13 +967,10 @@ x??
 
 #### Cloud Storage Availability Model
 Background context explaining the availability model for cloud storage. The closed-form equation provided in the text is:
-\[ A_{\text{Storage}} = A_{API} \times A_{\text{storage pool}} \times \left(1 - \prod_{i=1}^{n}\left(1 - A_{VC_{server_i}}\right) \times \left(1 - A_{PS_{server_i}}\right)\right) \]
-
-:p What is the availability model for cloud storage?
+$$A_{\text{Storage}} = A_{API} \times A_{\text{storage pool}} \times \left(1 - \prod_{i=1}^{n}\left(1 - A_{VC_{server_i}}\right) \times \left(1 - A_{PS_{server_i}}\right)\right)$$:p What is the availability model for cloud storage?
 ??x
-The availability \(A_{\text{Storage}}\) of cloud storage can be calculated using the formula:
-\[ A_{\text{Storage}} = A_{API} \times A_{\text{storage pool}} \times \left(1 - \prod_{i=1}^{n}\left(1 - A_{VC_{server_i}}\right) \times \left(1 - A_{PS_{server_i}}\right)\right) \]
-where \(A_{API}\), \(A_{\text{storage pool}}\), \(A_{VC_{server_i}}\), and \(A_{PS_{server_i}}\) represent the availability of API, logical storage pool, virtual compute server, and physical storage server respectively.
+The availability $A_{\text{Storage}}$ of cloud storage can be calculated using the formula:
+$$A_{\text{Storage}} = A_{API} \times A_{\text{storage pool}} \times \left(1 - \prod_{i=1}^{n}\left(1 - A_{VC_{server_i}}\right) \times \left(1 - A_{PS_{server_i}}\right)\right)$$where $ A_{API}$,$ A_{\text{storage pool}}$,$ A_{VC_{server_i}}$, and $ A_{PS_{server_i}}$ represent the availability of API, logical storage pool, virtual compute server, and physical storage server respectively.
 
 x??
 
@@ -1018,13 +998,10 @@ x??
 
 #### Availability Analysis for VCC Network
 Background context explaining the availability model for various components of a vehicular cloud computing network. The equation provided is:
-\[ A_{\text{Storage}} = A_{API} \times A_{\text{storage pool}} \times \left(1 - \prod_{i=1}^{n}\left(1 - A_{VC_{server_i}}\right) \times \left(1 - A_{PS_{server_i}}\right)\right) \]
-
-:p How is the availability of cloud storage evaluated?
+$$A_{\text{Storage}} = A_{API} \times A_{\text{storage pool}} \times \left(1 - \prod_{i=1}^{n}\left(1 - A_{VC_{server_i}}\right) \times \left(1 - A_{PS_{server_i}}\right)\right)$$:p How is the availability of cloud storage evaluated?
 ??x
-The availability \(A_{\text{Storage}}\) of cloud storage is calculated by multiplying the availability factors for each component:
-\[ A_{\text{Storage}} = A_{API} \times A_{\text{storage pool}} \times \left(1 - \prod_{i=1}^{n}\left(1 - A_{VC_{server_i}}\right) \times \left(1 - A_{PS_{server_i}}\right)\right) \]
-where \(A_{API}\), \(A_{\text{storage pool}}\), \(A_{VC_{server_i}}\), and \(A_{PS_{server_i}}\) represent the availability of API, logical storage pool, virtual compute server, and physical storage server respectively.
+The availability $A_{\text{Storage}}$ of cloud storage is calculated by multiplying the availability factors for each component:
+$$A_{\text{Storage}} = A_{API} \times A_{\text{storage pool}} \times \left(1 - \prod_{i=1}^{n}\left(1 - A_{VC_{server_i}}\right) \times \left(1 - A_{PS_{server_i}}\right)\right)$$where $ A_{API}$,$ A_{\text{storage pool}}$,$ A_{VC_{server_i}}$, and $ A_{PS_{server_i}}$ represent the availability of API, logical storage pool, virtual compute server, and physical storage server respectively.
 
 x??
 
@@ -1077,16 +1054,16 @@ x??
 
 #### Steady-State Availability of Cluster Controller
 
-Background context: The steady-state availability of the CLC is derived from the sum of probabilities of being in available states (AW, AD) minus the probability of being in a down state (DD). This is given by \( ACLC = \pi_1 + \pi_2 + \pi_3 = 1 - \pi_4 \), where \(\pi_i\) represents the steady-state probability of state i.
+Background context: The steady-state availability of the CLC is derived from the sum of probabilities of being in available states (AW, AD) minus the probability of being in a down state (DD). This is given by $ACLC = \pi_1 + \pi_2 + \pi_3 = 1 - \pi_4 $, where $\pi_i$ represents the steady-state probability of state i.
 
 :p What formula is used to calculate the steady-state availability of the Cluster Controller (CLC)?
 ??x
-The steady-state availability of the CLC is calculated using the equation \( ACLC = \pi_1 + \pi_2 + \pi_3 = 1 - \pi_4 \), where:
+The steady-state availability of the CLC is calculated using the equation $ACLC = \pi_1 + \pi_2 + \pi_3 = 1 - \pi_4$, where:
 
-- \(\pi_1\) represents the probability of being in state AW (Available with Warm Standby).
-- \(\pi_2\) represents the probability of being in state AD (Available but Down).
-- \(\pi_3\) represents the probability of being in state DS (Deterministic Switching from Primary to Secondary).
-- \(\pi_4\) represents the probability of being in state DD (Down).
+- $\pi_1$ represents the probability of being in state AW (Available with Warm Standby).
+- $\pi_2$ represents the probability of being in state AD (Available but Down).
+- $\pi_3$ represents the probability of being in state DS (Deterministic Switching from Primary to Secondary).
+- $\pi_4$ represents the probability of being in state DD (Down).
 
 This equation sums up the probabilities of all available states and subtracts the probability of the down state.
 
@@ -1167,16 +1144,17 @@ x??
 Background context: The partial derivative technique is one of the methods used to perform sensitivity analysis. It evaluates how changes in individual input parameters affect a measure of interest, such as availability, by calculating the partial derivatives and normalizing them.
 
 Relevant formulas:
-\[ S_{\theta Z} = \frac{\partial Z}{\partial \theta} \]  (3:10)
-\[ SS_{\theta Z} = \left( \frac{\theta}{Z} \right) \cdot \frac{\partial Z}{\partial \theta} \]  (3:11)
+$$S_{\theta Z} = \frac{\partial Z}{\partial \theta}$$(3:10)$$
 
-Explanation: The sensitivity coefficient \(SS\) is calculated by normalizing the partial derivative of the measure with respect to each input parameter. This normalization helps in removing the effect of unit differences among parameters.
+SS_{\theta Z} = \left( \frac{\theta}{Z} \right) \cdot \frac{\partial Z}{\partial \theta}$$(3:11)
+
+Explanation: The sensitivity coefficient $SS$ is calculated by normalizing the partial derivative of the measure with respect to each input parameter. This normalization helps in removing the effect of unit differences among parameters.
 
 :p What does the formula for the sensitivity coefficient involve?
 ??x
-The formula involves calculating the partial derivative of the measure (Z) with respect to the input parameter (\(\theta\)), and then normalizing it by multiplying with a term \(\left( \frac{\theta}{Z} \right)\).
+The formula involves calculating the partial derivative of the measure (Z) with respect to the input parameter ($\theta $), and then normalizing it by multiplying with a term $\left( \frac{\theta}{Z} \right)$.
 
-Explanation: This normalization step ensures that different parameters, even if they have different units or scales, can be compared on a common scale. The result is a sensitivity coefficient \(SS\) which indicates the relative impact of each parameter on the measure.
+Explanation: This normalization step ensures that different parameters, even if they have different units or scales, can be compared on a common scale. The result is a sensitivity coefficient $SS$ which indicates the relative impact of each parameter on the measure.
 
 ```java
 // Pseudocode for calculating sensitivity coefficient using partial derivative technique
@@ -1302,8 +1280,9 @@ x??
 
 #### Sensitivity Coefficient Calculation for VCC Availability
 The text describes a method to calculate the sensitivity coefficient of various parameters on the availability of a vehicular cloud computing (VCC) network. The formula used is:
-\[ S_{\theta}Z(\theta) = \frac{\max Z_{\theta} - \min Z_{\theta}}{\max Z_{\theta}} \]
-Where \( Z(\theta) \) represents the value of the measure for an input parameter \( \theta \), and \( \max Z(\theta) \) and \( \min Z(\theta) \) are the maximum and minimum output values, respectively, obtained by varying \( \theta \) over its entire range.
+$$S_{\theta}Z(\theta) = \frac{\max Z_{\theta} - \min Z_{\theta}}{\max Z_{\theta}}$$
+
+Where $Z(\theta)$ represents the value of the measure for an input parameter $\theta$, and $\max Z(\theta)$ and $\min Z(\theta)$ are the maximum and minimum output values, respectively, obtained by varying $\theta$ over its entire range.
 
 :p What is the formula used to calculate the sensitivity coefficient?
 ??x

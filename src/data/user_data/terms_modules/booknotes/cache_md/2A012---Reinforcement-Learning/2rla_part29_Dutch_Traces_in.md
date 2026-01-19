@@ -24,9 +24,8 @@ Dutch traces can be used to derive an equivalent yet computationally cheaper bac
 ??x
 In Monte Carlo learning, Dutch traces are used to implement updates more efficiently by accumulating information about past states during each step but only making the final update at the end of an episode. This approach provides a balance between computation and memory usage.
 
-The update formula for the weight vector \( w \) using Dutch traces is:
-\[ w_T = w_{T-1} + \alpha G x_T^T w_{T-1} + \alpha G x_T \]
-where \( F_t = I - \alpha x_t x_t^T \) and \( G \) is the final reward.
+The update formula for the weight vector $w$ using Dutch traces is:
+$$w_T = w_{T-1} + \alpha G x_T^T w_{T-1} + \alpha G x_T$$where $ F_t = I - \alpha x_t x_t^T $ and $ G$ is the final reward.
 
 Here, Dutch traces help in accumulating the necessary information during each step of an episode and applying it at the end.
 x??
@@ -40,13 +39,12 @@ The detailed update formula for the weight vector using Dutch traces involves a 
 :p What is the detailed update process using Dutch traces?
 ??x
 The detailed update process using Dutch traces can be described as follows:
-\[ w_T = F_{T-1} (F_{T-2} \cdots F_0 w_0) + G z_T \]
-where \( z_T \) is an eligibility trace vector that accumulates contributions from past states.
+$$w_T = F_{T-1} (F_{T-2} \cdots F_0 w_0) + G z_T$$where $ z_T$ is an eligibility trace vector that accumulates contributions from past states.
 
 The formula recursively updates the weight vector and the eligibility trace vector:
-\[ w_T = \sum_{k=0}^{T-1} F_T F_{T-1} \cdots F_k x_k + G x_T \]
+$$w_T = \sum_{k=0}^{T-1} F_T F_{T-1} \cdots F_k x_k + G x_T$$
 
-Here, \( F_t = I - \alpha x_t x_t^T \) is a forgetting matrix that emphasizes recent states and de-emphasizes older ones.
+Here,$F_t = I - \alpha x_t x_t^T$ is a forgetting matrix that emphasizes recent states and de-emphasizes older ones.
 x??
 
 ---
@@ -170,8 +168,7 @@ Background context: The text explains that to extend eligibility traces to actio
 :p What is the action-value form of the n-step return in Sarsa(λ)?
 ??x
 The action-value form of the n-step return for Sarsa(λ) is defined as follows:
-\[ G_{t:t+n} = R_{t+1} + \lambda \cdot E_t \cdot Q(S_{t+n}, A_{t+n}, w^{t+n-1}) \]
-where \( G_{t:t+n} \) is the n-step return, \( R_{t+1} \) are the rewards collected during the episode, and \( Q(S_{t+n}, A_{t+n}, w^{t+n-1}) \) is the action-value function at time step \( t+n \).
+$$G_{t:t+n} = R_{t+1} + \lambda \cdot E_t \cdot Q(S_{t+n}, A_{t+n}, w^{t+n-1})$$where $ G_{t:t+n}$ is the n-step return,$ R_{t+1}$are the rewards collected during the episode, and $ Q(S_{t+n}, A_{t+n}, w^{t+n-1})$is the action-value function at time step $ t+n$.
 
 ```java
 // Pseudocode for Action-Value n-step Return in Sarsa(λ)
@@ -200,8 +197,7 @@ Background context: The text details how weights are updated using the action-va
 :p How are weights updated in Sarsa(λ)?
 ??x
 Weights are updated using the action-value form of the TD error, which takes into account both immediate rewards and future predictions. The update rule for Sarsa(λ) is as follows:
-\[ w_{t+1} = w_t + \alpha (G - Q(S_t, A_t, w_t)) \cdot z_t \]
-where \( G \) is the n-step return, \( Q(S_t, A_t, w_t) \) is the action-value function at time step \( t \), and \( z_t \) is the eligibility trace vector.
+$$w_{t+1} = w_t + \alpha (G - Q(S_t, A_t, w_t)) \cdot z_t$$where $ G $is the n-step return,$ Q(S_t, A_t, w_t)$is the action-value function at time step $ t$, and $ z_t$ is the eligibility trace vector.
 
 ```java
 // Pseudocode for Weight Update in Sarsa(λ)
@@ -537,9 +533,9 @@ x??
 
 #### Sarsa(λ) Algorithm Overview
 
-Background context: The provided text describes the Variable \(\lambda\) version of the online Sarsa(\(\lambda\)) algorithm, a variant used for estimating \(q_{\pi}\). It extends the traditional Sarsa algorithm by allowing the degree of bootstrapping and discounting to vary as functions dependent on state and action.
+Background context: The provided text describes the Variable $\lambda $ version of the online Sarsa($\lambda $) algorithm, a variant used for estimating $ q_{\pi}$. It extends the traditional Sarsa algorithm by allowing the degree of bootstrapping and discounting to vary as functions dependent on state and action.
 
-:p What is the core concept of the Variable \(\lambda\) version of Sarsa?
+:p What is the core concept of the Variable $\lambda$ version of Sarsa?
 ??x
 The core concept involves varying the degree of bootstrapping and discounting based on states and actions, rather than using constant parameters. This flexibility allows for more precise learning in different parts of the state-action space.
 x??
@@ -549,18 +545,21 @@ x??
 
 #### Return Definition in Generalized Setting
 
-Background context: The text introduces a generalized return definition \(G_t\), which accounts for varying \(\lambda\) at each time step.
+Background context: The text introduces a generalized return definition $G_t $, which accounts for varying $\lambda$ at each time step.
 
-:p What is the general form of the return \(G_t\) defined in the text?
+:p What is the general form of the return $G_t$ defined in the text?
 ??x
-The general form of the return \(G_t\) is given by:
-\[ G_t = R_{t+1} + \lambda_{t+1} G_{t+1} = R_{t+1} + \lambda_{t+1} (R_{t+2} + \lambda_{t+2} G_{t+2}) \]
+The general form of the return $G_t$ is given by:
+$$G_t = R_{t+1} + \lambda_{t+1} G_{t+1} = R_{t+1} + \lambda_{t+1} (R_{t+2} + \lambda_{t+2} G_{t+2})$$
+
 This recursive definition continues until a terminal state is encountered.
 
 In mathematical terms:
-\[ G_t = 1 \sum_{k=t}^\infty \prod_{i=t+1}^k \lambda_i R_{k+1} \]
+$$
 
-Where \(0 \leq \lambda_k \leq 1\) and the infinite series converges almost surely.
+G_t = 1 \sum_{k=t}^\infty \prod_{i=t+1}^k \lambda_i R_{k+1}$$
+
+Where $0 \leq \lambda_k \leq 1$ and the infinite series converges almost surely.
 x??
 
 ---
@@ -570,15 +569,15 @@ x??
 
 Background context: The text defines how variable bootstrapping affects the returns at each step.
 
-:p How is the state-based \(\lambda\)-return defined in the generalized setting?
+:p How is the state-based $\lambda$-return defined in the generalized setting?
 ??x
-The state-based \(\lambda\)-return \(G_{\lambda, s_t}\) can be written recursively as:
-\[ G_{\lambda, s_t} = R_{t+1} + \lambda_{t+1}(1 - \lambda_{t+1}) \hat{v}(S_{t+1}, w_t) + \lambda_{t+1} G_{\lambda, s_{t+1}} \]
+The state-based $\lambda $-return $ G_{\lambda, s_t}$ can be written recursively as:
+$$G_{\lambda, s_t} = R_{t+1} + \lambda_{t+1}(1 - \lambda_{t+1}) \hat{v}(S_{t+1}, w_t) + \lambda_{t+1} G_{\lambda, s_{t+1}}$$
 
 Where:
-- \(R_{t+1}\) is the immediate reward.
-- \(\lambda_{t+1}\) determines the degree of bootstrapping from state values at time step \(t+1\).
-- \(\hat{v}(S_{t+1}, w_t)\) is an estimated value function for state \(S_{t+1}\) with weights \(w_t\).
+- $R_{t+1}$ is the immediate reward.
+- $\lambda_{t+1}$ determines the degree of bootstrapping from state values at time step $t+1$.
+- $\hat{v}(S_{t+1}, w_t)$ is an estimated value function for state $S_{t+1}$ with weights $w_t$.
 
 This recursive equation accounts for both immediate rewards and the degree of bootstrapping based on the current state.
 x??
@@ -586,24 +585,24 @@ x??
 ---
 
 
-#### Action-Based \(\lambda\)-Return
+#### Action-Based $\lambda$-Return
 
-Background context: The text also introduces an action-based \(\lambda\)-return, which can take two forms depending on whether Sarsa or Expected Sarsa is used.
+Background context: The text also introduces an action-based $\lambda$-return, which can take two forms depending on whether Sarsa or Expected Sarsa is used.
 
-:p What are the two forms of the action-based \(\lambda\)-return?
+:p What are the two forms of the action-based $\lambda$-return?
 ??x
-The action-based \(\lambda\)-return \(G_{\lambda, a_t}\) has two forms:
+The action-based $\lambda $-return $ G_{\lambda, a_t}$ has two forms:
 
 1. **Sarsa form**:
-\[ G_{\lambda, a_t} = R_{t+1} + \lambda_{t+1}(1 - \lambda_{t+1}) q(S_{t+1}, A_{t+1}, w_t) + \lambda_{t+1} G_{\lambda, a_{t+1}} \]
+$$G_{\lambda, a_t} = R_{t+1} + \lambda_{t+1}(1 - \lambda_{t+1}) q(S_{t+1}, A_{t+1}, w_t) + \lambda_{t+1} G_{\lambda, a_{t+1}}$$2. **Expected Sarsa form**:
+$$
 
-2. **Expected Sarsa form**:
-\[ G_{\lambda, a_t} = R_{t+1} + \lambda_{t+1}(1 - \lambda_{t+1}) \bar{V}_t(S_{t+1}) + \lambda_{t+1} G_{\lambda, a_{t+1}} \]
+G_{\lambda, a_t} = R_{t+1} + \lambda_{t+1}(1 - \lambda_{t+1}) \bar{V}_t(S_{t+1}) + \lambda_{t+1} G_{\lambda, a_{t+1}}$$
 
 Where:
-- \(q(S_{t+1}, A_{t+1}, w_t)\) is the Q-value function for state-action pair \((S_{t+1}, A_{t+1})\) with weights \(w_t\).
-- \(\bar{V}_t(s)\) is an estimated value function for state \(s\), generalized to function approximation as:
-\[ \bar{V}_t(s) = \sum_a \pi(a|s) q(s, a, w_t) \]
+- $q(S_{t+1}, A_{t+1}, w_t)$ is the Q-value function for state-action pair $(S_{t+1}, A_{t+1})$ with weights $w_t$.
+- $\bar{V}_t(s)$ is an estimated value function for state $s$, generalized to function approximation as:
+$$\bar{V}_t(s) = \sum_a \pi(a|s) q(s, a, w_t)$$
 
 x??
 
@@ -612,11 +611,11 @@ x??
 
 #### Truncated Sarsa(λ)
 
-Background context: The text mentions the forward version of Sarsa(\(\lambda\)), which is particularly effective with multi-layer artificial neural networks.
+Background context: The text mentions the forward version of Sarsa($\lambda$), which is particularly effective with multi-layer artificial neural networks.
 
-:p What is the main advantage of using the truncated (forward) Sarsa(\(\lambda\))?
+:p What is the main advantage of using the truncated (forward) Sarsa($\lambda$)?
 ??x
-The main advantage of using the truncated (forward) Sarsa(\(\lambda\)) is its effectiveness in conjunction with multi-layer artificial neural networks. It allows for more precise learning by varying \(\lambda\) dynamically based on state and action values, leading to better performance in complex environments.
+The main advantage of using the truncated (forward) Sarsa($\lambda $) is its effectiveness in conjunction with multi-layer artificial neural networks. It allows for more precise learning by varying $\lambda$ dynamically based on state and action values, leading to better performance in complex environments.
 x??
 
 ---
@@ -628,7 +627,7 @@ Background context: The text describes how the episodic setting can be adapted t
 
 :p How does the generalized return definition help in handling the episodic setting?
 ??x
-The generalized return definition helps handle the episodic setting by allowing for a seamless transition from one episode to another. By treating each time step with its own \(\lambda\), it can adapt to different parts of the state-action space, making it easier to manage transitions and learning in an ongoing stream of experience.
+The generalized return definition helps handle the episodic setting by allowing for a seamless transition from one episode to another. By treating each time step with its own $\lambda$, it can adapt to different parts of the state-action space, making it easier to manage transitions and learning in an ongoing stream of experience.
 
 This approach ensures that the algorithms can be presented without special terminal states or termination times, enhancing their flexibility.
 x??

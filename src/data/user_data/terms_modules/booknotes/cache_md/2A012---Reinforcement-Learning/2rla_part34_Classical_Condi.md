@@ -194,13 +194,11 @@ In the Rescorla-Wagner model, associative strengths between stimuli can be updat
 ??x
 The Rescorla-Wagner model updates associative strengths using a simple rule that mimics error correction and curve-fitting techniques used in machine learning. The update rule is given by:
 
-\[ w_{t+1} = w_t + \alpha \Delta w_t x(S_t) \]
-
-where:
-- \(w_t\) is the current associative strength.
-- \(\alpha\) is the step-size parameter that controls how much the weights are adjusted.
-- \(\Delta w_t = R_t - \hat{v}(S_t, w_t)\) is the prediction error, representing the difference between the actual US magnitude and the predicted value.
-- \(x(S_t)\) is an indicator function that specifies which CS components are present during trial \(t\).
+$$w_{t+1} = w_t + \alpha \Delta w_t x(S_t)$$where:
+- $w_t$ is the current associative strength.
+- $\alpha$ is the step-size parameter that controls how much the weights are adjusted.
+- $\Delta w_t = R_t - \hat{v}(S_t, w_t)$ is the prediction error, representing the difference between the actual US magnitude and the predicted value.
+- $x(S_t)$ is an indicator function that specifies which CS components are present during trial $t$.
 
 This update rule effectively adjusts only those associative strengths corresponding to the present CS components.
 
@@ -229,7 +227,7 @@ The Rescorla-Wagner model is similar to the LMS rule used in machine learning fo
 
 Key differences include:
 - For LMS, input vectors can have any real numbers as components.
-- The step-size parameter \(\alpha\) in LMS does not depend on the input vector or stimulus identity.
+- The step-size parameter $\alpha$ in LMS does not depend on the input vector or stimulus identity.
 
 In the Rescorla-Wagner model:
 - Only associative strengths corresponding to present CS components are updated.
@@ -269,12 +267,11 @@ The TD model introduces a new concept called the "TD error," which is used to de
 :p What is the formula for calculating the TD error?
 ??x
 The TD error, denoted by t, is calculated as follows:
-
-\[ \delta_t = R_{t+1} + v(S_{t+1}, w) - v(S_t, w) \]
+$$\delta_t = R_{t+1} + v(S_{t+1}, w) - v(S_t, w)$$
 
 Where:
-- \( R_{t+1} \) is the prediction target at time \( t+1 \),
-- \( v(S_{t+1}, w) \) and \( v(S_t, w) \) are the predicted values at times \( t+1 \) and \( t \), respectively.
+- $R_{t+1}$ is the prediction target at time $t+1$,
+- $v(S_{t+1}, w)$ and $v(S_t, w)$ are the predicted values at times $ t+1 $ and $t$, respectively.
 
 The discount factor  (between 0 and 1) is used to weight future predictions more heavily than immediate ones.
 
@@ -297,13 +294,13 @@ Eligibility traces in the TD model are used to keep track of which parts of the 
 
 :p How does the eligibility trace update work in the TD model?
 ??x
-In the TD model, eligibility traces \( z_t \) increment or decrement according to the component of the feature vector that is active at time step \( t \), and they decay with a rate determined by . The update rule for the eligibility trace is:
+In the TD model, eligibility traces $z_t $ increment or decrement according to the component of the feature vector that is active at time step$t$, and they decay with a rate determined by . The update rule for the eligibility trace is:
 
-\[ z_{t+1} = \alpha z_t + x(S_t) \]
+$$z_{t+1} = \alpha z_t + x(S_t)$$
 
 Where:
-- \( \alpha \) is the eligibility trace decay parameter,
-- \( x(S_t) \) represents the state features at time step \( t \).
+- $\alpha$ is the eligibility trace decay parameter,
+- $x(S_t)$ represents the state features at time step $t$.
 
 This ensures that recently active states have a higher influence on the current update.
 
@@ -324,17 +321,17 @@ x??
 
 
 #### State Representations in TD Model
-The TD model allows for flexible state representations. Each state \( s \) is represented by a feature vector \( x(s) \), which can describe the external stimuli an animal experiences or internal neural activity patterns.
+The TD model allows for flexible state representations. Each state $s $ is represented by a feature vector$x(s)$, which can describe the external stimuli an animal experiences or internal neural activity patterns.
 
 :p What are the key features of state representations in the TD model?
 ??x
 State representations in the TD model are flexible and not limited to just the CS components present on a trial. They can represent detailed aspects of how stimuli are perceived by the animal, including both external stimuli and their effects on the brain's neural activity patterns.
 
-The feature vector \( x(s) \) for state \( s \) is represented as:
+The feature vector $x(s)$ for state $s$ is represented as:
 
-\[ x(s) = (x_1(s), x_2(s), ..., x_n(s))^T \]
+$$x(s) = (x_1(s), x_2(s), ..., x_n(s))^T$$
 
-Where each component \( x_i(s) \) represents a specific feature of the state.
+Where each component $x_i(s)$ represents a specific feature of the state.
 
 ```java
 public class StateRepresentation {
@@ -493,8 +490,8 @@ Background context explaining how the presence representation works within the T
 
 :p How does the presence representation work in the TD model?
 ??x
-In the presence representation, for each CS component \(CS_i\) present on a trial, and for each time step \(t\), there is a separate feature \(x_{t,i}\) where:
-\[ x_{t,i}(S_t^0)=1 \text{ if } t=t_0 \text{ for any } t_0 \text{ at which } CS_i \text{ is present, and equals 0 otherwise.} \]
+In the presence representation, for each CS component $CS_i $ present on a trial, and for each time step$t $, there is a separate feature $ x_{t,i}$ where:
+$$x_{t,i}(S_t^0)=1 \text{ if } t=t_0 \text{ for any } t_0 \text{ at which } CS_i \text{ is present, and equals 0 otherwise.}$$
 
 This means that the model tracks when a specific component of the CS is active during each time step, allowing it to capture the temporal dynamics of conditioning.
 

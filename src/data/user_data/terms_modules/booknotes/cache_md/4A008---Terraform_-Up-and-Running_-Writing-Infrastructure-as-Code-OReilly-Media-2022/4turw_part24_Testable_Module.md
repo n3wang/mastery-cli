@@ -562,11 +562,10 @@ Background context: When using different versions of Terraform, it can lead to i
 ??x
 To ensure consistency, you can use the `tfenv` tool to manage different versions of Terraform. This involves installing a specific version using the command `tfenv install <version>`, and then setting up your project to use that version.
 ```sh
-$ tfenv install 1.2.3
+$tfenv install 1.2.3
 ```
 Once installed, you can set the default version for your environment by running:
-```sh
-$ tfenv use 1.2.3
+```sh$ tfenv use 1.2.3
 ```
 You can also specify versions in `.terraform-version` files within project directories to automatically use a specific version in that directory and its subdirectories.
 x??

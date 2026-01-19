@@ -39,7 +39,7 @@ x??
 
 #### Square Root
 
-Square root is a fundamental mathematical operation where you find a number that, when multiplied by itself (squared), equals the original number. For example, the square root of 36 is 6 because \(6 \times 6 = 36\).
+Square root is a fundamental mathematical operation where you find a number that, when multiplied by itself (squared), equals the original number. For example, the square root of 36 is 6 because $6 \times 6 = 36$.
 
 :p What is the definition of the square root?
 ??x
@@ -50,22 +50,22 @@ x??
 
 
 #### Problem-Solving with Order of Operations
-To solve a problem like \( 3 \times (5 + 2) - 6^2 + 8 \), you follow these steps:
+To solve a problem like $3 \times (5 + 2) - 6^2 + 8$, you follow these steps:
 
-1. **Parentheses**: Solve inside the parentheses first: \( 5 + 2 = 7 \).
-2. **Exponents**: Evaluate any exponents next: \( 6^2 = 36 \).
-3. **Multiplication and Division**: Perform multiplication from left to right: \( 3 \times 7 = 21 \).
-4. **Addition and Subtraction**: Finally, perform addition and subtraction from left to right: \( 21 - 36 + 8 \).
+1. **Parentheses**: Solve inside the parentheses first: $5 + 2 = 7$.
+2. **Exponents**: Evaluate any exponents next: $6^2 = 36$.
+3. **Multiplication and Division**: Perform multiplication from left to right: $3 \times 7 = 21$.
+4. **Addition and Subtraction**: Finally, perform addition and subtraction from left to right: $21 - 36 + 8$.
 
-:p What is the solution for the problem \( 3 \times (5 + 2) - 6^2 + 8 \)?
+:p What is the solution for the problem $3 \times (5 + 2) - 6^2 + 8$?
 ??x
-The solution for the problem \( 3 \times (5 + 2) - 6^2 + 8 \) involves following these steps:
-1. Solve inside the parentheses: \( 5 + 2 = 7 \).
-2. Evaluate the exponent: \( 6^2 = 36 \).
-3. Multiply: \( 3 \times 7 = 21 \).
-4. Subtract and add from left to right: \( 21 - 36 + 8 \).
+The solution for the problem $3 \times (5 + 2) - 6^2 + 8$ involves following these steps:
+1. Solve inside the parentheses: $5 + 2 = 7$.
+2. Evaluate the exponent: $6^2 = 36$.
+3. Multiply: $3 \times 7 = 21$.
+4. Subtract and add from left to right: $21 - 36 + 8$.
 
-The final result is \( -7 \). This ensures that the operations are performed correctly according to the order of operations.
+The final result is $-7$. This ensures that the operations are performed correctly according to the order of operations.
 x??
 
 ---
@@ -88,8 +88,8 @@ Background context: When dividing percents, first convert them to decimals or fr
 ??x
 To calculate an increase of 25%:
 1. Convert 25% to its decimal form: 25% = 0.25.
-2. Multiply the original number by this decimal: If the original number is \( N \), then the increased value is \( N * (1 + 0.25) = N * 1.25 \).
-Therefore, a 25% increase on any number \( N \) results in multiplying it by 1.25.
+2. Multiply the original number by this decimal: If the original number is $N $, then the increased value is $ N * (1 + 0.25) = N * 1.25$.
+Therefore, a 25% increase on any number $N$ results in multiplying it by 1.25.
 x??
 
 ---

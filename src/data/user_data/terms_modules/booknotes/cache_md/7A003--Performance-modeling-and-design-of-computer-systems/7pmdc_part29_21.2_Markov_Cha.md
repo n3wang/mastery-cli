@@ -10,15 +10,15 @@
 In this scenario, we consider a single FCFS queue with Poisson arrivals of rate λ and service times following an Erlang-2 distribution. The mean job size is μ, which implies that the service time requires passing through two exponential phases: Exp(μ1) and Exp(μ2), where μ1 = μ2 = 2μ.
 
 The state space for this Markov chain is defined by (i, j):
-- \( i \) indicates the number of jobs in the queue.
-- \( j \) can be either 1 or 2, indicating which phase the currently serving job is in.
+- $i$ indicates the number of jobs in the queue.
+- $j$ can be either 1 or 2, indicating which phase the currently serving job is in.
 
 A reasonable choice of states involves tracking both the number of waiting jobs and the current service phase. 
 
 :p What do we need to track in the state space for this Markov chain?
 ??x
 We need to track two elements: 
-- The number of jobs queuing (not being served), denoted by \( i \).
+- The number of jobs queuing (not being served), denoted by $i$.
 - The phase that the job currently in service is at, which can be either 1 or 2.
 
 For example, a state (0,1) means there are no other jobs waiting and the serving job is in its first phase (Exp(μ1)). 
@@ -31,19 +31,19 @@ x??
 ---
 
 #### Markov Chain for M/H 2/1
-This scenario involves a single-server FCFS queue with Poisson arrivals and Hyperexponential service times. Specifically, the job size can be either Exp(μ1) or Exp(μ2) with probabilities \( p \) and \( 1-p \), respectively.
+This scenario involves a single-server FCFS queue with Poisson arrivals and Hyperexponential service times. Specifically, the job size can be either Exp(μ1) or Exp(μ2) with probabilities $p $ and$1-p$, respectively.
 
 The state space is again defined by (i, j):
-- \( i \) indicates the number of jobs in the queue.
-- \( j \) denotes which phase the currently serving job’s size is from.
+- $i$ indicates the number of jobs in the queue.
+- $j$ denotes which phase the currently serving job’s size is from.
 
 Here, a job's service size isn't determined until it starts to be served. Hence, we track the phase the job being served has instead of assigning sizes at arrival.
 
 :p What should the Markov chain look like for this scenario?
 ??x
 The state space should consist of (i, j), where:
-- \( i \) is the number of jobs queuing.
-- \( j \) indicates which exponential phase the currently serving job's service size belongs to. 
+- $i$ is the number of jobs queuing.
+- $j$ indicates which exponential phase the currently serving job's service size belongs to. 
 
 For instance, a state (2, 1) means there are two jobs in queue and the currently serving job has an Exp(μ1) service time.
 
@@ -56,19 +56,19 @@ x??
 ---
 
 #### Markov Chain for E 2/M/1
-In this scenario, the interarrival times between jobs follow an Erlang-2 distribution, while each job's service time is distributed as Exp(μ). The mean interarrival time is \( \frac{1}{\lambda} \), and thus each phase of the Erlang-2 has a rate of 2λ.
+In this scenario, the interarrival times between jobs follow an Erlang-2 distribution, while each job's service time is distributed as Exp(μ). The mean interarrival time is $\frac{1}{\lambda}$, and thus each phase of the Erlang-2 has a rate of 2λ.
 
 The state space here involves (i, j):
-- \( i \) indicates the total number of jobs in the system.
-- \( j \) denotes which phase of the arrival process is currently ongoing.
+- $i$ indicates the total number of jobs in the system.
+- $j$ denotes which phase of the arrival process is currently ongoing.
 
 Here, arrivals cannot overlap; only one arrival can be in progress at any time. 
 
 :p What should the Markov chain look like for this scenario?
 ??x
 The state space involves (i, j), where:
-- \( i \) indicates the total number of jobs including the one being served.
-- \( j \in \{1, 2\} \) denotes which phase of the ongoing arrival is currently in progress.
+- $i$ indicates the total number of jobs including the one being served.
+- $j \in \{1, 2\}$ denotes which phase of the ongoing arrival is currently in progress.
 
 For example, a state (3, 2) means there are three jobs in the system and an arrival is trying to complete its second phase. 
 
@@ -82,17 +82,17 @@ x??
 
 
 #### Time-Varying Arrival Rate - M t/M/1 Queue
-Background context: In a queue with time-varying arrival rate, the system alternates between high and low arrival rates. This is denoted as \(M_t\), where the arrival rate fluctuates between \(\lambda_H\) (high) and \(\lambda_L\) (low). The durations spent in these regimes are exponentially distributed: \(\text{Exp}(\alpha_H)\) for \(\lambda_H\) and \(\text{Exp}(\alpha_L)\) for \(\lambda_L\).
+Background context: In a queue with time-varying arrival rate, the system alternates between high and low arrival rates. This is denoted as $M_t $, where the arrival rate fluctuates between $\lambda_H $(high) and $\lambda_L $(low). The durations spent in these regimes are exponentially distributed:$\text{Exp}(\alpha_H)$ for $\lambda_H$ and $\text{Exp}(\alpha_L)$ for $\lambda_L$.
 
-The state space of the queue includes both the number of jobs in the system and the current regime (high or low load). The states are denoted as \(H_i\) and \(L_j\), where \(i, j = 0, 1, 2, \ldots\).
+The state space of the queue includes both the number of jobs in the system and the current regime (high or low load). The states are denoted as $H_i $ and$L_j $, where$ i, j = 0, 1, 2, \ldots$.
 
 :p What is the structure of the Markov chain for an M t/M/1 queue?
 ??x
-The Markov chain has a two-dimensional state space: one dimension represents the number of jobs in the system (denoted by \(i\) and \(j\)), and the other dimension indicates whether the system is currently in the high load (\(H\)) or low load (\(L\)) phase. The states are labeled as \(H_i, L_j\).
+The Markov chain has a two-dimensional state space: one dimension represents the number of jobs in the system (denoted by $i $ and$j $), and the other dimension indicates whether the system is currently in the high load ($ H $) or low load ($ L $) phase. The states are labeled as$ H_i, L_j$.
 
 For example, if the state space includes up to 3 jobs, the states would be:
-- \(H_0, H_1, H_2, H_3\) for high load
-- \(L_0, L_1, L_2, L_3\) for low load
+- $H_0, H_1, H_2, H_3$ for high load
+- $L_0, L_1, L_2, L_3$ for low load
 
 The transitions between these states depend on the arrival and service rates in each phase.
 
@@ -107,8 +107,8 @@ Background context: A time-varying arrival rate process is called a Markov-modul
 An MMPP represents a queue where the arrival process is modulated by the states of another (finite) Markov chain. Each state of the underlying Markov chain corresponds to a particular level of activity, leading to varying arrival rates over time.
 
 For example, in the context of the M t/M/1 queue:
-- The high-load phase (\(H\)) has an arrival rate \(\lambda_H\) and lasts for an exponentially distributed duration with parameter \(\alpha_H\).
-- The low-load phase (\(L\)) has a lower arrival rate \(\lambda_L\) and also lasts for an exponentially distributed duration with parameter \(\alpha_L\).
+- The high-load phase ($H $) has an arrival rate $\lambda_H $ and lasts for an exponentially distributed duration with parameter$\alpha_H$.
+- The low-load phase ($L $) has a lower arrival rate $\lambda_L $ and also lasts for an exponentially distributed duration with parameter$\alpha_L$.
 
 x??
 
@@ -132,7 +132,7 @@ x??
 
 ---
 #### Analysis of Time-Varying Load
-Background context: In analyzing queues with time-varying loads, such as \(M_t/M/1\) and \(M/M_t/1\), the arrival rate changes over time. This is in contrast to more standard models where the arrival rate or service rate does not change.
+Background context: In analyzing queues with time-varying loads, such as $M_t/M/1 $ and$M/M_t/1$, the arrival rate changes over time. This is in contrast to more standard models where the arrival rate or service rate does not change.
 
 The state of a system at any given time can be described by both the number of jobs in the system and the current regime (high or low load). The balance equations for these chains are complex, making closed-form solutions difficult to find. Matrix-analytic methods provide a practical way to solve such problems numerically.
 
@@ -161,70 +161,67 @@ The answer explains the difference between using vectors and matrices versus sca
 ---
 #### Generator Matrix Q for M<sub>t</sub>/M/1 Queue
 
-The generator matrix \(Q\) helps represent balance equations in a structured form. For an M/M/1 queue, we have:
-
-\[ Q = \left[ \begin{array}{cccc}
+The generator matrix $Q$ helps represent balance equations in a structured form. For an M/M/1 queue, we have:
+$$Q = \left[ \begin{array}{cccc}
 0 & 1 & 2 & 3 & \cdots \\
 -λ & λ & 1μ - (λ+μ) & λ2 μ - (λ+μ) & \cdots \\
 \vdots & \vdots & \vdots & \ddots
-\end{array} \right] \]
+\end{array} \right]$$
 
-The balance equations can be written as \(πQ = 0\) and \(π·1 = 1\), where \(π\) is the limiting distribution vector, and 1 is a column of ones.
+The balance equations can be written as $πQ = 0 $ and$π·1 = 1 $, where $π$ is the limiting distribution vector, and 1 is a column of ones.
 
-:p What does each element in the generator matrix \(Q\) represent?
+:p What does each element in the generator matrix $Q$ represent?
 ??x
-Each element in the generator matrix \(Q\) represents the rate at which the Markov chain transitions between states. Specifically:
+Each element in the generator matrix $Q$ represents the rate at which the Markov chain transitions between states. Specifically:
 - The diagonal elements are negative and denote the total outflow from that state.
 - Non-diagonal elements indicate the inflow to a particular state.
 
 For example, for an M/M/1 queue:
-- \(Q_{i,i+1} = λ\) is the rate at which customers arrive (inflow).
-- \(Q_{i,i-1} = μ\) is the rate at which service completes (outflow), and so on.
+- $Q_{i,i+1} = λ$ is the rate at which customers arrive (inflow).
+- $Q_{i,i-1} = μ$ is the rate at which service completes (outflow), and so on.
 The answer explains how each element in the matrix represents transition rates between states.
 
 ---
 #### Generator Matrix Q for M<sub>t</sub>/M/1 Queue
 
-For an M<sub>t</sub>/M/1 queue, we need to consider time-varying arrival rates \(λ_H\) and service rates \(μ\). The generator matrix is:
+For an M<sub>t</sub>/M/1 queue, we need to consider time-varying arrival rates $λ_H $ and service rates$μ$. The generator matrix is:
 
-\[ Q = \left[ \begin{array}{cccccc}
+$$Q = \left[ \begin{array}{cccccc}
 0 & 0H - (λ_H + α_H) & α_H / | λ_H 0 | \\
 0L α_L - (λ_L + α_L) & μ 0 / | 0 μ |
-\end{array} \right] \]
+\end{array} \right]$$
 
-Here, \(0H\) and \(0L\) are the initial states with different rates.
+Here,$0H $ and$0L$ are the initial states with different rates.
 
-:p What does the matrix \(Q\) represent for an M<sub>t</sub>/M/1 queue?
+:p What does the matrix $Q$ represent for an M<sub>t</sub>/M/1 queue?
 ??x
-The matrix \(Q\) represents the infinitesimal generator of the Markov process. Each column contains the coefficients that, when multiplied by the steady-state probability vector \(π\), yield balance equations.
+The matrix $Q $ represents the infinitesimal generator of the Markov process. Each column contains the coefficients that, when multiplied by the steady-state probability vector$π$, yield balance equations.
 
 In this context:
-- The first 2×2 block \([0H - (λ_H + α_H) | α_H / λ_H 0]\) handles transitions from initial states.
+- The first 2×2 block $[0H - (λ_H + α_H) | α_H / λ_H 0]$ handles transitions from initial states.
 - The repeating blocks handle local and forward transitions between subsequent states.
-The answer explains the structure of \(Q\) in an M<sub>t</sub>/M/1 queue, detailing its role in generating balance equations.
+The answer explains the structure of $Q$ in an M<sub>t</sub>/M/1 queue, detailing its role in generating balance equations.
 
 ---
 #### Recursive Expression of π Vector
 
-We seek to express the steady-state probability vector \(\bar{π} = (\bar{π}_0^H, \bar{π}_0^L, \bar{π}_1^H, \bar{π}_1^L, ...)\) recursively using a matrix \(R\). The key idea is that:
+We seek to express the steady-state probability vector $\bar{π} = (\bar{π}_0^H, \bar{π}_0^L, \bar{π}_1^H, \bar{π}_1^L, ...)$ recursively using a matrix $R$. The key idea is that:
 
-\[ \bar{π}_i = R \cdot \bar{π}_{i-1} \]
+$$\bar{π}_i = R \cdot \bar{π}_{i-1}$$
 
 Expanding this gives us:
-
-\[ \bar{π}_i = \bar{π}_0 \cdot R^i \]
+$$\bar{π}_i = \bar{π}_0 \cdot R^i$$
 
 This allows us to determine the steady-state probabilities through iterative solutions.
 
-:p How is the vector \(\bar{π}\) expressed recursively?
+:p How is the vector $\bar{π}$ expressed recursively?
 ??x
-The vector \(\bar{π}\) is recursively expressed as follows:
+The vector $\bar{π}$ is recursively expressed as follows:
+$$\bar{π}_i = R \cdot \bar{π}_{i-1}$$
 
-\[ \bar{π}_i = R \cdot \bar{π}_{i-1} \]
+Where $R$ is a matrix that encapsulates the transition rates between states. By iteratively applying this equation, we can determine the steady-state probabilities.
 
-Where \(R\) is a matrix that encapsulates the transition rates between states. By iteratively applying this equation, we can determine the steady-state probabilities.
-
-The recursive relationship allows us to compute the vector \(\bar{π}\) step-by-step:
+The recursive relationship allows us to compute the vector $\bar{π}$ step-by-step:
 
 ```java
 // Pseudocode for computing π using recursion and iteration
@@ -241,16 +238,16 @@ public void computeSteadyState() {
 }
 ```
 
-Here, `getTransitionMatrixR()` retrieves the transition matrix \(R\) and `multiplyMatrices(a, b)` performs matrix multiplication.
+Here, `getTransitionMatrixR()` retrieves the transition matrix $R$ and `multiplyMatrices(a, b)` performs matrix multiplication.
 
-The answer explains the recursive expression of \(\bar{π}\) using a matrix \(R\), detailing the iterative computation process.
+The answer explains the recursive expression of $\bar{π}$ using a matrix $R$, detailing the iterative computation process.
 
 
 #### Phase-Type Distributions and Matrix-Analytic Methods Overview
-This section delves into solving balance equations for phase-type distributions using matrix-analytic methods. The goal is to determine the steady-state probabilities \(\vec{\pi}_i\) by solving a set of matrix equations.
+This section delves into solving balance equations for phase-type distributions using matrix-analytic methods. The goal is to determine the steady-state probabilities $\vec{\pi}_i$ by solving a set of matrix equations.
 :p What are the key steps in rewriting the balance equations as matrix equations?
 ??x
-The process involves expressing the balance equations in matrix form and guessing that \(\vec{\pi}_i = \vec{\pi}_0 R^i\), where \(R\) is a matrix to be determined. This allows transforming the original set of balance equations into simpler forms.
+The process involves expressing the balance equations in matrix form and guessing that $\vec{\pi}_i = \vec{\pi}_0 R^i $, where $ R$ is a matrix to be determined. This allows transforming the original set of balance equations into simpler forms.
 ```java
 // Example pseudocode for solving balance equations
 public class BalanceEquationsSolver {
@@ -276,11 +273,10 @@ x??
 
 ---
 
-#### Convergence of \(R\)
-The iterative process to find \(R\) converges when the difference between successive iterations is smaller than a specified threshold \(\epsilon_1\).
-:p How do we determine if \(R\) has converged?
+#### Convergence of $R $ The iterative process to find$R $ converges when the difference between successive iterations is smaller than a specified threshold$\epsilon_1$.
+:p How do we determine if $R$ has converged?
 ??x
-We use an iterative approach where \(R_{n+1}\) is calculated as \(- (R_n^2 B + F) L0^{-1}\). The iteration continues until the maximum absolute difference between successive iterations of \(R\) falls below a specified threshold \(\epsilon_1\).
+We use an iterative approach where $R_{n+1}$ is calculated as $- (R_n^2 B + F) L0^{-1}$. The iteration continues until the maximum absolute difference between successive iterations of $ R$falls below a specified threshold $\epsilon_1$.
 ```java
 // Example pseudocode for checking convergence
 public boolean checkConvergence(Matrix Rn, Matrix Rn1, double epsilon1) {
@@ -291,23 +287,19 @@ x??
 
 ---
 
-#### Determining \(\vec{\pi}_0\)
-To find \(\vec{\pi}_0\), we use the normalizing equation and one of the balance equations.
-:p How do we solve for \(\vec{\pi}_0\) using the normalizing equation?
+#### Determining $\vec{\pi}_0 $ To find$\vec{\pi}_0$, we use the normalizing equation and one of the balance equations.
+:p How do we solve for $\vec{\pi}_0$ using the normalizing equation?
 ??x
-We start by rewriting the normalizing equation in terms of \(\vec{\pi}_0\):
-\[
-\sum_{i=0}^\infty \vec{\pi}_i \cdot \vec{1} = 1 \Rightarrow \sum_{i=0}^\infty \vec{\pi}_0 R^i \cdot \vec{1} = 1
-\]
+We start by rewriting the normalizing equation in terms of $\vec{\pi}_0$:
+$$\sum_{i=0}^\infty \vec{\pi}_i \cdot \vec{1} = 1 \Rightarrow \sum_{i=0}^\infty \vec{\pi}_0 R^i \cdot \vec{1} = 1$$
+
 This simplifies to:
-\[
-\vec{\pi}_0 (I - R)^{-1} \vec{1} = 1
-\]
-Letting \(\Phi = L_0 + RB\) and \(\Psi = (I - R)^{-1} \vec{1}\), we have the system of equations:
-\[
-\vec{\pi}_0 \Phi = \vec{0}, \quad \vec{\pi}_0 \Psi = 1
-\]
-After replacing one balance equation with the normalizing equation, we can solve for \(\vec{\pi}_0\).
+$$\vec{\pi}_0 (I - R)^{-1} \vec{1} = 1$$
+
+Letting $\Phi = L_0 + RB $ and$\Psi = (I - R)^{-1} \vec{1}$, we have the system of equations:
+$$\vec{\pi}_0 \Phi = \vec{0}, \quad \vec{\pi}_0 \Psi = 1$$
+
+After replacing one balance equation with the normalizing equation, we can solve for $\vec{\pi}_0$.
 ```java
 // Example pseudocode for solving π_0
 public Vector solveForPi0(Matrix Φ, Matrix Ψ) {
@@ -319,10 +311,10 @@ x??
 ---
 
 #### Solving Balance Equations in General
-The process to find \(\vec{\pi}_i\) involves solving a set of matrix equations derived from balance equations.
-:p What is the general approach for solving balance equations using \(R\) and \(\vec{\pi}_0\)?
+The process to find $\vec{\pi}_i$ involves solving a set of matrix equations derived from balance equations.
+:p What is the general approach for solving balance equations using $R $ and$\vec{\pi}_0$?
 ??x
-The approach starts with guessing that \(\vec{\pi}_i = \vec{\pi}_0 R^i\). This allows transforming the original set of balance equations into simpler forms. After determining \(R\) through iteration, we use \(\vec{\pi}_i = \vec{\pi}_0 R^i\) to find all steady-state probabilities.
+The approach starts with guessing that $\vec{\pi}_i = \vec{\pi}_0 R^i $. This allows transforming the original set of balance equations into simpler forms. After determining $ R $through iteration, we use$\vec{\pi}_i = \vec{\pi}_0 R^i$ to find all steady-state probabilities.
 ```java
 // Example pseudocode for solving balance equations in general
 public Vector[] solveBalanceEquations() {
@@ -352,12 +344,12 @@ x??
 
 #### Matrix-Analytic Method for M/M/1
 
-Background context: The matrix-analytic method is used to derive limiting probabilities and performance metrics for Markov chains, particularly useful for complex systems like the M/M/1 queue. The key components include the transition rate matrix \( Q \), steady-state probability vector \( \vec{\pi} \), and the infinitesimal generator matrix.
+Background context: The matrix-analytic method is used to derive limiting probabilities and performance metrics for Markov chains, particularly useful for complex systems like the M/M/1 queue. The key components include the transition rate matrix $Q $, steady-state probability vector $\vec{\pi}$, and the infinitesimal generator matrix.
 
-:p What would \( R \) look like in the case of an M/M/1 system using the matrix-analytic method?
+:p What would $R$ look like in the case of an M/M/1 system using the matrix-analytic method?
 
 ??x
-In the M/M/1 system, \( R \) is a scalar because there is only one repeating state. It can be solved directly without iteration. This simplifies the calculations significantly as compared to systems with more complex structures.
+In the M/M/1 system, $R$ is a scalar because there is only one repeating state. It can be solved directly without iteration. This simplifies the calculations significantly as compared to systems with more complex structures.
 
 Example:
 ```java
@@ -374,15 +366,14 @@ x??
 
 #### Expression of Q Using a1 and a2
 
-Background context: For the system \( M^* / E_2^* / 1 \), where the arrival rate is different when the queue is empty versus non-empty, the transition rate matrix \( Q \) can be expressed using \( a1 = -(λ + μ1) \) and \( a2 = -(λ + μ2) \).
+Background context: For the system $M^* / E_2^* / 1 $, where the arrival rate is different when the queue is empty versus non-empty, the transition rate matrix $ Q $ can be expressed using $ a1 = -(λ + μ1)$and $ a2 = -(λ + μ2)$.
 
-:p Express \( Q \) using \( a1 \) and \( a2 \) for the system described.
+:p Express $Q $ using$a1 $ and$a2$ for the system described.
 
 ??x
-The transition rate matrix \( Q \) for the given system can be expressed as:
+The transition rate matrix $Q$ for the given system can be expressed as:
 
-\[
-Q =
+$$Q =
 \begin{bmatrix}
 (0,0) & (0 ,1) & (0 ,2) \\
 (1 ,1) & (1 ,2) \\
@@ -395,14 +386,10 @@ Q =
 0     & -a_1   & 0         \\
 \lambda' & 0       & -a_2      \\
 0     & \lambda  & 0
-\end{bmatrix}
-\]
+\end{bmatrix}$$
 
 Where:
-- \( a1 = -(λ + μ1) \)
-- \( a2 = -(λ + μ2) \)
-
-Example (pseudocode):
+- $a1 = -(λ + μ1)$-$ a2 = -(λ + μ2)$ Example (pseudocode):
 ```java
 // Pseudocode for constructing Q matrix
 double lambdaPrime = 3; // empty queue arrival rate
@@ -422,12 +409,12 @@ x??
 
 #### Iterative Solution for M∗/E∗ 2/1
 
-Background context: For more complex chains where the repeating part starts after a certain level \( M \), matrix-analytic methods can still be applied. The initial matrix \( L_0 \) must include the entire non-repeating portion of the chain.
+Background context: For more complex chains where the repeating part starts after a certain level $M $, matrix-analytic methods can still be applied. The initial matrix $ L_0$ must include the entire non-repeating portion of the chain.
 
-:p What is the value of \( M \) for the system described in this context?
+:p What is the value of $M$ for the system described in this context?
 
 ??x
-For the system \( M^* / E_2^* / 1 \), the value of \( M \) is 1. This means that the repeating part starts after the first state, and the initial matrix \( L_0 \) must be larger to include the non-repeating portion.
+For the system $M^* / E_2^* / 1 $, the value of $ M $ is 1. This means that the repeating part starts after the first state, and the initial matrix $ L_0$ must be larger to include the non-repeating portion.
 
 Example (pseudocode):
 ```java
@@ -450,21 +437,19 @@ x??
 
 #### Balance Equations and Limiting Probabilities
 
-Background context: The balance equations are used to determine the steady-state probabilities \( \vec{\pi} \) for the given system. For complex chains, these can be transformed into matrix form.
+Background context: The balance equations are used to determine the steady-state probabilities $\vec{\pi}$ for the given system. For complex chains, these can be transformed into matrix form.
 
 :p What is the expression for the balance equation in terms of vectors and matrices?
 
 ??x
 The balance equations can be expressed as a set of matrix equations involving vectors and matrices:
 
-\[
-\begin{aligned}
+$$\begin{aligned}
 \vec{0} &= \vec{\pi_0} \cdot L_0 + \vec{\pi_1} \cdot B_0 \\
 \vec{0} &= \vec{\pi_0} \cdot F_0 + \vec{\pi_1} \cdot (L + RB) \\
-\end{aligned}
-\]
+\end{aligned}$$
 
-These equations can be combined to solve for the vectors \( \vec{\pi_0} \) and \( \vec{\pi_1} \).
+These equations can be combined to solve for the vectors $\vec{\pi_0}$ and $\vec{\pi_1}$.
 
 Example (pseudocode):
 ```java
@@ -484,19 +469,16 @@ x??
 
 #### Iterative Solution for R
 
-Background context: The matrix \( R \) is solved iteratively using a specific formula derived from the balance equations. This process ensures that \( R \) converges to its steady-state value.
+Background context: The matrix $R $ is solved iteratively using a specific formula derived from the balance equations. This process ensures that$R$ converges to its steady-state value.
 
-:p How do you iterate to find \( R \)?
+:p How do you iterate to find $R$?
 
 ??x
-To find \( R \), we use an iterative method:
+To find $R$, we use an iterative method:
 
-1. Initialize \( R_0 = 0 \).
-2. Update \( R_{n+1} \) using the formula:
-   \[
-   R_{n+1} = -\left(R_n^2 B + F\right)L^{-1}
-   \]
-3. Iterate until \( ||R_{n+1} - R_n|| < \epsilon \).
+1. Initialize $R_0 = 0$.
+2. Update $R_{n+1}$ using the formula:
+   $$R_{n+1} = -\left(R_n^2 B + F\right)L^{-1}$$3. Iterate until $||R_{n+1} - R_n|| < \epsilon$.
 
 Example (pseudocode):
 ```java
@@ -520,24 +502,19 @@ x??
 
 #### Normalization Equation
 
-Background context: The normalization equation ensures that the sum of all steady-state probabilities equals 1. This is a crucial part of solving for \( \vec{\pi} \).
+Background context: The normalization equation ensures that the sum of all steady-state probabilities equals 1. This is a crucial part of solving for $\vec{\pi}$.
 
-:p What is the normalization equation and how does it help solve for \( \vec{\pi} \)?
+:p What is the normalization equation and how does it help solve for $\vec{\pi}$?
 
 ??x
 The normalization equation helps ensure that the total probability sums to 1:
 
-\[
-\vec{\pi} \cdot \vec{1} = 1
-\]
+$$\vec{\pi} \cdot \vec{1} = 1$$
 
 In terms of specific vectors, this can be written as:
+$$\vec{\pi_0} \cdot \vec{1} + \sum_{i=1}^{\infty} \vec{\pi_i} \cdot \vec{1} = 1$$
 
-\[
-\vec{\pi_0} \cdot \vec{1} + \sum_{i=1}^{\infty} \vec{\pi_i} \cdot \vec{1} = 1
-\]
-
-This equation is used to solve for the steady-state probabilities \( \vec{\pi} \).
+This equation is used to solve for the steady-state probabilities $\vec{\pi}$.
 
 Example (pseudocode):
 ```java
@@ -557,15 +534,14 @@ x??
 
 #### Local Balance Equations
 
-Background context: The local balance equations provide a way to solve for specific vectors \( \vec{\pi} \) by incorporating the initial and repeating states.
+Background context: The local balance equations provide a way to solve for specific vectors $\vec{\pi}$ by incorporating the initial and repeating states.
 
 :p How are the local balance equations used in this context?
 
 ??x
 The local balance equations help solve for specific vectors by combining them into one system:
 
-\[
-\left[\begin{array}{c}
+$$\left[\begin{array}{c}
 \vec{\pi_0} \\
 \vec{\pi_1}
 \end{array}\right]
@@ -575,8 +551,7 @@ L_0 & F_0 \\
 B_0 L + R B & 0
 \end{array}\right]
 =
-\left[0, 0, 0, 0\right]
-\]
+\left[0, 0, 0, 0\right]$$
 
 This system can be solved using matrix operations.
 

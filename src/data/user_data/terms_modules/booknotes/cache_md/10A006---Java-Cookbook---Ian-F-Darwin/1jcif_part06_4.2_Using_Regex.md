@@ -439,7 +439,7 @@ Pattern r = Pattern.compile("(.*), (.*)");
 Matcher m = r.matcher(inputLine);
 if (!m.matches()) throw new IllegalArgumentException("Bad input");
 
-// Using $1 and $2 for replacement
+// Using $1 and$2 for replacement
 System.out.println(m.group(2) + ' ' + m.group(1));
 ```
 

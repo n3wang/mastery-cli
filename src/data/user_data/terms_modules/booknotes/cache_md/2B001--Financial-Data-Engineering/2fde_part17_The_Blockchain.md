@@ -733,7 +733,7 @@ Background context: Corrections involve replacing low-quality records with their
 
 :p What is an example of correcting a record's value?
 ??x
-An example is replacing a negative price with a positive one. For instance, if you have a dataset where prices are recorded as -$10 due to a mistake in input, correct this by changing the value to $10.
+An example is replacing a negative price with a positive one. For instance, if you have a dataset where prices are recorded as -$10 due to a mistake in input, correct this by changing the value to$10.
 
 For more complex scenarios:
 - If financial data does not conform to standard formats (e.g., not following ISO 8601), notify the entity and request that they resubmit the data in the proper format.
@@ -852,7 +852,7 @@ A stock split involves issuing additional shares to existing shareholders, incre
 For example:
 - A 1:2 stock split means that each shareholder will receive two new shares for every one they originally held.
   
-- If a company has a $400 stock and performs a 1:2 split, the new price per share would be halved to $200. The total market capitalization remains unchanged.
+- If a company has a $400 stock and performs a 1:2 split, the new price per share would be halved to$200. The total market capitalization remains unchanged.
 
 :p How do you adjust the stock price after a corporate action like a stock split?
 ??x
@@ -885,7 +885,7 @@ Background context: Dividend distributions affect stock prices by reducing the s
 A dividend distribution occurs when a company pays out part of its earnings to shareholders in the form of cash or additional shares. This typically results in a reduction in the stock price by an amount equivalent to the dividend paid per share.
 
 For example:
-- If a company announces a $1 dividend and has a current stock price of $11, after the distribution, the new adjusted price will be $10 ($11 - $1).
+- If a company announces a $1 dividend and has a current stock price of $11, after the distribution, the new adjusted price will be $10 ($11 -$1).
 
 :p How do you adjust the stock price for a dividend distribution?
 ??x
@@ -1036,19 +1036,13 @@ Time series differentiation is a common technique used to transform non-stationa
 
 :p What is time series differentiation, and why is it important for financial analysts?
 ??x
-Time series differentiation involves calculating the difference between each consecutive pair of observations over time (i.e., \( x_t - x_{t-1} \), \( x_{t-1} - x_{t-2} \), etc.). This technique is crucial because it helps transform a non-stationary financial time series into a stationary one. A stationary time series has statistical properties that do not change over time, making classical data analysis methods more reliable.
+Time series differentiation involves calculating the difference between each consecutive pair of observations over time (i.e., $x_t - x_{t-1}$,$ x_{t-1} - x_{t-2}$, etc.). This technique is crucial because it helps transform a non-stationary financial time series into a stationary one. A stationary time series has statistical properties that do not change over time, making classical data analysis methods more reliable.
 
 For percentage differences between consecutive prices, the formula used is:
-\[
-\frac{x_t - x_{t-1}}{x_{t-1}}
-\]
-
-:p How can financial analysts use differentiation to convert price time series into return series?
+$$\frac{x_t - x_{t-1}}{x_{t-1}}$$:p How can financial analysts use differentiation to convert price time series into return series?
 ??x
 Financial analysts often convert a price time series to a return series by taking the percentage difference between two consecutive prices. The formula used is:
-\[
-\frac{x_t - x_{t-1}}{x_{t-1}}
-\]
+$$\frac{x_t - x_{t-1}}{x_{t-1}}$$
 
 This conversion helps in analyzing trends and making predictions more accurately.
 
@@ -1058,10 +1052,8 @@ Log transformation is another common feature engineering technique applied to fi
 
 :p What is log transformation, and why is it useful in financial analysis?
 ??x
-Log transformation involves replacing each value \( x \) with \( \log(x) \). This technique is particularly useful because it can transform skewed financial data to conform to normality. For example, if a price time series is expressed in a log scale, the difference between two log prices approximates the percentage change:
-\[
-\log(p_t) - \log(p_{t-1}) \approx \frac{p_t - p_{t-1}}{p_{t-1}}
-\]
+Log transformation involves replacing each value $x $ with$\log(x)$. This technique is particularly useful because it can transform skewed financial data to conform to normality. For example, if a price time series is expressed in a log scale, the difference between two log prices approximates the percentage change:
+$$\log(p_t) - \log(p_{t-1}) \approx \frac{p_t - p_{t-1}}{p_{t-1}}$$
 
 Log transformations are often used to stabilize variance and make data more normally distributed, which is beneficial for various statistical analyses.
 

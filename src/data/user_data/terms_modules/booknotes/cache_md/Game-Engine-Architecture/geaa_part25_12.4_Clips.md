@@ -29,11 +29,11 @@ x??
 
 
 #### Local Timeline and Pose Interpolation
-Background context: Every animation clip has a local timeline, typically denoted by \( t \). At the start of a clip, \( t = 0 \), and at the end, \( t = T \) where \( T \) is the duration of the clip. An important concept here is that the rate at which frames are displayed to the viewer can differ from the rate at which poses are created by the animator.
+Background context: Every animation clip has a local timeline, typically denoted by $t $. At the start of a clip, $ t = 0 $, and at the end,$ t = T $ where $ T$ is the duration of the clip. An important concept here is that the rate at which frames are displayed to the viewer can differ from the rate at which poses are created by the animator.
 
 :p What does the term "local timeline" refer to in animation?
 ??x
-The local timeline refers to the internal time reference for an individual animation clip, where \( t \) ranges from 0 to \( T \). This timeline allows for pose interpolation between keyframes and continuous sampling of poses at any point during the animation.
+The local timeline refers to the internal time reference for an individual animation clip, where $t $ ranges from 0 to$T$. This timeline allows for pose interpolation between keyframes and continuous sampling of poses at any point during the animation.
 x??
 
 ---
@@ -45,9 +45,8 @@ Background context: Animators typically create keyposes (keyframes) at specific 
 :p How does pose interpolation work in animation?
 ??x
 Pose interpolation works by generating poses between two keyframes using linear or curve-based methods. The computer calculates these intermediate poses based on the keyframe values and the desired smoothness of the transition.
-For example, if you have keyposes at \( t = 0 \) (pose A) and \( t = T \) (pose B), the engine might use a linear interpolation formula like:
-\[ \text{Pose}(t) = \text{PoseA} + \frac{(t - 0)}{(T - 0)} \times (\text{PoseB} - \text{PoseA}) \]
-where \( t \) is any time between 0 and T.
+For example, if you have keyposes at $t = 0 $(pose A) and $ t = T$ (pose B), the engine might use a linear interpolation formula like:
+$$\text{Pose}(t) = \text{PoseA} + \frac{(t - 0)}{(T - 0)} \times (\text{PoseB} - \text{PoseA})$$where $ t$ is any time between 0 and T.
 x??
 
 ---
@@ -59,7 +58,7 @@ Background context: The timeline of an animation clip is continuous, allowing fo
 :p Why does the timeline in computer animation need to be continuous?
 ??x
 The timeline needs to be continuous because it allows the animation engine to interpolate poses between keyframes smoothly and precisely. This means that animators can create a small number of keyposes, and the engine will fill in the rest using interpolation techniques.
-For instance, an animator might set up keyposes at \( t = 0 \) (start), \( t = 2 \) (middle), and \( t = 4 \) (end). The animation system would then interpolate poses between these keyframes to create a seamless transition.
+For instance, an animator might set up keyposes at $t = 0 $(start),$ t = 2 $(middle), and$ t = 4$(end). The animation system would then interpolate poses between these keyframes to create a seamless transition.
 
 ```java
 public class AnimationSystem {
@@ -111,7 +110,7 @@ Background context: Since the animation timeline is continuous, time should be m
 :p Why are time units typically measured in seconds during animation?
 ??x
 Time units are measured in seconds to provide a consistent and precise way to manage animations. This allows for smooth interpolation between keyframes and accurate timing adjustments without the limitations imposed by fixed frame rates.
-For example, if you want an object to move from point A to B over 2 seconds, you can use \( t \) values of 0s (start), 1s, and 2s (end). This approach ensures that the animation plays smoothly regardless of the current frame rate.
+For example, if you want an object to move from point A to B over 2 seconds, you can use $t$ values of 0s (start), 1s, and 2s (end). This approach ensures that the animation plays smoothly regardless of the current frame rate.
 
 ```java
 public class AnimationClip {
@@ -170,8 +169,8 @@ Background context: In game animations, loops can be tricky to handle. If a clip
 :p How does the redundancy issue arise in looping clips?
 ??x
 In a looping animation, the last frame's pose must exactly match the first frame's pose. Therefore, if there are 30 frames, the 31st sample is redundant since it coincides with the 1st sample. This means that for a looped clip:
-- A non-looping N-frame animation has \(N + 1\) unique samples.
-- A looping N-frame animation has \(N\) unique samples.
+- A non-looping N-frame animation has $N + 1$ unique samples.
+- A looping N-frame animation has $N$ unique samples.
 
 To avoid redundancy, many game engines omit the last sample of a looping clip.
 x??
@@ -729,15 +728,14 @@ The process involves two main steps:
 2. Then, transform it from joint space back to model space by multiplying with the current pose matrix.
 
 Mathematically, this can be represented as:
-
-\[ v_{C} = v_B \cdot M \cdot (B_j \cdot M)^{-1} \cdot C_j \cdot M \]
+$$v_{C} = v_B \cdot M \cdot (B_j \cdot M)^{-1} \cdot C_j \cdot M$$
 
 Where:
-- \(v_B\) is the vertex in bind pose.
-- \(M\) represents the model-to-joint transformation matrix.
-- \(B_j\) and \(C_j\) represent the bind pose and current pose matrices for joint \(j\), respectively.
+- $v_B$ is the vertex in bind pose.
+- $M$ represents the model-to-joint transformation matrix.
+- $B_j $ and$C_j $ represent the bind pose and current pose matrices for joint$j$, respectively.
 
-This results in a transformed vertex position \(v_{C}\) which reflects its position in the current pose of the skeleton. 
+This results in a transformed vertex position $v_{C}$ which reflects its position in the current pose of the skeleton. 
 x??
 
 ---
@@ -746,14 +744,14 @@ x??
 #### Skinning Matrix Calculation
 Background context: A skinning matrix is used to transform vertices from their positions in bind pose to their positions in the current pose for each joint. This involves calculating the inverse of the bind pose matrix and multiplying it with the current pose matrix.
 
-:p How do you calculate a single skinning matrix \(K_j\) for a joint?
+:p How do you calculate a single skinning matrix $K_j$ for a joint?
 ??x
-To calculate a single skinning matrix \(K_j\) for a joint, you need to follow these steps:
+To calculate a single skinning matrix $K_j$ for a joint, you need to follow these steps:
 
-1. Compute the inverse of the bind pose matrix \((B_j.M)^{-1}\).
-2. Multiply this with the current pose matrix \(C_j.M\).
+1. Compute the inverse of the bind pose matrix $(B_j.M)^{-1}$.
+2. Multiply this with the current pose matrix $C_j.M$.
 
-The resulting matrix is denoted as \(K_j = (B_j \cdot M)^{-1} \cdot C_j \cdot M\).
+The resulting matrix is denoted as $K_j = (B_j \cdot M)^{-1} \cdot C_j \cdot M$.
 
 Here's a simplified pseudocode for calculating the skinning matrix:
 ```java
@@ -773,10 +771,10 @@ Background context: In a multijointed skeleton, each joint requires its own skin
 ??x
 To generate a matrix palette for a multijointed skeleton:
 
-1. For each joint \(j\):
-   - Compute the inverse bind pose matrix \((B_j.M)^{-1}\).
-   - Compute the current pose matrix \(C_j.M\) for that joint.
-   - Multiply these two matrices to get the skinning matrix \(K_j = (B_j.M)^{-1} \cdot C_j.M\).
+1. For each joint $j$:
+   - Compute the inverse bind pose matrix $(B_j.M)^{-1}$.
+   - Compute the current pose matrix $C_j.M$ for that joint.
+   - Multiply these two matrices to get the skinning matrix $K_j = (B_j.M)^{-1} \cdot C_j.M$.
 
 2. Store all the calculated skinning matrices in an array, where each entry corresponds to a different joint.
 
@@ -805,15 +803,14 @@ x??
 #### Incorporating Model-to-World Transform into Skinning Matrices
 Background context: To transform vertices from model space to world space, some engines premultiply the skinning matrices by the object’s model-to-world transformation. This optimization saves one matrix multiplication per vertex during rendering.
 
-:p How do you incorporate the model-to-world transform \(M_{W}\) into a skinning matrix?
+:p How do you incorporate the model-to-world transform $M_{W}$ into a skinning matrix?
 ??x
-To incorporate the model-to-world transform \(M_W\) into a skinning matrix, simply concatenate it to the existing skinning matrix equation:
-
-\[ (K_j)_W = (B_j \cdot M)^{-1} \cdot C_j \cdot M \cdot M_W \]
+To incorporate the model-to-world transform $M_W$ into a skinning matrix, simply concatenate it to the existing skinning matrix equation:
+$$(K_j)_W = (B_j \cdot M)^{-1} \cdot C_j \cdot M \cdot M_W$$
 
 Where:
-- \((K_j)_W\) is the transformed skinning matrix that includes the model-to-world transform.
-- \(M_W\) represents the object’s model-to-world transformation.
+- $(K_j)_W$ is the transformed skinning matrix that includes the model-to-world transform.
+- $M_W$ represents the object’s model-to-world transformation.
 
 This ensures that each vertex is correctly transformed from bind pose to current pose and then into world space. 
 
@@ -841,12 +838,11 @@ Background context: When a vertex is influenced by multiple joints, its final po
 When a vertex is skinned to multiple joints, its final position is computed using a weighted average of the model-space positions for each joint that influences it. The weights are provided by the character rigging artist and must always sum to one.
 
 The formula for calculating this weighted average is:
-
-\[ v_{C} = \sum_{i=0}^{N-1} w_i \cdot v_i \]
+$$v_{C} = \sum_{i=0}^{N-1} w_i \cdot v_i$$
 
 Where:
-- \(v_i\) represents the model-space position of the vertex under joint \(i\).
-- \(w_i\) are the weights associated with each joint, which sum to one.
+- $v_i $ represents the model-space position of the vertex under joint$i$.
+- $w_i$ are the weights associated with each joint, which sum to one.
 
 If the weights do not sum to one, they should be renormalized. Here is a pseudocode example:
 
@@ -889,10 +885,9 @@ Background context explaining linear interpolation (LERP) between two skeletal p
 :p What is LERP blending?
 ??x
 LERP blending involves linearly interpolating between two poses to generate an intermediate pose. The formula for this is:
-\[
-(PLERP)_j = \text{LERP}((PA)_j, (PB)_j, b) = (1 - b)(PA)_j + b(PB)_j
-\]
-Where \(b\) is the blend factor, and when \(b=0\), it matches pose A; when \(b=1\), it matches pose B.
+$$(PLERP)_j = \text{LERP}((PA)_j, (PB)_j, b) = (1 - b)(PA)_j + b(PB)_j$$
+
+Where $b $ is the blend factor, and when$b=0 $, it matches pose A; when$ b=1$, it matches pose B.
 
 :p How can we implement LERP blending in code?
 ??x
@@ -916,11 +911,10 @@ Background context explaining how skinning matrices are used in vertex animation
 
 :p What is a skinning matrix?
 ??x
-A skinning matrix \(K_{ji}\) represents the transformation of a vertex under joint \(j_i\). For a vertex skinned to \(N\) joints, we use a weighted sum of these matrices:
-\[
-v_C = \sum_{i=0}^{N-1} w_i v_B K_{ji}
-\]
-Where \(w_i\) are the weights assigned to each joint.
+A skinning matrix $K_{ji}$ represents the transformation of a vertex under joint $j_i$. For a vertex skinned to $ N$joints, we use a weighted sum of these matrices:
+$$v_C = \sum_{i=0}^{N-1} w_i v_B K_{ji}$$
+
+Where $w_i$ are the weights assigned to each joint.
 
 :p How do you blend poses using skinning matrices?
 ??x
@@ -928,7 +922,7 @@ To blend poses, we use linear interpolation (LERP) on the transformed positions 
 ```java
 vC = å i=0 N-1 wivB Kji
 ```
-Where \(v_B\) is the base position and \(w_i\) are the weights.
+Where $v_B $ is the base position and$w_i$ are the weights.
 
 :p Provide an example in code for blending poses using skinning matrices.
 ??x
@@ -952,15 +946,12 @@ x??
 
 
 #### Linear Interpolation of Translation Component T
-Background context: The translation component \(T\) of an SRT (Scale, Rotation, Translation) transformation can be linearly interpolated between two points \(A\) and \(B\). This is done using vector linear interpolation (LERP), where the position at time or blend factor \(b\) is calculated.
+Background context: The translation component $T $ of an SRT (Scale, Rotation, Translation) transformation can be linearly interpolated between two points$A $ and$B $. This is done using vector linear interpolation (LERP), where the position at time or blend factor $ b$ is calculated.
 
 :p What is the formula for linearly interpolating the translation component?
 ??x
-The formula for linearly interpolating the translation component \(T\) between points \(A\) and \(B\) with a blend factor \(b\) is:
-\[
-(T_{LERP})_j = (1 - b) (T_A)_j + b (T_B)_j
-\]
-where \((T_A)_j\) and \((T_B)_j\) are the components of points \(A\) and \(B\) respectively.
+The formula for linearly interpolating the translation component $T $ between points$A $ and$B $ with a blend factor$b$ is:
+$$(T_{LERP})_j = (1 - b) (T_A)_j + b (T_B)_j$$where $(T_A)_j $ and$(T_B)_j $ are the components of points$A $ and$B$ respectively.
 
 ??x
 The answer with detailed explanations.
@@ -982,21 +973,15 @@ x??
 
 
 #### Quaternion Linear Interpolation and Spherical Linear Interpolation
-Background context: The rotation component \(Q\) of an SRT transformation can be linearly interpolated between two quaternions. There are two main methods for doing this: quaternion LERP, which is not the most natural looking; and spherical linear interpolation (SLERP), which provides a more natural pose blending.
+Background context: The rotation component $Q$ of an SRT transformation can be linearly interpolated between two quaternions. There are two main methods for doing this: quaternion LERP, which is not the most natural looking; and spherical linear interpolation (SLERP), which provides a more natural pose blending.
 
 :p What is the difference between quaternion LERP and SLERP?
 ??x
 Quaternion Linear Interpolation (LERP) is given by:
-\[
-(Q_{LERP})_j = \text{normalize}\left( (1 - b)(Q_A)_j + b(Q_B)_j \right)
-\]
-where \((Q_A)_j\) and \((Q_B)_j\) are the quaternions representing the rotations at points \(A\) and \(B\), and \(b\) is the blend factor.
+$$(Q_{LERP})_j = \text{normalize}\left( (1 - b)(Q_A)_j + b(Q_B)_j \right)$$where $(Q_A)_j $ and$(Q_B)_j $ are the quaternions representing the rotations at points$A $ and$B $, and $ b$ is the blend factor.
 
 Spherical Linear Interpolation (SLERP) provides a more natural-looking interpolation by considering the shortest path on the unit sphere:
-\[
-(Q_{SLERP})_j = \text{sin}((1 - b)q) / \text{sin}(q) (Q_A)_j + \text{sin}(bq) / \text{sin}(q) (Q_B)_j
-\]
-where \(q\) is the angle between the quaternions.
+$$(Q_{SLERP})_j = \text{sin}((1 - b)q) / \text{sin}(q) (Q_A)_j + \text{sin}(bq) / \text{sin}(q) (Q_B)_j$$where $ q$ is the angle between the quaternions.
 
 ??x
 The answer with detailed explanations.
@@ -1036,15 +1021,12 @@ x??
 
 
 #### Linear Interpolation of Scale Component
-Background context: The scale component \(S\) can be linearly interpolated between two points, either as a scalar or vector value. This is done using vector LERP, where the scale factor at time or blend factor \(b\) is calculated.
+Background context: The scale component $S $ can be linearly interpolated between two points, either as a scalar or vector value. This is done using vector LERP, where the scale factor at time or blend factor$b$ is calculated.
 
 :p What is the formula for linearly interpolating the scale component?
 ??x
-The formula for linearly interpolating the scale component \(S\) between two points \(A\) and \(B\) with a blend factor \(b\) is:
-\[
-(S_{LERP})_j = (1 - b) (S_A)_j + b (S_B)_j
-\]
-where \((S_A)_j\) and \((S_B)_j\) are the components of points \(A\) and \(B\) respectively.
+The formula for linearly interpolating the scale component $S $ between two points$A $ and$B $ with a blend factor$b$ is:
+$$(S_{LERP})_j = (1 - b) (S_A)_j + b (S_B)_j$$where $(S_A)_j $ and$(S_B)_j $ are the components of points$A $ and$B$ respectively.
 
 ??x
 The answer with detailed explanations.
@@ -1091,33 +1073,24 @@ x??
 #### Temporal Interpolation for Game Animations
 Background context: In game animations, frame indices are often not integers due to variable frame rates. To find intermediate poses between sampled frames, linear interpolation (LERP) blending is used.
 
-:p How can we use LERP blending to find an intermediate pose at time \(t\) given two pose samples at times \(t1\) and \(t2\) that bracket \(t\)?
+:p How can we use LERP blending to find an intermediate pose at time $t $ given two pose samples at times$t1 $ and$t2 $ that bracket$t$?
 ??x
-To find the intermediate pose at time \(t\) between two sampled poses at times \(t1\) and \(t2\), you can use linear interpolation (LERP). The blend factor \(b(t)\) is determined by:
-\[
-b(t) = \frac{t - t1}{t2 - t1}
-\]
-Then, the pose at time \(t\) is calculated using:
-\[
-P_j(t) = LERP(P_j(t1), P_j(t2), b(t))
-\]
+To find the intermediate pose at time $t $ between two sampled poses at times$t1 $ and$ t2 $, you can use linear interpolation (LERP). The blend factor $ b(t)$ is determined by:
+$$b(t) = \frac{t - t1}{t2 - t1}$$
 
-??x
+Then, the pose at time $t$ is calculated using:
+$$P_j(t) = LERP(P_j(t1), P_j(t2), b(t))$$??x
 The answer with detailed explanations.
-To find the intermediate pose at time \(t\) between two sampled poses \(P_j(t1)\) and \(P_j(t2)\):
+To find the intermediate pose at time $t $ between two sampled poses$P_j(t1)$ and $P_j(t2)$:
 
-1. **Determine the blend factor \(b(t)\):**
-   \[
-   b(t) = \frac{t - t1}{t2 - t1}
-   \]
-   This formula ensures that when \(t\) is between \(t1\) and \(t2\), \(b(t)\) is a value between 0 and 1.
+1. **Determine the blend factor $b(t)$:**
+   $$b(t) = \frac{t - t1}{t2 - t1}$$
 
-2. **Use LERP to find the intermediate pose:**
-   \[
-   P_j(t) = (1 - b(t))P_j(t1) + b(t)P_j(t2)
-   \]
+This formula ensures that when $t $ is between$t1 $ and $ t2 $,$ b(t)$ is a value between 0 and 1.
 
-For example, if you have poses at \(t1\) and \(t2\):
+2. **Use LERP to find the intermediate pose:**$$P_j(t) = (1 - b(t))P_j(t1) + b(t)P_j(t2)$$
+
+For example, if you have poses at $t1 $ and$t2$:
 ```java
 public class PoseInterpolation {
     public static Vector3D interpolatePose(Vector3D poseT1, Vector3D poseT2, float time, float t1, float t2) {
@@ -1261,11 +1234,11 @@ x??
 
 
 #### Smooth Transition Using Blend Factor
-Background context explaining how blend factors can be used to create smooth transitions between clips. The blend factor \(b\) varies with time, and a linear variation is mentioned as one approach.
+Background context explaining how blend factors can be used to create smooth transitions between clips. The blend factor $b$ varies with time, and a linear variation is mentioned as one approach.
 
 :p How does the blend factor vary during a transition?
 ??x
-The blend factor \(b\) varies according to a function of time. In this context, it typically changes from an initial value at the start of the transition (\(t_{start}\)) to a final value at the end of the transition (\(t_{end}\)). A linear variation implies that \(b\) increases or decreases at a constant rate during the transition.
+The blend factor $b $ varies according to a function of time. In this context, it typically changes from an initial value at the start of the transition ($ t_{start}$) to a final value at the end of the transition ($ t_{end}$). A linear variation implies that $ b$ increases or decreases at a constant rate during the transition.
 
 For example:
 ```java
@@ -1290,18 +1263,15 @@ Background context explaining how cubic functions, such as Bézier curves, can b
 
 :p What are ease-in and ease-out curves?
 ??x
-Ease-in and ease-out curves describe the behavior of the blend factor \(b\) during the transition between clips, depending on the timing within the transition interval. An **ease-in curve** starts slowly and speeds up towards the end of the transition, while an **ease-out curve** starts quickly and slows down as it approaches the end.
+Ease-in and ease-out curves describe the behavior of the blend factor $b$ during the transition between clips, depending on the timing within the transition interval. An **ease-in curve** starts slowly and speeds up towards the end of the transition, while an **ease-out curve** starts quickly and slows down as it approaches the end.
 
 For a cubic Bézier ease-in/ease-out curve:
-- The parameter \(u\) is the normalized time between \(t_{start}\) and \(t_{end}\).
-- \(v = 1 - u\), which represents the inverse of the normalized time.
-- The blend factor \(b(t)\) can be calculated as follows:
-
-\[ b(t) = (v^3 + 3v^2u)b_start + (3vu^2 + u^3)b_end \]
-
-:p How is the Bézier ease-in/ease-out curve implemented?
+- The parameter $u $ is the normalized time between$t_{start}$ and $t_{end}$.
+- $v = 1 - u$, which represents the inverse of the normalized time.
+- The blend factor $b(t)$ can be calculated as follows:
+$$b(t) = (v^3 + 3v^2u)b_start + (3vu^2 + u^3)b_end$$:p How is the Bézier ease-in/ease-out curve implemented?
 ??x
-The Bézier ease-in/ease-out curve can be implemented using a cubic polynomial function. The blend factor \(b(t)\) at any time \(t\) within the transition interval is calculated based on the normalized time \(u\):
+The Bézier ease-in/ease-out curve can be implemented using a cubic polynomial function. The blend factor $b(t)$ at any time $t$ within the transition interval is calculated based on the normalized time $u$:
 
 ```java
 public float bezierEaseInOut(float tStart, float tEnd, float bStart, float bEnd, float t) {
@@ -1363,7 +1333,7 @@ Background context: Targeted movement allows an animator to control a character'
 ??x
 To implement targeted movement, three separate looping animation clips are authored—one moving forward, one strafing to the left, and one strafing to the right. These clips are arranged around a semicircle with angles: 0 degrees for forward, 90 degrees for left strafe, and -90 degrees for right strafe.
 
-Given the character's facing direction fixed at 0 degrees, the desired movement direction is found on the semicircle. The two adjacent directional clips are selected and blended together using LERP-based blending. The blend percentage \( b \) is determined by how close the angle of movement is to the angles of the two adjacent clips.
+Given the character's facing direction fixed at 0 degrees, the desired movement direction is found on the semicircle. The two adjacent directional clips are selected and blended together using LERP-based blending. The blend percentage $b$ is determined by how close the angle of movement is to the angles of the two adjacent clips.
 
 Here’s a simplified example:
 
@@ -1474,23 +1444,22 @@ x??
 
 #### One-Dimensional LERP Blending
 
-Background context: LERP blending can be extended to more than two animation clips using a technique called one-dimensional LERP blending. This allows for a blend parameter \(b\) that lies within any linear range, such as from \(-1\) to \(+1\), or even from \(27\) to \(136\). Any number of clips can be positioned at arbitrary points along this range.
+Background context: LERP blending can be extended to more than two animation clips using a technique called one-dimensional LERP blending. This allows for a blend parameter $b $ that lies within any linear range, such as from$-1 $ to$+1 $, or even from $27 $ to$136$. Any number of clips can be positioned at arbitrary points along this range.
 
 The formula for determining the blend percentage between two adjacent clips is given by:
-\[ b(t) = \frac{b - b_1}{b_2 - b_1} \]
+$$b(t) = \frac{b - b_1}{b_2 - b_1}$$:p How does one-dimensional LERP blending determine the blend percentage between two adjacent clips?
+??x
+To find the blend percentage $b $ between two clips at positions$b_1 $ and$b_2$, we use the formula:
+$$b(t) = \frac{b - b_1}{b_2 - b_1}$$
 
-:p How does one-dimensional LERP blending determine the blend percentage between two adjacent clips?
-??x
-To find the blend percentage \(b\) between two clips at positions \(b_1\) and \(b_2\), we use the formula:
-\[ b(t) = \frac{b - b_1}{b_2 - b_1} \]
-This formula linearly interpolates the value of \(b\) between \(b_1\) and \(b_2\). For example, if \(b = 0.5\), \(b_1 = -1\), and \(b_2 = +1\), then:
-\[ b(t) = \frac{0.5 - (-1)}{1 - (-1)} = \frac{1.5}{2} = 0.75 \]
-??x
+This formula linearly interpolates the value of $b $ between$b_1 $ and $ b_2 $. For example, if$ b = 0.5 $,$ b_1 = -1 $, and$ b_2 = +1$, then:
+$$b(t) = \frac{0.5 - (-1)}{1 - (-1)} = \frac{1.5}{2} = 0.75$$??x
 The answer with detailed explanations.
-To find the blend percentage between two clips at positions \(b_1\) and \(b_2\), we use the formula:
-\[ b(t) = \frac{b - b_1}{b_2 - b_1} \]
-This formula linearly interpolates the value of \(b\) between \(b_1\) and \(b_2\). For example, if \(b = 0.5\), \(b_1 = -1\), and \(b_2 = +1\), then:
-\[ b(t) = \frac{0.5 - (-1)}{1 - (-1)} = \frac{1.5}{2} = 0.75 \]
+To find the blend percentage between two clips at positions $b_1 $ and$b_2$, we use the formula:
+$$b(t) = \frac{b - b_1}{b_2 - b_1}$$
+
+This formula linearly interpolates the value of $b $ between$b_1 $ and $ b_2 $. For example, if$ b = 0.5 $,$ b_1 = -1 $, and$ b_2 = +1$, then:
+$$b(t) = \frac{0.5 - (-1)}{1 - (-1)} = \frac{1.5}{2} = 0.75$$
 
 This method is useful for smoothly transitioning between any two clips within a defined range.
 ```java
@@ -1507,22 +1476,22 @@ x??
 
 #### Targeted Movement as One-Dimensional LERP Blending
 
-Background context: Targeted movement is a special case of one-dimensional LERP blending. In this scenario, the clips are positioned on a circle to represent different directions. The parameter \(b\) can be thought of as the angle in degrees (or radians) from 0 to \(-90\) or \(90\).
+Background context: Targeted movement is a special case of one-dimensional LERP blending. In this scenario, the clips are positioned on a circle to represent different directions. The parameter $b $ can be thought of as the angle in degrees (or radians) from 0 to$-90 $ or$90$.
 
 :p How does targeted movement utilize one-dimensional LERP blending?
 ??x
-Targeted movement utilizes one-dimensional LERP blending by considering the clips positioned on a circle, where the parameter \(b\) represents the direction angle. The movement direction angle \(q\) acts as the blend parameter, and any number of animation clips can be placed at arbitrary angles around this circle.
+Targeted movement utilizes one-dimensional LERP blending by considering the clips positioned on a circle, where the parameter $b $ represents the direction angle. The movement direction angle$q$ acts as the blend parameter, and any number of animation clips can be placed at arbitrary angles around this circle.
 
-For example, if we have four clips representing strafing right, strafing left, running forward, and running backward, they are positioned at \(-90\), \(+90\), \(0\), and \(180\) degrees respectively. The blend parameter \(b\) can be any value within the range of these angles.
+For example, if we have four clips representing strafing right, strafing left, running forward, and running backward, they are positioned at $-90 $, $+90 $, $0 $, and $180 $ degrees respectively. The blend parameter$b$ can be any value within the range of these angles.
 
 :p How is the final pose determined in targeted movement?
 ??x
-The final pose in targeted movement is determined by linearly interpolating between the two clips that are closest to the direction angle \(q\). If the direction angle \(q\) lies between two clips at angles \(\theta_1\) and \(\theta_2\), we first determine which clips to use based on their proximity to \(q\).
+The final pose in targeted movement is determined by linearly interpolating between the two clips that are closest to the direction angle $q $. If the direction angle $ q $lies between two clips at angles$\theta_1 $ and$\theta_2 $, we first determine which clips to use based on their proximity to $ q$.
 
 The blend factor for each clip is then calculated using:
-\[ b(t) = \frac{b - \theta_1}{\theta_2 - \theta_1} \]
+$$b(t) = \frac{b - \theta_1}{\theta_2 - \theta_1}$$
 
-For example, if the direction angle \(q\) is \(45\) degrees and we have clips at \(-90\), \(+90\), \(0\), and \(180\) degrees, we would interpolate between the clips at \(0\) (strafing left) and \(+90\) (strafing right).
+For example, if the direction angle $q $ is$45 $ degrees and we have clips at$-90 $, $+90 $, $0 $, and $180 $ degrees, we would interpolate between the clips at$0 $(strafing left) and $+90$(strafing right).
 
 :p What is the pseudocode for interpolating targeted movement?
 ??x
@@ -1594,23 +1563,23 @@ Background context: Simple two-dimensional LERP blending extends one-dimensional
 
 If the blend involves four clips positioned at the corners of a square region, we perform two one-dimensional LERP blends:
 
-1. Using \(b_x\), find intermediate poses between the top and bottom clips.
-2. Using \(b_y\), find the final pose by blending these intermediate poses together.
+1. Using $b_x$, find intermediate poses between the top and bottom clips.
+2. Using $b_y$, find the final pose by blending these intermediate poses together.
 
 :p How is simple two-dimensional LERP blending performed?
 ??x
 Simple two-dimensional LERP blending involves performing two one-dimensional LERP blends to handle two aspects of a character's motion simultaneously. If we have four clips positioned at the corners of a square region, we follow these steps:
 
-1. Using \(b_x\), find intermediate poses between the top and bottom clips.
-2. Using \(b_y\), find the final pose by blending these intermediate poses together.
+1. Using $b_x$, find intermediate poses between the top and bottom clips.
+2. Using $b_y$, find the final pose by blending these intermediate poses together.
 
-For example, if we want to blend vertical and horizontal motion, we can use four clips at \((0, 0)\), \((1, 0)\), \((0, 1)\), and \((1, 1)\) in a \(2D\) space. The blend factors are:
-\[ b = [b_x, b_y] \]
+For example, if we want to blend vertical and horizontal motion, we can use four clips at $(0, 0)$,$(1, 0)$,$(0, 1)$, and $(1, 1)$ in a $2D$ space. The blend factors are:
+$$b = [b_x, b_y]$$
 
 The final pose is found by:
-- Blending the top clips with \(b_x\).
-- Blending the bottom clips with \(b_x\).
-- Blending these intermediate poses together using \(b_y\).
+- Blending the top clips with $b_x$.
+- Blending the bottom clips with $b_x$.
+- Blending these intermediate poses together using $b_y$.
 
 :p What is the pseudocode for simple two-dimensional LERP blending?
 ??x
@@ -1661,14 +1630,14 @@ x??
 
 #### Triangular Two-Dimensional LERP Blending
 
-Background context: Triangular two-dimensional LERP blending is used when the clips are positioned at arbitrary locations within a triangle in 2D blend space. Each clip defines a set of joint poses, and we want to find the interpolated pose corresponding to an arbitrary point \(b\) within the triangle.
+Background context: Triangular two-dimensional LERP blending is used when the clips are positioned at arbitrary locations within a triangle in 2D blend space. Each clip defines a set of joint poses, and we want to find the interpolated pose corresponding to an arbitrary point $b$ within the triangle.
 
 :p How does triangular two-dimensional LERP blending work?
 ??x
-Triangular two-dimensional LERP blending works by interpolating between three clips that form a triangle in 2D blend space. Each clip has a set of joint poses defined at specific coordinates, and we need to find the interpolated pose corresponding to an arbitrary point \(b\) within this triangle.
+Triangular two-dimensional LERP blending works by interpolating between three clips that form a triangle in 2D blend space. Each clip has a set of joint poses defined at specific coordinates, and we need to find the interpolated pose corresponding to an arbitrary point $b$ within this triangle.
 
 The key steps are:
-1. Determine which two adjacent clips are used based on the position of \(b\).
+1. Determine which two adjacent clips are used based on the position of $b$.
 2. Perform one-dimensional LERP blends between these clips.
 3. Use the third clip as a reference for further blending if necessary.
 
@@ -1740,11 +1709,11 @@ To calculate a LERP blend between three animation clips (Clip A, Clip B, and Cli
 
 1. **Understand the Concept**: Barycentric coordinates provide a way to represent any point within a triangle as a weighted average of the vertices' positions.
 2. **Determine Weights**:
-    - Given three clips in two-dimensional blend space (P0, P1, and P2), you can find the barycentric coordinates (a, b, g) such that \(b = ab_0 + bb_1 + gb_2\).
-    - These weights satisfy \(a + b + g = 1\).
+    - Given three clips in two-dimensional blend space (P0, P1, and P2), you can find the barycentric coordinates (a, b, g) such that $b = ab_0 + bb_1 + gb_2$.
+    - These weights satisfy $a + b + g = 1$.
 
 3. **Calculate the Final Pose**:
-    - Use these weights to perform a three-clip LERP blend: \((P_{\text{LERP}})_j = a(P_0)_j + b(P_1)_j + g(P_2)_j\).
+    - Use these weights to perform a three-clip LERP blend: $(P_{\text{LERP}})_j = a(P_0)_j + b(P_1)_j + g(P_2)_j$.
     
 Example in pseudo-code:
 ```java
@@ -1776,7 +1745,7 @@ Background context explaining how the technique can be extended to an arbitrary 
 The barycentric coordinate technique can be extended to an arbitrary number of animation clips positioned at arbitrary locations within two-dimensional blend space by using Delaunay triangulation. Here’s how it works:
 
 1. **Delaunay Triangulation**: This is a method that creates a set of triangles from the given points (animation clip positions) such that no point is inside the circumcircle of any triangle.
-2. **Find the Triangle**: For a desired blend position \(b\), determine which triangle encloses it.
+2. **Find the Triangle**: For a desired blend position $b$, determine which triangle encloses it.
 3. **Perform Three-Clip LERP Blend**: Once you have identified the relevant triangle, perform a three-clip LERP blend within this triangle as described previously.
 
 Example in pseudo-code:
@@ -1896,15 +1865,15 @@ Background context explaining how adding a difference pose to a target pose yiel
 
 :p How is the additive pose calculated?
 ??x
-The additive pose \(A_j\) at joint \(j\) is obtained by "adding" the difference pose \(Dj\) to the target pose \(Tj\). Mathematically, this is achieved through matrix concatenation:
+The additive pose $A_j $ at joint$j $ is obtained by "adding" the difference pose$ Dj $ to the target pose $Tj$. Mathematically, this is achieved through matrix concatenation:
 
-\[ Aj = Dj \times Tj = (Sj \times R_j^{-1}) \times Tj \]
+$$Aj = Dj \times Tj = (Sj \times R_j^{-1}) \times Tj$$
 
 Given that the difference animation only contains changes relative to the reference animation, adding it back to the original reference should yield the source animation. This can be verified as follows:
 
-If we add \(Dj\) back onto \(Rj\):
+If we add $Dj $ back onto$Rj$:
 
-\[ Aj = Dj \times Rj = (Sj \times R_j^{-1}) \times Rj = Sj \]
+$$Aj = Dj \times Rj = (Sj \times R_j^{-1}) \times Rj = Sj$$
 
 This confirms that adding a difference animation to the original reference animation yields the source animation.
 x??
@@ -1918,14 +1887,12 @@ Background context explaining how difference clips can be interpolated over time
 
 :p How are difference clips temporally interpolated?
 ??x
-Difference clips can be interpolated just like other types of animations by applying temporal interpolation formulas. For a pose at an arbitrary time \(t\), between times \(t_1\) and \(t_2\):
+Difference clips can be interpolated just like other types of animations by applying temporal interpolation formulas. For a pose at an arbitrary time $t $, between times $ t_1 $and$ t_2$:
 
-\[ T(t) = (1 - \alpha) \times T(t_1) + \alpha \times T(t_2) \]
+$$T(t) = (1 - \alpha) \times T(t_1) + \alpha \times T(t_2)$$
 
 Where:
-- \(\alpha = \frac{t - t_1}{t_2 - t_1}\)
-
-This formula can be directly applied to difference clips, ensuring that the interpolation respects the underlying joint poses and matrices.
+- $\alpha = \frac{t - t_1}{t_2 - t_1}$ This formula can be directly applied to difference clips, ensuring that the interpolation respects the underlying joint poses and matrices.
 
 Example code for temporal interpolation (pseudocode):
 
@@ -1937,7 +1904,7 @@ public Pose interpolate(Pose pose1, Pose pose2, float t) {
 }
 ```
 
-This function linearly interpolates between two poses based on the time \(t\).
+This function linearly interpolates between two poses based on the time $t$.
 x??
 
 ---
@@ -1948,8 +1915,7 @@ x??
 In-game animation systems often require blending techniques to achieve smooth transitions between different animations. One such technique is additive blending, which involves adding a difference animation to an existing target animation to create varying degrees of the effect.
 
 Equation (12.19) shows how to blend in only a percentage of a difference animation: 
-\[ A_j = \text{LERP}(T_j, D_jT_j, b) \]
-where \( T_j \) is the unaltered target animation matrix and \( D_jT_j \) represents the difference animation applied to the target. The blending factor \( b \) controls how much of the difference animation is added.
+$$A_j = \text{LERP}(T_j, D_jT_j, b)$$where $ T_j $ is the unaltered target animation matrix and $ D_jT_j $ represents the difference animation applied to the target. The blending factor $ b$ controls how much of the difference animation is added.
 
 :p What is additive blending in the context of game animations?
 ??x

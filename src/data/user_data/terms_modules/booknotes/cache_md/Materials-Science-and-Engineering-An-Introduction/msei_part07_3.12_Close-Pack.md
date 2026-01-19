@@ -10,21 +10,21 @@
 Background context: Planar density measures the number of atoms per unit area on a specific crystallographic plane. For the (110) plane in an FCC crystal structure, we need to determine the planar density.
 
 Relevant formulas and explanations:
-- \( PD = \frac{\text{number of atoms centered on the plane}}{\text{area of the plane}} \)
+- $PD = \frac{\text{number of atoms centered on the plane}}{\text{area of the plane}}$
 - The area of a rectangular section of the (110) plane is given by the product of its length and width.
-- In an FCC unit cell, the length of this plane is \(4R\) and the width is \(2R\sqrt{2}\).
+- In an FCC unit cell, the length of this plane is $4R $ and the width is$2R\sqrt{2}$.
 
 The calculation involves considering atomic sharing:
 - Six atoms have centers that lie on this plane, but only 2 atoms are fully within the unit cell (B and E), with one-quarter each from A, C, D, and F.
 
 :p What is the planar density for the (110) plane in an FCC crystal structure?
 ??x
-The planar density for the (110) plane in an FCC crystal structure can be calculated by considering that there are 2 atoms on this specific section of the plane. The area of this section is \(8R^2\sqrt{2}\).
+The planar density for the (110) plane in an FCC crystal structure can be calculated by considering that there are 2 atoms on this specific section of the plane. The area of this section is $8R^2\sqrt{2}$.
 
 Thus, using the formula:
-\[ PD_{110} = \frac{2}{8R^2\sqrt{2}} = \frac{1}{4R^2\sqrt{2}} \]
+$$PD_{110} = \frac{2}{8R^2\sqrt{2}} = \frac{1}{4R^2\sqrt{2}}$$
 
-The planar density for the (110) plane in an FCC crystal structure is \(\frac{1}{4R^2\sqrt{2}}\).
+The planar density for the (110) plane in an FCC crystal structure is $\frac{1}{4R^2\sqrt{2}}$.
 x??
 
 ---
@@ -81,37 +81,27 @@ x??
 Background context: The equations provided in Table 3.3 summarize how to determine crystallographic indices (point, direction, and planar) based on the coordinate type.
 
 Relevant formulas:
-- Point indices: \(q, r, s\)
-- Direction non-hexagonal indices: \([uvw]\); hexagonal indices: \([UVW], [uvtw]\)
-- Planar non-hexagonal indices: \((hkl)\); hexagonal indices: \((hkil)\)
-
-:p What are the equations used to determine crystallographic point, direction, and planar indices?
+- Point indices: $q, r, s $- Direction non-hexagonal indices:$[uvw]$; hexagonal indices:$[UVW], [uvtw]$- Planar non-hexagonal indices:$(hkl)$; hexagonal indices:$(hkil)$:p What are the equations used to determine crystallographic point, direction, and planar indices?
 ??x
 The equations used to determine crystallographic indices are as follows:
 
 For points:
-\[ q = a P_x \]
-where \(a\) is the lattice parameter along the x-axis and \(P_x\) is the lattice position coordinate.
+$$q = a P_x$$where $ a $ is the lattice parameter along the x-axis and $ P_x$ is the lattice position coordinate.
 
 For directions (non-hexagonal):
-\[ [uvw] \]
-where:
-- \(u = n(x_2 - x_1 a)\)
-  Here, \(n\), \(x_1\), and \(x_2\) are reduction-to-integer parameters and lattice position coordinates.
-- For hexagonal directions: 
-\[ U = n(a''_1 - a'_1 a) \]
-  And:
-\[ u = \frac{1}{3}(2U - V) \]
+$$[uvw]$$where:
+- $u = n(x_2 - x_1 a)$ Here,$n $,$ x_1 $, and$ x_2$ are reduction-to-integer parameters and lattice position coordinates.
+- For hexagonal directions:
+$$U = n(a''_1 - a'_1 a)$$
+
+And:
+$$u = \frac{1}{3}(2U - V)$$
 
 For planes (non-hexagonal):
-\[ (hkl) \]
-where \(h\) is the plane intercept on the x-axis.
+$$(hkl)$$where $ h$ is the plane intercept on the x-axis.
 
 Hexagonal planes:
-\[ (hkil) \]
-where \(i = -(h + k)\)
-
-These equations help in determining the specific indices for different crystal structures and orientations.
+$$(hkil)$$where $ i = -(h + k)$ These equations help in determining the specific indices for different crystal structures and orientations.
 x??
 
 ---
@@ -123,7 +113,7 @@ x??
 Background context explaining the concept. Miller indices are used to describe crystallographic planes, while directional indices describe directions within the crystal structure.
 :p What are Miller indices?
 ??x
-Miller indices are a set of integers \([h k l]\) that uniquely identify crystallographic planes in a crystalline solid. These indices represent the reciprocals of the intercepts made by the plane on the crystal axes, and they provide a concise way to describe the orientation of any plane within the crystal.
+Miller indices are a set of integers $[h k l]$ that uniquely identify crystallographic planes in a crystalline solid. These indices represent the reciprocals of the intercepts made by the plane on the crystal axes, and they provide a concise way to describe the orientation of any plane within the crystal.
 x??
 
 ---
@@ -241,16 +231,15 @@ x??
 Background context: X-rays are a form of electromagnetic radiation with short wavelengths comparable to atomic spacings. When an x-ray beam interacts with a crystalline solid, it undergoes diffraction due to constructive interference from multiple scattering events at lattice planes.
 
 Relevant formulas:
-- Path length difference condition for constructive interference: \( n\lambda = SQ + QT \) (Equation 3.19)
-- Bragg's law for diffraction angles: \( n\lambda = 2d_{hkl} \sin{\theta} \) (Equation 3.20)
+- Path length difference condition for constructive interference:$n\lambda = SQ + QT$(Equation 3.19)
+- Bragg's law for diffraction angles:$n\lambda = 2d_{hkl} \sin{\theta}$ (Equation 3.20)
 
-Explanation: The condition for constructive interference leads to the famous Bragg’s law, which relates the wavelength of x-rays (\(\lambda\)), the interplanar spacing between atomic planes (\(d_{hkl}\)), and the angle of diffraction (\(\theta\)).
+Explanation: The condition for constructive interference leads to the famous Bragg’s law, which relates the wavelength of x-rays ($\lambda $), the interplanar spacing between atomic planes ($ d_{hkl}$), and the angle of diffraction ($\theta$).
 
 :p What is the path length difference condition for constructive interference in X-ray diffraction?
 ??x
 The path length difference between the scattered rays from two atoms must be an integer number of wavelengths to achieve constructive interference. This can be mathematically expressed as:
-\[ n\lambda = SQ + QT \]
-where \(n\) is a positive integer, and \(SQ + QT\) represents the additional distance traveled by one ray relative to the other after being scattered.
+$$n\lambda = SQ + QT$$where $ n $ is a positive integer, and $ SQ + QT$ represents the additional distance traveled by one ray relative to the other after being scattered.
 
 Explanation: For constructive interference, the path difference between two rays must result in their phases aligning perfectly, leading to a bright spot (or peak) on the detector. This condition ensures that the scattered waves from different atoms combine coherently.
 x??
@@ -259,18 +248,17 @@ x??
 
 
 #### Bragg's Law
-Background context: Bragg’s law (\( n\lambda = 2d_{hkl} \sin{\theta} \)) provides a simple expression relating x-ray wavelength, interatomic spacing, and diffraction angle. This relationship is crucial for determining the crystal structure from X-ray diffraction patterns.
+Background context: Bragg’s law ($n\lambda = 2d_{hkl} \sin{\theta}$) provides a simple expression relating x-ray wavelength, interatomic spacing, and diffraction angle. This relationship is crucial for determining the crystal structure from X-ray diffraction patterns.
 
 Relevant formulas:
-- Bragg's law: \( n\lambda = 2d_{hkl} \sin{\theta} \) (Equation 3.20)
+- Bragg's law: $n\lambda = 2d_{hkl} \sin{\theta}$ (Equation 3.20)
 
 Explanation: The law indicates that constructive interference occurs when the path difference between two scattered x-rays is an integer multiple of their wavelength, which results in a diffraction peak at specific angles.
 
 :p What does Bragg’s law state?
 ??x
-Bragg's law states that for constructive interference and diffraction to occur, the angle \(\theta\) at which x-rays are reflected from crystal planes must satisfy:
-\[ n\lambda = 2d_{hkl} \sin{\theta} \]
-where \(n\) is an integer (the order of reflection), \(\lambda\) is the wavelength of the incident x-ray, and \(d_{hkl}\) is the interplanar spacing.
+Bragg's law states that for constructive interference and diffraction to occur, the angle $\theta$ at which x-rays are reflected from crystal planes must satisfy:
+$$n\lambda = 2d_{hkl} \sin{\theta}$$where $ n $is an integer (the order of reflection),$\lambda $ is the wavelength of the incident x-ray, and$d_{hkl}$ is the interplanar spacing.
 
 Explanation: This equation provides a way to determine the angles at which diffraction maxima will occur based on the crystal structure parameters.
 x??
@@ -279,19 +267,18 @@ x??
 
 
 #### Interplanar Spacing for Cubic Crystals
-Background context: The interplanar spacing (\(d_{hkl}\)) in cubic crystals is related to their lattice parameter \(a\) and Miller indices (h, k, l) through the equation:
-\[ d_{hkl} = \frac{a}{\sqrt{h^2 + k^2 + l^2}} \]
+Background context: The interplanar spacing ($d_{hkl}$) in cubic crystals is related to their lattice parameter $ a$and Miller indices (h, k, l) through the equation:
+$$d_{hkl} = \frac{a}{\sqrt{h^2 + k^2 + l^2}}$$
 
 Relevant formulas:
-- Interplanar spacing for cubic crystals: \(d_{hkl} = \frac{a}{\sqrt{h^2 + k^2 + l^2}}\) (Equation 3.21)
+- Interplanar spacing for cubic crystals:$d_{hkl} = \frac{a}{\sqrt{h^2 + k^2 + l^2}}$(Equation 3.21)
 
 Explanation: This relationship allows us to calculate the interplanar spacing in any cubic crystal structure given its lattice parameter and Miller indices.
 
-:p How is the interplanar spacing \(d_{hkl}\) calculated for a cubic crystal?
+:p How is the interplanar spacing $d_{hkl}$ calculated for a cubic crystal?
 ??x
-The interplanar spacing \(d_{hkl}\) for a cubic crystal can be calculated using:
-\[ d_{hkl} = \frac{a}{\sqrt{h^2 + k^2 + l^2}} \]
-where \(a\) is the lattice parameter and (h, k, l) are the Miller indices of the planes.
+The interplanar spacing $d_{hkl}$ for a cubic crystal can be calculated using:
+$$d_{hkl} = \frac{a}{\sqrt{h^2 + k^2 + l^2}}$$where $ a$ is the lattice parameter and (h, k, l) are the Miller indices of the planes.
 
 Explanation: This formula provides a straightforward way to determine the distance between adjacent parallel atomic planes in cubic crystals based on their symmetry.
 x??
@@ -304,16 +291,16 @@ Background context: For real crystal structures with atoms at positions other th
 
 Relevant formulas:
 - Conditions for BCC and FCC crystals: 
-  - For BCC: \(h + k + l\) must be even.
-  - For FCC: \(h, k, l\) must all be either odd or even.
+  - For BCC:$h + k + l$ must be even.
+  - For FCC:$h, k, l$ must all be either odd or even.
   - For simple cubic: All sets of planes produce diffracted beams.
 
 Explanation: These conditions ensure that the diffraction pattern accurately reflects the crystal structure's symmetry and atomic positions.
 
 :p What are the conditions for specific crystal structures to have diffracted beams?
 ??x
-- For Body-Centered Cubic (BCC) crystals, \(h + k + l\) must be even for diffraction to occur.
-- For Face-Centered Cubic (FCC) crystals, \(h, k, l\) must all be either odd or even for diffraction to occur.
+- For Body-Centered Cubic (BCC) crystals,$h + k + l$ must be even for diffraction to occur.
+- For Face-Centered Cubic (FCC) crystals,$h, k, l$ must all be either odd or even for diffraction to occur.
 - For simple cubic structures, diffracted beams are present for all sets of crystallographic planes.
 
 Explanation: These conditions arise due to the different atomic arrangements in BCC and FCC structures. The symmetry and positions of atoms affect which planes contribute to the diffraction pattern, potentially leading to missing peaks that should theoretically be present based on Bragg’s law.
@@ -328,7 +315,7 @@ x??
 
 Background context: The reflection rules are crucial for understanding x-ray diffraction patterns from different crystal structures. These rules help identify which sets of crystallographic planes will contribute to the diffracted beams.
 
-Table 3.5 summarizes these rules for Body-Centered Cubic (BCC), Face-Centered Cubic (FCC), and Simple Cubic (SC) crystal structures, based on the indices \(h\), \(k\), and \(l\).
+Table 3.5 summarizes these rules for Body-Centered Cubic (BCC), Face-Centered Cubic (FCC), and Simple Cubic (SC) crystal structures, based on the indices $h $, $ k $, and$ l$.
 
 ```java
 // Pseudocode to determine which reflections are present in BCC structure
@@ -339,7 +326,7 @@ if ((h + k + l) % 2 == 0) {
 
 :p What are the reflection rules for Body-Centered Cubic (BCC) crystal structures?
 ??x
-The reflections present in BCC crystals occur when \(h + k + l\) is an even integer. This means that planes with indices such as 110, 200, 211, 220, 310, and 222 are the first six planes for which reflections will be observed.
+The reflections present in BCC crystals occur when $h + k + l$ is an even integer. This means that planes with indices such as 110, 200, 211, 220, 310, and 222 are the first six planes for which reflections will be observed.
 
 ```java
 // Pseudocode to determine if a reflection is present in BCC structure
@@ -356,7 +343,7 @@ x??
 
 #### Reflection Rules for Face-Centered Cubic (FCC) Crystal Structures
 
-Background context: For FCC crystals, the reflection rules depend on whether \(h\), \(k\), and \(l\) are all odd or all even. This results in specific sets of planes contributing to the diffraction pattern.
+Background context: For FCC crystals, the reflection rules depend on whether $h $, $ k $, and$ l$ are all odd or all even. This results in specific sets of planes contributing to the diffraction pattern.
 
 ```java
 // Pseudocode to determine which reflections are present in FCC structure
@@ -367,7 +354,7 @@ if (h % 2 == k % 2 && k % 2 == l % 2) {
 
 :p What are the reflection rules for Face-Centered Cubic (FCC) crystal structures?
 ??x
-The reflections present in FCC crystals occur when \(h\), \(k\), and \(l\) are all odd or all even. This means that planes with indices such as 111, 200, 220, 311, 222, and 400 contribute to the diffraction pattern.
+The reflections present in FCC crystals occur when $h $, $ k $, and$ l$ are all odd or all even. This means that planes with indices such as 111, 200, 220, 311, 222, and 400 contribute to the diffraction pattern.
 
 ```java
 // Pseudocode to determine if a reflection is present in FCC structure
@@ -384,7 +371,7 @@ x??
 
 #### Reflection Rules for Simple Cubic Crystal Structures
 
-Background context: In simple cubic crystal structures, reflections occur from all planes without any specific restrictions on the indices \(h\), \(k\), and \(l\). This leads to a broader set of diffraction peaks compared to BCC and FCC structures.
+Background context: In simple cubic crystal structures, reflections occur from all planes without any specific restrictions on the indices $h $, $ k $, and$ l$. This leads to a broader set of diffraction peaks compared to BCC and FCC structures.
 
 ```java
 // Pseudocode to determine which reflections are present in Simple Cubic structure
@@ -402,7 +389,7 @@ for (int h = 1; h <= 4; h++) {
 
 :p What are the reflection rules for Simple Cubic crystal structures?
 ??x
-In simple cubic crystal structures, reflections occur from all sets of planes defined by the indices \(h\), \(k\), and \(l\). This means that any combination of plane indices will contribute to the diffraction pattern.
+In simple cubic crystal structures, reflections occur from all sets of planes defined by the indices $h $, $ k $, and$ l$. This means that any combination of plane indices will contribute to the diffraction pattern.
 
 ```java
 // Pseudocode to determine if a reflection is present in Simple Cubic structure
@@ -421,23 +408,20 @@ x??
 
 #### Diffraction Angles and Interplanar Spacing
 
-Background context: The distance between adjacent planes in a crystal structure, known as interplanar spacing (\(d\)), is related to the wavelength (\(\lambda\)) of the x-rays and the angle of diffraction (\(\theta\)). This relationship is described by Bragg’s law.
+Background context: The distance between adjacent planes in a crystal structure, known as interplanar spacing ($d $), is related to the wavelength ($\lambda $) of the x-rays and the angle of diffraction ($\theta$). This relationship is described by Bragg’s law.
 
-Bragg’s Law: \(n\lambda = 2d \sin \theta\)
-
-Where:
-- \(n\) is an integer (0, 1, 2, ...)
-- \(\lambda\) is the wavelength of the x-ray
-- \(d\) is the interplanar spacing
-- \(\theta\) is the angle of diffraction
+Bragg’s Law: $n\lambda = 2d \sin \theta$ Where:
+- $n$ is an integer (0, 1, 2, ...)
+- $\lambda$ is the wavelength of the x-ray
+- $d$ is the interplanar spacing
+- $\theta$ is the angle of diffraction
 
 :p How does the distance between adjacent and parallel planes change as the values of planar indices increase in cubic crystals?
 ??x
-In cubic crystals, as the values of the planar indices \(h\), \(k\), and \(l\) increase, the interplanar spacing decreases. This is because the interplanar spacing (\(d\)) for a plane with indices \((h, k, l)\) in a simple cubic structure is inversely proportional to the magnitude of these indices.
+In cubic crystals, as the values of the planar indices $h $, $ k $, and$ l $increase, the interplanar spacing decreases. This is because the interplanar spacing ($ d $) for a plane with indices$(h, k, l)$ in a simple cubic structure is inversely proportional to the magnitude of these indices.
 
 The relationship can be derived from the reciprocal lattice vector formula:
-\[ d_{hkl} = \frac{a}{|h^2 + k^2 + l^2|^{1/2}} \]
-where \(a\) is the lattice constant. As \(h\), \(k\), and \(l\) increase, the denominator increases, causing a decrease in \(d_{hkl}\).
+$$d_{hkl} = \frac{a}{|h^2 + k^2 + l^2|^{1/2}}$$where $ a $ is the lattice constant. As $ h $,$ k $, and$ l $increase, the denominator increases, causing a decrease in$ d_{hkl}$.
 
 ```java
 // Pseudocode to calculate interplanar spacing for simple cubic structure
@@ -452,7 +436,7 @@ x??
 
 #### X-Ray Diffraction Setup and Technique
 
-Background context: The x-ray diffraction setup involves a specimen placed in front of a monochromatic x-ray source. A detector measures the intensity of diffracted beams at various angles, which are then plotted as a function of the 2\(\theta\) angle.
+Background context: The x-ray diffraction setup involves a specimen placed in front of a monochromatic x-ray source. A detector measures the intensity of diffracted beams at various angles, which are then plotted as a function of the 2 $\theta$ angle.
 
 The setup includes:
 - Specimen support for rotation
@@ -463,7 +447,7 @@ The counter is mounted on a movable carriage that can rotate about an axis perpe
 
 :p What is the purpose of a diffraction pattern in x-ray crystallography?
 ??x
-The purpose of a diffraction pattern in x-ray crystallography is to identify the set of crystal planes responsible for producing the observed diffracted beams. The peaks in the diffraction pattern correspond to specific sets of indices \((h, k, l)\) that satisfy Bragg’s law.
+The purpose of a diffraction pattern in x-ray crystallography is to identify the set of crystal planes responsible for producing the observed diffracted beams. The peaks in the diffraction pattern correspond to specific sets of indices $(h, k, l)$ that satisfy Bragg’s law.
 
 These patterns provide crucial information about the crystal structure, including unit cell dimensions and atomic positions.
 
@@ -486,13 +470,13 @@ The key components in a powder diffractometer include:
 - Specimen holder
 - X-ray source
 - Diffracted beam detector (counter)
-- Movable carriage to scan 2\(\theta\) angles
+- Movable carriage to scan 2 $\theta$ angles
 
 :p How does the Bragg condition affect the diffraction pattern observed in x-ray crystallography?
 ??x
-The Bragg condition, \(n\lambda = 2d \sin \theta\), ensures that only specific sets of crystal planes will produce constructive interference and thus observable peaks in the diffraction pattern. These peaks correspond to the set of indices \((h, k, l)\) for which the condition is satisfied.
+The Bragg condition,$n\lambda = 2d \sin \theta $, ensures that only specific sets of crystal planes will produce constructive interference and thus observable peaks in the diffraction pattern. These peaks correspond to the set of indices $(h, k, l)$ for which the condition is satisfied.
 
-When this condition is met, high-intensity peaks are observed at specific 2\(\theta\) angles, providing information about the crystal structure.
+When this condition is met, high-intensity peaks are observed at specific 2 $\theta$ angles, providing information about the crystal structure.
 
 ```java
 // Pseudocode to check Bragg condition
@@ -512,10 +496,9 @@ x??
 Background context explaining how to calculate interplanar spacing using the formula provided in the text. The example uses BCC iron with a specific lattice parameter.
 :p How do you calculate the interplanar spacing (dhkl) for a given set of crystal planes?
 ??x
-The interplanar spacing \(d_{hkl}\) can be calculated using the formula:
-\[ d_{hkl} = \frac{a}{\sqrt{h^2 + k^2 + l^2}} \]
-where \(a\) is the lattice parameter, and \(h\), \(k\), and \(l\) are Miller indices representing the set of planes.
-For BCC iron with a lattice parameter \(a = 0.2866 \text{ nm}\) and considering the (220) planes (\(h=2\), \(k=2\), \(l=0\)):
+The interplanar spacing $d_{hkl}$ can be calculated using the formula:
+$$d_{hkl} = \frac{a}{\sqrt{h^2 + k^2 + l^2}}$$where $ a $ is the lattice parameter, and $ h $,$ k $, and$ l$ are Miller indices representing the set of planes.
+For BCC iron with a lattice parameter $a = 0.2866 \text{ nm}$ and considering the (220) planes ($h=2 $,$ k=2 $,$ l=0$):
 ```java
 public class XrayDiffraction {
     public static void main(String[] args) {

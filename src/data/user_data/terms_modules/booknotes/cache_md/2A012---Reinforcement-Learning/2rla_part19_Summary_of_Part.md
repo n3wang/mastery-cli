@@ -787,14 +787,12 @@ x??
 
 #### Linear Function Approximation
 
-Background context: In this section, linear methods for approximating the state-value function are discussed. The approximate value function is defined as the inner product between weight vector \(w\) and feature vector \(x(s)\) for a given state \(s\).
+Background context: In this section, linear methods for approximating the state-value function are discussed. The approximate value function is defined as the inner product between weight vector $w $ and feature vector$x(s)$ for a given state $s$.
 
 Formula:
-\[ \hat{v}(s, w) = w^T x(s) = \sum_{i=1}^{d} w_i x_i(s) \]
-
-:p What is the linear function approximation method used to estimate the state-value function?
+$$\hat{v}(s, w) = w^T x(s) = \sum_{i=1}^{d} w_i x_i(s)$$:p What is the linear function approximation method used to estimate the state-value function?
 ??x
-The linear function approximation method estimates the state-value function by taking the inner product between a weight vector \(w\) and a feature vector \(x(s)\) for each state \(s\). This method assumes that the approximate value function can be expressed as a weighted sum of basis functions represented by the components of the feature vector.
+The linear function approximation method estimates the state-value function by taking the inner product between a weight vector $w $ and a feature vector$x(s)$ for each state $s$. This method assumes that the approximate value function can be expressed as a weighted sum of basis functions represented by the components of the feature vector.
 x??
 
 ---
@@ -802,11 +800,11 @@ x??
 
 #### Feature Vectors
 
-Background context: Each state \(s\) is associated with a real-valued vector \(x(s)\) which has the same number of components as the weight vector \(w\). The components of \(x(s)\), denoted as \(x_i(s)\), represent the value of basis functions for that state.
+Background context: Each state $s $ is associated with a real-valued vector$x(s)$ which has the same number of components as the weight vector $w$. The components of $ x(s)$, denoted as $ x_i(s)$, represent the value of basis functions for that state.
 
 :p How are feature vectors used in linear function approximation?
 ??x
-Feature vectors, or basis functions, are used to represent states in a high-dimensional space. Each component \(x_i(s)\) of the feature vector corresponds to the value of one of these basis functions at state \(s\). The weight vector \(w\) is then used to combine these components linearly to approximate the state-value function.
+Feature vectors, or basis functions, are used to represent states in a high-dimensional space. Each component $x_i(s)$ of the feature vector corresponds to the value of one of these basis functions at state $s$. The weight vector $ w$ is then used to combine these components linearly to approximate the state-value function.
 x??
 
 ---
@@ -814,16 +812,13 @@ x??
 
 #### Stochastic Gradient Descent (SGD)
 
-Background context: For linear methods, SGD updates are particularly simple and favorable for mathematical analysis. The gradient of the approximate value function with respect to the weight vector \(w\) is given by \( \nabla_{w} \hat{v}(s,w) = x(s) \).
+Background context: For linear methods, SGD updates are particularly simple and favorable for mathematical analysis. The gradient of the approximate value function with respect to the weight vector $w $ is given by$\nabla_{w} \hat{v}(s,w) = x(s)$.
 
 Formula:
-\[ w_{t+1} = w_t + \alpha \left( \hat{v}(S_t, w_t) - \hat{v}(S_t, w_t)x(S_t) \right) \]
-
-:p What is the SGD update rule for linear function approximation?
+$$w_{t+1} = w_t + \alpha \left( \hat{v}(S_t, w_t) - \hat{v}(S_t, w_t)x(S_t) \right)$$:p What is the SGD update rule for linear function approximation?
 ??x
 The SGD update rule for linear function approximation simplifies to:
-\[ w_{t+1} = w_t + \alpha \left( \hat{v}(S_t, w_t) - \hat{v}(S_t, w_t)x(S_t) \right) \]
-where \( \alpha \) is the learning rate. This update rule adjusts the weight vector based on the difference between the predicted value and the true value at each state.
+$$w_{t+1} = w_t + \alpha \left( \hat{v}(S_t, w_t) - \hat{v}(S_t, w_t)x(S_t) \right)$$where $\alpha$ is the learning rate. This update rule adjusts the weight vector based on the difference between the predicted value and the true value at each state.
 x??
 
 ---
@@ -835,7 +830,7 @@ Background context: The convergence properties of SGD are well-understood for li
 
 :p How does the gradient Monte Carlo algorithm converge under linear function approximation?
 ??x
-The gradient Monte Carlo algorithm converges to the global optimum when the learning rate \(\alpha\) is reduced appropriately over time. This ensures that the updates become smaller as the algorithm progresses, leading to convergence towards the optimal weight vector \(w\).
+The gradient Monte Carlo algorithm converges to the global optimum when the learning rate $\alpha $ is reduced appropriately over time. This ensures that the updates become smaller as the algorithm progresses, leading to convergence towards the optimal weight vector$w$.
 x??
 
 ---
@@ -856,18 +851,13 @@ x??
 
 
 #### Weight Update Formula for TD(0)
-In the context of on-policy prediction using approximation, the weight vector \( w_t \) is updated at each time step \( t \) as follows:
-\[ w_{t+1} = w_t + \alpha \left( R_{t+1} x_{t+1} - x_t^T w_t \right) \]
-where \( x_t = x(S_t) \) and the expectation of the next weight vector is given by:
-\[ E[w_{t+1}|w_t] = w_t + \alpha (b - A w_t) \]
-with
-\[ b = E[R_{t+1} x_t] \in \mathbb{R}^d \]
-and
-\[ A = E \left[ x_t x_t^T - x_t x_{t+1}^T w_t \right] \in \mathbb{R}^{d \times d} \]
+In the context of on-policy prediction using approximation, the weight vector $w_t $ is updated at each time step$t$ as follows:
+$$w_{t+1} = w_t + \alpha \left( R_{t+1} x_{t+1} - x_t^T w_t \right)$$where $ x_t = x(S_t)$ and the expectation of the next weight vector is given by:
+$$E[w_{t+1}|w_t] = w_t + \alpha (b - A w_t)$$with$$b = E[R_{t+1} x_t] \in \mathbb{R}^d$$and$$
 
-:p What is the weight update formula for TD(0)?
+A = E \left[ x_t x_t^T - x_t x_{t+1}^T w_t \right] \in \mathbb{R}^{d \times d}$$:p What is the weight update formula for TD(0)?
 ??x
-The weight vector \( w_t \) at time step \( t + 1 \) is updated based on the current state feature vector \( x_t \), the reward \( R_{t+1} \) received in the next state, and the eligibility traces or previous weights. The update rule shows how the weights are adjusted to minimize prediction errors over time.
+The weight vector $w_t $ at time step$t + 1 $ is updated based on the current state feature vector$ x_t $, the reward $ R_{t+1}$ received in the next state, and the eligibility traces or previous weights. The update rule shows how the weights are adjusted to minimize prediction errors over time.
 ```java
 // Pseudocode for weight update in TD(0)
 public void tdZeroUpdate(double alpha, double[] reward, int nextStateIndex, double[] currentStateFeatures) {
@@ -884,13 +874,14 @@ x??
 
 
 #### TD Fixed Point
-From the weight update formula, if the system converges, it must converge to a fixed point where \( b - A w_{TD} = 0 \). This implies:
-\[ w_{TD} = A^{-1} b \]
+From the weight update formula, if the system converges, it must converge to a fixed point where $b - A w_{TD} = 0$. This implies:
+$$w_{TD} = A^{-1} b$$
+
 This is known as the TD fixed point.
 
 :p What is the condition for convergence in the context of linear semi-gradient TD(0)?
 ??x
-For convergence, the system must reach a state where \( b - A w_{TD} = 0 \), meaning that \( w_{TD} \) equals \( A^{-1} b \). This fixed point represents the optimal weight vector under which the updates no longer change.
+For convergence, the system must reach a state where $b - A w_{TD} = 0 $, meaning that $ w_{TD}$equals $ A^{-1} b$. This fixed point represents the optimal weight vector under which the updates no longer change.
 ```java
 // Pseudocode to find TD fixed point
 public double[] findTdFixedPoint(double[][] aMatrix, double[] bVector) {
@@ -904,11 +895,11 @@ x??
 
 
 #### Convergence Analysis of Linear TD(0)
-The analysis shows that the system will converge if \( I - \alpha A \) has all diagonal elements between 0 and 1. For a diagonal matrix \( A \), stability is assured if all diagonal elements are positive, allowing for a suitable choice of \( \alpha < 1/\text{largest diagonal element} \).
+The analysis shows that the system will converge if $I - \alpha A $ has all diagonal elements between 0 and 1. For a diagonal matrix$A $, stability is assured if all diagonal elements are positive, allowing for a suitable choice of$\alpha < 1/\text{largest diagonal element}$.
 
 :p What ensures the convergence of the linear TD(0) algorithm?
 ??x
-The key to ensuring convergence lies in the properties of the matrix \( I - \alpha A \). If all the diagonal elements of \( A \) are positive, then choosing \( \alpha \) such that it is smaller than 1 divided by the largest diagonal element ensures that \( I - \alpha A \) has all its diagonal elements between 0 and 1. This guarantees stability in the update process.
+The key to ensuring convergence lies in the properties of the matrix $I - \alpha A $. If all the diagonal elements of $ A $ are positive, then choosing $\alpha $ such that it is smaller than 1 divided by the largest diagonal element ensures that$I - \alpha A$ has all its diagonal elements between 0 and 1. This guarantees stability in the update process.
 ```java
 // Pseudocode for checking matrix properties
 public boolean isStableUpdate(double alpha, double[][] aMatrix) {
@@ -925,14 +916,16 @@ x??
 
 
 #### Positive Definiteness and Convergence
-For the matrix \( A \) to ensure convergence, it must be positive definite. In the context of linear TD(0), this means that for any non-zero vector \( y \in \mathbb{R}^d \):
-\[ y^T A y > 0 \]
-The matrix \( D(I - P) \) is crucial in determining the positive definiteness of \( A \). If all columns of \( D(I - P) \) sum to a nonnegative number, then \( A \) is guaranteed to be positive definite.
+For the matrix $A $ to ensure convergence, it must be positive definite. In the context of linear TD(0), this means that for any non-zero vector$y \in \mathbb{R}^d$:
+$$y^T A y > 0$$
 
-:p What does positive definiteness ensure for the matrix \( A \)?
+The matrix $D(I - P)$ is crucial in determining the positive definiteness of $ A $. If all columns of $ D(I - P)$sum to a nonnegative number, then $ A$ is guaranteed to be positive definite.
+
+:p What does positive definiteness ensure for the matrix $A$?
 ??x
-Positive definiteness ensures that the matrix \( A \) has certain desirable properties. Specifically, it means that for any non-zero vector \( y \), the quadratic form \( y^T A y > 0 \). This property is crucial because it guarantees the existence of an inverse \( A^{-1} \), which is necessary for the fixed point solution:
-\[ w_{TD} = A^{-1} b. \]
+Positive definiteness ensures that the matrix $A $ has certain desirable properties. Specifically, it means that for any non-zero vector$y $, the quadratic form$ y^T A y > 0 $. This property is crucial because it guarantees the existence of an inverse$ A^{-1}$, which is necessary for the fixed point solution:
+$$w_{TD} = A^{-1} b.$$
+
 In the context of linear TD(0), positive definiteness also ensures stability in the update process by preventing any component from being amplified indefinitely.
 
 ```java
@@ -952,11 +945,11 @@ x??
 
 #### Positive Definiteness and Stability
 
-Background context explaining the concept: The text shows that the key matrix \(D(I - \pi P)\) and its adjoint are positive definite. This is crucial for proving the stability of on-policy TD(0). Additionally, it mentions the need for additional conditions and a schedule to reduce the step-size parameter over time to achieve convergence with probability one.
+Background context explaining the concept: The text shows that the key matrix $D(I - \pi P)$ and its adjoint are positive definite. This is crucial for proving the stability of on-policy TD(0). Additionally, it mentions the need for additional conditions and a schedule to reduce the step-size parameter over time to achieve convergence with probability one.
 
-:p What does the text say about the key matrix \(D(I - \pi P)\) being positive definite?
+:p What does the text say about the key matrix $D(I - \pi P)$ being positive definite?
 ??x
-The text states that since the diagonal entries of \(D\) are positive and the off-diagonal entries are negative, it only needs to show that each row sum plus the corresponding column sum is positive. Given that \(\pi < 1\) and \(\mu > 1 = (1 - \pi P)\) results in all components being positive, this confirms the positive definiteness of both the key matrix and its adjoint.
+The text states that since the diagonal entries of $D $ are positive and the off-diagonal entries are negative, it only needs to show that each row sum plus the corresponding column sum is positive. Given that$\pi < 1 $ and$\mu > 1 = (1 - \pi P)$ results in all components being positive, this confirms the positive definiteness of both the key matrix and its adjoint.
 x??
 
 ---
@@ -968,7 +961,7 @@ Background context explaining the concept: The text discusses an asymptotic erro
 
 :p What does equation 9.14 imply about the asymptotic error of the TD method?
 ??x
-Equation 9.14, \(VE(w_{TD}) \leq \frac{1}{1 - \pi} \min_w VE(w)\), indicates that the asymptotic error using on-policy TD(0) is no more than \(\frac{1}{1 - \pi}\) times the smallest possible error achieved by Monte Carlo methods. This factor can be significant when \(\pi\) is close to one, highlighting a potential loss in asymptotic performance.
+Equation 9.14,$VE(w_{TD}) \leq \frac{1}{1 - \pi} \min_w VE(w)$, indicates that the asymptotic error using on-policy TD(0) is no more than $\frac{1}{1 - \pi}$ times the smallest possible error achieved by Monte Carlo methods. This factor can be significant when $\pi$ is close to one, highlighting a potential loss in asymptotic performance.
 x??
 
 ---
@@ -1043,10 +1036,7 @@ Loop for each episode:
             w ← w + α [G - v_hat(S_τ, w)] * v_hat(S_τ, w)
 ```
 The key equation is:
-\[ w_{t+n} = w_{t+n-1} + \alpha[G_t^{(t+n)} - v_\hat{S_t}(w_{t+n-1})]v_\hat{S_t}(w_{t+n-1}) \]
-where \( G_t^{(t+n)} = R_{t+1} + \gamma R_{t+2} + ... + \gamma^{n-1}R_{t+n} + \gamma^n v_\hat{S_{t+n}}(w_{t+n-1}) \)
-
-:p How does state aggregation help in large-state spaces?
+$$w_{t+n} = w_{t+n-1} + \alpha[G_t^{(t+n)} - v_\hat{S_t}(w_{t+n-1})]v_\hat{S_t}(w_{t+n-1})$$where $ G_t^{(t+n)} = R_{t+1} + \gamma R_{t+2} + ... + \gamma^{n-1}R_{t+n} + \gamma^n v_\hat{S_{t+n}}(w_{t+n-1})$:p How does state aggregation help in large-state spaces?
 ??x
 State aggregation helps by reducing the complexity of learning from a vast number of states. By grouping similar states, it allows for simpler value function approximations that can be computed and updated more efficiently.
 
@@ -1060,9 +1050,7 @@ The key difference lies in handling large state spaces. In a tabular setting, ev
 
 :p How does the n-step return generalize from the single-step case?
 ??x
-The n-step return generalizes the concept of returns to multiple steps ahead. For an \(n\)-step return starting at time \(t\), it sums up rewards over the next \(n\) steps, plus the predicted value of the state after those \(n\) steps.
-
-\[ G_t^{(t+n)} = R_{t+1} + \gamma R_{t+2} + ... + \gamma^{n-1}R_{t+n} + \gamma^n v_\hat{S_{t+n}}(w_{t+n-1}) \]
+The n-step return generalizes the concept of returns to multiple steps ahead. For an $n $-step return starting at time $ t $, it sums up rewards over the next$ n $steps, plus the predicted value of the state after those$ n $steps.$$G_t^{(t+n)} = R_{t+1} + \gamma R_{t+2} + ... + \gamma^{n-1}R_{t+n} + \gamma^n v_\hat{S_{t+n}}(w_{t+n-1})$$
 
 This equation captures the future rewards and the estimated value of the next state, making it a generalization of the single-step return.
 

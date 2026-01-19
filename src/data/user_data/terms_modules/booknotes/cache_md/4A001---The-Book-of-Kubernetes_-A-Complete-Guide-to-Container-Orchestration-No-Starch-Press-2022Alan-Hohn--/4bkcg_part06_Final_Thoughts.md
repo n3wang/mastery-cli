@@ -68,7 +68,8 @@ Background context: Understanding how containers manage network communication is
 :p How does network isolation benefit containerized applications?
 ??x
 Network isolation benefits containerized applications by ensuring that processes in different containers can use the same ports without conflicts. This is achieved through providing separate virtual network interfaces for each container.
-??x
+
+x??
 
 ---
 
@@ -80,7 +81,8 @@ Background context: Containers have a different IP address space from the host s
 :p How does network isolation prevent processes in containers from affecting each other?
 ??x
 Network isolation prevents processes in containers from affecting each other by assigning them unique virtual network interfaces and IP addresses. This means that even if two processes are running in different containers, they can use the same port without conflict, as long as they are on separate network devices.
-??x
+
+x??
 
 ---
 
@@ -100,7 +102,8 @@ def configure_route(container_ip, destination_ip, gateway):
     add_route(container_ip, route_table_entry)
 ```
 This pseudo-code outlines the basic steps for configuring a route in a container by adding an appropriate entry to the routing table.
-??x
+
+x??
 
 ---
 
@@ -113,6 +116,7 @@ Background context explaining network namespaces. Network namespaces allow diffe
 Network namespaces provide a way to isolate different processes from each other when it comes to the networking stack. Each namespace has its own IP address space, routing tables, and interfaces. This isolation is essential for containers because it allows multiple services running on the same host to have separate network configurations without interfering with each other.
 
 In CRI-O, network namespaces are used by default to ensure that each container runs in an isolated network environment. This means that even if two containers run different instances of NGINX, they can both listen on port 80 because their network interfaces are treated as separate entities within the namespace.
+
 x??
 
 ---
@@ -130,6 +134,7 @@ ip netns exec $NETNS ip addr
 ```
 
 This allows us to see detailed information about the network interfaces within that specific network namespace, such as IP addresses assigned to interfaces.
+
 x??
 
 ---

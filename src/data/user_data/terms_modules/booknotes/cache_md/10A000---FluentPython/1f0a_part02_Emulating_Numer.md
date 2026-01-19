@@ -7,28 +7,74 @@
 
 
 #### Special Methods Overview
-Special methods are called by Python’s interpreter and not directly by you. They provide a way to emulate built-in types or implement custom behavior for operations such as addition, length calculation, etc.
+Special methods (dunder methods) provide operator overloading and enable Python objects to emulate built-in types. They implement the Python data model protocol, allowing custom classes to interact with language features transparently.
 
-:p What is a special method?
+:p What is a special method and how does it enable polymorphism in Python?
 ??x
-A special method is a method in Python that has a double underscore at the beginning and end of its name (e.g., `__len__`). These methods are called by the interpreter when you use specific operators or functions, like `+`, `len()`, etc. Implementing these methods allows your custom objects to behave more like built-in types.
+A special method (also called "magic method" or "dunder method") is a method with double underscores on both sides (e.g., `__len__`, `__add__`). These methods are invoked implicitly by the Python interpreter when you use operators or built-in functions, enabling polymorphism and operator overloading.
+
+**Key characteristics:**
+- Called by interpreter, not directly by user code
+- Enable custom types to behave like built-in types
+- Support operator overloading (e.g., `+`, `*`, `[]`)
+- Time complexity: O(1) for method lookup via special method cache
 
 ```python
 class Example:
+    def __init__(self, size):
+        self._size = size
+
     def __len__(self):
-        # This method is called when len(Example()) is invoked.
-        pass
+        # Called when len(Example()) is invoked
+        # Returns: integer representing logical length
+        return self._size
+
+    def __getitem__(self, index):
+        # Enables indexing: example[i]
+        # Time complexity: depends on implementation
+        if index >= self._size:
+            raise IndexError("index out of range")
+        return index  # Simplified example
+
+# C equivalent concept (struct with function pointers):
+/*
+typedef struct {
+    int (*len_func)(void* self);
+    void* (*getitem_func)(void* self, int index);
+} PyTypeObject;
+
+typedef struct {
+    PyTypeObject* type;
+    int size;
+} Example;
+
+int example_len(void* self) {
+    Example* ex = (Example*)self;
+    return ex->size;
+}
+*/
 ```
 x??
 
 ---
 
 #### Vector Addition and Special Methods
-Special methods can be used to emulate numeric operations, such as addition. For vectors in a 2D space, we can use the `__add__` special method.
+The `__add__` method implements the addition operator for custom types, following the algebraic vector addition rule: **v** + **w** = (v₁ + w₁, v₂ + w₂, ..., vₙ + wₙ). This operation is commutative and associative.
 
-:p How do you implement vector addition using special methods?
+:p How do you implement vector addition using special methods, and what are the mathematical properties?
 ??x
-To implement vector addition, you can define the `__add__` special method in your class. This method will be called when the `+` operator is used on an instance of your class.
+To implement vector addition, define the `__add__` special method. This enables using the `+` operator on custom vector objects following mathematical vector addition rules.
+
+**Mathematical definition:**
+For vectors **v** = (v₁, v₂) and **w** = (w₁, w₂):
+**v** + **w** = (v₁ + w₁, v₂ + w₂)
+
+**Properties:**
+- Commutative: **v** + **w** = **w** + **v**
+- Associative: (**u** + **v**) + **w** = **u** + (**v** + **w**)
+- Identity element: **v** + **0** = **v**
+- Time complexity: O(n) where n is number of dimensions
+- Space complexity: O(n) for creating new vector
 
 ```python
 class Vector:
@@ -37,19 +83,62 @@ class Vector:
         self.y = y
 
     def __add__(self, other):
-        # Add corresponding elements and return a new Vector.
+        # Component-wise addition
+        # Returns new Vector (immutable operation)
         return Vector(self.x + other.x, self.y + other.y)
+
+    def __iadd__(self, other):
+        # In-place addition (mutable operation)
+        # Modifies self instead of creating new object
+        self.x += other.x
+        self.y += other.y
+        return self
+
+# C equivalent implementation:
+/*
+typedef struct {
+    double x;
+    double y;
+} Vector2D;
+
+Vector2D vector_add(Vector2D v, Vector2D w) {
+    Vector2D result;
+    result.x = v.x + w.x;  // O(1) per component
+    result.y = v.y + w.y;
+    return result;
+}
+
+// In-place version (modifies first argument):
+void vector_iadd(Vector2D* v, Vector2D w) {
+    v->x += w.x;
+    v->y += w.y;
+}
+*/
 ```
 x??
 
 ---
 
 #### Absolute Value Calculation with Special Methods
-The `__abs__` special method is used to calculate the magnitude of vectors or complex numbers.
+The `__abs__` method computes the Euclidean norm (L2 norm) of a vector, which represents its length or magnitude. This is the geometric distance from the origin in n-dimensional space.
 
-:p How do you implement the absolute value for a vector?
+:p How do you implement the absolute value for a vector using the Euclidean norm?
 ??x
-To calculate the magnitude (absolute value) of a vector, you can define the `__abs__` special method. This method returns the Euclidean distance from the origin in n-dimensional space.
+To calculate the magnitude (absolute value) of a vector, define the `__abs__` special method. This computes the Euclidean norm using the generalized Pythagorean theorem.
+
+**Mathematical definition:**
+For a vector **v** = (v₁, v₂, ..., vₙ):
+||**v**|| = √(v₁² + v₂² + ... + vₙ²)
+
+**For 2D vector:**
+||**v**|| = √(x² + y²)
+
+**Properties:**
+- Non-negative: ||**v**|| ≥ 0
+- Zero only for zero vector: ||**v**|| = 0 ⟺ **v** = **0**
+- Triangle inequality: ||**v** + **w**|| ≤ ||**v**|| + ||**w**||
+- Time complexity: O(n) for n-dimensional vector
+- Numerical stability: Use hypot() to avoid overflow/underflow
 
 ```python
 import math
@@ -58,52 +147,117 @@ class Vector:
     def __init__(self, x=0, y=0):
         self.x = x
         self.y = y
-    
+
     def __abs__(self):
-        # Calculate the magnitude using Pythagoras' theorem.
+        # Euclidean norm: sqrt(x^2 + y^2)
+        # hypot() is more numerically stable than sqrt(x**2 + y**2)
         return math.hypot(self.x, self.y)
-```
-x??
 
----
+    def __bool__(self):
+        # Vector is truthy if non-zero magnitude
+        return bool(abs(self))
 
-#### String Representation with Special Methods
-The `__repr__` special method provides a string representation of an object. This is useful for debugging and logging.
+# C equivalent implementation:
+/*
+#include <math.h>
 
-:p How do you implement the string representation for a vector?
-??x
-To provide a string representation for a vector, you can define the `__repr__` special method. This method returns a string that describes how to recreate the object.
+typedef struct {
+    double x;
+    double y;
+} Vector2D;
 
-```python
-class Vector:
-    def __init__(self, x=0, y=0):
-        self.x = x
-        self.y = y
-    
-    def __repr__(self):
-        # Return a string representation of the vector.
-        return f'Vector( {self.x}, {self.y} )'
+double vector_abs(Vector2D v) {
+    // Euclidean norm: ||v|| = sqrt(x^2 + y^2)
+    // Alternative: return sqrt(v.x * v.x + v.y * v.y);
+    return hypot(v.x, v.y);  // More numerically stable
+}
+
+// For n-dimensional vector:
+double vector_abs_n(double* components, int n) {
+    double sum_squares = 0.0;
+    for (int i = 0; i < n; i++) {
+        sum_squares += components[i] * components[i];  // O(n)
+    }
+    return sqrt(sum_squares);
+}
+*/
 ```
 x??
 
 ---
 
 #### Scalar Multiplication with Special Methods
-Scalar multiplication can be implemented using the `__mul__` special method.
+Scalar multiplication scales a vector by a scalar value, following the algebraic property: c · **v** = (c·v₁, c·v₂, ..., c·vₙ). This operation preserves direction (for positive scalars) and changes magnitude.
 
-:p How do you implement scalar multiplication for a vector?
+:p How do you implement scalar multiplication for a vector, including both left and right multiplication?
 ??x
-To perform scalar multiplication, you can define the `__mul__` special method. This method takes another object and returns a new vector that is scaled by this factor.
+Scalar multiplication requires implementing both `__mul__` (for v * scalar) and `__rmul__` (for scalar * v) to make the operation commutative. This follows the mathematical definition of scalar multiplication in vector spaces.
+
+**Mathematical definition:**
+For scalar c and vector **v** = (v₁, v₂):
+c · **v** = (c·v₁, c·v₂)
+
+**Properties:**
+- Associative with scalars: (ab)**v** = a(b**v**)
+- Distributive over vector addition: c(**v** + **w**) = c**v** + c**w**
+- Distributive over scalar addition: (a + b)**v** = a**v** + b**v**
+- Identity element: 1 · **v** = **v**
+- Time complexity: O(n) for n-dimensional vector
+- Space complexity: O(n) for new vector
 
 ```python
 class Vector:
     def __init__(self, x=0, y=0):
         self.x = x
         self.y = y
-    
+
     def __mul__(self, scalar):
-        # Multiply each component of the vector by the scalar.
+        # Left multiplication: vector * scalar
+        # Returns new scaled vector
+        if not isinstance(scalar, (int, float)):
+            return NotImplemented
         return Vector(self.x * scalar, self.y * scalar)
+
+    def __rmul__(self, scalar):
+        # Right multiplication: scalar * vector
+        # Delegates to __mul__ for commutativity
+        return self.__mul__(scalar)
+
+    def __imul__(self, scalar):
+        # In-place multiplication: vector *= scalar
+        self.x *= scalar
+        self.y *= scalar
+        return self
+
+# C equivalent implementation:
+/*
+typedef struct {
+    double x;
+    double y;
+} Vector2D;
+
+Vector2D vector_mul_scalar(Vector2D v, double scalar) {
+    Vector2D result;
+    result.x = v.x * scalar;  // O(1) per component
+    result.y = v.y * scalar;
+    return result;
+}
+
+// In-place version:
+void vector_imul_scalar(Vector2D* v, double scalar) {
+    v->x *= scalar;
+    v->y *= scalar;
+}
+
+// For n-dimensional vector:
+Vector2D* vector_mul_scalar_n(double* components, int n, double scalar) {
+    double* result = (double*)malloc(n * sizeof(double));
+    for (int i = 0; i < n; i++) {
+        result[i] = components[i] * scalar;  // O(n) total
+    }
+    return result;
+}
+*/
 ```
 x??
 
@@ -257,170 +411,148 @@ x??
 
 
 ---
-#### String/Bytes Representation Methods
-Background context explaining how these methods allow custom objects to have a meaningful representation when printed or converted to strings. These are essential for debugging and logging.
+#### Iterator Protocol and Custom Iterables
+The iterator protocol requires implementing `__iter__()` and `__next__()` methods. This enables lazy evaluation and memory-efficient processing of sequences, as iterators generate values on-demand rather than storing all values in memory.
 
-:p Which method is used to provide a string that should be used for pretty-printing the object?
+:p How does the iterator protocol work, and what are the performance implications?
 ??x
-The `__str__` method returns a string that is more readable, often used for end-user output like print statements.
+The iterator protocol consists of two methods:
+- `__iter__()`: Returns the iterator object itself (typically `self`)
+- `__next__()`: Returns the next value or raises `StopIteration` when exhausted
+
+**Key properties:**
+- Memory efficiency: O(1) space for iterator state vs O(n) for materialized sequence
+- Lazy evaluation: Values computed only when requested
+- One-way traversal: Can't go backwards without re-creating iterator
+- Stateful: Maintains position in iteration
+
 ```python
-class MyObject:
-    def __str__(self):
-        return "This is my object"
-```
-x??
+class FibonacciIterator:
+    def __init__(self, max_value):
+        self.max_value = max_value
+        self.a, self.b = 0, 1
 
----
-#### Conversion to Number Methods
-Background context explaining how these methods allow objects to be converted into numbers. These are useful in scenarios where the object needs to participate in arithmetic operations.
-
-:p Which method returns a complex number from an instance?
-??x
-The `__complex__` method returns a complex number.
-```python
-class MyNumber:
-    def __complex__(self):
-        return 3 + 4j
-```
-x??
-
----
-#### Emulating Collections Methods
-Background context explaining how these methods allow objects to emulate collections, such as lists or dictionaries. This is useful for creating custom iterable and subscriptable types.
-
-:p Which method defines the length of a collection?
-??x
-The `__len__` method returns the number of items in the collection.
-```python
-class MyCollection:
-    def __len__(self):
-        return 5
-```
-x??
-
----
-#### Iteration Methods
-Background context explaining how these methods enable objects to be iterable, allowing them to be used with for-loops and other iteration constructs.
-
-:p Which method is called to get the next item in a collection during iteration?
-??x
-The `__next__` method returns the next value from the iterator. In Python 3.5+, `__anext__` was introduced for asynchronous iterators.
-```python
-class MyIterator:
     def __iter__(self):
-        return self
+        return self  # O(1)
 
     def __next__(self):
-        # Return the next item or raise StopIteration when done
-        pass
+        if self.a > self.max_value:
+            raise StopIteration
+        current = self.a
+        self.a, self.b = self.b, self.a + self.b  # O(1)
+        return current
+
+# C equivalent (simplified):
+/*
+typedef struct {
+    long long a;
+    long long b;
+    long long max_value;
+} FibIterator;
+
+FibIterator* fib_iter_create(long long max_val) {
+    FibIterator* iter = malloc(sizeof(FibIterator));
+    iter->a = 0;
+    iter->b = 1;
+    iter->max_value = max_val;
+    return iter;
+}
+
+int fib_iter_next(FibIterator* iter, long long* result) {
+    if (iter->a > iter->max_value) {
+        return 0;  // Iteration complete
+    }
+    *result = iter->a;
+    long long temp = iter->a;
+    iter->a = iter->b;
+    iter->b = temp + iter->b;
+    return 1;  // Success
+}
+*/
 ```
 x??
 
 ---
-#### Callable Methods
-Background context explaining how these methods enable objects to be called as functions.
+#### Context Managers and Resource Management
+Context managers implement the context management protocol using `__enter__()` and `__exit__()` methods, enabling automatic resource acquisition and release following the RAII (Resource Acquisition Is Initialization) pattern.
 
-:p Which method is used for object invocation, allowing an object to act like a function?
+:p How do context managers ensure proper resource cleanup, especially in error conditions?
 ??x
-The `__call__` method allows the object to be called as a function.
-```python
-class MyFunction:
-    def __call__(self):
-        print("Function was called")
-```
-x??
+Context managers guarantee resource cleanup by using the `__enter__` and `__exit__` methods. The `__exit__` method is always called, even if an exception occurs, ensuring proper cleanup.
 
----
-#### Context Management Methods
-Background context explaining how these methods enable objects to act like context managers, allowing for use in with statements.
+**Protocol specification:**
+- `__enter__()`: Acquires resource, returns resource or self
+- `__exit__(exc_type, exc_val, exc_tb)`: Releases resource, returns True to suppress exception
 
-:p Which method is used to acquire resources when entering a context?
-??x
-The `__enter__` method acquires the necessary resources and returns them.
+**Benefits:**
+- Guaranteed cleanup even with exceptions
+- Prevents resource leaks (file handles, locks, connections)
+- Cleaner code than try/finally blocks
+- Composable: Can nest multiple context managers
+
 ```python
-class MyContextManager:
+class FileManager:
+    def __init__(self, filename, mode):
+        self.filename = filename
+        self.mode = mode
+        self.file = None
+
     def __enter__(self):
-        print("Entering context")
-        return self
+        # Acquire resource
+        self.file = open(self.filename, self.mode)
+        return self.file  # Returned to 'as' variable
 
-    def __exit__(self, exc_type, exc_value, traceback):
-        print("Exiting context")
-```
-x??
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        # Release resource (always called)
+        if self.file:
+            self.file.close()
+        # Return False to propagate exceptions
+        # Return True to suppress exceptions
+        return False
 
----
-#### Instance Creation and Destruction Methods
-Background context explaining how these methods control the instantiation of objects and their cleanup.
+# Usage:
+# with FileManager('data.txt', 'r') as f:
+#     content = f.read()
+# File automatically closed here
 
-:p Which method is called to create a new instance of a class?
-??x
-The `__new__` method creates a new instance and returns it. The `__init__` method initializes the new instance.
-```python
-class MyClass:
-    def __new__(cls):
-        print("Creating an instance")
-        return super().__new__(cls)
+// C equivalent using macros (simplified):
+/*
+#include <stdio.h>
 
-    def __init__(self):
-        print("Initializing instance")
-```
-x??
+typedef struct {
+    FILE* file;
+    const char* filename;
+    const char* mode;
+} FileManager;
 
----
-#### Attribute Management Methods
-Background context explaining how these methods handle attribute access and modification, including dynamic attribute management.
+FileManager* fm_enter(const char* filename, const char* mode) {
+    FileManager* fm = malloc(sizeof(FileManager));
+    fm->filename = filename;
+    fm->mode = mode;
+    fm->file = fopen(filename, mode);
+    if (!fm->file) {
+        free(fm);
+        return NULL;
+    }
+    return fm;
+}
 
-:p Which method is used to get the value of an attribute?
-??x
-The `__getattr__` method returns the value for a missing attribute.
-```python
-class MyClass:
-    def __getattr__(self, name):
-        return f"Attribute {name} does not exist"
-```
-x??
+void fm_exit(FileManager* fm) {
+    if (fm) {
+        if (fm->file) {
+            fclose(fm->file);
+        }
+        free(fm);
+    }
+}
 
----
-#### Abstract Base Classes Methods
-Background context explaining how these methods provide hooks into class construction and checking.
-
-:p Which method is used to check if an instance is of a certain type?
-??x
-The `__instancecheck__` method checks if the given object is an instance of the class.
-```python
-class MyType:
-    @classmethod
-    def __instancecheck__(cls, other):
-        return isinstance(other, cls)
-```
-x??
-
----
-#### Class Metaprogramming Methods
-Background context explaining how these methods allow for advanced customization and manipulation of classes at the metaclass level.
-
-:p Which method is used to customize class creation?
-??x
-The `__init_subclass__` method allows custom behavior when a subclass is defined.
-```python
-class MyMeta(type):
-    def __init_subclass__(cls, **kwargs):
-        print("Subclassing occurred")
-```
-x??
-
----
-#### Infix and Numerical Operator Methods
-Background context explaining how these methods support the use of operators as special methods.
-
-:p Which method supports matrix multiplication?
-??x
-The `__matmul__` method supports matrix multiplication.
-```python
-class MyMatrix:
-    def __matmul__(self, other):
-        # Perform matrix multiplication logic here
-        pass
+// Usage pattern:
+// FileManager* fm = fm_enter("data.txt", "r");
+// if (fm) {
+//     // Use fm->file
+//     fm_exit(fm);  // Manual cleanup required
+// }
+*/
 ```
 x??
 

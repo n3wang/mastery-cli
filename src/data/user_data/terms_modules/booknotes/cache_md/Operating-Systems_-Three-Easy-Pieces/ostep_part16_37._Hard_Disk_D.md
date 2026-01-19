@@ -112,25 +112,25 @@ x??
 
 #### I/O Time Calculation
 
-Background context: Disk performance can be analyzed using the sum of three major components: seek time (Tseek), rotational latency (Trotation), and transfer time (Ttransfer). The total I/O time \( T_{\text{I/O}} \) is given by:
+Background context: Disk performance can be analyzed using the sum of three major components: seek time (Tseek), rotational latency (Trotation), and transfer time (Ttransfer). The total I/O time $T_{\text{I/O}}$ is given by:
 
-\[ T_{\text{I/O}} = T_{\text{seek}} + T_{\text{rotation}} + T_{\text{transfer}} \]
+$$T_{\text{I/O}} = T_{\text{seek}} + T_{\text{rotation}} + T_{\text{transfer}}$$
 
 Where:
-- \( T_{\text{seek}} \): Time to move the read/write head to the correct track.
-- \( T_{\text{rotation}} \): Time for the disk platter to rotate until the desired sector is under the head.
-- \( T_{\text{transfer}} \): Time to transfer data between the drive and the buffer.
+- $T_{\text{seek}}$: Time to move the read/write head to the correct track.
+- $T_{\text{rotation}}$: Time for the disk platter to rotate until the desired sector is under the head.
+- $T_{\text{transfer}}$: Time to transfer data between the drive and the buffer.
 
 :p What formula represents the total I/O time?
 ??x
-The total I/O time \( T_{\text{I/O}} \) is calculated using the following formula:
+The total I/O time $T_{\text{I/O}}$ is calculated using the following formula:
 
-\[ T_{\text{I/O}} = T_{\text{seek}} + T_{\text{rotation}} + T_{\text{transfer}} \]
+$$T_{\text{I/O}} = T_{\text{seek}} + T_{\text{rotation}} + T_{\text{transfer}}$$
 
 Where:
-- \( T_{\text{seek}} \): Time to move the read/write head.
-- \( T_{\text{rotation}} \): Time for a single rotation of the disk.
-- \( T_{\text{transfer}} \): Time to transfer data between the drive and buffer.
+- $T_{\text{seek}}$: Time to move the read/write head.
+- $T_{\text{rotation}}$: Time for a single rotation of the disk.
+- $T_{\text{transfer}}$: Time to transfer data between the drive and buffer.
 
 This formula helps in understanding the overall performance of a hard disk by breaking down the total time required for an I/O operation into its constituent parts.
 x??
@@ -143,24 +143,21 @@ x??
 Background context: The random workload involves issuing small (e.g., 4KB) reads to random locations on the disk. This type of workload is common in database management systems and requires a detailed understanding of how disk drives operate under such conditions.
 
 Relevant formulas:
-- \(T_{\text{seek}} = 4 \, \text{ms}\)
-- \(T_{\text{rotation}} = 2 \, \text{ms}\)
-- \(T_{\text{transfer}} = 30 \mu s\) (37.3)
+- $T_{\text{seek}} = 4 \, \text{ms}$-$ T_{\text{rotation}} = 2 \, \text{ms}$-$ T_{\text{transfer}} = 30 \mu s$(37.3)
 
 Explanation: The random workload on the Cheetah 15K.5 involves calculating the total I/O time considering seek time, rotational latency, and transfer time.
 
 :p How is the total I/O time calculated for a single read in the random workload on the Cheetah 15K.5?
 ??x
-The total I/O time \(T_{\text{I/O}}\) can be calculated by summing up the seek time, rotational latency, and transfer time.
+The total I/O time $T_{\text{I/O}}$ can be calculated by summing up the seek time, rotational latency, and transfer time.
 
 ```plaintext
 T_{\text{I/O}} = T_{\text{seek}} + T_{\text{rotation}} + T_{\text{transfer}}
 ```
 
 For the Cheetah 15K.5:
-- \(T_{\text{seek}} = 4 \, \text{ms}\)
-- \(T_{\text{rotation}} = 2 \, \text{ms}\) (on average, half a rotation or 2 ms)
-- \(T_{\text{transfer}} = 30 \mu s\) (very small)
+- $T_{\text{seek}} = 4 \, \text{ms}$-$ T_{\text{rotation}} = 2 \, \text{ms}$(on average, half a rotation or 2 ms)
+- $T_{\text{transfer}} = 30 \mu s$(very small)
 
 Thus:
 ```plaintext
@@ -612,7 +609,7 @@ x??
 Background context: A simple example of striping involves distributing blocks across a 4-disk array in a round-robin fashion. Each disk stores a sequential block starting from the first.
 :p How is data striped across disks in RAID Level 0?
 ??x
-In RAID Level 0, data is striped across multiple disks using a round-robin approach. For instance, with a 4-disk array and assuming \(B\) blocks:
+In RAID Level 0, data is striped across multiple disks using a round-robin approach. For instance, with a 4-disk array and assuming $B$ blocks:
 - Disk 0: Block 0, 4, 8, ...
 - Disk 1: Block 1, 5, 9, ...
 - Disk 2: Block 2, 6, 10, ...
@@ -648,7 +645,7 @@ x??
 
 #### Sequential Bandwidth (S) Calculation
 
-Background context: In this scenario, we are calculating the sequential bandwidth for a disk system. The formula used is \( S = \frac{\text{Amount of Data}}{\text{Time to access}} \).
+Background context: In this scenario, we are calculating the sequential bandwidth for a disk system. The formula used is $S = \frac{\text{Amount of Data}}{\text{Time to access}}$.
 
 Given characteristics:
 - Sequential transfer size: 10 MB
@@ -658,15 +655,13 @@ Given characteristics:
 
 :p How do we calculate the sequential bandwidth (S)?
 ??x
-To calculate \( S \), first determine the total time taken for a typical 10 MB transfer. This involves:
+To calculate $S$, first determine the total time taken for a typical 10 MB transfer. This involves:
 1. Seek time: 7 ms
 2. Rotational delay: 3 ms
-3. Transfer time: \(\frac{10MB}{50MB/s} = 0.2s = 200ms\)
+3. Transfer time: $\frac{10MB}{50MB/s} = 0.2s = 200ms $ Adding these times gives$7 + 3 + 200 = 210$ ms.
 
-Adding these times gives \( 7 + 3 + 200 = 210 \) ms.
-
-Now, we can calculate \( S \):
-\[ S = \frac{10MB}{210ms} \approx 47.62 MB/s \]
+Now, we can calculate $S$:
+$$S = \frac{10MB}{210ms} \approx 47.62 MB/s$$
 
 This value is close to the peak bandwidth of the disk because most of the time is spent in data transfer.
 ??x
@@ -696,11 +691,11 @@ Background context explaining the benefits and performance implications of rando
 
 :p How does random reading perform on a mirrored RAID-1 configuration?
 ??x
-Random reading performs optimally on a mirrored RAID-1 configuration because each read request can be distributed to different disks, allowing for the full bandwidth potential of the array to be utilized. For \(N\) disks with a read bandwidth of \(R\) MB/s per disk, the throughput is:
+Random reading performs optimally on a mirrored RAID-1 configuration because each read request can be distributed to different disks, allowing for the full bandwidth potential of the array to be utilized. For $N $ disks with a read bandwidth of$R$ MB/s per disk, the throughput is:
 ```plaintext
 N * R MB/s
 ```
-For example, if you have two mirrored disks (\(N = 2\)) with a peak read bandwidth of 100 MB/s per disk (\(R = 100 \text{ MB/s}\)):
+For example, if you have two mirrored disks ($N = 2 $) with a peak read bandwidth of 100 MB/s per disk ($ R = 100 \text{ MB/s}$):
 ```plaintext
 2 * 100 MB/s = 200 MB/s
 ```

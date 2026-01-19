@@ -9,7 +9,7 @@
 #### Positionwise Feed Forward Layer
 Position-wise feed-forward networks are a critical component of the Transformer architecture, enhancing the model’s ability to capture intricate features. The typical setup involves a hidden layer that is much larger than the input and output dimensions.
 
-In our example, \(d_{\text{model}} = 256\) and \(d_{\text{ff}} = 1024\). This means the feed-forward network has an intermediate dimension of 1024. The practice of enlarging the hidden layer helps in capturing more complex patterns within the input data.
+In our example, $d_{\text{model}} = 256 $ and$d_{\text{ff}} = 1024$. This means the feed-forward network has an intermediate dimension of 1024. The practice of enlarging the hidden layer helps in capturing more complex patterns within the input data.
 
 :p What is the purpose of the PositionwiseFeedForward() class in the Transformer architecture?
 ??x
@@ -309,31 +309,28 @@ Background context explaining the concept. Include any relevant formulas or data
 
 The attention mechanism in Transformers calculates how each element of the query (Q) is related to all elements of the key (K). The scaled cross-attention scores are calculated as the dot product of Q and K divided by the square root of the dimension of K. Finally, a softmax function is applied on these scores to get the attention weights.
 
-Mathematically, for each element in \( q \in Q \) and corresponding \( k \in K \), the scaled cross-attention score \( S_{i,j} \) can be calculated as:
-\[ S_{i,j} = \frac{q_i^T k_j}{\sqrt{d_k}} \]
-where \( d_k \) is the dimension of the key vector.
+Mathematically, for each element in $q \in Q $ and corresponding$k \in K $, the scaled cross-attention score$ S_{i,j}$ can be calculated as:
+$$S_{i,j} = \frac{q_i^T k_j}{\sqrt{d_k}}$$where $ d_k$ is the dimension of the key vector.
 
-Then, applying softmax on these scores to get the attention weights \( W \):
-\[ W_{i,j} = \text{softmax}(S_{i,j}) \]
-
-:p How are cross-attention weights calculated between the input to the decoder and the output from the encoder?
+Then, applying softmax on these scores to get the attention weights $W$:
+$$W_{i,j} = \text{softmax}(S_{i,j})$$:p How are cross-attention weights calculated between the input to the decoder and the output from the encoder?
 ??x
-The cross-attention weights are calculated by passing the decoder's input through a neural network to obtain the query \( Q \). The encoder’s output is passed through another neural network to get the key \( K \). The scaled dot product attention score for each element in \( Q \) and \( K \) is then computed as:
-\[ S_{i,j} = \frac{q_i^T k_j}{\sqrt{d_k}} \]
-where \( d_k \) is the dimension of the key vector. Applying softmax on these scores, we get the cross-attention weights.
+The cross-attention weights are calculated by passing the decoder's input through a neural network to obtain the query $Q $. The encoder’s output is passed through another neural network to get the key $ K $. The scaled dot product attention score for each element in$ Q $ and $ K$ is then computed as:
+$$S_{i,j} = \frac{q_i^T k_j}{\sqrt{d_k}}$$where $ d_k$ is the dimension of the key vector. Applying softmax on these scores, we get the cross-attention weights.
 
 For example, if the scaled attention scores are given as:
-\[ S = \begin{bmatrix}
+$$S = \begin{bmatrix}
 0.9 & 0.02 & 0.02 & 0.02 & 0.02 \\
 0.02 & 0.9 & 0.02 & 0.02 & 0.02 \\
 0.02 & 0.02 & 0.9 & 0.02 & 0.02 \\
 0.02 & 0.02 & 0.02 & 0.9 & 0.02 \\
 0.02 & 0.02 & 0.02 & 0.02 & 0.9
-\end{bmatrix} \]
+\end{bmatrix}$$
 
 Then, applying softmax on each row:
-\[ W = \text{softmax}(S) \]
-where \( W \) is the matrix of attention weights.
+$$
+
+W = \text{softmax}(S)$$where $ W$ is the matrix of attention weights.
 
 ??x
 The answer with detailed explanations.
@@ -366,7 +363,7 @@ The decoder layer in a Transformer model consists of three sub-layers: self-atte
 
 :p How is the decoder structured?
 ??x
-The decoder consists of \( N \) identical layers. Each layer performs three operations:
+The decoder consists of $N$ identical layers. Each layer performs three operations:
 
 1. **Self-Attention**: This sublayer helps the model understand dependencies within the same sequence.
 2. **Cross-Attention**: This sublayer allows the decoder to attend to information from the encoder's output, enabling it to use context from previous steps in the encoding process.
@@ -385,19 +382,14 @@ In each decoder layer, after the cross-attention sublayer processes the input, t
 3. **Second Linear Layer**: Further transforms the output.
 
 The process can be represented as:
-\[ FFN(x) = \text{ReLU}(W_1 x + b_1) W_2 + b_2 \]
-
-:p What is the norm layer's purpose in the decoder?
+$$FFN(x) = \text{ReLU}(W_1 x + b_1) W_2 + b_2$$:p What is the norm layer's purpose in the decoder?
 ??x
 The normalization (LayerNorm) layer, denoted by `self.norm`, normalizes the output of each sub-layer before it is added back to its input. This helps stabilize and accelerate training.
 
 :p How does the LayerNorm function in the decoder layer?
 ??x
 The `LayerNorm` layer normalizes the summed inputs from all layers. It applies normalization over a specific dimension, typically the last one, ensuring that the output has zero mean and unit variance:
-
-\[ \text{LayerNorm}(x) = \frac{x - \mu}{\sqrt{\sigma^2 + \epsilon}} W + b \]
-
-where \( \mu \) is the mean of the input over the specified dimension, \( \sigma^2 \) is the variance, and \( \epsilon \) is a small constant for numerical stability.
+$$\text{LayerNorm}(x) = \frac{x - \mu}{\sqrt{\sigma^2 + \epsilon}} W + b$$where $\mu $ is the mean of the input over the specified dimension,$\sigma^2 $ is the variance, and$\epsilon$ is a small constant for numerical stability.
 
 ??x
 The answer with detailed explanations.
@@ -434,7 +426,7 @@ The `Decoder` class in a Transformer model is defined to handle the multi-layer 
 
 :p How is the `Decoder` class implemented?
 ??x
-The `Decoder` class is initialized with a single decoder layer and the number of layers \( N \). It uses the `nn.ModuleList` to store multiple copies of the same decoder layer. This allows for stacking identical sub-layers in parallel.
+The `Decoder` class is initialized with a single decoder layer and the number of layers $N$. It uses the `nn.ModuleList` to store multiple copies of the same decoder layer. This allows for stacking identical sub-layers in parallel.
 
 :p What does the `forward` method do in the `Decoder` class?
 ??x
@@ -454,10 +446,10 @@ def forward(self, x, memory, src_mask, tgt_mask):
 ??x
 The `forward` method takes four inputs:
 
-- \( x \): The input to the decoder.
-- \( memory \): The output from the encoder.
-- \( src_mask \): A mask for the source side to handle self-attention.
-- \( tgt_mask \): A mask for the target side, often used in self-attention to prevent positions from attending to subsequent positions.
+- $x$: The input to the decoder.
+- $memory$: The output from the encoder.
+- $src_mask$: A mask for the source side to handle self-attention.
+- $tgt_mask$: A mask for the target side, often used in self-attention to prevent positions from attending to subsequent positions.
 
 :p How does the `Decoder` class ensure consistency in input and output dimensions?
 ??x

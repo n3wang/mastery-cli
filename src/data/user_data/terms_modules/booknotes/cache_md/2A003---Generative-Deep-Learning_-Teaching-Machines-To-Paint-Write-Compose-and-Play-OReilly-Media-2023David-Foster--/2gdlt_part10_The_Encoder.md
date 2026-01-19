@@ -20,7 +20,7 @@ x??
 Background context: The text describes how each image is mapped to a multivariate normal distribution centered at a specific point in the latent space, with the mean and variance defining the spread of this distribution.
 :p How does a variational autoencoder use the concept of a multivariate normal distribution?
 ??x
-A variational autoencoder maps an input image to a parameterized multivariate normal distribution (with mean \(\mu\) and standard deviation \(\sigma\)) centered around a point in the latent space. This allows for more flexibility in the representation of images, enabling better interpolation between different types of data.
+A variational autoencoder maps an input image to a parameterized multivariate normal distribution (with mean $\mu $ and standard deviation$\sigma$) centered around a point in the latent space. This allows for more flexibility in the representation of images, enabling better interpolation between different types of data.
 x??
 
 ---
@@ -30,7 +30,7 @@ x??
 Background context: The passage explains that converting an autoencoder into a variational autoencoder involves changes to both the encoder and the loss function. Specifically, it mentions altering the encoding process to use a multivariate normal distribution around each point.
 :p What change is made to the encoder in a variational autoencoder?
 ??x
-In a variational autoencoder, the encoder is modified so that instead of outputting a single point (latent vector) directly, it outputs parameters \(\mu\) and \(\sigma\) which define a multivariate normal distribution around a point in the latent space.
+In a variational autoencoder, the encoder is modified so that instead of outputting a single point (latent vector) directly, it outputs parameters $\mu $ and$\sigma$ which define a multivariate normal distribution around a point in the latent space.
 x??
 
 ---
@@ -50,11 +50,9 @@ x??
 Background context: The normal distribution, often referred to as Gaussian, is a continuous probability distribution that describes how the values of a variable are distributed. In one dimension, it has a well-known formula with parameters mean (μ) and variance (σ²).
 
 Formula:
-\[ f(x \mid \mu, \sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}} \]
-
-:p What is the formula for the normal distribution in one dimension?
+$$f(x \mid \mu, \sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$$:p What is the formula for the normal distribution in one dimension?
 ??x
-The formula defines the probability density function (PDF) of a normally distributed random variable with mean μ and variance σ². It shows how the value \( x \) at any point is likely to occur given these parameters.
+The formula defines the probability density function (PDF) of a normally distributed random variable with mean μ and variance σ². It shows how the value $x$ at any point is likely to occur given these parameters.
 
 ```java
 // Pseudocode to calculate the PDF of a normal distribution in one dimension
@@ -74,12 +72,11 @@ x??
 Background context: A multivariate normal distribution extends the concept of a one-dimensional normal distribution to multiple dimensions. It is used when dealing with vectors where each element follows a normal distribution, and there might be correlations between elements.
 
 Formula:
-\[ f(x_1, ..., x_k \mid \mu, \Sigma) = \exp\left(-\frac{1}{2} (x - \mu)^T \Sigma^{-1} (x - \mu)\right) \]
-where \( \mu \) is the mean vector and \( \Sigma \) is the covariance matrix.
+$$f(x_1, ..., x_k \mid \mu, \Sigma) = \exp\left(-\frac{1}{2} (x - \mu)^T \Sigma^{-1} (x - \mu)\right)$$where $\mu $ is the mean vector and$\Sigma$ is the covariance matrix.
 
 :p What is the formula for a multivariate normal distribution?
 ??x
-The formula represents the probability density function of a multivariate Gaussian distribution with mean vector \( \mu \) and symmetric covariance matrix \( \Sigma \).
+The formula represents the probability density function of a multivariate Gaussian distribution with mean vector $\mu $ and symmetric covariance matrix$\Sigma$.
 
 ```java
 // Pseudocode to calculate the PDF of a multivariate normal distribution
@@ -112,7 +109,7 @@ Background context: In VAEs, the encoder maps each input to mean (z_mean) and lo
 
 :p What does an encoder in a Variational Autoencoder output?
 ??x
-An encoder in a VAE outputs two vectors: `z_mean` for the mean and `z_log_var` for the logarithm of the variance, which together define a multivariate normal distribution. These are used to sample latent variables \( z \).
+An encoder in a VAE outputs two vectors: `z_mean` for the mean and `z_log_var` for the logarithm of the variance, which together define a multivariate normal distribution. These are used to sample latent variables $z$.
 
 ```java
 // Pseudocode to sample from the distribution defined by z_mean and z_log_var
@@ -147,7 +144,7 @@ Background context: A VAE consists of an encoder and a decoder. The encoder maps
 ??x
 A VAE has two main components: 
 1. **Encoder**: Maps input data to `z_mean` (mean) and `z_log_var` (log variance).
-2. **Decoder**: Uses these values to generate outputs based on sampled latent variables \( z \).
+2. **Decoder**: Uses these values to generate outputs based on sampled latent variables $z$.
 
 The overall architecture is depicted in Figure 3-12.
 
@@ -175,16 +172,16 @@ x??
 #### Reparameterization Trick
 Background context explaining the concept. The reparameterization trick is a technique used in variational autoencoders to ensure that gradients can backpropagate through the sampling process, which involves sampling from a distribution parameterized by mean and variance.
 
-The traditional approach would be to directly sample z from a normal distribution with parameters \( \mu \) (z_mean) and \( \sigma^2 \) (z_log_var). However, this makes it difficult for backpropagation to flow through the sampling process because of the stochastic nature of sampling. The reparameterization trick circumvents this by introducing an additional random variable epsilon.
+The traditional approach would be to directly sample z from a normal distribution with parameters $\mu $(z_mean) and $\sigma^2$ (z_log_var). However, this makes it difficult for backpropagation to flow through the sampling process because of the stochastic nature of sampling. The reparameterization trick circumvents this by introducing an additional random variable epsilon.
 
 :p What is the reparameterization trick used for in variational autoencoders?
 ??x
 The reparameterization trick is used to ensure that gradients can backpropagate freely through the sampling process, allowing the training of neural networks with stochastic layers. By keeping all the randomness within a single variable (epsilon), we make the partial derivative of the layer output deterministic, which is essential for efficient and stable gradient descent.
 
-The key idea is to sample \( \epsilon \) from a standard normal distribution and then compute the final sample as:
-\[ z = \mu + \sigma \cdot \epsilon \]
+The key idea is to sample $\epsilon$ from a standard normal distribution and then compute the final sample as:
+$$z = \mu + \sigma \cdot \epsilon$$
 
-Where \( \mu \) is the mean (z_mean), and \( \sigma \) is the standard deviation, computed as \( \exp(0.5 \times \log(\sigma^2)) \).
+Where $\mu $ is the mean (z_mean), and$\sigma $ is the standard deviation, computed as$\exp(0.5 \times \log(\sigma^2))$.
 
 :p What code snippet implements the reparameterization trick in Keras?
 ??x
@@ -214,12 +211,12 @@ Background context explaining the concept. In variational autoencoders, a new ty
 The `Sampling` layer ensures that gradients can backpropagate through the sampling process by using the reparameterization trick. This involves generating samples from a normal distribution parameterized by z_mean and z_log_var without directly sampling during the forward pass.
 
 Here’s how it works in detail:
-1. Compute the standard deviation \( \sigma \) as \( \exp(0.5 \times \log(\sigma^2)) \).
-2. Sample \( \epsilon \) from a standard normal distribution.
-3. Generate the final sample \( z \) using the formula: 
-\[ z = z\_mean + \sigma \cdot \epsilon \]
+1. Compute the standard deviation $\sigma $ as$\exp(0.5 \times \log(\sigma^2))$.
+2. Sample $\epsilon$ from a standard normal distribution.
+3. Generate the final sample $z$ using the formula: 
+$$z = z\_mean + \sigma \cdot \epsilon$$
 
-This approach keeps all the randomness within \( \epsilon \), making the output deterministic with respect to its inputs, which is crucial for gradient flow.
+This approach keeps all the randomness within $\epsilon$, making the output deterministic with respect to its inputs, which is crucial for gradient flow.
 
 :p What are the steps involved in implementing a `Sampling` layer in Keras?
 ??x
@@ -245,7 +242,7 @@ z_mean = layers.Dense(2, name="z_mean")(x)
 z_log_var = layers.Dense(2, name="z_log_var")(x)
 z = Sampling()([z_mean, z_log_var])
 ```
-This implementation ensures that gradients can flow back through the sampling process by keeping all randomness within \( \epsilon \).
+This implementation ensures that gradients can flow back through the sampling process by keeping all randomness within $\epsilon$.
 
 x??
 
@@ -257,12 +254,12 @@ Background context explaining the concept. In a variational autoencoder (VAE), t
 
 :p What is the role of the `Sampling` layer in the VAE encoder?
 ??x
-The `Sampling` layer in the VAE encoder plays a crucial role by allowing the model to generate samples from a distribution defined by the mean \( \mu \) (z_mean) and standard deviation \( \sigma \) (z_log_var). This enables the creation of latent variables that capture the variability in the input data.
+The `Sampling` layer in the VAE encoder plays a crucial role by allowing the model to generate samples from a distribution defined by the mean $\mu $(z_mean) and standard deviation $\sigma$ (z_log_var). This enables the creation of latent variables that capture the variability in the input data.
 
-By using the reparameterization trick, the `Sampling` layer ensures that gradients can flow backward through the sampling process, allowing for effective training of the model. The sampled latent variable \( z \) is computed as:
-\[ z = \mu + \sigma \cdot \epsilon \]
+By using the reparameterization trick, the `Sampling` layer ensures that gradients can flow backward through the sampling process, allowing for effective training of the model. The sampled latent variable $z$ is computed as:
+$$z = \mu + \sigma \cdot \epsilon$$
 
-Where \( \epsilon \) is a random sample from a standard normal distribution.
+Where $\epsilon$ is a random sample from a standard normal distribution.
 
 :p How does the VAE encoder architecture work in Keras?
 ??x
@@ -282,7 +279,7 @@ z_log_var = layers.Dense(2, name="z_log_var")(x)
 z = Sampling()([z_mean, z_log_var])
 ```
 
-This code snippet defines the convolutional layers to reduce the spatial dimensions and extract features from input images. It then maps these features to a latent space with mean \( \mu \) and variance \( \sigma^2 \), which are used by the `Sampling` layer to generate samples.
+This code snippet defines the convolutional layers to reduce the spatial dimensions and extract features from input images. It then maps these features to a latent space with mean $\mu $ and variance$\sigma^2$, which are used by the `Sampling` layer to generate samples.
 
 x??
 
@@ -321,7 +318,7 @@ kl_loss = -0.5 * sum(1 + z_log_var - z_mean^2 - K.exp(z_log_var))
 
 Or in mathematical notation:
 
-\[ \text{DKL}_{\mu, \sigma} \| N_0, 1 = -\frac{1}{2}\sum (1 + \log(\sigma^2) - \mu^2 - \sigma^2) \]
+$$\text{DKL}_{\mu, \sigma} \| N_0, 1 = -\frac{1}{2}\sum (1 + \log(\sigma^2) - \mu^2 - \sigma^2)$$
 
 Where:
 - `z_mean` and `z_log_var` are the mean and log variance computed by the encoder.

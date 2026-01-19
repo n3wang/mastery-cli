@@ -56,7 +56,7 @@ Background context: The language model (LM) head takes the final computed vector
 ??x
 The LM head receives the output vector from the last token’s processing stream and uses this information to predict the most probable next token. It typically consists of a fully connected layer followed by a softmax function that outputs probabilities for each possible token in the vocabulary.
 
-For example, given a hidden state \( h \) produced by the model:
+For example, given a hidden state $h$ produced by the model:
 ```python
 logits = lm_head_weight @ h  # Matrix multiplication
 probs = softmax(logits)      # Calculate probabilities

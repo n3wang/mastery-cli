@@ -167,7 +167,7 @@ Background context: The text explains how greedy and -greedy policies work in re
 
 :p What is a -greedy policy?
 ??x
-A -greedy policy selects an optimal (max-value) action with probability \(1-\epsilon\) and each of the remaining actions with equal probability \(\frac{\epsilon}{n}\), where \(n\) is the number of actions. This allows for exploration while exploiting known good actions.
+A -greedy policy selects an optimal (max-value) action with probability $1-\epsilon $ and each of the remaining actions with equal probability$\frac{\epsilon}{n}$, where $ n$ is the number of actions. This allows for exploration while exploiting known good actions.
 x??
 
 ---
@@ -272,7 +272,7 @@ Background context: The text mentions the policy improvement theorem which state
 
 :p How does the policy improvement theorem apply to rollout algorithms?
 ??x
-The policy improvement theorem states that if a policy \(\pi_0\) is better than another policy \(\pi\) at a state \(s\), i.e., \(q_{\pi}(s, a) > v_{\pi}(s)\), then \(\pi_0\) is as good as or better than \(\pi\). If the inequality is strict, \(\pi_0\) is strictly better than \(\pi\).
+The policy improvement theorem states that if a policy $\pi_0 $ is better than another policy$\pi $ at a state$s $, i.e., $ q_{\pi}(s, a) > v_{\pi}(s)$, then $\pi_0 $ is as good as or better than $\pi$. If the inequality is strict,$\pi_0 $ is strictly better than$\pi$.
 
 Rollout algorithms use this theorem to improve their current policy by averaging returns from simulated trajectories and selecting actions that maximize these estimates. This process mimics one step of asynchronous value iteration, where only the action for the current state is changed.
 

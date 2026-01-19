@@ -11,7 +11,7 @@ Background context explaining the concept. In this scenario, we are addressing t
 If applicable, add code examples with explanations.
 :p How can larger pages be used to make page tables smaller?
 ??x
-Increasing the size of pages from 4KB to 16KB reduces the number of virtual pages needed to cover the same address space. With a 32-bit address space, we have \(2^{32}\) bytes. Using 4KB (or \(2^{12}\)) pages, we would need approximately one million entries in our page table (\(2^{20}\) entries). Switching to 16KB (or \(2^{14}\)) pages reduces the number of entries required to \(2^{18}\), resulting in a smaller page table size.
+Increasing the size of pages from 4KB to 16KB reduces the number of virtual pages needed to cover the same address space. With a 32-bit address space, we have $2^{32}$ bytes. Using 4KB (or $2^{12}$) pages, we would need approximately one million entries in our page table ($2^{20}$ entries). Switching to 16KB (or $2^{14}$) pages reduces the number of entries required to $2^{18}$, resulting in a smaller page table size.
 ```java
 // Example code to demonstrate changing page sizes
 public class PageTableExample {

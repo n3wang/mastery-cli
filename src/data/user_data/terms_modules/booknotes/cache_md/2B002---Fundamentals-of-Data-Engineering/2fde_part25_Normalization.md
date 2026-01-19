@@ -199,7 +199,7 @@ x??
 
 
 #### Transitive Dependencies and 3NF
-Background context explaining the concept. In database normalization, third normal form (3NF) aims to eliminate transitive dependencies, which are indirect functional dependencies that violate 3NF. A transitive dependency occurs when a column \(X\) functionally depends on another column \(Y\), but \(Y\) does not depend on any other columns in the relation.
+Background context explaining the concept. In database normalization, third normal form (3NF) aims to eliminate transitive dependencies, which are indirect functional dependencies that violate 3NF. A transitive dependency occurs when a column $X $ functionally depends on another column$Y $, but$ Y$ does not depend on any other columns in the relation.
 If applicable, add code examples with explanations:
 ```java
 public class Example {
@@ -209,7 +209,7 @@ public class Example {
 }
 :p What are transitive dependencies in the context of 3NF?
 ??x
-Transitive dependencies occur when a column \(X\) functionally depends on another column \(Y\), but \(Y\) does not depend on any other columns. In simpler terms, if there is an indirect dependency between columns that violates 3NF.
+Transitive dependencies occur when a column $X $ functionally depends on another column$Y $, but $ Y$ does not depend on any other columns. In simpler terms, if there is an indirect dependency between columns that violates 3NF.
 x??
 
 ---

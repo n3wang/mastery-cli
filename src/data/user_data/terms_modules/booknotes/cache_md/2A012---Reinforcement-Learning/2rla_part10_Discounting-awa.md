@@ -30,10 +30,14 @@ x??
 Background context: The concept introduces an idea for reducing variance in importance sampling estimators through a technique called flat partial returns. These are returns that do not discount future rewards but instead stop at a certain horizon h, and can be summed to form the conventional full return.
 :p How is the conventional full return expressed as a sum of flat partial returns?
 ??x
-The conventional full return \( G_t \) can be viewed as a sum of flat partial returns as follows:
-\[ G_t = R_{t+1} + 0.9R_{t+2} + 0.9^2R_{t+3} + \cdots + 0.9^{T-t-1}R_T \]
+The conventional full return $G_t$ can be viewed as a sum of flat partial returns as follows:
+$$G_t = R_{t+1} + 0.9R_{t+2} + 0.9^2R_{t+3} + \cdots + 0.9^{T-t-1}R_T$$
+
 This can be rewritten using the formula for flat partial returns:
-\[ G_t = (1 - \gamma) R_{t+1} + (1 - \gamma)\gamma (R_{t+1} + R_{t+2}) + (1 - \gamma)\gamma^2 (R_{t+1} + R_{t+2} + R_{t+3}) + \cdots + (1 - \gamma)\gamma^{T-t-1}(R_{t+1} + R_{t+2} + \cdots + R_T) \]
+$$
+
+G_t = (1 - \gamma) R_{t+1} + (1 - \gamma)\gamma (R_{t+1} + R_{t+2}) + (1 - \gamma)\gamma^2 (R_{t+1} + R_{t+2} + R_{t+3}) + \cdots + (1 - \gamma)\gamma^{T-t-1}(R_{t+1} + R_{t+2} + \cdots + R_T)$$
+
 This expression shows that the full return can be decomposed into a sum of flat partial returns.
 x??
 
@@ -45,8 +49,9 @@ Background context: These estimators adjust importance sampling ratios based on 
 :p What is the formula for the ordinary importance-sampling estimator?
 ??x
 The formula for the ordinary importance-sampling estimator is:
-\[ V(s) = \frac{1}{|T(s)|} \sum_{t \in T(s)} \left[ (1 - \gamma)^{P_T(t)-1} \sum_{h=t+1}^{H} \theta_{t:h-1} \bar{G}_{t:h} + \gamma^{P_T(t)-t-1} \bar{G}_{t:H}(t) \right] \]
-where \( \bar{G}_{t:h} = R_{t+1} + R_{t+2} + \cdots + R_h \).
+$$
+
+V(s) = \frac{1}{|T(s)|} \sum_{t \in T(s)} \left[ (1 - \gamma)^{P_T(t)-1} \sum_{h=t+1}^{H} \theta_{t:h-1} \bar{G}_{t:h} + \gamma^{P_T(t)-t-1} \bar{G}_{t:H}(t) \right]$$where $\bar{G}_{t:h} = R_{t+1} + R_{t+2} + \cdots + R_h$.
 x??
 
 ---
@@ -57,8 +62,7 @@ Background context: These estimators further refine the importance sampling by c
 :p What is the formula for the weighted importance-sampling estimator?
 ??x
 The formula for the weighted importance-sampling estimator is:
-\[ V(s) = \frac{1}{\sum_{t \in T(s)} (1 - \gamma)^{P_T(t)-1} \sum_{h=t+1}^{H} \theta_{t:h-1} + \gamma^{P_T(t)-t-1}} \sum_{t \in T(s)} (1 - \gamma)^{P_T(t)-1} \sum_{h=t+1}^{H} \theta_{t:h-1} \bar{G}_{t:h} + \gamma^{P_T(t)-t-1} \bar{G}_{t:H}(t) \]
-where \( \bar{G}_{t:h} = R_{t+1} + R_{t+2} + \cdots + R_h \).
+$$V(s) = \frac{1}{\sum_{t \in T(s)} (1 - \gamma)^{P_T(t)-1} \sum_{h=t+1}^{H} \theta_{t:h-1} + \gamma^{P_T(t)-t-1}} \sum_{t \in T(s)} (1 - \gamma)^{P_T(t)-1} \sum_{h=t+1}^{H} \theta_{t:h-1} \bar{G}_{t:h} + \gamma^{P_T(t)-t-1} \bar{G}_{t:H}(t)$$where $\bar{G}_{t:h} = R_{t+1} + R_{t+2} + \cdots + R_h$.
 x??
 
 ---
@@ -218,11 +222,11 @@ x??
 
 
 #### TD Prediction Overview
-Background context explaining the prediction problem and its relation to Monte Carlo and TD methods. The text mentions that both methods update their estimate \( V \) of the value function \( v_\pi \) based on experience following a policy \( \pi \). The key difference lies in when they use the return as an update target.
+Background context explaining the prediction problem and its relation to Monte Carlo and TD methods. The text mentions that both methods update their estimate $V $ of the value function$v_\pi $ based on experience following a policy$\pi$. The key difference lies in when they use the return as an update target.
 
 :p What is the main distinction between how Monte Carlo and TD methods handle updates?
 ??x
-Monte Carlo methods wait until the end of the episode (when the entire return \( G_t \) is known) to make updates, while TD methods can update estimates immediately after each step using partial information.
+Monte Carlo methods wait until the end of the episode (when the entire return $G_t$ is known) to make updates, while TD methods can update estimates immediately after each step using partial information.
 x??
 
 ---
@@ -233,10 +237,9 @@ The text provides a simple formula for a Monte Carlo method suitable for nonstat
 
 :p What is the equation for constant-α Monte Carlo (MC) method?
 ??x
-\[ V(S_t) \leftarrow V(S_t) + \alpha \left( G_t - V(S_t) \right) \]
-where \( G_t \) is the actual return following time step \( t \), and \( \alpha \) is a constant step-size parameter.
+$$V(S_t) \leftarrow V(S_t) + \alpha \left( G_t - V(S_t) \right)$$where $ G_t $ is the actual return following time step $ t $, and$\alpha$ is a constant step-size parameter.
 
-The equation updates the value estimate for state \( S_t \) by adding a learning rate-scaled difference between the actual return and the current estimate.
+The equation updates the value estimate for state $S_t$ by adding a learning rate-scaled difference between the actual return and the current estimate.
 x??
 
 ---
@@ -247,8 +250,7 @@ The text introduces the simplest form of temporal-difference learning, TD(0), al
 
 :p What is the update rule for the TD(0) method?
 ??x
-\[ V(S_t) \leftarrow V(S_t) + \alpha \left( R_{t+1} + \gamma V(S_{t+1}) - V(S_t) \right) \]
-where \( R_{t+1} \) is the reward at time step \( t+1 \), and \( \gamma \) is the discount factor, typically set to 1 in this context.
+$$V(S_t) \leftarrow V(S_t) + \alpha \left( R_{t+1} + \gamma V(S_{t+1}) - V(S_t) \right)$$where $ R_{t+1}$is the reward at time step $ t+1$, and $\gamma$ is the discount factor, typically set to 1 in this context.
 
 The update rule combines a new observation (reward + next state estimate) with the current estimate.
 x??
@@ -290,11 +292,11 @@ x??
 
 
 #### Monte Carlo and DP Methods Overview
-Background context: The provided text explains how different reinforcement learning methods target different values. Monte Carlo methods use an estimate of \( v_\pi(s) \) as a target, while DP (Dynamic Programming) methods use an estimate of \( E_\pi[G_t | S_t = s] \), which involves bootstrapping with the value function.
+Background context: The provided text explains how different reinforcement learning methods target different values. Monte Carlo methods use an estimate of $v_\pi(s)$ as a target, while DP (Dynamic Programming) methods use an estimate of $E_\pi[G_t | S_t = s]$, which involves bootstrapping with the value function.
 
 :p What is the main difference between Monte Carlo and DP methods in terms of their targets?
 ??x
-Monte Carlo methods target \( v_\pi(s) = E_\pi[G_t | S_t = s] \), using a sample return as an estimate. In contrast, DP methods target \( E_\pi[R_{t+1} + \gamma V(S_{t+1}) | S_t = s] \), which involves bootstrapping with the value function.
+Monte Carlo methods target $v_\pi(s) = E_\pi[G_t | S_t = s]$, using a sample return as an estimate. In contrast, DP methods target $ E_\pi[R_{t+1} + \gamma V(S_{t+1}) | S_t = s]$, which involves bootstrapping with the value function.
 
 x??
 
@@ -306,7 +308,7 @@ Background context: The text explains that Temporal Difference (TD) methods comb
 
 :p What are the two main components in the TD target?
 ??x
-The TD target consists of two parts: sampling the expected values \( E_\pi[R_{t+1} + \gamma V(S_{t+1}) | S_t = s] \) and using the current estimate \( V(S_{t+1}) \) instead of the true \( v_\pi(S_{t+1}) \).
+The TD target consists of two parts: sampling the expected values $E_\pi[R_{t+1} + \gamma V(S_{t+1}) | S_t = s]$ and using the current estimate $V(S_{t+1})$ instead of the true $v_\pi(S_{t+1})$.
 
 x??
 
@@ -319,8 +321,9 @@ Background context: The TD error measures the difference between the estimated v
 :p What is the formula for the TD error?
 ??x
 The TD error is defined as:
-\[ \delta_t = R_{t+1} + \gamma V(S_{t+1}) - V(S_t) \]
-This measures the difference between the estimated value of \( S_t \) and a better estimate based on the next state and reward.
+$$\delta_t = R_{t+1} + \gamma V(S_{t+1}) - V(S_t)$$
+
+This measures the difference between the estimated value of $S_t$ and a better estimate based on the next state and reward.
 
 x??
 
@@ -332,8 +335,9 @@ Background context: The text explains that in Monte Carlo methods, the expected 
 
 :p How can the Monte Carlo error be expressed as a sum of TD errors?
 ??x
-The Monte Carlo error \( G_t - V(S_t) \) can be written as a sum of TD errors:
-\[ G_t - V(S_t) = \delta_t + \sum_{k=t+1}^{T-1} \gamma^k (V(S_{t+k}) - V(S_{t+k-1})) \]
+The Monte Carlo error $G_t - V(S_t)$ can be written as a sum of TD errors:
+$$G_t - V(S_t) = \delta_t + \sum_{k=t+1}^{T-1} \gamma^k (V(S_{t+k}) - V(S_{t+k-1}))$$
+
 This identity holds approximately if the step size is small.
 
 x??
@@ -359,8 +363,9 @@ Background context: The text explains that in tabular TD(0), updates are made ba
 :p What is the update formula for tabular TD(0)?
 ??x
 The update formula for tabular TD(0) is:
-\[ V(S_t) \leftarrow V(S_t) + \alpha [R_{t+1} + \gamma V(S_{t+1}) - V(S_t)] \]
-where \( \alpha \) is the learning rate.
+$$
+
+V(S_t) \leftarrow V(S_t) + \alpha [R_{t+1} + \gamma V(S_{t+1}) - V(S_t)]$$where $\alpha$ is the learning rate.
 
 x??
 
@@ -384,7 +389,7 @@ Background context: The text explains that the TD error is the estimation error 
 
 :p What does the TD error represent in reinforcement learning?
 ??x
-The TD error represents the estimation error at each time step. It measures the difference between the estimated value of a state \( S_t \) and a better estimate based on the next state \( S_{t+1} \) and the reward \( R_{t+1} \).
+The TD error represents the estimation error at each time step. It measures the difference between the estimated value of a state $S_t $ and a better estimate based on the next state$S_{t+1}$ and the reward $R_{t+1}$.
 
 x??
 
@@ -397,38 +402,31 @@ x??
 Background context explaining the concept. The example involves predicting travel time home from work, where each state is a point in the journey, and the predicted value (time to go) is updated using temporal difference (TD) error. The goal is to understand how much needs to be added to the sum of TD errors to equal the Monte Carlo error.
 :p What does Vt denote in the context of this example?
 ??x
-In the context of this example, \(V_t\) denotes the array of state values used at time \(t\) in the temporal difference (TD) error and in the TD update. These values represent the predicted time to go from each state.
+In the context of this example, $V_t $ denotes the array of state values used at time$t$ in the temporal difference (TD) error and in the TD update. These values represent the predicted time to go from each state.
 x??
 
 ---
 
 
 #### TD Error Calculation
-Background context explaining the concept. The text discusses how the TD error is calculated as the difference between the predicted value (\(V_t\)) and the actual return (\(G_t - V_t\)). In this example, the TD error at different points of the journey needs to be computed.
+Background context explaining the concept. The text discusses how the TD error is calculated as the difference between the predicted value ($V_t $) and the actual return ($ G_t - V_t$). In this example, the TD error at different points of the journey needs to be computed.
 :p How is the TD error defined in this context?
 ??x
 The TD error is defined as the difference between the estimated value (predicted time to go) and the actual return (actual time to go). Mathematically, it can be represented as:
-\[
-\text{TD Error} = G_t - V_t
-\]
-where \(G_t\) is the actual return at time \(t\) and \(V_t\) is the predicted value.
+$$\text{TD Error} = G_t - V_t$$where $ G_t $ is the actual return at time $ t $ and $ V_t$ is the predicted value.
 x??
 
 ---
 
 
 #### TD Update
-Background context explaining the concept. The example demonstrates how the predicted values are updated using a step-size parameter (\(\alpha\)) and the TD error. The update rule is given by:
-\[
-V_{t+1} = V_t + \alpha (G_t - V_t)
-\]
-:p What is the TD update formula in this context?
+Background context explaining the concept. The example demonstrates how the predicted values are updated using a step-size parameter ($\alpha$) and the TD error. The update rule is given by:
+$$V_{t+1} = V_t + \alpha (G_t - V_t)$$:p What is the TD update formula in this context?
 ??x
 The TD update formula in this context is:
-\[
-V_{t+1} = V_t + \alpha (G_t - V_t)
-\]
-where \(V_t\) is the current predicted value, \(G_t\) is the actual return at time \(t\), and \(\alpha\) is the step-size parameter. This formula adjusts the predicted value based on the difference between the estimated and actual returns.
+$$
+
+V_{t+1} = V_t + \alpha (G_t - V_t)$$where $ V_t $is the current predicted value,$ G_t $is the actual return at time$ t $, and$\alpha$ is the step-size parameter. This formula adjusts the predicted value based on the difference between the estimated and actual returns.
 x??
 
 ---
@@ -439,10 +437,7 @@ Background context explaining the concept. The example highlights that to achiev
 :p How can we make the TD error sum equal to the Monte Carlo error?
 ??x
 To make the TD error sum equal to the Monte Carlo error, an additional amount must be added to the sum of TD errors. Specifically, in this example, if you want to match the Monte Carlo error of 13 minutes, the additional amount required is:
-\[
-\text{Additional Amount} = \text{Monte Carlo Error} - \sum_{t=0}^{T-1} (G_t - V_t)
-\]
-where \(T\) is the final time step. This ensures that the total adjustment to the predicted values matches the overall learning update achieved by Monte Carlo methods.
+$$\text{Additional Amount} = \text{Monte Carlo Error} - \sum_{t=0}^{T-1} (G_t - V_t)$$where $ T$ is the final time step. This ensures that the total adjustment to the predicted values matches the overall learning update achieved by Monte Carlo methods.
 x??
 
 ---

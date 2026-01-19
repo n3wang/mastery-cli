@@ -45,7 +45,7 @@ Background context: The text outlines the formalization of consensus algorithms,
 The four main properties are:
 1. **Uniform Agreement:** No two non-faulty nodes decide on different values.
 2. **Integrity:** A node does not decide twice on any value.
-3. **Validity:** If a node decides a value \(v\), then \(v\) must have been proposed by some node.
+3. **Validity:** If a node decides a value $v $, then $ v$ must have been proposed by some node.
 4. **Termination:** Every non-crashing node eventually decides some value.
 x??
 

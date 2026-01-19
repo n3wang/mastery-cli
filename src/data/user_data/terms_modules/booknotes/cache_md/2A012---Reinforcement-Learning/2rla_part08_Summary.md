@@ -12,11 +12,11 @@ Background context: The asynchronous value iteration update is a type of DP algo
 
 :p What is the formula used in asynchronous value iteration to update action values?
 ??x
-The formula used in asynchronous value iteration to update action values \( q_{k+1}(s, a) \) is:
+The formula used in asynchronous value iteration to update action values $q_{k+1}(s, a)$ is:
 
-\[ q_{k+1}(s, a) = \sum_{s'} p(s' | s, a) [r(s, a, s') + \gamma v_k(s')] \]
+$$q_{k+1}(s, a) = \sum_{s'} p(s' | s, a) [r(s, a, s') + \gamma v_k(s')]$$
 
-This formula updates the action value for state \( s \) and action \( a \), using the transition probabilities \( p(s' | s, a) \), rewards \( r(s, a, s') \), discount factor \( \gamma \), and the current value function \( v_k(s') \).
+This formula updates the action value for state $s $ and action$a $, using the transition probabilities$ p(s' | s, a)$, rewards $ r(s, a, s')$, discount factor $\gamma $, and the current value function $ v_k(s')$.
 
 x??
 
@@ -29,9 +29,9 @@ Background context: Asynchronous DP algorithms update state values in any order,
 
 :p What ensures that an asynchronous algorithm converges correctly?
 ??x
-An asynchronous algorithm must continue to update the values of all the states: it can’t ignore any state after some point in the computation. As long as every state occurs in the sequence \( \{s_k\} \) infinitely often, asymptotic convergence to \( v^* \) is guaranteed.
+An asynchronous algorithm must continue to update the values of all the states: it can’t ignore any state after some point in the computation. As long as every state occurs in the sequence $\{s_k\}$ infinitely often, asymptotic convergence to $v^*$ is guaranteed.
 
-For example, if a version of asynchronous value iteration updates only one state \( s_k \) at each step using (4.10), and 0 ≤ θ < 1, the algorithm will converge to the optimal value function \( v^* \).
+For example, if a version of asynchronous value iteration updates only one state $s_k $ at each step using (4.10), and 0 ≤ θ < 1, the algorithm will converge to the optimal value function$v^*$.
 
 x??
 
@@ -44,9 +44,9 @@ Background context: Asynchronous DP algorithms allow flexibility in selecting st
 
 :p How does the asynchronous algorithm ensure it does not ignore any state?
 ??x
-The asynchronous algorithm must continue to update the values of all states: it cannot ignore any state after some point in the computation. An infinite sequence of updates ensures that every state is revisited infinitely often, leading to convergence to the optimal value function \( v^* \).
+The asynchronous algorithm must continue to update the values of all states: it cannot ignore any state after some point in the computation. An infinite sequence of updates ensures that every state is revisited infinitely often, leading to convergence to the optimal value function $v^*$.
 
-For instance, if using a version of asynchronous value iteration where only one state \( s_k \) is updated at each step, ensuring all states appear in the sequence \( \{s_k\} \) infinitely often guarantees asymptotic convergence.
+For instance, if using a version of asynchronous value iteration where only one state $s_k $ is updated at each step, ensuring all states appear in the sequence$\{s_k\}$ infinitely often guarantees asymptotic convergence.
 
 x??
 
@@ -75,7 +75,7 @@ Background context: Generalized policy iteration involves two simultaneous proce
 :p What is the difference between policy evaluation and policy improvement in generalized policy iteration?
 ??x
 In generalized policy iteration, there are two main processes:
-1. **Policy Evaluation**: Ensures that the value function \( v \) is consistent with the current policy.
+1. **Policy Evaluation**: Ensures that the value function $v$ is consistent with the current policy.
 2. **Policy Improvement**: Makes the policy greedy with respect to the current value function.
 
 These two processes can be intermixed or alternate in a flexible way. For example, in value iteration, only one iteration of policy evaluation occurs between each policy improvement. This flexibility allows for more efficient updates and better convergence properties.
@@ -127,8 +127,9 @@ Background context: The Bellman optimality equation (4.1) is fundamental in dete
 :p What is the Bellman optimality equation?
 ??x
 The Bellman optimality equation (4.1) is:
-\[ v^\pi(s) = \sum_a \pi(a|s) \left[ r(s, a) + \gamma \sum_{s'} P(s'|s, a) v^\pi(s') \right] \]
-This equation states that the value of being in state \( s \) under policy \( \pi \) is equal to the expected sum of discounted rewards. When this equation holds for all states and policies, it indicates an optimal solution.
+$$v^\pi(s) = \sum_a \pi(a|s) \left[ r(s, a) + \gamma \sum_{s'} P(s'|s, a) v^\pi(s') \right]$$
+
+This equation states that the value of being in state $s $ under policy$\pi$ is equal to the expected sum of discounted rewards. When this equation holds for all states and policies, it indicates an optimal solution.
 x??
 
 ---
@@ -152,7 +153,7 @@ Background context: The text discusses the efficiency and practicality of using 
 
 :p What are the time complexities mentioned for DP methods in solving MDPs?
 ??x
-DP methods take a number of computational operations that is less than some polynomial function of \(n\) (number of states) and \(k\) (number of actions). Specifically, if we ignore a few technical details, then the worst-case time complexity of DP methods to find an optimal policy is polynomial in \(n\) and \(k\).
+DP methods take a number of computational operations that is less than some polynomial function of $n $(number of states) and $ k $(number of actions). Specifically, if we ignore a few technical details, then the worst-case time complexity of DP methods to find an optimal policy is polynomial in$ n $ and $ k$.
 ```java
 // Pseudocode for a simple DP method
 for(int i = 0; i < n; i++) {
@@ -192,7 +193,7 @@ Background context: The text mentions the "curse of dimensionality," which refer
 ??x
 The curse of dimensionality describes the phenomenon where the number of possible states grows exponentially with the number of state variables. This makes it difficult to solve problems with a large number of state variables using methods like DP, but these difficulties are inherent in the problem itself and not specifically due to DP.
 
-For example, if each state variable can take on 2 values (binary), the total number of states for \(d\) variables is \(2^d\). This exponential growth can make direct computation impractical.
+For example, if each state variable can take on 2 values (binary), the total number of states for $d $ variables is$2^d$. This exponential growth can make direct computation impractical.
 ```java
 // Pseudocode demonstrating curse of dimensionality
 int states = Math.pow(2, numberOfStateVariables);
@@ -488,10 +489,10 @@ General Policy Iteration involves alternating between policy evaluation and poli
 
 
 #### Prediction Problem Using Monte Carlo Methods
-Background context: The prediction problem in Monte Carlo methods involves computing \(v_{\pi}\) and \(q_{\pi}\) for a given policy \(\pi\) using sampled returns. This is akin to how bandit algorithms estimate the expected reward.
+Background context: The prediction problem in Monte Carlo methods involves computing $v_{\pi}$ and $q_{\pi}$ for a given policy $\pi$ using sampled returns. This is akin to how bandit algorithms estimate the expected reward.
 :p What is the prediction problem in Monte Carlo methods?
 ??x
-The prediction problem in Monte Carlo methods involves determining the value functions \(v_{\pi}\) and \(q_{\pi}\) for a fixed policy \(\pi\) by averaging returns from sampled episodes. This is similar to bandit algorithms but operates across multiple states with interrelated decision processes.
+The prediction problem in Monte Carlo methods involves determining the value functions $v_{\pi}$ and $q_{\pi}$ for a fixed policy $\pi$ by averaging returns from sampled episodes. This is similar to bandit algorithms but operates across multiple states with interrelated decision processes.
 
 ---
 
@@ -500,7 +501,7 @@ The prediction problem in Monte Carlo methods involves determining the value fun
 Background context: After estimating the value functions, policies are improved based on these estimates. This step ensures that the learned policies are closer to optimal over time.
 :p How does policy improvement work in Monte Carlo methods?
 ??x
-Policy improvement in Monte Carlo methods involves updating policies based on the estimated value functions \(v_{\pi}\) and \(q_{\pi}\). Specifically, actions that lead to higher expected returns are favored. This step ensures that as more data is collected, policies become closer to optimal.
+Policy improvement in Monte Carlo methods involves updating policies based on the estimated value functions $v_{\pi}$ and $q_{\pi}$. Specifically, actions that lead to higher expected returns are favored. This step ensures that as more data is collected, policies become closer to optimal.
 
 ---
 
@@ -509,7 +510,7 @@ Policy improvement in Monte Carlo methods involves updating policies based on th
 Background context: The control problem involves finding the optimal policy by combining value function estimation with policy improvement in a nonstationary environment.
 :p What does the control problem encompass in Monte Carlo methods?
 ??x
-The control problem in Monte Carlo methods involves discovering the optimal policy \(\pi^*\) by iteratively evaluating and improving policies using sampled returns. This process ensures that over time, actions leading to higher expected rewards are prioritized, ultimately guiding towards an optimal policy.
+The control problem in Monte Carlo methods involves discovering the optimal policy $\pi^*$ by iteratively evaluating and improving policies using sampled returns. This process ensures that over time, actions leading to higher expected rewards are prioritized, ultimately guiding towards an optimal policy.
 
 ---
 
@@ -527,7 +528,7 @@ Monte Carlo addresses nonstationarity by adapting to changing environments as mo
 Background context: An example can illustrate how Monte Carlo methods evaluate a policy by averaging returns from multiple episodes.
 :p Can you provide an example of policy evaluation in Monte Carlo methods?
 ??x
-Sure! Consider an episode where the agent starts in state \(s_1\), takes action \(a_1\), transitions to state \(s_2\), and receives reward \(r_1\). The value function estimate for this state-action pair is updated by averaging returns from similar episodes. For instance, if the next episode has the same sequence but a different final reward, it would contribute to the average.
+Sure! Consider an episode where the agent starts in state $s_1 $, takes action $ a_1 $, transitions to state$ s_2 $, and receives reward$ r_1$. The value function estimate for this state-action pair is updated by averaging returns from similar episodes. For instance, if the next episode has the same sequence but a different final reward, it would contribute to the average.
 
 ```java
 public class MonteCarloEvaluation {
@@ -556,7 +557,7 @@ Background context: This section introduces Monte Carlo methods for learning sta
 :p What are the key components in the concept of Monte Carlo prediction?
 ??x
 The key components include:
-- State-value function \( v_{\pi}(s) \), which represents the expected return for a given policy \(\pi\) starting from state \( s \).
+- State-value function $v_{\pi}(s)$, which represents the expected return for a given policy $\pi $ starting from state $s$.
 - Returns, which represent the cumulative discounted rewards.
 - Episodes, sequences of states, actions, and rewards generated by following the policy.
 
@@ -579,13 +580,13 @@ x??
 
 
 #### First-VISIT MC Method
-Background context: The first-visit MC method estimates \( v_{\pi}(s) \) by averaging the returns observed after the first visit to state \( s \). This method converges to the expected value as more data are gathered.
+Background context: The first-visit MC method estimates $v_{\pi}(s)$ by averaging the returns observed after the first visit to state $s$. This method converges to the expected value as more data are gathered.
 :p How does the first-visit MC method estimate the state-value function?
 ??x
-The first-visit MC method estimates the state-value function \( v_{\pi}(s) \) by averaging the returns observed after the first visit to state \( s \). This is done through the following steps:
+The first-visit MC method estimates the state-value function $v_{\pi}(s)$ by averaging the returns observed after the first visit to state $s$. This is done through the following steps:
 1. Initialize a return list for each state.
-2. For each episode, collect states, actions, and rewards as per policy \(\pi\).
-3. In reverse order, calculate the return \( G \) from the current reward to the end of the episode using discount factor \(\gamma\).
+2. For each episode, collect states, actions, and rewards as per policy $\pi$.
+3. In reverse order, calculate the return $G $ from the current reward to the end of the episode using discount factor$\gamma$.
 4. If the state is a first visit (not visited earlier in this episode), add the calculated return to its list.
 5. Update the value of the state as the average of these returns.
 
@@ -608,7 +609,7 @@ x??
 
 
 #### Every-VISIT MC Method
-Background context: The every-visit MC method averages the returns observed after all visits to state \( s \), which extends more naturally to function approximation and eligibility traces discussed in later chapters.
+Background context: The every-visit MC method averages the returns observed after all visits to state $s$, which extends more naturally to function approximation and eligibility traces discussed in later chapters.
 :p How does the every-visit MC method differ from the first-visit MC method?
 ??x
 The primary difference between the every-visit MC method and the first-visit MC method lies in how they handle visits to a state:
@@ -633,12 +634,12 @@ x??
 
 
 #### Convergence of MC Methods
-Background context: Both first-visit and every-visit MC methods converge to the state-value function as the number of visits or first visits goes to infinity. The law of large numbers supports this convergence, with the standard deviation of the error falling as \( \frac{1}{\sqrt{n}} \), where \( n \) is the number of returns averaged.
+Background context: Both first-visit and every-visit MC methods converge to the state-value function as the number of visits or first visits goes to infinity. The law of large numbers supports this convergence, with the standard deviation of the error falling as $\frac{1}{\sqrt{n}}$, where $ n$ is the number of returns averaged.
 :p What are the theoretical properties of MC methods?
 ??x
 Theoretical properties of both first-visit and every-visit Monte Carlo (MC) methods include:
 - **Convergence**: Both methods converge to the true state-value function as the number of visits or first visits increases.
-- **Law of Large Numbers**: The averages of returns, which are independent, identically distributed estimates with finite variance, converge to their expected value by the law of large numbers. The standard deviation of the error falls as \( \frac{1}{\sqrt{n}} \), where \( n \) is the number of returns averaged.
+- **Law of Large Numbers**: The averages of returns, which are independent, identically distributed estimates with finite variance, converge to their expected value by the law of large numbers. The standard deviation of the error falls as $\frac{1}{\sqrt{n}}$, where $ n$ is the number of returns averaged.
 - **First-Visit MC**: More straightforward and widely studied, dating back to the 1940s.
 
 Example:
@@ -745,30 +746,26 @@ x??
 
 
 #### Monte Carlo Estimation of Action Values
-Monte Carlo methods can be used to estimate action values (q-values) when a model is not available. These q-values represent the expected return for starting in state \(s\), taking action \(a\), and following policy \(\pi\) thereafter.
+Monte Carlo methods can be used to estimate action values (q-values) when a model is not available. These q-values represent the expected return for starting in state $s $, taking action $ a $, and following policy$\pi$ thereafter.
 
 If we have a deterministic policy, returns are observed only from one of the actions taken per state. This can lead to issues with exploration since other actions might never be evaluated effectively. The goal is to ensure that all state–action pairs are visited infinitely often over an infinite number of episodes.
 
-The every-visit Monte Carlo method estimates \(q_\pi(s, a)\) as the average return following all visits to \((s, a)\):
-\[ q_\pi(s, a) = \frac{1}{N_{sa}} \sum_{t=1}^{T_{sa}} G_t(s, a) \]
-where \(N_{sa}\) is the number of times state–action pair \((s, a)\) was visited, and \(G_t(s, a)\) is the return following the visit.
+The every-visit Monte Carlo method estimates $q_\pi(s, a)$ as the average return following all visits to $(s, a)$:
+$$q_\pi(s, a) = \frac{1}{N_{sa}} \sum_{t=1}^{T_{sa}} G_t(s, a)$$where $ N_{sa}$is the number of times state–action pair $(s, a)$ was visited, and $G_t(s, a)$ is the return following the visit.
 
 The first-visit Monte Carlo method averages only the returns that follow the first time each state-action pair is visited in an episode:
-\[ q_\pi(s, a) = \frac{1}{N_{sa}^\prime} \sum_{t=1}^{T_{sa}^\prime} G_t(s, a) \]
-where \(N_{sa}^\prime\) counts only the first visit to each state-action pair.
+$$q_\pi(s, a) = \frac{1}{N_{sa}^\prime} \sum_{t=1}^{T_{sa}^\prime} G_t(s, a)$$where $ N_{sa}^\prime$ counts only the first visit to each state-action pair.
 
 To ensure that all state–action pairs are visited infinitely often, episodes can be started in any state-action pair with some probability. This guarantees infinite visits and ensures good exploration.
 :p How does the Monte Carlo method estimate action values when a model is not available?
 ??x
-The Monte Carlo method estimates action values (q-values) by averaging returns from multiple episodes where the policy \(\pi\) is followed, starting in state \(s\) and taking action \(a\). For every-visit MC, the average return for all visits to state-action pair \((s, a)\) is used. The first-visit MC method averages only the returns following the first visit of each state-action pair.
+The Monte Carlo method estimates action values (q-values) by averaging returns from multiple episodes where the policy $\pi $ is followed, starting in state$s $ and taking action$a $. For every-visit MC, the average return for all visits to state-action pair $(s, a)$ is used. The first-visit MC method averages only the returns following the first visit of each state-action pair.
 
 The formula for every-visit MC is:
-\[ q_\pi(s, a) = \frac{1}{N_{sa}} \sum_{t=1}^{T_{sa}} G_t(s, a) \]
-where \(N_{sa}\) is the number of times \((s, a)\) was visited and \(G_t(s, a)\) is the return from visit \(t\).
+$$q_\pi(s, a) = \frac{1}{N_{sa}} \sum_{t=1}^{T_{sa}} G_t(s, a)$$where $ N_{sa}$is the number of times $(s, a)$ was visited and $G_t(s, a)$ is the return from visit $t$.
 
 For first-visit MC:
-\[ q_\pi(s, a) = \frac{1}{N_{sa}^\prime} \sum_{t=1}^{T_{sa}^\prime} G_t(s, a) \]
-where \(N_{sa}^\prime\) counts only the first visit to each state-action pair and \(T_{sa}^\prime\) is the number of unique visits.
+$$q_\pi(s, a) = \frac{1}{N_{sa}^\prime} \sum_{t=1}^{T_{sa}^\prime} G_t(s, a)$$where $ N_{sa}^\prime $ counts only the first visit to each state-action pair and $ T_{sa}^\prime$ is the number of unique visits.
 
 To ensure all pairs are visited infinitely often in practice, episodes can start from any state-action pair with some probability.
 x??
@@ -777,12 +774,12 @@ x??
 
 
 #### Deterministic Policy and Exploration
-When following a deterministic policy \(\pi\), returns are observed only for one action per state. This means that other actions within the same state might never be evaluated if they have lower expected values.
+When following a deterministic policy $\pi$, returns are observed only for one action per state. This means that other actions within the same state might never be evaluated if they have lower expected values.
 
 To address this issue, it is necessary to ensure that all state-action pairs are visited infinitely often over an infinite number of episodes.
 :p What problem does a deterministic policy pose in the context of Monte Carlo methods for estimating action values?
 ??x
-A deterministic policy \(\pi\) poses the problem of limited exploration because it selects only one action per state. This means that other actions within the same state might never be evaluated, leading to suboptimal policies.
+A deterministic policy $\pi$ poses the problem of limited exploration because it selects only one action per state. This means that other actions within the same state might never be evaluated, leading to suboptimal policies.
 
 To overcome this issue, ensuring all state-action pairs are visited infinitely often is crucial. One way to achieve this is by starting episodes in a state-action pair with some probability, guaranteeing that every pair will be selected and visited over an infinite number of episodes.
 x??
@@ -805,18 +802,17 @@ x??
 
 
 #### Policy Evaluation for Action Values
-The policy evaluation problem for action values involves estimating \(q_\pi(s, a)\), the expected return when starting in state \(s\), taking action \(a\), and following policy \(\pi\) thereafter.
+The policy evaluation problem for action values involves estimating $q_\pi(s, a)$, the expected return when starting in state $ s$, taking action $ a$, and following policy $\pi$ thereafter.
 
 Two main methods are used: every-visit MC and first-visit MC. Both converge quadratically to the true expected value as the number of visits approaches infinity.
 :p What is the policy evaluation problem for action values?
 ??x
-The policy evaluation problem for action values involves estimating \(q_\pi(s, a)\), which represents the expected return when starting in state \(s\), taking action \(a\), and following policy \(\pi\) thereafter. The goal is to accurately determine the value of each action in every state to help in choosing among actions.
+The policy evaluation problem for action values involves estimating $q_\pi(s, a)$, which represents the expected return when starting in state $ s$, taking action $ a$, and following policy $\pi$ thereafter. The goal is to accurately determine the value of each action in every state to help in choosing among actions.
 
 To solve this problem, two main methods are used: 
-- Every-visit MC estimates \(q_\pi(s, a)\) as the average return from all visits to \((s, a)\):
-\[ q_\pi(s, a) = \frac{1}{N_{sa}} \sum_{t=1}^{T_{sa}} G_t(s, a) \]
-- First-visit MC averages only the returns following the first visit of each state-action pair in an episode:
-\[ q_\pi(s, a) = \frac{1}{N_{sa}^\prime} \sum_{t=1}^{T_{sa}^\prime} G_t(s, a) \]
+- Every-visit MC estimates $q_\pi(s, a)$ as the average return from all visits to $(s, a)$:
+$$q_\pi(s, a) = \frac{1}{N_{sa}} \sum_{t=1}^{T_{sa}} G_t(s, a)$$- First-visit MC averages only the returns following the first visit of each state-action pair in an episode:
+$$q_\pi(s, a) = \frac{1}{N_{sa}^\prime} \sum_{t=1}^{T_{sa}^\prime} G_t(s, a)$$
 
 Both methods converge quadratically to the true expected value as the number of visits approaches infinity.
 x??
@@ -853,11 +849,8 @@ Background context: In Monte Carlo policy iteration, we alternate between comple
 
 :p What does a full cycle in Monte Carlo policy iteration look like?
 ??x
-A full cycle in Monte Carlo policy iteration starts with an arbitrary initial policy \(\pi_0\). It then alternates between complete steps of policy evaluation (E) and improvement (I), ultimately converging to the optimal policy and action-value function. The sequence looks as follows:
-\[
-\pi_0 E.q_{\pi_0} I.\pi_1 E.q_{\pi_1} I.\pi_2 E.q_{\pi_2} \cdots I.\pi^* E.q^*
-\]
-where \(E\) denotes complete policy evaluation and \(I\) denotes complete policy improvement.
+A full cycle in Monte Carlo policy iteration starts with an arbitrary initial policy $\pi_0$. It then alternates between complete steps of policy evaluation (E) and improvement (I), ultimately converging to the optimal policy and action-value function. The sequence looks as follows:
+$$\pi_0 E.q_{\pi_0} I.\pi_1 E.q_{\pi_1} I.\pi_2 E.q_{\pi_2} \cdots I.\pi^* E.q^*$$where $ E $ denotes complete policy evaluation and $ I$ denotes complete policy improvement.
 x??
 
 ---
@@ -894,10 +887,9 @@ Background context: Policy improvement makes the policy greedy with respect to t
 
 :p How does policy improvement work in the Monte Carlo method?
 ??x
-Policy improvement works by making the current policy \(\pi_k\) greedy based on the current value function \(q_{\pi_k}\). Specifically, for each state \(s \in S\), the new policy \(\pi_{k+1}\) chooses an action that maximizes the action-value:
-\[
-\pi(s) = \arg\max_a q_\pi(s, a)
-\]
+Policy improvement works by making the current policy $\pi_k $ greedy based on the current value function$q_{\pi_k}$. Specifically, for each state $ s \in S$, the new policy $\pi_{k+1}$ chooses an action that maximizes the action-value:
+$$\pi(s) = \arg\max_a q_\pi(s, a)$$
+
 This ensures that at each state, the most beneficial action is selected according to the current value function.
 
 For example, the policy improvement step can be implemented as follows:
@@ -973,11 +965,11 @@ x??
 
 
 #### Approximating q⇡k
-Background context: The text mentions that one approach is to hold firm to the idea of approximating \(q_\pi(k)\) (the action-value function under a given policy \(\pi\)) in each policy evaluation. This involves making measurements and assumptions about the bounds on errors and taking enough steps during each evaluation to make these error bounds small.
+Background context: The text mentions that one approach is to hold firm to the idea of approximating $q_\pi(k)$(the action-value function under a given policy $\pi$) in each policy evaluation. This involves making measurements and assumptions about the bounds on errors and taking enough steps during each evaluation to make these error bounds small.
 
-:p What does it mean by holding firm to the idea of approximating \(q_\pi(k)\) in each policy evaluation?
+:p What does it mean by holding firm to the idea of approximating $q_\pi(k)$ in each policy evaluation?
 ??x
-Holding firm to the idea of approximating \(q_\pi(k)\) means that at each step, one uses an approximation of the action-value function under the current policy. This involves making assumptions about how close the estimated value is to the true value and ensuring that these estimates are sufficiently accurate through multiple steps during each evaluation.
+Holding firm to the idea of approximating $q_\pi(k)$ means that at each step, one uses an approximation of the action-value function under the current policy. This involves making assumptions about how close the estimated value is to the true value and ensuring that these estimates are sufficiently accurate through multiple steps during each evaluation.
 x??
 
 ---

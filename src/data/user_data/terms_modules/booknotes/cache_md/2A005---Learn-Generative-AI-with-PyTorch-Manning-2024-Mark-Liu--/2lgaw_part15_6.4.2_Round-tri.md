@@ -178,7 +178,7 @@ VAEs enable manipulation of latent vectors (encodings) to generate new images or
 ??x
 By manipulating the encoded representations, specifically by adding or subtracting latent vectors corresponding to different characteristics, you can create new images with specific features. For example:
 - Obtain latent vectors for men with glasses (z1), women with glasses (z2), and women without glasses (z3).
-- Calculate a new latent vector \( z4 = z1 - z2 + z3 \). This cancels out the glasses feature in both z1 and z2, leaving a male image, while adding z3 introduces the female feature.
+- Calculate a new latent vector $z4 = z1 - z2 + z3$. This cancels out the glasses feature in both z1 and z2, leaving a male image, while adding z3 introduces the female feature.
 
 Example of encoding arithmetic:
 ```python

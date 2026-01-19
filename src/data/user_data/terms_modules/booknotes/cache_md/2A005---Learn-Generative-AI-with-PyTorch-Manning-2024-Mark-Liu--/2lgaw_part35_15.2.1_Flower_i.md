@@ -7,11 +7,11 @@
 
 
 #### Training Process Overview
-Background context: During training, we iterate over the dataset in batches. We add noise to the flower images and present them to the U-Net model along with time steps \(t\). The model predicts noise based on current parameters and minimizes L1 loss (mean absolute error) during each epoch.
+Background context: During training, we iterate over the dataset in batches. We add noise to the flower images and present them to the U-Net model along with time steps $t$. The model predicts noise based on current parameters and minimizes L1 loss (mean absolute error) during each epoch.
 
 :p What is the general process of training the denoising U-Net model?
 ??x
-During each epoch, noisy images are iteratively fed to the U-Net model along with their corresponding time steps \(t\). The model predicts noise and minimizes L1 loss (mean absolute error) in the process. This iterative adjustment helps the model learn better over multiple epochs.
+During each epoch, noisy images are iteratively fed to the U-Net model along with their corresponding time steps $t$. The model predicts noise and minimizes L1 loss (mean absolute error) in the process. This iterative adjustment helps the model learn better over multiple epochs.
 x??
 
 ---
@@ -30,14 +30,15 @@ The four columns in the figure represent:
 ??x
 The forward diffusion process involves adding increasing amounts of Gaussian noise to clean images over multiple time steps. This process helps in training models to denoise images effectively by simulating real-world scenarios where data can degrade or be corrupted over time.
 
-For example, consider an image \(I\) at time step 0:
-\[ I_0 = I \]
-At each subsequent time step \(t\), noise is added according to a Gaussian distribution:
-\[ I_t = I_{t-1} + \epsilon \cdot N(0, \sigma^2) \]
+For example, consider an image $I$ at time step 0:
+$$I_0 = I$$
+
+At each subsequent time step $t$, noise is added according to a Gaussian distribution:
+$$I_t = I_{t-1} + \epsilon \cdot N(0, \sigma^2)$$
 
 Where:
-- \(\epsilon\) is the scale parameter for adding noise.
-- \(N(0, \sigma^2)\) represents a normally distributed random variable with mean 0 and variance \(\sigma^2\).
+- $\epsilon$ is the scale parameter for adding noise.
+- $N(0, \sigma^2)$ represents a normally distributed random variable with mean 0 and variance $\sigma^2$.
 
 This process can be visualized as follows:
 
@@ -163,15 +164,15 @@ This mechanism ensures that the model can effectively leverage both coarse and f
 
 
 #### Noisy Image Representation
-Background context: In the process of denoising images, a noisy image at any time step \( t \), denoted as \( x_t \), can be represented as a weighted sum of a clean image, \( x_0 \), and standard normally distributed random noise, \( \epsilon \). This representation is given by:
-\[ x_t = (1 - \frac{t}{T})x_0 + \sqrt{\frac{2t}{T}}\epsilon \]
-where the weight assigned to the clean image decreases as time step \( t \) progresses from 0 to \( T \), and the weight assigned to the random noise increases.
+Background context: In the process of denoising images, a noisy image at any time step $t $, denoted as $ x_t $, can be represented as a weighted sum of a clean image,$ x_0 $, and standard normally distributed random noise,$\epsilon$. This representation is given by:
+$$x_t = (1 - \frac{t}{T})x_0 + \sqrt{\frac{2t}{T}}\epsilon$$where the weight assigned to the clean image decreases as time step $ t $ progresses from 0 to $ T$, and the weight assigned to the random noise increases.
 
 :p How is a noisy image represented in terms of the clean image and noise?
 ??x
-The representation of a noisy image at any time step \( t \) combines the clean image with random noise, weighted by their respective factors. Specifically:
-\[ x_t = (1 - \frac{t}{T})x_0 + \sqrt{\frac{2t}{T}}\epsilon \]
-This equation ensures that as \( t \) increases from 0 to \( T \), the clean image's weight decreases, and the noise’s weight increases.
+The representation of a noisy image at any time step $t$ combines the clean image with random noise, weighted by their respective factors. Specifically:
+$$x_t = (1 - \frac{t}{T})x_0 + \sqrt{\frac{2t}{T}}\epsilon$$
+
+This equation ensures that as $t $ increases from 0 to$T$, the clean image's weight decreases, and the noise’s weight increases.
 ??x
 
 ---

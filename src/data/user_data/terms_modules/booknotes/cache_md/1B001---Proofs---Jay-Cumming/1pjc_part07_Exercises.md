@@ -8,15 +8,17 @@
 
 #### Induction Proof for Sum of Squares
 
-Background context: The given proof demonstrates an induction step to show that the sum of squares from 1 to n is bounded by \(\frac{2}{3}n^3 + \frac{1}{2}n^2 + \frac{1}{6}n\), which simplifies to \(2n^2 - \frac{n}{3}\) for large \(n\) and thus, the sum of squares is less than or equal to \(\frac{2}{3}n^3\).
+Background context: The given proof demonstrates an induction step to show that the sum of squares from 1 to n is bounded by $\frac{2}{3}n^3 + \frac{1}{2}n^2 + \frac{1}{6}n $, which simplifies to $2n^2 - \frac{n}{3}$ for large $n$ and thus, the sum of squares is less than or equal to $\frac{2}{3}n^3$.
 
 :p What does this induction proof demonstrate about the sum of squares?
 ??x
-The induction proof demonstrates that the sum of squares from 1 to n, denoted as \(\sum_{k=1}^{n} k^2\), is bounded by \(2n^2 - \frac{n}{3}\). This means for any natural number \(n\),
-\[ \sum_{k=1}^{n} k^2 \leq 2n^2 - \frac{n}{3}. \]
-The proof uses an inductive approach to show that if the statement holds for some \(k\), it also holds for \(k+1\). Specifically, starting with the base case \(n=1\) and then assuming it holds for \(k\),
-\[ k^2 + (k+1)^2 \leq 2(k+1)^2 - \frac{(k+1)}{3}. \]
-The induction step confirms that the sum of squares up to \(n=k+1\) is still bounded by a similar form.
+The induction proof demonstrates that the sum of squares from 1 to n, denoted as $\sum_{k=1}^{n} k^2 $, is bounded by $2n^2 - \frac{n}{3}$. This means for any natural number $ n$,
+$$\sum_{k=1}^{n} k^2 \leq 2n^2 - \frac{n}{3}.$$
+
+The proof uses an inductive approach to show that if the statement holds for some $k $, it also holds for$ k+1 $. Specifically, starting with the base case$ n=1 $and then assuming it holds for$ k$,
+$$k^2 + (k+1)^2 \leq 2(k+1)^2 - \frac{(k+1)}{3}.$$
+
+The induction step confirms that the sum of squares up to $n=k+1$ is still bounded by a similar form.
 
 x??
 
@@ -24,28 +26,23 @@ x??
 
 #### Sum of First n Odd Natural Numbers
 
-Background context: The problem requires proving that the sum of the first \(n\) odd natural numbers equals \(n^2\). This can be done using induction, and it provides an interesting pattern in number sequences.
+Background context: The problem requires proving that the sum of the first $n $ odd natural numbers equals$n^2$. This can be done using induction, and it provides an interesting pattern in number sequences.
 
-:p How do you prove the sum of the first \(n\) odd natural numbers is equal to \(n^2\)?
+:p How do you prove the sum of the first $n $ odd natural numbers is equal to$n^2$?
 ??x
-To prove that the sum of the first \(n\) odd natural numbers equals \(n^2\), we use mathematical induction. The formula for the sum of the first \(n\) odd natural numbers is:
-\[ 1 + 3 + 5 + \cdots + (2n-1) = n^2. \]
+To prove that the sum of the first $n $ odd natural numbers equals$n^2 $, we use mathematical induction. The formula for the sum of the first$ n$odd natural numbers is:
+$$1 + 3 + 5 + \cdots + (2n-1) = n^2.$$**Base Case:** For $ n=1$,
+$$1 = 1^2,$$which is true.
 
-**Base Case:** For \(n=1\),
-\[ 1 = 1^2, \]
-which is true.
+**Inductive Hypothesis:** Assume the statement is true for some $k$, i.e.,
+$$1 + 3 + 5 + \cdots + (2k-1) = k^2.$$**Inductive Step:** We need to show that$$1 + 3 + 5 + \cdots + (2k-1) + (2(k+1)-1) = (k+1)^2.$$
 
-**Inductive Hypothesis:** Assume the statement is true for some \(k\), i.e.,
-\[ 1 + 3 + 5 + \cdots + (2k-1) = k^2. \]
+Using the inductive hypothesis,$$1 + 3 + 5 + \cdots + (2k-1) + (2k+1) = k^2 + (2k+1).$$
 
-**Inductive Step:** We need to show that
-\[ 1 + 3 + 5 + \cdots + (2k-1) + (2(k+1)-1) = (k+1)^2. \]
-Using the inductive hypothesis,
-\[ 1 + 3 + 5 + \cdots + (2k-1) + (2k+1) = k^2 + (2k+1). \]
 Simplifying the right-hand side:
-\[ k^2 + 2k + 1 = (k+1)^2. \]
+$$k^2 + 2k + 1 = (k+1)^2.$$
 
-Thus, by induction, the statement holds for all \(n\).
+Thus, by induction, the statement holds for all $n$.
 
 x??
 
@@ -53,29 +50,24 @@ x??
 
 #### Proofs of Evenness
 
-Background context: The problem involves proving that \(n^2 - n\) is even for any natural number \(n\). There are multiple methods to prove this, including cases, applying a proposition, and using strong induction.
+Background context: The problem involves proving that $n^2 - n $ is even for any natural number$n$. There are multiple methods to prove this, including cases, applying a proposition, and using strong induction.
 
-:p Provide three different proofs that if \(n \in \mathbb{N}\), then \(n^2 - n\) is even.
+:p Provide three different proofs that if $n \in \mathbb{N}$, then $ n^2 - n$ is even.
 ??x
 **Proof by Cases:**
-- **Case 1:** If \(n\) is even, let \(n = 2k\). Then,
-\[ n^2 - n = (2k)^2 - 2k = 4k^2 - 2k = 2(2k^2 - k), \]
-which is clearly even.
-- **Case 2:** If \(n\) is odd, let \(n = 2k + 1\). Then,
-\[ n^2 - n = (2k+1)^2 - (2k+1) = 4k^2 + 4k + 1 - 2k - 1 = 4k^2 + 2k, \]
-which is also even.
+- **Case 1:** If $n $ is even, let$n = 2k$. Then,
+$$n^2 - n = (2k)^2 - 2k = 4k^2 - 2k = 2(2k^2 - k),$$which is clearly even.
+- **Case 2:** If $n $ is odd, let$n = 2k + 1$. Then,
+$$n^2 - n = (2k+1)^2 - (2k+1) = 4k^2 + 4k + 1 - 2k - 1 = 4k^2 + 2k,$$which is also even.
 
 **Proof by Applying Proposition 4.2 to the Sum:**
-Using the sum \(1 + 2 + 3 + \cdots + (n-1)\), and knowing that this sum is an integer,
-\[ n(n-1) = \sum_{i=1}^{n-1} i, \]
-and since any product of consecutive integers is even, \(n^2 - n\) must be even.
+Using the sum $1 + 2 + 3 + \cdots + (n-1)$, and knowing that this sum is an integer,
+$$n(n-1) = \sum_{i=1}^{n-1} i,$$and since any product of consecutive integers is even,$ n^2 - n$ must be even.
 
 **Proof by Strong Induction:**
-Assume the statement holds for all \(k < n\). If \(n\) is even, let \(n = 2m\), then
-\[ (2m)^2 - 2m = 4m(m-1), \]
-which is clearly even. If \(n\) is odd, let \(n = 2m+1\), then
-\[ (2m+1)^2 - (2m+1) = 4m^2 + 2m, \]
-which is also even.
+Assume the statement holds for all $k < n $. If $ n $is even, let$ n = 2m$, then
+$$(2m)^2 - 2m = 4m(m-1),$$which is clearly even. If $ n $ is odd, let $ n = 2m+1$, then
+$$(2m+1)^2 - (2m+1) = 4m^2 + 2m,$$which is also even.
 
 x??
 
@@ -85,28 +77,24 @@ x??
 
 Background context: The problem requires proving several statements about divisibility using induction. This involves showing that certain expressions are divisible by specific numbers.
 
-:p Use induction to prove \(3j(4^n - 1)\) for every natural number \(n\).
+:p Use induction to prove $3j(4^n - 1)$ for every natural number $n$.
 ??x
-To prove \(3 \mid (4^n - 1)\) for every natural number \(n\) using induction:
+To prove $3 \mid (4^n - 1)$ for every natural number $n$ using induction:
 
-**Base Case:** For \(n=1\),
-\[ 4^1 - 1 = 3, \]
-which is divisible by 3.
+**Base Case:** For $n=1$,
+$$4^1 - 1 = 3,$$which is divisible by 3.
 
-**Inductive Hypothesis:** Assume the statement holds for some \(k\), i.e.,
-\[ 3 \mid (4^k - 1). \]
+**Inductive Hypothesis:** Assume the statement holds for some $k$, i.e.,
+$$3 \mid (4^k - 1).$$**Inductive Step:** We need to show that$$3 \mid (4^{k+1} - 1).$$
 
-**Inductive Step:** We need to show that
-\[ 3 \mid (4^{k+1} - 1). \]
 Starting from the inductive hypothesis:
-\[ 4^{k+1} - 1 = 4 \cdot 4^k - 1 = 4(4^k) - 1. \]
-Using the fact that \(3 \mid (4^k - 1)\), we can write:
-\[ 4^k = 3m + 1, \]
-for some integer \(m\). Thus,
-\[ 4^{k+1} - 1 = 4(3m + 1) - 1 = 12m + 4 - 1 = 12m + 3 = 3(4m + 1), \]
-which is clearly divisible by 3.
+$$4^{k+1} - 1 = 4 \cdot 4^k - 1 = 4(4^k) - 1.$$
 
-Thus, by induction, the statement holds for all \(n\).
+Using the fact that $3 \mid (4^k - 1)$, we can write:
+$$4^k = 3m + 1,$$for some integer $ m$. Thus,
+$$4^{k+1} - 1 = 4(3m + 1) - 1 = 12m + 4 - 1 = 12m + 3 = 3(4m + 1),$$which is clearly divisible by 3.
+
+Thus, by induction, the statement holds for all $n$.
 
 x??
 
@@ -116,30 +104,27 @@ x??
 
 Background context: The problem involves proving various sum formulas using induction or strong induction. These include sums of squares, cubes, and products of consecutive numbers.
 
-:p Prove that \(\sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}\) for every natural number \(n\).
+:p Prove that $\sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}$ for every natural number $n$.
 ??x
 To prove the sum of squares formula using induction:
-\[ \sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}. \]
+$$\sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}.$$**Base Case:** For $ n=1$,
+$$1^2 = \frac{1(1+1)(2\cdot1+1)}{6} = \frac{1 \cdot 2 \cdot 3}{6} = 1,$$which is true.
 
-**Base Case:** For \(n=1\),
-\[ 1^2 = \frac{1(1+1)(2\cdot1+1)}{6} = \frac{1 \cdot 2 \cdot 3}{6} = 1, \]
-which is true.
+**Inductive Hypothesis:** Assume the statement holds for some $k$, i.e.,
+$$\sum_{k=1}^{k} k^2 = \frac{k(k+1)(2k+1)}{6}.$$**Inductive Step:** We need to show that$$\sum_{k=1}^{k+1} (k+1)^2 = \frac{(k+1)(k+2)(2k+3)}{6}.$$
 
-**Inductive Hypothesis:** Assume the statement holds for some \(k\), i.e.,
-\[ \sum_{k=1}^{k} k^2 = \frac{k(k+1)(2k+1)}{6}. \]
-
-**Inductive Step:** We need to show that
-\[ \sum_{k=1}^{k+1} (k+1)^2 = \frac{(k+1)(k+2)(2k+3)}{6}. \]
 Starting from the inductive hypothesis:
-\[ \sum_{k=1}^{k+1} k^2 = \sum_{k=1}^{k} k^2 + (k+1)^2 = \frac{k(k+1)(2k+1)}{6} + (k+1)^2. \]
-Combine the terms:
-\[ \frac{k(k+1)(2k+1) + 6(k+1)^2}{6} = \frac{(k+1)[k(2k+1) + 6(k+1)]}{6}. \]
-Simplify inside the brackets:
-\[ k(2k+1) + 6(k+1) = 2k^2 + k + 6k + 6 = 2k^2 + 7k + 6. \]
-Thus,
-\[ \frac{(k+1)(2k^2 + 7k + 6)}{6} = \frac{(k+1)[(2k+3)(k+2)]}{6} = \frac{(k+1)(k+2)(2k+3)}{6}. \]
+$$\sum_{k=1}^{k+1} k^2 = \sum_{k=1}^{k} k^2 + (k+1)^2 = \frac{k(k+1)(2k+1)}{6} + (k+1)^2.$$
 
-Thus, by induction, the statement holds for all \(n\).
+Combine the terms:
+$$\frac{k(k+1)(2k+1) + 6(k+1)^2}{6} = \frac{(k+1)[k(2k+1) + 6(k+1)]}{6}.$$
+
+Simplify inside the brackets:
+$$k(2k+1) + 6(k+1) = 2k^2 + k + 6k + 6 = 2k^2 + 7k + 6.$$
+
+Thus,$$\frac{(k+1)(2k^2 + 7k + 6)}{6} = \frac{(k+1)[(2k+3)(k+2)]}{6} = \frac{(k+1)(k+2)(2k+3)}{6}.$$
+
+Thus, by induction, the statement holds for all $n$.
 
 x??
 
@@ -149,26 +134,25 @@ x??
 
 Background context: The problem involves proving various inequalities and equalities about numbers using mathematical reasoning.
 
-:p Prove that \(4^n > 2n\) for every natural number \(n\).
+:p Prove that $4^n > 2n $ for every natural number$n$.
 ??x
-To prove \(4^n > 2n\) for all natural numbers \(n\), we use induction:
+To prove $4^n > 2n $ for all natural numbers$n$, we use induction:
 
-**Base Case:** For \(n=1\),
-\[ 4^1 = 4 > 2 \cdot 1 = 2, \]
-which is true.
+**Base Case:** For $n=1$,
+$$4^1 = 4 > 2 \cdot 1 = 2,$$which is true.
 
-**Inductive Hypothesis:** Assume the statement holds for some \(k\), i.e.,
-\[ 4^k > 2k. \]
+**Inductive Hypothesis:** Assume the statement holds for some $k$, i.e.,
+$$4^k > 2k.$$**Inductive Step:** We need to show that$$4^{k+1} > 2(k+1).$$
 
-**Inductive Step:** We need to show that
-\[ 4^{k+1} > 2(k+1). \]
 Starting from the inductive hypothesis:
-\[ 4^{k+1} = 4 \cdot 4^k > 4 \cdot 2k = 8k. \]
-We need to show \(8k > 2(k+1)\):
-\[ 8k > 2k + 2 \implies 6k > 2 \implies k > \frac{1}{3}. \]
-Since \(k\) is a natural number, \(k \geq 1\), so the inequality holds.
+$$4^{k+1} = 4 \cdot 4^k > 4 \cdot 2k = 8k.$$
 
-Thus, by induction, the statement holds for all \(n\).
+We need to show $8k > 2(k+1)$:
+$$8k > 2k + 2 \implies 6k > 2 \implies k > \frac{1}{3}.$$
+
+Since $k $ is a natural number,$ k \geq 1$, so the inequality holds.
+
+Thus, by induction, the statement holds for all $n$.
 
 x??
 
@@ -178,87 +162,88 @@ x??
 
 Background context: The problem introduces the concept of Fermat numbers and explores their properties.
 
-:p Prove that \(F_n = 2^{2^n} + 1\) is always odd.
+:p Prove that $F_n = 2^{2^n} + 1$ is always odd.
 ??x
-To prove that \(F_n = 2^{2^n} + 1\) is always odd for any natural number \(n\):
+To prove that $F_n = 2^{2^n} + 1 $ is always odd for any natural number$n$:
 
-**Base Case:** For \(n=0\),
-\[ F_0 = 2^{2^0} + 1 = 2^1 + 1 = 3, \]
-which is odd.
+**Base Case:** For $n=0$,
+$$F_0 = 2^{2^0} + 1 = 2^1 + 1 = 3,$$which is odd.
 
-**Inductive Hypothesis:** Assume the statement holds for some \(k\), i.e.,
-\[ F_k = 2^{2^k} + 1 \text{ is odd}. \]
+**Inductive Hypothesis:** Assume the statement holds for some $k$, i.e.,
+$$F_k = 2^{2^k} + 1 \text{ is odd}.$$**Inductive Step:** We need to show that$$
 
-**Inductive Step:** We need to show that
-\[ F_{k+1} = 2^{2^{k+1}} + 1 \]
-is odd. Notice:
-\[ F_{k+1} = 2^{2^{k+1}} + 1 = 2^{2 \cdot 2^k} + 1 = (2^{2^k})^2 + 1. \]
-Since \(2^{2^k}\) is even, let \(2^{2^k} = 2m\) for some integer \(m\). Then,
-\[ F_{k+1} = (2m)^2 + 1 = 4m^2 + 1, \]
-which is clearly odd.
+F_{k+1} = 2^{2^{k+1}} + 1$$is odd. Notice:
+$$
 
-Thus, by induction, the statement holds for all \(n\).
+F_{k+1} = 2^{2^{k+1}} + 1 = 2^{2 \cdot 2^k} + 1 = (2^{2^k})^2 + 1.$$
+
+Since $2^{2^k}$ is even, let $2^{2^k} = 2m$ for some integer $m$. Then,
+$$F_{k+1} = (2m)^2 + 1 = 4m^2 + 1,$$which is clearly odd.
+
+Thus, by induction, the statement holds for all $n$.
 
 x??
 
 
 #### Divisibility and Prime Factorization
-Background context: This section discusses a fundamental theorem of arithmetic, which states that every integer greater than 1 can be uniquely factored into prime numbers. The proof involves showing that if \( n \geq 2 \) is an integer with factorizations \( n = p_1p_2\ldots p_k \) and \( n = q_1q_2\ldots q_\ell \), then the number of primes in each list must be equal, and the primes themselves are identical (up to order).
+Background context: This section discusses a fundamental theorem of arithmetic, which states that every integer greater than 1 can be uniquely factored into prime numbers. The proof involves showing that if $n \geq 2 $ is an integer with factorizations$n = p_1p_2\ldots p_k $ and$n = q_1q_2\ldots q_\ell$, then the number of primes in each list must be equal, and the primes themselves are identical (up to order).
 
-:p Prove that if \( n \geq 2 \) is an integer with two prime factorizations, then these factorizations are unique.
+:p Prove that if $n \geq 2$ is an integer with two prime factorizations, then these factorizations are unique.
 ??x
-To prove the uniqueness part of the fundamental theorem of arithmetic, we use a proof by contradiction. Assume there exists an integer \( n \geq 2 \) with two distinct prime factorizations:
-\[ n = p_1p_2\ldots p_k \]
-and
-\[ n = q_1q_2\ldots q_\ell \]
+To prove the uniqueness part of the fundamental theorem of arithmetic, we use a proof by contradiction. Assume there exists an integer $n \geq 2$ with two distinct prime factorizations:
+$$n = p_1p_2\ldots p_k$$and$$n = q_1q_2\ldots q_\ell$$
 
-Where each \( p_i \) and \( q_j \) are primes. Without loss of generality, assume that there is a smallest integer \( n \) with two different prime factorizations.
+Where each $p_i $ and$q_j $ are primes. Without loss of generality, assume that there is a smallest integer$n$ with two different prime factorizations.
 
-If \( k \neq \ell \), then without loss of generality, let's say \( k < \ell \). Then we can divide both sides by one of the primes from the first factorization. This would reduce \( n \) and still have two distinct factorizations, contradicting our assumption that \( n \) is the smallest such number.
+If $k \neq \ell $, then without loss of generality, let's say $ k < \ell $. Then we can divide both sides by one of the primes from the first factorization. This would reduce$ n $ and still have two distinct factorizations, contradicting our assumption that $ n$ is the smallest such number.
 
-Therefore, \( k = \ell \), meaning there are exactly \( k \) terms in each factorization. Now consider one of the primes from the first factorization, say \( p_1 \). Since it must divide \( q_1q_2\ldots q_k \), and since all \( q_i \)'s are prime, by Euclid's lemma, \( p_1 \) must equal some \( q_j \).
+Therefore, $k = \ell $, meaning there are exactly $ k $ terms in each factorization. Now consider one of the primes from the first factorization, say $ p_1 $. Since it must divide$ q_1q_2\ldots q_k $, and since all$ q_i $'s are prime, by Euclid's lemma,$ p_1 $ must equal some $ q_j$.
 
 This implies that the primes in both factorizations can be matched up term-by-term. Repeating this argument for each of the remaining terms shows that the order is also preserved.
 
 Thus, the two factorizations are identical:
-\[ n = p_1p_2\ldots p_k = q_1q_2\ldots q_k \]
-??x
+$$n = p_1p_2\ldots p_k = q_1q_2\ldots q_k$$??x
 ---
 
 #### Strong Induction in Sequences
 Background context: This section discusses using strong induction to prove properties of recursively defined sequences. It covers several examples, including sequences where the next term depends on previous terms.
 
-:p Use strong induction to prove that \( a_n = 2^n - 1 \) for all \( n \in \mathbb{N} \), given the sequence is defined by \( a_1 = 1 \), \( a_2 = 3 \), and \( a_n = 2a_{n-1} + a_{n-2} \) for \( n \geq 3 \).
+:p Use strong induction to prove that $a_n = 2^n - 1 $ for all$n \in \mathbb{N}$, given the sequence is defined by $ a_1 = 1$,$ a_2 = 3 $, and$ a_n = 2a_{n-1} + a_{n-2}$for $ n \geq 3$.
 ??x
-To prove that \( a_n = 2^n - 1 \) using strong induction, we follow these steps:
+To prove that $a_n = 2^n - 1$ using strong induction, we follow these steps:
 
 **Base Cases:**
-For \( n = 1 \):
-\[ a_1 = 1 = 2^1 - 1 \]
-For \( n = 2 \):
-\[ a_2 = 3 = 2^2 - 1 \]
+For $n = 1$:
+$$a_1 = 1 = 2^1 - 1$$
 
-Assume the statement is true for all \( k \leq n \), i.e., \( a_k = 2^k - 1 \) for all \( k \leq n \).
+For $n = 2$:
+$$a_2 = 3 = 2^2 - 1$$
+
+Assume the statement is true for all $k \leq n $, i.e., $ a_k = 2^k - 1 $ for all $ k \leq n$.
 
 **Induction Step:**
-We need to show that \( a_{n+1} = 2^{n+1} - 1 \).
+We need to show that $a_{n+1} = 2^{n+1} - 1$.
 By the definition of the sequence:
-\[ a_{n+1} = 2a_n + a_{n-1} \]
+$$a_{n+1} = 2a_n + a_{n-1}$$
+
 Using our induction hypothesis:
-\[ a_n = 2^n - 1 \quad \text{and} \quad a_{n-1} = 2^{n-1} - 1 \]
+$$a_n = 2^n - 1 \quad \text{and} \quad a_{n-1} = 2^{n-1} - 1$$
 
 Substitute these into the equation:
-\[ a_{n+1} = 2(2^n - 1) + (2^{n-1} - 1) \]
+$$a_{n+1} = 2(2^n - 1) + (2^{n-1} - 1)$$
+
 Simplify:
-\[ a_{n+1} = 2^{n+1} - 2 + 2^{n-1} - 1 \]
+$$a_{n+1} = 2^{n+1} - 2 + 2^{n-1} - 1$$
+
 Combine like terms:
-\[ a_{n+1} = 2^{n+1} - 2 + 2^{n-1} - 1 = 2^{n+1} - 2^{n} + 2^{n-1} - 3 \]
-Factor out \( 2^n \):
-\[ a_{n+1} = 2^{n+1} - (2^1 - 2^{-1}) = 2^{n+1} - 1 \]
+$$a_{n+1} = 2^{n+1} - 2 + 2^{n-1} - 1 = 2^{n+1} - 2^{n} + 2^{n-1} - 3$$
 
-Thus, the statement holds for \( n+1 \).
+Factor out $2^n$:
+$$a_{n+1} = 2^{n+1} - (2^1 - 2^{-1}) = 2^{n+1} - 1$$
 
-By strong induction, \( a_n = 2^n - 1 \) is true for all \( n \in \mathbb{N} \).
+Thus, the statement holds for $n+1$.
+
+By strong induction, $a_n = 2^n - 1 $ is true for all$n \in \mathbb{N}$.
 ??x
 ---
 ---
@@ -340,53 +325,53 @@ x??
 
 #### Logical Connectives and Truth Values
 Background context: In logic, statements can be combined using logical connectives such as conjunction (^), disjunction (v), and negation (~). These operations transform simple statements into more complex ones that also hold truth values. For example:
-- \( P \land Q \) is true if both \( P \) and \( Q \) are true.
-- \( P \lor Q \) is true if at least one of \( P \) or \( Q \) is true.
-- \( \neg P \) is the negation of \( P \), meaning it's true when \( P \) is false.
+- $P \land Q $ is true if both$P $ and$Q$ are true.
+- $P \lor Q $ is true if at least one of$P $ or$Q$ is true.
+- $\neg P $ is the negation of$P $, meaning it's true when$ P$ is false.
 
-:p What does \( P \land Q \) mean in logical terms?
+:p What does $P \land Q$ mean in logical terms?
 ??x
-\( P \land Q \) means "P and Q". It is a conjunction, which is true only if both statements \( P \) and \( Q \) are true.
+$P \land Q $ means "P and Q". It is a conjunction, which is true only if both statements$P $ and$Q$ are true.
 x??
 
 ---
 #### Disjunction of Statements
 Background context: The disjunction operation (or v) combines two statements such that the resulting statement is true if at least one of the original statements is true. For instance:
-- \( P \lor Q \) is false only when both \( P \) and \( Q \) are false.
+- $P \lor Q $ is false only when both$P $ and$Q$ are false.
 
-:p What does \( P \lor Q \) mean in logical terms?
+:p What does $P \lor Q$ mean in logical terms?
 ??x
-\( P \lor Q \) means "P or Q". It is a disjunction, which is true if at least one of the statements \( P \) or \( Q \) is true.
+$P \lor Q $ means "P or Q". It is a disjunction, which is true if at least one of the statements$P $ or$Q$ is true.
 x??
 
 ---
 #### Negation of Statements
-Background context: The negation operation (\(\neg\)) inverts the truth value of a statement. For example:
-- If \( P \) is true, then \( \neg P \) is false, and vice versa.
+Background context: The negation operation ($\neg$) inverts the truth value of a statement. For example:
+- If $P $ is true, then$\neg P$ is false, and vice versa.
 
-:p What does \( \neg P \) mean in logical terms?
+:p What does $\neg P$ mean in logical terms?
 ??x
-\( \neg P \) means "not P". It negates the truth value of \( P \). If \( P \) is true, \( \neg P \) is false; if \( P \) is false, \( \neg P \) is true.
+$\neg P $ means "not P". It negates the truth value of$P $. If$ P $is true,$\neg P $ is false; if$P $ is false,$\neg P$ is true.
 x??
 
 ---
 #### Implications in Logic
 Background context: An implication statement (P → Q) means "if P then Q". It is false only when P is true and Q is false. For example:
-- \( P \rightarrow Q \): If the number 3 is odd, then the number 4 is even.
+- $P \rightarrow Q$: If the number 3 is odd, then the number 4 is even.
 
-:p What does \( P \rightarrow Q \) mean in logical terms?
+:p What does $P \rightarrow Q$ mean in logical terms?
 ??x
-\( P \rightarrow Q \) means "if P then Q". It states that if statement \( P \) is true, then statement \( Q \) must also be true. The implication is false only when \( P \) is true and \( Q \) is false.
+$P \rightarrow Q $ means "if P then Q". It states that if statement$P $ is true, then statement$ Q $ must also be true. The implication is false only when $ P $ is true and $Q$ is false.
 x??
 
 ---
 #### Biconditional Statements
 Background context: A biconditional statement (P ↔ Q) means "P if and only if Q". It is true if both statements have the same truth value. For example:
-- \( P \leftrightarrow Q \): If a number is odd, then its square is odd.
+- $P \leftrightarrow Q$: If a number is odd, then its square is odd.
 
-:p What does \( P \leftrightarrow Q \) mean in logical terms?
+:p What does $P \leftrightarrow Q$ mean in logical terms?
 ??x
-\( P \leftrightarrow Q \) means "P if and only if Q". It states that both statements have the same truth value. The biconditional statement is true when both \( P \) and \( Q \) are either both true or both false.
+$P \leftrightarrow Q $ means "P if and only if Q". It states that both statements have the same truth value. The biconditional statement is true when both$P $ and$Q$ are either both true or both false.
 x??
 
 ---
@@ -421,31 +406,31 @@ x??
 ---
 #### Tautology and Examples
 Background context: A tautology is a statement that is always true regardless of the truth values of its components. For example:
-- \( \neg S \lor S \) (a statement or its negation is always true)
+- $\neg S \lor S$ (a statement or its negation is always true)
 
-:p What does \( \neg S \lor S \) mean in logical terms?
+:p What does $\neg S \lor S$ mean in logical terms?
 ??x
-\( \neg S \lor S \) means "not S or S". This is a tautology because it states that either the statement \( S \) is false, or it is true. Since one of these must be true, the entire expression is always true.
+$\neg S \lor S $ means "not S or S". This is a tautology because it states that either the statement$S$ is false, or it is true. Since one of these must be true, the entire expression is always true.
 x??
 
 ---
 #### Example with Tautology
-Background context: The example provided in the text demonstrates how \( S \lor \neg S \) (a statement or its negation) is a tautology.
+Background context: The example provided in the text demonstrates how $S \lor \neg S$ (a statement or its negation) is a tautology.
 
-:p What does \( S \lor \neg S \) mean and why is it considered a tautology?
+:p What does $S \lor \neg S$ mean and why is it considered a tautology?
 ??x
-\( S \lor \neg S \) means "S or not S". It asserts that the statement \( S \) is either true or false. This expression is always true because at least one of the two parts (\( S \) being true or \( \neg S \) being true) must be true. Therefore, it is a tautology.
+$S \lor \neg S $ means "S or not S". It asserts that the statement$S $ is either true or false. This expression is always true because at least one of the two parts ($S $ being true or$\neg S$ being true) must be true. Therefore, it is a tautology.
 x??
 
 ---
 #### Equivalence in Logic
 Background context: The equivalence between statements P and Q (P ↔ Q) means that both statements are either both true or both false. It can also be expressed as:
-- \( (P \rightarrow Q) \land (Q \rightarrow P) \)
+- $(P \rightarrow Q) \land (Q \rightarrow P)$
 
 :p How can you express "P if and only if Q" using implications?
 ??x
 "P if and only if Q" can be expressed using the conjunction of two implications: 
-- \( (P \rightarrow Q) \land (Q \rightarrow P) \)
+- $(P \rightarrow Q) \land (Q \rightarrow P)$
 This means that both "if P then Q" and "if Q then P" are true.
 x??
 

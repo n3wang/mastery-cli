@@ -108,10 +108,10 @@ Background context: By understanding the hardware specifications of a GPU, we ca
 :p How do you calculate the peak theoretical FLOPS for a GPU?
 ??x
 Calculating peak theoretical FLOPS involves using the formula: 
-\[ \text{Peak FLOPS} = \text{Clock Rate (MHz)} \times \text{Number of FP32 Cores/CU} \times 2^{\text{Bits}} \]
+$$\text{Peak FLOPS} = \text{Clock Rate (MHz)} \times \text{Number of FP32 Cores/CU} \times 2^{\text{Bits}}$$
 
 For example, for an NVIDIA V100 with a clock rate of 1290 MHz and 64 FP32 cores per CU:
-\[ \text{Peak FLOPS (FP32)} = 1290 \times 64 \times 2^{32} \]
+$$\text{Peak FLOPS (FP32)} = 1290 \times 64 \times 2^{32}$$
 
 For double precision, it would be half the number of FP32 cores due to their ratio.
 

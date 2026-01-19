@@ -255,8 +255,7 @@ Background context: Before using `jlink` to create a smaller distribution, your 
 ??x
 You can use the `javac` command along with the `-d` option to specify the output directory for compiled classes, followed by packaging them into a JAR file. Here’s an example:
 ```sh
-$ javac -d . src/*.java
-$ jar cvf demo.jar module-info.class demo
+$javac -d . src/*.java$ jar cvf demo.jar module-info.class demo
 ```
 This compiles your source files and packages the `module-info.class` along with other classes into a single JAR file named `demo.jar`.
 x??
@@ -271,7 +270,7 @@ Background context: After identifying the required modules, you can use `jlink` 
 ??x
 To run `jlink`, you need to specify the module path, options for excluding header files and man pages, compressing output, stripping debug information, adding launchers, and specifying the output directory. Here’s an example:
 ```sh
-$ jlink --module-path . \
+$jlink --module-path . \
         --no-header-files \
         --no-man-pages --compress=2 --strip-debug \
         --launcher rundemo=demo/demo.Hello \
@@ -289,8 +288,7 @@ Background context: The output of `jdeps` provides information on which modules 
 :p What does the output of `jdeps` tell you?
 ??x
 The output of `jdeps` tells you which modules and packages your application depends on, helping to identify exactly what needs to be included in the final package. For example:
-```sh
-$ jdeps --module-path . demo.jar demo  [file:///Users/ian/workspace/javasrc/jlink/./]
+```sh$ jdeps --module-path . demo.jar demo  [file:///Users/ian/workspace/javasrc/jlink/./]
 requires mandated java.base (@11.0.2)
 demo -> java.base
     demo          -> java.io        java.base

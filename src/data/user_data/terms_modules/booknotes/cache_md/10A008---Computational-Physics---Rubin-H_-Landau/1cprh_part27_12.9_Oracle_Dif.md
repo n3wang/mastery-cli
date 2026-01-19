@@ -7,12 +7,12 @@
 
 
 #### Oracle + Diffuser = Grover's Search Algorithm
-Background context: The goal is to search through a database of \(N = 2^n\) elements using quantum computing. This involves initializing the system, applying an oracle, and then using a diffuser (amplifier) to increase the amplitude of the target state.
+Background context: The goal is to search through a database of $N = 2^n$ elements using quantum computing. This involves initializing the system, applying an oracle, and then using a diffuser (amplifier) to increase the amplitude of the target state.
 
 :p What are the steps in Grover's Search Algorithm?
 ??x
 Grover's Search Algorithm involves the following steps:
-1. Initialize the \(n\)-qubit system into the ground state.
+1. Initialize the $n$-qubit system into the ground state.
 2. Apply Hadamard gates to create a superposition state.
 3. Use an oracle to mark the target state by flipping its phase.
 4. Apply a diffuser (amplifier) to increase the amplitude of the marked state.
@@ -54,13 +54,13 @@ Each flashcard should cover a single concept or step from the provided text. The
 
 
 #### Period Finding in Shor's Algorithm
-Period finding is essential for determining the period \( T \) of a function \( f(x) = r^x \mod N \).
+Period finding is essential for determining the period $T $ of a function$f(x) = r^x \mod N$.
 
 :p What is the goal of period finding?
 ??x
-The goal of period finding is to determine the smallest positive integer \( T \) such that \( f(x + T) = f(x) \), i.e., \( r^T \equiv 1 \mod N \). This is crucial for factoring large numbers using Shor's Algorithm.
+The goal of period finding is to determine the smallest positive integer $T $ such that$f(x + T) = f(x)$, i.e.,$ r^T \equiv 1 \mod N$. This is crucial for factoring large numbers using Shor's Algorithm.
 
-By determining the period, we can factorize \( N \).
+By determining the period, we can factorize $N$.
 x??
 
 ---
@@ -261,14 +261,14 @@ These flashcards cover key concepts from the provided text in a structured forma
 
 
 #### Amod15 Function
-This function defines the quantum circuit for modular exponentiation \( a^{2^k} \mod 15 \). The circuits are parameterized based on the value of \( a \) and used in Shor’s algorithm.
+This function defines the quantum circuit for modular exponentiation $a^{2^k} \mod 15 $. The circuits are parameterized based on the value of $ a$ and used in Shor’s algorithm.
 
 Background context:
 Modular arithmetic is fundamental to many areas of cryptography, including RSA. In this case, we are specifically dealing with modular exponentiation under modulo 15.
 
 :p What does the `amod15` function do?
 ??x
-The `amod15` function constructs a quantum circuit that performs the operation \( a^{2^k} \mod 15 \) for given values of \( a \). The circuits are used as subroutines in Shor’s algorithm to find the period of the function.
+The `amod15` function constructs a quantum circuit that performs the operation $a^{2^k} \mod 15 $ for given values of$a$. The circuits are used as subroutines in Shor’s algorithm to find the period of the function.
 
 ```python
 def amod15(a_in: int, p_in: int) -> QuantumCircuit:

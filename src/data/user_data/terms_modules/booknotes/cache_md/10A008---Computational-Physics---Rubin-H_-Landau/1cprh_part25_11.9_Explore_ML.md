@@ -60,11 +60,12 @@ Activation function definition:
 ```python
 def f(x): return 1./(1. + np.exp(-x))
 ```
-This is a simple sigmoid function which introduces non-linearity into the model by transforming the input \( x \) to produce an output between 0 and 1.
+This is a simple sigmoid function which introduces non-linearity into the model by transforming the input $x$ to produce an output between 0 and 1.
 :p What is the activation function used in these examples?
 ??x
 The activation function used here is the sigmoid function, defined as:
-\[ f(x) = \frac{1}{1 + e^{-x}} \]
+$$f(x) = \frac{1}{1 + e^{-x}}$$
+
 This transformation helps introduce non-linearity into the model by mapping any real-valued number to a value between 0 and 1.
 x??
 
@@ -159,40 +160,27 @@ x??
 
 
 #### Operators and Inner Products
-Background context: Operators in Dirac notation, such as \( O = |\phi\rangle \langle \psi| \), are represented by matrices. The inner product of two states is denoted as:
-\[
-\langle \phi | \psi \rangle.
-\]
-The scalar or inner product between the states \(|\phi\rangle\) and \(|\psi\rangle\) is given by:
-\[
-\langle \phi | \psi \rangle = (\phi, \psi) = \langle \psi | \phi \rangle^*,
-\]
-where \( * \) denotes complex conjugation.
+Background context: Operators in Dirac notation, such as $O = |\phi\rangle \langle \psi|$, are represented by matrices. The inner product of two states is denoted as:
+$$\langle \phi | \psi \rangle.$$
+
+The scalar or inner product between the states $|\phi\rangle $ and$|\psi\rangle$ is given by:
+$$\langle \phi | \psi \rangle = (\phi, \psi) = \langle \psi | \phi \rangle^*,$$where $*$ denotes complex conjugation.
 
 :p What are the properties of operators and inner products in Dirac notation?
 ??x
 Operators in Dirac notation are represented as matrices. For example:
-\[
-O = |\phi\rangle \langle \psi| = [a b; c d] \begin{bmatrix} x \\ y \end{bmatrix},
-\]
-where \(|\phi\rangle\) and \(|\psi\rangle\) are vectors.
+$$O = |\phi\rangle \langle \psi| = [a b; c d] \begin{bmatrix} x \\ y \end{bmatrix},$$where $|\phi\rangle $ and$|\psi\rangle$ are vectors.
 
 The inner product between two states is denoted as:
-\[
-\langle \phi | \psi \rangle.
-\]
+$$\langle \phi | \psi \rangle.$$
+
 Properties include:
 
-- The scalar or inner product of the states \( |\phi\rangle \) and \( |\psi\rangle \):
-  \[
-  \langle \phi | \psi \rangle = (\phi, \psi) = \langle \psi | \phi \rangle^*,
-  \]
-  where the asterisk denotes complex conjugation.
+- The scalar or inner product of the states $|\phi\rangle $ and$|\psi\rangle$:
+  $$\langle \phi | \psi \rangle = (\phi, \psi) = \langle \psi | \phi \rangle^*,$$where the asterisk denotes complex conjugation.
 
-- An operator like \( O \) changes one state into another:
-  \[
-  O|\psi\rangle = |\phi\rangle.
-  \]
+- An operator like $O$ changes one state into another:
+$$O|\psi\rangle = |\phi\rangle.$$
 
 ??x
 

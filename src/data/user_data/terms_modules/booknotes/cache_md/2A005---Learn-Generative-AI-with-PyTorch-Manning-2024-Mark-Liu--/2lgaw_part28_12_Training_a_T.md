@@ -297,9 +297,7 @@ Background context: Cross-entropy loss is a common metric used to evaluate the p
 ??x
 Cross-entropy loss is calculated using the formula:
 
-\[ \text{loss} = -\sum_{i=1}^{n} y_i \log(p_i) \]
-
-where \( y_i \) is the true probability (1 if the token matches, 0 otherwise), and \( p_i \) is the predicted probability.
+$$\text{loss} = -\sum_{i=1}^{n} y_i \log(p_i)$$where $ y_i $ is the true probability (1 if the token matches, 0 otherwise), and $ p_i$ is the predicted probability.
 
 ```python
 import torch

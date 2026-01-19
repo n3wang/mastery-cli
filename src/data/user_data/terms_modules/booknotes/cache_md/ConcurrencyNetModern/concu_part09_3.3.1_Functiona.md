@@ -389,7 +389,7 @@ Background context: This section discusses how functional lists are designed to 
 
 :p What are the advantages of using functional lists for operations at the head?
 ??x
-Functional lists excel in operations that involve adding or removing elements from the head because these operations can be performed in constant time \(O(1)\). This is achieved by creating a new list where each element links to the previous one, effectively making appending linear operations more efficient. However, random access operations are not as efficient since they require traversing from the beginning of the list.
+Functional lists excel in operations that involve adding or removing elements from the head because these operations can be performed in constant time $O(1)$. This is achieved by creating a new list where each element links to the previous one, effectively making appending linear operations more efficient. However, random access operations are not as efficient since they require traversing from the beginning of the list.
 ```python
 # Example: Appending an item to the head in Python (functional style)
 def prepend(item, lst):
@@ -410,7 +410,7 @@ Background context: The text explains that functional lists perform well for lin
 
 :p Why is random access in a functional list less efficient than linear traversal?
 ??x
-Random access in a functional list is less efficient because, unlike with arrays where elements can be accessed directly via an index, each element must be visited sequentially starting from the head of the list. This leads to a time complexity of \(O(n)\), where \(n\) is the number of elements in the collection.
+Random access in a functional list is less efficient because, unlike with arrays where elements can be accessed directly via an index, each element must be visited sequentially starting from the head of the list. This leads to a time complexity of $O(n)$, where $ n$ is the number of elements in the collection.
 
 For example, searching for an item in a functional list will require traversing all elements one by one until the target is found.
 ```python
@@ -436,16 +436,10 @@ Background context: The text explains the concept of Big O notation as a way to 
 
 :p What is the significance of Big O notation in describing the efficiency of algorithms?
 ??x
-Big O notation helps us understand how an algorithm's running time or space requirements grow relative to the input size. For example, constant time \(O(1)\) means that the operation takes a fixed amount of time regardless of the input size, whereas linear time \(O(n)\) indicates that the time taken grows proportionally with the input size.
+Big O notation helps us understand how an algorithm's running time or space requirements grow relative to the input size. For example, constant time $O(1)$ means that the operation takes a fixed amount of time regardless of the input size, whereas linear time $O(n)$ indicates that the time taken grows proportionally with the input size.
 
 Here are examples for different complexity classes:
-- Constant: \(O(1)\)
-- Logarithmic: \(O(\log n)\)
-- Linear: \(O(n)\)
-- Log-linear: \(O(n \log n)\)
-- Quadratic: \(O(n^2)\)
-
-```java
+- Constant:$O(1)$- Logarithmic:$ O(\log n)$- Linear:$ O(n)$- Log-linear:$ O(n \log n)$- Quadratic:$ O(n^2)$```java
 // Example of a constant time operation in Java (like accessing an array element directly)
 public int getElementAt(int index, int[] arr) {
     return arr[index]; // This is O(1)
@@ -458,13 +452,13 @@ x??
 
 #### Parallel Programs and Complexity
 
-Background context: The text introduces the concept of parallel programs and their complexity. It explains how Big O notation can be adapted for parallel algorithms by introducing a parameter \(P\) representing the number of cores.
+Background context: The text introduces the concept of parallel programs and their complexity. It explains how Big O notation can be adapted for parallel algorithms by introducing a parameter $P$ representing the number of cores.
 
 :p How does Big O notation apply to parallel programs?
 ??x
-In parallel programming, Big O notation is adjusted to account for the number of processing units (cores). The cost of an operation in a parallel program can be expressed as \(O(n/P)\), where \(n\) is the input size and \(P\) is the number of cores. This accounts for distributing the work among multiple processors.
+In parallel programming, Big O notation is adjusted to account for the number of processing units (cores). The cost of an operation in a parallel program can be expressed as $O(n/P)$, where $ n$is the input size and $ P$ is the number of cores. This accounts for distributing the work among multiple processors.
 
-For instance, if you have a list search that would normally take linear time \(O(n)\) on a single core, splitting it across 4 cores would reduce its complexity to \(O(n/4)\).
+For instance, if you have a list search that would normally take linear time $O(n)$ on a single core, splitting it across 4 cores would reduce its complexity to $O(n/4)$.
 
 ```java
 // Pseudo-code example: Parallel search in Java (simplified)

@@ -351,7 +351,7 @@ x??
 The addressable space is divided into pages, which are chunks of memory that can be individually mapped between virtual and physical addresses. Page sizes vary but are typically powers of two (e.g., 4KiB or 8KiB).
 :p How does the operating system divide the addressable memory space?
 ??x
-The addressable memory space is conceptually divided into equally-sized contiguous chunks known as pages, which are usually a power of two in size. For instance, with a page size of 4 KiB (4096 bytes), a 32-bit address space can be divided into \( \frac{2^{32}}{4096} = 1,048,576 \) pages.
+The addressable memory space is conceptually divided into equally-sized contiguous chunks known as pages, which are usually a power of two in size. For instance, with a page size of 4 KiB (4096 bytes), a 32-bit address space can be divided into $\frac{2^{32}}{4096} = 1,048,576$ pages.
 x??
 
 ---

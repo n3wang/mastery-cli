@@ -24,7 +24,7 @@ Background context: Work is the result of a force (usually in pounds) moving ove
 ??x
 Work is defined as the result of a force overcoming resistance over a distance. It can be mathematically represented by the formula:
 
-\[ \text{Work} = \text{Force} \times \text{Distance} \]
+$$\text{Work} = \text{Force} \times \text{Distance}$$
 
 In the US, this is often measured in foot-pounds (1 foot-pound occurs when 1 pound moves 1 foot). The unit of work here is the foot-pound.
 

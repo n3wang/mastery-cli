@@ -102,26 +102,20 @@ x??
 
 #### Throughput Calculation
 
-Background context: The throughput \( X \) is a measure of how many jobs can be processed per unit time. In this case, we are calculating it for both CPU and disk subsystems.
+Background context: The throughput $X$ is a measure of how many jobs can be processed per unit time. In this case, we are calculating it for both CPU and disk subsystems.
 
 Given:
-- \( \pi_{3,0} = 0.08 \)
-- \( \pi_{2,1} = 0.22 \)
-- \( \pi_{1,2} = 0.3 \)
-- \( \pi_{0,3} = 0.4 \)
+- $\pi_{3,0} = 0.08 $-$\pi_{2,1} = 0.22 $-$\pi_{1,2} = 0.3 $-$\pi_{0,3} = 0.4$
 
 :p What is the throughput for the CPU subsystem?
 
 ??x
 The throughput for the CPU subsystem can be calculated using the utilization factor of the CPU and its service rate.
 
-\[ \rho_{\text{CPU}} = \pi_{3,0} + \pi_{2,1} + \pi_{1,2} = 0.6 \]
+$$\rho_{\text{CPU}} = \pi_{3,0} + \pi_{2,1} + \pi_{1,2} = 0.6$$
 
-The throughput \( X_{\text{CPU}} \) is then given by:
-
-\[ X_{\text{CPU}} = \rho_{\text{CPU}} \times \mu_{\text{CPU}} = 0.6 \times 4 \text{ jobs/sec} = 2.4 \text{ jobs/sec} \]
-
-x??
+The throughput $X_{\text{CPU}}$ is then given by:
+$$X_{\text{CPU}} = \rho_{\text{CPU}} \times \mu_{\text{CPU}} = 0.6 \times 4 \text{ jobs/sec} = 2.4 \text{ jobs/sec}$$x??
 
 ---
 
@@ -147,15 +141,14 @@ x??
 Background context: The reverse process (denoted with an asterisk) has probabilities that are related to the forward process.
 
 Given:
-- \( \pi_i \): Limiting probability of being in state \( i \)
-- \( q_{ij} \): Transition rate from state \( i \) to state \( j \)
+- $\pi_i $: Limiting probability of being in state $ i $-$ q_{ij}$: Transition rate from state $ i$to state $ j$
 
 :p How do π and π* relate?
 
 ??x
 The steady-state probabilities for both the forward and reverse processes are the same:
 
-\[ \pi_j = \pi^*_j \]
+$$\pi_j = \pi^*_j$$
 
 This is because each state visitation duration remains consistent, and the rate of transitions from a state in one direction is equivalent to the transition rate in the opposite direction.
 
@@ -171,9 +164,9 @@ Background context: The transition rates between states in the reverse chain are
 :p What is the relationship between the transition rates in the reverse and forward chains?
 
 ??x
-The transition rates in the reverse CTMC from state \( i \) to state \( j \) are equal to the transition rates in the forward CTMC from state \( j \) to state \( i \):
+The transition rates in the reverse CTMC from state $i $ to state$j $ are equal to the transition rates in the forward CTMC from state$ j $ to state $i$:
 
-\[ \pi_i q_{ij} = \pi_j q_{ji}^* \]
+$$\pi_i q_{ij} = \pi_j q_{ji}^*$$
 
 This relationship holds because the rate of transitions is symmetric when viewed backward.
 
@@ -189,9 +182,8 @@ Background context: The embedded discrete-time Markov chain (DTMC) within a CTMC
 :p What does Claim 16.2 state about the rates of transitions?
 
 ??x
-Claim 16.2 states that the rate of transitions from state \( i \) to state \( j \) in the reverse CTMC equals the rate of transitions from state \( j \) to state \( i \) in the forward CTMC:
-
-\[ \pi_i q_{ij}^* = \pi_j q_{ji} \]
+Claim 16.2 states that the rate of transitions from state $i $ to state$j $ in the reverse CTMC equals the rate of transitions from state$ j $ to state $i$ in the forward CTMC:
+$$\pi_i q_{ij}^* = \pi_j q_{ji}$$
 
 This is true because the rates are symmetric when viewed backward.
 
@@ -203,33 +195,33 @@ x??
 
 
 #### Time-Reversibility of CTMCs
-Background context: A Continuous-Time Markov Chain (CTMC) is said to be time-reversible if for every pair of states \(i, j\), the rate of transitions from state \(i\) to state \(j\) equals the rate of transitions from state \(j\) to state \(i\). This can be mathematically expressed as \(\pi_i q_{ij} = \pi_j q_{ji}\) for all \(i, j\).
+Background context: A Continuous-Time Markov Chain (CTMC) is said to be time-reversible if for every pair of states $i, j $, the rate of transitions from state $ i $to state$ j $equals the rate of transitions from state$ j $to state$ i $. This can be mathematically expressed as$\pi_i q_{ij} = \pi_j q_{ji}$ for all $i, j$.
 :p What is time-reversibility in CTMCs?
 ??x
-Time-reversibility in a Continuous-Time Markov Chain (CTMC) means that the rates of transitions between any two states are symmetric. If the stationary distribution \(\pi\) and the transition rate matrix \(Q\) satisfy \(\pi_i q_{ij} = \pi_j q_{ji}\), then the CTMC is time-reversible.
+Time-reversibility in a Continuous-Time Markov Chain (CTMC) means that the rates of transitions between any two states are symmetric. If the stationary distribution $\pi $ and the transition rate matrix$Q $ satisfy$\pi_i q_{ij} = \pi_j q_{ji}$, then the CTMC is time-reversible.
 x??
 
 ---
 
 
 #### Statistical Identity Between Forward and Reverse Chains
-Background context: If a CTMC is time-reversible, its reverse chain can be described by the same CTMC as the forward process. This means that the transition rates \(q_{ij}\) are equal to their reverse counterparts \(q_{ji}\).
+Background context: If a CTMC is time-reversible, its reverse chain can be described by the same CTMC as the forward process. This means that the transition rates $q_{ij}$ are equal to their reverse counterparts $q_{ji}$.
 :p How do the forward and reverse chains of a time-reversible CTMC compare?
 ??x
-The forward and reverse chains of a time-reversible CTMC have identical transition matrices, implying that \(q_{ij} = q_{ji}\). This means that both processes can be described by the same set of transition rates.
+The forward and reverse chains of a time-reversible CTMC have identical transition matrices, implying that $q_{ij} = q_{ji}$. This means that both processes can be described by the same set of transition rates.
 x??
 
 ---
 
 
 #### Burke's Theorem for M/M/1 System
-Background context: Burke’s Theorem applies to an M/M/1 queue where arrivals follow a Poisson process with rate \(\lambda\) and service times are exponentially distributed with rate \(\mu\). Part (2) of the theorem states that the number of jobs in the system at any time is independent of the sequence of departure times prior to that time.
+Background context: Burke’s Theorem applies to an M/M/1 queue where arrivals follow a Poisson process with rate $\lambda $ and service times are exponentially distributed with rate$\mu$. Part (2) of the theorem states that the number of jobs in the system at any time is independent of the sequence of departure times prior to that time.
 :p What does Burke’s Theorem state for an M/M/1 queue?
 ??x
 Burke's Theorem for an M/M/1 queue states two key points: 
-1. The interdeparture times are exponentially distributed with rate \(\lambda\).
+1. The interdeparture times are exponentially distributed with rate $\lambda$.
 2. The number of jobs in the system at any time is independent of the sequence of departure times prior to that time.
-This theorem ensures that the departure process from a stable M/M/1 queue behaves as if it were an arrival process of a new M/M/1 queue with the same parameters \(\lambda\) and \(\mu\).
+This theorem ensures that the departure process from a stable M/M/1 queue behaves as if it were an arrival process of a new M/M/1 queue with the same parameters $\lambda $ and$\mu$.
 x??
 
 ---

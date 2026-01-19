@@ -179,48 +179,38 @@ Background context: The text introduces a pure birth process, which is used to m
 
 :p What is a pure birth process?
 ??x
-A pure birth process models situations where the number of individuals (in this context, failures) only increases over time. There are no deaths or removals. The probability of having \( r \) individuals at any given time \( t \), denoted as \( P_r(t) \), is governed by a specific differential equation.
+A pure birth process models situations where the number of individuals (in this context, failures) only increases over time. There are no deaths or removals. The probability of having $r $ individuals at any given time$t $, denoted as$ P_r(t)$, is governed by a specific differential equation.
 
 :p What is the differential equation governing a pure birth process?
 ??x
 The differential equation for a pure birth process is:
-\[ P'_r(t) = -\lambda_r(t)P_r(t) + \lambda_{r-1}(t)P_{r-1}(t) \]
-where \( \lambda_r(t) \) represents the birth (failure) rate at time \( t \).
+$$P'_r(t) = -\lambda_r(t)P_r(t) + \lambda_{r-1}(t)P_{r-1}(t)$$where $\lambda_r(t)$ represents the birth (failure) rate at time $t$.
 
 :p What are the initial conditions for a pure birth process?
 ??x
 The initial condition for a pure birth process is:
-\[ P'_0(t) = -\lambda_0(t)P_0(t) \]
-
-:p How can the probability of no births be calculated in a given time interval?
+$$P'_0(t) = -\lambda_0(t)P_0(t)$$:p How can the probability of no births be calculated in a given time interval?
 ??x
-The probability of no births in a given time interval \( (t, s) \) given that the system is at state \( r \) by time \( s \) is:
-\[ P(\text{no births } 2T > t - s) = \exp\left(-\int_t^s \lambda_r(\tau)d\tau\right), \quad t \geq s \]
-
-:p What does the integral of \( \lambda_r(t) \) represent?
+The probability of no births in a given time interval $(t, s)$ given that the system is at state $ r $ by time $s$ is:
+$$P(\text{no births } 2T > t - s) = \exp\left(-\int_t^s \lambda_r(\tau)d\tau\right), \quad t \geq s$$:p What does the integral of $\lambda_r(t)$ represent?
 ??x
-The integral of \( \lambda_r(t) \):
-\[ \int_s^t \lambda_r(\tau)d\tau = \mu_t - \mu_s \]
-represents the mean number of births (or failures) between times \( s \) and \( t \).
+The integral of $\lambda_r(t)$:
+$$\int_s^t \lambda_r(\tau)d\tau = \mu_t - \mu_s$$represents the mean number of births (or failures) between times $ s $ and $ t$.
 
 :p What is the mean number of individuals at a given time?
 ??x
-The mean number of individuals in a given time \( t \), denoted as \( M(t) \):
-\[ M(t) = \sum_{r=0}^{\infty} rP_r(t) \]
-can be obtained by summing up the product of each state and its corresponding probability, multiplied by \( r \).
+The mean number of individuals in a given time $t $, denoted as $ M(t)$:
+$$M(t) = \sum_{r=0}^{\infty} rP_r(t)$$can be obtained by summing up the product of each state and its corresponding probability, multiplied by $ r$.
 
 :p How is the failure rate proposed for dynamic projects?
 ??x
 For dynamic projects like those under Agile methodologies, where new code is constantly added to fix failures or meet new requirements, the proposal suggests a failure rate that increases proportionally with the previous number of failures. The formula:
-\[ \lambda_r(t) = \frac{1}{a(1 + br)(1 + at)} \]
-accounts for both the introduction and removal of failures.
+$$\lambda_r(t) = \frac{1}{a(1 + br)(1 + at)}$$accounts for both the introduction and removal of failures.
 
 :p What does this proposed failure rate model resemble?
 ??x
-This proposed failure rate resembles the Musa-Okumoto software reliability growth model when \( b = 0 \). It also shares a similar structure with the Polya contagion process, which is given by:
-\[ \lambda_r(t) = \frac{\rho r + \gamma}{1 + \rho t} \]
-
-:p How does this new proposed failure rate differ from previous models?
+This proposed failure rate resembles the Musa-Okumoto software reliability growth model when $b = 0$. It also shares a similar structure with the Polya contagion process, which is given by:
+$$\lambda_r(t) = \frac{\rho r + \gamma}{1 + \rho t}$$:p How does this new proposed failure rate differ from previous models?
 ??x
 The new proposed failure rate differs in its mean number of failures, as it accounts for both the introduction and removal of failures dynamically. This contrasts with traditional models that might assume a constant or increasing failure rate without considering dynamic project characteristics.
 
@@ -229,20 +219,19 @@ The new proposed failure rate differs in its mean number of failures, as it acco
 
 #### Mean Number of Failures
 
-The mean number of failures \(M(t)\) can be obtained by solving a differential equation derived from (4.8). The solution to this differential equation results in the function given in (4.11).
+The mean number of failures $M(t)$ can be obtained by solving a differential equation derived from (4.8). The solution to this differential equation results in the function given in (4.11).
 
-:p What is the expression for the mean value function \(M(t)\)?
+:p What is the expression for the mean value function $M(t)$?
 ??x
-The mean value function \(M(t)\) is given by:
-
-\[ M(t) = \frac{1}{b}\left(1 + \frac{at}{b}\right)^{-1} / C_16/C17 \]
+The mean value function $M(t)$ is given by:
+$$M(t) = \frac{1}{b}\left(1 + \frac{at}{b}\right)^{-1} / C_16/C17$$
 
 Where:
-- \(a\) and \(b\) are parameters.
-- \(t\) represents time.
-- \(C_{16}/C17\) is a constant factor.
+- $a $ and$b$ are parameters.
+- $t$ represents time.
+- $C_{16}/C17$ is a constant factor.
 
-This expression allows for modeling increasing failure rates as well as reliability growth depending on the value of \(b\).
+This expression allows for modeling increasing failure rates as well as reliability growth depending on the value of $b$.
 
 x??
 
@@ -253,39 +242,37 @@ x??
 
 Background context: The text describes how to calculate the Mean Time Between Failures (MTBF) under certain conditions using a specific model. It also explains the asymptotic behavior of this MTBF as the number of failures increases.
 
-:p What is the formula for calculating the conditional MTBF \( \text{MTBF}_{r,s} \) given \( r \) failures were detected by time \( s \)?
+:p What is the formula for calculating the conditional MTBF $\text{MTBF}_{r,s}$ given $ r $ failures were detected by time $s$?
 
 ??x
 The formula provided in the text is:
-\[ \text{MTBF}_{r,s} = \frac{1}{a + a^s b^r}, \quad r = 1, 2, 3, ... \]
+$$\text{MTBF}_{r,s} = \frac{1}{a + a^s b^r}, \quad r = 1, 2, 3, ...$$
 
-Here, \( a \) and \( b \) are parameters that depend on the specific model. The formula takes into account two factors: a reliability growth factor depending on time and another factor inversely proportional to the number of failures.
+Here,$a $ and$b$ are parameters that depend on the specific model. The formula takes into account two factors: a reliability growth factor depending on time and another factor inversely proportional to the number of failures.
 
-As \( s \) (the time) increases, the term \( a^s \) will dominate for large values of \( s \), leading to an asymptotic behavior:
-\[ \text{MTBF}_{r,s} \approx \frac{1}{a a^s b^{-r}} = \frac{1}{a^{1+s} b^{-r}}. \]
+As $s $(the time) increases, the term $ a^s $ will dominate for large values of $ s$, leading to an asymptotic behavior:
+$$\text{MTBF}_{r,s} \approx \frac{1}{a a^s b^{-r}} = \frac{1}{a^{1+s} b^{-r}}.$$
 
-For large \( s \):
-\[ \text{MTBF}_{r,s} \propto \frac{1}{a^s}. \]
+For large $s$:
+$$\text{MTBF}_{r,s} \propto \frac{1}{a^s}.$$
 
-If \( b > 1 \), the MTBF decreases as more failures are detected, indicating a trend towards lower reliability over time.
+If $b > 1$, the MTBF decreases as more failures are detected, indicating a trend towards lower reliability over time.
 
 x??
 
 ---
 
 
-#### Asymptotic Behavior for Large Values of \( s \)
-
-:p What is the asymptotic behavior of the conditional MTBF as \( s \) (time) increases?
+#### Asymptotic Behavior for Large Values of $s $:p What is the asymptotic behavior of the conditional MTBF as$ s$ (time) increases?
 
 ??x
-The text states that the asymptotic behavior of the conditional MTBF for large values of \( s \) can be approximated by:
-\[ \text{MTBF}_{r,s} \approx \frac{1}{a a^s b^{-r}} = \frac{1}{a^{1+s} b^{-r}}. \]
+The text states that the asymptotic behavior of the conditional MTBF for large values of $s$ can be approximated by:
+$$\text{MTBF}_{r,s} \approx \frac{1}{a a^s b^{-r}} = \frac{1}{a^{1+s} b^{-r}}.$$
 
-For simplicity, if we consider the dominant term for large \( s \), it simplifies to:
-\[ \text{MTBF}_{r,s} \propto \frac{1}{a^s}. \]
+For simplicity, if we consider the dominant term for large $s$, it simplifies to:
+$$\text{MTBF}_{r,s} \propto \frac{1}{a^s}.$$
 
-This implies that as \( s \) increases, the MTBF decreases exponentially with respect to \( a \).
+This implies that as $s $ increases, the MTBF decreases exponentially with respect to$a$.
 
 x??
 
@@ -298,15 +285,15 @@ x??
 
 ??x
 The conditional MTBF formula:
-\[ \text{MTBF}_{r,s} = \frac{1}{a + a^s b^r}, \quad r = 1, 2, 3, ... \]
+$$\text{MTBF}_{r,s} = \frac{1}{a + a^s b^r}, \quad r = 1, 2, 3, ...$$
 
 incorporates two key factors:
 
-1. **Reliability Growth Factor Dependent on Time (\( a^s \))**: This term accounts for the improvement in reliability over time as more development/testing phases progress.
+1. **Reliability Growth Factor Dependent on Time ($a^s$)**: This term accounts for the improvement in reliability over time as more development/testing phases progress.
 
-2. **Inverse Proportionality to Number of Failures (\( b^r \))**: This factor reflects the decrease in MTBF due to an increasing number of detected failures, indicating lower reliability.
+2. **Inverse Proportionality to Number of Failures ($b^r$)**: This factor reflects the decrease in MTBF due to an increasing number of detected failures, indicating lower reliability.
 
-The combined effect is that the MTBF decreases with both \( s \) (time) and increases with \( r \) (number of failures).
+The combined effect is that the MTBF decreases with both $s $(time) and increases with $ r$ (number of failures).
 
 x??
 
@@ -335,13 +322,12 @@ x??
 :p How is the Mean Time Between Failures (MTBF) calculated for NHPP using the standard formulation?
 
 ??x
-For a non-homogeneous Poisson process (NHPP), the mean time between failures \( \text{MTBF} \) can be calculated from the density function of the time to failure. Specifically:
+For a non-homogeneous Poisson process (NHPP), the mean time between failures $\text{MTBF}$ can be calculated from the density function of the time to failure. Specifically:
 
-\[ E[T_k] = \int_0^{+\infty} z \lambda(z) \mu(z)^{k-1} e^{-\mu(z)} dz - \int_a^0 z (k-1) \mu(z)^{k-2} e^{-\mu(z)} dz, \]
-where \( T_k \) is the time until the \( k \)-th failure.
+$$E[T_k] = \int_0^{+\infty} z \lambda(z) \mu(z)^{k-1} e^{-\mu(z)} dz - \int_a^0 z (k-1) \mu(z)^{k-2} e^{-\mu(z)} dz,$$where $ T_k $ is the time until the $ k$-th failure.
 
-To obtain the MTBF for the \( k \)-th failure:
-\[ E[X_k] = E[T_k] - E[T_{k-1}], \quad k = 1, 2, 3, ... \]
+To obtain the MTBF for the $k$-th failure:
+$$E[X_k] = E[T_k] - E[T_{k-1}], \quad k = 1, 2, 3, ...$$
 
 This calculation involves integrating over the density function and subtracting cumulative effects to find the expected time between consecutive failures.
 
@@ -363,8 +349,7 @@ For the experiments involving three well-known models based on non-homogeneous P
 These methods were applied to estimate the model parameters for each NHPP model: Goel-Okumoto, Yamada Delayed S-shaped, and logistic models. However, due to the lack of a closed formula for the failure time pdf, maximum likelihood estimation could not be performed on the contagion model, nor could exact MTBFs be calculated.
 
 The conditional MTBF and Mean Time To Failure (MTTF) were computed using Equation 4.16:
-\[ \text{MTBF}_s = \frac{1}{a + a^s b^{M(s)}}, \]
-where \( M(s) \) is the mean number of failures at time \( s \).
+$$\text{MTBF}_s = \frac{1}{a + a^s b^{M(s)}},$$where $ M(s)$is the mean number of failures at time $ s$.
 
 x??
 
@@ -405,7 +390,7 @@ Background context: The models' failure rate curves were compared to understand 
 
 :p What does the MTBF curve for the logistic model show?
 ??x
-The logistic model predicts a decrease in Mean Time Between Failures (MTBF) as the number of tests \( n \) increases, leading to the lowest MTBF value among all models when \( n = 26 \). This indicates that the logistic model may not accurately predict reliability growth.
+The logistic model predicts a decrease in Mean Time Between Failures (MTBF) as the number of tests $n $ increases, leading to the lowest MTBF value among all models when$n = 26$. This indicates that the logistic model may not accurately predict reliability growth.
 x??
 
 ---
@@ -765,10 +750,7 @@ Background context: This concept explains how the maintenance effort of an Open 
 :p What is the differential equation representing the OSS maintenance effort over time?
 ??x
 The differential equation given in the text represents the gradual increase in maintenance effort due to ongoing operations of the OSS:
-\[
-\frac{dZ_t}{dt} = \beta_t (\alpha - Z_t) f(g)
-\]
-where \( \beta_t \) is the effort expenditure rate at time \( t \), and \( \alpha \) represents the estimated maintenance effort during a specified version period. The function \( f(g) \) is not explicitly defined but seems to be some form of factor or multiplier.
+$$\frac{dZ_t}{dt} = \beta_t (\alpha - Z_t) f(g)$$where $\beta_t $ is the effort expenditure rate at time$t $, and$\alpha $ represents the estimated maintenance effort during a specified version period. The function$f(g)$ is not explicitly defined but seems to be some form of factor or multiplier.
 
 x??
 ```plaintext
@@ -784,10 +766,7 @@ Background context: To account for irregular continuous fluctuations in the main
 :p What is the SDE derived from the classical software reliability model?
 ??x
 The SDE considering Brownian motion is given by:
-\[
-\frac{dZ_t}{dt} = \beta_t + \sigma \nu_t (\alpha - Z_t) f(g)
-\]
-where \( \sigma \) is a positive value representing the level of irregular continuous fluctuation, and \( \nu_t \) is standardized Gaussian white noise due to development environment factors.
+$$\frac{dZ_t}{dt} = \beta_t + \sigma \nu_t (\alpha - Z_t) f(g)$$where $\sigma $ is a positive value representing the level of irregular continuous fluctuation, and$\nu_t$ is standardized Gaussian white noise due to development environment factors.
 
 x??
 ```plaintext
@@ -798,19 +777,14 @@ This SDE models how the maintenance effort varies over time with both determinis
 
 
 #### NHPP for OSS Effort Expenditure Function
-Background context: The model assumes that \( \beta_t \), the mean value function, is derived from non-homogeneous Poisson process (NHPP) models. This provides a way to predict and understand the maintenance effort expenditure over time.
+Background context: The model assumes that $\beta_t$, the mean value function, is derived from non-homogeneous Poisson process (NHPP) models. This provides a way to predict and understand the maintenance effort expenditure over time.
 
 :p What are the equations representing the NHPP for OSS effort expenditure?
 ??x
 The equations representing the NHPP for OSS effort expenditure are:
-\[
-\dot{R}^*t = \alpha - R^*t
-\]
-and
-\[
-R^*(t) = 1 - e^{-bt}
-\]
-where \( a = \alpha \) is the expected cumulative number of latent faults, and \( b = \beta \) is the detection rate per fault.
+$$\dot{R}^*t = \alpha - R^*t$$and$$
+
+R^*(t) = 1 - e^{-bt}$$where $ a = \alpha $ is the expected cumulative number of latent faults, and $ b = \beta$ is the detection rate per fault.
 
 x??
 ```plaintext
@@ -2155,7 +2129,7 @@ x??
 
 Background context: The difference operation (A - B) is used to find elements present in set A but not in set B. This operation faces limitations similar to those of intersection and Cartesian product, requiring finite sets when dealing with unbounded data streams.
 
-Relevant formulas or explanations: Given the expression \( A - B \), the result will contain all elements belonging to the set "A" that are not present in the set "B".
+Relevant formulas or explanations: Given the expression $A - B$, the result will contain all elements belonging to the set "A" that are not present in the set "B".
 
 :p What is the difference operation used for?
 ??x

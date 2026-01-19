@@ -81,7 +81,7 @@ Background context: Quadratic probing is a method used in hash tables to resolve
 
 :p What is quadratic probing?
 ??x
-Quadratic probing is a collision resolution technique where the probe sequence is determined by adding successive values of a quadratic polynomial, typically \(i^2\), to the hash value.
+Quadratic probing is a collision resolution technique where the probe sequence is determined by adding successive values of a quadratic polynomial, typically $i^2$, to the hash value.
 ??x
 
 ---

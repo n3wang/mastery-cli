@@ -42,7 +42,7 @@ Background context: The provided code snippet demonstrates how to parse an Apach
 The regular expression plays a crucial role in extracting specific fields from Apache logfile entries. It helps in breaking down the log entry into meaningful components like IP address, user name, date/time, request, response code, bytes sent, referer URL, and user-agent string.
 
 ```java
-final static String logEntryPattern = "^([\\d.]+) (\\S+) (\\S+) \\[([\\w:/]+\\s[+-]\\d{4})\\] \"(.+?)\" (\\d{3}) (\\d+) \"([^\\"]+)\" \"([^\\"]+)\"";
+final static String logEntryPattern = "^([\\d.]+) (\\S+) (\\S+) \$$([\\w:/]+\\s[+-]\\d{4})\$$ \"(.+?)\" (\\d{3}) (\\d+) \"([^\\"]+)\" \"([^\\"]+)\"";
 ```
 x??
 
@@ -90,7 +90,7 @@ A regular expression is a sequence of characters that defines a search pattern w
 
 ```java
 // Example regex for matching HTTP request logs
-String patternStr = "^\\d+\\.\\d+\\.\\d+\\.\\d+ - - \\[\\w+/\\d{2}/\\d{4}:\\d{2}:\\d{2}:\\d{2} [+-]\\d{4}\\] \"GET /\\S+ HTTP/1.0\" \\d{3} \\d+";
+String patternStr = "^\\d+\\.\\d+\\.\\d+\\.\\d+ - - \$$\\w+/\\d{2}/\\d{4}:\\d{2}:\\d{2}:\\d{2} [+-]\\d{4}\$$ \"GET /\\S+ HTTP/1.0\" \\d{3} \\d+";
 Pattern pattern = Pattern.compile(patternStr);
 ```
 x??

@@ -7,7 +7,7 @@
 
 
 #### Expected vs. Sample Updates
-Background context explaining the concept of expected and sample updates. The text discusses different types of value-function updates, focusing on one-step updates that can update state values or action values for optimal policies or arbitrary given policies. These updates are categorized into four classes: \(q^*, v^*, q^\pi\), and \(v^\pi\). The key difference between expected and sample updates lies in their computational requirements and accuracy.
+Background context explaining the concept of expected and sample updates. The text discusses different types of value-function updates, focusing on one-step updates that can update state values or action values for optimal policies or arbitrary given policies. These updates are categorized into four classes: $q^*, v^*, q^\pi $, and $ v^\pi$. The key difference between expected and sample updates lies in their computational requirements and accuracy.
 
 :p What is the primary difference between expected and sample updates?
 ??x
@@ -29,13 +29,14 @@ x??
 
 
 #### Formula for Expected Updates
-The text provides a formula for the expected update in the context of approximate value function \(Q\).
+The text provides a formula for the expected update in the context of approximate value function $Q$.
 
 :p What is the formula for the expected update?
 ??x
-\[ Q(s, a) = \sum_{s', r} p(s', r|s, a) \left[ r + \max_{a'} Q(s', a') \right] \]
+$$Q(s, a) = \sum_{s', r} p(s', r|s, a) \left[ r + \max_{a'} Q(s', a') \right]$$
+
 Where:
-- \(p(s', r|s, a)\) is the probability of transition to state \(s'\) with reward \(r\) given state \(s\) and action \(a\).
+- $p(s', r|s, a)$ is the probability of transition to state $s'$ with reward $r$ given state $s$ and action $a$.
 - The summation is over all possible next states and rewards.
 x??
 
@@ -47,10 +48,11 @@ The text provides a formula for the sample update, which resembles Q-learning.
 
 :p What is the formula for the sample update?
 ??x
-\[ Q(s, a) = Q(s, a) + \alpha \left[ r + \max_{a'} Q(S', a') - Q(s, a) \right] \]
+$$Q(s, a) = Q(s, a) + \alpha \left[ r + \max_{a'} Q(S', a') - Q(s, a) \right]$$
+
 Where:
-- \(r\) and \(S'\) are sampled from the environment or model.
-- \(\alpha\) is the step-size parameter.
+- $r $ and$S'$ are sampled from the environment or model.
+- $\alpha$ is the step-size parameter.
 x??
 
 ---
@@ -83,7 +85,7 @@ The text mentions Dyna-Q agents and prioritized sweeping as examples where expec
 
 :p What is an example of a planning method that uses expected updates?
 ??x
-Dyna-Q agents use \(q^*\) sample updates but could also use \(q^*\) expected updates. These methods are effective in environments with known dynamics.
+Dyna-Q agents use $q^*$ sample updates but could also use $q^*$ expected updates. These methods are effective in environments with known dynamics.
 x??
 
 ---
@@ -116,17 +118,17 @@ x??
 #### Comparison of Expected and Sample Updates
 
 **Background Context:**
-In this section, the comparison between expected updates and sample updates is discussed. The analysis assumes a branching factor \( b \) where all successor states are equally likely to occur. Initially, there's an error in the value estimate, which is 1. Upon completion of expected updates, the error reduces to zero. For sample updates, the reduction in error follows the formula:
-\[ q_b^{t} = \frac{b}{bt + b - 1} \]
-where \( t \) represents the number of sample updates.
+In this section, the comparison between expected updates and sample updates is discussed. The analysis assumes a branching factor $b$ where all successor states are equally likely to occur. Initially, there's an error in the value estimate, which is 1. Upon completion of expected updates, the error reduces to zero. For sample updates, the reduction in error follows the formula:
+$$q_b^{t} = \frac{b}{bt + b - 1}$$where $ t$ represents the number of sample updates.
 
-Key observations are made for moderately large \( b \), where a small fraction of \( b \) updates can significantly reduce the error to within a few percent of the effect of an expected update. This suggests that sample updates could be more efficient in problems with high stochastic branching factors and too many states to solve exactly.
+Key observations are made for moderately large $b $, where a small fraction of $ b$ updates can significantly reduce the error to within a few percent of the effect of an expected update. This suggests that sample updates could be more efficient in problems with high stochastic branching factors and too many states to solve exactly.
 
 :p How do expected and sample updates differ in their approach to reducing errors?
 ??x
 Expected updates provide a direct reduction to zero error upon completion, while sample updates reduce the error according to:
-\[ q_b^{t} = \frac{b}{bt + b - 1} \]
-This means that for large \( b \), even a small number of samples can bring the estimate close to the true value.
+$$q_b^{t} = \frac{b}{bt + b - 1}$$
+
+This means that for large $b$, even a small number of samples can bring the estimate close to the true value.
 x??
 
 ---
@@ -152,7 +154,7 @@ x??
 **Background Context:**
 The concept of using the on-policy distribution for updates is explored, particularly in the context of function approximation and episodic tasks. It is argued that focusing on the on-policy distribution can significantly improve planning efficiency by ignoring vast, uninteresting parts of the state space.
 
-Experiments were conducted to compare uniform updates with on-policy focused updates in one-step expected tabular updates. Tasks were randomly generated with various branching factors \( b \).
+Experiments were conducted to compare uniform updates with on-policy focused updates in one-step expected tabular updates. Tasks were randomly generated with various branching factors $b$.
 
 :p What are the potential benefits and drawbacks of using an on-policy distribution for updates?
 ??x
@@ -165,7 +167,7 @@ x??
 #### Empirical Evaluation of On-Policy vs Uniform Updates
 
 **Background Context:**
-The performance of on-policy and uniform updates was evaluated through an empirical experiment using undiscounted episodic tasks. The tasks were generated randomly with various branching factors \( b \). Each state-action pair had a 0.1 probability of transitioning to the terminal state, and transitions also included expected rewards from a Gaussian distribution.
+The performance of on-policy and uniform updates was evaluated through an empirical experiment using undiscounted episodic tasks. The tasks were generated randomly with various branching factors $b$. Each state-action pair had a 0.1 probability of transitioning to the terminal state, and transitions also included expected rewards from a Gaussian distribution.
 
 Experiments showed that on-policy sampling led to faster initial planning but slower long-term planning compared to uniform updates. The effect was more pronounced at smaller branching factors with larger state spaces.
 
@@ -399,11 +401,11 @@ x??
 
 
 #### Convergence Criteria
-For conventional DP, convergence was judged when the maximum change in a state value over a sweep was below \(10^{-4}\). For RTDP, it was based on the stabilization of the average time taken to cross the finish line across 20 episodes.
+For conventional DP, convergence was judged when the maximum change in a state value over a sweep was below $10^{-4}$. For RTDP, it was based on the stabilization of the average time taken to cross the finish line across 20 episodes.
 
 :p What criteria were used for determining convergence in each method?
 ??x
-For conventional DP, convergence was determined when the maximum change in any state value during a sweep was less than \(10^{-4}\). In RTDP, convergence occurred when the average time taken to cross the finish line stabilized over 20 episodes.
+For conventional DP, convergence was determined when the maximum change in any state value during a sweep was less than $10^{-4}$. In RTDP, convergence occurred when the average time taken to cross the finish line stabilized over 20 episodes.
 
 The criteria ensured that both methods converged to an optimal solution but used different measures of stability and efficiency.
 x??

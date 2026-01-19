@@ -305,7 +305,7 @@ For instance:
 public class UserConnectionExample {
     public void addUserConnection(String user1, String user2) {
         // Using Cypher to create a relationship between two users
-        String cypherQuery = "CREATE (u1:User {name: $user1})-[:FOLLOWS]->(u2:User {name: $user2})";
+        String cypherQuery = "CREATE (u1:User {name: $user1})-[:FOLLOWS]->(u2:User {name:$ user2})";
         // Execute the query
     }
 }

@@ -11,7 +11,7 @@
 Background context: Understanding how to calculate the theoretical peak memory bandwidth is crucial for assessing GPU performance. The formula involves the memory clock rate (in GHz), the width of memory transactions in bits, and a transaction multiplier.
 
 Formula:
-\[ \text{Theoretical Bandwidth} = \text{Memory Clock Rate (GHz)} \times \text{Memory Bus (bits)} \times \left(\frac{\text{1 byte}}{8 \text{ bits}}\right) \times \text{transaction multiplier} \]
+$$\text{Theoretical Bandwidth} = \text{Memory Clock Rate (GHz)} \times \text{Memory Bus (bits)} \times \left(\frac{\text{1 byte}}{8 \text{ bits}}\right) \times \text{transaction multiplier}$$
 
 :p How do you calculate the theoretical peak memory bandwidth for a GPU?
 ??x

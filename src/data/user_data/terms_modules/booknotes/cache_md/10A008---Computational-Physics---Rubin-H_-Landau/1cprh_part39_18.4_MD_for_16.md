@@ -103,7 +103,7 @@ x??
 
 #### Heat Capacity Calculation
 
-Background context: This involves computing and plotting the heat capacity at a constant volume, \( C_V = \frac{\partial E}{\partial T} \), as a function of temperature for 16 particles in a box.
+Background context: This involves computing and plotting the heat capacity at a constant volume, $C_V = \frac{\partial E}{\partial T}$, as a function of temperature for 16 particles in a box.
 
 :p How would you compute the heat capacity at a constant volume?
 
@@ -185,7 +185,7 @@ Setting the initial conditions is crucial as it initializes the state of the sys
 ??x
 Initial positions and velocities are setup as follows:
 - Positions: Initially, atoms are placed linearly along a line segment.
-- Velocities: Each atom is assigned a random velocity which is scaled by \(\sqrt{T}\) where \(T\) is the initial temperature.
+- Velocities: Each atom is assigned a random velocity which is scaled by $\sqrt{T}$ where $T$ is the initial temperature.
 
 This ensures that the distribution of velocities approximates a Maxwell-Boltzmann distribution at the given temperature.
 
@@ -218,11 +218,11 @@ The force calculation is a critical component of the simulation as it determines
 ??x
 Forces between atoms are calculated using a Lennard-Jones potential, which is commonly used to model interatomic interactions. The provided code has an incomplete implementation but follows these steps:
 1. Iterate over all pairs of atoms.
-2. Calculate the distance squared (\(r^2\)).
+2. Calculate the distance squared ($r^2$).
 3. Check if the distance is within the cutoff radius.
 4. Compute the force using the Lennard-Jones potential function.
 
-The energy due to interactions between atoms is also calculated and accumulated in \(PE\) (potential energy).
+The energy due to interactions between atoms is also calculated and accumulated in $PE$(potential energy).
 
 C/Java pseudocode:
 ```python
@@ -284,7 +284,7 @@ Energy is a critical quantity to monitor during the simulation as it provides in
 :p How are kinetic and potential energies calculated in the provided code?
 ??x
 Kinetic and potential energies are calculated as follows:
-- Kinetic energy: Sum of \(\frac{1}{2} m v^2\) for each particle.
+- Kinetic energy: Sum of $\frac{1}{2} m v^2$ for each particle.
 - Potential energy: Sum of interaction energies between pairs of particles within a cutoff radius.
 
 The kinetic energy is used to compute the temperature, while the potential energy is directly plotted over time.
@@ -342,12 +342,11 @@ if(r2 < r2cut):
 :p What is the logic for force calculation in this molecular dynamics simulation?
 ??x
 The force between two atoms `i` and `j` is calculated based on their distance. If the distance squared (`r2`) is less than a cutoff value (`r2cut`), the interaction energy `wij` is computed using the Lennard-Jones potential formula:
-\[ wij = 48 \cdot (invr^3 - 0.5) \cdot invr^3 \]
-where \( invr = \frac{1}{\sqrt{r2}} \).
+$$wij = 48 \cdot (invr^3 - 0.5) \cdot invr^3$$where $ invr = \frac{1}{\sqrt{r2}}$.
 
 The force components in the x and y directions are then calculated as:
-\[ fijx = wij \cdot invr \cdot dx \]
-\[ fijy = wij \cdot invr \cdot dy \]
+$$fijx = wij \cdot invr \cdot dx$$
+$$fijy = wij \cdot invr \cdot dy$$
 
 This ensures that the forces accurately reflect the attractive and repulsive interactions between atoms.
 x??
@@ -398,8 +397,8 @@ if y[i] >= L:
 :p How is the position updated in this molecular dynamics simulation?
 ??x
 The position of each atom is updated using a simple Euler integration method. At each time step, the new position is calculated as:
-\[ x'[i] = x[i] + h \cdot (vx[i] + 0.5 \cdot fx[i][t1]) \]
-\[ y'[i] = y[i] + h \cdot (vy[i] + 0.5 \cdot fy[i][t1]) \]
+$$x'[i] = x[i] + h \cdot (vx[i] + 0.5 \cdot fx[i][t1])$$
+$$y'[i] = y[i] + h \cdot (vy[i] + 0.5 \cdot fy[i][t1])$$
 
 Here, `h` is the time step size, and `fx[i][t1]`, `fy[i][t1]` are the forces at the previous half time step.
 
@@ -421,8 +420,8 @@ w = Forces(t2, w, PE, 2)
 :p How are forces updated in this molecular dynamics simulation?
 ??x
 Forces are updated by averaging the force contributions from two time steps. This is done to ensure numerical stability and accuracy:
-\[ vx[i] = vx[i] + 0.5 \cdot (fx[i][t1] + fx[i][t2]) \]
-\[ vy[i] = vy[i] + 0.5 \cdot (fy[i][t1] + fy[i][t2]) \]
+$$vx[i] = vx[i] + 0.5 \cdot (fx[i][t1] + fx[i][t2])$$
+$$vy[i] = vy[i] + 0.5 \cdot (fy[i][t1] + fy[i][t2])$$
 
 After updating the velocities, the potential energy is recalculated using the `Forces` function with a different parameter setting (`PEorW == 2`), which updates only the forces and returns the weight value.
 x??
@@ -445,16 +444,20 @@ Tavg = ePavg / Natom
 :p How are energy averages computed in this molecular dynamics simulation?
 ??x
 Energy averages are computed by incrementally updating the total kinetic and potential energies at each time step. The average values are calculated as follows:
-\[ \text{avKE} = \text{avKE} + KE \]
-\[ \text{avPE} = \text{avPE} + PE \]
+$$\text{avKE} = \text{avKE} + KE$$
+$$\text{avPE} = \text{avPE} + PE$$
 
 After completing a full cycle, the averages are computed by dividing the total energies by the number of time steps (`t`):
-\[ Pavg = \frac{\text{avP}}{t} \]
-\[ eKavg = \frac{\text{avKE}}{t} \]
-\[ ePavg = \frac{\text{avPE}}{t} \]
+$$
+
+Pavg = \frac{\text{avP}}{t}$$
+$$eKavg = \frac{\text{avKE}}{t}$$
+$$ePavg = \frac{\text{avPE}}{t}$$
 
 The temperature is then calculated as the average potential energy per atom:
-\[ Tavg = \frac{ePavg}{Natom} \]
+$$
+
+Tavg = \frac{ePavg}{Natom}$$
 
 This process ensures that the simulation reaches a statistically stable state.
 x??
@@ -556,9 +559,7 @@ for t in range(0, 1000):
 This loop updates positions and velocities for each atom over time using the Velocity Verlet method, which is a numerical integration scheme to solve Newton's equations of motion.
 
 The `forces` function is called twice within one step of the loop to ensure consistency in force calculations, reflecting the update rule:
-\[ v(t + h) = v(t) + 0.5h(f(t) + f(t + h)) \]
-and
-\[ x(t + h) = x(t) + hv(t + h/2) + 0.5hf(t + h/2) \]
+$$v(t + h) = v(t) + 0.5h(f(t) + f(t + h))$$and$$x(t + h) = x(t) + hv(t + h/2) + 0.5hf(t + h/2)$$
 
 This approach ensures accurate trajectory updates while handling periodic boundary conditions.
 ??x
@@ -573,17 +574,12 @@ General context: The geodesic equation is a fundamental concept in General Relat
 
 :p What does the geodesic equation describe in terms of acceleration and force?
 ??x
-The geodesic equation describes the acceleration (\( \frac{d^2 x^\mu}{ds^2} \)) of a test particle moving through spacetime. It can be analogized to Newton’s second law, \( F = ma \), but instead of force, it incorporates the geometry of spacetime as described by Christoffel symbols (Γ). The equation is given by:
+The geodesic equation describes the acceleration ($\frac{d^2 x^\mu}{ds^2}$) of a test particle moving through spacetime. It can be analogized to Newton’s second law,$ F = ma$, but instead of force, it incorporates the geometry of spacetime as described by Christoffel symbols (Γ). The equation is given by:
 
-\[
-\frac{d^2 x^\mu}{ds^2} + \Gamma^\mu_{\alpha \beta} \frac{dx^\alpha}{ds}\frac{dx^\beta}{ds} = 0
-\]
+$$\frac{d^2 x^\mu}{ds^2} + \Gamma^\mu_{\alpha \beta} \frac{dx^\alpha}{ds}\frac{dx^\beta}{ds} = 0$$
 
 For non-relativistic motion, the terms quadratic and cubic in velocity can be neglected, leading to a simpler form:
-
-\[
-\frac{d^2 x_i}{dt^2} \approx - \Gamma^i_{00}
-\]
+$$\frac{d^2 x_i}{dt^2} \approx - \Gamma^i_{00}$$
 
 This simplified form is similar to Galileo's hypothesis that all particles have the same acceleration in a uniform gravitational field.
 
@@ -599,38 +595,26 @@ Background context: The Riemann tensor quantifies the curvature of spacetime, wh
 :p How can we calculate the Riemann tensor using geodesics?
 ??x
 To find the Riemann tensor, consider two infinitesimally close geodesics and their relative acceleration. The relative acceleration is given by:
-
-\[
-\frac{d^2 n^\alpha}{d \tau^2} = 0
-\]
+$$\frac{d^2 n^\alpha}{d \tau^2} = 0$$
 
 This derivative acts on the basis vectors, requiring knowledge of the Christoffel symbols (Γ). By substituting into the expression for the Riemann tensor, we get:
+$$
 
-\[
-R^\alpha_{\mu\nu\beta} = \frac{\partial \Gamma^\alpha_{\nu\beta}}{\partial x^\mu} - \frac{\partial \Gamma^\alpha_{\mu\beta}}{\partial x^\nu} + \Gamma^\alpha_{\gamma\beta}\Gamma^\gamma_{\mu\nu} - \Gamma^\alpha_{\gamma\beta}\Gamma^\gamma_{\mu\nu}
-\]
+R^\alpha_{\mu\nu\beta} = \frac{\partial \Gamma^\alpha_{\nu\beta}}{\partial x^\mu} - \frac{\partial \Gamma^\alpha_{\mu\beta}}{\partial x^\nu} + \Gamma^\alpha_{\gamma\beta}\Gamma^\gamma_{\mu\nu} - \Gamma^\alpha_{\gamma\beta}\Gamma^\gamma_{\mu\nu}$$
 
 This can be simplified as:
+$$
 
-\[
-R^\alpha_{\mu\nu\beta} = \frac{\partial \Gamma^\alpha_{\nu\beta}}{\partial x^\mu} - \frac{\partial \Gamma^\alpha_{\mu\beta}}{\partial x^\nu} + \Gamma^\alpha_{\gamma\beta}\Gamma^{\gamma}_{\mu\nu} - \Gamma^\alpha_{\nu\gamma}\Gamma^{\gamma}_{\mu\beta}
-\]
-
-:p How do we extract the Ricci tensor from the Riemann tensor?
+R^\alpha_{\mu\nu\beta} = \frac{\partial \Gamma^\alpha_{\nu\beta}}{\partial x^\mu} - \frac{\partial \Gamma^\alpha_{\mu\beta}}{\partial x^\nu} + \Gamma^\alpha_{\gamma\beta}\Gamma^{\gamma}_{\mu\nu} - \Gamma^\alpha_{\nu\gamma}\Gamma^{\gamma}_{\mu\beta}$$:p How do we extract the Ricci tensor from the Riemann tensor?
 ??x
 The Ricci tensor is obtained by contracting the Riemann tensor:
+$$
 
-\[
-R_{\mu\nu} = R^\alpha_{\mu\alpha\nu}
-\]
+R_{\mu\nu} = R^\alpha_{\mu\alpha\nu}$$
 
-In simpler terms, it sums over one of the upper and lower indices. The Ricci scalar \( R \) can then be found as a contraction of the Ricci tensor with the metric tensor \( g^{\mu\nu} \):
+In simpler terms, it sums over one of the upper and lower indices. The Ricci scalar $R $ can then be found as a contraction of the Ricci tensor with the metric tensor$g^{\mu\nu}$:
 
-\[
-R = g^{\mu\nu} R_{\mu\nu}
-\]
-
-:p What is an example of a Schwarzschild solution and how do we approach calculating tensors for it?
+$$R = g^{\mu\nu} R_{\mu\nu}$$:p What is an example of a Schwarzschild solution and how do we approach calculating tensors for it?
 ??x
 The Schwarzschild metric describes the geometry outside a spherical mass. For this case, we can use SymPy or similar symbolic manipulation tools to calculate Christoffel symbols, Riemann tensor, and Ricci tensor.
 
@@ -669,39 +653,24 @@ def calculate_tensors():
 
 #### Event Horizons
 
-Background context: In the Schwarzschild metric, the event horizon is a boundary in spacetime where distances become singular. This singularity can be understood by analyzing the proper distance \( ds \).
+Background context: In the Schwarzschild metric, the event horizon is a boundary in spacetime where distances become singular. This singularity can be understood by analyzing the proper distance $ds$.
 
 :p What defines an event horizon and how do we find it for a black hole with mass M?
 ??x
-The event horizon of a black hole is defined as the radius \( r_h = 2GM/c^2 \) where distances become singular. This can be found by setting up the Schwarzschild metric:
+The event horizon of a black hole is defined as the radius $r_h = 2GM/c^2$ where distances become singular. This can be found by setting up the Schwarzschild metric:
 
-\[
-ds^2 = -\left(1 - \frac{2GM}{c^2 r}\right) dt^2 + \frac{dr^2}{1 - \frac{2GM}{c^2 r}} + r^2 d\theta^2 + r^2 \sin^2(\theta) d\phi^2
-\]
+$$ds^2 = -\left(1 - \frac{2GM}{c^2 r}\right) dt^2 + \frac{dr^2}{1 - \frac{2GM}{c^2 r}} + r^2 d\theta^2 + r^2 \sin^2(\theta) d\phi^2$$
 
-To find the event horizon, we set \( 1 - \frac{2GM}{c^2 r} = 0 \):
+To find the event horizon, we set $1 - \frac{2GM}{c^2 r} = 0$:
 
-\[
-r_h = \frac{2GM}{c^2}
-\]
-
-:p How do we verify an approximate solution to the deflection angle of light near a massive object?
+$$r_h = \frac{2GM}{c^2}$$:p How do we verify an approximate solution to the deflection angle of light near a massive object?
 ??x
 To verify an approximate solution for the deflection angle, consider the nonlinear ODE:
+$$\left(\frac{du}{d\phi}\right)^2 = 1 - u^2 - \frac{2M}{R} (1 - u^3)$$where $ u = R/r$. The solution can be verified by comparing it to the known approximate formula for the deflection angle:
 
-\[
-\left(\frac{du}{d\phi}\right)^2 = 1 - u^2 - \frac{2M}{R} (1 - u^3)
-\]
-
-where \( u = R/r \). The solution can be verified by comparing it to the known approximate formula for the deflection angle:
-
-\[
-\phi \approx \frac{4GM}{c^2 r}
-\]
-
-:p How do we numerically solve the ODE for light deflection and compare with an analytic approximation?
+$$\phi \approx \frac{4GM}{c^2 r}$$:p How do we numerically solve the ODE for light deflection and compare with an analytic approximation?
 ??x
-To solve the ODE numerically, we can use a simple Euler method or Runge-Kutta methods. Given initial conditions \( u(\phi = 0) \approx 1/R \) and \( \frac{du}{d\phi} \approx 0 \), we can integrate to find \( r(\phi) \).
+To solve the ODE numerically, we can use a simple Euler method or Runge-Kutta methods. Given initial conditions $u(\phi = 0) \approx 1/R $ and$\frac{du}{d\phi} \approx 0 $, we can integrate to find $ r(\phi)$.
 
 Here is a pseudocode example:
 
@@ -739,15 +708,11 @@ Background context: Gravitational lensing is a phenomenon where light from dista
 
 :p How do we model the deflection of light around a massive object like a star?
 ??x
-To model the deflection of light around a star, we use the Schwarzschild metric with appropriate transformations. The geodesic equation for the inverse radial distance \( u = 1/r \) is:
+To model the deflection of light around a star, we use the Schwarzschild metric with appropriate transformations. The geodesic equation for the inverse radial distance $u = 1/r$ is:
 
-\[
-\frac{d^2 u}{d\phi^2} = -3GMu^2 + u
-\]
-
-:p How do we solve this ODE numerically and plot the trajectory of light?
+$$\frac{d^2 u}{d\phi^2} = -3GMu^2 + u$$:p How do we solve this ODE numerically and plot the trajectory of light?
 ??x
-To solve the ODE for the deflection angle, we can use a numerical solver. Given initial conditions \( u(\phi=0) \approx 1/R \) and \( du/d\phi = 0 \), we can integrate to find \( r(\phi) \).
+To solve the ODE for the deflection angle, we can use a numerical solver. Given initial conditions $u(\phi=0) \approx 1/R $ and$du/d\phi = 0 $, we can integrate to find$ r(\phi)$.
 
 Here is an example in Python:
 

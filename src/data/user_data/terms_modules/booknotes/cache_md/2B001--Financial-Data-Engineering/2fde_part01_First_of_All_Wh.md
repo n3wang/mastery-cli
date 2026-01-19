@@ -152,11 +152,11 @@ In this example:
 - `riskFreeRate` represents the rate of return on a risk-free asset.
 - `beta` measures the sensitivity to market movements.
 
-The formula used is \( E(R_i) = R_f + \beta_i (E(R_m) - R_f) \), where:
-- \( E(R_i) \) is the expected return on the investment,
-- \( R_f \) is the risk-free rate of return,
-- \( \beta_i \) is the beta coefficient of the asset, and
-- \( E(R_m) - R_f \) is the market risk premium.
+The formula used is $E(R_i) = R_f + \beta_i (E(R_m) - R_f)$, where:
+- $E(R_i)$ is the expected return on the investment,
+- $R_f$ is the risk-free rate of return,
+- $\beta_i$ is the beta coefficient of the asset, and
+- $E(R_m) - R_f$ is the market risk premium.
 
 This model helps in understanding how prices are set based on perceived risks and expected returns.
 x??

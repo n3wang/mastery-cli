@@ -17,13 +17,11 @@ In WGAN-GP, both the generator and critic aim to optimize their objectives diffe
 - Unlike in standard GANs where a discriminator outputs probabilities close to 1 for real data and 0 for fake data, the critic in WGAN-GP outputs values that represent the estimated Wasserstein distance between distributions.
 
 The loss functions for both are:
-- Critic: Minimize \( \mathbb{E}_{\boldsymbol{x} \sim p_{data}} [f(\boldsymbol{x})] - \mathbb{E}_{\boldsymbol{z} \sim p_z} [f(G(\boldsymbol{z}))] + \lambda \cdot \text{GP}(G, f) \)
-- Generator: Maximize \( -\mathbb{E}_{\boldsymbol{z} \sim p_z} [f(G(\boldsymbol{z}))] \)
+- Critic: Minimize $\mathbb{E}_{\boldsymbol{x} \sim p_{data}} [f(\boldsymbol{x})] - \mathbb{E}_{\boldsymbol{z} \sim p_z} [f(G(\boldsymbol{z}))] + \lambda \cdot \text{GP}(G, f)$- Generator: Maximize $-\mathbb{E}_{\boldsymbol{z} \sim p_z} [f(G(\boldsymbol{z}))]$
 
 Where:
-- \( f \) is the critic's output
-- \( G \) generates fake data from latent variables \( \boldsymbol{z} \)
-- \( \lambda \cdot \text{GP}(G, f) \) is the gradient penalty term.
+- $f$ is the critic's output
+- $G $ generates fake data from latent variables$\boldsymbol{z}$-$\lambda \cdot \text{GP}(G, f)$ is the gradient penalty term.
 
 No specific code examples here as it is more about understanding the logic and formulas.
 x??
@@ -44,7 +42,7 @@ The main difference between a standard GAN and a Conditional GAN (CGAN) lies in 
 For example, if you want to generate faces with specific hair colors, in a CGAN, this attribute is provided as a label during training. This helps ensure that generated images match the specified attributes.
 
 Example architecture:
-- **Generator Input**: Latent vector \( \boldsymbol{z} \) and one-hot encoded label vector.
+- **Generator Input**: Latent vector $\boldsymbol{z}$ and one-hot encoded label vector.
 - **Critic Input**: Image input and corresponding one-hot encoded label.
 
 This enables more controlled generation where we can explicitly specify what kind of image to generate based on provided labels.

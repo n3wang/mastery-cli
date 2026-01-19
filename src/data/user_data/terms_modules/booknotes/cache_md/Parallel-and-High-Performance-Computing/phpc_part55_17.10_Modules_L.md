@@ -31,12 +31,11 @@ x??
 Amdahl’s Law provides a theoretical upper bound on the speedup achievable by parallelization. It is particularly relevant for understanding the limitations of single-processor approaches to achieving large-scale computing capabilities.
 
 The law is expressed as:
-\[ \text{Speedup} = \frac{1}{(1 - p) + \left(\frac{p}{n}\right)} \]
-where \( p \) is the fraction of execution time that can be parallelized and \( n \) is the number of processors used.
+$$\text{Speedup} = \frac{1}{(1 - p) + \left(\frac{p}{n}\right)}$$where $ p $ is the fraction of execution time that can be parallelized and $ n$ is the number of processors used.
 
 :p What does Amdahl's Law describe in terms of parallel computing?
 ??x
-Amdahl's Law describes the theoretical limit on speedup achievable by increasing the degree of parallelism. It states that if a fraction \( p \) of an application can be made parallel, and assuming no overhead for synchronization, the maximum speedup is given by the formula provided. The law also indicates that as \( n \) increases (i.e., more processors are used), the total speedup approaches 1 / (1 - p). 
+Amdahl's Law describes the theoretical limit on speedup achievable by increasing the degree of parallelism. It states that if a fraction $p $ of an application can be made parallel, and assuming no overhead for synchronization, the maximum speedup is given by the formula provided. The law also indicates that as$n$ increases (i.e., more processors are used), the total speedup approaches 1 / (1 - p). 
 ??x
 
 ---
@@ -63,8 +62,7 @@ Flynn’s taxonomy helps in understanding and categorizing different types of co
 Gustafson's Law revises Amdahl’s Law by considering that as the number of processors increases, the amount of code that can be parallelized also increases.
 
 The revised speedup formula is:
-\[ \text{Speedup} = n(1 - p) + p \]
-where \( n \) is the number of processors and \( p \) is the fraction of the program that can be parallelized.
+$$\text{Speedup} = n(1 - p) + p$$where $ n $ is the number of processors and $ p$ is the fraction of the program that can be parallelized.
 
 :p How does Gustafson's Law differ from Amdahl’s Law?
 ??x

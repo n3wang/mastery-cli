@@ -127,7 +127,7 @@ x??
 
 
 #### Updating Based on Elapsed Time
-Background context: To make games CPU-independent, it is essential to measure \(\Delta t\) during each frame. This can be achieved by reading the value of the high-resolution timer at the beginning and end of a frame, then subtracting these values to get an accurate measure of \(\Delta t\). This delta time (\(\Delta t\)) can then be used across various engine subsystems.
+Background context: To make games CPU-independent, it is essential to measure $\Delta t $ during each frame. This can be achieved by reading the value of the high-resolution timer at the beginning and end of a frame, then subtracting these values to get an accurate measure of$\Delta t $. This delta time ($\Delta t$) can then be used across various engine subsystems.
 :p How do you update game objects based on elapsed time?
 ??x
 Updating game objects based on elapsed time involves measuring the time between frames using a high-resolution timer. By doing so, you ensure that object speeds and movements are consistent regardless of the frame rate.
@@ -153,10 +153,10 @@ x??
 
 
 #### Frame-Rate Spike Problem
-Background context: Using \(\Delta t\) from the previous frame to estimate the upcoming frame's duration can lead to inaccuracies. This is because real-world factors might cause a significant deviation in actual frame time, which we call a "frame-rate spike." Such deviations can create a "vicious cycle" of poor frame times.
+Background context: Using $\Delta t$ from the previous frame to estimate the upcoming frame's duration can lead to inaccuracies. This is because real-world factors might cause a significant deviation in actual frame time, which we call a "frame-rate spike." Such deviations can create a "vicious cycle" of poor frame times.
 :p What is a frame-rate spike and how does it affect game performance?
 ??x
-A frame-rate spike occurs when an event causes the current frame to take much more or less time than the previous frame. This deviation from the expected \(\Delta t\) can disrupt the consistency in gameplay, leading to what's known as a "vicious cycle" of poor frame times.
+A frame-rate spike occurs when an event causes the current frame to take much more or less time than the previous frame. This deviation from the expected $\Delta t$ can disrupt the consistency in gameplay, leading to what's known as a "vicious cycle" of poor frame times.
 
 For example:
 ```java
@@ -199,7 +199,7 @@ x??
 
 
 #### Using a Running Average
-Background context: Game loops often maintain some frame-to-frame coherence, meaning that subsequent frames might have similar characteristics to the previous one. Averaging frame-time measurements over multiple frames can help smooth out spikes and provide a more stable estimate for \(\Delta t\).
+Background context: Game loops often maintain some frame-to-frame coherence, meaning that subsequent frames might have similar characteristics to the previous one. Averaging frame-time measurements over multiple frames can help smooth out spikes and provide a more stable estimate for $\Delta t$.
 
 :p How does averaging frame times help in dealing with variable performance?
 ??x
@@ -770,7 +770,7 @@ Background context: The architecture discussed involves dividing a large dataset
 
 :p How does the master thread divide work among worker threads?
 ??x
-The master thread divides the total number of data items \( N \) into \( m \) roughly equal-sized batches, each batch containing approximately \( \frac{N}{m} \) elements. The value of \( m \) is often determined based on the available cores in the system but can be adjusted to leave some cores free for other tasks.
+The master thread divides the total number of data items $N $ into$m $ roughly equal-sized batches, each batch containing approximately$\frac{N}{m}$ elements. The value of $m$ is often determined based on the available cores in the system but can be adjusted to leave some cores free for other tasks.
 ```java
 // Pseudocode example
 int N = totalDataItems; // Total number of data items to process

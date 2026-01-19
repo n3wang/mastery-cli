@@ -7,15 +7,13 @@
 
 
 #### Wave Function Calculation from Scattering Integral Equation
-Background context: The wave function \( u(r) \) can be calculated using the inverse wave matrix \( F^{-1} \). This involves solving an integral equation of the form:
-\[ R = F^{-1} V = (1 - VG)^{-1}V, \]
-where \( V \) is the potential. The coordinate space wave function is given by:
-\[ u(r) = N_0 \sum_{i=1}^{N} \frac{\sin(k_i r)}{k_i r} F(k_i, k_0)^{-1}, \]
-with normalization constant \( N_0 \).
+Background context: The wave function $u(r)$ can be calculated using the inverse wave matrix $F^{-1}$. This involves solving an integral equation of the form:
+$$R = F^{-1} V = (1 - VG)^{-1}V,$$where $ V$ is the potential. The coordinate space wave function is given by:
+$$u(r) = N_0 \sum_{i=1}^{N} \frac{\sin(k_i r)}{k_i r} F(k_i, k_0)^{-1},$$with normalization constant $ N_0$.
 
-:p How does the coordinate space wave function \( u(r) \) relate to the integral equation solution?
+:p How does the coordinate space wave function $u(r)$ relate to the integral equation solution?
 ??x
-The wave function \( u(r) \) is derived from the inverse wave matrix \( F^{-1} \), which is obtained by solving the Lippmann-Schwinger equation. The solution involves summing over all relevant momentum values \( k_i \) and applying a normalization factor.
+The wave function $u(r)$ is derived from the inverse wave matrix $F^{-1}$, which is obtained by solving the Lippmann-Schwinger equation. The solution involves summing over all relevant momentum values $ k_i$ and applying a normalization factor.
 
 ```python
 # Pseudocode for calculating the wave function u(r)
@@ -88,11 +86,11 @@ x??
 
 
 #### Hamiltonian Construction in Bound.py and Scatt.py
-Background context: In both `Bound.py` and `Scatt.py`, the Hamiltonian is constructed to solve for bound states or scattering states using the Lippmann-Schwinger equation. The Hamiltonian \( H \) is set up based on the potential \( V \).
+Background context: In both `Bound.py` and `Scatt.py`, the Hamiltonian is constructed to solve for bound states or scattering states using the Lippmann-Schwinger equation. The Hamiltonian $H $ is set up based on the potential$V$.
 
-:p How does the Hamiltonian matrix \( A \) get constructed in both scripts?
+:p How does the Hamiltonian matrix $A$ get constructed in both scripts?
 ??x
-The Hamiltonian matrix \( A \) is constructed by evaluating the potential energy terms and summing them with appropriate weights. This involves setting up a symmetric matrix where each element represents an interaction between different momentum states.
+The Hamiltonian matrix $A$ is constructed by evaluating the potential energy terms and summing them with appropriate weights. This involves setting up a symmetric matrix where each element represents an interaction between different momentum states.
 
 ```python
 # Pseudocode for constructing the Hamiltonian matrix
@@ -132,15 +130,14 @@ x??
 
 #### Types of Partial Differential Equations (PDEs)
 Background context explaining the concept. The general form for a PDE with two independent variables is given by:
-\[ A\frac{\partial^2 U}{\partial x^2} + 2B\frac{\partial^2 U}{\partial x \partial y} + C\frac{\partial^2 U}{\partial y^2} + D\frac{\partial U}{\partial x} + E\frac{\partial U}{\partial y} = F, \]
-where \( A, B, C, \) and \( F \) are arbitrary functions of the variables \( x \) and \( y \). The discriminant \( d=AC-B^2 \) is used to classify PDEs into different types: elliptic, parabolic, and hyperbolic.
+$$A\frac{\partial^2 U}{\partial x^2} + 2B\frac{\partial^2 U}{\partial x \partial y} + C\frac{\partial^2 U}{\partial y^2} + D\frac{\partial U}{\partial x} + E\frac{\partial U}{\partial y} = F,$$where $ A, B, C,$and $ F$are arbitrary functions of the variables $ x $ and $ y $. The discriminant $ d=AC-B^2$ is used to classify PDEs into different types: elliptic, parabolic, and hyperbolic.
 
 :p What are the three main types of PDEs based on their discriminants?
 ??x
 The classification of PDEs based on their discriminants:
-- **Elliptic**: \( d=AC-B^2>0 \), representing equations like Poisson's equation.
-- **Parabolic**: \( d=AC-B^2=0 \), representing equations like the heat equation.
-- **Hyperbolic**: \( d=AC-B^2<0 \), representing equations like the wave equation.
+- **Elliptic**: $d=AC-B^2>0$, representing equations like Poisson's equation.
+- **Parabolic**: $d=AC-B^2=0$, representing equations like the heat equation.
+- **Hyperbolic**: $d=AC-B^2<0$, representing equations like the wave equation.
 
 These classifications are important for understanding the behavior and properties of solutions to these PDEs. For instance, elliptic PDEs often describe steady-state phenomena, parabolic PDEs describe heat diffusion, and hyperbolic PDEs describe wave propagation.
 x??
@@ -170,7 +167,7 @@ Background context explaining the concept. Solving partial differential equation
 :p What are two key differences between solving PDEs and ODEs numerically?
 ??x
 Two key differences between solving PDEs and ODEs numerically:
-1. **Standard Form for ODEs**: All ODEs can be written in a standard form \( \frac{dy(t)}{dt} = f(y,t) \), allowing the use of a single algorithm like Runge-Kutta 4 (rk4). 
+1. **Standard Form for ODEs**: All ODEs can be written in a standard form $\frac{dy(t)}{dt} = f(y,t)$, allowing the use of a single algorithm like Runge-Kutta 4 (rk4). 
 2. **Complexity of PDEs**: Because PDEs have multiple independent variables, applying such a standard algorithm simultaneously to each variable is complex and not straightforward.
 
 This complexity necessitates developing specialized algorithms for different types of PDEs.
@@ -199,10 +196,7 @@ Background context explaining the concept. The finite difference method is a pow
 :p What is the finite difference method used for?
 ??x
 The finite difference method (FDM) is used to solve partial differential equations like Poisson’s and Laplace’s equations by approximating derivatives with finite differences. For example:
-- **Poisson's Equation**: \(\nabla^2 U(x,y,z) = -4\pi \rho(x,y,z)\)
-- **Laplace's Equation**: \(\nabla^2 U(x,y,z) = 0\)
-
-The method involves discretizing the spatial domain and approximating derivatives using finite differences, transforming the PDE into a system of algebraic equations that can be solved numerically.
+- **Poisson's Equation**: $\nabla^2 U(x,y,z) = -4\pi \rho(x,y,z)$- **Laplace's Equation**:$\nabla^2 U(x,y,z) = 0$ The method involves discretizing the spatial domain and approximating derivatives using finite differences, transforming the PDE into a system of algebraic equations that can be solved numerically.
 
 Example pseudocode for FDM:
 ```python
@@ -271,77 +265,74 @@ x??
 
 
 #### Solving Laplace's Equation Using Fourier Series
-Background context: For simple geometries like the square wire problem, solving Laplace's equation can be done using a Fourier series. The solution is sought as a product of functions dependent on \( x \) and \( y \).
+Background context: For simple geometries like the square wire problem, solving Laplace's equation can be done using a Fourier series. The solution is sought as a product of functions dependent on $x $ and$y$.
 :p What is the form of the general solution for Laplace’s equation in 2D rectangular coordinates?
 ??x
 The general solution for Laplace’s equation in 2D rectangular coordinates is given by:
-\[ U(x, y) = X(x)Y(y) \]
-where \( X(x) \) and \( Y(y) \) are functions of \( x \) and \( y \), respectively.
+$$U(x, y) = X(x)Y(y)$$where $ X(x)$and $ Y(y)$are functions of $ x$and $ y$, respectively.
 x??
 
 ---
 
 
 #### Deriving the Ordinary Differential Equations
-Background context: By assuming that the solution is separable into a product of independent functions of \( x \) and \( y \), we can derive ordinary differential equations for each function. This leads to eigenvalue problems.
+Background context: By assuming that the solution is separable into a product of independent functions of $x $ and$y$, we can derive ordinary differential equations for each function. This leads to eigenvalue problems.
 :p How do you obtain the ordinary differential equations from Laplace's equation?
 ??x
-By substituting \( U(x, y) = X(x)Y(y) \) into Laplace’s equation:
-\[ \frac{\partial^2 U}{\partial x^2} + \frac{\partial^2 U}{\partial y^2} = 0 \]
-we get:
-\[ \frac{X''(x)}{X(x)} + \frac{Y''(y)}{Y(y)} = 0. \]
+By substituting $U(x, y) = X(x)Y(y)$ into Laplace’s equation:
+$$\frac{\partial^2 U}{\partial x^2} + \frac{\partial^2 U}{\partial y^2} = 0$$we get:
+$$\frac{X''(x)}{X(x)} + \frac{Y''(y)}{Y(y)} = 0.$$
+
 This can be separated into two ordinary differential equations:
-\[ \frac{X''(x)}{X(x)} = -\frac{Y''(y)}{Y(y)} = k^2, \]
-where \( k \) is a constant.
+$$\frac{X''(x)}{X(x)} = -\frac{Y''(y)}{Y(y)} = k^2,$$where $ k$ is a constant.
 x??
 
 ---
 
 
 #### Solution for X(x)
-Background context: Solving the separated ODEs for \( X(x) \) and \( Y(y) \) gives us different forms of solutions depending on the sign of \( k \). For the boundary condition at \( x = 0 \), we need to ensure that \( U(0, y) = 0 \).
-:p What are the conditions on \( X(x) \) for the boundary condition \( U(0, y) = 0 \)?
+Background context: Solving the separated ODEs for $X(x)$ and $Y(y)$ gives us different forms of solutions depending on the sign of $ k $. For the boundary condition at $ x = 0$, we need to ensure that $ U(0, y) = 0$.
+:p What are the conditions on $X(x)$ for the boundary condition $U(0, y) = 0$?
 ??x
-For the boundary condition \( U(0, y) = 0 \), which implies \( X(0) = 0 \). This means that:
-\[ X(x) = A\sin(kx) + B\cos(kx) \]
-must satisfy \( X(0) = 0 \). Therefore, \( B = 0 \).
+For the boundary condition $U(0, y) = 0 $, which implies $ X(0) = 0$. This means that:
+$$X(x) = A\sin(kx) + B\cos(kx)$$must satisfy $ X(0) = 0 $. Therefore,$ B = 0$.
 x??
 
 ---
 
 
 #### Determining the Eigenvalues
-Background context: The value of \( k \) is determined by the boundary condition at \( x = L \), which gives periodic behavior in \( x \).
-:p What determines the eigenvalue \( k \)?
+Background context: The value of $k $ is determined by the boundary condition at$x = L $, which gives periodic behavior in$ x$.
+:p What determines the eigenvalue $k$?
 ??x
-The eigenvalue \( k \) is determined by the boundary condition:
-\[ X(L) = A\sin(kL) = 0. \]
+The eigenvalue $k$ is determined by the boundary condition:
+$$X(L) = A\sin(kL) = 0.$$
+
 This implies that:
-\[ kL = n\pi, \quad n = 1, 2, ... \]
-Thus, the solutions for \( X(x) \) are of the form:
-\[ X_n(x) = A_n\sin\left(\frac{n\pi x}{L}\right). \]
-x??
+$$kL = n\pi, \quad n = 1, 2, ...$$
+
+Thus, the solutions for $X(x)$ are of the form:
+$$X_n(x) = A_n\sin\left(\frac{n\pi x}{L}\right).$$x??
 
 ---
 
 
 #### Boundary Condition for Electrostatic Potential
 
-Background context: The electrostatic potential \(U(x, y)\) must satisfy certain boundary conditions. Specifically, at the bottom boundary \(y = 0\), the potential is zero, i.e., \(U(x, 0) = 0\). This condition implies that a coefficient in the solution series must be determined to ensure this boundary condition is met.
+Background context: The electrostatic potential $U(x, y)$ must satisfy certain boundary conditions. Specifically, at the bottom boundary $y = 0$, the potential is zero, i.e.,$ U(x, 0) = 0$. This condition implies that a coefficient in the solution series must be determined to ensure this boundary condition is met.
 
-:p What does the boundary condition \(U(x, 0) = 0\) imply for the electrostatic potential?
+:p What does the boundary condition $U(x, 0) = 0$ imply for the electrostatic potential?
 
 ??x
-The boundary condition \(U(x, 0) = 0\) requires that the potential at the bottom boundary of the region is zero. This leads to the requirement that one coefficient in the series solution must be such that it satisfies this condition.
+The boundary condition $U(x, 0) = 0$ requires that the potential at the bottom boundary of the region is zero. This leads to the requirement that one coefficient in the series solution must be such that it satisfies this condition.
 
 To satisfy this, we have:
-\[ Y(y) = C(e^{kny} - e^{-kny}) \equiv 2C\sinh(kny), \]
-where \( kny = n\pi/L \).
+$$Y(y) = C(e^{kny} - e^{-kny}) \equiv 2C\sinh(kny),$$where $ kny = n\pi/L$.
 
-This implies that the potential at the bottom boundary (\( y = 0 \)) should be zero, leading to:
-\[ U(x, 0) = \sum_{n=1}^{\infty} E_n \sin\left(\frac{n\pi x}{L}\right) \sinh(n\pi \cdot 0) = 0. \]
+This implies that the potential at the bottom boundary ($y = 0$) should be zero, leading to:
+$$U(x, 0) = \sum_{n=1}^{\infty} E_n \sin\left(\frac{n\pi x}{L}\right) \sinh(n\pi \cdot 0) = 0.$$
 
-Since \( \sinh(0) = 0 \), this condition is naturally satisfied, but it still implies that the potential function must be adjusted to match the boundary conditions.
+Since $\sinh(0) = 0$, this condition is naturally satisfied, but it still implies that the potential function must be adjusted to match the boundary conditions.
 
 x??
 
@@ -350,16 +341,16 @@ x??
 
 #### General Solution for Laplace’s Equation
 
-Background context: The general solution of Laplace's equation in a two-dimensional rectangular domain can be written as an infinite series. This involves solving for coefficients \(E_n\) by satisfying other boundary conditions, such as the potential at the top boundary \(y = L\).
+Background context: The general solution of Laplace's equation in a two-dimensional rectangular domain can be written as an infinite series. This involves solving for coefficients $E_n $ by satisfying other boundary conditions, such as the potential at the top boundary$y = L$.
 
 :p What is the general form of the solution to Laplace’s equation in this context?
 
 ??x
 The general form of the solution to Laplace's equation in a two-dimensional rectangular domain is given by:
 
-\[ U(x, y) = \sum_{n=1}^{\infty} E_n \sin\left(\frac{n\pi x}{L}\right) \sinh\left(\frac{n\pi y}{L}\right). \]
+$$U(x, y) = \sum_{n=1}^{\infty} E_n \sin\left(\frac{n\pi x}{L}\right) \sinh\left(\frac{n\pi y}{L}\right).$$
 
-Here, \(E_n\) are arbitrary constants that need to be determined by satisfying the boundary conditions.
+Here,$E_n$ are arbitrary constants that need to be determined by satisfying the boundary conditions.
 
 x??
 
@@ -368,35 +359,31 @@ x??
 
 #### Determining Constants Using Fourier Series Projection
 
-Background context: To determine the coefficients \(E_n\) in the series solution of Laplace's equation, we use a projection method. This involves multiplying both sides of the equation by \(\sin\left(\frac{m\pi x}{L}\right)\) and integrating over the domain.
+Background context: To determine the coefficients $E_n $ in the series solution of Laplace's equation, we use a projection method. This involves multiplying both sides of the equation by$\sin\left(\frac{m\pi x}{L}\right)$ and integrating over the domain.
 
-:p How are the constants \(E_n\) determined using Fourier Series Projection?
+:p How are the constants $E_n$ determined using Fourier Series Projection?
 
 ??x
-The constants \(E_n\) can be determined by projecting the given boundary condition onto the basis functions. Specifically, we multiply both sides of the equation:
+The constants $E_n$ can be determined by projecting the given boundary condition onto the basis functions. Specifically, we multiply both sides of the equation:
+$$\sum_{n=1}^{\infty} E_n \sin\left(\frac{n\pi x}{L}\right) \sinh\left(\frac{n\pi y}{L}\right) = 100$$by $\sin\left(\frac{m\pi x}{L}\right)$ and integrate from $0$ to $L$:
 
-\[ \sum_{n=1}^{\infty} E_n \sin\left(\frac{n\pi x}{L}\right) \sinh\left(\frac{n\pi y}{L}\right) = 100 \]
+$$\sum_{n=1}^{\infty} E_n \int_0^L \sin\left(\frac{n\pi x}{L}\right) \sinh\left(\frac{n\pi y}{L}\right) \sin\left(\frac{m\pi x}{L}\right) dx = 100 \int_0^L \sin\left(\frac{m\pi x}{L}\right) dx.$$
 
-by \(\sin\left(\frac{m\pi x}{L}\right)\) and integrate from \(0\) to \(L\):
+The integral on the left is non-zero only when $n = m$, which simplifies to:
 
-\[ \sum_{n=1}^{\infty} E_n \int_0^L \sin\left(\frac{n\pi x}{L}\right) \sinh\left(\frac{n\pi y}{L}\right) \sin\left(\frac{m\pi x}{L}\right) dx = 100 \int_0^L \sin\left(\frac{m\pi x}{L}\right) dx. \]
+$$E_m \int_0^L \sin\left(\frac{n\pi x}{L}\right)^2 dx \sinh(n\pi y/L) = 100 \cdot \frac{L}{2} \delta_{mn}.$$
 
-The integral on the left is non-zero only when \(n = m\), which simplifies to:
+The integral of $\sin^2 $ over one period is$L/2$, leading to:
 
-\[ E_m \int_0^L \sin\left(\frac{n\pi x}{L}\right)^2 dx \sinh(n\pi y/L) = 100 \cdot \frac{L}{2} \delta_{mn}. \]
-
-The integral of \(\sin^2\) over one period is \(L/2\), leading to:
-
-\[ E_m \cdot \frac{L}{2} \sinh(n\pi y/L) = 50. \]
+$$E_m \cdot \frac{L}{2} \sinh(n\pi y/L) = 50.$$
 
 Therefore, the constants are given by:
+$$
 
-\[ E_n = \begin{cases} 
+E_n = \begin{cases} 
 400 \cdot \frac{\sin(n\pi)}{n\pi} \sinh(n\pi), & \text{for odd } n \\
 0, & \text{for even } n
-\end{cases}. \]
-
-x??
+\end{cases}.$$x??
 
 ---
 
@@ -410,11 +397,11 @@ Background context: For numerical solutions, the Laplace's equation can be solve
 ??x
 The second partial derivative can be approximated using central differences as follows:
 
-For the \(x\)-direction:
-\[ \frac{\partial^2 U}{\partial x^2} \bigg|_{(x,y)} \approx \frac{U(x+\Delta x, y) + U(x-\Delta x, y) - 2U(x,y)}{(\Delta x)^2}. \]
+For the $x$-direction:
+$$\frac{\partial^2 U}{\partial x^2} \bigg|_{(x,y)} \approx \frac{U(x+\Delta x, y) + U(x-\Delta x, y) - 2U(x,y)}{(\Delta x)^2}.$$
 
-For the \(y\)-direction:
-\[ \frac{\partial^2 U}{\partial y^2} \bigg|_{(x,y)} \approx \frac{U(x, y+\Delta y) + U(x, y-\Delta y) - 2U(x,y)}{(\Delta y)^2}. \]
+For the $y$-direction:
+$$\frac{\partial^2 U}{\partial y^2} \bigg|_{(x,y)} \approx \frac{U(x, y+\Delta y) + U(x, y-\Delta y) - 2U(x,y)}{(\Delta y)^2}.$$
 
 These approximations are derived from Taylor series expansions of the potential at neighboring grid points.
 
@@ -426,29 +413,19 @@ x??
 
 
 #### Finite-Difference Approximation for Laplace’s Equation
-Background context: The finite-difference method is used to approximate solutions to partial differential equations (PDEs) such as Laplace's and Poisson's equations. For a given point \((i, j)\) on the grid, the potential at that point can be approximated by averaging the potentials of its nearest neighbors.
+Background context: The finite-difference method is used to approximate solutions to partial differential equations (PDEs) such as Laplace's and Poisson's equations. For a given point $(i, j)$ on the grid, the potential at that point can be approximated by averaging the potentials of its nearest neighbors.
 
 Relevant formulas:
-- Poisson’s equation: 
-  \[
-  U(x+\Delta x,y)+U(x-\Delta x,y)-2U(x,y) = -4\pi\rho
-  \]
-  For equal spacing in \(x\) and \(y\) grids, it simplifies to:
-  \[
-  U(x+\Delta y)+U(x-\Delta y)+U(x,y+\Delta y)+U(x,y-\Delta y)-4U(x,y) = -4\pi\rho
-  \]
+- Poisson’s equation:
+$$U(x+\Delta x,y)+U(x-\Delta x,y)-2U(x,y) = -4\pi\rho$$
 
-- Simplified finite-difference equation for Laplace’s equation (where \(\rho = 0\)):
-  \[
-  U(i,j) = \frac{1}{4}\left(U(i+1,j)+U(i-1,j)+U(i,j+1)+U(i,j-1)\right)
-  \]
-
-:p What is the finite-difference approximation for Laplace’s equation at a point \((i, j)\)?
+For equal spacing in $x $ and$y$ grids, it simplifies to:
+$$U(x+\Delta y)+U(x-\Delta y)+U(x,y+\Delta y)+U(x,y-\Delta y)-4U(x,y) = -4\pi\rho$$- Simplified finite-difference equation for Laplace’s equation (where $\rho = 0$):
+  $$U(i,j) = \frac{1}{4}\left(U(i+1,j)+U(i-1,j)+U(i,j+1)+U(i,j-1)\right)$$:p What is the finite-difference approximation for Laplace’s equation at a point $(i, j)$?
 ??x
-The finite-difference approximation for Laplace's equation at a point \((i, j)\) on a grid where \(U(x,y)\) represents the potential and \(\Delta x = \Delta y = \Delta\) is given by:
-\[
-U(i,j) = \frac{1}{4}\left(U(i+1,j)+U(i-1,j)+U(i,j+1)+U(i,j-1)\right)
-\]
+The finite-difference approximation for Laplace's equation at a point $(i, j)$ on a grid where $U(x,y)$ represents the potential and $\Delta x = \Delta y = \Delta$ is given by:
+$$U(i,j) = \frac{1}{4}\left(U(i+1,j)+U(i-1,j)+U(i,j+1)+U(i,j-1)\right)$$
+
 This equation states that the potential at a point is the average of the potentials at its four nearest neighbors.
 
 ```java
@@ -470,7 +447,7 @@ Background context: In the finite-difference method, boundary conditions are fix
 ??x
 The key steps in the relaxation method for solving Laplace's equation are:
 1. **Initialize the grid**: Set initial guesses for the potential at each interior point.
-2. **Iterate over all points**: For each interior point \((i, j)\), update its value using the finite-difference approximation until convergence is achieved.
+2. **Iterate over all points**: For each interior point $(i, j)$, update its value using the finite-difference approximation until convergence is achieved.
 3. **Convergence check**: Repeat step 2 until the potential values stabilize or a certain level of precision is reached.
 
 ```java
@@ -514,10 +491,7 @@ Background context: The relaxation method may converge slowly, but it is still f
 The two clever tricks to accelerate the convergence in the relaxation method are:
 
 1. **Over-relaxation**: This involves updating the potential values with a factor greater than 1 (but less than 2) of the finite-difference approximation.
-   \[
-   U(i,j) = \omega \left( \frac{1}{4}\left(U(i+1,j)+U(i-1,j)+U(i,j+1)+U(i,j-1)\right) - U(i,j) \right) + 2U(i,j)
-   \]
-   where \(0 < \omega < 2\).
+   $$U(i,j) = \omega \left( \frac{1}{4}\left(U(i+1,j)+U(i-1,j)+U(i,j+1)+U(i,j-1)\right) - U(i,j) \right) + 2U(i,j)$$where $0 < \omega < 2$.
 
 2. **Successive over-relaxation (SOR)**: This is a generalization of the over-relaxation method that uses a different relaxation factor for each iteration to achieve faster convergence.
 

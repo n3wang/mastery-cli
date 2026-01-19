@@ -144,7 +144,7 @@ x??
 
 
 #### Watermarks Overview
-Background context explaining watermarks. Watermarks are temporal notions of input completeness in the event-time domain, used to measure progress and completeness relative to the event times of records being processed. They represent a function \( F(P) \rightarrow E \), where \( P \) is processing time and \( E \) is event time.
+Background context explaining watermarks. Watermarks are temporal notions of input completeness in the event-time domain, used to measure progress and completeness relative to the event times of records being processed. They represent a function $F(P) \rightarrow E $, where $ P $ is processing time and $ E$ is event time.
 :p What are watermarks?
 ??x
 Watermarks help track the completeness of input data in terms of event time, allowing for proper handling of late data in stream processing systems. They serve as a function that maps processing time to event time, indicating the latest event time for which all inputs have been observed or will be seen.
@@ -164,7 +164,7 @@ x??
 Explanation of the difference between perfect and heuristic watermarks, including their practical applications.
 :p What types of watermarks exist?
 ??x
-Perfect watermarks provide a strict guarantee that no more data with event times less than \( E \) will be seen again, ideal for scenarios where complete input knowledge is available. Heuristic watermarks use available information to estimate completeness, making them useful when perfect knowledge is impractical or too expensive to calculate.
+Perfect watermarks provide a strict guarantee that no more data with event times less than $E$ will be seen again, ideal for scenarios where complete input knowledge is available. Heuristic watermarks use available information to estimate completeness, making them useful when perfect knowledge is impractical or too expensive to calculate.
 ```java
 // Pseudo-code example:
 class PerfectWatermark {

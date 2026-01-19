@@ -61,7 +61,7 @@ Maven's archetype generation feature allows users to quickly create new projects
 ??x
 Maven can generate a project using the `archetype:generate` command. It provides a list of archetypes, allowing you to choose a template that suits your needs. For example:
 ```shell
-$ mvn archetype:generate \
+$mvn archetype:generate \
     -DarchetypeGroupId=org.apache.maven.archetypes \
     -DarchetypeArtifactId=maven-archetype-quickstart \ 
     -DgroupId=com.example -DartifactId=my-se-project
@@ -238,8 +238,7 @@ Managing security in Jenkins involves several steps:
 3. Use SSL/TLS to secure communication between the server and clients.
 
 For example, setting up a basic authentication can be done via Jenkins's configuration as follows:
-```sh
-$ curl -X POST http://admin:password@jenkins.example.com/jnlpJars/jenkins-cli.jar -u admin:password <<EOF
+```sh$ curl -X POST http://admin:password@jenkins.example.com/jnlpJars/jenkins-cli.jar -u admin:password <<EOF
   authenticate admin password
 EOF
 ```

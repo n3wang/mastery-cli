@@ -12,8 +12,7 @@ Background context: Linear interpolation is used in game programming for smooth 
 :p What is linear interpolation (LERP) and how does it work?
 ??x
 Linear interpolation, often abbreviated as LERP, finds an intermediate point between two known points along a line segment. The operation is defined by the formula:
-\[ \mathbf{L} = \text{LERP}(\mathbf{A}, \mathbf{B}, b) = (1 - b)\mathbf{A} + b\mathbf{B} \]
-where \(0 \leq b \leq 1\) is a scalar parameter that determines the position along the line segment.
+$$\mathbf{L} = \text{LERP}(\mathbf{A}, \mathbf{B}, b) = (1 - b)\mathbf{A} + b\mathbf{B}$$where $0 \leq b \leq 1$ is a scalar parameter that determines the position along the line segment.
 
 Geometrically, LERP finds the point on the line between points A and B at distance b from A. For example:
 ```java
@@ -42,11 +41,11 @@ Background context: Matrices are essential for representing linear transformatio
 A matrix is a rectangular array of m x n scalars arranged in rows and columns. In the context of 3D game programming, matrices are used to represent linear transformations like translation, rotation, and scaling. Matrices can be thought of as grids of numbers enclosed in square brackets.
 
 For example, a 3x3 matrix M might look like this:
-\[ M = \begin{bmatrix}
+$$M = \begin{bmatrix}
     m_{11} & m_{12} & m_{13} \\
     m_{21} & m_{22} & m_{23} \\
     m_{31} & m_{32} & m_{33}
-\end{bmatrix} \]
+\end{bmatrix}$$
 
 Rows and columns of a 3x3 matrix can be considered as 3D vectors. If all the row and column vectors are unit magnitude, the matrix is called an orthogonal or orthonormal matrix, which represents pure rotations.
 
@@ -101,8 +100,8 @@ To calculate the matrix product P = AB, we take dot products between the rows of
 :p How is a matrix product calculated?
 ??x
 A matrix product P = AB is calculated by taking dot products between the rows of matrix A and the columns of matrix B. The result is a new matrix where each element is computed as the dot product of corresponding row from A and column from B.
-For example, if \( A \) and \( B \) are 3×3 matrices:
-\[ P = AB = \begin{pmatrix}
+For example, if $A $ and$B$ are 3×3 matrices:
+$$P = AB = \begin{pmatrix}
 P_{11} & P_{12} & P_{13} \\
 P_{21} & P_{22} & P_{23} \\
 P_{31} & P_{32} & P_{33}
@@ -110,15 +109,13 @@ P_{31} & P_{32} & P_{33}
 A_{row1} \cdot B_{col1} & A_{row1} \cdot B_{col2} & A_{row1} \cdot B_{col3} \\
 A_{row2} \cdot B_{col1} & A_{row2} \cdot B_{col2} & A_{row2} \cdot B_{col3} \\
 A_{row3} \cdot B_{col1} & A_{row3} \cdot B_{col2} & A_{row3} \cdot B_{col3}
-\end{pmatrix}
-\]
-x??
+\end{pmatrix}$$x??
 
 ---
 
 
 #### Matrix Multiplication Order
-Matrix multiplication is not commutative, meaning \( AB \neq BA \). The order in which matrices are multiplied affects the resulting transformation.
+Matrix multiplication is not commutative, meaning $AB \neq BA$. The order in which matrices are multiplied affects the resulting transformation.
 
 :p Why does matrix multiplication order matter?
 ??x
@@ -133,7 +130,7 @@ Concatenating transformation matrices means applying them sequentially. The prod
 
 :p What does concatenation mean in matrix multiplication?
 ??x
-Concatenation in matrix multiplication refers to combining multiple transformation matrices so that they are applied in sequence. If \( A, B, \) and \( C \) represent three consecutive transformations, their product \( (ABC) \) represents the combined effect of all these transformations.
+Concatenation in matrix multiplication refers to combining multiple transformation matrices so that they are applied in sequence. If $A, B,$ and $ C $ represent three consecutive transformations, their product $(ABC)$ represents the combined effect of all these transformations.
 x??
 
 ---
@@ -144,9 +141,10 @@ When using column vectors for transformations, they "read" from right to left. T
 
 :p How do you read transformations when using column vectors?
 ??x
-When using column vectors, transformations are read from right to left. This means the last matrix in the sequence (farthest from the vector) is applied first. For example, if \( v \) is a column vector and matrices \( A, B, C \) represent transformations:
-\[ v' = (C^T(B^T(A^Tv^T))) \]
-Here, \( v \) is transformed by \( A \), then the result is transformed by \( B \), and finally by \( C \).
+When using column vectors, transformations are read from right to left. This means the last matrix in the sequence (farthest from the vector) is applied first. For example, if $v $ is a column vector and matrices$A, B, C$ represent transformations:
+$$v' = (C^T(B^T(A^Tv^T)))$$
+
+Here,$v $ is transformed by$A $, then the result is transformed by$ B $, and finally by$ C$.
 x??
 
 ---
@@ -162,19 +160,19 @@ Background context explaining the difference between column vectors and row vect
 ??x
 Column vectors have elements arranged vertically (n×1), while row vectors have elements arranged horizontally (1×n). When using column vectors, you need to transpose all matrices shown in this book because vector-matrix multiplications are written with the vector on the right of the matrix. 
 
-For example, if a vector \(\mathbf{v}\) is represented as a column vector:
+For example, if a vector $\mathbf{v}$ is represented as a column vector:
 ```java
 // Column Vector (Java representation)
 double[] v = {1, 2, 3};
 ```
-and you want to multiply it by a matrix \(\mathbf{M}\), the multiplication would be written as \(\mathbf{M} \cdot \mathbf{v}\).
+and you want to multiply it by a matrix $\mathbf{M}$, the multiplication would be written as $\mathbf{M} \cdot \mathbf{v}$.
 
 However, if row vectors are used instead:
 ```java
 // Row Vector (Java representation)
 double[] v = {1, 2, 3};
 ```
-the matrix-vector multiplication would be written as \(\mathbf{v} \cdot \mathbf{M}^T\), where \(\mathbf{M}^T\) is the transpose of \(\mathbf{M}\).
+the matrix-vector multiplication would be written as $\mathbf{v} \cdot \mathbf{M}^T $, where $\mathbf{M}^T $ is the transpose of$\mathbf{M}$.
 x??
 
 ---
@@ -185,7 +183,7 @@ Explanation of what an identity matrix is, including its properties and represen
 
 :p What is an identity matrix?
 ??x
-An identity matrix is a square matrix that yields the same matrix when multiplied by any other matrix. It is usually represented by the symbol \(I\). The identity matrix has 1’s along the diagonal and 0’s everywhere else. For example, for a 3×3 identity matrix:
+An identity matrix is a square matrix that yields the same matrix when multiplied by any other matrix. It is usually represented by the symbol $I$. The identity matrix has 1’s along the diagonal and 0’s everywhere else. For example, for a 3×3 identity matrix:
 ```java
 // Identity Matrix (Java representation)
 double[][] I = {
@@ -194,7 +192,7 @@ double[][] I = {
     {0, 0, 1}
 };
 ```
-The properties of the identity matrix are \(AI = IA \rightarrow A\).
+The properties of the identity matrix are $AI = IA \rightarrow A$.
 
 For a 3×3 identity matrix:
 ```java
@@ -204,7 +202,7 @@ double[][] I3x3 = {
     {0, 0, 1}
 };
 ```
-Multiplying any matrix \(A\) by the identity matrix \(I\) will yield the same matrix \(A\).
+Multiplying any matrix $A $ by the identity matrix$I $ will yield the same matrix$A$.
 x??
 
 ---
@@ -215,7 +213,7 @@ Explanation of what a matrix inverse is and how it works.
 
 :p What is a matrix inverse?
 ??x
-The inverse of a matrix \(A\) (denoted as \(A^{-1}\)) is another matrix that undoes the effects of matrix \(A\). For example, if \(A\) rotates objects by 37 degrees about the z-axis, then \(A^{-1}\) will rotate by -37 degrees about the z-axis. If a matrix scales objects to be twice their original size, then its inverse \(A^{-1}\) will scale objects to be half their size.
+The inverse of a matrix $A $(denoted as $ A^{-1}$) is another matrix that undoes the effects of matrix $ A$. For example, if $ A$rotates objects by 37 degrees about the z-axis, then $ A^{-1}$will rotate by -37 degrees about the z-axis. If a matrix scales objects to be twice their original size, then its inverse $ A^{-1}$ will scale objects to be half their size.
 
 The property of an inverse matrix is that when multiplied by the original matrix or vice versa, it results in the identity matrix:
 ```java
@@ -242,7 +240,7 @@ Explanation of homogeneous coordinates and their application in 2D rotation usin
 
 :p What are homogeneous coordinates?
 ??x
-Homogeneous coordinates are a method used to represent points in \(n+1\) dimensions as an \(n\)-dimensional vector. In the context of 2D rotations, a 2×2 matrix can be used to rotate a point by an angle \(\phi\). The rotation is achieved through the following transformation:
+Homogeneous coordinates are a method used to represent points in $n+1 $ dimensions as an$n $-dimensional vector. In the context of 2D rotations, a 2×2 matrix can be used to rotate a point by an angle $\phi$. The rotation is achieved through the following transformation:
 ```java
 // Rotation Matrix (Java representation)
 double[][] R = {
@@ -253,7 +251,7 @@ double[][] R = {
 // Original Vector (Column Vector, Java representation)
 double[] v = {1, 2};
 ```
-To rotate the vector \(r\) through an angle \(\phi\):
+To rotate the vector $r $ through an angle$\phi$:
 ```java
 // Rotated Vector Calculation
 double[][] M = R; // Rotation matrix
@@ -284,17 +282,17 @@ x??
 Background context explaining the concept. In 3D graphics, rotations are commonly represented using 3×3 matrices due to their simplicity and efficiency.
 
 In the given example:
-\[ \begin{bmatrix} r'_{x} \\ r'_{y} \\ z \end{bmatrix} = \begin{bmatrix} r_{x} & r_{y} & r_{z} \end{bmatrix} \cdot \begin{bmatrix} \cos\phi & \sin\phi & 0 \\ -\sin\phi & \cos\phi & 0 \\ 0 & 0 & 1 \end{bmatrix} \]
+$$\begin{bmatrix} r'_{x} \\ r'_{y} \\ z \end{bmatrix} = \begin{bmatrix} r_{x} & r_{y} & r_{z} \end{bmatrix} \cdot \begin{bmatrix} \cos\phi & \sin\phi & 0 \\ -\sin\phi & \cos\phi & 0 \\ 0 & 0 & 1 \end{bmatrix}$$
 
-This is a rotation about the z-axis by an angle \(\phi\).
+This is a rotation about the z-axis by an angle $\phi$.
 
 :q Can a 3×3 matrix be used to represent translations in 3D space?
 ??x
-No, because translating a point requires adding the components of translation \(t\) to the corresponding components of the point \(r\) individually. Matrix multiplication involves both multiplication and addition of matrix elements, which cannot achieve the necessary summation form needed for translations.
+No, because translating a point requires adding the components of translation $t $ to the corresponding components of the point$r$ individually. Matrix multiplication involves both multiplication and addition of matrix elements, which cannot achieve the necessary summation form needed for translations.
 
 Here's why:
-- Consider the matrix \(\begin{bmatrix} A & B \\ C & D \end{bmatrix}\) and a column vector \(r = \begin{bmatrix} r_x \\ r_y \\ r_z \end{bmatrix}\).
-- The result of multiplying this with \(r\) would involve terms like \(A*r_x + B*r_y + C*r_z\), which cannot directly achieve the form \((r_x + t_x)\) needed for translation.
+- Consider the matrix $\begin{bmatrix} A & B \\ C & D \end{bmatrix}$ and a column vector $r = \begin{bmatrix} r_x \\ r_y \\ r_z \end{bmatrix}$.
+- The result of multiplying this with $r $ would involve terms like$A*r_x + B*r_y + C*r_z $, which cannot directly achieve the form$(r_x + t_x)$ needed for translation.
 
 Therefore, translations must be handled separately from rotations and scales using a different representation.
 x??
@@ -307,27 +305,26 @@ x??
 Background context explaining the concept. In 3D graphics, a combination of transformations (translation, rotation, scaling) is often required. A 4×4 matrix can handle all these operations effectively.
 
 A 4×4 transformation matrix in homogeneous coordinates looks like this:
-
-\[ T = \begin{bmatrix} 
+$$T = \begin{bmatrix} 
 1 & 0 & 0 & t_x \\ 
 0 & 1 & 0 & t_y \\ 
 0 & 0 & 1 & t_z \\ 
 0 & 0 & 0 & 1 
-\end{bmatrix} \]
+\end{bmatrix}$$
 
-Where \(t_x, t_y, t_z\) are the translation components.
+Where $t_x, t_y, t_z$ are the translation components.
 
 :q How can a 4×4 matrix represent translations in homogeneous coordinates?
 ??x
-A 4×4 matrix with a fourth column containing the translation components (e.g., \([0, 0, 1, 0]\) for rotation and scale, and \([t_x, t_y, t_z, 1]\) for translation) can be used to represent translations. By setting the fourth element of the position vector \(r\) to 1 (i.e., writing it in homogeneous coordinates), we can achieve the desired sums when multiplying by the matrix.
+A 4×4 matrix with a fourth column containing the translation components (e.g.,$[0, 0, 1, 0]$ for rotation and scale, and $[t_x, t_y, t_z, 1]$ for translation) can be used to represent translations. By setting the fourth element of the position vector $r$ to 1 (i.e., writing it in homogeneous coordinates), we can achieve the desired sums when multiplying by the matrix.
 
 For example:
-\[ \begin{bmatrix} r_x \\ r_y \\ r_z \\ 1 \end{bmatrix} \cdot \begin{bmatrix} 
+$$\begin{bmatrix} r_x \\ r_y \\ r_z \\ 1 \end{bmatrix} \cdot \begin{bmatrix} 
 1 & 0 & 0 & t_x \\ 
 0 & 1 & 0 & t_y \\ 
 0 & 0 & 1 & t_z \\ 
 0 & 0 & 0 & 1 
-\end{bmatrix} = \begin{bmatrix} (r_x + t_x) \\ (r_y + t_y) \\ (r_z + t_z) \\ 1 \end{bmatrix} \]
+\end{bmatrix} = \begin{bmatrix} (r_x + t_x) \\ (r_y + t_y) \\ (r_z + t_z) \\ 1 \end{bmatrix}$$
 
 This results in a vector with the translation applied.
 
@@ -342,7 +339,7 @@ Background context explaining the concept. When transforming vectors in 3D space
 
 For points (position vectors), both rotation and translation components of the matrix are applied.
 - Example:
-\[ \begin{bmatrix} r_x \\ r_y \\ r_z \\ 1 \end{bmatrix} \cdot M = \text{(Transformed Point)} \]
+$$\begin{bmatrix} r_x \\ r_y \\ r_z \\ 1 \end{bmatrix} \cdot M = \text{(Transformed Point)}$$
 
 For direction vectors, only the rotation component is applied. The translation part does not affect direction since it would change magnitude.
 
@@ -351,14 +348,14 @@ For direction vectors, only the rotation component is applied. The translation p
 Direction vectors are treated differently from points because they do not inherently have a translation component. Applying a translation to a direction vector would alter its magnitude, which is generally undesirable.
 
 In homogeneous coordinates:
-- Points use \(w = 1\).
-- Direction vectors use \(w = 0\).
+- Points use $w = 1$.
+- Direction vectors use $w = 0$.
 
 This ensures that only the rotation part of the transformation matrix affects direction vectors:
 
-\[ \begin{bmatrix} v_x \\ v_y \\ v_z \\ 0 \end{bmatrix} \cdot M = \begin{bmatrix} (v_x \times U_{1x}) + (v_y \times U_{2x}) + (v_z \times U_{3x}) \\ (v_x \times U_{1y}) + (v_y \times U_{2y}) + (v_z \times U_{3y}) \\ (v_x \times U_{1z}) + (v_y \times U_{2z}) + (v_z \times U_{3z}) \\ 0 \end{bmatrix} \]
+$$\begin{bmatrix} v_x \\ v_y \\ v_z \\ 0 \end{bmatrix} \cdot M = \begin{bmatrix} (v_x \times U_{1x}) + (v_y \times U_{2x}) + (v_z \times U_{3x}) \\ (v_x \times U_{1y}) + (v_y \times U_{2y}) + (v_z \times U_{3y}) \\ (v_x \times U_{1z}) + (v_y \times U_{2z}) + (v_z \times U_{3z}) \\ 0 \end{bmatrix}$$
 
-Here, the \(w = 0\) component ensures that no translation is applied.
+Here, the $w = 0$ component ensures that no translation is applied.
 
 x??
 
@@ -371,15 +368,14 @@ Background context explaining the concept. In some cases, it's necessary to conv
 
 :q How can a point in homogeneous coordinates be converted to 3D (non-homogeneous) coordinates?
 ??x
-A point in homogeneous coordinates can be converted to its 3D (non-homogeneous) form by dividing the \(x\), \(y\), and \(z\) components by the \(w\) component:
-
-\[ \begin{bmatrix} x \\ y \\ z \\ w \end{bmatrix} = \frac{1}{w} \begin{bmatrix} x \\ y \\ z \end{bmatrix} \]
+A point in homogeneous coordinates can be converted to its 3D (non-homogeneous) form by dividing the $x $, $ y $, and$ z $components by the$ w$component:
+$$\begin{bmatrix} x \\ y \\ z \\ w \end{bmatrix} = \frac{1}{w} \begin{bmatrix} x \\ y \\ z \end{bmatrix}$$
 
 For example, if a point is represented as:
-\[ \begin{bmatrix} 2 \\ 3 \\ 4 \\ 2 \end{bmatrix} \]
+$$\begin{bmatrix} 2 \\ 3 \\ 4 \\ 2 \end{bmatrix}$$
 
 The non-homogeneous form would be:
-\[ \begin{bmatrix} 1 \\ 1.5 \\ 2 \end{bmatrix} \]
+$$\begin{bmatrix} 1 \\ 1.5 \\ 2 \end{bmatrix}$$
 
 This conversion effectively normalizes the point to its original 3D coordinates.
 
@@ -398,10 +394,7 @@ Background context explaining the concept of homogeneous coordinates and why poi
 The w-component is set to 1 for points because dividing by 1 (which effectively means no change) does not alter the coordinates of the point. For vectors, setting the w-component to 0 implies that any attempt at translation would result in an undefined form, as division by zero is not defined.
 
 For example:
-- A point in homogeneous coordinates: \([x_p, y_p, z_p, 1]\)
-- A vector in homogeneous coordinates: \([x_v, y_v, z_v, 0]\)
-
-This treatment helps distinguish between points and vectors mathematically. The point at infinity is a special case where the w-component can be 0 but only for certain transformations like rotation.
+- A point in homogeneous coordinates:$[x_p, y_p, z_p, 1]$- A vector in homogeneous coordinates:$[x_v, y_v, z_v, 0]$ This treatment helps distinguish between points and vectors mathematically. The point at infinity is a special case where the w-component can be 0 but only for certain transformations like rotation.
 
 ---
 
@@ -414,11 +407,10 @@ Background context explaining affine transformation matrices and how they are co
 An affine transformation matrix in 3D space can be created by concatenating transformations such as pure translations, rotations, scales, and shears. These atomic transformations form the building blocks for more complex transformations.
 
 The general form of an affine 4×4 transformation matrix is:
-\[ M_{\text{affine}} = \begin{bmatrix}
+$$M_{\text{affine}} = \begin{bmatrix}
 U & t \\
 0 & 1
-\end{bmatrix} \]
-where \( U \) is a 3×3 upper triangular matrix representing the rotation and/or scale, \( t \) is a 1×3 translation vector, and the last row ensures that when multiplying by homogeneous coordinates, we get back to a valid 4D point.
+\end{bmatrix}$$where $ U $is a 3×3 upper triangular matrix representing the rotation and/or scale,$ t$ is a 1×3 translation vector, and the last row ensures that when multiplying by homogeneous coordinates, we get back to a valid 4D point.
 
 For example:
 ```java
@@ -451,17 +443,16 @@ Background context explaining the specific case of translation within affine tra
 
 :p What is a translation matrix and how does it work?
 ??x
-A translation matrix translates a point by adding its 1×3 translation vector \( t \) to the point's coordinates. This operation ensures that points are moved in space while vectors remain unaffected due to their zero w-component.
+A translation matrix translates a point by adding its 1×3 translation vector $t$ to the point's coordinates. This operation ensures that points are moved in space while vectors remain unaffected due to their zero w-component.
 
 The general form of a translation matrix is:
-\[ T = \begin{bmatrix}
+$$T = \begin{bmatrix}
 I & t \\
 0 & 1
-\end{bmatrix} \]
-where \( I \) is the identity matrix and \( t \) is the translation vector. When applied, it performs the transformation:
-\[ [x', y', z', 1] = [x, y, z, 1] \cdot T \]
+\end{bmatrix}$$where $ I $ is the identity matrix and $ t$ is the translation vector. When applied, it performs the transformation:
+$$[x', y', z', 1] = [x, y, z, 1] \cdot T$$
 
-For example, a translation by \( (tx, ty, tz) \):
+For example, a translation by $(tx, ty, tz)$:
 ```java
 public class TranslationMatrix {
     private double[] t;
@@ -490,31 +481,31 @@ Background context explaining the specific forms of rotation matrices around dif
 
 :p What are the rotation matrices for each axis in 3D space?
 ??x
-Rotation matrices for each axis in 3D space follow a specific form. Each matrix rotates points about an axis by a given angle \( \theta \).
+Rotation matrices for each axis in 3D space follow a specific form. Each matrix rotates points about an axis by a given angle $\theta$.
 
 - Rotation about the x-axis:
-\[ R_x(\phi) = \begin{bmatrix}
+$$R_x(\phi) = \begin{bmatrix}
 1 & 0 & 0 & 0 \\
 0 & \cos(\phi) & -\sin(\phi) & 0 \\
 0 & \sin(\phi) & \cos(\phi) & 0 \\
 0 & 0 & 0 & 1
-\end{bmatrix} \]
+\end{bmatrix}$$- Rotation about the y-axis:
+$$
 
-- Rotation about the y-axis:
-\[ R_y(q) = \begin{bmatrix}
+R_y(q) = \begin{bmatrix}
 \cos(q) & 0 & -\sin(q) & 0 \\
 0 & 1 & 0 & 0 \\
 \sin(q) & 0 & \cos(q) & 0 \\
 0 & 0 & 0 & 1
-\end{bmatrix} \]
+\end{bmatrix}$$- Rotation about the z-axis:
+$$
 
-- Rotation about the z-axis:
-\[ R_z(\gamma) = \begin{bmatrix}
+R_z(\gamma) = \begin{bmatrix}
 \cos(\gamma) & -\sin(\gamma) & 0 & 0 \\
 \sin(\gamma) & \cos(\gamma) & 0 & 0 \\
 0 & 0 & 1 & 0 \\
 0 & 0 & 0 & 1
-\end{bmatrix} \]
+\end{bmatrix}$$
 
 These matrices allow for the rotation of points in 3D space around their respective axes.
 
@@ -568,9 +559,8 @@ x??
 
 
 #### Scaling Matrices
-Scaling matrices are used to scale a point \( \mathbf{r} = [x, y, z]^T \) by factors along each axis. The matrix for scaling is given as:
-
-\[ \mathbf{r_S} = \begin{bmatrix}
+Scaling matrices are used to scale a point $\mathbf{r} = [x, y, z]^T$ by factors along each axis. The matrix for scaling is given as:
+$$\mathbf{r_S} = \begin{bmatrix}
 x & y & z & 1 \\
 \end{bmatrix} 
 \begin{bmatrix}
@@ -584,13 +574,13 @@ s_x x \\
 s_y y \\
 s_z z \\
 1
-\end{bmatrix} = [s_x r_x, s_y r_y, s_z r_z, 1]^T \]
+\end{bmatrix} = [s_x r_x, s_y r_y, s_z r_z, 1]^T$$
 
-Here \( s_x, s_y, s_z \) are the scaling factors along the x, y, and z axes respectively.
+Here $s_x, s_y, s_z$ are the scaling factors along the x, y, and z axes respectively.
 
 :p How does a scaling matrix affect a point in 3D space?
 ??x
-A scaling matrix affects each coordinate of a point by multiplying it with a corresponding scaling factor. For example, if you have a point \( [x, y, z] \) and you apply a scaling matrix where the factors are \( s_x, s_y, s_z \), then the new coordinates become \( [s_x x, s_y y, s_z z] \).
+A scaling matrix affects each coordinate of a point by multiplying it with a corresponding scaling factor. For example, if you have a point $[x, y, z]$ and you apply a scaling matrix where the factors are $ s_x, s_y, s_z $, then the new coordinates become $[s_x x, s_y y, s_z z]$.
 
 For instance, if we want to scale a point by 2 along the x-axis, 3 along the y-axis and leave the z-axis unchanged (i.e., scaling factor is 1 for z), the matrix will be:
 
@@ -614,15 +604,15 @@ x??
 
 
 #### Uniform vs. Nonuniform Scaling
-Uniform scaling occurs when the same scale factor is applied to all three axes (i.e., \( s_x = s_y = s_z \)). This means that shapes remain similar in form under uniform scaling, such as spheres remaining spherical.
+Uniform scaling occurs when the same scale factor is applied to all three axes (i.e., $s_x = s_y = s_z$). This means that shapes remain similar in form under uniform scaling, such as spheres remaining spherical.
 
-Non-uniform scaling, where each axis has a different scaling factor (\( s_x \neq s_y \neq s_z \)), results in non-similar transformations. For example, a sphere would become an ellipsoid.
+Non-uniform scaling, where each axis has a different scaling factor ($s_x \neq s_y \neq s_z$), results in non-similar transformations. For example, a sphere would become an ellipsoid.
 
 :p What is the difference between uniform and nonuniform scaling?
 ??x
-Uniform scaling involves applying the same scale factor to all axes (i.e., \( s_x = s_y = s_z \)). This type of transformation preserves the shape's proportions, ensuring that geometric properties like angles remain consistent. For instance, a sphere remains spherical under uniform scaling.
+Uniform scaling involves applying the same scale factor to all axes (i.e., $s_x = s_y = s_z$). This type of transformation preserves the shape's proportions, ensuring that geometric properties like angles remain consistent. For instance, a sphere remains spherical under uniform scaling.
 
-Non-uniform scaling uses different scale factors along each axis (\( s_x \neq s_y \neq s_z \)), which can distort shapes into non-similar forms. A typical example is how a sphere might be transformed into an ellipsoid.
+Non-uniform scaling uses different scale factors along each axis ($s_x \neq s_y \neq s_z$), which can distort shapes into non-similar forms. A typical example is how a sphere might be transformed into an ellipsoid.
 
 For uniform scaling:
 
@@ -654,11 +644,11 @@ x??
 
 
 #### Concatenating Uniform Scale and Rotation Matrices
-When the uniform scale matrix \( S_u \) is concatenated with a rotation matrix \( R \), the order of multiplication does not matter (i.e., \( S_uR = RS_u \)). This property only holds for uniform scaling.
+When the uniform scale matrix $S_u $ is concatenated with a rotation matrix$R $, the order of multiplication does not matter (i.e.,$ S_uR = RS_u$). This property only holds for uniform scaling.
 
 :p What happens when you concatenate a uniform scale matrix with a rotation matrix?
 ??x
-When a uniform scale matrix \( S_u \) is concatenated with a rotation matrix \( R \), the order of multiplication does not affect the final result. Mathematically, this means that both \( S_uR \) and \( RS_u \) yield the same transformation.
+When a uniform scale matrix $S_u $ is concatenated with a rotation matrix$R $, the order of multiplication does not affect the final result. Mathematically, this means that both$ S_uR $and$ RS_u$ yield the same transformation.
 
 For example, consider:
 
@@ -679,7 +669,7 @@ Matrix4f combinedRotationScale = rotationMatrix.mulLocal(scaleMatrix);
 // Both matrices should be identical if the operation is valid
 ```
 
-In this example, both \( S_uR \) and \( RS_u \) produce the same transformation matrix.
+In this example, both $S_uR $ and$RS_u$ produce the same transformation matrix.
 
 x??
 
@@ -697,7 +687,7 @@ Coordinate spaces are used to describe the position and orientation of objects r
 ??x
 Model space, also known as object space or local space, refers to a coordinate system where the positions of vertices in a mesh are defined relative to the object's local origin. This means that transformations applied directly affect the object itself without considering any external reference frames.
 
-For example, if you have an object represented by its model matrix \( M \), and you want to transform its vertices from model space to world space, you would multiply each vertex position by the model matrix:
+For example, if you have an object represented by its model matrix $M$, and you want to transform its vertices from model space to world space, you would multiply each vertex position by the model matrix:
 
 ```java
 // Model Matrix representing the transformation in model space
@@ -886,7 +876,7 @@ x??
 
 
 #### Change of Basis Matrix Concept
-Background context: A change of basis matrix transforms points and directions from a child coordinate system (C) to its parent coordinate system (P). This transformation is crucial for understanding how positions and orientations are represented across different coordinate systems. The matrix \( M_{C.P} \) indicates the transformation from child space to parent space.
+Background context: A change of basis matrix transforms points and directions from a child coordinate system (C) to its parent coordinate system (P). This transformation is crucial for understanding how positions and orientations are represented across different coordinate systems. The matrix $M_{C.P}$ indicates the transformation from child space to parent space.
 
 :p What is the purpose of a change of basis matrix in game development?
 ??x
@@ -897,28 +887,27 @@ x??
 
 
 #### Scaling of Child Axes
-Background context: Scaling the child coordinate system is achieved by scaling the unit basis vectors appropriately. If a child space is scaled up or down, this affects the lengths of the \( i_C \), \( j_C \), and \( k_C \) vectors.
+Background context: Scaling the child coordinate system is achieved by scaling the unit basis vectors appropriately. If a child space is scaled up or down, this affects the lengths of the $i_C $, $ j_C $, and$ k_C$ vectors.
 
 :p How does scaling affect the child axes in a change of basis matrix?
 ??x
-Scaling the child coordinate system changes the length of the unit basis vectors. For example, if the child space is scaled up by a factor of 2, then the unit basis vectors \( i_C \), \( j_C \), and \( k_C \) will be twice as long.
+Scaling the child coordinate system changes the length of the unit basis vectors. For example, if the child space is scaled up by a factor of 2, then the unit basis vectors $i_C $, $ j_C $, and$ k_C$ will be twice as long.
 
 If we scale up the axes, their new lengths would be:
-\[ i_C' = [i_C.x * scalingFactor, i_C.y * scalingFactor, i_C.z * scalingFactor] \]
-\[ j_C' = [j_C.x * scalingFactor, j_C.y * scalingFactor, j_C.z * scalingFactor] \]
-\[ k_C' = [k_C.x * scalingFactor, k_C.y * scalingFactor, k_C.z * scalingFactor] \]
+$$i_C' = [i_C.x * scalingFactor, i_C.y * scalingFactor, i_C.z * scalingFactor]$$
+$$j_C' = [j_C.x * scalingFactor, j_C.y * scalingFactor, j_C.z * scalingFactor]$$
+$$k_C' = [k_C.x * scalingFactor, k_C.y * scalingFactor, k_C.z * scalingFactor]$$
 
 The change of basis matrix would then be:
-\[ M_{C.P} =
+$$
+
+M_{C.P} =
 \begin{pmatrix}
 i_{Cx}' & i_{Cy}' & i_{Cz}' & 0 \\
 j_{Cx}' & j_{Cy}' & j_{Cz}' & 0 \\
 k_{Cx}' & k_{Cy}' & k_{Cz}' & 0 \\
 t_{Cx} & t_{Cy} & t_{Cz} & 1
-\end{pmatrix}
-\]
-
-```java
+\end{pmatrix}$$```java
 public static float[] scaleChangeOfBasisMatrix(float scalingFactor, Vector3f tC) {
     // Scaling the basis vectors
     Vector3f iCScaled = new Vector3f(iCx * scalingFactor, iCy * scalingFactor, iCz * scalingFactor);
@@ -955,30 +944,29 @@ x??
 
 
 #### Extracting Unit Basis Vectors from a Matrix
-Background context: Given an affine transformation matrix, we can extract the unit basis vectors \( i_C \), \( j_C \), and \( k_C \) by isolating specific rows of the matrix. This is useful for extracting information like orientation without needing to explicitly calculate it.
+Background context: Given an affine transformation matrix, we can extract the unit basis vectors $i_C $, $ j_C $, and$ k_C$ by isolating specific rows of the matrix. This is useful for extracting information like orientation without needing to explicitly calculate it.
 
 :p How can we extract the child-space basis vectors from a given affine transformation matrix?
 ??x
-To extract the unit basis vectors \( i_C \), \( j_C \), and \( k_C \) from an affine transformation matrix, you simply need to look at the appropriate rows of the matrix. For example:
+To extract the unit basis vectors $i_C $, $ j_C $, and$ k_C$ from an affine transformation matrix, you simply need to look at the appropriate rows of the matrix. For example:
 
-- The first three elements of the third row give \( k_C \).
-- The first three elements of the second row give \( j_C \).
-- The first three elements of the first row give \( i_C \).
+- The first three elements of the third row give $k_C$.
+- The first three elements of the second row give $j_C$.
+- The first three elements of the first row give $i_C$.
 
 For a transformation matrix:
-\[ M = 
+$$M = 
 \begin{pmatrix}
 a & b & c & 0 \\
 d & e & f & 0 \\
 g & h & i & 0 \\
 j & k & l & 1
-\end{pmatrix}
-\]
+\end{pmatrix}$$
 
 The basis vectors are:
-- \( i_C \) is [a, b, c]
-- \( j_C \) is [d, e, f]
-- \( k_C \) is [g, h, i]
+- $i_C$ is [a, b, c]
+- $j_C$ is [d, e, f]
+- $k_C$ is [g, h, i]
 
 ```java
 public static Vector3f extractK(Vector3f kC, float[] matrix) {
@@ -995,12 +983,12 @@ x??
 
 #### Transforming Coordinate Systems vs Vectors
 
-Background context: Matrices can be used to transform points and vectors from one coordinate system (child space) to another (parent space). The fourth row of a transformation matrix \(M_{C.P}\) contains the translation vector \(t_C\), which represents how the child's axes are translated relative to the world space. This can also be visualized as transforming the parent’s coordinate axes into the child’s axes, effectively reversing the direction in which points and vectors move.
+Background context: Matrices can be used to transform points and vectors from one coordinate system (child space) to another (parent space). The fourth row of a transformation matrix $M_{C.P}$ contains the translation vector $t_C$, which represents how the child's axes are translated relative to the world space. This can also be visualized as transforming the parent’s coordinate axes into the child’s axes, effectively reversing the direction in which points and vectors move.
 
-:p How does a transformation matrix \(M_{C.P}\) transform both points and coordinate axes?
+:p How does a transformation matrix $M_{C.P}$ transform both points and coordinate axes?
 
 ??x
-A transformation matrix \(M_{C.P}\) transforms points and directions (vectors) from the child space to the parent space. Conversely, it can also be seen as transforming the parent’s coordinate axes into the child's axes. This is because moving a point 20 units in one direction with fixed axes is equivalent to moving the axes 20 units in the opposite direction while keeping the point fixed.
+A transformation matrix $M_{C.P}$ transforms points and directions (vectors) from the child space to the parent space. Conversely, it can also be seen as transforming the parent’s coordinate axes into the child's axes. This is because moving a point 20 units in one direction with fixed axes is equivalent to moving the axes 20 units in the opposite direction while keeping the point fixed.
 
 ```java
 // Example of transforming a vector v from child space to parent space using matrix M_C.P
@@ -1024,7 +1012,7 @@ Background context: In the book, it is conventionally agreed that transformation
 :p How does choosing transformation conventions impact how you work with matrices?
 
 ??x
-Choosing conventions such as applying transformations to vectors over coordinate axes and representing vectors as rows impacts the readability and ease of working with matrices. It allows for straightforward reading of matrix multiplications from left to right, enabling intuitive cancellations like \(r_D = r_A \cdot M_{A.B} \cdot A.D\).
+Choosing conventions such as applying transformations to vectors over coordinate axes and representing vectors as rows impacts the readability and ease of working with matrices. It allows for straightforward reading of matrix multiplications from left to right, enabling intuitive cancellations like $r_D = r_A \cdot M_{A.B} \cdot A.D$.
 
 ```java
 // Example of vector transformation following chosen conventions
@@ -1048,7 +1036,7 @@ Background context: Normal vectors are special because they not only need to be 
 :p Why is it necessary to use the inverse transpose when transforming a normal vector?
 
 ??x
-It is essential to use the inverse transpose (\((M_{A.B}^{-1})^T\)) of the transformation matrix when transforming normal vectors to ensure that both their length and perpendicularity properties are maintained. Directly using \(M_{A.B}\) might alter these properties, making it necessary to use its inverse transpose.
+It is essential to use the inverse transpose ($(M_{A.B}^{-1})^T $) of the transformation matrix when transforming normal vectors to ensure that both their length and perpendicularity properties are maintained. Directly using $ M_{A.B}$ might alter these properties, making it necessary to use its inverse transpose.
 
 ```java
 // Example of normal vector transformation
@@ -1213,21 +1201,16 @@ x??
 
 
 #### Unit Quaternion Representation
-Background context: A unit quaternion can be visualized as a three-dimensional vector plus a fourth scalar coordinate. The vector part \( \mathbf{q}_V \) is the unit axis of rotation scaled by the sine of the half-angle of the rotation, while the scalar part \( q_S \) is the cosine of the half-angle. This representation allows us to describe 3D rotations compactly.
+Background context: A unit quaternion can be visualized as a three-dimensional vector plus a fourth scalar coordinate. The vector part $\mathbf{q}_V $ is the unit axis of rotation scaled by the sine of the half-angle of the rotation, while the scalar part$q_S$ is the cosine of the half-angle. This representation allows us to describe 3D rotations compactly.
 
 :p How can a unit quaternion be represented mathematically?
 ??x
 A unit quaternion can be written as:
-\[ \mathbf{q} = [q_V, q_S] = [\sin(\theta/2) \mathbf{a}, \cos(\theta/2)] \]
-where \( \mathbf{a} \) is a unit vector along the axis of rotation and \( \theta \) is the angle of rotation.
+$$\mathbf{q} = [q_V, q_S] = [\sin(\theta/2) \mathbf{a}, \cos(\theta/2)]$$where $\mathbf{a}$ is a unit vector along the axis of rotation and $\theta$ is the angle of rotation.
 
 The quaternion can also be expressed as a simple four-element vector:
-\[ \mathbf{q} = [q_x, q_y, q_z, q_w] \]
-where
-\[ q_x = q_V \cdot x = a_x \sin(\theta/2), \quad q_y = q_V \cdot y = a_y \sin(\theta/2) \]
-\[ q_z = q_V \cdot z = a_z \sin(\theta/2), \quad q_w = q_S = \cos(\theta/2) \]
-
-x??
+$$\mathbf{q} = [q_x, q_y, q_z, q_w]$$where$$q_x = q_V \cdot x = a_x \sin(\theta/2), \quad q_y = q_V \cdot y = a_y \sin(\theta/2)$$
+$$q_z = q_V \cdot z = a_z \sin(\theta/2), \quad q_w = q_S = \cos(\theta/2)$$x??
 
 ---
 
@@ -1237,7 +1220,7 @@ Background context: Quaternions support operations such as magnitude and vector 
 
 :p What is an important operation performed on quaternions?
 ??x
-One of the most important operations on quaternions is multiplication. Given two quaternions \( \mathbf{p} \) and \( \mathbf{q} \) representing rotations \( P \) and \( Q \), respectively, their product \( \mathbf{pq} \) represents the composite rotation (i.e., rotation \( Q \) followed by rotation \( P \)).
+One of the most important operations on quaternions is multiplication. Given two quaternions $\mathbf{p}$ and $\mathbf{q}$ representing rotations $ P $ and $ Q $, respectively, their product $\mathbf{pq}$ represents the composite rotation (i.e., rotation $ Q $ followed by rotation $P$).
 
 x??
 
@@ -1249,18 +1232,14 @@ Background context: The multiplication of quaternions is crucial for combining r
 
 :p How is quaternion multiplication defined?
 ??x
-Given two unit quaternions \( \mathbf{p} = [q_V^p, q_S^p] \) and \( \mathbf{q} = [q_V^q, q_S^q] \), their product \( \mathbf{pq} \) is defined as:
-\[ \mathbf{pq} = [(p_S q_V + q_S p_V + p_V \cdot q_V), (p_S q_S - p_V \cdot q_V)] \]
+Given two unit quaternions $\mathbf{p} = [q_V^p, q_S^p]$ and $\mathbf{q} = [q_V^q, q_S^q]$, their product $\mathbf{pq}$ is defined as:
+$$\mathbf{pq} = [(p_S q_V + q_S p_V + p_V \cdot q_V), (p_S q_S - p_V \cdot q_V)]$$
 
 This can be expanded to the four-element vector form:
-\[ \mathbf{pq} = [q_x, q_y, q_z, q_w] \]
-where
-\[ q_x = p_S^q x + q_S^p x + (a_x^p a_x^q + a_y^p a_y^q + a_z^p a_z^q) \sin(\theta/2) \]
-\[ q_y = p_S^q y + q_S^p y + (a_x^p a_y^q + a_y^p a_z^q + a_z^p a_x^q) \sin(\theta/2) \]
-\[ q_z = p_S^q z + q_S^p z + (a_x^p a_z^q + a_y^p a_x^q + a_z^p a_y^q) \sin(\theta/2) \]
-\[ q_w = p_S^q \cos(\theta/2) - q_S^p \cos(\theta/2) + (a_x^p a_x^q - a_y^p a_y^q - a_z^p a_z^q) \sin(\theta/2) \]
-
-x??
+$$\mathbf{pq} = [q_x, q_y, q_z, q_w]$$where$$q_x = p_S^q x + q_S^p x + (a_x^p a_x^q + a_y^p a_y^q + a_z^p a_z^q) \sin(\theta/2)$$
+$$q_y = p_S^q y + q_S^p y + (a_x^p a_y^q + a_y^p a_z^q + a_z^p a_x^q) \sin(\theta/2)$$
+$$q_z = p_S^q z + q_S^p z + (a_x^p a_z^q + a_y^p a_x^q + a_z^p a_y^q) \sin(\theta/2)$$
+$$q_w = p_S^q \cos(\theta/2) - q_S^p \cos(\theta/2) + (a_x^p a_x^q - a_y^p a_y^q - a_z^p a_z^q) \sin(\theta/2)$$x??
 
 ---
 
@@ -1271,12 +1250,13 @@ Background context explaining how to find the conjugate and inverse of a product
 :p How does the conjugate and inverse operation work for the product of two quaternions?
 
 ??x
-The conjugate of a quaternion product \( (pq) \) is equal to the reverse product of their individual conjugates:
-\[ (pq)^* = q^*p^*. \]
-Similarly, the inverse of a quaternion product is the reverse product of their individual inverses:
-\[ (pq)^{-1} = q^{-1}p^{-1}. \]
+The conjugate of a quaternion product $(pq)$ is equal to the reverse product of their individual conjugates:
+$$(pq)^* = q^*p^*.$$
 
-These properties are analogous to transposing or inverting matrix products. For example, if you have two quaternions \( p \) and \( q \), to find the conjugate of their product, you first conjugate each quaternion and then reverse the order:
+Similarly, the inverse of a quaternion product is the reverse product of their individual inverses:
+$$(pq)^{-1} = q^{-1}p^{-1}.$$
+
+These properties are analogous to transposing or inverting matrix products. For example, if you have two quaternions $p $ and$q$, to find the conjugate of their product, you first conjugate each quaternion and then reverse the order:
 ```java
 public class Quaternion {
     public double w, x, y, z;
@@ -1294,8 +1274,9 @@ public class Quaternion {
 :p How can these properties be used in practice?
 
 ??x
-These properties are particularly useful when dealing with complex operations involving multiple quaternions. For instance, if you have a sequence of rotations represented by quaternions \( q_1 \), \( q_2 \), and \( q_3 \), the overall rotation can be computed as:
-\[ (q_3 q_2 q_1)^* = q_1^* q_2^* q_3^*. \]
+These properties are particularly useful when dealing with complex operations involving multiple quaternions. For instance, if you have a sequence of rotations represented by quaternions $q_1 $, $ q_2 $, and$ q_3$, the overall rotation can be computed as:
+$$(q_3 q_2 q_1)^* = q_1^* q_2^* q_3^*.$$
+
 This means you can reverse the order of operations when needing to compute the conjugate or inverse.
 
 In practice, these properties allow for efficient computation and manipulation of quaternion sequences. For example, if you need to apply a series of rotations, you can directly multiply the quaternions in their given order without worrying about reversing any steps.
@@ -1311,13 +1292,15 @@ Background context explaining how to rotate vectors using quaternions. Include t
 
 ??x
 To apply a quaternion rotation to a vector, first represent the vector as a quaternion with its scalar term equal to zero:
-\[ \mathbf{v} = [0, v_x, v_y, v_z]. \]
-Then, rotate the vector by multiplying it with the quaternion \( q \) and then post-multiplying it by the inverse of the quaternion \( q^{-1} \):
-\[ \mathbf{v'} = q \mathbf{v} q^{-1}. \]
-Alternatively, since quaternions are always unit length, this can be written as:
-\[ \mathbf{v'} = q \mathbf{v} q^*. \]
+$$\mathbf{v} = [0, v_x, v_y, v_z].$$
 
-This process ensures that the vector is transformed correctly according to the rotation represented by \( q \). Here's a simple implementation in Java:
+Then, rotate the vector by multiplying it with the quaternion $q $ and then post-multiplying it by the inverse of the quaternion$q^{-1}$:
+$$\mathbf{v'} = q \mathbf{v} q^{-1}.$$
+
+Alternatively, since quaternions are always unit length, this can be written as:
+$$\mathbf{v'} = q \mathbf{v} q^*.$$
+
+This process ensures that the vector is transformed correctly according to the rotation represented by $q$. Here's a simple implementation in Java:
 
 ```java
 public class Quaternion {
@@ -1351,13 +1334,12 @@ public class VectorRotationExample {
 :p How does this process work in practice?
 
 ??x
-In practice, the process works by converting the vector into a quaternion with a zero scalar part. Then, it uses the multiplication of quaternions to rotate the vector according to the given rotation represented by \( q \). The result is extracted from the resulting quaternion form.
+In practice, the process works by converting the vector into a quaternion with a zero scalar part. Then, it uses the multiplication of quaternions to rotate the vector according to the given rotation represented by $q$. The result is extracted from the resulting quaternion form.
 
 For example, consider rotating an aircraft's forward vector in world space. Assuming the positive z-axis always points toward the front of an object:
-1. Represent the forward unit vector as a quaternion: \( [0, 0, 0, 1] \).
-2. Use the aircraft’s orientation quaternion \( q \) to rotate this vector into world space using the formula:
-\[ \mathbf{v'} = q \mathbf{v} q^*. \]
-3. Extract the rotated vector from the resulting quaternion.
+1. Represent the forward unit vector as a quaternion: $[0, 0, 0, 1]$.
+2. Use the aircraft’s orientation quaternion $q$ to rotate this vector into world space using the formula:
+$$\mathbf{v'} = q \mathbf{v} q^*.$$3. Extract the rotated vector from the resulting quaternion.
 
 This method is efficient and avoids complex matrix operations, making it well-suited for real-time applications in games.
 x??
@@ -1371,10 +1353,11 @@ Background context explaining how to concatenate rotations using quaternions. In
 :p How can you concatenate multiple rotations represented by quaternions?
 
 ??x
-Concatenating multiple rotations involves multiplying the corresponding quaternions together. The order of multiplication is crucial because quaternion multiplications do not commute, meaning \( pq \neq qp \). For three distinct rotations represented by quaternions \( q_1, q_2, q_3 \), you can find the composite rotation quaternion \( q_{net} \) as follows:
-\[ q_{net} = q_3 q_2 q_1. \]
-To apply this to a vector (or any point), you would premultiply the vector by \( q_{net} \):
-\[ v' = q_{net} v q^*_{net}. \]
+Concatenating multiple rotations involves multiplying the corresponding quaternions together. The order of multiplication is crucial because quaternion multiplications do not commute, meaning $pq \neq qp $. For three distinct rotations represented by quaternions $ q_1, q_2, q_3 $, you can find the composite rotation quaternion$ q_{net}$ as follows:
+$$q_{net} = q_3 q_2 q_1.$$
+
+To apply this to a vector (or any point), you would premultiply the vector by $q_{net}$:
+$$v' = q_{net} v q^*_{net}.$$
 
 The key is that quaternion operations must be performed in reverse order of application:
 ```java
@@ -1410,14 +1393,14 @@ public class QuaternionConcatenationExample {
 :p Why is the order of multiplication important in quaternion concatenation?
 
 ??x
-The order of multiplication is crucial because quaternion multiplications are non-commutative. This means that \( q_3 q_2 q_1 \) does not equal \( q_1 q_2 q_3 \). The correct order ensures that each rotation is applied in the intended sequence.
+The order of multiplication is crucial because quaternion multiplications are non-commutative. This means that $q_3 q_2 q_1 $ does not equal$q_1 q_2 q_3$. The correct order ensures that each rotation is applied in the intended sequence.
 
-For example, if you have three rotations represented by quaternions \( q_1, q_2, \) and \( q_3 \), to apply them in this specific sequence, you would concatenate the quaternions as:
-\[ q_{net} = q_3 q_2 q_1. \]
+For example, if you have three rotations represented by quaternions $q_1, q_2,$ and $q_3$, to apply them in this specific sequence, you would concatenate the quaternions as:
+$$q_{net} = q_3 q_2 q_1.$$
 
-To apply these rotations to a vector \( v \):
-1. Premultiply the vector by \( q_{net} \).
-2. Post-multiply the result by the conjugate of \( q_{net} \).
+To apply these rotations to a vector $v$:
+1. Premultiply the vector by $q_{net}$.
+2. Post-multiply the result by the conjugate of $q_{net}$.
 
 The resulting quaternion will represent the composite rotation, and extracting the rotated vector is straightforward.
 x??
@@ -1430,28 +1413,28 @@ x??
 #### Quaternion-Matrix Equivalence
 Background context: In 3D graphics and game engines, it is often necessary to convert between a quaternion representation of rotations and a matrix representation. This allows for flexible manipulation and interpolation of orientations.
 
-The conversion from a rotation matrix \( R \) to a quaternion \( q = [q_V, q_S] = [x, y, z, w] \) is described in the text. The formula provided involves checking the trace (diagonal elements sum) of the matrix for efficient computation.
+The conversion from a rotation matrix $R $ to a quaternion$q = [q_V, q_S] = [x, y, z, w]$ is described in the text. The formula provided involves checking the trace (diagonal elements sum) of the matrix for efficient computation.
 :p How can you convert a 3×3 rotation matrix to a quaternion?
 ??x
-To convert a 3×3 rotation matrix \( R \) to a quaternion, we need to evaluate its trace and use specific formulas based on the sign of the trace. Here's how it is done:
+To convert a 3×3 rotation matrix $R$ to a quaternion, we need to evaluate its trace and use specific formulas based on the sign of the trace. Here's how it is done:
 
-If the trace \( trace = R[0][0] + R[1][1] + R[2][2] > 0 \), then:
-\[ s = \sqrt{trace + 1} \]
-\[ q_3 = s * 0.5 \]
-\[ t = 0.5 / s \]
-\[ q_0 = (R[2][1] - R[1][2]) * t \]
-\[ q_1 = (R[0][2] - R[2][0]) * t \]
-\[ q_2 = (R[1][0] - R[0][1]) * t \]
+If the trace $trace = R[0][0] + R[1][1] + R[2][2] > 0$, then:
+$$s = \sqrt{trace + 1}$$
+$$q_3 = s * 0.5$$
+$$t = 0.5 / s$$
+$$q_0 = (R[2][1] - R[1][2]) * t$$
+$$q_1 = (R[0][2] - R[2][0]) * t$$
+$$q_2 = (R[1][0] - R[0][1]) * t$$
 
-If the trace \( trace < 0 \), we choose the axis with the largest negative value and proceed similarly:
-\[ i = argmax_{i} (-R[i][i]) \]
-\[ j, k = next(i) \]
-\[ s = \sqrt{(R[i][j] - R[j][j] - R[k][k]) + 1} \]
-\[ q_i = s * 0.5 \]
-\[ t = 0.5 / s if(s != 0), else 0.5 \]
-\[ q_3 = (R[k][j] - R[j][k]) * t \]
-\[ q_j = (R[j][i] + R[i][j]) * t \]
-\[ q_k = (R[k][i] + R[i][k]) * t \]
+If the trace $trace < 0$, we choose the axis with the largest negative value and proceed similarly:
+$$i = argmax_{i} (-R[i][i])$$
+$$j, k = next(i)$$
+$$s = \sqrt{(R[i][j] - R[j][j] - R[k][k]) + 1}$$
+$$q_i = s * 0.5$$
+$$t = 0.5 / s if(s != 0), else 0.5$$
+$$q_3 = (R[k][j] - R[j][k]) * t$$
+$$q_j = (R[j][i] + R[i][j]) * t$$
+$$q_k = (R[k][i] + R[i][k]) * t$$
 
 This code assumes a row-major matrix in C/C++.
 x??
@@ -1462,24 +1445,21 @@ x??
 #### Rotational Linear Interpolation (LERP)
 Background context: Rotational linear interpolation is used to smoothly transition between two rotations in the game engine's animation or camera systems. It allows for natural-looking transitions between orientations.
 
-Given two quaternions \( q_A \) and \( q_B \) representing rotations A and B, respectively, an intermediate quaternion \( q_{LERP} \) can be found by linearly interpolating between them using a parameter \( b \).
+Given two quaternions $q_A $ and$q_B $ representing rotations A and B, respectively, an intermediate quaternion$q_{LERP}$ can be found by linearly interpolating between them using a parameter $b$.
 
 The formula is:
-\[ q_{LERP} = LERP(q_A, q_B, b) = (1 - b)q_A + bq_B \]
-where the magnitude of the interpolated quaternion needs to be normalized.
+$$q_{LERP} = LERP(q_A, q_B, b) = (1 - b)q_A + bq_B$$where the magnitude of the interpolated quaternion needs to be normalized.
 
 :p How can you perform rotational linear interpolation between two quaternions?
 ??x
-To perform rotational linear interpolation (LERP) between two quaternions \( q_A \) and \( q_B \), we use a parameter \( b \) that represents the fraction of the way from \( q_A \) to \( q_B \). The formula is:
-\[ q_{LERP} = LERP(q_A, q_B, b) = (1 - b)q_A + bq_B \]
+To perform rotational linear interpolation (LERP) between two quaternions $q_A $ and$q_B $, we use a parameter$ b $that represents the fraction of the way from$ q_A $ to $ q_B$. The formula is:
+$$q_{LERP} = LERP(q_A, q_B, b) = (1 - b)q_A + bq_B$$
 
 However, since this is a quaternion, we need to ensure that the result is normalized. Here's the detailed process:
 
-1. Compute the linear combination of \( q_A \) and \( q_B \):
-\[ (1 - b)q_A + bq_B \]
-
-2. Normalize the resulting quaternion:
-\[ j(1 - b)q_A + bq_Bj = normalize0 BBB@2 664(1 - b)q_{Ax} + bq_{Bx} (1 - b)q_{Ay} + bq_{By} (1 - b)q_{Az} + bq_{Bz} (1 - b)q_{Aw} + bq_{Bw}3 775T1 CCCA. \]
+1. Compute the linear combination of $q_A $ and$q_B$:
+$$(1 - b)q_A + bq_B$$2. Normalize the resulting quaternion:
+$$j(1 - b)q_A + bq_Bj = normalize0 BBB@2 664(1 - b)q_{Ax} + bq_{Bx} (1 - b)q_{Ay} + bq_{By} (1 - b)q_{Az} + bq_{Bz} (1 - b)q_{Aw} + bq_{Bw}3 775T1 CCCA.$$
 
 Here's a C++ function to perform this operation:
 

@@ -136,35 +136,33 @@ Background context: Queueing theory is used to predict the performance of system
 
 :p In this system, what is the average job response time (E[T])?
 ??x
-The average job response time \( E[T] \) can be calculated using Little's Law: \( L = \lambda W \), where \( L \) is the average number of jobs in the queue, and \( W \) is the average waiting time. For a single CPU with an arrival rate \( \lambda \) and service rate \( \mu \):
-\[ E[T] = W + \frac{1}{\mu} \]
+The average job response time $E[T]$ can be calculated using Little's Law:$L = \lambda W $, where$ L $ is the average number of jobs in the queue, and $ W $ is the average waiting time. For a single CPU with an arrival rate $\lambda $ and service rate$\mu$:
+$$E[T] = W + \frac{1}{\mu}$$
 
-Given that \( \lambda = 3 \) jobs per second and \( \mu = 5 \) jobs per second, we can calculate:
-\[ E[T] = \frac{\rho}{\mu(1-\rho)} + \frac{1}{\mu} \]
-where \( \rho = \frac{\lambda}{\mu} = \frac{3}{5} = 0.6 \).
+Given that $\lambda = 3 $ jobs per second and$\mu = 5$ jobs per second, we can calculate:
+$$E[T] = \frac{\rho}{\mu(1-\rho)} + \frac{1}{\mu}$$where $\rho = \frac{\lambda}{\mu} = \frac{3}{5} = 0.6$.
 
 Therefore,
-\[ E[T] = \frac{0.6}{5 \times (1 - 0.6)} + \frac{1}{5} = \frac{0.6}{2} + \frac{1}{5} = 0.3 + 0.2 = 0.5 \text{ seconds} \]
-
-:p By how much should the CPU speed increase if the arrival rate doubles?
+$$E[T] = \frac{0.6}{5 \times (1 - 0.6)} + \frac{1}{5} = \frac{0.6}{2} + \frac{1}{5} = 0.3 + 0.2 = 0.5 \text{ seconds}$$:p By how much should the CPU speed increase if the arrival rate doubles?
 ??x
-To maintain the same mean response time \( E[T] \) when the arrival rate \( \lambda \) doubles, we need to calculate the required new service rate \( \mu' \).
+To maintain the same mean response time $E[T]$ when the arrival rate $\lambda$ doubles, we need to calculate the required new service rate $\mu'$.
 
-Given that doubling both \( \lambda \) and \( \mu \) would generally result in cutting the mean response time in half:
-\[ 2\lambda = 6 \text{ jobs per second} \]
-\[ 2\mu = 10 \text{ jobs per second} \]
+Given that doubling both $\lambda $ and$\mu$ would generally result in cutting the mean response time in half:
+$$2\lambda = 6 \text{ jobs per second}$$
+$$2\mu = 10 \text{ jobs per second}$$
 
 The new average response time with doubled arrival rate should be:
-\[ E'[T] = \frac{\rho'}{\mu'(1-\rho')} + \frac{1}{\mu'} \]
-where \( \rho' = \frac{2\lambda}{2\mu} = 0.6 \).
+$$
+
+E'[T] = \frac{\rho'}{\mu'(1-\rho')} + \frac{1}{\mu'}$$where $\rho' = \frac{2\lambda}{2\mu} = 0.6$.
 
 Since we need the mean response time to remain at 0.5 seconds:
-\[ 0.5 = \frac{0.6}{2(1-0.6)} + \frac{1}{2\mu'} \]
-\[ 0.5 = \frac{0.6}{0.8} + \frac{1}{2\mu'} \]
-\[ 0.5 = 0.75 + \frac{1}{2\mu'} \]
-\[ -0.25 = \frac{1}{2\mu'} \]
+$$0.5 = \frac{0.6}{2(1-0.6)} + \frac{1}{2\mu'}$$
+$$0.5 = \frac{0.6}{0.8} + \frac{1}{2\mu'}$$
+$$0.5 = 0.75 + \frac{1}{2\mu'}$$
+$$-0.25 = \frac{1}{2\mu'}$$
 
-This implies that \( \mu' > 5 \text{ jobs per second} \), meaning the CPU speed should be increased by more than double.
+This implies that $\mu' > 5 \text{ jobs per second}$, meaning the CPU speed should be increased by more than double.
 
 :p What is the answer to the question about this concept?
 ??x
@@ -184,30 +182,31 @@ Doubling both the arrival rate and the service rate results in cutting the mean 
 
 :p What is the logic behind why increasing CPU speed by less than double maintains the same mean response time?
 ??x
-The key lies in understanding the relationship between the arrival rate \( \lambda \) and the service rate \( \mu \). When both are doubled, the system's performance improves significantly. For a single server queue (M/M/1), Little's Law gives:
-\[ E[T] = W + \frac{1}{\mu} \]
+The key lies in understanding the relationship between the arrival rate $\lambda $ and the service rate$\mu$. When both are doubled, the system's performance improves significantly. For a single server queue (M/M/1), Little's Law gives:
+$$E[T] = W + \frac{1}{\mu}$$
 
-If we double both \( \lambda \) and \( \mu \):
-\[ 2E[T]_{\text{new}} = 2\left( W + \frac{1}{2\mu} \right) \]
-\[ E[T]_{\text{new}} = W + \frac{1}{2\mu} \]
+If we double both $\lambda $ and$\mu$:
+$$2E[T]_{\text{new}} = 2\left( W + \frac{1}{2\mu} \right)$$
+$$
 
-Since the utilization \( \rho = \lambda / \mu \), doubling both values keeps \( \rho \) constant. However, to maintain \( E[T] \) at its original value:
-\[ 0.5 = \frac{\rho'}{\mu'(1-\rho')} + \frac{1}{\mu'} \]
-where \( \rho' = 2\rho \).
+E[T]_{\text{new}} = W + \frac{1}{2\mu}$$
 
-Solving for \( \mu' \):
-\[ 0.5 = \frac{2\rho}{(1+2\rho)\mu'} + \frac{1}{\mu'} \]
+Since the utilization $\rho = \lambda / \mu $, doubling both values keeps $\rho $ constant. However, to maintain$E[T]$ at its original value:
+$$0.5 = \frac{\rho'}{\mu'(1-\rho')} + \frac{1}{\mu'}$$where $\rho' = 2\rho$.
 
-Given \( \rho = 0.6 \), we find:
-\[ 0.5 = \frac{1.2}{2.4 \mu'} + \frac{1}{\mu'} \]
-\[ 0.5 = \frac{3.6}{2.4 \mu'} \]
-\[ 0.5 = \frac{3.6}{2.4 \mu'} \]
+Solving for $\mu'$:
+$$0.5 = \frac{2\rho}{(1+2\rho)\mu'} + \frac{1}{\mu'}$$
 
-Thus, \( \mu' > 5 \text{ jobs per second} \), meaning the CPU speed needs to increase by more than double.
+Given $\rho = 0.6$, we find:
+$$0.5 = \frac{1.2}{2.4 \mu'} + \frac{1}{\mu'}$$
+$$0.5 = \frac{3.6}{2.4 \mu'}$$
+$$0.5 = \frac{3.6}{2.4 \mu'}$$
+
+Thus,$\mu' > 5 \text{ jobs per second}$, meaning the CPU speed needs to increase by more than double.
 
 :p Can you provide a rough argument for this result?
 ??x
-When the arrival rate doubles, the system becomes less busy in terms of utilization. Initially, with \( \lambda = 3 \) and \( \mu = 5 \), the system is not overloaded (\( \rho < 1 \)). Doubling both rates reduces the effective load on the CPU, leading to improved performance. Therefore, a proportionate increase in service rate (more than doubling) is needed to keep the mean response time constant.
+When the arrival rate doubles, the system becomes less busy in terms of utilization. Initially, with $\lambda = 3 $ and$\mu = 5 $, the system is not overloaded ($\rho < 1$). Doubling both rates reduces the effective load on the CPU, leading to improved performance. Therefore, a proportionate increase in service rate (more than doubling) is needed to keep the mean response time constant.
 
 :p What is the answer to this concept?
 ??x
@@ -403,7 +402,7 @@ Queueing networks are studied to understand behavior in systems. The simplest ex
 
 :p What is the basic structure of a single-server network?
 ??x
-In a single-server network, jobs arrive at a server, possibly queue up if the server is busy, receive service, and then leave. The key parameters include arrival rate (\(\lambda\)), mean interarrival time (1/\(\lambda\)), service requirement size \(S\), mean service time (E\[S\]), and average service rate (\(\mu\)).
+In a single-server network, jobs arrive at a server, possibly queue up if the server is busy, receive service, and then leave. The key parameters include arrival rate ($\lambda $), mean interarrival time (1/$\lambda $), service requirement size $ S $, mean service time (E$$S$$), and average service rate ($\mu$).
 
 Example: In a system with an average arrival rate of 3 jobs per second, the server processes jobs at a rate of 4 jobs per second.
 ```java
@@ -447,32 +446,30 @@ x??
 
 #### Performance Metrics in Single-Server Network
 
-Response Time \(T\)
-This is the total time a job spends from arrival to departure, given by \(T = t_{depart} - t_{arrive}\).
+Response Time $T $ This is the total time a job spends from arrival to departure, given by$T = t_{depart} - t_{arrive}$.
 
 Turnaround Time
 Often synonymous with response time, it measures the complete duration for a job to be processed.
 
-Time in System (Sojourn Time) \(T\)
-Same as response time, denoted by \(T = E[T]\), which is the average response time.
+Time in System (Sojourn Time) $T $ Same as response time, denoted by$T = E[T]$, which is the average response time.
 
-Waiting Time or Delay (\(T_Q\))
+Waiting Time or Delay ($T_Q$)
 The time a job spends waiting in queue before being served. It includes all the times spent queuing up to service start.
 
 Number of Jobs in System (N)
 Total number of jobs, including those in queue and currently being serviced.
 
-Number of Jobs in Queue (\(N_Q\))
+Number of Jobs in Queue ($N_Q$)
 Number of jobs just queued for service.
   
 :p What are the definitions of Response Time and Waiting Time in a single-server network?
 ??x
-Response Time \(T\) is defined as the total time from when a job arrives to when it leaves the system: \(T = t_{depart} - t_{arrive}\). This includes both waiting time (in queue) and service time.
+Response Time $T $ is defined as the total time from when a job arrives to when it leaves the system:$ T = t_{depart} - t_{arrive}$. This includes both waiting time (in queue) and service time.
 
-Waiting Time (\(T_Q\)) specifically refers to the time spent in the queue before starting service. Therefore, Response Time can be broken down as:
-\[ E[T] = E[T_Q] + E[S] \]
+Waiting Time ($T_Q$) specifically refers to the time spent in the queue before starting service. Therefore, Response Time can be broken down as:
+$$E[T] = E[T_Q] + E[S]$$
 
-For example, if a job arrives at \(t=0\) and departs at \(t=14\), with a service time of 5 seconds, then the response time is 9 seconds, where waiting time might be 6 seconds (if it queues for 3.5 seconds and serves for 2.5 seconds).
+For example, if a job arrives at $t=0 $ and departs at$t=14$, with a service time of 5 seconds, then the response time is 9 seconds, where waiting time might be 6 seconds (if it queues for 3.5 seconds and serves for 2.5 seconds).
 ```java
 // Pseudocode to calculate Response Time and Waiting Time
 public class Job {
@@ -496,15 +493,15 @@ x??
 
 #### Relationship Between Arrival and Service Rates
 
-When \(\lambda > \mu\), the queue length grows indefinitely over time. This implies that more jobs are arriving than can be processed.
+When $\lambda > \mu$, the queue length grows indefinitely over time. This implies that more jobs are arriving than can be processed.
 
-:p What happens if the arrival rate (\(\lambda\)) exceeds the service rate (\(\mu\)) in a single-server network?
+:p What happens if the arrival rate ($\lambda $) exceeds the service rate ($\mu$) in a single-server network?
 ??x
-If \(\lambda > \mu\), the queue will grow without bound, meaning jobs keep queuing up faster than they can be serviced. This scenario leads to an unstable system where the number of jobs waiting increases indefinitely.
+If $\lambda > \mu$, the queue will grow without bound, meaning jobs keep queuing up faster than they can be serviced. This scenario leads to an unstable system where the number of jobs waiting increases indefinitely.
 
 For example, consider a server with an arrival rate of 3 jobs/sec and a service rate of only 2 jobs/sec. Over time, more jobs will accumulate in the queue until it becomes infinite.
 
-To maintain stability, we need \(\lambda < \mu\), ensuring that on average, fewer jobs arrive than can be serviced.
+To maintain stability, we need $\lambda < \mu$, ensuring that on average, fewer jobs arrive than can be serviced.
 ```java
 // Pseudocode to check system stability
 public boolean isSystemStable(double lambda, double mu) {
@@ -518,13 +515,13 @@ x??
 
 #### Deterministic Interarrival and Service Times
 
-When both interarrival times and service requirements are deterministic (constant), waiting time (\(T_Q\)) becomes zero. The total response time \(T\) is equivalent to the service requirement \(S\).
+When both interarrival times and service requirements are deterministic (constant), waiting time ($T_Q $) becomes zero. The total response time $ T $is equivalent to the service requirement$ S$.
 
 :p What happens if interarrival and service times in a single-server network are deterministic?
 ??x
 If both the arrival process and the service times are deterministic, then there is no variability in either arrivals or service. In this case:
-- Waiting Time (\(T_Q\)) is 0.
-- Response Time \(T\) equals Service Requirement \(S\).
+- Waiting Time ($T_Q$) is 0.
+- Response Time $T $ equals Service Requirement$S$.
 
 For instance, if each job arrives every 2 seconds and takes exactly 1 second to process, the waiting time before starting processing will be zero because each job immediately follows another.
 

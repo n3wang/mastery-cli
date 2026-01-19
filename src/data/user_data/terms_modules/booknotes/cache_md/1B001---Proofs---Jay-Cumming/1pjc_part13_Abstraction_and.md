@@ -139,14 +139,10 @@ Each flashcard contains a single question that prompts understanding of key conc
 #### Definition of Partial Order
 Background context: A partial order is a binary relation that is reflexive, antisymmetric, and transitive. These properties ensure that the relation behaves in a specific structured way within a set.
 
-:p Define a partial order on a set \(P(N)\).
+:p Define a partial order on a set $P(N)$.
 ??x
-A partial order on a set \(P(N)\) (power set of natural numbers) is a binary relation \(\subseteq\) such that for any subsets \(a, b, c \in P(N)\):
-- Reflexivity: \(a \subseteq a\)
-- Antisymmetry: If \(a \subseteq b\) and \(b \subseteq a\), then \(a = b\)
-- Transitivity: If \(a \subseteq b\) and \(b \subseteq c\), then \(a \subseteq c\)
-
-??x
+A partial order on a set $P(N)$(power set of natural numbers) is a binary relation $\subseteq $ such that for any subsets $a, b, c \in P(N)$:
+- Reflexivity: $a \subseteq a $- Antisymmetry: If $ a \subseteq b $and$ b \subseteq a $, then$ a = b $- Transitivity: If$ a \subseteq b $and$ b \subseteq c $, then$ a \subseteq c$??x
 The logic behind these properties ensures that the relation behaves in a structured manner, allowing for comparisons between elements but not necessarily between every pair of elements.
 ```java
 // Pseudocode to check if a partial order holds
@@ -174,11 +170,10 @@ A Hasse diagram is a graphical depiction of a partially ordered set where:
 - Each element in the set is a point.
 - An upward line or arrow between two points indicates that one element is less than another according to the partial order, and no lines are drawn for non-comparable elements.
 
-:p Draw a Hasse diagram for \(A = \{1, 2, 3\}\) with the relation \(a \subseteq b\) if \(a \subseteq b\).
+:p Draw a Hasse diagram for $A = \{1, 2, 3\}$ with the relation $a \subseteq b$ if $a \subseteq b$.
 ??x
-Here's how you would draw the Hasse diagram for \(A = \{1, 2, 3\}\):
-- Points: \(f1;2;3g, f1;2gf1;3gf2;3g, f1g, f2g, f3g\)
-- Lines: From each smaller set to the sets that include it.
+Here's how you would draw the Hasse diagram for $A = \{1, 2, 3\}$:
+- Points: $f1;2;3g, f1;2gf1;3gf2;3g, f1g, f2g, f3g$- Lines: From each smaller set to the sets that include it.
 
 ```
       {1,2,3}
@@ -193,15 +188,15 @@ Here's how you would draw the Hasse diagram for \(A = \{1, 2, 3\}\):
 ---
 
 #### Example of a Partial Order
-Background context: The example provided uses subset relations to illustrate the concept of partial order. Specifically, \(a \subseteq b\) if and only if every element in set \(a\) is also an element of set \(b\).
+Background context: The example provided uses subset relations to illustrate the concept of partial order. Specifically,$a \subseteq b $ if and only if every element in set$a $ is also an element of set$b$.
 
-:p Provide an example where \(f1;2;3g \subseteq f2;3;4g\) and \(f2;3;4g \subseteq f1;2;3g\).
+:p Provide an example where $f1;2;3g \subseteq f2;3;4g $ and$f2;3;4g \subseteq f1;2;3g$.
 ??x
 In the context of subset relations:
-- \(f1;2;3g \subseteq f2;3;4g\) is true because every element in \(f1;2;3g\) (i.e., 1, 2, and 3) is also in \(f2;3;4g\).
-- However, \(f2;3;4g \not\subseteq f1;2;3g\) because the element 4 is not in \(f1;2;3g\).
+- $f1;2;3g \subseteq f2;3;4g $ is true because every element in$f1;2;3g $(i.e., 1, 2, and 3) is also in$ f2;3;4g$.
+- However, $f2;3;4g \not\subseteq f1;2;3g $ because the element 4 is not in$f1;2;3g$.
 
-Therefore, \(f1;2;3g \subseteq f2;3;4g\) but \(f2;3;4g \nsubseteq f1;2;3g\), demonstrating that a partial order does not necessarily imply the reverse.
+Therefore, $f1;2;3g \subseteq f2;3;4g $ but$f2;3;4g \nsubseteq f1;2;3g$, demonstrating that a partial order does not necessarily imply the reverse.
 
 :x??
 
@@ -214,19 +209,15 @@ Background context: Both equivalence relations and partial orders are binary rel
 
 :p Explain the difference between a reflexive relation and symmetric or transitive relations.
 ??x
-In a reflexive relation on a set \(A\):
-- For every element \(a \in A\), it must be true that \(a \sim a\).
+In a reflexive relation on a set $A$:
+- For every element $a \in A $, it must be true that $ a \sim a$.
 
 For symmetric and transitive relations:
-- Symmetric: If \(a \sim b\), then \(b \sim a\).
-- Transitive: If \(a \sim b\) and \(b \sim c\), then \(a \sim c\).
+- Symmetric: If $a \sim b $, then $ b \sim a$.
+- Transitive: If $a \sim b $ and$b \sim c $, then$ a \sim c$.
 
-These properties can coexist or conflict. For example, the relation defined on \(\{a, b, c\}\) where:
-- \(a \sim a\)
-- \(b \sim b\)
-- \(c \sim c\)
-
-Is symmetric because if one element is related to another, they are also related in reverse (though this case might be trivial).
+These properties can coexist or conflict. For example, the relation defined on $\{a, b, c\}$ where:
+- $a \sim a $-$ b \sim b $-$ c \sim c$ Is symmetric because if one element is related to another, they are also related in reverse (though this case might be trivial).
 
 It can still be transitive without symmetry if the relation only applies under certain conditions.
 
@@ -251,13 +242,13 @@ Despite his short life, Galois laid foundational stones for future mathematician
 
 #### Equivalence Relation Examples
 
-Background context: An equivalence relation on a set \(P\) is a relation that is reflexive, symmetric, and transitive. A common example of an equivalence relation is the "same birthday" relation defined on the set of all people.
+Background context: An equivalence relation on a set $P$ is a relation that is reflexive, symmetric, and transitive. A common example of an equivalence relation is the "same birthday" relation defined on the set of all people.
 
 :p Can you provide three other real-world examples of an equivalence relation?
 
 ??x
-1. **Congruence Modulo n**: For any integer \(n\), the relation \(a \equiv b \pmod{n}\) (read as \(a\) is congruent to \(b\) modulo \(n\)) on the set of integers \(\mathbb{Z}\). This relation states that two numbers are equivalent if their difference is divisible by \(n\).
-2. **Equality of Sets**: The equality relation on the power set of any set, where two sets \(A\) and \(B\) are considered equal if they contain exactly the same elements.
+1. **Congruence Modulo n**: For any integer $n $, the relation $ a \equiv b \pmod{n}$(read as $ a$is congruent to $ b$ modulo $ n $) on the set of integers$\mathbb{Z}$. This relation states that two numbers are equivalent if their difference is divisible by $ n$.
+2. **Equality of Sets**: The equality relation on the power set of any set, where two sets $A $ and$B$ are considered equal if they contain exactly the same elements.
 3. **Equivalence of Polynomials**: In algebra, polynomials can be grouped into equivalence classes based on having the same degree.
 
 x??
@@ -266,37 +257,13 @@ x??
 
 #### Equivalence Classes in Set A
 
-Background context: An equivalence relation \(\sim\) on a set \(A\) partitions \(A\) into disjoint subsets called equivalence classes. Each element in an equivalence class is related to every other element in that class, and no elements from different classes are related.
+Background context: An equivalence relation $\sim $ on a set$A $ partitions$A$ into disjoint subsets called equivalence classes. Each element in an equivalence class is related to every other element in that class, and no elements from different classes are related.
 
-:p Given the set \(A = \{a, b, c, d, e\}\) with the relation \(\sim\) having two equivalence classes where \(b \sim e\), \(c \sim d\), and \(a \sim e\). Determine all related pairs in this context.
+:p Given the set $A = \{a, b, c, d, e\}$ with the relation $\sim$ having two equivalence classes where $b \sim e$,$ c \sim d $, and$ a \sim e$. Determine all related pairs in this context.
 
 ??x
 The related pairs are:
-1. \( (a, a) \)
-2. \( (a, b) \)
-3. \( (a, c) \)
-4. \( (a, d) \)
-5. \( (a, e) \)
-6. \( (b, a) \)
-7. \( (b, b) \)
-8. \( (b, c) \)
-9. \( (b, d) \)
-10. \( (b, e) \)
-11. \( (c, a) \)
-12. \( (c, b) \)
-13. \( (c, c) \)
-14. \( (c, d) \)
-15. \( (c, e) \)
-16. \( (d, a) \)
-17. \( (d, b) \)
-18. \( (d, c) \)
-19. \( (d, d) \)
-20. \( (d, e) \)
-21. \( (e, a) \)
-22. \( (e, b) \)
-23. \( (e, c) \)
-24. \( (e, d) \)
-25. \( (e, e) \)
+1. $(a, a)$2.$(a, b)$3.$(a, c)$4.$(a, d)$5.$(a, e)$6.$(b, a)$7.$(b, b)$8.$(b, c)$9.$(b, d)$10.$(b, e)$11.$(c, a)$12.$(c, b)$13.$(c, c)$14.$(c, d)$15.$(c, e)$16.$(d, a)$17.$(d, b)$18.$(d, c)$19.$(d, d)$20.$(d, e)$21.$(e, a)$22.$(e, b)$23.$(e, c)$24.$(e, d)$25.$(e, e)$
 
 x??
 
@@ -306,19 +273,19 @@ x??
 
 Background context: Fractions can be represented using ordered pairs of integers where the second component is non-zero. The equality of fractions is defined in terms of these pairs.
 
-:p Define an equivalence relation on the set \(A = \{a; b : a, b \in \mathbb{Z} \text{ and } b \neq 0\}\) using ordered pairs such that two pairs are equivalent if their cross-multiplication yields equality.
+:p Define an equivalence relation on the set $A = \{a; b : a, b \in \mathbb{Z} \text{ and } b \neq 0\}$ using ordered pairs such that two pairs are equivalent if their cross-multiplication yields equality.
 
 ??x
-The relation \(\sim\) is defined on \(A\) as follows: 
-\[ (a; b) \sim (c; d) \iff ad = bc. \]
+The relation $\sim $ is defined on$A$ as follows:
+$$(a; b) \sim (c; d) \iff ad = bc.$$
 
 This means:
-- If \(ad = bc\), then the fractions \(\frac{a}{b}\) and \(\frac{c}{d}\) are equivalent.
-- This relation is reflexive: For any pair \((a, b)\), we have \(ab = ab\).
-- It is symmetric: If \((a; b) \sim (c; d)\), then \(ad = bc\) implies \(cb = da\), so \((c; d) \sim (a; b)\).
-- It is transitive: If \((a; b) \sim (c; d)\) and \((c; d) \sim (e; f)\), then \(ad = bc\) and \(cf = de\). Multiplying the first equation by \(f\) and the second by \(b\), we get \(adf = bcf\) and \(bcf = bde\), so \(adf = bde\) which implies \(af = be\), meaning \((a; b) \sim (e; f)\).
+- If $ad = bc $, then the fractions $\frac{a}{b}$ and $\frac{c}{d}$ are equivalent.
+- This relation is reflexive: For any pair $(a, b)$, we have $ ab = ab$.
+- It is symmetric: If $(a; b) \sim (c; d)$, then $ ad = bc$implies $ cb = da$, so $(c; d) \sim (a; b)$.
+- It is transitive: If $(a; b) \sim (c; d)$ and $(c; d) \sim (e; f)$, then $ ad = bc$and $ cf = de$. Multiplying the first equation by $ f$and the second by $ b$, we get $ adf = bcf$and $ bcf = bde$, so $ adf = bde$which implies $ af = be$, meaning $(a; b) \sim (e; f)$.
 
-Thus, \(\sim\) is an equivalence relation.
+Thus, $\sim$ is an equivalence relation.
 
 x??
 
@@ -328,16 +295,16 @@ x??
 
 Background context: An infinite set can have both finite and infinite equivalence classes depending on the definition of the equivalence relation.
 
-:p Give examples of an equivalence relation on an infinite set \(A\) that has:
+:p Give examples of an equivalence relation on an infinite set $A$ that has:
 - (a) Finitely many equivalence classes
 - (b) Infinitely many equivalence classes
 
 ??x
 (a) **Finitely Many Equivalence Classes**: 
-Consider the set of all integers \(\mathbb{Z}\). Define the relation \(\sim\) on \(\mathbb{Z}\) where \(a \sim b\) if and only if \(a - b\) is divisible by 3. This partitions \(\mathbb{Z}\) into three equivalence classes: \([0]_3\), \([1]_3\), and \([2]_3\).
+Consider the set of all integers $\mathbb{Z}$. Define the relation $\sim $ on $\mathbb{Z}$ where $a \sim b$ if and only if $a - b$ is divisible by 3. This partitions $\mathbb{Z}$ into three equivalence classes:$[0]_3 $, $[1]_3 $, and $[2]_3$.
 
 (b) **Infinitely Many Equivalence Classes**:
-Consider the set of all real numbers \(\mathbb{R}\). Define the relation \(\sim\) on \(\mathbb{R}\) where \(a \sim b\) if and only if \(a = b + k\pi\) for some integer \(k\). This partitions \(\mathbb{R}\) into infinitely many equivalence classes, one for each real number modulo \(\pi\).
+Consider the set of all real numbers $\mathbb{R}$. Define the relation $\sim $ on $\mathbb{R}$ where $a \sim b$ if and only if $a = b + k\pi$ for some integer $k$. This partitions $\mathbb{R}$ into infinitely many equivalence classes, one for each real number modulo $\pi$.
 
 x??
 
@@ -347,15 +314,15 @@ x??
 
 Background context: Relations defined using modular arithmetic can be analyzed to determine if they are equivalence relations.
 
-:p Let \(\sim\) be the relation on \(\mathbb{Z}\) where \(a \sim b\) if and only if both \(a \equiv b \pmod{2}\) and \(a \equiv b \pmod{3}\). Determine if \(\sim\) is an equivalence relation.
+:p Let $\sim $ be the relation on$\mathbb{Z}$ where $a \sim b$ if and only if both $a \equiv b \pmod{2}$ and $a \equiv b \pmod{3}$. Determine if $\sim$ is an equivalence relation.
 
 ??x
-To determine if \(\sim\) is an equivalence relation, we need to check:
-- Reflexivity: For any integer \(a\), \(a \equiv a \pmod{2}\) and \(a \equiv a \pmod{3}\). Thus, \(a \sim a\).
-- Symmetry: If \(a \sim b\), then \(a \equiv b \pmod{2}\) and \(b \equiv a \pmod{2}\), so \(b \sim a\).
-- Transitivity: If \(a \sim b\) and \(b \sim c\), then \(a \equiv b \pmod{2}\) and \(c \equiv b \pmod{2}\). Since congruence modulo 2 is transitive, we have \(a \equiv c \pmod{2}\). Similarly, \(a \equiv b \pmod{3}\) and \(b \equiv c \pmod{3}\), so \(a \equiv c \pmod{3}\). Therefore, \(a \sim c\).
+To determine if $\sim$ is an equivalence relation, we need to check:
+- Reflexivity: For any integer $a $, $ a \equiv a \pmod{2}$and $ a \equiv a \pmod{3}$. Thus,$ a \sim a$.
+- Symmetry: If $a \sim b $, then $ a \equiv b \pmod{2}$and $ b \equiv a \pmod{2}$, so $ b \sim a$.
+- Transitivity: If $a \sim b $ and$b \sim c $, then$ a \equiv b \pmod{2}$and $ c \equiv b \pmod{2}$. Since congruence modulo 2 is transitive, we have $ a \equiv c \pmod{2}$. Similarly,$ a \equiv b \pmod{3}$and $ b \equiv c \pmod{3}$, so $ a \equiv c \pmod{3}$. Therefore,$ a \sim c$.
 
-Thus, \(\sim\) is an equivalence relation.
+Thus, $\sim$ is an equivalence relation.
 
 x??
 
@@ -365,15 +332,15 @@ x??
 
 Background context: The intersection of two equivalence relations on the same set may or may not be an equivalence relation. If it is, both relations must satisfy certain properties to ensure transitivity in the intersection.
 
-:p Let \(\sim_1\) and \(\sim_2\) be equivalence relations on a set \(A\). Define \(\sim\) as \(a \sim b\) if and only if \(a \sim_1 b\) and \(a \sim_2 b\). Prove that \(\sim\) is an equivalence relation.
+:p Let $\sim_1 $ and$\sim_2 $ be equivalence relations on a set$A $. Define $\sim $ as$a \sim b $ if and only if$ a \sim_1 b $ and $ a \sim_2 b $. Prove that $\sim$ is an equivalence relation.
 
 ??x
-To prove that \(\sim\) is an equivalence relation, we need to check:
-- Reflexivity: For any element \(a \in A\), since \(\sim_1\) and \(\sim_2\) are equivalence relations, we have \(a \sim_1 a\) and \(a \sim_2 a\). Thus, \(a \sim a\).
-- Symmetry: If \(a \sim b\), then \(a \sim_1 b\) and \(b \sim_1 a\) (by symmetry of \(\sim_1\)), and similarly for \(\sim_2\). Therefore, \(b \sim_1 a\) and \(b \sim_2 a\), so \(b \sim a\).
-- Transitivity: If \(a \sim b\) and \(b \sim c\), then \(a \sim_1 b\), \(b \sim_1 c\), and \(a \sim_2 b\), \(b \sim_2 c\). Since both \(\sim_1\) and \(\sim_2\) are transitive, we have \(a \sim_1 c\) and \(a \sim_2 c\). Therefore, \(a \sim c\).
+To prove that $\sim$ is an equivalence relation, we need to check:
+- Reflexivity: For any element $a \in A $, since $\sim_1 $ and$\sim_2 $ are equivalence relations, we have$a \sim_1 a $ and$ a \sim_2 a $. Thus,$ a \sim a$.
+- Symmetry: If $a \sim b $, then $ a \sim_1 b $and$ b \sim_1 a $(by symmetry of$\sim_1 $), and similarly for $\sim_2 $. Therefore, $ b \sim_1 a $and$ b \sim_2 a $, so$ b \sim a$.
+- Transitivity: If $a \sim b $ and$b \sim c $, then$ a \sim_1 b $,$ b \sim_1 c $, and$ a \sim_2 b $,$ b \sim_2 c $. Since both$\sim_1 $ and$\sim_2 $ are transitive, we have$a \sim_1 c $ and $ a \sim_2 c $. Therefore,$ a \sim c$.
 
-Thus, \(\sim\) is an equivalence relation.
+Thus, $\sim$ is an equivalence relation.
 
 x??
 
@@ -383,15 +350,15 @@ x??
 
 Background context: The union of two equivalence relations on the same set may or may not be an equivalence relation. If it is, both relations must satisfy certain properties to ensure transitivity in the union.
 
-:p Let \(\sim_1\) and \(\sim_2\) be equivalence relations on a set \(A\). Define \(\sim\) as \(a \sim b\) if and only if \(a \sim_1 b\) or \(a \sim_2 b\). Prove that \(\sim\) is an equivalence relation.
+:p Let $\sim_1 $ and$\sim_2 $ be equivalence relations on a set$A $. Define $\sim $ as$a \sim b $ if and only if$ a \sim_1 b $ or $ a \sim_2 b $. Prove that $\sim$ is an equivalence relation.
 
 ??x
-To prove that \(\sim\) is an equivalence relation, we need to check:
-- Reflexivity: For any element \(a \in A\), since both \(\sim_1\) and \(\sim_2\) are equivalence relations, we have \(a \sim_1 a\) or \(a \sim_2 a\). Thus, \(a \sim a\).
-- Symmetry: If \(a \sim b\), then either \(a \sim_1 b\) or \(b \sim_1 a\) (by symmetry of \(\sim_1\)), and similarly for \(\sim_2\). Therefore, if \(a \sim_1 b\), we have \(b \sim_1 a\); if \(b \sim_2 a\), we have \(a \sim_2 b\).
-- Transitivity: This is the tricky part. If \(a \sim b\) and \(b \sim c\), then either \(a \sim_1 b\) or \(b \sim_1 a\), and similarly for \(\sim_2\). However, this does not guarantee that both \(a \sim_1 c\) and \(b \sim_1 c\); the same applies to \(\sim_2\).
+To prove that $\sim$ is an equivalence relation, we need to check:
+- Reflexivity: For any element $a \in A $, since both $\sim_1 $ and$\sim_2 $ are equivalence relations, we have$a \sim_1 a $ or$ a \sim_2 a $. Thus,$ a \sim a$.
+- Symmetry: If $a \sim b $, then either $ a \sim_1 b $or$ b \sim_1 a $(by symmetry of$\sim_1 $), and similarly for $\sim_2 $. Therefore, if $ a \sim_1 b $, we have$ b \sim_1 a $; if$ b \sim_2 a $, we have$ a \sim_2 b$.
+- Transitivity: This is the tricky part. If $a \sim b $ and$b \sim c $, then either$ a \sim_1 b $or$ b \sim_1 a $, and similarly for$\sim_2 $. However, this does not guarantee that both $ a \sim_1 c $and$ b \sim_1 c $; the same applies to$\sim_2$.
 
-Thus, \(\sim\) is not necessarily an equivalence relation.
+Thus, $\sim$ is not necessarily an equivalence relation.
 
 x??
 
@@ -401,15 +368,15 @@ x??
 
 Background context: The product of two sets with their respective equivalence relations can be defined in a way that relates pairs based on component-wise relationships.
 
-:p Define a relation \(\sim\) on the set \(A \times B\) where \((a, b) \sim (c, d)\) if and only if \(a \sim_1 c\) and \(b \sim_2 d\), with \(\sim_1\) an equivalence relation on \(A\) and \(\sim_2\) an equivalence relation on \(B\). Prove that \(\sim\) is an equivalence relation.
+:p Define a relation $\sim $ on the set$A \times B $ where$(a, b) \sim (c, d)$ if and only if $a \sim_1 c$ and $b \sim_2 d$, with $\sim_1 $ an equivalence relation on $ A $ and $\sim_2$ an equivalence relation on $ B $. Prove that $\sim$ is an equivalence relation.
 
 ??x
-To prove that \(\sim\) is an equivalence relation, we need to check:
-- Reflexivity: For any element \((a, b) \in A \times B\), since both \(\sim_1\) and \(\sim_2\) are equivalence relations, we have \(a \sim_1 a\) and \(b \sim_2 b\). Thus, \((a, b) \sim (a, b)\).
-- Symmetry: If \((a, b) \sim (c, d)\), then \(a \sim_1 c\) and \(b \sim_2 d\). By symmetry of \(\sim_1\) and \(\sim_2\), we have \(c \sim_1 a\) and \(d \sim_2 b\), so \((c, d) \sim (a, b)\).
-- Transitivity: If \((a, b) \sim (c, d)\) and \((c, d) \sim (e, f)\), then \(a \sim_1 c\) and \(b \sim_2 d\), and \(c \sim_1 e\) and \(d \sim_2 f\). By transitivity of \(\sim_1\) and \(\sim_2\), we have \(a \sim_1 e\) and \(b \sim_2 f\), so \((a, b) \sim (e, f)\).
+To prove that $\sim$ is an equivalence relation, we need to check:
+- Reflexivity: For any element $(a, b) \in A \times B $, since both $\sim_1 $ and$\sim_2 $ are equivalence relations, we have$a \sim_1 a $ and$ b \sim_2 b $. Thus,$(a, b) \sim (a, b)$.
+- Symmetry: If $(a, b) \sim (c, d)$, then $ a \sim_1 c$and $ b \sim_2 d$. By symmetry of $\sim_1 $ and $\sim_2$, we have $ c \sim_1 a$and $ d \sim_2 b$, so $(c, d) \sim (a, b)$.
+- Transitivity: If $(a, b) \sim (c, d)$ and $(c, d) \sim (e, f)$, then $ a \sim_1 c$and $ b \sim_2 d$, and $ c \sim_1 e$and $ d \sim_2 f$. By transitivity of $\sim_1 $ and $\sim_2$, we have $ a \sim_1 e$and $ b \sim_2 f$, so $(a, b) \sim (e, f)$.
 
-Thus, \(\sim\) is an equivalence relation.
+Thus, $\sim$ is an equivalence relation.
 
 x??
 
@@ -419,15 +386,15 @@ x??
 
 Background context: Modular arithmetic can be used to define equivalence relations in various contexts.
 
-:p Define a relation \(\sim\) on the set of real numbers \(\mathbb{R}\) where \(a \sim b\) if and only if \(a = b + k\pi\) for some integer \(k\). Prove that \(\sim\) is an equivalence relation.
+:p Define a relation $\sim $ on the set of real numbers$\mathbb{R}$ where $a \sim b$ if and only if $a = b + k\pi$ for some integer $k$. Prove that $\sim$ is an equivalence relation.
 
 ??x
-To prove that \(\sim\) is an equivalence relation, we need to check:
-- Reflexivity: For any real number \(a\), we can choose \(k = 0\), so \(a = a + 0\pi\). Thus, \(a \sim a\).
-- Symmetry: If \(a \sim b\), then \(a = b + k\pi\) for some integer \(k\). By symmetry of equality, we have \(b = a - k\pi = (a + (-k)\pi) = b + l\pi\) where \(l = -k\) is an integer. Therefore, \(b \sim a\).
-- Transitivity: If \(a \sim b\) and \(b \sim c\), then \(a = b + k\pi\) for some integer \(k\) and \(b = c + m\pi\) for some integer \(m\). Adding these equations, we get \(a = (c + m\pi) + k\pi = c + (k + m)\pi\). Since \(k + m\) is an integer, we have \(a \sim c\).
+To prove that $\sim$ is an equivalence relation, we need to check:
+- Reflexivity: For any real number $a $, we can choose $ k = 0 $, so$ a = a + 0\pi $. Thus,$ a \sim a$.
+- Symmetry: If $a \sim b $, then $ a = b + k\pi $for some integer$ k $. By symmetry of equality, we have$ b = a - k\pi = (a + (-k)\pi) = b + l\pi $where$ l = -k $is an integer. Therefore,$ b \sim a$.
+- Transitivity: If $a \sim b $ and$b \sim c $, then$ a = b + k\pi $for some integer$ k $and$ b = c + m\pi $for some integer$ m $. Adding these equations, we get$ a = (c + m\pi) + k\pi = c + (k + m)\pi $. Since$ k + m $is an integer, we have$ a \sim c$.
 
-Thus, \(\sim\) is an equivalence relation.
+Thus, $\sim$ is an equivalence relation.
 
 x??
 

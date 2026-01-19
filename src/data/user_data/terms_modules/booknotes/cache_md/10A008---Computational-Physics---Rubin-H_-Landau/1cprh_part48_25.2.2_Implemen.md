@@ -8,18 +8,19 @@
 
 #### Continuity Equation
 Background context explaining the concept. The continuity equation describes conservation of mass for fluid motion:
-\[ \frac{\partial \rho(x,t)}{\partial t} + \nabla \cdot j = 0 \]
-where \(\rho(x,t)\) is the mass density, \(v(x,t)\) is the velocity, and \(j = \rho v\) is the mass current. The divergence term describes how the current spreads out in a region of space.
+$$\frac{\partial \rho(x,t)}{\partial t} + \nabla \cdot j = 0$$where $\rho(x,t)$ is the mass density,$ v(x,t)$ is the velocity, and $j = \rho v$ is the mass current. The divergence term describes how the current spreads out in a region of space.
 
-For one-dimensional flow in the \(x\)-direction with constant velocity \(v = c\), the continuity equation simplifies to:
-\[ \frac{\partial \rho}{\partial t} + c \frac{\partial \rho}{\partial x} = 0. \]
+For one-dimensional flow in the $x $-direction with constant velocity $ v = c$, the continuity equation simplifies to:
+$$\frac{\partial \rho}{\partial t} + c \frac{\partial \rho}{\partial x} = 0.$$
+
 This is known as the advection equation.
 :p Explain what the continuity equation describes and give its simplified form for one-dimensional flow?
 ??x
 The continuity equation describes how changes in mass density within a region of space arise from the flow of current into or out of that region.
 
-For one-dimensional flow with constant velocity \(v = c\), the continuity equation simplifies to:
-\[ \frac{\partial \rho}{\partial t} + c \frac{\partial \rho}{\partial x} = 0. \]
+For one-dimensional flow with constant velocity $v = c$, the continuity equation simplifies to:
+$$\frac{\partial \rho}{\partial t} + c \frac{\partial \rho}{\partial x} = 0.$$
+
 This form shows how density changes over time and space due to advection.
 x??
 
@@ -28,17 +29,15 @@ x??
 
 #### Advection Equation
 Background context explaining the concept. The advection equation describes the horizontal transport of a quantity from one region of space to another as a result of a flow's velocity field. It can be written in first-derivative form:
-\[ \frac{\partial u}{\partial t} + c \frac{\partial u}{\partial x} = 0, \]
-where \(u\) is the quantity being advected and \(c\) is its constant speed.
+$$\frac{\partial u}{\partial t} + c \frac{\partial u}{\partial x} = 0,$$where $ u $ is the quantity being advected and $ c$ is its constant speed.
 
-Any function of the form \(u(x,t) = f(x - ct)\) is a traveling wave solution to this equation.
+Any function of the form $u(x,t) = f(x - ct)$ is a traveling wave solution to this equation.
 :p What is the advection equation and what does it represent?
 ??x
 The advection equation represents the horizontal transport of a quantity from one region of space to another due to the velocity field. It can be written as:
-\[ \frac{\partial u}{\partial t} + c \frac{\partial u}{\partial x} = 0, \]
-where \(u\) is the advected quantity and \(c\) is its constant speed.
+$$\frac{\partial u}{\partial t} + c \frac{\partial u}{\partial x} = 0,$$where $ u $ is the advected quantity and $ c$ is its constant speed.
 
-Any function of the form \(u(x,t) = f(x - ct)\) is a traveling wave solution to this equation.
+Any function of the form $u(x,t) = f(x - ct)$ is a traveling wave solution to this equation.
 x??
 
 ---
@@ -53,11 +52,13 @@ The Lax-Wendroff algorithm uses the following steps:
 :p What is the Lax-Wendroff algorithm and how does it work for solving Burgers' equation?
 ??x
 The Lax-Wendroff algorithm works by expressing the first-order time derivative in terms of spatial derivatives using Burger's equation:
-\[ \frac{\partial u}{\partial t} = -\epsilon \frac{\partial (u^2/2)}{\partial x}. \]
+$$\frac{\partial u}{\partial t} = -\epsilon \frac{\partial (u^2/2)}{\partial x}.$$
+
 Then, it uses a Taylor expansion to substitute higher-order time derivatives into the equation.
 
 The resulting algorithm is:
-\[ u(x,t+\Delta t) = u(x,t) - \Delta t \epsilon \frac{\partial (u^2 / 2)}{\partial x} + \frac{(\Delta t)^2}{2} \epsilon^2 \frac{\partial}{\partial x} [u \frac{\partial (u^2 / 2)}{\partial x}]. \]
+$$u(x,t+\Delta t) = u(x,t) - \Delta t \epsilon \frac{\partial (u^2 / 2)}{\partial x} + \frac{(\Delta t)^2}{2} \epsilon^2 \frac{\partial}{\partial x} [u \frac{\partial (u^2 / 2)}{\partial x}].$$
+
 This approach retains second-order differences and improves the stability and accuracy of the solution.
 x??
 
@@ -162,7 +163,7 @@ Background context: The Korteweg-de Vries (KdV) equation is solved using a finit
 
 :p How does the algorithm predict u(x,t) at future times?
 ??x
-The algorithm predicts \(u(x,t)\) at future times by updating it based on solutions from present and past times. The initial condition provides the starting values for all positions, and forward differences are used to approximate the time derivative.
+The algorithm predicts $u(x,t)$ at future times by updating it based on solutions from present and past times. The initial condition provides the starting values for all positions, and forward differences are used to approximate the time derivative.
 
 ```java
 public class KdvEquationSolver {
@@ -189,7 +190,7 @@ Background context: The truncation error for the KdV equation is related to time
 
 :p What are the truncation error and stability conditions for the KdV equation algorithm?
 ??x
-The truncation error for the KdV equation algorithm is related to third-order terms in time and second-order terms in space, leading to an overall error of \( \mathcal{O}((\Delta t)^3) + \mathcal{O}(\Delta t (\Delta x)^2) \). The stability condition ensures that small perturbations do not lead to large errors by limiting the ratio \(\frac{\Delta t}{\Delta x}\), specifically requiring \( \frac{\Delta t \Delta x [|\beta| |u| + 4 \mu (\Delta x)^2]}{1} \leq 1 \).
+The truncation error for the KdV equation algorithm is related to third-order terms in time and second-order terms in space, leading to an overall error of $\mathcal{O}((\Delta t)^3) + \mathcal{O}(\Delta t (\Delta x)^2)$. The stability condition ensures that small perturbations do not lead to large errors by limiting the ratio $\frac{\Delta t}{\Delta x}$, specifically requiring $\frac{\Delta t \Delta x [|\beta| |u| + 4 \mu (\Delta x)^2]}{1} \leq 1$.
 
 ```java
 public class KdvEquationSolver {
@@ -214,18 +215,18 @@ x??
 
 #### Initial Condition Setup for Soliton Simulation
 
-Background context: This section covers how to set up and simulate a soliton wave using Python, specifically focusing on the initial condition given by equation (25.35). The code will solve the Korteweg-de Vries (KdV) equation with parameters \(\epsilon = 0.2\) and \(\mu = 0.1\).
+Background context: This section covers how to set up and simulate a soliton wave using Python, specifically focusing on the initial condition given by equation (25.35). The code will solve the Korteweg-de Vries (KdV) equation with parameters $\epsilon = 0.2 $ and$\mu = 0.1$.
 
 :p How do you set up the initial condition for a soliton simulation using Python?
 
 ??x
-To set up the initial condition, we need to define a 2D array `u` where the first index corresponds to position \( x \) and the second to time \( t \). With the chosen parameters, the maximum value of \( x \) is calculated as \( 130 \times \Delta x = 52 \).
+To set up the initial condition, we need to define a 2D array `u` where the first index corresponds to position $x $ and the second to time$t $. With the chosen parameters, the maximum value of$ x $is calculated as$130 \times \Delta x = 52$.
 
-The initial condition at \( t = 0 \) can be assigned by evaluating equation (25.35):
+The initial condition at $t = 0$ can be assigned by evaluating equation (25.35):
 
-\[ u(x,t=0)=\frac{1}{2}\left[ 1-\tanh\left(\frac{x-25}{5}\right)\right] \]
+$$u(x,t=0)=\frac{1}{2}\left[ 1-\tanh\left(\frac{x-25}{5}\right)\right]$$
 
-We initialize the time to \( t = 0 \) and assign values to `u[i,1]`. For subsequent time steps, we use (25.31) to advance the time but ensure that we do not go beyond the limits of the array.
+We initialize the time to $t = 0$ and assign values to `u[i,1]`. For subsequent time steps, we use (25.31) to advance the time but ensure that we do not go beyond the limits of the array.
 
 Here’s a pseudocode snippet for setting up initial conditions:
 
@@ -246,7 +247,7 @@ for i in range(131):
 ```
 
 In this setup:
-- We initialize a 2D array `u` with dimensions \(131 \times 3\) to accommodate the maximum position and time.
+- We initialize a 2D array `u` with dimensions $131 \times 3$ to accommodate the maximum position and time.
 - The initial condition is assigned by evaluating equation (25.35) at each spatial point.
 
 x??
@@ -263,16 +264,10 @@ Background context: This part of the text explains how to advance the simulation
 ??x
 To advance the time, we use equation (25.31) but must handle boundary conditions carefully to avoid index out-of-bounds errors. Specifically:
 
-1. For \( i = 3 \) to \( 129 \), compute `u[i,2]` using:
-   \[ u[i+1,2] - 2u[i,2] + u[i-1,2] = \mu (u[i+1,1] - 2u[i,1] + u[i-1,1]) \]
-
-2. To handle the missing values at \( i=1 \) and \( i=131 \), we assume:
-   \[ u[1,2] = 1 \]
-   \[ u[131,2] = 0 \]
-
-3. For the edge cases where `i+2` or `i-2` would exceed bounds (i.e., `i=130` for \( i-2 \) and `i=2` for \( i+2 \)), we approximate by setting:
-   - For \( i = 130 \), set \( u[130,2] = u[129,1] \)
-   - For \( i = 2 \), set \( u[2,2] = u[3,1] \)
+1. For $i = 3 $ to$129$, compute `u[i,2]` using:
+   $$u[i+1,2] - 2u[i,2] + u[i-1,2] = \mu (u[i+1,1] - 2u[i,1] + u[i-1,1])$$2. To handle the missing values at $ i=1 $ and $ i=131$, we assume:
+   $$u[1,2] = 1$$$$u[131,2] = 0$$3. For the edge cases where `i+2` or `i-2` would exceed bounds (i.e., `i=130` for $ i-2 $ and `i=2` for $ i+2$), we approximate by setting:
+   - For $i = 130 $, set $ u[130,2] = u[129,1]$- For $ i = 2$, set $ u[2,2] = u[3,1]$
 
 Here’s the pseudocode for advancing time:
 

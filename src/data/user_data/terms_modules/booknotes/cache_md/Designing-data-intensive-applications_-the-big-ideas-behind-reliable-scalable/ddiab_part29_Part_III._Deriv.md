@@ -256,14 +256,12 @@ Background context: The uniform interface of Unix tools, specifically focusing o
 
 :p What are some limitations of using `$7` to extract the URL in log analysis?
 ??x
-The use of `$7` is not ideal because it depends on fixed field positions which can vary and may change if the log format evolves. A more descriptive variable like `$request_url` would be more readable and maintainable.
+The use of `$7` is not ideal because it depends on fixed field positions which can vary and may change if the log format evolves. A more descriptive variable like `$ request_url` would be more readable and maintainable.
 
 ```bash
-# Example of using $7
-$ cat logs.txt | cut -d' ' -f7
+# Example of using $7$ cat logs.txt | cut -d' ' -f7
 
-# Descriptive variable for URL
-$ cat logs.txt | awk '{print $REQUEST_URL}'
+# Descriptive variable for URL $cat logs.txt | awk '{print$ REQUEST_URL}'
 ```
 x??
 
@@ -278,14 +276,13 @@ Using `stdin` and `stdout`, a shell user can connect various programs in any des
 
 ```bash
 # Example pipeline
-$ cat input.txt | tool1 | tool2 | tool3 > output.txt
+$cat input.txt | tool1 | tool2 | tool3 > output.txt
 
 # Direct file handling vs. stdin/stdout
-# Direct File Handling:
-$ tool1 input.txt > intermediate.txt && tool2 intermediate.txt > final.txt
+# Direct File Handling:$ tool1 input.txt > intermediate.txt && tool2 intermediate.txt > final.txt
 
 # Using stdin and stdout:
-$ cat input.txt | tool1 | tool2 | tool3 > final.txt
+$cat input.txt | tool1 | tool2 | tool3 > final.txt
 ```
 x??
 
@@ -299,8 +296,7 @@ Background context: Pipes (`|`) allow the output of one process to be used as th
 Pipes connect the standard output (stdout) of one program directly to the standard input (stdin) of another program. This allows for chaining multiple commands into a pipeline where each step processes and filters the data.
 
 ```bash
-# Example with `grep` and `sort`
-$ cat logs.txt | grep "error" | sort -u > errors.txt
+# Example with `grep` and `sort`$ cat logs.txt | grep "error" | sort -u > errors.txt
 
 # Explanation:
 # 'cat logs.txt' outputs lines to stdout.

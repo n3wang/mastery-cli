@@ -116,7 +116,7 @@ Background context: A rigid transformation involves both rotation and translatio
 
 :p What is a dual quaternion, and why is it useful for representing rigid transformations?
 ??x
-A dual quaternion is a mathematical object that combines an ordinary quaternion with dual numbers. Dual numbers consist of a non-dual part and a dual part, represented as \( \hat{a} = a + #b \), where \( #^2 = 0 \). This structure allows for the representation of both rotational and translational components of rigid transformations.
+A dual quaternion is a mathematical object that combines an ordinary quaternion with dual numbers. Dual numbers consist of a non-dual part and a dual part, represented as $\hat{a} = a + #b $, where $#^2 = 0$. This structure allows for the representation of both rotational and translational components of rigid transformations.
 
 Dual quaternions offer benefits such as constant-speed linear interpolation blending, which is similar to using LERP for translations and SLERP for rotations. This makes dual quaternions useful for representing complex rigid transformations in a coordinate-invariant manner.
 
@@ -136,15 +136,14 @@ x??
 
 
 #### Dual Numbers and Dual Quaternions
-Background context: Dual numbers are an extension of real numbers, used in the representation of dual quaternions. A dual number \( \hat{a} = a + #b \) consists of a non-dual part \( a \) and a dual part \( b \), where \( #^2 = 0 \).
+Background context: Dual numbers are an extension of real numbers, used in the representation of dual quaternions. A dual number $\hat{a} = a + #b $ consists of a non-dual part$a $ and a dual part$ b $, where $#^2 = 0$.
 
 :p What is a dual number, and how is it used in the context of dual quaternions?
 ??x
-A dual number \( \hat{a} = a + #b \) consists of a non-dual part \( a \) and a dual part \( b \), where \( #^2 = 0 \). In the context of dual quaternions, these numbers are used to represent both rotational and translational components in a single mathematical object.
+A dual number $\hat{a} = a + #b $ consists of a non-dual part$a $ and a dual part$ b $, where $#^2 = 0$. In the context of dual quaternions, these numbers are used to represent both rotational and translational components in a single mathematical object.
 
 A dual quaternion can be represented as:
-\[ \hat{q} = q_a + #q_b \]
-where \( q_a \) and \( q_b \) are ordinary quaternions. This structure allows for the representation of rigid transformations, providing benefits such as constant-speed linear interpolation blending.
+$$\hat{q} = q_a + #q_b$$where $ q_a $ and $ q_b$ are ordinary quaternions. This structure allows for the representation of rigid transformations, providing benefits such as constant-speed linear interpolation blending.
 
 In code:
 ```java
@@ -165,11 +164,9 @@ x??
 
 #### Degrees of Freedom (DOF) in 3D Rotations
 Background context explaining the concept. A three-dimensional object has six degrees of freedom: three for translation and three for rotation. The DOF helps understand how different representations can describe rotations using varying numbers of parameters, but always maintaining three degrees of freedom due to constraints.
-Relevant formula: \( NDOF = Nparameters - Nconstraints \)
-
-:p What is the relationship between the number of floating-point parameters and degrees of freedom in 3D rotations?
+Relevant formula:$NDOF = Nparameters - Nconstraints$:p What is the relationship between the number of floating-point parameters and degrees of freedom in 3D rotations?
 ??x
-The relationship is described by the equation \( NDOF = Nparameters - Nconstraints \). This means that while different representations use varying numbers of parameters (e.g., Euler angles, axis+angle, quaternions, or a 3×3 matrix), constraints reduce the effective number of degrees of freedom to three.
+The relationship is described by the equation $NDOF = Nparameters - Nconstraints$. This means that while different representations use varying numbers of parameters (e.g., Euler angles, axis+angle, quaternions, or a 3×3 matrix), constraints reduce the effective number of degrees of freedom to three.
 
 For example:
 - **Euler Angles**: 3 parameters with no constraints.
@@ -184,17 +181,17 @@ x??
 
 
 #### Parametric Equation for a Ray
-Background context explaining the concept. A ray is an infinite line extending in one direction from a starting point. The parametric equation differs slightly from that of a line by constraining the parameter \( t \) to be non-negative.
+Background context explaining the concept. A ray is an infinite line extending in one direction from a starting point. The parametric equation differs slightly from that of a line by constraining the parameter $t$ to be non-negative.
 
 Relevant formula:
-- For a ray: \( P(t) = P_0 + tu, t \geq 0 \)
+- For a ray: $P(t) = P_0 + tu, t \geq 0$
 
 :p What is the parametric equation for a ray?
 ??x
-The parametric equation for a ray starting at point \( P_0 \) and extending in the direction of unit vector \( u \) is given by:
-\[ P(t) = P_0 + tu, \text{ where } t \geq 0. \]
+The parametric equation for a ray starting at point $P_0 $ and extending in the direction of unit vector$u$ is given by:
+$$P(t) = P_0 + tu, \text{ where } t \geq 0.$$
 
-This means that as \( t \) varies from zero to infinity, point \( P \) traces out every possible point on the ray.
+This means that as $t $ varies from zero to infinity, point$P$ traces out every possible point on the ray.
 x??
 
 ---
@@ -202,15 +199,13 @@ x??
 
 #### Sphere Representation
 
-Background context: A sphere is typically defined by its center point \( C \) and radius \( r \), packed into a four-element vector. This representation benefits from efficient SIMD (Single Instruction, Multiple Data) vector processing.
+Background context: A sphere is typically defined by its center point $C $ and radius$r$, packed into a four-element vector. This representation benefits from efficient SIMD (Single Instruction, Multiple Data) vector processing.
 
 :p How can a sphere be represented efficiently?
 ??x
 A sphere can be represented as a 4-element vector containing the coordinates of its center and its radius:
 
-\[
-[C_x, C_y, C_z, r]
-\]
+$$[C_x, C_y, C_z, r]$$
 
 This allows for compact storage and efficient computation using SIMD instructions. For example, in C/Java, you might define a `Sphere` class like this:
 
@@ -237,17 +232,12 @@ x??
 
 #### Plane Representation
 
-Background context: A plane can be represented in two forms: the traditional equation \( Ax + By + Cz + D = 0 \) or in point-normal form. The normal vector and distance from the origin are key components.
+Background context: A plane can be represented in two forms: the traditional equation $Ax + By + Cz + D = 0$ or in point-normal form. The normal vector and distance from the origin are key components.
 
 :p How is a plane typically defined mathematically?
 ??x
 A plane can be defined using the equation:
-
-\[
-Ax + By + Cz + D = 0
-\]
-
-where \( A, B, \) and \( C \) form a normal vector to the plane. Alternatively, it can also be represented in point-normal form by specifying a point \( P_0 \) on the plane and a unit normal vector \( n \).
+$$Ax + By + Cz + D = 0$$where $ A, B,$and $ C$form a normal vector to the plane. Alternatively, it can also be represented in point-normal form by specifying a point $ P_0 $ on the plane and a unit normal vector $n$.
 
 ```java
 public class Plane {
@@ -271,30 +261,23 @@ x??
 
 
 #### Homogeneous Coordinates and Plane Transformations
-Background context: When a point \(P\) is written in homogeneous coordinates with \(w=1\), the equation \((L \cdot P) = 0\) can be interpreted as \((n \cdot P) = d\). These equations are satisfied for all points \(P\) that lie on the plane \(L\). Planes defined in four-element vector form can easily be transformed from one coordinate space to another. Given a matrix \(M_{A,B}\) that transforms points and (non-normal) vectors from space A to space B, we use the inverse transpose of this matrix \((M_{A,B}^{-1})^T\) for transforming normal vectors such as the plane’s \(n\)-vector.
+Background context: When a point $P $ is written in homogeneous coordinates with$w=1 $, the equation$(L \cdot P) = 0 $ can be interpreted as$(n \cdot P) = d $. These equations are satisfied for all points$ P $that lie on the plane$ L $. Planes defined in four-element vector form can easily be transformed from one coordinate space to another. Given a matrix$ M_{A,B}$that transforms points and (non-normal) vectors from space A to space B, we use the inverse transpose of this matrix $(M_{A,B}^{-1})^T$ for transforming normal vectors such as the plane’s $n$-vector.
 
 :p What is the equation used to describe a point lying on a plane in homogeneous coordinates?
 ??x
-The equation \((L \cdot P) = 0\) describes a point \(P\) lying on a plane \(L\) when \(w=1\). This can be rewritten as \((n \cdot P) = d\), where \(n\) is the normal vector of the plane and \(d\) is its distance from the origin.
+The equation $(L \cdot P) = 0 $ describes a point$P $ lying on a plane$ L $ when $ w=1 $. This can be rewritten as $(n \cdot P) = d$, where $ n $is the normal vector of the plane and$ d$ is its distance from the origin.
 x??
 
 ---
 
 
 #### Axis-Aligned Bounding Boxes (AABB)
-Background context: An axis-aligned bounding box (AABB) is a 3D cuboid whose six rectangular faces are aligned with the mutually orthogonal axes of a particular coordinate frame. It can be represented by a six-element vector containing the minimum and maximum coordinates along each of the three principal axes, \([xmin, ymin, zmin, xmax, ymax, zmax]\), or two points \(P_{min}\) and \(P_{max}\). This simple representation allows for efficient testing whether a point \(P\) is inside an AABB.
+Background context: An axis-aligned bounding box (AABB) is a 3D cuboid whose six rectangular faces are aligned with the mutually orthogonal axes of a particular coordinate frame. It can be represented by a six-element vector containing the minimum and maximum coordinates along each of the three principal axes,$[xmin, ymin, zmin, xmax, ymax, zmax]$, or two points $ P_{min}$and $ P_{max}$. This simple representation allows for efficient testing whether a point $ P$ is inside an AABB.
 
 :p How can you test if a point lies within an AABB?
 ??x
-To test if a point \(P\) lies within an AABB, check the conditions:
-- \(Px \geq xmin\)
-- \(Px \leq xmax\)
-- \(Py \geq ymin\)
-- \(Py \leq ymax\)
-- \(Pz \geq zmin\)
-- \(Pz \leq zmax\)
-
-If all these conditions are true, the point is inside the AABB.
+To test if a point $P$ lies within an AABB, check the conditions:
+- $Px \geq xmin $-$ Px \leq xmax $-$ Py \geq ymin $-$ Py \leq ymax $-$ Pz \geq zmin $-$ Pz \leq zmax$ If all these conditions are true, the point is inside the AABB.
 x??
 
 ---
@@ -305,7 +288,7 @@ Background context: An oriented bounding box (OBB) is a cuboid that has been ori
 
 :p How can you test if a point lies within an OBB?
 ??x
-To test if a point \(P\) lies within an OBB, first transform the point into the OBB's "aligned" coordinate system using its transformation matrix. Then use the AABB intersection test as described for testing points inside an AABB.
+To test if a point $P$ lies within an OBB, first transform the point into the OBB's "aligned" coordinate system using its transformation matrix. Then use the AABB intersection test as described for testing points inside an AABB.
 
 ```java
 // P: Point in world space
@@ -317,7 +300,7 @@ boolean isInAABB = (transformedPoint.x >= xmin && transformedPoint.x <= xmax &&
                     transformedPoint.z >= zmin && transformedPoint.z <= zmax);
 ```
 
-If the transformed point satisfies all conditions of the AABB test, then \(P\) lies within the OBB.
+If the transformed point satisfies all conditions of the AABB test, then $P$ lies within the OBB.
 x??
 
 ---
@@ -326,19 +309,17 @@ x??
 #### Frustum Definition
 Background context: A frustum is a group of six planes that define a truncated pyramid shape. In 3D rendering, frusta are used to conveniently define the viewable region of the 3D world when rendered via a perspective projection from the point of view of a virtual camera.
 
-Four of the planes bound the edges of the screen space, while the other two represent the near and far clipping planes (i.e., they define the minimum and maximum \(z\) coordinates possible for any visible point). A convenient representation of a frustum is an array of six planes, each represented in point-normal form.
+Four of the planes bound the edges of the screen space, while the other two represent the near and far clipping planes (i.e., they define the minimum and maximum $z$ coordinates possible for any visible point). A convenient representation of a frustum is an array of six planes, each represented in point-normal form.
 
 :p How can you describe a frustum using mathematical objects?
 ??x
 A frustum can be described as a group of six planes. Each plane can be represented in point-normal form, i.e., one point and one normal vector per plane. The frustum includes four planes that bound the edges of screen space (left, right, bottom, top) and two additional planes representing the near and far clipping planes.
 
 Example planes:
-- \(L_1: n_{x1} \cdot P + d_{x1} = 0\)
-- \(L_2: n_{y1} \cdot P + d_{y1} = 0\)
-- \(L_3: n_{z1} \cdot P + d_{z1} = 0\) (near plane)
-- \(L_4: n_{z2} \cdot P + d_{z2} = 0\) (far plane)
+- $L_1: n_{x1} \cdot P + d_{x1} = 0 $-$ L_2: n_{y1} \cdot P + d_{y1} = 0 $-$ L_3: n_{z1} \cdot P + d_{z1} = 0$(near plane)
+- $L_4: n_{z2} \cdot P + d_{z2} = 0$(far plane)
 
-Where \(P = [x, y, z, w]\) is a point in homogeneous coordinates.
+Where $P = [x, y, z, w]$ is a point in homogeneous coordinates.
 x??
 
 ---

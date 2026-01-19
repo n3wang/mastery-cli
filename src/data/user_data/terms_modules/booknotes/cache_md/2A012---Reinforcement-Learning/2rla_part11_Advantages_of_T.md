@@ -23,7 +23,7 @@ The logic behind these points is that MC methods require the entire episode's ou
 
 
 #### Convergence of TD Methods
-Background context: The text explains that for any fixed policy π, TD(0) has been proved to converge to \( v_\pi \), under specific conditions on the step-size parameter.
+Background context: The text explains that for any fixed policy π, TD(0) has been proved to converge to $v_\pi$, under specific conditions on the step-size parameter.
 
 :p What is the convergence guarantee for TD(0)?
 ??x
@@ -33,7 +33,7 @@ The formal statement of this theorem is:
 - **Mean Convergence**: For a fixed policy π, TD(0) converges in the mean for a constant step-size parameter that is sufficiently small.
 - **Almost Sure Convergence**: The same condition on the step-size ensures convergence with probability 1 under certain stochastic approximation conditions.
 
-This means that by carefully choosing the step-size, one can ensure that the values estimated by TD methods approach the true value function \( v_\pi \) over time.
+This means that by carefully choosing the step-size, one can ensure that the values estimated by TD methods approach the true value function $v_\pi$ over time.
 ??x
 
 ---
@@ -58,9 +58,7 @@ Background context: The text provides an empirical comparison between TD(0) and 
 :p What are the true values of states A through E in the given random walk example?
 ??x
 The true values of states A through E in the random walk example are as follows:
-- State C: \( v_\pi(C) = 0.5 \)
-- State D: \( v_\pi(D) = \frac{4}{6} \approx 0.667 \)
-- State E: \( v_\pi(E) = 1 \)
+- State C: $v_\pi(C) = 0.5 $- State D:$ v_\pi(D) = \frac{4}{6} \approx 0.667 $- State E:$ v_\pi(E) = 1$
 
 These values are derived from the probability of terminating on the right side if starting from each state.
 ??x
@@ -85,11 +83,11 @@ This example illustrates how TD methods can provide faster and more efficient le
 
 
 #### Exercise 6.4 Impact of Step-Size Parameter on Algorithms
-Background context: In Exercise 6.4, the results shown in the right graph depend on the value of the step-size parameter \(\alpha\). The conclusion about which algorithm is better might be affected if a wider range of \(\alpha\) values were used. This is because different \(\alpha\) values can significantly impact how quickly and accurately the algorithms converge.
+Background context: In Exercise 6.4, the results shown in the right graph depend on the value of the step-size parameter $\alpha $. The conclusion about which algorithm is better might be affected if a wider range of $\alpha $ values were used. This is because different$\alpha$ values can significantly impact how quickly and accurately the algorithms converge.
 
 :p Would changing the step-size parameter affect the conclusions drawn in Exercise 6.4?
 ??x
-The answer with detailed explanations: Yes, changing the step-size parameter \(\alpha\) could indeed alter the conclusions about which algorithm is better. Different \(\alpha\) values can lead to different convergence rates and stability of the algorithms. If a wider range of \(\alpha\) values were used, one might find that either the TD(0) or constant-\(\alpha\) MC method performs better depending on the specific value of \(\alpha\). There is no single fixed value of \(\alpha\) at which either algorithm would necessarily perform significantly better; it depends on the task and the particular choice of \(\alpha\).
+The answer with detailed explanations: Yes, changing the step-size parameter $\alpha $ could indeed alter the conclusions about which algorithm is better. Different$\alpha $ values can lead to different convergence rates and stability of the algorithms. If a wider range of$\alpha $ values were used, one might find that either the TD(0) or constant-$\alpha $ MC method performs better depending on the specific value of$\alpha $. There is no single fixed value of $\alpha $ at which either algorithm would necessarily perform significantly better; it depends on the task and the particular choice of$\alpha$.
 
 ```java
 // Pseudocode for updating V using different alpha values
@@ -106,11 +104,11 @@ x??
 
 
 #### Exercise 6.5 RMS Error Behavior of TD Method
-Background context: In the right graph of Example 6.2, the RMS error of the TD method seems to go down and then up again, especially at high \(\alpha\). This behavior suggests that there might be a phase where increasing \(\alpha\) improves convergence but beyond a certain point, it can destabilize the learning process.
+Background context: In the right graph of Example 6.2, the RMS error of the TD method seems to go down and then up again, especially at high $\alpha $. This behavior suggests that there might be a phase where increasing $\alpha$ improves convergence but beyond a certain point, it can destabilize the learning process.
 
 :p What could have caused the RMS error pattern observed in Exercise 6.5?
 ??x
-The answer with detailed explanations: The observed pattern of RMS error going down and then up again at high \(\alpha\) values is likely due to the balance between exploration and exploitation in the learning process. Initially, a higher \(\alpha\) value can lead to more aggressive updates, which might reduce error quickly. However, as \(\alpha\) increases further, these large updates can destabilize the learning process, leading to oscillations or divergence of the value function estimates.
+The answer with detailed explanations: The observed pattern of RMS error going down and then up again at high $\alpha $ values is likely due to the balance between exploration and exploitation in the learning process. Initially, a higher$\alpha $ value can lead to more aggressive updates, which might reduce error quickly. However, as$\alpha$ increases further, these large updates can destabilize the learning process, leading to oscillations or divergence of the value function estimates.
 
 ```java
 // Pseudocode for TD(0) update with varying alpha values
@@ -149,11 +147,11 @@ x??
 
 
 #### Optimality of TD(0) with Batch Updating
-Background context: In Example 6.3, batch-updating versions of TD(0) and constant-\(\alpha\) MC methods were applied to the random walk example. The value function was updated only once after processing all episodes as a batch.
+Background context: In Example 6.3, batch-updating versions of TD(0) and constant-$\alpha$ MC methods were applied to the random walk example. The value function was updated only once after processing all episodes as a batch.
 
 :p How does batch updating affect the convergence of TD(0)?
 ??x
-The answer with detailed explanations: Batch updating in TD(0) ensures that updates are made only after processing each complete batch of training data. As long as \(\alpha\) is chosen to be sufficiently small, TD(0) converges deterministically to a single answer under batch updating. This deterministic convergence is independent of the step-size parameter \(\alpha\), making it more reliable in certain scenarios compared to online updates.
+The answer with detailed explanations: Batch updating in TD(0) ensures that updates are made only after processing each complete batch of training data. As long as $\alpha $ is chosen to be sufficiently small, TD(0) converges deterministically to a single answer under batch updating. This deterministic convergence is independent of the step-size parameter$\alpha$, making it more reliable in certain scenarios compared to online updates.
 
 ```java
 // Pseudocode for batch updating in TD(0)
@@ -188,7 +186,7 @@ x??
 
 #### Performance of Constant-Alpha MC
 
-Background context: The text explains how the constant-α Monte Carlo (MC) method converges to values \( V(s) \), which are sample averages of returns experienced after visiting each state \( s \). These estimates are optimal in terms of minimizing mean-squared error from actual returns.
+Background context: The text explains how the constant-α Monte Carlo (MC) method converges to values $V(s)$, which are sample averages of returns experienced after visiting each state $ s$. These estimates are optimal in terms of minimizing mean-squared error from actual returns.
 
 :p How do constant-α MC methods ensure that their predictions are optimal?
 ??x
@@ -265,7 +263,7 @@ In general, the maximum-likelihood estimate is the parameter value whose probabi
 
 :p What does the maximum-likelihood estimate represent in the context of a Markov process?
 ??x
-The maximum-likelihood estimate represents the model parameters (transition probabilities and expected rewards) that best explain the observed data. Specifically, it estimates the transition probability from state \(i\) to state \(j\) as the fraction of times transitions from state \(i\) went to state \(j\), and the expected reward is the average of the rewards observed on those transitions.
+The maximum-likelihood estimate represents the model parameters (transition probabilities and expected rewards) that best explain the observed data. Specifically, it estimates the transition probability from state $i $ to state$j $ as the fraction of times transitions from state$ i $ went to state $j$, and the expected reward is the average of the rewards observed on those transitions.
 x??
 
 ---
@@ -294,11 +292,11 @@ x??
 
 
 #### Nonbatch TD(0)
-Nonbatch TD(0) moves roughly in the direction of the certainty-equivalence estimate and can be faster than constant-\(\alpha\) MC because it aims for a better estimate even if it does not reach it.
+Nonbatch TD(0) moves roughly in the direction of the certainty-equivalence estimate and can be faster than constant-$\alpha$ MC because it aims for a better estimate even if it does not reach it.
 
-:p How do nonbatch TD(0) methods compare to constant-\(\alpha\) Monte Carlo?
+:p How do nonbatch TD(0) methods compare to constant-$\alpha$ Monte Carlo?
 ??x
-Nonbatch TD(0) methods are generally faster than constant-\(\alpha\) Monte Carlo because they attempt to move towards the certainty-equivalence estimate, which is closer to the optimal solution. Although these methods may not achieve the exact certainty-equivalence or minimum squared-error estimates, they still provide a more accurate approximation and thus converge more quickly.
+Nonbatch TD(0) methods are generally faster than constant-$\alpha$ Monte Carlo because they attempt to move towards the certainty-equivalence estimate, which is closer to the optimal solution. Although these methods may not achieve the exact certainty-equivalence or minimum squared-error estimates, they still provide a more accurate approximation and thus converge more quickly.
 x??
 
 ---
@@ -318,38 +316,34 @@ x??
 
 
 #### Sarsa Overview
-Sarsa is an on-policy temporal difference (TD) control method that uses a behavior policy and a target policy. It extends the TD prediction methods for solving control problems. The algorithm updates the action-value function \( Q(s, a) \) based on the observed rewards and transitions between state-action pairs.
+Sarsa is an on-policy temporal difference (TD) control method that uses a behavior policy and a target policy. It extends the TD prediction methods for solving control problems. The algorithm updates the action-value function $Q(s, a)$ based on the observed rewards and transitions between state-action pairs.
 
-At each step \( t \), Sarsa calculates an importance sampling ratio \( \rho_t \):
+At each step $t $, Sarsa calculates an importance sampling ratio $\rho_t$:
 
-\[ \rho_t = \prod_{t'=t}^{T-1} \left( \frac{\pi(A_{t+1}|S_{t+1})}{b(S_{t+1}, A_{t+1})} \right) \]
-
-where:
-- \( S_{t+1} \) is the next state,
-- \( A_{t+1} \) is the action taken in that state,
-- \( b(S_{t+1}, A_{t+1}) \) is the probability of taking action \( A_{t+1} \) according to the behavior policy \( b \),
-- \( \pi(A_{t+1}|S_{t+1}) \) is the probability of taking action \( A_{t+1} \) according to the target policy.
+$$\rho_t = \prod_{t'=t}^{T-1} \left( \frac{\pi(A_{t+1}|S_{t+1})}{b(S_{t+1}, A_{t+1})} \right)$$where:
+- $S_{t+1}$ is the next state,
+- $A_{t+1}$ is the action taken in that state,
+- $b(S_{t+1}, A_{t+1})$ is the probability of taking action $A_{t+1}$ according to the behavior policy $b$,
+- $\pi(A_{t+1}|S_{t+1})$ is the probability of taking action $A_{t+1}$ according to the target policy.
 
 :p What does Sarsa update in each step?
 ??x
-In each step, Sarsa updates the action-value function \( Q(s, a) \) based on the observed rewards and transitions between state-action pairs. The update rule for Sarsa is:
+In each step, Sarsa updates the action-value function $Q(s, a)$ based on the observed rewards and transitions between state-action pairs. The update rule for Sarsa is:
 
-\[ Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha \left( R_{t+1} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t) \right) \]
+$$Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha \left( R_{t+1} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t) \right)$$where:
+- $S_t $ and$A_t$ are the current state and action,
+- $R_{t+1}$ is the immediate reward received after taking action $A_t$,
+- $\gamma$ is the discount factor (0 ≤ γ ≤ 1),
+- $Q(S_{t+1}, A_{t+1})$ is the predicted value of the next state-action pair.
 
-where:
-- \( S_t \) and \( A_t \) are the current state and action,
-- \( R_{t+1} \) is the immediate reward received after taking action \( A_t \),
-- \( \gamma \) is the discount factor (0 ≤ γ ≤ 1),
-- \( Q(S_{t+1}, A_{t+1}) \) is the predicted value of the next state-action pair.
-
-This update rule is applied after every transition from a non-terminal state \( S_t \). If \( S_{t+1} \) is terminal, then \( Q(S_{t+1}, A_{t+1}) \) is defined as zero.
+This update rule is applied after every transition from a non-terminal state $S_t $. If $ S_{t+1}$is terminal, then $ Q(S_{t+1}, A_{t+1})$ is defined as zero.
 x??
 
 ---
 
 
 #### Sarsa Algorithm
-The general form of the Sarsa control algorithm for estimating the action-value function \( Q(\pi) \):
+The general form of the Sarsa control algorithm for estimating the action-value function $Q(\pi)$:
 
 ```plaintext
 Sarsa (on-policy TD control) for estimating Q(π)
@@ -372,15 +366,13 @@ Loop for each episode:
 
 :p How does the Sarsa algorithm update the action-value function?
 ??x
-The Sarsa algorithm updates the action-value function \( Q(s, a) \) based on the observed rewards and transitions between state-action pairs. The update rule after each step \( t \):
+The Sarsa algorithm updates the action-value function $Q(s, a)$ based on the observed rewards and transitions between state-action pairs. The update rule after each step $t$:
 
-\[ Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha \left( R_{t+1} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t) \right) \]
-
-where:
-- \( S_t \) and \( A_t \) are the current state and action,
-- \( R_{t+1} \) is the immediate reward received after taking action \( A_t \),
-- \( \gamma \) is the discount factor (0 ≤ γ ≤ 1),
-- \( Q(S_{t+1}, A_{t+1}) \) is the predicted value of the next state-action pair.
+$$Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha \left( R_{t+1} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t) \right)$$where:
+- $S_t $ and$A_t$ are the current state and action,
+- $R_{t+1}$ is the immediate reward received after taking action $A_t$,
+- $\gamma$ is the discount factor (0 ≤ γ ≤ 1),
+- $Q(S_{t+1}, A_{t+1})$ is the predicted value of the next state-action pair.
 
 The algorithm iterates through episodes, starting from an initial state and taking actions based on a policy derived from the current action-value function. After each transition, it updates the action-value function using this rule.
 x??
@@ -405,11 +397,11 @@ The goal is to reach the terminal state with an undiscounted episodic task and c
 ??x
 Sarsa handles the windy gridworld by updating the action-value function based on transitions from state-action pairs to the next state-action pair, taking into account the wind's effect. The update rule remains:
 
-\[ Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha \left( R_{t+1} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t) \right) \]
+$$Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha \left( R_{t+1} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t) \right)$$
 
 In this context:
-- The state \( S_t \) and action \( A_t \) determine the immediate reward \( R_{t+1} \).
-- The next state \( S_{t+1} \) is affected by the wind, changing the next state based on the current state-action pair.
+- The state $S_t $ and action$A_t $ determine the immediate reward$R_{t+1}$.
+- The next state $S_{t+1}$ is affected by the wind, changing the next state based on the current state-action pair.
 - The algorithm uses an ε-greedy policy to explore and exploit actions, ensuring a balance between exploration and exploitation.
 
 The example shown in the text demonstrates how Sarsa can learn a more optimal path over time despite the complexity introduced by the wind.
@@ -419,29 +411,24 @@ x??
 
 
 #### Importance Sampling
-In the context of Sarsa, importance sampling is used when there is a difference between the behavior policy \( b \) and the target policy \( π \).
+In the context of Sarsa, importance sampling is used when there is a difference between the behavior policy $b $ and the target policy$π$.
 
-The importance sampling ratio \( \rho_t \):
+The importance sampling ratio $\rho_t$:
 
-\[ \rho_t = \prod_{t'=t}^{T-1} \left( \frac{\pi(A_{t+1}|S_{t+1})}{b(S_{t+1}, A_{t+1})} \right) \]
+$$\rho_t = \prod_{t'=t}^{T-1} \left( \frac{\pi(A_{t+1}|S_{t+1})}{b(S_{t+1}, A_{t+1})} \right)$$is used to adjust the update of $ Q(s, a)$:
 
-is used to adjust the update of \( Q(s, a) \):
-
-\[ Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha \rho_t \left( R_{t+1} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t) \right) \]
-
-:p How does importance sampling work in Sarsa?
+$$Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha \rho_t \left( R_{t+1} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t) \right)$$:p How does importance sampling work in Sarsa?
 ??x
-Importance sampling in Sarsa is used to adjust the update of \( Q(s, a) \) when there is a difference between the behavior policy \( b \) and the target policy \( π \).
+Importance sampling in Sarsa is used to adjust the update of $Q(s, a)$ when there is a difference between the behavior policy $ b $ and the target policy $π$.
 
 The importance sampling ratio:
 
-\[ \rho_t = \prod_{t'=t}^{T-1} \left( \frac{\pi(A_{t+1}|S_{t+1})}{b(S_{t+1}, A_{t+1})} \right) \]
+$$\rho_t = \prod_{t'=t}^{T-1} \left( \frac{\pi(A_{t+1}|S_{t+1})}{b(S_{t+1}, A_{t+1})} \right)$$is calculated and used to weight the updates. This ratio adjusts the update rule:
+$$
 
-is calculated and used to weight the updates. This ratio adjusts the update rule:
+Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha \rho_t \left( R_{t+1} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t) \right)$$
 
-\[ Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha \rho_t \left( R_{t+1} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t) \right) \]
-
-This ensures that the updates are more relevant to the target policy \( π \), even if the agent follows a different behavior policy \( b \). The importance sampling helps in making the on-policy learning converge towards the optimal policy.
+This ensures that the updates are more relevant to the target policy $π$, even if the agent follows a different behavior policy $ b$. The importance sampling helps in making the on-policy learning converge towards the optimal policy.
 x??
 
 ---
@@ -450,15 +437,15 @@ x??
 #### Convergence of Sarsa
 Sarsa converges with probability 1 to an optimal policy and action-value function as long as all state-action pairs are visited an infinite number of times, and the policy converges to a greedy policy.
 
-For example, with ε-greedy policies, this can be achieved by setting \( \epsilon = \frac{1}{t} \) as \( t \to \infty \).
+For example, with ε-greedy policies, this can be achieved by setting $\epsilon = \frac{1}{t}$ as $t \to \infty$.
 
 :p Under what conditions does Sarsa converge?
 ??x
 Sarsa converges with probability 1 to an optimal policy and action-value function under the following conditions:
 - All state-action pairs are visited infinitely often.
-- The behavior policy \( b \) and target policy \( π \) converge such that the target policy is greedy.
+- The behavior policy $b $ and target policy$π$ converge such that the target policy is greedy.
 
-For instance, using ε-greedy policies, setting \( \epsilon = \frac{1}{t} \) as time steps increase ensures convergence. This approach balances exploration (trying new actions) and exploitation (choosing known good actions), ensuring that the algorithm learns an optimal policy over a long period.
+For instance, using ε-greedy policies, setting $\epsilon = \frac{1}{t}$ as time steps increase ensures convergence. This approach balances exploration (trying new actions) and exploitation (choosing known good actions), ensuring that the algorithm learns an optimal policy over a long period.
 x??
 
 ---

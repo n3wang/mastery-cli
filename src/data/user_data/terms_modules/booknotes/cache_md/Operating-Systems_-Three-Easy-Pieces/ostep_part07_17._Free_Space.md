@@ -671,7 +671,7 @@ Background context: The buddy allocator is a technique designed to simplify coal
 
 :p How does the buddy allocator determine which block to return when a request for memory is made?
 ??x
-The buddy allocator divides the available free space conceptually as one big space of size \(2^N\). When a request for memory is made, it recursively splits this space in half until it finds a block that can accommodate the requested size. Once an appropriate block is found, it is returned to the user.
+The buddy allocator divides the available free space conceptually as one big space of size $2^N$. When a request for memory is made, it recursively splits this space in half until it finds a block that can accommodate the requested size. Once an appropriate block is found, it is returned to the user.
 x??
 
 ---
@@ -689,14 +689,14 @@ x??
 
 
 #### Binary Buddy Allocation Scheme
-Background context: In the binary buddy allocator, free space is initially conceptualized as one large block of \(2^N\) size. The search for free space involves dividing this space in half repeatedly to find a suitable block.
+Background context: In the binary buddy allocator, free space is initially conceptualized as one large block of $2^N$ size. The search for free space involves dividing this space in half repeatedly to find a suitable block.
 
 :p How does the buddy allocator determine the address of the "buddy" block?
 ??x
 In the buddy allocator, each block's buddy has an address that differs by exactly one bit from its own address. This is because blocks are power-of-two-sized and are laid out in memory such that buddies have consecutive addresses differing only in a single bit.
 
 For example:
-- If a block starts at address \(0x1234\), its buddy might start at address \(0x1235\) (differing by the least significant bit).
+- If a block starts at address $0x1234 $, its buddy might start at address $0x1235$(differing by the least significant bit).
 
 Thus, to find the buddy of any given block, you can simply flip one bit in its memory address.
 x??
@@ -1036,12 +1036,10 @@ x??
 Background context: The text provides an example of calculating the TLB hit rate by examining how many TLB hits and misses occur during array accesses. It calculates that out of ten accesses, seven resulted in hits (70% hit rate).
 
 Explanation: To calculate the TLB hit rate, you divide the number of successful TLB lookups (hits) by the total number of accesses. The formula is:
-\[ \text{TLB Hit Rate} = \frac{\text{Number of Hits}}{\text{Total Number of Accesses}} \times 100\% \]
-
-:p How do you calculate the TLB hit rate?
+$$\text{TLB Hit Rate} = \frac{\text{Number of Hits}}{\text{Total Number of Accesses}} \times 100\%$$:p How do you calculate the TLB hit rate?
 ??x
 The TLB hit rate is calculated by dividing the number of successful TLB lookups (hits) by the total number of accesses, then multiplying by 100%. For example, if out of ten accesses, seven resulted in hits, the calculation would be:
-\[ \text{TLB Hit Rate} = \frac{7}{10} \times 100\% = 70\% \]
+$$\text{TLB Hit Rate} = \frac{7}{10} \times 100\% = 70\%$$
 x??
 
 ---

@@ -56,8 +56,8 @@ Storing secrets directly in plain text within the code is not secure or practica
 
 Example of storing credentials securely:
 ```sh
-export TF_VAR_aws_access_key=$(cat ~/.aws/credentials | grep aws_access_key_id | awk '{print $2}' | sed 's/"//g')
-export TF_VAR_aws_secret_key=$(cat ~/.aws/credentials | grep aws_secret_access_key | awk '{print $2}' | sed 's/"//g')
+export TF_VAR_aws_access_key=$(cat ~/.aws/credentials | grep aws_access_key_id | awk '{print$2}' | sed 's/"//g')
+export TF_VAR_aws_secret_key=$(cat ~/.aws/credentials | grep aws_secret_access_key | awk '{print$2}' | sed 's/"//g')
 ```
 This script reads the AWS credentials from a file and stores them as environment variables.
 
@@ -379,7 +379,7 @@ AWS_REGION="$2"
 INPUT_FILE="$3"
 OUTPUT_FILE="$4"
 
-echo "Encrypting contents of $INPUT_FILE using CMK $CMK_ID..."
+echo "Encrypting contents of $INPUT_FILE using CMK$ CMK_ID..."
 ciphertext=$(aws kms encrypt \
    --key-id "$CMK_ID" \
    --region "$AWS_REGION" \
@@ -388,7 +388,7 @@ ciphertext=$(aws kms encrypt \
    --query CiphertextBlob )
 
 echo "Writing result to $OUTPUT_FILE..."
-echo "$ciphertext" > "$OUTPUT_FILE"
+echo "$ciphertext" > "$ OUTPUT_FILE"
 
 echo "Done."
 ```

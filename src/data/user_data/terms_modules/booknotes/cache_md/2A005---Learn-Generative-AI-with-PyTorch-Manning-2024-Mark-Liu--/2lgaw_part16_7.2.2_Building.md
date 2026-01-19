@@ -283,9 +283,9 @@ Background context: The reconstruction loss is a measure of how well the AE can 
 The reconstruction loss is computed by first calculating the difference between each pixel value of the original image and its corresponding reconstructed version, squaring these differences, averaging them across all pixels, and summing up this average for all images in a batch. This process is repeated for each batch during an epoch.
 
 Formula:
-\[ \text{Loss} = \frac{1}{N} \sum_{i=1}^{N} (out_i - img_i)^2 \]
+$$\text{Loss} = \frac{1}{N} \sum_{i=1}^{N} (out_i - img_i)^2$$
 
-Where \( N \) is the number of pixels, and \( out_i \) and \( img_i \) are the original and reconstructed pixel values.
+Where $N $ is the number of pixels, and$out_i $ and$img_i$ are the original and reconstructed pixel values.
 x??
 
 ---
@@ -377,8 +377,7 @@ The objective function for VAEs includes two main components:
 2. KL Divergence Term: Ensures that the learned latent distribution is close to a standard normal distribution, promoting smoothness and interpretability in the latent space.
 
 The overall objective function aims to balance both of these components:
-\[ \text{Objective} = -\mathbb{E}_{z \sim q(z|x)}[\log p(x|z)] + D_{KL}(q(z|x) \| p(z)) \]
-x??
+$$\text{Objective} = -\mathbb{E}_{z \sim q(z|x)}[\log p(x|z)] + D_{KL}(q(z|x) \| p(z))$$x??
 
 ---
 
@@ -404,10 +403,10 @@ x??
 
 
 #### Encoder in VAEs
-The encoder in a VAE is responsible for learning the true distribution of the training data \( p(x|\theta) \), where \( \theta \) are the parameters defining the distribution. For tractability, we usually assume that the distribution of the latent variable is normal.
+The encoder in a VAE is responsible for learning the true distribution of the training data $p(x|\theta)$, where $\theta$ are the parameters defining the distribution. For tractability, we usually assume that the distribution of the latent variable is normal.
 :p What is the role of the encoder in VAEs?
 ??x
-The encoder's role in a Variational Autoencoder (VAE) is to learn the true distribution \( p(x|\theta) \) of the training data by mapping the input data into a latent space. This is typically done by approximating the posterior distribution over the latent variables given the observed data.
+The encoder's role in a Variational Autoencoder (VAE) is to learn the true distribution $p(x|\theta)$ of the training data by mapping the input data into a latent space. This is typically done by approximating the posterior distribution over the latent variables given the observed data.
 ```python
 # Pseudo-code for encoder
 def encoder(input_data):
@@ -427,7 +426,7 @@ x??
 
 
 #### Decoder in VAEs
-The decoder in the VAE generates a sample based on the distribution learned by the encoder. That is, it generates an instance probabilistically from the distribution \( p(x|\mu, \sigma) \).
+The decoder in the VAE generates a sample based on the distribution learned by the encoder. That is, it generates an instance probabilistically from the distribution $p(x|\mu, \sigma)$.
 :p What does the decoder do in a VAE?
 ??x
 In a Variational Autoencoder (VAE), the decoder takes the sampled latent variable from the distribution and generates a reconstruction of the original input data. This is done by mapping the latent space back to the input space.
@@ -457,12 +456,12 @@ The loss function in a Variational Autoencoder (VAE) consists of two parts: the 
 - **Reconstruction Loss**: Measures how well the model can reconstruct the input data from its latent representation.
 - **KL Divergence**: Regularizes the encoder by encouraging it to learn a distribution that is close to a standard normal distribution.
 
-The total loss \( L \) can be expressed as:
-\[ L = -\mathbb{E}_{q(z|x)}[\log p(x|z)] + \text{KL}(q(z|x) \| p(z)) \]
+The total loss $L$ can be expressed as:
+$$L = -\mathbb{E}_{q(z|x)}[\log p(x|z)] + \text{KL}(q(z|x) \| p(z))$$
 
 Where:
-- \( q(z|x) \) is the approximate posterior distribution learned by the encoder.
-- \( p(z) \) is the prior distribution (typically standard normal).
+- $q(z|x)$ is the approximate posterior distribution learned by the encoder.
+- $p(z)$ is the prior distribution (typically standard normal).
 ```python
 # Pseudo-code for loss calculation
 def calculate_loss(reconstructed, input_data, mu, std):
@@ -495,22 +494,30 @@ x??
 KL divergence is a measure of how one probability distribution diverges from a second, expected probability distribution. In VAEs, it is used to regularize the encoder by penalizing deviations of the learned distribution (the encoder's output) from a prior distribution (a standard normal distribution).
 :p What is KL Divergence in VAEs?
 ??x
-KL divergence measures how much one probability distribution \( q(z|x) \) diverges from another distribution \( p(z) \). In VAEs, it helps to regularize the encoder by ensuring that the learned latent space distribution is close to a standard normal distribution.
+KL divergence measures how much one probability distribution $q(z|x)$ diverges from another distribution $p(z)$. In VAEs, it helps to regularize the encoder by ensuring that the learned latent space distribution is close to a standard normal distribution.
 
-The formula for KL divergence between two distributions \( q \) and \( p \) is:
-\[ D_{KL}(q(z|x) \| p(z)) = -\int q(z|x) \log \left( \frac{p(z)}{q(z|x)} \right) dz \]
+The formula for KL divergence between two distributions $q $ and$p$ is:
+$$D_{KL}(q(z|x) \| p(z)) = -\int q(z|x) \log \left( \frac{p(z)}{q(z|x)} \right) dz$$
 
 For the case of a standard normal distribution, it simplifies to:
-\[ D_{KL}(q(z|x) \| N(\mu=0, \sigma^2=1)) = -\mathbb{E}_{z \sim q(z|x)} \left[ \log \left( \frac{\exp(-\frac{(z-\mu)^2}{2})}{\sqrt{2\pi} \cdot \sigma} \right) \right] \]
+$$
+
+D_{KL}(q(z|x) \| N(\mu=0, \sigma^2=1)) = -\mathbb{E}_{z \sim q(z|x)} \left[ \log \left( \frac{\exp(-\frac{(z-\mu)^2}{2})}{\sqrt{2\pi} \cdot \sigma} \right) \right]$$
 
 This can be simplified further to:
-\[ D_{KL}(q(z|x) \| N(\mu=0, \sigma^2=1)) = -\mathbb{E}_{z \sim q(z|x)} \left[ \log (\sqrt{2\pi} \cdot \sigma) + \frac{(z-\mu)^2}{2\sigma^2} \right] \]
+$$
+
+D_{KL}(q(z|x) \| N(\mu=0, \sigma^2=1)) = -\mathbb{E}_{z \sim q(z|x)} \left[ \log (\sqrt{2\pi} \cdot \sigma) + \frac{(z-\mu)^2}{2\sigma^2} \right]$$
 
 Which can be broken down into:
-\[ D_{KL}(q(z|x) \| N(\mu=0, \sigma^2=1)) = -0.5 \mathbb{E}_{z \sim q(z|x)} \left[ 1 + \log (\sigma^2) - \mu^2 - \sigma^2 \right] \]
+$$
+
+D_{KL}(q(z|x) \| N(\mu=0, \sigma^2=1)) = -0.5 \mathbb{E}_{z \sim q(z|x)} \left[ 1 + \log (\sigma^2) - \mu^2 - \sigma^2 \right]$$
 
 In the context of VAEs:
-\[ D_{KL}(q(z|x) \| N(\mu=0, \sigma^2=1)) = -0.5 * \sum_i (1 + \log(\sigma^2) - \mu^2 - \sigma^2) \]
+$$
+
+D_{KL}(q(z|x) \| N(\mu=0, \sigma^2=1)) = -0.5 * \sum_i (1 + \log(\sigma^2) - \mu^2 - \sigma^2)$$
 
 This is summed over all dimensions in the latent space.
 ```python
@@ -751,11 +758,11 @@ x??
 
 #### Encoder and Decoder Architecture in VAE
 
-Background context explaining the concept of an encoder-decoder architecture within a Variational Autoencoder (VAE). The encoder maps input images to latent space representations, while the decoder generates new images from these latent vectors. Key equations include calculating mean (\(\mu\)) and standard deviation (\(std\)) of encodings.
+Background context explaining the concept of an encoder-decoder architecture within a Variational Autoencoder (VAE). The encoder maps input images to latent space representations, while the decoder generates new images from these latent vectors. Key equations include calculating mean ($\mu $) and standard deviation ($ std$) of encodings.
 
 :p What is the role of the encoder in a VAE?
 ??x
-The encoder transforms input images into latent variables by encoding them into a lower-dimensional space, where similar inputs are mapped to nearby points for better interpretability. The output includes mean (\(\mu\)) and standard deviation (\(std\)), which help in sampling from the learned distribution.
+The encoder transforms input images into latent variables by encoding them into a lower-dimensional space, where similar inputs are mapped to nearby points for better interpretability. The output includes mean ($\mu $) and standard deviation ($ std$), which help in sampling from the learned distribution.
 x??
 
 ---
@@ -764,8 +771,7 @@ x??
 #### Training Loss Computation in VAE
 
 Background context explaining how training loss is calculated by combining reconstruction loss and KL divergence. The formulas are:
-- Reconstruction Loss: \(\text{reconstruction_loss} = \sum_{i=1}^{n}(img_i - out_i)^2\)
-- KL Divergence: \(KL = \sum_{i=1}^{d}\left(\frac{(std_i^2)}{2} + \frac{\mu_i^2}{2} - \log(std_i) - 0.5\right)\)
+- Reconstruction Loss: $\text{reconstruction_loss} = \sum_{i=1}^{n}(img_i - out_i)^2 $- KL Divergence:$ KL = \sum_{i=1}^{d}\left(\frac{(std_i^2)}{2} + \frac{\mu_i^2}{2} - \log(std_i) - 0.5\right)$
 
 :p How is the total loss computed in a VAE during training?
 ??x

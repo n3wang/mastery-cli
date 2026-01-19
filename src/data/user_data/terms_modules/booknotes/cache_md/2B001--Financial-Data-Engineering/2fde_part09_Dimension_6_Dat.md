@@ -26,13 +26,13 @@ x??
 #### Missing Data Mechanisms
 Missing data can be categorized into three types: Missing Completely at Random (MCAR), Missing at Random (MAR), and Missing Not at Random (MNAR).
 
-- **MCAR**: The missingness of the data on variable \(X\) is unrelated to any other variables in the dataset, whether observed or not.
+- **MCAR**: The missingness of the data on variable $X$ is unrelated to any other variables in the dataset, whether observed or not.
 - **MAR**: The missingness depends on other variables in the dataset but is independent of the value of the variable itself.
 - **MNAR**: The missing values are related to the unobserved variable.
 
 :p What does MCAR stand for and how is it defined?
 ??x
-MCAR stands for "Missing Completely at Random." It means that the missingness of data on variable \(X\) is unrelated to any other variables in the dataset, whether observed or not. 
+MCAR stands for "Missing Completely at Random." It means that the missingness of data on variable $X$ is unrelated to any other variables in the dataset, whether observed or not. 
 
 Example:
 - A hedge fund reports its performance data randomly without considering its actual performance.
@@ -49,7 +49,7 @@ Continuing from MCAR, MAR stands for "Missing at Random." The missingness depend
 
 :p What does MAR stand for and how is it defined?
 ??x
-MAR stands for "Missing at Random." It means that the missingness of data on variable \(X\) is related to other variables in the dataset but is independent of the value of the variable itself. 
+MAR stands for "Missing at Random." It means that the missingness of data on variable $X$ is related to other variables in the dataset but is independent of the value of the variable itself. 
 
 Example:
 - A hedge fund decides not to disclose its performance data due to confidentiality concerns about its investment strategy, unrelated to its actual performance.
@@ -61,12 +61,12 @@ x??
 #### Missing Data Mechanisms
 The final category of missing data mechanisms is MNAR (Missing Not at Random). In this case, the observations are missing for reasons related to the unobserved variable itself.
 
-- **MNAR**: The mechanism that leads to observations being missing depends on the value of the variable \(X\).
+- **MNAR**: The mechanism that leads to observations being missing depends on the value of the variable $X$.
 - Example: A hedge fund decides not to report its performance data because it had a bad performance and wants to hide it from investors, or they are doing very well and do not want to attract more attention.
 
 :p What does MNAR stand for and how is it defined?
 ??x
-MNAR stands for "Missing Not at Random." It means that the missingness of data on variable \(X\) depends on the value of the variable itself. 
+MNAR stands for "Missing Not at Random." It means that the missingness of data on variable $X$ depends on the value of the variable itself. 
 
 Example:
 - A hedge fund decides not to report its performance data because it had a bad performance and wants to hide it from investors, or they are doing very well and do not want to attract more attention.

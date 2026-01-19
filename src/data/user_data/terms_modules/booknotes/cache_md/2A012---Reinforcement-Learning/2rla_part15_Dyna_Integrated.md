@@ -22,10 +22,10 @@ Background context: This method combines one-step tabular Q-learning with random
 :p Describe the steps involved in Random-Sample One-Step Tabular Q-Planning.
 ??x
 The method consists of three main steps:
-1. Select a state \( S \in S \) and an action \( A \in A(S) \) at random.
-2. Use the sample model to get a simulated next reward \( R \) and next state \( S_0 \).
+1. Select a state $S \in S $ and an action$A \in A(S)$ at random.
+2. Use the sample model to get a simulated next reward $R $ and next state$S_0$.
 3. Apply one-step tabular Q-learning update: 
-\[ Q(S, A) = Q(S, A) + \alpha \times (R + \gamma \max_{a} Q(S_0, a) - Q(S, A)) \]
+$$Q(S, A) = Q(S, A) + \alpha \times (R + \gamma \max_{a} Q(S_0, a) - Q(S, A))$$
 
 This process is repeated indefinitely.
 x??
@@ -85,7 +85,7 @@ In Dyna-Q, model-learning involves improving the environment model based on real
 Model-learning in Dyna-Q refers to the process where the agent improves its understanding of the environment by recording and updating predictions about state transitions and rewards after each interaction. The model learns deterministically what follows a specific state-action pair, based on observed outcomes.
 
 For example:
-- If the agent takes action \(A\) in state \(S\), it records that the next state is \(S'\) with reward \(R\).
+- If the agent takes action $A $ in state$S $, it records that the next state is $ S'$with reward $ R$.
 - This information helps to build a more accurate predictive model of the environment.
 
 The process can be seen as:
@@ -116,7 +116,7 @@ double tdError = Rt+1 + gamma * maxQ(St+1) - currentQ[St][At];
 currentQ[St][At] += alpha * tdError;
 ```
 
-In this example, the agent calculates a temporal difference error and adjusts its Q-values based on the observed reward \(Rt+1\) and the maximum expected future rewards.
+In this example, the agent calculates a temporal difference error and adjusts its Q-values based on the observed reward $Rt+1$ and the maximum expected future rewards.
 
 x??
 
@@ -202,14 +202,14 @@ x??
 ---
 
 #### Acting Process in Dyna
-The acting process involves selecting an action based on the current state using \(\epsilon\)-greedy strategy, taking that action, observing the resulting reward and next state.
+The acting process involves selecting an action based on the current state using $\epsilon$-greedy strategy, taking that action, observing the resulting reward and next state.
 
 This step is crucial as it provides real-world feedback necessary for learning.
 :p What does the acting process involve?
 ??x
-The acting process in Dyna involves selecting an action based on the current state using an \(\epsilon\)-greedy strategy. This means with probability \(1 - \epsilon\), the agent selects the action that maximizes the estimated value (exploitation); and with probability \(\epsilon\), it selects a random action (exploration).
+The acting process in Dyna involves selecting an action based on the current state using an $\epsilon $-greedy strategy. This means with probability $1 - \epsilon $, the agent selects the action that maximizes the estimated value (exploitation); and with probability $\epsilon$, it selects a random action (exploration).
 
-After taking the chosen action, the agent observes the resulting reward \(R\) and next state \(S_0\).
+After taking the chosen action, the agent observes the resulting reward $R $ and next state$S_0$.
 ```java
 // Pseudocode for acting process
 public void act(State current) {
@@ -226,15 +226,15 @@ x??
 ---
 
 #### Model Learning in Dyna
-Model learning involves updating a model of the environment based on observed transitions and rewards. In Dyna-Q, this is done by storing the next state \(S_0\) and reward \(R\) for each state-action pair.
+Model learning involves updating a model of the environment based on observed transitions and rewards. In Dyna-Q, this is done by storing the next state $S_0 $ and reward$R$ for each state-action pair.
 
 This process helps in simulating future states and rewards.
 :p What does the model learning step involve?
 ??x
-The model learning step involves updating a model of the environment based on observed transitions and rewards. In Dyna-Q, this is done by storing the next state \(S_0\) and reward \(R\) for each state-action pair.
+The model learning step involves updating a model of the environment based on observed transitions and rewards. In Dyna-Q, this is done by storing the next state $S_0 $ and reward$R$ for each state-action pair.
 
 For example:
-- If the agent takes action \(A\) in state \(S\), it stores \((S, A)\) as a key and sets its value to \((R, S_0)\).
+- If the agent takes action $A $ in state$S $, it stores $(S, A)$ as a key and sets its value to $(R, S_0)$.
 
 This stored information is then used to simulate future states and rewards.
 x??
@@ -249,7 +249,7 @@ This ensures consistency between real and simulated experiences.
 ??x
 The planning process in Dyna-Q involves running the Q-learning algorithm on simulated experiences generated by the model. It uses the same reinforcement learning method (Q-learning) for both updating from real experience and updating based on simulated experience.
 
-For example, after taking action \(A\) in state \(S\), it simulates a new state-action pair \((S', A')\) using the model and updates the Q-values accordingly.
+For example, after taking action $A $ in state$S $, it simulates a new state-action pair$(S', A')$ using the model and updates the Q-values accordingly.
 ```java
 // Pseudocode for planning process
 public void plan() {
@@ -284,10 +284,10 @@ It ensures that the agent can learn effectively by leveraging both real and simu
 ??x
 The full Dyna-Q algorithm consists of several steps:
 
-1. **Acting**: Select an action using \(\epsilon\)-greedy strategy, take the action, observe reward and next state.
+1. **Acting**: Select an action using $\epsilon$-greedy strategy, take the action, observe reward and next state.
 2. **Direct RL Update**: Update Q-values based on real experience.
 3. **Model Learning**: Store the next state and reward for each state-action pair.
-4. **Planning**: Run \(n\) iterations of the Q-learning algorithm using simulated experiences.
+4. **Planning**: Run $n$ iterations of the Q-learning algorithm using simulated experiences.
 
 Here is a complete pseudocode representation:
 ```java
@@ -335,10 +335,10 @@ x??
 
 
 #### Maze Task Description
-Background context: This task describes a simple maze where an agent moves from a start state (S) to a goal state (G). The environment has a discount factor  \(\gamma = 0.95\), and rewards are zero except on transitions into the goal state, which have a reward of +1.
+Background context: This task describes a simple maze where an agent moves from a start state (S) to a goal state (G). The environment has a discount factor $\gamma = 0.95$, and rewards are zero except on transitions into the goal state, which have a reward of +1.
 :p What is the basic setup of this maze task?
 ??x
-The agent starts at state S and must navigate through the maze to reach state G to receive a +1 reward. After reaching the goal, it returns to the start state for the next episode. The discount factor \(\gamma = 0.95\) means future rewards are discounted.
+The agent starts at state S and must navigate through the maze to reach state G to receive a +1 reward. After reaching the goal, it returns to the start state for the next episode. The discount factor $\gamma = 0.95$ means future rewards are discounted.
 ```java
 // Pseudocode for episode loop
 while (episode < maxEpisodes) {
@@ -357,7 +357,7 @@ x??
 ---
 
 #### Dyna-Q Agents and Planning Steps
-Background context: Dyna-Q agents were applied to the maze task with varying planning steps per real step. The initial action values are zero, the step-size parameter \(\alpha = 0.1\), and the exploration parameter \(\epsilon = 0.1\). Ties in action selection were broken randomly.
+Background context: Dyna-Q agents were applied to the maze task with varying planning steps per real step. The initial action values are zero, the step-size parameter $\alpha = 0.1 $, and the exploration parameter $\epsilon = 0.1$. Ties in action selection were broken randomly.
 :p How do Dyna-Q agents differ from nonplanning Q-learning?
 ??x
 Dyna-Q agents incorporate planning steps to simulate experiences, while nonplanning agents learn solely based on direct reinforcement learning from actual experiences. The number of planning steps per real step (n) affects the agent's performance and speed in learning.
@@ -698,7 +698,7 @@ x??
 Prioritized sweeping is an efficient method for maintaining and updating state-action values in reinforcement learning, particularly useful in environments where state transitions are deterministic. The core idea involves maintaining a queue of state-action pairs whose value estimates would change significantly if updated. This queue is prioritized by the magnitude of the expected change.
 
 The algorithm works as follows:
-1. Initialize all state-action value functions \( Q(s, a) \).
+1. Initialize all state-action value functions $Q(s, a)$.
 2. Maintain an empty priority queue.
 3. Loop indefinitely to process updates efficiently until quiescence (stability in updates).
 
@@ -756,13 +756,13 @@ x??
 ---
 
 #### Deterministic Environment Implementation
-In deterministic environments, the prioritized sweeping algorithm ensures that state-action value functions \( Q(s, a) \) are updated only when necessary and efficiently propagate these updates.
+In deterministic environments, the prioritized sweeping algorithm ensures that state-action value functions $Q(s, a)$ are updated only when necessary and efficiently propagate these updates.
 
 :p How does the algorithm handle updates in a deterministic environment?
 ??x
 In a deterministic environment, the algorithm handles updates by maintaining a priority queue of state-action pairs. Each pair is prioritized based on the expected change in its value function if it were to be updated. When an update occurs due to experiencing a new state or reward, the algorithm checks the affected pairs and their predecessors for significant changes, adding them back into the queue as needed.
 
-The key steps involve checking the priority of each state-action pair after an update and reinserting those with higher priorities if they exceed a threshold \( \epsilon \).
+The key steps involve checking the priority of each state-action pair after an update and reinserting those with higher priorities if they exceed a threshold $\epsilon$.
 ```java
 // Example function to update Q-values in a deterministic environment
 public void updateDeterministicEnvironment() {
@@ -884,13 +884,11 @@ x??
 
 **Background Context:** This section discusses the trade-offs between expected updates and sample updates in planning methods, particularly in the context of reinforcement learning. Expected updates consider all possible outcomes given a state-action pair, providing a theoretically more accurate estimate but at higher computational cost. Sample updates, on the other hand, use a single sampled outcome, which is less computationally intensive but introduces sampling error.
 
-The expected update for a state-action pair \((s, a)\) is defined as:
-\[ Q(s, a) = \sum_{s', r} p(s', r | s, a) \left[ r + \max_{a'} Q(s', a') \right] \]
-where \(p(s', r | s, a)\) is the transition probability from state \(s\) to state \(s'\) with reward \(r\) given action \(a\).
+The expected update for a state-action pair $(s, a)$ is defined as:
+$$Q(s, a) = \sum_{s', r} p(s', r | s, a) \left[ r + \max_{a'} Q(s', a') \right]$$where $ p(s', r | s, a)$is the transition probability from state $ s$to state $ s'$with reward $ r$ given action $ a$.
 
 The sample update for the same pair is:
-\[ Q(s, a) = Q(s, a) + \alpha \left[ R + \max_{a'} Q(S', a') - Q(s, a) \right] \]
-where \(R\) and \(S'\) are sampled from the environment or model, and \(\alpha\) is the step-size parameter.
+$$Q(s, a) = Q(s, a) + \alpha \left[ R + \max_{a'} Q(S', a') - Q(s, a) \right]$$where $ R $ and $ S'$are sampled from the environment or model, and $\alpha$ is the step-size parameter.
 
 :p What are the differences between expected updates and sample updates in planning methods?
 ??x
@@ -900,20 +898,24 @@ x??
 ---
 #### Computational Cost of Updates
 
-**Background Context:** The text emphasizes the trade-off between accuracy and computation time when choosing between expected and sample updates. For discrete state-action spaces, the computational effort for an expected update is proportional to the branching factor \(b\), which represents the number of possible next states.
+**Background Context:** The text emphasizes the trade-off between accuracy and computation time when choosing between expected and sample updates. For discrete state-action spaces, the computational effort for an expected update is proportional to the branching factor $b$, which represents the number of possible next states.
 
 If there are many possible next states:
-- Expected update: \[ Q(s, a) = \sum_{s', r} p(s', r | s, a) \left[ r + \max_{a'} Q(s', a') \right] \]
-  This requires evaluating the value function for each successor state.
+- Expected update: $$Q(s, a) = \sum_{s', r} p(s', r | s, a) \left[ r + \max_{a'} Q(s', a') \right]$$
+
+This requires evaluating the value function for each successor state.
 
 For a sample update:
-- Sample update: 
-\[ Q(s, a) = Q(s, a) + \alpha \left[ R + \max_{a'} Q(S', a') - Q(s, a) \right] \]
+- Sample update:
+$$
+
+Q(s, a) = Q(s, a) + \alpha \left[ R + \max_{a'} Q(S', a') - Q(s, a) \right]$$
+
 This only considers one sampled next state and reward pair.
 
 :p How does the computational cost of expected updates compare to sample updates?
 ??x
-The computational cost of an expected update is significantly higher than that of a sample update. For a state-action pair with branching factor \(b\), an expected update requires evaluating the value function for all successor states, while a sample update only considers one sampled outcome.
+The computational cost of an expected update is significantly higher than that of a sample update. For a state-action pair with branching factor $b$, an expected update requires evaluating the value function for all successor states, while a sample update only considers one sampled outcome.
 x??
 
 ---
@@ -939,7 +941,7 @@ x??
 ---
 #### Example Analysis
 
-**Background Context:** The text provides an analysis of the estimation error as a function of computation time for both expected and sample updates across different branching factors \(b\).
+**Background Context:** The text provides an analysis of the estimation error as a function of computation time for both expected and sample updates across different branching factors $b$.
 
 :p What does Figure 8.7 illustrate?
 ??x

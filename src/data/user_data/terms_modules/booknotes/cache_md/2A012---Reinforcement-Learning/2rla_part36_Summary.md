@@ -28,10 +28,7 @@ Background context: Edward Thorndike’s experiments with cats led to the formul
 
 Relevant formulas or data:
 - The formula for change in response strength (S) due to a consequence (C) can be represented as:
-  \[
-  S' = S + k \cdot C
-  \]
-  where \(k\) is the learning rate and \(C\) represents the positive (reward) or negative (punishment) value of the outcome.
+  $$S' = S + k \cdot C$$where $ k $ is the learning rate and $ C$ represents the positive (reward) or negative (punishment) value of the outcome.
 
 :p What does Thorndike's Law of Effect state, and how does it relate to reinforcement learning?
 ??x
@@ -72,11 +69,7 @@ x??
 Background context: Shaping involves progressively altering reward contingencies to train an animal to perform a desired behavior. This technique is analogous to reinforcement learning algorithms where actions leading to higher rewards are increasingly favored.
 
 Relevant formulas or data:
-- Shaping can be seen as a form of value iteration, where the value function \(V(s)\) is updated based on new actions and their associated rewards.
-  \[
-  V'(s) = V(s) + \alpha (R - V(s))
-  \]
-  where \(\alpha\) is the learning rate.
+- Shaping can be seen as a form of value iteration, where the value function $V(s)$ is updated based on new actions and their associated rewards.$$V'(s) = V(s) + \alpha (R - V(s))$$where $\alpha$ is the learning rate.
 
 :p What is shaping in animal training, and how does it relate to reinforcement learning algorithms?
 ??x
@@ -113,16 +106,9 @@ x??
 Background context: Eligibility traces and value functions are mechanisms used to address the problem of delayed reinforcement, paralleling similar concepts in animal learning theories.
 
 Relevant formulas or data:
-- Eligibility trace \(\delta_t\) tracks which states were visited recently.
-  - \[
-    \delta_t = \gamma\lambda \delta_{t-1} + 1
-    \]
-- Value function \(V(s)\) represents the expected future reward from state \(s\).
-  - \[
-    V'(s) = V(s) + \alpha (R + \gamma V(S') - V(s))
-    \]
-
-:p What are eligibility traces and value functions, and how do they relate to animal learning?
+- Eligibility trace $\delta_t$ tracks which states were visited recently.
+  -$$\delta_t = \gamma\lambda \delta_{t-1} + 1$$- Value function $ V(s)$represents the expected future reward from state $ s$.
+  - $$V'(s) = V(s) + \alpha (R + \gamma V(S') - V(s))$$:p What are eligibility traces and value functions, and how do they relate to animal learning?
 ??x
 Eligibility traces and value functions are mechanisms used in reinforcement learning to address the problem of delayed reinforcement. These concepts mirror similar ideas found in theories of animal learning.
 
@@ -155,11 +141,8 @@ x??
 Background context: The concept of cognitive maps is used to describe how animals can learn state-action associations as well as environmental models, which can be learned by supervised methods without relying on reward signals.
 
 Relevant formulas or data:
-- A cognitive map \(C(s)\) represents the animal's understanding of its environment.
-  - \[
-    C(s) = f(\text{state features})
-    \]
-- An environment model in reinforcement learning is used to predict future states and rewards based on actions taken.
+- A cognitive map $C(s)$ represents the animal's understanding of its environment.
+  -$$C(s) = f(\text{state features})$$- An environment model in reinforcement learning is used to predict future states and rewards based on actions taken.
 
 :p What are cognitive maps, and how do they relate to reinforcement learning algorithms?
 ??x
@@ -189,11 +172,8 @@ x??
 Background context: The distinction between model-free and model-based algorithms parallels the psychological distinction between habitual and goal-directed behavior.
 
 Relevant formulas or data:
-- Model-free algorithms access information stored in a policy \(\pi\) or action-value function \(Q(s, a)\).
-  - \[
-    Q'(s, a) = Q(s, a) + \alpha (R + \gamma \max_{a'} Q(S', a') - Q(s, a))
-    \]
-- Model-based methods select actions based on planning ahead using a model of the environment.
+- Model-free algorithms access information stored in a policy $\pi $ or action-value function$Q(s, a)$.
+  - $$Q'(s, a) = Q(s, a) + \alpha (R + \gamma \max_{a'} Q(S', a') - Q(s, a))$$- Model-based methods select actions based on planning ahead using a model of the environment.
 
 :p What is the difference between model-free and model-based algorithms in reinforcement learning?
 ??x
@@ -374,11 +354,11 @@ x??
 
 
 #### Reward Signal in Reinforcement Learning
-In reinforcement learning, \( R_t \) represents the reward signal at time \( t \), which influences decision-making and learning. It is a number rather than an object or event in the agent’s environment.
+In reinforcement learning,$R_t $ represents the reward signal at time$t$, which influences decision-making and learning. It is a number rather than an object or event in the agent’s environment.
 
-:p What is \( R_t \) in reinforcement learning?
+:p What is $R_t$ in reinforcement learning?
 ??x
-\( R_t \) in reinforcement learning denotes the reward signal at time \( t \). This is not an actual object or event in the external environment but rather an internal representation within the brain, such as neuronal activity, that affects decision-making and learning processes.
+$R_t $ in reinforcement learning denotes the reward signal at time$t$. This is not an actual object or event in the external environment but rather an internal representation within the brain, such as neuronal activity, that affects decision-making and learning processes.
 x??
 
 ---
@@ -387,11 +367,11 @@ x??
 
 
 #### Reinforcement Signal and Prediction
-Background context: The text discusses how reinforcement signals at time \( t+1 \) serve as a reinforcing mechanism for predictions or actions made earlier at step \( t \). This is part of the broader discussion on reinforcement learning terminology.
+Background context: The text discusses how reinforcement signals at time $t+1 $ serve as a reinforcing mechanism for predictions or actions made earlier at step$t$. This is part of the broader discussion on reinforcement learning terminology.
 
 :p What does the term "reinforcement signal" imply in this context?
 ??x
-The term "reinforcement signal" refers to the feedback received by an agent after taking an action, which influences its future behavior. In reinforcement learning, this signal often comes at a subsequent time step (\( t+1 \)) and serves as a form of reward or punishment that reinforces predictions or actions made in the previous step \( t \).
+The term "reinforcement signal" refers to the feedback received by an agent after taking an action, which influences its future behavior. In reinforcement learning, this signal often comes at a subsequent time step ($t+1 $) and serves as a form of reward or punishment that reinforces predictions or actions made in the previous step $ t$.
 
 For example, if an agent takes an action and receives a positive reinforcement (e.g., a reward), it is likely to take similar actions again. Conversely, negative reinforcement or punishment would discourage such behavior.
 
@@ -458,8 +438,7 @@ x??
 Background context: The text discusses the relationship between reinforcement learning algorithms, particularly temporal-difference errors, and the functioning of dopamine neurons in the brain. TD errors are a core concept in reinforcement learning where the difference between predicted and actual rewards is used to update value estimates.
 
 Relevant formulas:
-- \( \Delta v_t = r_t + \gamma v_{t+1} - v_t \)
-  Where \( \Delta v_t \) is the TD error, \( r_t \) is the reward at time \( t \), and \( \gamma \) is the discount factor.
+- $\Delta v_t = r_t + \gamma v_{t+1} - v_t $ Where$\Delta v_t $ is the TD error,$r_t $ is the reward at time$t $, and$\gamma$ is the discount factor.
 
 Explanation: Dopamine appears to act as a signal for temporal-difference errors in brain structures that are involved in learning and decision-making. This hypothesis suggests that when an actual reward differs from the expected reward, this difference (TD error) is transmitted via dopamine signals.
 
@@ -553,12 +532,12 @@ Key concepts include:
 Background context explaining the concept. In reinforcement learning (RL), three signals—actions, states, and rewards—are fundamental for learning goal-directed behavior. However, to align RL with neuroscience, additional signals such as reinforcement signals, value signals, and prediction errors are considered.
 
 Relevant formulas or data: 
-- \( R_t \) represents a reward signal in an environment.
+- $R_t$ represents a reward signal in an environment.
 - Reinforcement signals guide changes in the agent's policy, value estimates, or models of the environment.
 
 :p What are the key differences between reward signals and reinforcement signals?
 ??x
-Reward signals (\( R_t \)) represent actual rewards received by the agent from the environment. In contrast, reinforcement signals guide the learning algorithm to modify the agent’s behavior (e.g., policy updates). 
+Reward signals ($R_t$) represent actual rewards received by the agent from the environment. In contrast, reinforcement signals guide the learning algorithm to modify the agent’s behavior (e.g., policy updates). 
 
 For example:
 - A reward signal might indicate whether an action was good or bad (e.g., +1 for a correct answer, -1 for incorrect).
@@ -574,14 +553,14 @@ x??
 Background context: In RL, value signals represent the expected cumulative reward from a given state. These are used to estimate how good it is to be in a particular state or take an action.
 
 Relevant formulas or data:
-- \( V(s) \): The value of being in state \( s \).
-- \( Q(s,a) \): The value of taking action \( a \) from state \( s \).
+- $V(s)$: The value of being in state $ s$.
+- $Q(s,a)$: The value of taking action $ a$from state $ s$.
 
 :p What role do value signals play in reinforcement learning?
 ??x
 Value signals help determine the desirability of states and actions. They are used to guide policy decisions by estimating future rewards.
 
-For example, if \( V(s) = 10 \), an agent would prefer being in that state over one with a lower value. Similarly, \( Q(s,a) \) can be used to decide which action is best from the current state.
+For example, if $V(s) = 10 $, an agent would prefer being in that state over one with a lower value. Similarly, $ Q(s,a)$ can be used to decide which action is best from the current state.
 
 x??
 
@@ -593,14 +572,13 @@ x??
 Background context: Prediction errors are the differences between expected and actual rewards. They help update value estimates and improve learning efficiency.
 
 Relevant formulas or data:
-- Prediction error (\( \delta \)): \( \delta = R_t + \gamma V(s') - V(s) \)
-  where \( \gamma \) is the discount factor, \( R_t \) is the reward at time step \( t \), and \( V(s') \) is the value of the next state.
+- Prediction error ($\delta $): $\delta = R_t + \gamma V(s') - V(s)$ where $\gamma$ is the discount factor,$R_t $ is the reward at time step$t $, and$ V(s')$ is the value of the next state.
 
 :p What is a prediction error in reinforcement learning?
 ??x
 A prediction error measures the difference between what was expected to happen (expected reward based on current values) versus what actually happened (actual reward received).
 
-For example, if an agent expects 5 points for completing a task but only gets 3, the prediction error would be \( \delta = R_t + \gamma V(s') - V(s) = 3 + \gamma V(s') - V(s) \).
+For example, if an agent expects 5 points for completing a task but only gets 3, the prediction error would be $\delta = R_t + \gamma V(s') - V(s) = 3 + \gamma V(s') - V(s)$.
 
 x??
 
@@ -613,15 +591,15 @@ Background context: Neuroscience and RL have found parallels in reward-related s
 
 Relevant formulas or data:
 - Dopamine neurons release dopamine in response to unexpected positive rewards (prediction errors).
-- \( R_t \) is analogous to a burst of action potentials or neurotransmitter secretion related to rewards.
+- $R_t$ is analogous to a burst of action potentials or neurotransmitter secretion related to rewards.
 
 :p How do neuroscientists and RL theorists view the term "reward signals"?
 ??x
 Both neuroscientists and RL theorists use the term "reward signals," but they refer to different aspects:
 - In neuroscience, it refers to physiological events like bursts of action potentials.
-- In RL theory, \( R_t \) represents a reward signal that defines the problem.
+- In RL theory, $R_t$ represents a reward signal that defines the problem.
 
-For example, in a Q-learning algorithm, \( R_t \) updates the value function based on actual rewards received, while neuroscientists observe changes in dopamine release to understand reward processing.
+For example, in a Q-learning algorithm, $R_t$ updates the value function based on actual rewards received, while neuroscientists observe changes in dopamine release to understand reward processing.
 
 x??
 
@@ -637,7 +615,7 @@ Background context: Matching RL concepts with neural signals involves significan
 The main challenges include:
 1. High correlation among various reward-related signals.
 2. Difficulty distinguishing one type of signal from others.
-3. The absence of a unitary master reward signal like \( R_t \) in the brain.
+3. The absence of a unitary master reward signal like $R_t$ in the brain.
 4. Need for well-designed experiments to isolate specific neural responses.
 
 For example, experiments might involve manipulating environments to observe changes in dopamine release and correlate them with expected behavior adjustments.
@@ -651,10 +629,10 @@ x??
 
 ---
 #### TD Method Reinforcement Signal
-Background context: In a TD method, the reinforcement signal at time \(t\) is defined as the TD error \(\delta_{t+1} = R_t + V(S_{t+1}) - V(S_t)\). This formula captures the difference between the actual reward and the predicted future value.
+Background context: In a TD method, the reinforcement signal at time $t $ is defined as the TD error$\delta_{t+1} = R_t + V(S_{t+1}) - V(S_t)$. This formula captures the difference between the actual reward and the predicted future value.
 :p What is the reinforcement signal in a TD method?
 ??x
-The reinforcement signal at time \(t\) is the TD error \(\delta_{t+1} = R_t + V(S_{t+1}) - V(S_t)\), which measures the discrepancy between the actual reward and the predicted future state value.
+The reinforcement signal at time $t $ is the TD error$\delta_{t+1} = R_t + V(S_{t+1}) - V(S_t)$, which measures the discrepancy between the actual reward and the predicted future state value.
 x??
 
 ---
@@ -671,7 +649,7 @@ x??
 
 
 #### TD Errors in Learning Algorithms
-Background context: In most learning algorithms considered, the reinforcement signal is adjusted by value estimates to form the TD error \(\delta_{t+1} = R_t + V(S_{t+1}) - V(S_t)\). This error measures discrepancies between current and earlier expectations of reward over the long-term.
+Background context: In most learning algorithms considered, the reinforcement signal is adjusted by value estimates to form the TD error $\delta_{t+1} = R_t + V(S_{t+1}) - V(S_t)$. This error measures discrepancies between current and earlier expectations of reward over the long-term.
 :p What is a key feature of TD errors in learning algorithms?
 ??x
 A key feature of TD errors in learning algorithms is that they measure discrepancies between current and earlier expectations of reward over the long-term, adjusting value estimates to align with actual rewards.
@@ -681,25 +659,25 @@ x??
 
 
 #### TD Error and Dopamine Neuron Activity
-Background context explaining the concept. The text discusses the relationship between Temporal Difference (TD) errors, as used in reinforcement learning models like the semi-gradient-descent TD(\( \lambda \)) algorithm with linear function approximation, and the activity of dopamine-producing neurons during classical conditioning experiments. It mentions that a negative TD error corresponds to a drop in a dopamine neuron's firing rate below its background rate.
+Background context explaining the concept. The text discusses the relationship between Temporal Difference (TD) errors, as used in reinforcement learning models like the semi-gradient-descent TD($\lambda$) algorithm with linear function approximation, and the activity of dopamine-producing neurons during classical conditioning experiments. It mentions that a negative TD error corresponds to a drop in a dopamine neuron's firing rate below its background rate.
 
-Relevant formulas: \( t_1 = R_t + V(S_{t+1}) - V(S_t) \), where \( V(S_t) \) is the value function at time step \( t \).
+Relevant formulas: $t_1 = R_t + V(S_{t+1}) - V(S_t)$, where $ V(S_t)$is the value function at time step $ t$.
 
-:p What does the formula \( t_1 = R_t + V(S_{t+1}) - V(S_t) \) represent in the context of TD errors and dopamine neuron activity?
+:p What does the formula $t_1 = R_t + V(S_{t+1}) - V(S_t)$ represent in the context of TD errors and dopamine neuron activity?
 ??x
-The formula represents the temporal difference (TD) error, which is a key concept in reinforcement learning. It measures the difference between the immediate reward \( R_t \) at time step \( t \) and the expected future value \( V(S_{t+1}) \), minus the current estimated value \( V(S_t) \). This measure helps in updating the value function to better predict future rewards.
+The formula represents the temporal difference (TD) error, which is a key concept in reinforcement learning. It measures the difference between the immediate reward $R_t $ at time step$t $ and the expected future value$V(S_{t+1})$, minus the current estimated value $ V(S_t)$. This measure helps in updating the value function to better predict future rewards.
 x??
 
 ---
 
 
 #### Comparison Between TD Errors and Dopamine Neuron Phasic Activity
-Background context explaining the concept. The text compares the TD errors from the semi-gradient-descent TD(\( \lambda \)) algorithm with the phasic activity of dopamine neurons during classical conditioning experiments, showing remarkable similarities.
+Background context explaining the concept. The text compares the TD errors from the semi-gradient-descent TD($\lambda$) algorithm with the phasic activity of dopamine neurons during classical conditioning experiments, showing remarkable similarities.
 
 :p How do Montague et al. compare the TD errors to the phasic activity of dopamine neurons?
 ??x
 Montague et al. compared the TD errors of the TD model of classical conditioning with the phasic activity of dopamine-producing neurons in two main ways:
-1. They assumed that the quantity corresponding to dopamine neuron activity is \( b_t + t_1 \), where \( b_t \) is the background firing rate and \( t_1 = R_t + V(S_{t+1}) - V(S_t) \).
+1. They assumed that the quantity corresponding to dopamine neuron activity is $b_t + t_1 $, where $ b_t $ is the background firing rate and $ t_1 = R_t + V(S_{t+1}) - V(S_t)$.
 2. They used a complete serial compound (CSC) representation for states, which allows tracking the timing of events within a trial.
 
 These assumptions led to TD errors that mirrored several key features of dopamine neuron activity:

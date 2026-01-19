@@ -272,15 +272,11 @@ Precision, recall, and the F1 score are key metrics derived from a confusion mat
 Background context: 
 - **Precision**: Measures the accuracy of positive predictions (TP / (TP + FP)).
 - **Recall** (or Sensitivity): Measures how often the model correctly identifies true positives (TP / (TP + FN)).
-- **F1 Score**: The harmonic mean of precision and recall, which balances both metrics. It is given by \(2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}\).
+- **F1 Score**: The harmonic mean of precision and recall, which balances both metrics. It is given by $2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}$.
 
 :p What are the formulas for Precision, Recall, and F1 Score?
 ??x
-- **Precision**: \(\frac{\text{TP}}{\text{TP} + \text{FP}}\)
-- **Recall**: \(\frac{\text{TP}}{\text{TP} + \text{FN}}\)
-- **F1 Score**: \(2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}\)
-
-These formulas give a balanced view of the model’s performance by considering both precision and recall.
+- **Precision**: $\frac{\text{TP}}{\text{TP} + \text{FP}}$- **Recall**:$\frac{\text{TP}}{\text{TP} + \text{FN}}$- **F1 Score**:$2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}$ These formulas give a balanced view of the model’s performance by considering both precision and recall.
 x??
 
 ---
@@ -356,7 +352,7 @@ Background context explaining rule-based approaches. These employ a set of manua
 
 ??x
 Example rules:
-- Rule N.1: The number after currency symbols is a monetary value (e.g., $200).
+- Rule N.1: The number after currency symbols is a monetary value (e.g.,$200).
 - Rule N.2: The word after Mrs. or Mr. is a person’s name.
 - Rule N.3: The word before a company suffix is a company name (e.g., Inc., Ltd., Incorporated, Corporation).
 - Rule N.4: Alphanumeric strings could be security identifiers if they match the length of the identifier and can be validated with a check-digit method.

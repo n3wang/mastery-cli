@@ -239,13 +239,13 @@ To calculate machine balance, you need to measure both theoretical peak performa
   - Use benchmarking tools like STREAM to measure actual bandwidth. For example, the `copy` operation in STREAM measures memory read and write performance.
   
 To calculate machine balance:
-\[ \text{Machine Balance} = \frac{\text{Theoretical Peak FLOPS}}{\text{Empirical Bandwidth (in GB/s)} \times 8} \]
+$$\text{Machine Balance} = \frac{\text{Theoretical Peak FLOPS}}{\text{Empirical Bandwidth (in GB/s)} \times 8}$$
 
 This calculation helps ensure that the system is not bandwidth-limited or computation-limited.
 
 Example:
 If a system has a theoretical peak performance of 10 TFLOPS and an empirical bandwidth of 256 GB/s, the machine balance would be:
-\[ \text{Machine Balance} = \frac{10^{12} \text{ FLOPS}}{(256 \times 10^9) \text{ B/s} \times 8} = \frac{10^{12}}{2.048 \times 10^{12}} \approx 0.49 \]
+$$\text{Machine Balance} = \frac{10^{12} \text{ FLOPS}}{(256 \times 10^9) \text{ B/s} \times 8} = \frac{10^{12}}{2.048 \times 10^{12}} \approx 0.49$$
 
 This indicates that the system is not perfectly balanced, with a need for optimization in either computational or memory bandwidth.
 x??

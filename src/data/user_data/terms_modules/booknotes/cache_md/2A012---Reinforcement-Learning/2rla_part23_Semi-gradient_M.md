@@ -16,25 +16,23 @@ x??
 ---
 #### n-step Return Formulation
 The n-step return Gt:t+n is defined as the sum of estimated future rewards up to step t+n, adjusted based on the current estimate of the average reward and the estimated action-values:
-\[ G_{t:t+n} = R_{t+1} - \bar{R}_{t+n-1} + \cdots + R_{t+n} - \bar{R}_{t+n} + \hat{q}(S_{t+n}, A_{t+n}, w) \]
-where \(\bar{R}\) is an estimate of the average reward, and \(w\) represents the weights of the function approximation.
+$$G_{t:t+n} = R_{t+1} - \bar{R}_{t+n-1} + \cdots + R_{t+n} - \bar{R}_{t+n} + \hat{q}(S_{t+n}, A_{t+n}, w)$$where $\bar{R}$ is an estimate of the average reward, and $w$ represents the weights of the function approximation.
 :p How is the n-step return defined in Diﬀerential Semi-gradient n-step Sarsa?
 ??x
 The n-step return is defined as:
-\[ G_{t:t+n} = R_{t+1} - \bar{R}_{t+n-1} + \cdots + R_{t+n} - \bar{R}_{t+n} + \hat{q}(S_{t+n}, A_{t+n}, w) \]
-where \(R_i\) are the rewards, \(\bar{R}\) is an estimate of the average reward, and \(\hat{q}(S_{t+n}, A_{t+n}, w)\) represents the estimated action-value function. This formulation allows for a more accurate update by considering multiple steps.
+$$G_{t:t+n} = R_{t+1} - \bar{R}_{t+n-1} + \cdots + R_{t+n} - \bar{R}_{t+n} + \hat{q}(S_{t+n}, A_{t+n}, w)$$where $ R_i $are the rewards,$\bar{R}$ is an estimate of the average reward, and $\hat{q}(S_{t+n}, A_{t+n}, w)$ represents the estimated action-value function. This formulation allows for a more accurate update by considering multiple steps.
 x??
 
 ---
 #### n-step TD Error
 The n-step TD error is defined as the diﬀerence between the actual n-step return and the predicted value:
-\[ \delta_t = G_{t:t+n} - \hat{q}(S_t, A_t, w) \]
+$$\delta_t = G_{t:t+n} - \hat{q}(S_t, A_t, w)$$
+
 This error term guides the updates to the action-value function.
 :p How is the n-step TD error calculated in Diﬀerential Semi-gradient n-step Sarsa?
 ??x
 The n-step TD error is calculated as:
-\[ \delta_t = G_{t:t+n} - \hat{q}(S_t, A_t, w) \]
-where \(G_{t:t+n}\) is the n-step return and \(\hat{q}(S_t, A_t, w)\) is the predicted value. This error term helps in updating the action-value function more accurately.
+$$\delta_t = G_{t:t+n} - \hat{q}(S_t, A_t, w)$$where $ G_{t:t+n}$is the n-step return and $\hat{q}(S_t, A_t, w)$ is the predicted value. This error term helps in updating the action-value function more accurately.
 x??
 
 ---
@@ -90,12 +88,12 @@ x??
 
 ---
 #### Unbiased Constant-Step-size Trick for Average Reward
-In Diﬀerential Semi-gradient n-step Sarsa, the step size parameter on the average reward (ε) needs to be small to ensure that \(\bar{R}\) becomes a good long-term estimate. However, this can make learning inefficient due to initial bias in \(\bar{R}\). An alternative is using a sample average of observed rewards for \(\bar{R}\), but it adapts slowly and may not handle nonstationary policies well.
+In Diﬀerential Semi-gradient n-step Sarsa, the step size parameter on the average reward (ε) needs to be small to ensure that $\bar{R}$ becomes a good long-term estimate. However, this can make learning inefficient due to initial bias in $\bar{R}$. An alternative is using a sample average of observed rewards for $\bar{R}$, but it adapts slowly and may not handle nonstationary policies well.
 
-The unbiased constant-step-size trick involves adjusting the step size parameter ε to ensure that \(\bar{R}\) converges without initial bias.
+The unbiased constant-step-size trick involves adjusting the step size parameter ε to ensure that $\bar{R}$ converges without initial bias.
 :p How can the unbiased constant-step-size trick be applied in Diﬀerential Semi-gradient n-step Sarsa?
 ??x
-To apply the unbiased constant-step-size trick in Diﬀerential Semi-gradient n-step Sarsa, you need to adjust the step size parameter \(\epsilon\) such that it converges properly without initial bias. This can be done by using an adaptive step size based on the average reward estimate over time.
+To apply the unbiased constant-step-size trick in Diﬀerential Semi-gradient n-step Sarsa, you need to adjust the step size parameter $\epsilon$ such that it converges properly without initial bias. This can be done by using an adaptive step size based on the average reward estimate over time.
 
 Here are the specific changes needed:
 
@@ -126,10 +124,10 @@ x??
 
 
 #### Semi-gradient Sarsa Introduction
-Background context: The first exploration of semi-gradient Sarsa with function approximation was by Rummery and Niranjan (1994). Linear semi-gradient Sarsa with \(\epsilon\)-greedy action selection does not converge in the usual sense but enters a bounded region near the best solution. Precup and Perkins (2003) showed convergence under differentiable action selection settings.
+Background context: The first exploration of semi-gradient Sarsa with function approximation was by Rummery and Niranjan (1994). Linear semi-gradient Sarsa with $\epsilon$-greedy action selection does not converge in the usual sense but enters a bounded region near the best solution. Precup and Perkins (2003) showed convergence under differentiable action selection settings.
 :p What was the initial exploration of Semi-gradient Sarsa with function approximation?
 ??x
-Rummery and Niranjan (1994) first explored semi-gradient Sarsa with function approximation. This method does not converge in the usual sense but enters a bounded region near the best solution when using \(\epsilon\)-greedy action selection.
+Rummery and Niranjan (1994) first explored semi-gradient Sarsa with function approximation. This method does not converge in the usual sense but enters a bounded region near the best solution when using $\epsilon$-greedy action selection.
 x??
 
 ---
@@ -162,7 +160,7 @@ x??
 ---
 
 #### Challenges in Off-policy Learning
-Background context: In off-policy learning, we seek to learn a value function for a target policy \(\pi\), given data due to a different behavior policy \(b\). There are two main parts to the challenge: one that arises in the tabular case and another only with function approximation. The first part concerns the target of updates, while the second involves the distribution of those updates.
+Background context: In off-policy learning, we seek to learn a value function for a target policy $\pi $, given data due to a different behavior policy $ b$. There are two main parts to the challenge: one that arises in the tabular case and another only with function approximation. The first part concerns the target of updates, while the second involves the distribution of those updates.
 :p What are the two main challenges in off-policy learning?
 ??x
 The two main challenges in off-policy learning are:
@@ -200,8 +198,7 @@ Semi-gradient methods extend the techniques from earlier chapters to function ap
 :p How do semi-gradient methods convert tabular oﬄ- policy algorithms into function approximation forms?
 ??x
 To convert a tabular off-policy algorithm into its semi-gradient form for function approximation, you replace updates to an array (V or Q) with updates to a weight vector. This involves using the approximate value function and its gradient. For instance, in one-step, state-value learning, the update rule becomes:
-\[ w_{t+1} = w_t + \alpha \pi_t v^\pi(S_t, w) \]
-where \( \pi_t \) is the importance sampling ratio.
+$$w_{t+1} = w_t + \alpha \pi_t v^\pi(S_t, w)$$where $\pi_t$ is the importance sampling ratio.
 
 Here’s an example of converting a one-step off-policy TD(0) to its semi-gradient form:
 
@@ -226,13 +223,11 @@ The one-step off-policy TD(0) algorithm uses the per-step importance sampling ra
 
 :p How does the semi-gradient off-policy TD(0) update rule work?
 ??x
-The semi-gradient off-policy TD(0) update rule incorporates a per-step importance sampling ratio \(\pi_t\), defined as:
-\[ \pi_t = \frac{\rho_{t:t+1}}{b_{t:t+1}} \]
-where \( b_{t:t+1} \) is the behavior policy probability of taking action \(A_t\) in state \(S_t\), and \( \rho_{t:t+1} \) is the importance sampling ratio.
+The semi-gradient off-policy TD(0) update rule incorporates a per-step importance sampling ratio $\pi_t$, defined as:
+$$\pi_t = \frac{\rho_{t:t+1}}{b_{t:t+1}}$$where $ b_{t:t+1}$is the behavior policy probability of taking action $ A_t$in state $ S_t $, and $\rho_{t:t+1}$ is the importance sampling ratio.
 
 The update rule for weights in this context becomes:
-\[ w_{t+1} = w_t + \alpha \pi_t (r_t + \gamma v(S_{t+1}, w_t) - v(S_t, w_t)) \]
-where \( r_t \) is the reward at time step \( t \), and \( v(S, w) \) is the approximate value function.
+$$w_{t+1} = w_t + \alpha \pi_t (r_t + \gamma v(S_{t+1}, w_t) - v(S_t, w_t))$$where $ r_t $ is the reward at time step $ t $, and$ v(S, w)$ is the approximate value function.
 
 Here’s an example of this update in pseudocode:
 ```java
@@ -255,14 +250,13 @@ Expected SARSA, a variant of off-policy TD learning, uses the per-step importanc
 :p How does expected SARSA for function approximation handle updates?
 ??x
 In the context of function approximation, expected SARSA updates action values using an importance sampling ratio. The update rule is:
-\[ w_{t+1} = w_t + \alpha \pi_t q^\pi(S_t, A_t, w) \]
-where \( \pi_t \) is the importance sampling ratio.
+$$w_{t+1} = w_t + \alpha \pi_t q^\pi(S_t, A_t, w)$$where $\pi_t$ is the importance sampling ratio.
 
 The importance sampling ratio is defined as:
-\[ \pi_t = \frac{\rho_{t:t+1}}{b_{t:t+1}} \]
+$$\pi_t = \frac{\rho_{t:t+1}}{b_{t:t+1}}$$
 
 For one-step expected SARSA, the update rule becomes:
-\[ w_{t+1} = w_t + \alpha \pi_t (r_t + \gamma \sum_a \pi(a|S_{t+1}) q(S_{t+1}, a, w) - q(S_t, A_t, w)) \]
+$$w_{t+1} = w_t + \alpha \pi_t (r_t + \gamma \sum_a \pi(a|S_{t+1}) q(S_{t+1}, a, w) - q(S_t, A_t, w))$$
 
 Here’s an example in pseudocode:
 ```java
@@ -284,17 +278,15 @@ x??
 
 Background context: In reinforcement learning, importance sampling is a technique used to adjust for differences between the distribution of samples and the target policy. This becomes necessary when we want to estimate values or policies based on actions chosen by different policies.
 
-In the tabular case, importance sampling might not be needed because only one action \(A_t\) is sampled at each step, and its value can be directly estimated without considering other potential actions. However, with function approximation, it may become necessary to weight different state-action pairs differently, as they all contribute to a single overall approximation.
+In the tabular case, importance sampling might not be needed because only one action $A_t$ is sampled at each step, and its value can be directly estimated without considering other potential actions. However, with function approximation, it may become necessary to weight different state-action pairs differently, as they all contribute to a single overall approximation.
 
 :p In the context of reinforcement learning algorithms, when would importance sampling typically be used?
 ??x
 Importance sampling is typically used in scenarios where there is a mismatch between the distribution of actions chosen by an agent during exploration and those required for estimating values or policies. This often arises with function approximation methods, as different state-action pairs contribute to a single overall approximation.
 
-For example, if we are using a target policy \( \pi' \) that is different from the behavior policy \( \pi_b \), importance sampling is needed to properly weight the contributions of each action. The importance weight for an action \( A_t \) in state \( S_t \) would be:
+For example, if we are using a target policy $\pi'$ that is different from the behavior policy $\pi_b$, importance sampling is needed to properly weight the contributions of each action. The importance weight for an action $ A_t$in state $ S_t$ would be:
 
-\[
-w_t = \frac{\pi'(S_t, A_t)}{\pi_b(S_t, A_t)}
-\]
+$$w_t = \frac{\pi'(S_t, A_t)}{\pi_b(S_t, A_t)}$$
 
 This ensures that actions taken by the behavior policy are appropriately weighted according to their probabilities under the target policy.
 
@@ -308,12 +300,7 @@ Background context: The semi-gradient Expected Sarsa algorithm is a method for e
 :p What is the formula for updating weights in the n-step semi-gradient Expected Sarsa algorithm?
 ??x
 The weight update rule for the n-step semi-gradient Expected Sarsa algorithm is given by:
-
-\[
-w_{t+n} = w_{t+n-1} + \alpha \left[ G_{t:t+n} - \hat{q}(S_t, A_t, w_{t+n-1}) \right] \hat{q}(S_t, A_t, w_{t+n-1})
-\]
-
-where \( G_{t:t+n} = R_{t+1} + \gamma \cdot ... + \gamma^{n-1} R_{t+n} + \pi'(S_{t+n}, A_{t+n}) \) or, for episodic returns, \( G_{t:t+n} = R_{t+1} - \bar{R}_{t} + ... + R_{t+n} - \bar{R}_{t+n-1} + \pi'(S_{t+n}, A_{t+n}) \).
+$$w_{t+n} = w_{t+n-1} + \alpha \left[ G_{t:t+n} - \hat{q}(S_t, A_t, w_{t+n-1}) \right] \hat{q}(S_t, A_t, w_{t+n-1})$$where $ G_{t:t+n} = R_{t+1} + \gamma \cdot ... + \gamma^{n-1} R_{t+n} + \pi'(S_{t+n}, A_{t+n})$ or, for episodic returns,$ G_{t:t+n} = R_{t+1} - \bar{R}_{t} + ... + R_{t+n} - \bar{R}_{t+n-1} + \pi'(S_{t+n}, A_{t+n})$.
 
 Here, the importance weights are implicitly handled through the expectation over the target policy.
 
@@ -328,21 +315,12 @@ Background context: Off-policy algorithms allow learning about one policy (the t
 ??x
 The update rule for the semi-gradient n-step tree-backup algorithm is given by:
 
-\[
-w_{t+n} = w_{t+n-1} + \alpha \left[ G_{t:t+n} - \hat{q}(S_t, A_t, w_{t+n-1}) \right] \hat{q}(S_t, A_t, w_{t+n-1})
-\]
+$$w_{t+n} = w_{t+n-1} + \alpha \left[ G_{t:t+n} - \hat{q}(S_t, A_t, w_{t+n-1}) \right] \hat{q}(S_t, A_t, w_{t+n-1})$$where$$
 
-where
+G_{t:t+n} = \hat{q}(S_t, A_t, w_{t-1}) + \sum_{k=t+1}^{t+n-1} \gamma^k \pi(A_k|S_k) \hat{q}(S_k, A_k, w_{t+n-1})$$
 
-\[
-G_{t:t+n} = \hat{q}(S_t, A_t, w_{t-1}) + \sum_{k=t+1}^{t+n-1} \gamma^k \pi(A_k|S_k) \hat{q}(S_k, A_k, w_{t+n-1})
-\]
-
-Here, the importance weight for each step \( k \) is given by:
-
-\[
-\prod_{i=t+1}^{k-1} \pi(A_i|S_i)
-\]
+Here, the importance weight for each step $k$ is given by:
+$$\prod_{i=t+1}^{k-1} \pi(A_i|S_i)$$
 
 This product accounts for the different policies at each step. The algorithm avoids explicit use of importance sampling weights, making it simpler to implement.
 
@@ -355,23 +333,19 @@ Background context: The n-step Q(λ) algorithm unifies various action-value algo
 
 :p How is the semi-gradient form of the n-step Q(λ) algorithm defined?
 ??x
-The semi-gradient form of the n-step Q(λ) algorithm involves updates based on the return \( G_{t:t+n} \):
+The semi-gradient form of the n-step Q(λ) algorithm involves updates based on the return $G_{t:t+n}$:
 
-\[
-w_{t+n} = w_{t+n-1} + \alpha \left[ G_{t:t+n} - \hat{q}(S_t, A_t, w_{t+n-1}) \right] \hat{q}(S_t, A_t, w_{t+n-1})
-\]
+$$w_{t+n} = w_{t+n-1} + \alpha \left[ G_{t:t+n} - \hat{q}(S_t, A_t, w_{t+n-1}) \right] \hat{q}(S_t, A_t, w_{t+n-1})$$
 
-The return \( G_{t:t+n} \) can be defined for both episodic and continuing tasks:
+The return $G_{t:t+n}$ can be defined for both episodic and continuing tasks:
 
 For episodic returns:
-\[
-G_{t:t+n} = R_{t+1} - \bar{R}_{t} + ... + R_{t+n} - \bar{R}_{t+n-1} + \hat{q}(S_{t+n}, A_{t+n}, w_{t+n-1})
-\]
+$$G_{t:t+n} = R_{t+1} - \bar{R}_{t} + ... + R_{t+n} - \bar{R}_{t+n-1} + \hat{q}(S_{t+n}, A_{t+n}, w_{t+n-1})$$
 
 For continuing returns:
-\[
-G_{t:t+n} = R_{t+1} + \sum_{k=0}^{\infty} \gamma^{n+k} \pi'(A_{t+n+k}|S_{t+n+k}) \hat{q}(S_{t+n+k}, A_{t+n+k}, w_{t+n-1})
-\]
+$$
+
+G_{t:t+n} = R_{t+1} + \sum_{k=0}^{\infty} \gamma^{n+k} \pi'(A_{t+n+k}|S_{t+n+k}) \hat{q}(S_{t+n+k}, A_{t+n+k}, w_{t+n-1})$$
 
 These definitions ensure that the algorithm can handle both types of tasks appropriately.
 
@@ -383,15 +357,15 @@ These definitions ensure that the algorithm can handle both types of tasks appro
 
 Background context explaining the concept. In this example, we consider a scenario where an agent is learning using off-policy methods with function approximation. The setup involves two states, each represented by simple feature vectors (1 and 2), and linear function approximation to estimate their values.
 
-If \( w \) is the parameter vector consisting of only one component, the value of the first state is given as \( w \) and the second state's value is \( 2w \). The transition dynamics are such that from the first state (with estimated value \( w \)), a deterministic action results in moving to the second state with a reward of \( 0.2w^2 \).
+If $w $ is the parameter vector consisting of only one component, the value of the first state is given as$w $ and the second state's value is$2w $. The transition dynamics are such that from the first state (with estimated value$ w $), a deterministic action results in moving to the second state with a reward of$0.2w^2$.
 
-Given this setup, let’s analyze what happens when we start with an initial parameter value \( w = 10 \):
+Given this setup, let’s analyze what happens when we start with an initial parameter value $w = 10$:
 
 :p What is the issue highlighted by this example?
 ??x
 The issue highlighted is that off-policy learning methods can diverge under certain conditions due to a mismatch between the distribution of updates and the on-policy distribution. Specifically, in this case, repeated transitions from one state to another cause the value function to increase indefinitely.
 
-Explanation: The transition from the first state (with estimated value \( w \)) results in moving to the second state with an increased estimate of \( 2w \). This pattern can lead to a continuous feedback loop where the parameter \( w \) keeps increasing, causing instability and divergence.
+Explanation: The transition from the first state (with estimated value $w $) results in moving to the second state with an increased estimate of $2w $. This pattern can lead to a continuous feedback loop where the parameter $ w$ keeps increasing, causing instability and divergence.
 
 ```java
 // Pseudocode for the update process
@@ -411,15 +385,15 @@ x??
 
 #### Importance Sampling Ratio Calculation
 
-Background context explaining the importance of the importance sampling ratio in off-policy learning methods. In this example, the importance sampling ratio is crucial to understanding why the parameter \( w \) diverges.
+Background context explaining the importance of the importance sampling ratio in off-policy learning methods. In this example, the importance sampling ratio is crucial to understanding why the parameter $w$ diverges.
 
-Given that there is only one action available from the first state, the probability of taking this action under both the target and behavior policies is 1. Thus, the importance sampling ratio \( \rho_t = 1 \).
+Given that there is only one action available from the first state, the probability of taking this action under both the target and behavior policies is 1. Thus, the importance sampling ratio $\rho_t = 1$.
 
 :p What is the importance of the importance sampling ratio in off-policy learning?
 ??x
-The importance sampling ratio is critical because it adjusts the weight given to transitions based on how well they align with the target policy compared to the behavior policy. In this case, since both policies are equivalent (the action probability is 1), the importance sampling ratio \( \rho_t = 1 \).
+The importance sampling ratio is critical because it adjusts the weight given to transitions based on how well they align with the target policy compared to the behavior policy. In this case, since both policies are equivalent (the action probability is 1), the importance sampling ratio $\rho_t = 1$.
 
-This simplifies the off-policy update rule and highlights that the parameter \( w \) will be updated based on a direct gradient.
+This simplifies the off-policy update rule and highlights that the parameter $w$ will be updated based on a direct gradient.
 
 ```java
 // Pseudocode for importance sampling adjustment
@@ -435,23 +409,19 @@ x??
 
 #### TD Error Calculation
 
-Background context explaining the calculation of the Temporal Difference (TD) error in this example. The TD error is a key component that drives the update rule for the parameter \( w \).
+Background context explaining the calculation of the Temporal Difference (TD) error in this example. The TD error is a key component that drives the update rule for the parameter $w$.
 
-Given the reward from transitioning to the second state as \( 0.2w^2 \), the initial value estimate in the first state is \( w = 10 \). Therefore, the transition will move the system from an estimated value of \( w \) to \( 2w \).
+Given the reward from transitioning to the second state as $0.2w^2 $, the initial value estimate in the first state is $ w = 10 $. Therefore, the transition will move the system from an estimated value of$ w $ to $2w$.
 
 :p What is the TD error for a transition between two states?
 ??x
 The TD error for a transition between the two states can be calculated as:
 
-\[ \delta_t = R_{t+1} + \hat{v}(S_{t+1}, w_t) - \hat{v}(S_t, w_t) \]
+$$\delta_t = R_{t+1} + \hat{v}(S_{t+1}, w_t) - \hat{v}(S_t, w_t)$$
 
 For this example:
-- \( R_{t+1} = 0.2w^2 \)
-- Initial value in the first state: \( \hat{v}(S_t, w_t) = w_t = 10 \)
-- Value after transition to second state: \( \hat{v}(S_{t+1}, w_t) = 2w_t = 20 \)
-
-Therefore, the TD error is:
-\[ \delta_t = 0.2(10)^2 + 20 - 10 = 20 + 20 - 10 = 30 - 10 = 20 \]
+- $R_{t+1} = 0.2w^2 $- Initial value in the first state:$\hat{v}(S_t, w_t) = w_t = 10 $- Value after transition to second state:$\hat{v}(S_{t+1}, w_t) = 2w_t = 20$ Therefore, the TD error is:
+$$\delta_t = 0.2(10)^2 + 20 - 10 = 20 + 20 - 10 = 30 - 10 = 20$$
 
 Thus, the TD error for this transition is 20.
 
@@ -467,31 +437,26 @@ x??
 
 ---
 
-#### Update Rule for Parameter \( w \)
+#### Update Rule for Parameter $w $ Background context explaining the update rule for the parameter$w$. This involves understanding how the TD error influences the parameter value in an off-policy learning setting.
 
-Background context explaining the update rule for the parameter \( w \). This involves understanding how the TD error influences the parameter value in an off-policy learning setting.
+Given that the importance sampling ratio is 1, and the step size $\alpha = 0.1$, the update rule can be simplified as:
 
-Given that the importance sampling ratio is 1, and the step size \( \alpha = 0.1 \), the update rule can be simplified as:
-
-\[ w_{t+1} = w_t + \alpha (2w - 1) \delta_t \]
-
-:p What is the update rule for parameter \( w \)?
+$$w_{t+1} = w_t + \alpha (2w - 1) \delta_t$$:p What is the update rule for parameter $ w$?
 ??x
-The update rule for parameter \( w \) in this example is given by:
+The update rule for parameter $w$ in this example is given by:
 
-\[ w_{t+1} = w_t + \alpha (2w - 1) \delta_t \]
+$$w_{t+1} = w_t + \alpha (2w - 1) \delta_t$$
 
 Where:
-- \( \alpha \) is the step size or learning rate.
-- \( \delta_t \) is the TD error, which for a transition from state \( S_t \) to state \( S_{t+1} \) is calculated as:
+- $\alpha$ is the step size or learning rate.
+- $\delta_t $ is the TD error, which for a transition from state$S_t $ to state$S_{t+1}$ is calculated as:
+$$\delta_t = R_{t+1} + 2w - w = 0.2w^2 + 2w - w = 0.2w^2 + w$$
 
-\[ \delta_t = R_{t+1} + 2w - w = 0.2w^2 + 2w - w = 0.2w^2 + w \]
+Given the initial value $w_0 = 10 $, and step size $\alpha = 0.1$:
 
-Given the initial value \( w_0 = 10 \), and step size \( \alpha = 0.1 \):
+$$w_{t+1} = w_t + 0.1 (2w_t - 1)(0.2w_t^2 + w_t)$$
 
-\[ w_{t+1} = w_t + 0.1 (2w_t - 1)(0.2w_t^2 + w_t) \]
-
-This update rule shows how the parameter \( w \) is adjusted based on the TD error and step size.
+This update rule shows how the parameter $w$ is adjusted based on the TD error and step size.
 
 ```java
 // Pseudocode for updating parameter w
@@ -511,7 +476,7 @@ Background context: The provided text explains the difference between off-policy
 
 :p What distinguishes off-policy and on-policy methods in terms of divergence?
 ??x
-Off-policy methods can diverge because the behavior policy may select actions that the target policy never chooses. In these cases, \( \pi_t = 0 \), leading to potential updates based on transitions the target policy does not experience. On-policy methods avoid this issue as every transition adheres to the current policy, but they must ensure the system remains stable by consistently updating based on future rewards.
+Off-policy methods can diverge because the behavior policy may select actions that the target policy never chooses. In these cases,$\pi_t = 0$, leading to potential updates based on transitions the target policy does not experience. On-policy methods avoid this issue as every transition adheres to the current policy, but they must ensure the system remains stable by consistently updating based on future rewards.
 x??
 
 ---
@@ -533,9 +498,9 @@ Background context: The text describes estimating state values under a linear pa
 
 :p How is the state-value function estimated in this example?
 ??x
-The state-value function is estimated using a linear parameterization. For each state, the value is represented as a weighted sum of features. In Baird’s counterexample, the leftmost state's value is given by \( 2w_1 + w_8 \), where \( w \) is the weight vector. This means that the feature vector for the first state is \( x(1) = (2, 0, 0, 0, 0, 0, 0, 1)^T \).
+The state-value function is estimated using a linear parameterization. For each state, the value is represented as a weighted sum of features. In Baird’s counterexample, the leftmost state's value is given by $2w_1 + w_8 $, where $ w $ is the weight vector. This means that the feature vector for the first state is $ x(1) = (2, 0, 0, 0, 0, 0, 0, 1)^T$.
 
-The reward is always zero, so the true value function \( v_{\pi}(s) = 0 \) for all states. However, with more components in the weight vector than nonterminal states, multiple solutions exist.
+The reward is always zero, so the true value function $v_{\pi}(s) = 0$ for all states. However, with more components in the weight vector than nonterminal states, multiple solutions exist.
 x??
 
 ---
@@ -564,11 +529,11 @@ x??
 
 
 #### Linear Independence and Feature Vectors
-Background context: The feature vectors, \(\{x(s):s\in S\}\), are linearly independent. This property is crucial for ensuring that the task can be handled favorably with linear function approximation.
+Background context: The feature vectors, $\{x(s):s\in S\}$, are linearly independent. This property is crucial for ensuring that the task can be handled favorably with linear function approximation.
 
 :p What does it mean when a set of feature vectors is described as linearly independent?
 ??x
-When a set of feature vectors, \(\{x(s):s\in S\}\), is linearly independent, it means that no vector in the set can be expressed as a linear combination of the others. This property ensures that each state \(s\) has a unique representation, which simplifies the task of approximating values using these feature vectors.
+When a set of feature vectors, $\{x(s):s\in S\}$, is linearly independent, it means that no vector in the set can be expressed as a linear combination of the others. This property ensures that each state $ s$ has a unique representation, which simplifies the task of approximating values using these feature vectors.
 x??
 
 ---
@@ -594,7 +559,7 @@ x??
 ---
 
 #### On-Policy Distribution and Stability
-Background context: Altering the distribution of DP updates from uniform to on-policy (which generally requires asynchronous updating) guarantees convergence to a solution with error bounded by \((9.14)\).
+Background context: Altering the distribution of DP updates from uniform to on-policy (which generally requires asynchronous updating) guarantees convergence to a solution with error bounded by $(9.14)$.
 
 :p What effect does using an on-policy update distribution have on stability?
 ??x

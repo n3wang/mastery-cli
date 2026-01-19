@@ -96,8 +96,7 @@ x??
 Background context: The example demonstrates how using `float` versus `double` can affect the accuracy of calculations, particularly with large numbers. Heron’s formula is used to calculate the area of a triangle given its side lengths.
 
 Formula:
-\[ \text{Area} = \sqrt{s(s-a)(s-b)(s-c)} \]
-where \( s = \frac{a+b+c}{2} \) and \( a, b, c \) are the sides of the triangle.
+$$\text{Area} = \sqrt{s(s-a)(s-b)(s-c)}$$where $ s = \frac{a+b+c}{2}$and $ a, b, c$ are the sides of the triangle.
 
 :p How does using `float` versus `double` in Heron's formula affect the result?
 ??x

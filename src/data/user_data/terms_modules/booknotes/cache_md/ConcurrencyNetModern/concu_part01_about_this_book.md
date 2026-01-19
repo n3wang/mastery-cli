@@ -316,7 +316,7 @@ x??
 
 #### Moore's Law and CPU Speed Limits
 Background context explaining the concept. Moore predicted that the density and speed of transistors would double every 18 months before reaching a maximum speed beyond which technology couldn't advance. Progress continued for almost 50 years, but now single-core CPUs have nearly reached the limit due to physical constraints like the speed of light.
-The fundamental relationship between circuit length (CPU physical size) and processing speed means that shorter circuits require smaller and fewer switches, thus increasing transmission speed. The speed of light is a constant at about \(3 \times 10^8\) meters per second.
+The fundamental relationship between circuit length (CPU physical size) and processing speed means that shorter circuits require smaller and fewer switches, thus increasing transmission speed. The speed of light is a constant at about $3 \times 10^8$ meters per second.
 :p What are the key points in Moore's Law regarding CPU speed?
 ??x
 Moore's Law predicted a doubling of transistor density every 18 months, but as technology advanced over decades, CPUs hit physical limits. The speed of light serves as an absolute limit for data propagation, meaning that even if you increase clock speeds, signals can't travel faster than the speed of light.
@@ -335,7 +335,7 @@ x??
 
 #### CPU Performance Limitations
 Background context explaining the concept. The single-processor CPU has nearly reached its maximum speed due to physical limitations like the speed of light and heat generation from energy dissipation.
-As CPUs approach these limits, creating smaller chips was the primary approach for higher performance. However, high frequencies in small chip sizes introduce thermal issues, as power in a switching transistor is roughly \(frequency^2\).
+As CPUs approach these limits, creating smaller chips was the primary approach for higher performance. However, high frequencies in small chip sizes introduce thermal issues, as power in a switching transistor is roughly $frequency^2$.
 :p Why are single-core CPUs nearing their maximum speed?
 ??x
 Single-core CPUs are nearing their maximum speed due to physical constraints such as the speed of light and heat generation from energy dissipation. Smaller chips can increase processing speed by reducing circuit length, but high frequencies in small chip sizes introduce thermal issues, increasing power consumption exponentially.

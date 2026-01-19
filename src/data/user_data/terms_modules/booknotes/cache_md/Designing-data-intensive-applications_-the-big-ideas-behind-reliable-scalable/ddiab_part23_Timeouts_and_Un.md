@@ -126,9 +126,8 @@ x??
 #### Unreliable Networks
 Background context: In many real-world systems, networks do not provide guarantees on maximum delays or server response times. Asynchronous networks may experience unbounded delays due to network congestion and queueing.
 
-Formula: \( \text{Timeout} = 2d + r \)
-- \( d \): Maximum delay for packets.
-- \( r \): Time taken by a non-failed node to handle a request.
+Formula: $\text{Timeout} = 2d + r $-$ d$: Maximum delay for packets.
+- $r$: Time taken by a non-failed node to handle a request.
 
 However, in practice, both these guarantees are rarely available. Therefore, the system must account for potential spikes in round-trip times which can throw off the timing calculations.
 

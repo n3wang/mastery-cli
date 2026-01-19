@@ -81,7 +81,7 @@ The MongoDB aggregation pipeline processes documents stage by stage, allowing fo
 ```javascript
 db.collection.aggregate([
    { $match: { field: "value" } },
-   { $group: { _id: "$field", count: { $sum: 1 } } }
+   { $group: { _id: "$ field", count: {$sum: 1 } } }
 ])
 ```
 x??

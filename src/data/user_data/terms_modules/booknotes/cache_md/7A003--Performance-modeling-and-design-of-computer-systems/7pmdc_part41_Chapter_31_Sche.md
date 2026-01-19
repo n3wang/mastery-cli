@@ -55,97 +55,96 @@ x??
 Background context: The average number of jobs in the queue for each priority class can be calculated using queuing theory formulas. This metric helps understand the congestion and performance of the system.
 :p What is E[NQ(k)]?
 ??x
-The expected number of jobs in the queue for a job of priority k, denoted as \(E[NQ(k)]\), can be determined using queuing theory. It represents the average number of jobs of that priority level waiting to be served.
+The expected number of jobs in the queue for a job of priority k, denoted as $E[NQ(k)]$, can be determined using queuing theory. It represents the average number of jobs of that priority level waiting to be served.
 
 Formula: 
-\[E[NQ(k)] = \frac{\lambda_k E[S^2]}{\mu - \lambda_k}\]
-where:
-- \(\lambda_k\) is the arrival rate for class k
-- \(E[S]\) and \(E[S^2]\) are the first and second moments of the service time distribution, respectively
-- \(\mu\) is the service rate
+$$E[NQ(k)] = \frac{\lambda_k E[S^2]}{\mu - \lambda_k}$$where:
+- $\lambda_k$ is the arrival rate for class k
+- $E[S]$ and $E[S^2]$ are the first and second moments of the service time distribution, respectively
+- $\mu$ is the service rate
 
-Example: If \(\lambda_1 = 0.5\), \(E[S] = 2\), \(E[S^2] = 4\), and \(\mu = 3\):
-\[E[NQ(1)] = \frac{0.5 \times 4}{3 - 0.5} = \frac{2}{2.5} = 0.8\]
-x??
+Example: If $\lambda_1 = 0.5 $, $ E[S] = 2 $,$ E[S^2] = 4 $, and$\mu = 3$:
+$$E[NQ(1)] = \frac{0.5 \times 4}{3 - 0.5} = \frac{2}{2.5} = 0.8$$x??
 
 ---
 
 #### Average Time in Queue (E[TQ(k)])
-Background context: The average time a job spends waiting in the queue before being served, denoted as \(E[TQ(k)]\), is an important metric for understanding the performance and efficiency of the system.
+Background context: The average time a job spends waiting in the queue before being served, denoted as $E[TQ(k)]$, is an important metric for understanding the performance and efficiency of the system.
 :p What is E[TQ(k)]?
 ??x
-The expected time a job spends in the queue before being served, denoted as \(E[TQ(k)]\), can be calculated using queuing theory. This metric provides insight into the average waiting time for jobs of each priority level.
+The expected time a job spends in the queue before being served, denoted as $E[TQ(k)]$, can be calculated using queuing theory. This metric provides insight into the average waiting time for jobs of each priority level.
 
 Formula:
-\[E[TQ(k)] = \frac{1}{\mu - \lambda_k}\]
-where:
-- \(\lambda_k\) is the arrival rate for class k
-- \(\mu\) is the service rate
+$$E[TQ(k)] = \frac{1}{\mu - \lambda_k}$$where:
+- $\lambda_k$ is the arrival rate for class k
+- $\mu$ is the service rate
 
-Example: If \(\lambda_2 = 0.3\) and \(\mu = 4\):
-\[E[TQ(2)] = \frac{1}{4 - 0.3} = \frac{1}{3.7} \approx 0.27\]
+Example: If $\lambda_2 = 0.3 $ and$\mu = 4$:
+$$E[TQ(2)] = \frac{1}{4 - 0.3} = \frac{1}{3.7} \approx 0.27$$
 x??
 
 ---
 
 
 #### Non-Preemptive Priority M/G/1 Queue Overview
-This section discusses the performance of a non-preemptive priority queueing system where jobs are classified into different priorities. The server's utilization (\(\rho\)) is required to be less than 1, and the average time in the system for each job class \(k\) (E[T(k)]) is derived.
+This section discusses the performance of a non-preemptive priority queueing system where jobs are classified into different priorities. The server's utilization ($\rho $) is required to be less than 1, and the average time in the system for each job class $ k$ (E[T(k)]) is derived.
 :p What does this section focus on?
 ??x
-This section focuses on analyzing the performance of a non-preemptive priority queueing system where jobs are classified into different priorities. It derives formulas for the average time in the system (\(E[T(k)]\)) for each job class \(k\) and compares these with an FCFS (First-Come, First-Served) system.
+This section focuses on analyzing the performance of a non-preemptive priority queueing system where jobs are classified into different priorities. It derives formulas for the average time in the system ($E[T(k)]$) for each job class $ k$ and compares these with an FCFS (First-Come, First-Served) system.
 x??
 
 #### Derivation of Time in Queue for Priority 1 Jobs
-The formula to derive the time in queue (\(E[TQ(1)]\)) for jobs of priority 1 is given. It involves considering both the job currently being served and all jobs already in the queue of higher or equal priorities.
-:p What is \(E[TQ(1)]\)?
+The formula to derive the time in queue ($E[TQ(1)]$) for jobs of priority 1 is given. It involves considering both the job currently being served and all jobs already in the queue of higher or equal priorities.
+:p What is $E[TQ(1)]$?
 ??x
-\(E[TQ(1)]\) is derived by considering two components: (i) the time spent waiting for the current job if one is present, and (ii) the expected service times of all jobs already in the queue of higher or equal priorities.
+$E[TQ(1)]$ is derived by considering two components: (i) the time spent waiting for the current job if one is present, and (ii) the expected service times of all jobs already in the queue of higher or equal priorities.
 The formula given is:
-\[ E[TQ(1)] = \rho \cdot E[Se] + E[NQ(1)] \cdot E[S1] \]
-where \(E[Se]\) is the average service time, and \(E[NQ(1)]\) is the expected number of jobs in queue.
+$$E[TQ(1)] = \rho \cdot E[Se] + E[NQ(1)] \cdot E[S1]$$where $ E[Se]$is the average service time, and $ E[NQ(1)]$ is the expected number of jobs in queue.
 x??
 
 #### Derivation of Time in Queue for Priority 2 Jobs
-The formula to derive the time in queue (\(E[TQ(2)]\)) for jobs of priority 2 involves additional terms compared to priority 1, including waiting for all jobs of priorities 1 and 2 already in the queue and those that arrive while the new job is waiting.
-:p What does \(E[TQ(2)]\) account for?
-??x
-\(E[TQ(2)]\) accounts for the time spent by a priority 2 job queuing, which includes:
+The formula to derive the time in queue ($E[TQ(2)]$) for jobs of priority 2 involves additional terms compared to priority 1, including waiting for all jobs of priorities 1 and 2 already in the queue and those that arrive while the new job is waiting.
+:p What does $E[TQ(2)]$ account for?
+??x $E[TQ(2)]$ accounts for the time spent by a priority 2 job queuing, which includes:
 (i) Waiting for the current job if one is being served,
 (ii) All jobs of priorities 1 and 2 already in queue,
 (iii) All jobs of priorities 1 that arrive while this new job is waiting (not in service).
 The formula given is:
-\[ E[TQ(2)] = \rho \cdot E[Se] + E[NQ(1)] \cdot E[S1] + E[NQ(2)] \cdot E[S2] + E[TQ(2)] \cdot \lambda_1 E[S1] \]
-This can be simplified and iteratively solved to find the expression for \(E[TQ(2)]\).
+$$E[TQ(2)] = \rho \cdot E[Se] + E[NQ(1)] \cdot E[S1] + E[NQ(2)] \cdot E[S2] + E[TQ(2)] \cdot \lambda_1 E[S1]$$
+
+This can be simplified and iteratively solved to find the expression for $E[TQ(2)]$.
 x??
 
 #### General Derivation of Time in Queue for Priority k Jobs
-The general formula for time in queue (\(E[TQ(k)]\)) for jobs of priority \(k\) is derived using induction. It includes contributions from waiting behind jobs of higher or equal priorities and those arriving after the tagged job.
-:p What is the general formula for \(E[TQ(k)]\)?
+The general formula for time in queue ($E[TQ(k)]$) for jobs of priority $ k$ is derived using induction. It includes contributions from waiting behind jobs of higher or equal priorities and those arriving after the tagged job.
+:p What is the general formula for $E[TQ(k)]$?
 ??x
-The general formula for \(E[TQ(k)]\) in a non-preemptive M/G/1 priority queue is:
-\[ E[TQ(k)] = \frac{\rho E[Se]}{(1 - \sum_{i=1}^{k} \rho_i)(1 - \sum_{i=1}^{k-1} \rho_i)} \]
-where \(E[Se]\) represents the average service time, and \(\rho_i\) is the utilization due to jobs of priority \(i\).
+The general formula for $E[TQ(k)]$ in a non-preemptive M/G/1 priority queue is:
+$$E[TQ(k)] = \frac{\rho E[Se]}{(1 - \sum_{i=1}^{k} \rho_i)(1 - \sum_{i=1}^{k-1} \rho_i)}$$where $ E[Se]$represents the average service time, and $\rho_i$ is the utilization due to jobs of priority $i$.
 This formula accounts for both waiting behind higher or equal priority jobs and those arriving after.
 x??
 
 #### Comparison Between NP-Priority and FCFS Queues
-The formulas for \(E[TQ(k)]\) in a non-preemptive priority queue (NP-Priority) and a First-Come, First-Served (FCFS) queue are compared. The key difference lies in the denominator, which accounts for different waiting components.
+The formulas for $E[TQ(k)]$ in a non-preemptive priority queue (NP-Priority) and a First-Come, First-Served (FCFS) queue are compared. The key difference lies in the denominator, which accounts for different waiting components.
 :p How does the NP-Priority formula differ from the FCFS formula?
 ??x
 The main difference is that in the non-preemptive priority queue:
-\[ E[TQ(k)] = \frac{\rho E[Se]}{(1 - \sum_{i=1}^{k} \rho_i)(1 - \sum_{i=1}^{k-1} \rho_i)} \]
+$$E[TQ(k)] = \frac{\rho E[Se]}{(1 - \sum_{i=1}^{k} \rho_i)(1 - \sum_{i=1}^{k-1} \rho_i)}$$
+
 The squared denominator accounts for the additional waiting due to jobs of higher or equal priorities and those arriving after. This differs from FCFS, where:
-\[ E[TQ] = \frac{\rho E[Se]}{1 - \rho} \]
+$$
+
+E[TQ] = \frac{\rho E[Se]}{1 - \rho}$$
+
 Here, the single term in the denominator only accounts for waiting behind jobs already in queue.
 x??
 
 #### Analysis of High-Priority Job Performance
-For high-priority jobs (low \(k\)), the non-preemptive priority system (\(E[TQ(k)]_{NP-Priority}\)) is compared to FCFS. The squared denominator in NP-Priority leads to lower expected waiting times for high-priority jobs.
+For high-priority jobs (low $k $), the non-preemptive priority system ($ E[TQ(k)]_{NP-Priority}$) is compared to FCFS. The squared denominator in NP-Priority leads to lower expected waiting times for high-priority jobs.
 :p How does NP-Priority handle high-priority jobs better than FCFS?
 ??x
-For low \(k\) (high priority), the term \(\sum_{i=1}^{k} \rho_i\) is much smaller than \(\rho\). Thus, the squared denominator in \(E[TQ(k)]_{NP-Priority}\) leads to a lower expected waiting time compared to FCFS. This advantage holds even if some jobs of higher priority classes arrive after the tagged job.
-\[ E[TQ(k)]_{NP-Priority} < E[TQ]_{FCFS} \]
+For low $k $(high priority), the term $\sum_{i=1}^{k} \rho_i $ is much smaller than$\rho $. Thus, the squared denominator in $ E[TQ(k)]_{NP-Priority}$ leads to a lower expected waiting time compared to FCFS. This advantage holds even if some jobs of higher priority classes arrive after the tagged job.$$E[TQ(k)]_{NP-Priority} < E[TQ]_{FCFS}$$
+
 This is because the squared term in the denominator for NP-Priority accounts for both current and future arrivals more effectively.
 x??
 
@@ -155,17 +154,14 @@ x??
 #### SJF vs. FCFS Scheduling
 Background context explaining the comparison between Shortest Job First (SJF) and First Come First Serve (FCFS) scheduling policies, particularly in non-preemptive scenarios with size-based policies.
 
-The expected time in queue \(E[TQ(x)]\) for both policies can be expressed as:
-- For SJF: \(E[TQ(x)]SJF = \rho E[S^2] / 2E[S] \cdot (1 - \rho_x)^2\)
-- For FCFS: \(E[TQ(x)]FCFS = \rho E[S^2] / 2E[S] \cdot (1 - \rho)\)
-
-Where \(\rho\) is the load factor, and \(\rho_x\) is typically much less than \(\rho\).
+The expected time in queue $E[TQ(x)]$ for both policies can be expressed as:
+- For SJF:$E[TQ(x)]SJF = \rho E[S^2] / 2E[S] \cdot (1 - \rho_x)^2 $- For FCFS:$ E[TQ(x)]FCFS = \rho E[S^2] / 2E[S] \cdot (1 - \rho)$Where $\rho$ is the load factor, and $\rho_x$ is typically much less than $\rho$.
 
 :p How does SJF compare to FCFS in terms of expected time in queue for small jobs?
 ??x
-SJF generally performs better for small jobs because it considers the size of the job. When there are many short jobs, SJF can complete them quickly by always starting with the smallest remaining job. In contrast, FCFS might have a larger \(E[S^2]\) term due to occasional large jobs that can delay smaller ones.
+SJF generally performs better for small jobs because it considers the size of the job. When there are many short jobs, SJF can complete them quickly by always starting with the smallest remaining job. In contrast, FCFS might have a larger $E[S^2]$ term due to occasional large jobs that can delay smaller ones.
 
-For small jobs (small x), \(E[TQ(x)]SJF\) should be lower than \(E[TQ(x)]FCFS\). However, for very large jobs, SJF's performance may degrade because of the squared factor in the denominator. If the service time distribution is heavy-tailed, SJF might only perform worse on extremely large jobs.
+For small jobs (small x),$E[TQ(x)]SJF $ should be lower than$E[TQ(x)]FCFS$. However, for very large jobs, SJF's performance may degrade because of the squared factor in the denominator. If the service time distribution is heavy-tailed, SJF might only perform worse on extremely large jobs.
 
 ```java
 public class JobQueue {
@@ -188,7 +184,7 @@ x??
 #### SJF Performance with Heavy-Tailed Distributions
 Background context explaining the impact of heavy-tailed job size distributions on the performance of Shortest Job First (SJF).
 
-In a system where job sizes follow a heavy-tailed distribution, the variance \(E[S^2]\) is significantly large. This means that even small jobs can get stuck behind much larger ones, leading to longer waiting times.
+In a system where job sizes follow a heavy-tailed distribution, the variance $E[S^2]$ is significantly large. This means that even small jobs can get stuck behind much larger ones, leading to longer waiting times.
 
 :p How does heavy-tailed job size distribution affect SJF's performance for small jobs?
 ??x
@@ -237,18 +233,10 @@ The goal is to minimize the mean waiting time over all jobs by prioritizing smal
 To prove that class S jobs should get priority, we compare the expected waiting times for both policies (S has priority and L has priority).
 
 For non-preemptive priority scheduling:
-- \(E[TQ]NP-Priority(S has priority)\)
-  \[
-  = \frac{\lambda_S E[S^2]}{2} + \rho_L \frac{\lambda_L E[L^2]}{2}
-  \]
-- \(E[TQ]NP-Priority(L has priority)\)
-  \[
-  = \frac{\lambda_L E[L^2]}{2} + \rho_S \frac{\lambda_S E[S^2]}{2}
-  \]
+- $E[TQ]NP-Priority(S has priority)$$$= \frac{\lambda_S E[S^2]}{2} + \rho_L \frac{\lambda_L E[L^2]}{2}$$-$ E[TQ]NP-Priority(L has priority)$$$= \frac{\lambda_L E[L^2]}{2} + \rho_S \frac{\lambda_S E[S^2]}{2}$$
 
-Since \(E[SS] < E[SL]\), it follows that:
-- If S has priority: \(\frac{\lambda_S E[S^2]}{2} < \frac{\lambda_L E[L^2]}{2}\)
-- If L has priority: \(\frac{\lambda_L E[L^2]}{2} > \frac{\lambda_S E[S^2]}{2}\)
+Since $E[SS] < E[SL]$, it follows that:
+- If S has priority: $\frac{\lambda_S E[S^2]}{2} < \frac{\lambda_L E[L^2]}{2}$- If L has priority:$\frac{\lambda_L E[L^2]}{2} > \frac{\lambda_S E[S^2]}{2}$
 
 Thus, giving S jobs priority minimizes the mean waiting time over all jobs.
 x??

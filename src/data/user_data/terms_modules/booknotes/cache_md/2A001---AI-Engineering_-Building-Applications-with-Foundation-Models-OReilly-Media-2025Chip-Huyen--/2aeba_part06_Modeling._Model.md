@@ -252,12 +252,12 @@ Background context: The attention mechanism in transformer models calculates the
 ??x
 The attention score is calculated by performing a dot product between the query vector (Q) and the key vector (K). The formula for this calculation is:
 
-\[ \text{Attention Score} = Q \cdot K^T / \sqrt{d} \]
+$$\text{Attention Score} = Q \cdot K^T / \sqrt{d}$$
 
 Where:
-- \( Q \) is the query vector
-- \( K \) is the key vector
-- \( d \) is the dimension of the vectors
+- $Q$ is the query vector
+- $K$ is the key vector
+- $d$ is the dimension of the vectors
 
 This score is then used to determine how much weight should be given to the corresponding value vector (V).
 
@@ -288,17 +288,21 @@ Background context: The key and value vectors are computed from the input using 
 
 :p How are query, key, and value vectors calculated in transformer models?
 ??x
-Query, key, and value vectors are calculated by applying corresponding matrices (WQ, WK, WV) to the input vector \( x \). This process is done for each token in the sequence. The dimensions of these matrices correspond to the model's hidden dimension.
+Query, key, and value vectors are calculated by applying corresponding matrices (WQ, WK, WV) to the input vector $x$. This process is done for each token in the sequence. The dimensions of these matrices correspond to the model's hidden dimension.
 
 The formula for calculating these vectors is:
 
-\[ K = x W_K \]
-\[ V = x W_V \]
-\[ Q = x W_Q \]
+$$K = x W_K$$
+$$
+
+V = x W_V$$
+$$
+
+Q = x W_Q$$
 
 Where:
-- \( x \) is the input vector
-- \( W_K, W_V, W_Q \) are the key, value, and query matrices respectively
+- $x$ is the input vector
+- $W_K, W_V, W_Q$ are the key, value, and query matrices respectively
 
 For example, in Llama 2-7B, the model’s hidden dimension size is 4096, so each of these matrices has a 4096 x 4096 dimension.
 
@@ -348,13 +352,12 @@ Multi-head attention allows the transformer model to focus on different aspects 
 For example, in Llama 2-7B, which has 32 attention heads, each vector is split into 32 smaller vectors. This means that each K, V, and Q vector will be split into 32 vectors of dimension 128 (since 4096 / 32 = 128).
 
 The formula for the multi-head attention mechanism is:
-
-\[ \text{Attention}(Q,K,V) = \text{Concat}(\text{head}_i) W^O \]
+$$\text{Attention}(Q,K,V) = \text{Concat}(\text{head}_i) W^O$$
 
 Where:
-- \( Q, K, V \) are split into \( h \) sub-vectors (heads)
-- \( \text{Concat}(\text{head}_i) \) is the concatenation of all heads
-- \( W^O \) is an output projection matrix to transform the concatenated result
+- $Q, K, V $ are split into$h$ sub-vectors (heads)
+- $\text{Concat}(\text{head}_i)$ is the concatenation of all heads
+- $W^O$ is an output projection matrix to transform the concatenated result
 
 ```java
 // Example code for multi-head attention in Java
@@ -437,21 +440,16 @@ These matrices are used to compute the weighted sum of values based on query and
 2. Apply a softmax function to normalize these similarities.
 3. Multiply the normalized attention scores with the value vectors to obtain context vectors.
 
-Mathematically, for a single head of self-attention, the output \(O\) can be computed using the following steps:
-
-\[ \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V \]
-
-where:
-- \( Q \in \mathbb{R}^{N \times d_k} \): Query matrix
-- \( K \in \mathbb{R}^{N \times d_k} \): Key matrix
-- \( V \in \mathbb{R}^{N \times d_v} \): Value matrix
-- \( N \) is the number of tokens in the sequence.
-- \( d_k \) and \( d_v \) are the dimensions of keys and values, respectively.
+Mathematically, for a single head of self-attention, the output $O$ can be computed using the following steps:
+$$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$where:
+- $Q \in \mathbb{R}^{N \times d_k}$: Query matrix
+- $K \in \mathbb{R}^{N \times d_k}$: Key matrix
+- $V \in \mathbb{R}^{N \times d_v}$: Value matrix
+- $N$ is the number of tokens in the sequence.
+- $d_k $ and$d_v$ are the dimensions of keys and values, respectively.
 
 The output projection matrix projects the context vectors back to the final dimension:
-\[ O = W_{O}C \]
-
-where \( W_O \in \mathbb{R}^{d_v \times d_k} \).
+$$O = W_{O}C$$where $ W_O \in \mathbb{R}^{d_v \times d_k}$.
 ??x
 The attention module processes tokens by calculating weighted sums of value vectors using query and key matrices. The process involves computing similarity scores, normalizing them with softmax, and then applying an output projection to obtain the final context vector.
 
@@ -521,13 +519,11 @@ The structure typically includes:
 
 Mathematically, for an MLP with one hidden layer and ReLU as the activation function:
 
-\[ y = \text{ReLU}(W_1x + b_1) \]
-\[ z = W_2y + b_2 \]
-
-where:
-- \( x \): Input vector.
-- \( W_1, W_2 \): Weight matrices for linear transformations.
-- \( b_1, b_2 \): Bias vectors.
+$$y = \text{ReLU}(W_1x + b_1)$$
+$$z = W_2y + b_2$$where:
+- $x$: Input vector.
+- $W_1, W_2$: Weight matrices for linear transformations.
+- $b_1, b_2$: Bias vectors.
 
 Example in code:
 ```java
@@ -582,9 +578,7 @@ Key components and their roles are as follows:
 - **Output Projection Matrix**: Projects the context vector back to the original dimension.
 
 Mathematically:
-\[ \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V \]
-
-### MLP Module
+$$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$### MLP Module
 - **Linear Layers**: Perform linear transformations on the input.
 - **Activation Functions**: Introduce non-linearity to learn complex patterns.
 
@@ -777,7 +771,7 @@ Background context providing an example calculation for determining the memory n
 
 :p How can you calculate the GPU memory required for a model with 7 billion parameters?
 ??x
-To calculate the GPU memory required, multiply the number of parameters by the size each parameter occupies. For instance, if each parameter is stored using 2 bytes (16 bits), then a 7 billion-parameter model would require at least \(7 \times 10^9 \times 2 = 14\) GB of GPU memory.
+To calculate the GPU memory required, multiply the number of parameters by the size each parameter occupies. For instance, if each parameter is stored using 2 bytes (16 bits), then a 7 billion-parameter model would require at least $7 \times 10^9 \times 2 = 14$ GB of GPU memory.
 
 ```java
 // Example Java code for calculating memory usage

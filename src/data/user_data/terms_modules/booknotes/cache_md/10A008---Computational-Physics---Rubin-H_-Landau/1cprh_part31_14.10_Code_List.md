@@ -441,9 +441,9 @@ Observing transient behaviors that occur in early generations before regular beh
 
 :p What is transient behavior, and how does it manifest in the logistic map?
 ??x
-Transient behavior refers to the initial phase where the population sequence fluctuates before settling into a stable or periodic pattern. In the context of the logistic map, this means observing how \( x_n \) values change for the first few generations before stabilizing.
+Transient behavior refers to the initial phase where the population sequence fluctuates before settling into a stable or periodic pattern. In the context of the logistic map, this means observing how $x_n$ values change for the first few generations before stabilizing.
 
-For example, if you start with \( x_0 = 0.75 \) and \( \mu = 3.2 \), observe the first few generations to see how the population fluctuates before potentially settling into a stable or periodic cycle.
+For example, if you start with $x_0 = 0.75 $ and$\mu = 3.2$, observe the first few generations to see how the population fluctuates before potentially settling into a stable or periodic cycle.
 
 x??
 
@@ -455,12 +455,12 @@ Verifying that regular behavior does not depend on the initial seed value for a 
 
 :p How do different initial seeds affect the logistic map's behavior?
 ??x
-The logistic map's behavior can be insensitive to small changes in the initial population (seed) \( x_0 \), especially when the growth rate \( \mu \) is within certain ranges. For example, with \( \mu = 3.2 \):
+The logistic map's behavior can be insensitive to small changes in the initial population (seed) $x_0 $, especially when the growth rate $\mu $ is within certain ranges. For example, with$\mu = 3.2$:
 
-1. Try different values for \( x_0 \) such as 0.74, 0.75, and 0.76.
+1. Try different values for $x_0$ such as 0.74, 0.75, and 0.76.
 2. Observe if the regular behavior (e.g., stable or periodic cycles) remains consistent despite these small changes in the initial seed.
 
-This shows that within certain growth rates, the long-term dynamics are robust to small perturbations in \( x_0 \).
+This shows that within certain growth rates, the long-term dynamics are robust to small perturbations in $x_0$.
 
 x??
 
@@ -472,29 +472,27 @@ x??
 Background context: In nonlinear population dynamics, fixed points represent stable or periodic behavior where the system remains or returns regularly. A one-cycle fixed point means no change from one generation to the next.
 
 Relevant formulas:
-- \(x_{i+1} = x_i = x^*\) for a one-cycle fixed point.
-- \(\mu x^*(1 - x^*) = x^*\), resulting in \(x^* = 0\) or \(x^* = (\mu - 1)/\mu\).
+- $x_{i+1} = x_i = x^*$ for a one-cycle fixed point.
+- $\mu x^*(1 - x^*) = x^*$, resulting in $ x^* = 0$or $ x^* = (\mu - 1)/\mu$.
 
-The non-zero fixed point \(x^* = (\mu - 1) / \mu\) corresponds to a stable population balance. The zero point is unstable because the population remains static only if no bugs exist; even a few bugs can lead to exponential growth.
+The non-zero fixed point $x^* = (\mu - 1) / \mu$ corresponds to a stable population balance. The zero point is unstable because the population remains static only if no bugs exist; even a few bugs can lead to exponential growth.
 
-Stability condition: A population is stable if the magnitude of the derivative of the mapping function \(f(x_i)\) at the fixed-point satisfies:
-\[ \left| \frac{df}{dx} \right|_{x^*} < 1. \]
+Stability condition: A population is stable if the magnitude of the derivative of the mapping function $f(x_i)$ at the fixed-point satisfies:
+$$\left| \frac{df}{dx} \right|_{x^*} < 1.$$
 
 For the one-cycle logistic map, the derivative is given by:
-- \(\mu - 2\mu x^*\), resulting in stable conditions for \(0 < \mu < 3\).
+- $\mu - 2\mu x^*$, resulting in stable conditions for $0 < \mu < 3$.
 
 :p What are fixed points in nonlinear population dynamics and how do we determine their stability?
 ??x
-Fixed points in nonlinear population dynamics refer to states where the system remains or returns regularly. A one-cycle fixed point indicates no change from one generation to the next. The non-zero fixed point \(x^* = (\mu - 1) / \mu\) corresponds to a stable balance between birth and death, while the zero point is unstable because it only holds if there are no bugs present.
+Fixed points in nonlinear population dynamics refer to states where the system remains or returns regularly. A one-cycle fixed point indicates no change from one generation to the next. The non-zero fixed point $x^* = (\mu - 1) / \mu$ corresponds to a stable balance between birth and death, while the zero point is unstable because it only holds if there are no bugs present.
 
 To determine stability, we examine the derivative of the mapping function at the fixed-point. For the logistic map:
-- If \(0 < \mu < 3\), the system remains stable.
+- If $0 < \mu < 3$, the system remains stable.
 - Beyond this range, bifurcations occur, leading to periodic behavior and eventually chaos.
 
 The stability condition is given by:
-\[ \left| \frac{df}{dx} \right|_{x^*} < 1. \]
-
-```java
+$$\left| \frac{df}{dx} \right|_{x^*} < 1.$$```java
 // Example of a simple logistic map function in Java
 public class LogisticMap {
     private double mu;
@@ -514,20 +512,20 @@ x??
 
 #### Period Doubling and Bifurcations
 
-Background context: As the parameter \(\mu\) increases beyond 3, the system undergoes period doubling bifurcations. Initially, this results in a two-cycle attractor where the population oscillates between two values.
+Background context: As the parameter $\mu$ increases beyond 3, the system undergoes period doubling bifurcations. Initially, this results in a two-cycle attractor where the population oscillates between two values.
 
 Relevant formulas:
-- For a one-cycle fixed point, \(x^* = (\mu - 1) / \mu\).
-- For a two-cycle attractor: \(x_{i+2} = x_i\), resulting in solutions \(x^* = (1 + \mu \pm \sqrt{\mu^2 - 2\mu - 3}) / (2\mu)\).
+- For a one-cycle fixed point,$x^* = (\mu - 1) / \mu$.
+- For a two-cycle attractor: $x_{i+2} = x_i $, resulting in solutions $ x^* = (1 + \mu \pm \sqrt{\mu^2 - 2\mu - 3}) / (2\mu)$.
 
-:p What happens when the parameter \(\mu\) exceeds 3 in a nonlinear population model?
+:p What happens when the parameter $\mu$ exceeds 3 in a nonlinear population model?
 ??x
-When \(\mu\) exceeds 3, the system undergoes period doubling bifurcations. Initially, this results in two-cycle attractors where the population oscillates between two values.
+When $\mu$ exceeds 3, the system undergoes period doubling bifurcations. Initially, this results in two-cycle attractors where the population oscillates between two values.
 
 The solutions for these two-cycle attractors are given by:
-\[ x^* = \frac{1 + \mu \pm \sqrt{\mu^2 - 2\mu - 3}}{2\mu}. \]
+$$x^* = \frac{1 + \mu \pm \sqrt{\mu^2 - 2\mu - 3}}{2\mu}.$$
 
-This indicates that as \(\mu\) increases, the system bifurcates from a single stable fixed point to two attractors. The behavior continues to repeat with further bifurcations.
+This indicates that as $\mu$ increases, the system bifurcates from a single stable fixed point to two attractors. The behavior continues to repeat with further bifurcations.
 
 ```java
 // Example of finding two-cycle attractor points in Java
@@ -547,24 +545,24 @@ x??
 
 #### Stability Analysis of the Logistic Map
 
-Background context: The stability of a population is determined by the magnitude of the derivative of the mapping function at fixed points. For the logistic map, this condition leads to specific ranges for \(\mu\) where the system remains stable.
+Background context: The stability of a population is determined by the magnitude of the derivative of the mapping function at fixed points. For the logistic map, this condition leads to specific ranges for $\mu$ where the system remains stable.
 
 Relevant formulas:
-- Derivative of the logistic map: \(df/dx|_{x^*} = \mu - 2\mu x^*\).
-- Stability conditions: Stable if \(\left| df/dx \right| < 1\).
+- Derivative of the logistic map:$df/dx|_{x^*} = \mu - 2\mu x^*$.
+- Stability conditions: Stable if $\left| df/dx \right| < 1$.
 
-For one-cycle fixed points, stability holds for \(0 < \mu < 3\). Beyond this, the system bifurcates and becomes unstable.
+For one-cycle fixed points, stability holds for $0 < \mu < 3$. Beyond this, the system bifurcates and becomes unstable.
 
 :p How does the derivative of the logistic map function affect its stability?
 ??x
 The derivative of the logistic map function affects its stability by determining whether small perturbations around a fixed point grow or decay. For the one-cycle fixed point:
 
-\[ df/dx|_{x^*} = \mu - 2\mu x^*. \]
+$$df/dx|_{x^*} = \mu - 2\mu x^*.$$
 
 If this magnitude is less than 1, the system remains stable:
-\[ \left| \mu - 2\mu x^* \right| < 1. \]
+$$\left| \mu - 2\mu x^* \right| < 1.$$
 
-For \(0 < \mu < 3\), the system is stable, meaning small perturbations will decay and return to the fixed point. Beyond this range, as \(\mu\) increases, bifurcations occur leading to periodic behavior and eventually chaos.
+For $0 < \mu < 3 $, the system is stable, meaning small perturbations will decay and return to the fixed point. Beyond this range, as $\mu$ increases, bifurcations occur leading to periodic behavior and eventually chaos.
 
 ```java
 // Example of checking stability condition in Java
@@ -582,15 +580,15 @@ x??
 
 #### Bifurcations and Period Doubling
 
-Background context: As the parameter \(\mu\) increases, the system transitions from a single stable fixed point to periodic behavior through period doubling bifurcations. Eventually, this leads to chaotic behavior.
+Background context: As the parameter $\mu$ increases, the system transitions from a single stable fixed point to periodic behavior through period doubling bifurcations. Eventually, this leads to chaotic behavior.
 
 Relevant formulas:
-- For one-cycle fixed points: \(x^* = (\mu - 1) / \mu\).
-- For two-cycle attractors: \(x_{i+2} = x_i\), leading to solutions \(x^* = (1 + \mu \pm \sqrt{\mu^2 - 2\mu - 3}) / (2\mu)\).
+- For one-cycle fixed points:$x^* = (\mu - 1) / \mu$.
+- For two-cycle attractors: $x_{i+2} = x_i $, leading to solutions $ x^* = (1 + \mu \pm \sqrt{\mu^2 - 2\mu - 3}) / (2\mu)$.
 
 :p What are bifurcations in the context of nonlinear population dynamics?
 ??x
-Bifurcations in nonlinear population dynamics refer to the qualitative changes in system behavior as a parameter, such as \(\mu\) in the logistic map, is varied. Initially, the system may have a single stable fixed point where populations remain balanced. As \(\mu\) increases beyond 3, the system undergoes period doubling bifurcations, transitioning from a one-cycle to a two-cycle attractor.
+Bifurcations in nonlinear population dynamics refer to the qualitative changes in system behavior as a parameter, such as $\mu $ in the logistic map, is varied. Initially, the system may have a single stable fixed point where populations remain balanced. As$\mu$ increases beyond 3, the system undergoes period doubling bifurcations, transitioning from a one-cycle to a two-cycle attractor.
 
 This process continues, with each bifurcation leading to higher periodic behavior until eventually chaotic behavior emerges. The stability of these fixed points and attractors is crucial in understanding how populations change over time.
 

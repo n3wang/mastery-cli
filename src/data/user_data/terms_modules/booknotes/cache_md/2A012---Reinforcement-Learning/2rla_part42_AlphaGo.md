@@ -78,18 +78,18 @@ x??
 #### Evaluation Function in APV-MCTS
 In APV-MCTS, nodes are evaluated using two methods: the return of rollouts and an estimated value from the value function. The final evaluation combines these two with a weighted average.
 
-The formula is given by \( v(s) = (1 - \chi)v_{\text{net}}(s) + \chi G \), where \( G \) is the rollout return, \( v_{\text{net}}(s) \) is the value from the network, and \( \chi \) controls the mixing.
+The formula is given by $v(s) = (1 - \chi)v_{\text{net}}(s) + \chi G $, where $ G $ is the rollout return, $ v_{\text{net}}(s)$is the value from the network, and $\chi$ controls the mixing.
 :p How are nodes evaluated in APV-MCTS?
 ??x
 Nodes in APV-MCTS are evaluated using both a rollout return and an estimated value from the value function. The final evaluation combines these two methods:
 
-\[ v(s) = (1 - \chi)v_{\text{net}}(s) + \chi G \]
+$$v(s) = (1 - \chi)v_{\text{net}}(s) + \chi G$$
 
 Where:
-- \( v(s) \) is the node's value.
-- \( v_{\text{net}}(s) \) is the estimated value from the value network.
-- \( G \) is the return of the rollout.
-- \( \chi \) controls how much weight to give to the value function versus the rollout.
+- $v(s)$ is the node's value.
+- $v_{\text{net}}(s)$ is the estimated value from the value network.
+- $G$ is the return of the rollout.
+- $\chi$ controls how much weight to give to the value function versus the rollout.
 
 ```java
 public class NodeEvaluation {
@@ -156,12 +156,12 @@ x??
 #### Second Stage of Training AlphaGo Policy Network
 Background context: The second stage aimed to improve the policy network's performance using reinforcement learning (RL) by playing games against different versions of itself.
 
-The RL policy network was identical in structure to the SL policy network, and its weights were initialized to the same values. Games were played between the current RL policy network \( p_{\rho} \) and a randomly selected previous iteration of the RL policy network.
+The RL policy network was identical in structure to the SL policy network, and its weights were initialized to the same values. Games were played between the current RL policy network $p_{\rho}$ and a randomly selected previous iteration of the RL policy network.
 :p What is the second stage of training in AlphaGo's pipeline?
 ??x
 The second stage involved refining the policy network using reinforcement learning (RL). The RL policy network was identical to the SL policy network, with its weights initialized to the same values. Games were played between the current RL policy network and a randomly selected previous iteration of the RL policy network to stabilize training and prevent overfitting.
 
-The team used a reward function \( r(s) \) that is zero for all non-terminal time steps \( t < T \). The terminal reward at the end of the game from the perspective of the current player was +1 for winning and -1 for losing. Weights were updated by stochastic gradient ascent in the direction that maximized expected outcome.
+The team used a reward function $r(s)$ that is zero for all non-terminal time steps $t < T$. The terminal reward at the end of the game from the perspective of the current player was +1 for winning and -1 for losing. Weights were updated by stochastic gradient ascent in the direction that maximized expected outcome.
 
 This process resulted in significant improvements, with the RL policy network winning more than 80 percent of games against the SL policy network.
 x??
@@ -204,11 +204,11 @@ AlphaGo's training pipeline involves initializing a policy network with a superv
 :p What are the key steps in AlphaGo's neural network training pipeline?
 ??x
 The key steps include:
-1. Training a fast rollout policy \( p_{\pi} \) and an SL policy network \( p_{\sigma} \).
-2. Initializing the RL policy network \( p_{\rho} \) with \( p_{\sigma} \).
-3. Improving \( p_{\rho} \) by policy gradient learning.
+1. Training a fast rollout policy $p_{\pi}$ and an SL policy network $p_{\sigma}$.
+2. Initializing the RL policy network $p_{\rho}$ with $p_{\sigma}$.
+3. Improving $p_{\rho}$ by policy gradient learning.
 4. Playing self-play games to generate new training data.
-5. Training a value network \( v_{\theta} \) for predicting game outcomes.
+5. Training a value network $v_{\theta}$ for predicting game outcomes.
 
 This pipeline aims to improve the RL policy network's ability to predict optimal moves and winning positions.
 x??
@@ -220,7 +220,7 @@ x??
 The policy network in AlphaGo takes board position representations as input, processes them through convolutional layers, and outputs a probability distribution over legal moves. The architecture is designed to learn patterns and strategies from large datasets.
 :p How does the policy network process the board positions?
 ??x
-The policy network processes board positions \( s \) by passing them through multiple convolutional layers. These layers extract features that are used to predict a probability distribution over all possible moves:
+The policy network processes board positions $s$ by passing them through multiple convolutional layers. These layers extract features that are used to predict a probability distribution over all possible moves:
 ```python
 def policy_network(input_board_position):
     # Pass input through many convolutional layers with parameters ρ
@@ -240,7 +240,7 @@ x??
 The value network uses convolutional layers to predict the expected outcome of a game from a given position. It outputs a scalar value that represents the likelihood of winning.
 :p How does the value network function?
 ??x
-The value network takes board positions \( s \) as input and passes them through multiple convolutional layers, ultimately outputting a scalar prediction for the game's outcome:
+The value network takes board positions $s$ as input and passes them through multiple convolutional layers, ultimately outputting a scalar prediction for the game's outcome:
 ```python
 def value_network(input_board_position):
     # Pass input through many convolutional layers with parameters θ
@@ -326,7 +326,7 @@ x??
 AlphaGo Zero’s MCTS runs simulations that end at leaf nodes rather than terminal game positions, guided by the output of a deep convolutional network which provides both value and move probabilities.
 :p How does AlphaGo Zero use MCTS?
 ??x
-AlphaGo Zero uses MCTS to guide its learning process. Each iteration simulates until reaching a leaf node in the search tree, using the deep convolutional network to provide an estimate of win probability \( v \) and move probabilities \( p \). This allows for more focused simulations without needing complete game rollouts.
+AlphaGo Zero uses MCTS to guide its learning process. Each iteration simulates until reaching a leaf node in the search tree, using the deep convolutional network to provide an estimate of win probability $v $ and move probabilities$p$. This allows for more focused simulations without needing complete game rollouts.
 x??
 
 ---
@@ -343,10 +343,10 @@ x??
 
 
 #### AlphaGo Zero's Neural Network Output
-AlphaGo Zero’s deep convolutional network outputs a scalar value \( v \) estimating the win probability for the current player and a vector \( p \) of move probabilities, including pass or resign moves. These are used to direct MCTS executions.
+AlphaGo Zero’s deep convolutional network outputs a scalar value $v $ estimating the win probability for the current player and a vector$p$ of move probabilities, including pass or resign moves. These are used to direct MCTS executions.
 :p What does AlphaGo Zero's neural network output?
 ??x
-AlphaGo Zero's neural network outputs two parts: a scalar value \( v \), which estimates the probability that the current player will win from the current board position, and a vector \( p \) of move probabilities for each possible stone placement plus pass or resign moves. These outputs guide MCTS executions.
+AlphaGo Zero's neural network outputs two parts: a scalar value $v $, which estimates the probability that the current player will win from the current board position, and a vector $ p$ of move probabilities for each possible stone placement plus pass or resign moves. These outputs guide MCTS executions.
 x??
 
 ---
@@ -389,7 +389,7 @@ x??
 The neural network used by AlphaGo Zero takes raw board positions as input and passes them through multiple convolutional layers to output both a policy vector `p` (probability distribution over moves) and a value function `v` (estimated probability of the current player winning).
 :p What is the architecture of the neural network in AlphaGo Zero?
 ??x
-The neural network in AlphaGo Zero takes raw board positions as input, passes them through many convolutional layers to output both a policy vector \( p \) representing a probability distribution over moves and a scalar value \( v \) representing the estimated probability of the current player winning.
+The neural network in AlphaGo Zero takes raw board positions as input, passes them through many convolutional layers to output both a policy vector $p $ representing a probability distribution over moves and a scalar value$v$ representing the estimated probability of the current player winning.
 
 The architecture is as follows:
 ```python
@@ -420,20 +420,20 @@ x??
 AlphaGo Zero trains its neural network on randomly sampled steps from self-play games. The training updates the weights to maximize policy accuracy and minimize value function error.
 :p How is the neural network in AlphaGo Zero trained?
 ??x
-The neural network in AlphaGo Zero is trained using a dataset of randomly sampled steps from self-play games. During each training iteration, the network’s parameters are updated to improve its performance by moving the policy vector \( p \) closer to the MCTS action probabilities \( \pi_i \) and minimizing the error between the predicted win probability \( v \) and the actual game winner \( z \).
+The neural network in AlphaGo Zero is trained using a dataset of randomly sampled steps from self-play games. During each training iteration, the network’s parameters are updated to improve its performance by moving the policy vector $p $ closer to the MCTS action probabilities$\pi_i $ and minimizing the error between the predicted win probability$v $ and the actual game winner$z$.
 
 The update process involves:
-- Maximizing similarity of the policy vector \( p \) to search probabilities \( \pi \).
-- Minimizing the difference between the predicted win probability \( v \) and the actual winner \( z \).
+- Maximizing similarity of the policy vector $p $ to search probabilities$\pi$.
+- Minimizing the difference between the predicted win probability $v $ and the actual winner$z$.
 
 Mathematically, this can be represented by minimizing the following loss function:
-\[ L = -\sum_i (\log(p_i) \cdot \pi_i + (1 - p_i) \cdot (1 - \pi_i)) + (v - z)^2 \]
+$$L = -\sum_i (\log(p_i) \cdot \pi_i + (1 - p_i) \cdot (1 - \pi_i)) + (v - z)^2$$
 
 Where:
-- \( p_i \): The predicted probability of taking action \( i \).
-- \( \pi_i \): The search probability for action \( i \).
-- \( v \): Predicted win probability.
-- \( z \): Actual winner.
+- $p_i $: The predicted probability of taking action $ i$.
+- $\pi_i $: The search probability for action $ i$.
+- $v$: Predicted win probability.
+- $z$: Actual winner.
 
 ```python
 def train_network(network, optimizer, batch_size=32):

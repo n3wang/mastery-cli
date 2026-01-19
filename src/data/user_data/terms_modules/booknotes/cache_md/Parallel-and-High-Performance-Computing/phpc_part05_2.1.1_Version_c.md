@@ -397,13 +397,13 @@ For example, to compare two HDF5 files:
 ```bash
 h5diff -t 1e-6 file1.h5 file2.h5 > diff_report.txt
 ```
-This command compares `file1.h5` and `file2.h5`, considering numerical differences greater than the tolerance of \(1 \times 10^{-6}\) as significant.
+This command compares `file1.h5` and `file2.h5`, considering numerical differences greater than the tolerance of $1 \times 10^{-6}$ as significant.
 
 Similarly, NetCDF files can be compared using a similar approach:
 ```bash
 ncdiff -t 1e-6 file1.nc file2.nc > diff_report.txt
 ```
-This command compares `file1.nc` and `file2.nc`, considering numerical differences greater than the tolerance of \(1 \times 10^{-6}\) as significant.
+This command compares `file1.nc` and `file2.nc`, considering numerical differences greater than the tolerance of $1 \times 10^{-6}$ as significant.
 ??x
 Using these tools, you can ensure that small numerical variations do not indicate actual errors. This is particularly useful in parallel computing where minor discrepancies might arise due to different compiler optimizations or hardware configurations.
 

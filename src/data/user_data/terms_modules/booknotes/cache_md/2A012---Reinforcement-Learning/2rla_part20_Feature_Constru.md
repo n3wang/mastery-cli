@@ -9,11 +9,11 @@
 #### Limitations of Linear Value Functions
 Background context explaining how linear value functions may struggle with state representations that involve complex interactions. The limitations of using basic polynomial features are discussed, focusing on their inability to capture certain types of interactions.
 
-A limitation of the linear form is that it cannot take into account any interactions between features. For example, in tasks like pole-balancing (Example 3.4), where angular velocity (\(v\)) and angle (\(\theta\)) interact significantly, a simple polynomial feature might not suffice. High angular velocity can be either good or bad depending on the angle: if \(\theta\) is high, then \(v\) means an imminent danger of falling; but if \(\theta\) is low, \(v\) indicates that the pole is righting itself.
+A limitation of the linear form is that it cannot take into account any interactions between features. For example, in tasks like pole-balancing (Example 3.4), where angular velocity ($v $) and angle ($\theta $) interact significantly, a simple polynomial feature might not suffice. High angular velocity can be either good or bad depending on the angle: if $\theta $ is high, then$v $ means an imminent danger of falling; but if$\theta $ is low,$ v$ indicates that the pole is righting itself.
 
 :p How do basic polynomial features fail to capture complex interactions in state representations?
 ??x
-Basic polynomial features like \((s_1, s_2, s_1^2, s_2^2, s_1 s_2)\) can still be limited in capturing certain types of interactions. For example, in the pole-balancing task, a high angular velocity might indicate an imminent danger of falling when the angle is high (\(\theta\) and \(v\)), but it could also mean the pole is righting itself when the angle is low.
+Basic polynomial features like $(s_1, s_2, s_1^2, s_2^2, s_1 s_2)$ can still be limited in capturing certain types of interactions. For example, in the pole-balancing task, a high angular velocity might indicate an imminent danger of falling when the angle is high ($\theta $ and$v$), but it could also mean the pole is righting itself when the angle is low.
 
 Thus, simple polynomial features may not be sufficient to capture such complex interactions. More sophisticated feature construction methods are needed to handle these scenarios effectively.
 
@@ -142,22 +142,22 @@ x??
 
 
 #### Feature Vector Construction
-In tile coding with multiple tilings, the feature vector \( x(s) \) has one component per tile in each tiling. For a state that falls within four tiles across four different tilings, this would result in four active features.
+In tile coding with multiple tilings, the feature vector $x(s)$ has one component per tile in each tiling. For a state that falls within four tiles across four different tilings, this would result in four active features.
 
 :p How is the feature vector constructed in tile coding?
 ??x
-The feature vector \( x(s) \) includes components for each tile of each tiling. If we use 4 tilings and a state falls into one tile per tiling, there will be 64 total components (4 tiles * 4 tilings), with only the relevant ones active.
+The feature vector $x(s)$ includes components for each tile of each tiling. If we use 4 tilings and a state falls into one tile per tiling, there will be 64 total components (4 tiles * 4 tilings), with only the relevant ones active.
 x??
 
 ---
 
 
 #### Practical Advantage: Consistent Feature Count
-One practical advantage is that using multiple tilings ensures exactly one feature is active in each tiling at any given time. This allows setting the step-size parameter \( \alpha = \frac{1}{n} \), where \( n \) is the number of tilings.
+One practical advantage is that using multiple tilings ensures exactly one feature is active in each tiling at any given time. This allows setting the step-size parameter $\alpha = \frac{1}{n}$, where $ n$ is the number of tilings.
 
 :p How does tile coding help with setting the learning rate?
 ??x
-The consistent feature count across multiple tilings enables a straightforward and intuitive way to set the learning rate. For instance, if using 50 tilings, you can set \( \alpha = \frac{1}{50} \) to ensure one-trial learning is achieved.
+The consistent feature count across multiple tilings enables a straightforward and intuitive way to set the learning rate. For instance, if using 50 tilings, you can set $\alpha = \frac{1}{50}$ to ensure one-trial learning is achieved.
 x??
 
 ---
@@ -190,7 +190,7 @@ Background context explaining how new estimates are updated based on prior estim
 
 :p How does tile coding update its value estimates?
 ??x
-In tile coding, when trained with an example, the new estimate is set to the target value \(v\), overriding any previous estimate \(\hat{v}(s, w_t)\). However, in practice, one would typically wish for a more gradual change to allow generalization and account for stochastic variation. A common approach is to update the weights using a learning rate \(\alpha = \frac{1}{n^{10}}\), where \(n\) is the number of training iterations.
+In tile coding, when trained with an example, the new estimate is set to the target value $v $, overriding any previous estimate $\hat{v}(s, w_t)$. However, in practice, one would typically wish for a more gradual change to allow generalization and account for stochastic variation. A common approach is to update the weights using a learning rate $\alpha = \frac{1}{n^{10}}$, where $ n$ is the number of training iterations.
 x??
 
 ---
@@ -199,9 +199,9 @@ x??
 #### Learning Rate in Tile Coding
 Background context explaining the importance of the learning rate.
 
-:p Why do we typically choose a smaller learning rate like \(\alpha = \frac{1}{n^{10}}\)?
+:p Why do we typically choose a smaller learning rate like $\alpha = \frac{1}{n^{10}}$?
 ??x
-Choosing a small learning rate, such as \(\alpha = \frac{1}{n^{10}}\), allows the value function to change more slowly in response to new data. This gradual update helps in generalizing well and handling stochastic variations in target outputs. For example, if \(n = 1\), then \(\alpha = 1\); for larger values of \(n\), the learning rate decreases rapidly, ensuring that updates are proportionally smaller.
+Choosing a small learning rate, such as $\alpha = \frac{1}{n^{10}}$, allows the value function to change more slowly in response to new data. This gradual update helps in generalizing well and handling stochastic variations in target outputs. For example, if $ n = 1$, then $\alpha = 1 $; for larger values of $ n$, the learning rate decreases rapidly, ensuring that updates are proportionally smaller.
 x??
 
 ---
@@ -212,7 +212,7 @@ Background context explaining how states are represented using tiles.
 
 :p How does tile coding represent a state?
 ??x
-In tile coding, each state is represented by an active set of binary features. Each feature corresponds to whether a particular tile contains the state. The value function approximation \(\hat{v}(s, w)\) is computed as a weighted sum of these features, where the weights are learned parameters.
+In tile coding, each state is represented by an active set of binary features. Each feature corresponds to whether a particular tile contains the state. The value function approximation $\hat{v}(s, w)$ is computed as a weighted sum of these features, where the weights are learned parameters.
 x??
 
 ---

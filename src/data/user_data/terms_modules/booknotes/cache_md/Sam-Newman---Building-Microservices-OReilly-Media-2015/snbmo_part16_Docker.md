@@ -81,15 +81,14 @@ The CI build service can pick up changes and trigger deployments automatically. 
 
 Example command for CI stage:
 ```
-$ deploy artifact=catalog environment=ci version=b456
+$deploy artifact=catalog environment=ci version=b456
 ```
 
 :p How would you deploy the catalog service into an integrated test environment using the latest build artifact?
 ??x
 To deploy the catalog service into an integrated test environment with the latest build artifact, you would use the following command:
 
-```sh
-$ deploy artifact=catalog environment=integrated_qa version=latest
+```sh$ deploy artifact=catalog environment=integrated_qa version=latest
 ```
 This command deploys the `catalog` microservice in the integrated QA environment using the most recent build from the CI/CD pipeline.
 ??x

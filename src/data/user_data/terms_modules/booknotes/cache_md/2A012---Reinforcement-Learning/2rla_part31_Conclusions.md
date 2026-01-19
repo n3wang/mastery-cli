@@ -10,24 +10,21 @@
 Emphatic TD(λ) is a variant of Temporal Difference (TD) learning that aims to handle high variance and potentially slow convergence by incorporating an emphasis mechanism. This method modifies the standard eligibility trace update rule to include a form of followon trace, which helps in better handling temporal dependencies.
 
 The update rules for Emphatic TD(λ) are as follows:
-- \( w_{t+1} = w_t + \alpha_t z_t \)
-- \( z_t = \gamma t z_{t-1} + M_t \langle x_t | w \rangle - z_t (w^T \langle x_t | w \rangle) \)
-- \( M_t = \delta_t I_t + (1 - \delta_t) F_t \)
-- \( F_t = \gamma t F_{t-1} + I_t \)
+- $w_{t+1} = w_t + \alpha_t z_t $-$ z_t = \gamma t z_{t-1} + M_t \langle x_t | w \rangle - z_t (w^T \langle x_t | w \rangle)$-$ M_t = \delta_t I_t + (1 - \delta_t) F_t $-$ F_t = \gamma t F_{t-1} + I_t$
 
 Where:
-- \( w_t \) is the weight vector at time step \( t \).
-- \( z_t \) represents the eligibility trace.
-- \( \alpha_t \) is the learning rate.
-- \( \delta_t \) is the discount factor for emphasis.
+- $w_t $ is the weight vector at time step$t$.
+- $z_t$ represents the eligibility trace.
+- $\alpha_t$ is the learning rate.
+- $\delta_t$ is the discount factor for emphasis.
 
-The term \( M_t \) and \( F_t \) are designed to handle the followon traces, which emphasize recent events more heavily. The initial value of \( z_1 = 0 \).
+The term $M_t $ and$F_t $ are designed to handle the followon traces, which emphasize recent events more heavily. The initial value of$z_1 = 0$.
 
 :p What is Emphatic TD(λ) used for?
 ??x
 Emphatic TD(λ) is used to address high variance and slow convergence issues in standard TD learning by incorporating an emphasis mechanism that helps in better handling temporal dependencies.
 
-The formula for the update of \( w_t \) involves using the eligibility trace \( z_t \), which is updated based on both the current state-action value and a followon trace term. This approach allows for more focused updates, potentially leading to faster learning.
+The formula for the update of $w_t $ involves using the eligibility trace$z_t$, which is updated based on both the current state-action value and a followon trace term. This approach allows for more focused updates, potentially leading to faster learning.
 x??
 
 ---
@@ -55,7 +52,7 @@ function emphatic_tdlambda(alpha, gamma, delta, s, a, r, s_prime):
 
 :p What is the pseudocode for Emphatic TD(λ)?
 ??x
-The pseudocode for implementing true online Emphatic-TD(λ) involves initializing weights and eligibility traces, then updating them in an incremental manner. The key steps include calculating the eligibility trace \( z \), updating the followon traces \( M_t \) and \( F_t \), computing the weight update \( \delta_w \), and finally applying this update to the weight vector.
+The pseudocode for implementing true online Emphatic-TD(λ) involves initializing weights and eligibility traces, then updating them in an incremental manner. The key steps include calculating the eligibility trace $z $, updating the followon traces $ M_t $ and $ F_t $, computing the weight update$\delta_w$, and finally applying this update to the weight vector.
 
 Here is the detailed pseudocode:
 ```pseudocode
@@ -376,12 +373,12 @@ function ACTOR_CRITIC(lambda) {
 Background context explaining the concept. In reinforcement learning, Watkins's Q(λ) algorithm is a variant of Q-learning that uses eligibility traces to balance between exploitation and exploration. The algorithm maintains an eligibility trace vector for each state-action pair, which allows it to accumulate credit over time.
 
 Relevant formulas:
-- \(Q(s_t, a_t)\) = target value function
-- \(\lambda\) = decay rate of the eligibility trace
+- $Q(s_t, a_t)$= target value function
+- $\lambda$= decay rate of the eligibility trace
 
 :p What is Watkins's Q(λ) algorithm used for?
 ??x
-Watkins’s Q(λ) algorithm is used in reinforcement learning to balance between exploitation and exploration by using eligibility traces. It modifies the standard Q-learning update rule by introducing a parameter \(\lambda\) that controls how much credit should be given to past state-action pairs.
+Watkins’s Q(λ) algorithm is used in reinforcement learning to balance between exploitation and exploration by using eligibility traces. It modifies the standard Q-learning update rule by introducing a parameter $\lambda$ that controls how much credit should be given to past state-action pairs.
 
 Code example:
 ```java
@@ -441,8 +438,8 @@ x??
 Background context explaining the concept. The Expected Sarsa(λ) algorithm is a variant of SARSA that uses eligibility traces to balance between exploitation and exploration.
 
 Relevant formulas:
-- \(Q(s_t, a_t)\) = target value function
-- \(\lambda\) = decay rate of the eligibility trace
+- $Q(s_t, a_t)$= target value function
+- $\lambda$= decay rate of the eligibility trace
 
 :p What is the main difference between Expected Sarsa(λ) and standard SARSA?
 ??x
@@ -474,7 +471,7 @@ x??
 Background context explaining the concept. GTD(λ) (Gradient Temporal Difference) is a method that combines gradient methods with temporal difference learning to improve convergence properties.
 
 Relevant formulas:
-- \(\lambda\) = decay rate of the eligibility trace
+- $\lambda$= decay rate of the eligibility trace
 
 :p What is the main advantage of using GTD(λ)?
 ??x
@@ -525,11 +522,8 @@ x??
 The soft-max distribution is used to map action preferences into probabilities. This ensures that actions are selected probabilistically, allowing for exploration.
 :p What is the formula for the probability of selecting an action using a soft-max distribution?
 ??x
-The probability of selecting action \(a\) in state \(s\) given parameter \(\theta\) is calculated using the soft-max function:
-\[
-\Pi(a|s,\theta) = \frac{e^{h(s,a,\theta)}}{\sum_{b} e^{h(s,b,\theta)}}
-\]
-where \(h(s, a, \theta)\) are the action preferences.
+The probability of selecting action $a $ in state$s $ given parameter$\theta$ is calculated using the soft-max function:
+$$\Pi(a|s,\theta) = \frac{e^{h(s,a,\theta)}}{\sum_{b} e^{h(s,b,\theta)}}$$where $ h(s, a, \theta)$ are the action preferences.
 x??
 
 ---
@@ -537,7 +531,7 @@ x??
 
 #### Advantages of Soft-Max Parameterization
 Soft-max parameterization allows policies to be stochastic and can approach deterministic policies as needed. It also enables the selection of actions with arbitrary probabilities, which is crucial for complex problems involving function approximation.
-:p What advantage does soft-max policy parameterization offer over \(\epsilon\)-greedy action value methods?
+:p What advantage does soft-max policy parameterization offer over $\epsilon$-greedy action value methods?
 ??x
 The key advantages are:
 1. Policies can be stochastic and approximate deterministic policies more flexibly.
@@ -549,9 +543,9 @@ x??
 
 #### Example: Short Corridor with Switched Actions
 In this example, a small corridor gridworld has states that appear identical under function approximation. The problem is challenging because actions have different consequences depending on state.
-:p How does the \(\epsilon\)-greedy method fail to solve the short corridor problem effectively?
+:p How does the $\epsilon$-greedy method fail to solve the short corridor problem effectively?
 ??x
-The \(\epsilon\)-greedy method fails by being overly deterministic, only allowing two policies: always choosing right or left with a high probability. This rigidity prevents it from finding the optimal stochastic policy, leading to poor performance.
+The $\epsilon$-greedy method fails by being overly deterministic, only allowing two policies: always choosing right or left with a high probability. This rigidity prevents it from finding the optimal stochastic policy, leading to poor performance.
 ```java
 // Example pseudocode for epsilon-greedy selection
 public int selectAction(EpsilonGreedyPolicy policy) {
@@ -583,7 +577,7 @@ x??
 
 
 #### Policy Parameterization and Prior Knowledge
-Background context: The choice of policy parameterization can inject prior knowledge about the desired form of the policy into a reinforcement learning system, which is often crucial for using a policy-based method over action-value methods like \(\epsilon\)-greedy.
+Background context: The choice of policy parameterization can inject prior knowledge about the desired form of the policy into a reinforcement learning system, which is often crucial for using a policy-based method over action-value methods like $\epsilon$-greedy.
 
 :p What is the importance of policy parameterization in reinforcement learning?
 ??x
@@ -594,7 +588,7 @@ x??
 
 
 #### Policy Gradient Theorem (Episodic Case)
-Background context: The policy gradient theorem provides a way to estimate the performance gradient with respect to the policy parameters in an episodic setting, which is essential for policy-based reinforcement learning algorithms. It ensures smoother convergence compared to value-based methods like \(\epsilon\)-greedy.
+Background context: The policy gradient theorem provides a way to estimate the performance gradient with respect to the policy parameters in an episodic setting, which is essential for policy-based reinforcement learning algorithms. It ensures smoother convergence compared to value-based methods like $\epsilon$-greedy.
 
 :p What is the objective of the policy gradient theorem?
 ??x
@@ -609,8 +603,9 @@ Background context: To derive the exact expression for the gradient of the state
 
 :p How is the gradient of the state-value function related to action-value functions?
 ??x
-The gradient of the state-value function \(v_\pi(\mathbf{s})\) can be expressed in terms of the action-value function \(q_\pi(s, a)\) as follows:
-\[ \nabla v_\pi(s) = \sum_a \pi(a|s) \left( r + q_\pi(s, a) \right). \]
+The gradient of the state-value function $v_\pi(\mathbf{s})$ can be expressed in terms of the action-value function $q_\pi(s, a)$ as follows:
+$$\nabla v_\pi(s) = \sum_a \pi(a|s) \left( r + q_\pi(s, a) \right).$$
+
 This equation shows that the gradient depends on both immediate rewards and future expected returns under the current policy.
 x??
 
@@ -620,11 +615,10 @@ x??
 #### Episode Performance Measure
 Background context: In episodic reinforcement learning, the performance measure is defined as the value of the start state of the episode. This helps in quantifying how well the agent performs from its initial state.
 
-:p How do we define the performance measure \(J(\theta)\) for an episodic task?
+:p How do we define the performance measure $J(\theta)$ for an episodic task?
 ??x
-The performance measure \(J(\theta)\) for an episodic task is defined as:
-\[ J(\theta) = v_\pi(s_0), \]
-where \(v_\pi(s_0)\) is the true value function of the policy \(\pi\) starting from state \(s_0\). This means that we measure how good the agent performs in terms of its expected return from the start state.
+The performance measure $J(\theta)$ for an episodic task is defined as:
+$$J(\theta) = v_\pi(s_0),$$where $ v_\pi(s_0)$is the true value function of the policy $\pi$ starting from state $s_0$. This means that we measure how good the agent performs in terms of its expected return from the start state.
 x??
 
 ---
@@ -645,24 +639,23 @@ x??
 
 
 #### Policy Dependence on Parameters
-Background context: The policy \(\pi\) depends continuously on the parameters \(\theta\), which is crucial for applying gradient ascent methods. This continuity ensures smoother updates during learning.
+Background context: The policy $\pi $ depends continuously on the parameters$\theta$, which is crucial for applying gradient ascent methods. This continuity ensures smoother updates during learning.
 
 :p How does the continuity of the policy with respect to its parameters help in reinforcement learning?
 ??x
-The continuity of the policy \(\pi\) with respect to its parameters \(\theta\) allows us to apply gradient ascent methods effectively. Since small changes in \(\theta\) lead to smooth transitions in the policy, we can more reliably approximate and maximize the expected return using gradient-based optimization techniques.
+The continuity of the policy $\pi $ with respect to its parameters$\theta $ allows us to apply gradient ascent methods effectively. Since small changes in$\theta$ lead to smooth transitions in the policy, we can more reliably approximate and maximize the expected return using gradient-based optimization techniques.
 x??
 
 ---
 
 
 #### Episodic Case Performance Measure Calculation
-Background context: In the episodic case, performance is measured from a specific start state \(s_0\), which simplifies the notation but still requires careful consideration of the environment dynamics.
+Background context: In the episodic case, performance is measured from a specific start state $s_0$, which simplifies the notation but still requires careful consideration of the environment dynamics.
 
-:p How do we calculate the performance measure for an episode starting in state \(s_0\)?
+:p How do we calculate the performance measure for an episode starting in state $s_0$?
 ??x
-To calculate the performance measure for an episode starting in state \(s_0\):
-\[ J(\theta) = v_\pi(s_0), \]
-where \(v_\pi(s_0)\) is the value function of the policy \(\pi\) when starting from state \(s_0\). This means we evaluate how well the agent performs starting from this specific initial state.
+To calculate the performance measure for an episode starting in state $s_0$:
+$$J(\theta) = v_\pi(s_0),$$where $ v_\pi(s_0)$is the value function of the policy $\pi$ when starting from state $s_0$. This means we evaluate how well the agent performs starting from this specific initial state.
 x??
 
 ---
@@ -674,7 +667,7 @@ Background context: The unrolling process helps in expressing the gradient of th
 :p How do you express the gradient of the state-value function using unrolling?
 ??x
 The gradient of the state-value function can be expressed through repeated unrolling:
-\[ \nabla v_\pi(s) = \sum_a \pi(a|s) \left( r + \sum_{s'} p(s'|s, a) (r' + v_\pi(s')) \right). \]
+$$\nabla v_\pi(s) = \sum_a \pi(a|s) \left( r + \sum_{s'} p(s'|s, a) (r' + v_\pi(s')) \right).$$
 This expression shows the recursive nature of the value function and how it depends on future states and actions.
 x??
 

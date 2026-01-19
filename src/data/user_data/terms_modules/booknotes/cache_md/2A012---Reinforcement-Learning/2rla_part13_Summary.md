@@ -170,35 +170,35 @@ x??
 
 #### n-step Bootstrapping Concept
 
-Background context: This chapter introduces \(n\)-step bootstrapping, which unifies Monte Carlo (MC) methods and one-step temporal difference (TD) methods. The goal is to provide a flexible method that can smoothly transition between MC and TD approaches depending on the requirements of a given task.
+Background context: This chapter introduces $n$-step bootstrapping, which unifies Monte Carlo (MC) methods and one-step temporal difference (TD) methods. The goal is to provide a flexible method that can smoothly transition between MC and TD approaches depending on the requirements of a given task.
 
-:p What are the key ideas behind \(n\)-step bootstrapping?
+:p What are the key ideas behind $n$-step bootstrapping?
 ??x
-\(n\)-step bootstrapping generalizes both Monte Carlo methods and one-step TD methods. It allows for updates based on an intermediate number of rewards, more than one but less than all until termination. This flexibility enables a smooth transition between MC and TD approaches, depending on the task requirements.
+$n$-step bootstrapping generalizes both Monte Carlo methods and one-step TD methods. It allows for updates based on an intermediate number of rewards, more than one but less than all until termination. This flexibility enables a smooth transition between MC and TD approaches, depending on the task requirements.
 x??
 
 ---
 
 
-#### Predicting Returns with \(n\)-step Bootstrapping
+#### Predicting Returns with $n$-step Bootstrapping
 
-Background context: The chapter starts by explaining how \(n\)-step bootstrapping can be used for predicting returns as a function of state for a fixed policy (\(v^\pi\)). This involves updating an earlier estimate based on the difference from a later estimate, but with multiple steps between.
+Background context: The chapter starts by explaining how $n $-step bootstrapping can be used for predicting returns as a function of state for a fixed policy ($ v^\pi$). This involves updating an earlier estimate based on the difference from a later estimate, but with multiple steps between.
 
-:p What is the primary objective of using \(n\)-step bootstrapping in prediction?
+:p What is the primary objective of using $n$-step bootstrapping in prediction?
 ??x
-The primary objective is to predict returns as a function of state for a fixed policy (\(v^\pi\)) by updating an earlier estimate based on how it differs from a later estimate, but with multiple steps between. This approach provides a balance between the full information available at the end of an episode in MC methods and the limited horizon in one-step TD methods.
+The primary objective is to predict returns as a function of state for a fixed policy ($v^\pi$) by updating an earlier estimate based on how it differs from a later estimate, but with multiple steps between. This approach provides a balance between the full information available at the end of an episode in MC methods and the limited horizon in one-step TD methods.
 x??
 
 ---
 
 
-#### Backup Diagrams for \(n\)-step Updates
+#### Backup Diagrams for $n$-step Updates
 
-Background context: The text describes backup diagrams for \(n\)-step updates, ranging from one-step TD to Monte Carlo methods. Each method performs updates based on a different number of rewards.
+Background context: The text describes backup diagrams for $n$-step updates, ranging from one-step TD to Monte Carlo methods. Each method performs updates based on a different number of rewards.
 
 :p What do the backup diagrams in Figure 7.1 illustrate?
 ??x
-The backup diagrams in Figure 7.1 illustrate the range of \(n\)-step updates for estimating \(v^\pi\). They show how one-step TD and Monte Carlo methods fit into this spectrum, with each method performing an update based on a different number of rewards.
+The backup diagrams in Figure 7.1 illustrate the range of $n $-step updates for estimating $ v^\pi$. They show how one-step TD and Monte Carlo methods fit into this spectrum, with each method performing an update based on a different number of rewards.
 x??
 
 ---
@@ -206,11 +206,11 @@ x??
 
 #### Example of n-step TD Prediction
 
-Background context: This example demonstrates how to perform an update using two-step bootstrapping for estimating \(v^\pi\).
+Background context: This example demonstrates how to perform an update using two-step bootstrapping for estimating $v^\pi$.
 
-:p How can we implement a two-step \(n\)-step TD prediction?
+:p How can we implement a two-step $n$-step TD prediction?
 ??x
-To implement a two-step \(n\)-step TD prediction, you would perform an update based on the first two rewards and the estimated value of the state two steps later.
+To implement a two-step $n$-step TD prediction, you would perform an update based on the first two rewards and the estimated value of the state two steps later.
 
 ```java
 // Pseudocode for Two-Step n-Step TD Prediction
@@ -235,11 +235,11 @@ x??
 
 #### Transition Between MC and TD Methods
 
-Background context: The text emphasizes that \(n\)-step methods span a spectrum from Monte Carlo to one-step TD methods. Intermediate methods allow for smooth transitions based on the task requirements.
+Background context: The text emphasizes that $n$-step methods span a spectrum from Monte Carlo to one-step TD methods. Intermediate methods allow for smooth transitions based on the task requirements.
 
-:p How do \(n\)-step methods provide flexibility between Monte Carlo and one-step TD methods?
+:p How do $n$-step methods provide flexibility between Monte Carlo and one-step TD methods?
 ??x
-\(n\)-step methods provide flexibility by allowing updates based on an intermediate number of rewards, more than one but less than all until termination. This allows a smooth transition between the full information available at the end of an episode in MC methods and the limited horizon in one-step TD methods, depending on the task requirements.
+$n$-step methods provide flexibility by allowing updates based on an intermediate number of rewards, more than one but less than all until termination. This allows a smooth transition between the full information available at the end of an episode in MC methods and the limited horizon in one-step TD methods, depending on the task requirements.
 x??
 
 ---
@@ -247,11 +247,11 @@ x??
 
 #### Bootstrapping Over Multiple Time Intervals
 
-Background context: The text highlights that \(n\)-step bootstrapping can enable bootstrapping to occur over multiple time intervals.
+Background context: The text highlights that $n$-step bootstrapping can enable bootstrapping to occur over multiple time intervals.
 
-:p What is the benefit of using \(n\)-step bootstrapping for time intervals?
+:p What is the benefit of using $n$-step bootstrapping for time intervals?
 ??x
-The benefit of using \(n\)-step bootstrapping is that it enables bootstrapping to occur over multiple time intervals, freeing you from the tyranny of a single time step. This allows for updating actions more frequently while still benefiting from longer-term estimates.
+The benefit of using $n$-step bootstrapping is that it enables bootstrapping to occur over multiple time intervals, freeing you from the tyranny of a single time step. This allows for updating actions more frequently while still benefiting from longer-term estimates.
 x??
 
 ---
@@ -260,20 +260,16 @@ x??
 
 
 #### n-step TD Prediction
-Background context: The text introduces \(n\)-step temporal difference (TD) methods as a generalization of one-step updates, where the update over multiple steps is considered. These methods extend the idea of updating value estimates based on rewards and states observed within an episode.
+Background context: The text introduces $n$-step temporal difference (TD) methods as a generalization of one-step updates, where the update over multiple steps is considered. These methods extend the idea of updating value estimates based on rewards and states observed within an episode.
 
-The key formula for the target in \(n\)-step TD methods is given by:
-\[ G_{t:t+n} = R_{t+1} + \gamma R_{t+2} + \gamma^2 V_{t+n-1}(S_{t+n}) \]
-where \(G_{t:t+n}\) is the \(n\)-step return, which corrects for missing future rewards by using a discounted value estimate.
+The key formula for the target in $n$-step TD methods is given by:
+$$G_{t:t+n} = R_{t+1} + \gamma R_{t+2} + \gamma^2 V_{t+n-1}(S_{t+n})$$where $ G_{t:t+n}$is the $ n$-step return, which corrects for missing future rewards by using a discounted value estimate.
 
-The learning algorithm update rule for an arbitrary \(n\) can be written as:
-\[ V_t(S_t) = V_t(S_t) + \alpha [ G_{t:t+n} - V_t(S_t)] \]
-
-:p What is the target in \(n\)-step TD prediction?
+The learning algorithm update rule for an arbitrary $n$ can be written as:
+$$V_t(S_t) = V_t(S_t) + \alpha [ G_{t:t+n} - V_t(S_t)]$$:p What is the target in $ n$-step TD prediction?
 ??x
-The target in \(n\)-step TD prediction is the \(n\)-step return, which includes the immediate and discounted future rewards up to time step \(t+n\). Specifically:
-\[ G_{t:t+n} = R_{t+1} + \gamma R_{t+2} + \cdots + \gamma^{n-1} R_{t+n} + \gamma^n V_{t+n-1}(S_{t+n}) \]
-where the last term corrects for the missing rewards beyond time step \(t+n\).
+The target in $n $-step TD prediction is the $ n $-step return, which includes the immediate and discounted future rewards up to time step$ t+n$. Specifically:
+$$G_{t:t+n} = R_{t+1} + \gamma R_{t+2} + \cdots + \gamma^{n-1} R_{t+n} + \gamma^n V_{t+n-1}(S_{t+n})$$where the last term corrects for the missing rewards beyond time step $ t+n$.
 
 x??
 
@@ -281,18 +277,15 @@ x??
 
 
 #### n-step TD Learning Algorithm
-Background context: The text explains that \(n\)-step TD methods involve updating value estimates based on observed sequences of states and rewards, rather than waiting until the end of an episode as in Monte Carlo updates.
+Background context: The text explains that $n$-step TD methods involve updating value estimates based on observed sequences of states and rewards, rather than waiting until the end of an episode as in Monte Carlo updates.
 
-The update rule for the state \(S_t\) is given by:
-\[ V_{t+n}(S_t) = V_{t+n-1}(S_t) + \alpha [ G_{t:t+n} - V_{t+n-1}(S_t)] \]
+The update rule for the state $S_t$ is given by:
+$$V_{t+n}(S_t) = V_{t+n-1}(S_t) + \alpha [ G_{t:t+n} - V_{t+n-1}(S_t)]$$where $ G_{t:t+n}$is the $ n$-step return, and all other state values remain unchanged.
 
-where \(G_{t:t+n}\) is the \(n\)-step return, and all other state values remain unchanged.
-
-:p What is the update rule for the value function in \(n\)-step TD?
+:p What is the update rule for the value function in $n$-step TD?
 ??x
-The update rule for the value function in \(n\)-step TD is:
-\[ V_{t+n}(S_t) = V_{t+n-1}(S_t) + \alpha [ G_{t:t+n} - V_{t+n-1}(S_t)] \]
-where \(G_{t:t+n}\) represents the target value, which includes the immediate and future discounted rewards up to time step \(t+n\).
+The update rule for the value function in $n$-step TD is:
+$$V_{t+n}(S_t) = V_{t+n-1}(S_t) + \alpha [ G_{t:t+n} - V_{t+n-1}(S_t)]$$where $ G_{t:t+n}$represents the target value, which includes the immediate and future discounted rewards up to time step $ t+n$.
 
 x??
 
@@ -300,15 +293,13 @@ x??
 
 
 #### Error Reduction Property of n-step Returns
-Background context: The text states that the expectation of an \(n\)-step return is a better estimate of the true state value than the previous estimate. Formally, the worst-case error for the expected \(n\)-step return is guaranteed to be less than or equal to \(n\) times the worst-case error under the previous value function:
-\[ \max_s |E_\pi[G_{t:t+n}|S_t=s] - v_\pi(s)| \leq n \max_s |V_{t+n-1}(s) - v_\pi(s)| \]
-
-:p How does the \(n\)-step return reduce error compared to the previous value function?
+Background context: The text states that the expectation of an $n $-step return is a better estimate of the true state value than the previous estimate. Formally, the worst-case error for the expected $ n $-step return is guaranteed to be less than or equal to$ n$times the worst-case error under the previous value function:
+$$\max_s |E_\pi[G_{t:t+n}|S_t=s] - v_\pi(s)| \leq n \max_s |V_{t+n-1}(s) - v_\pi(s)|$$:p How does the $ n$-step return reduce error compared to the previous value function?
 ??x
-The \(n\)-step return reduces error by providing a more accurate estimate of the true state value. Specifically, the worst-case error for the expected \(n\)-step return is guaranteed to be less than or equal to \(n\) times the worst-case error under the previous value function:
-\[ \max_s |E_\pi[G_{t:t+n}|S_t=s] - v_\pi(s)| \leq n \max_s |V_{t+n-1}(s) - v_\pi(s)| \]
+The $n $-step return reduces error by providing a more accurate estimate of the true state value. Specifically, the worst-case error for the expected $ n $-step return is guaranteed to be less than or equal to$ n$times the worst-case error under the previous value function:
+$$\max_s |E_\pi[G_{t:t+n}|S_t=s] - v_\pi(s)| \leq n \max_s |V_{t+n-1}(s) - v_\pi(s)|$$
 
-This property ensures that as \(n\) increases, the error reduction becomes more significant.
+This property ensures that as $n$ increases, the error reduction becomes more significant.
 
 x??
 
@@ -316,17 +307,17 @@ x??
 
 
 #### Example: n-step TD on Random Walk
-Background context: The text provides an example of using \(n\)-step TD methods in a 5-state random walk task. In this scenario, an episode might progress from the center state (C) to the right through states D and E, terminating at the right with a return of 1.
+Background context: The text provides an example of using $n$-step TD methods in a 5-state random walk task. In this scenario, an episode might progress from the center state (C) to the right through states D and E, terminating at the right with a return of 1.
 
 The initial value estimates for all states are set to 0.5:
-\[ V(s) = 0.5 \]
+$$V(s) = 0.5$$
 
 For a one-step method, only the last state's estimate would be updated based on the immediate reward.
 
-:p How does \(n\)-step TD apply in the random walk example?
+:p How does $n$-step TD apply in the random walk example?
 ??x
-In the random walk example, \(n\)-step TD updates are applied to states along the path of an episode. For instance, if the sequence progresses from C to D to E and then terminates at the right with a return of 1:
-- The update for state C would consider not just the immediate reward (from C to D), but also the future rewards up to time step \(t+n\).
+In the random walk example, $n$-step TD updates are applied to states along the path of an episode. For instance, if the sequence progresses from C to D to E and then terminates at the right with a return of 1:
+- The update for state C would consider not just the immediate reward (from C to D), but also the future rewards up to time step $t+n$.
 
 The value estimates are updated based on the observed rewards and the discounted future values, providing a more accurate estimate than one-step updates.
 
@@ -336,11 +327,11 @@ x??
 
 
 #### Programming Exercise: n-step TD
-Background context: The text describes an exercise where you need to show that the error in \(n\)-step TD can be written as a sum of TD errors under certain conditions. It also mentions experimenting with different algorithms to determine their effectiveness.
+Background context: The text describes an exercise where you need to show that the error in $n$-step TD can be written as a sum of TD errors under certain conditions. It also mentions experimenting with different algorithms to determine their effectiveness.
 
-:p What is the objective of the programming exercise on \(n\)-step TD?
+:p What is the objective of the programming exercise on $n$-step TD?
 ??x
-The objective of the programming exercise is to demonstrate that the \(n\)-step error used in the update rule can be written as a sum of TD errors, assuming value estimates do not change from step to step. Additionally, you are asked to experimentally determine if an algorithm using this approach would perform better or worse than other methods.
+The objective of the programming exercise is to demonstrate that the $n$-step error used in the update rule can be written as a sum of TD errors, assuming value estimates do not change from step to step. Additionally, you are asked to experimentally determine if an algorithm using this approach would perform better or worse than other methods.
 
 x??
 
@@ -350,11 +341,11 @@ x??
 
 
 #### Larger Random Walk Task
-Background context: The use of a larger random walk task (19 states instead of 5) and the change from a reward of 0 to -1 on the left side are crucial for understanding how different values of \( n \) affect performance. This setup allows for more complex interactions between states, making it easier to observe differences in learning behaviors.
+Background context: The use of a larger random walk task (19 states instead of 5) and the change from a reward of 0 to -1 on the left side are crucial for understanding how different values of $n$ affect performance. This setup allows for more complex interactions between states, making it easier to observe differences in learning behaviors.
 
 :p Why was a larger random walk task used in this example?
 ??x
-A larger random walk task with 19 states instead of 5 was used to provide a more intricate environment where the effects of different \( n \) values can be observed more clearly. This setup allows for a better understanding of how generalization and learning performance vary with the value of \( n \).
+A larger random walk task with 19 states instead of 5 was used to provide a more intricate environment where the effects of different $n $ values can be observed more clearly. This setup allows for a better understanding of how generalization and learning performance vary with the value of$n$.
 
 The change from a reward of 0 to -1 on the left side does not significantly alter the primary focus, but it ensures that the task is non-trivial, providing a more realistic scenario.
 
@@ -388,11 +379,11 @@ x??
 
 
 #### n-step Sarsa for Prediction
-Background context: The concept of \( n \)-step methods extends the traditional one-step methods (like Sarsa(0)) and Monte Carlo methods to incorporate more information from recent experiences. This allows for better generalization and potentially faster learning.
+Background context: The concept of $n$-step methods extends the traditional one-step methods (like Sarsa(0)) and Monte Carlo methods to incorporate more information from recent experiences. This allows for better generalization and potentially faster learning.
 
-:p How do \( n \)-step methods improve prediction compared to one-step methods?
+:p How do $n$-step methods improve prediction compared to one-step methods?
 ??x
-\( n \)-step methods, such as \( n \)-step Sarsa, provide a way to generalize the learning process by considering more than just the immediate next state's action value. By averaging over multiple steps of rewards and state-action values, these methods can capture dependencies between states and actions that one-step methods might miss.
+$n $-step methods, such as $ n$-step Sarsa, provide a way to generalize the learning process by considering more than just the immediate next state's action value. By averaging over multiple steps of rewards and state-action values, these methods can capture dependencies between states and actions that one-step methods might miss.
 
 This improvement is particularly useful in environments where the dynamics change slowly or when there are long-term dependencies between states and actions.
 
@@ -427,8 +418,8 @@ x??
 ---
 
 
-#### Performance of \( n \)-step TD Methods
-Background context: The performance of different \( n \)-step methods is evaluated based on their ability to predict the true state values after a series of episodes and trials. The example uses a random walk with 19 states and shows how varying \( n \) affects the learning process.
+#### Performance of $n$-step TD Methods
+Background context: The performance of different $n $-step methods is evaluated based on their ability to predict the true state values after a series of episodes and trials. The example uses a random walk with 19 states and shows how varying $ n$ affects the learning process.
 
 :p Why did the performance measure use the square-root of the average squared error?
 ??x
@@ -453,13 +444,13 @@ x??
 
 
 #### n-step Sarsa for Control
-Background context: \( n \)-step methods can be used not only for prediction but also for control. By incorporating more recent experiences, they help in making better decisions and improving the learning process.
+Background context: $n$-step methods can be used not only for prediction but also for control. By incorporating more recent experiences, they help in making better decisions and improving the learning process.
 
-:p How does \( n \)-step Sarsa improve policy learning compared to one-step Sarsa?
+:p How does $n$-step Sarsa improve policy learning compared to one-step Sarsa?
 ??x
-\( n \)-step Sarsa improves policy learning by considering a longer sequence of rewards and state-action pairs. This approach can capture more complex dependencies between states and actions, leading to better generalization and faster convergence.
+$n$-step Sarsa improves policy learning by considering a longer sequence of rewards and state-action pairs. This approach can capture more complex dependencies between states and actions, leading to better generalization and faster convergence.
 
-By using multiple steps of experience, \( n \)-step methods provide a smoother estimate of the action values, which in turn helps in making more informed decisions. The example given shows how an agent learns much faster when using \( n \)-step Sarsa compared to one-step Sarsa.
+By using multiple steps of experience, $n $-step methods provide a smoother estimate of the action values, which in turn helps in making more informed decisions. The example given shows how an agent learns much faster when using $ n$-step Sarsa compared to one-step Sarsa.
 
 ```java
 public class NSarsaControl {

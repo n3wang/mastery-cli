@@ -129,8 +129,8 @@ db.observations.aggregate([
     { $match: { family: "Sharks" } },  // Filter by 'Sharks' family
     {
         $group: {
-            _id: { year: { $year: "$observationTimestamp" }, month: { $month: "$observationTimestamp" } },
-            totalAnimals: { $sum: "$numAnimals" }
+            _id: { year: { $year: "$ observationTimestamp" }, month: {$month: "$ observationTimestamp" } },
+            totalAnimals: { $sum: "$ numAnimals" }
         }
     }
 ]);
@@ -138,7 +138,7 @@ db.observations.aggregate([
 
 This pipeline works as follows:
 1. **$match Stage**: Filters documents where the family is `'Sharks'`.
-2. **$group Stage**: Groups by year and month using `$year` and `$month`, respectively, and sums up `numAnimals`.
+2. **$group Stage**: Groups by year and month using `$ year` and `$ month`, respectively, and sums up `numAnimals`.
 
 The result will provide a count of shark sightings per month in the aggregation pipeline output:
 ```javascript

@@ -11,7 +11,7 @@ Background context: The bisection method is a root-finding algorithm that repeat
 
 :p What is the basic idea behind the bisection method?
 ??x
-The basic idea is to repeatedly halve the interval where the root might exist based on the sign changes of the function. This ensures that if \( f(a) \cdot f(b) < 0 \), there must be at least one zero in the interval [a, b]. 
+The basic idea is to repeatedly halve the interval where the root might exist based on the sign changes of the function. This ensures that if $f(a) \cdot f(b) < 0$, there must be at least one zero in the interval [a, b]. 
 ```python
 def bisection(f, a, b, tol):
     plus = b
@@ -34,7 +34,7 @@ x??
 
 
 #### Bisection Example Problem Setup
-Background context: For the given function \( f(E) = \sqrt{10 - E} \tan(\sqrt{10 - E}) - \sqrt{E} \), plotting or creating a table can help identify approximate values at which \( f(EB) = 0 \). This step is crucial for determining initial intervals.
+Background context: For the given function $f(E) = \sqrt{10 - E} \tan(\sqrt{10 - E}) - \sqrt{E}$, plotting or creating a table can help identify approximate values at which $ f(EB) = 0$. This step is crucial for determining initial intervals.
 
 :p How should you approach identifying zeros of the function?
 ??x
@@ -84,26 +84,133 @@ x??
 
 
 #### Newton-Raphson Method Overview
-Background context: The Newton-Raphson method is another root-finding algorithm that uses tangent lines to approximate the roots. It starts with an initial guess and iteratively improves this guess until a certain precision level is reached.
+The Newton-Raphson method is a powerful root-finding algorithm with quadratic convergence, using first-order Taylor series expansion to iteratively approach roots. It's significantly faster than bisection but requires derivative computation and good initial estimates.
 
-:p What is the basic idea behind the Newton-Raphson method?
+:p What is the Newton-Raphson method and what are its convergence properties?
 ??x
-The basic idea is to use the slope of the function at a point to find a better approximation for the root. The method uses the tangent line at the current estimate to approximate where the function crosses the x-axis.
-```python
-def newton_raphson(f, df_dx, initial_guess, tol, max_iter):
-    x = initial_guess
-    
-    for i in range(max_iter):
-        fx = f(x)
-        
-        if abs(fx) < tol:
-            return x
-        
-        dx = -fx / df_dx(x)
-        x += dx
-    
-    return "Failed to converge"
+The Newton-Raphson method finds roots of f(x) = 0 by iteratively refining estimates using the iteration formula:
+
+**Mathematical Foundation:**
+$$x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$$
+
+This comes from linearizing f(x) around x_n:
+$$f(x) ≈ f(x_n) + f'(x_n)(x - x_n)$$
+
+Setting this to zero and solving for x gives the update formula.
+
+**Convergence Properties:**
+- Rate: Quadratic convergence near root (error decreases as e_{n+1} ≈ Ce_n²)
+- Complexity per iteration: O(1) function evaluations (f and f')
+- Total iterations: O(log log(1/ε)) for ε precision
+- Comparison: Bisection requires O(log(1/ε)) iterations
+
+**Convergence Conditions:**
+- |f'(x)| must be bounded away from zero near root
+- |f''(x)| must be bounded near root
+- Initial guess x₀ must be sufficiently close to root
+- Failure cases: f'(x) = 0, local minima/maxima, divergence
+
+**Error Analysis:**
+If root is α, then: |x_{n+1} - α| ≤ M/(2m)|x_n - α|²
+where M = max|f''| and m = min|f'| near α
+
+```c
+// C implementation with convergence monitoring
+typedef struct {
+    double (*f)(double);
+    double (*df)(double);
+    int max_iter;
+    double tol;
+} NewtonContext;
+
+typedef struct {
+    double root;
+    int iterations;
+    int converged;
+    double final_error;
+} NewtonResult;
+
+NewtonResult newton_raphson(NewtonContext* ctx, double x0) {
+    NewtonResult result = {0};
+    double x = x0;
+    double prev_error = INFINITY;
+
+    for (int i = 0; i < ctx->max_iter; i++) {
+        double fx = ctx->f(x);  // O(1) function evaluation
+        double dfx = ctx->df(x); // O(1) derivative evaluation
+
+        // Check for derivative singularity
+        if (fabs(dfx) < 1e-15) {
+            result.converged = 0;
+            return result;  // Failed: derivative too small
+        }
+
+        double error = fabs(fx);
+        result.final_error = error;
+
+        // Check convergence
+        if (error < ctx->tol) {
+            result.root = x;
+            result.iterations = i + 1;
+            result.converged = 1;
+            return result;
+        }
+
+        // Check for convergence rate (should be quadratic)
+        if (i > 0 && error > 0.5 * prev_error) {
+            // Slow convergence: may be diverging
+            result.converged = 0;
+            return result;
+        }
+
+        // Newton update: O(1)
+        double dx = -fx / dfx;
+        x += dx;
+        prev_error = error;
+    }
+
+    result.converged = 0;  // Max iterations exceeded
+    return result;
+}
+
+// Example with numerical derivative (if analytical unavailable):
+double numerical_derivative(double (*f)(double), double x, double h) {
+    // Central difference: O(h²) accuracy
+    // f'(x) ≈ [f(x+h) - f(x-h)] / (2h)
+    return (f(x + h) - f(x - h)) / (2.0 * h);  // 2 function evals
+}
+
+// Usage example:
+/*
+double my_function(double x) {
+    return x*x - 2.0;  // Finding sqrt(2)
+}
+
+double my_derivative(double x) {
+    return 2.0 * x;
+}
+
+NewtonContext ctx = {
+    .f = my_function,
+    .df = my_derivative,
+    .max_iter = 100,
+    .tol = 1e-10
+};
+
+NewtonResult result = newton_raphson(&ctx, 1.0);
+// Result: root ≈ 1.414213562373095 (sqrt(2))
+// Iterations: ~5 (vs ~30 for bisection to same precision)
+*/
 ```
+
+**Comparison with Bisection:**
+| Property | Newton-Raphson | Bisection |
+|----------|----------------|-----------|
+| Convergence rate | Quadratic (O(log log 1/ε)) | Linear (O(log 1/ε)) |
+| Iterations for 10⁻¹⁰ | ~5 | ~33 |
+| Requires derivative | Yes | No |
+| Always converges | No | Yes (if f continuous) |
+| Initial bracket needed | No | Yes |
 x??
 
 ---
@@ -130,7 +237,7 @@ def newton_raphson(f, df_dx, initial_guess, tol, max_iter):
     
     return "Failed to converge"
 ```
-Here, \( \Delta x = -\frac{f(x)}{f'(x)} \).
+Here, $\Delta x = -\frac{f(x)}{f'(x)}$.
 x??
 
 ---
@@ -158,8 +265,8 @@ x??
 
 Background context: The Newton-Raphson algorithm is a method for finding successively better approximations to the roots (or zeroes) of a real-valued function. However, it can fail if the initial guess is not close enough to the root or if the derivative vanishes at the starting point.
 
-The algorithm updates the current approximation \(x_n\) using the formula:
-\[ x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)} \]
+The algorithm updates the current approximation $x_n$ using the formula:
+$$x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$$
 
 If the function has a local extremum (where the derivative is zero), this can lead to division by zero or an infinite loop.
 
@@ -168,14 +275,14 @@ Backtracking is a technique used when the correction step leads to a larger magn
 :p What are the potential problems with the Newton-Raphson algorithm as described in the text?
 ??x
 The potential problems include:
-- Starting at a local extremum where \(f'(x) = 0\), leading to division by zero.
+- Starting at a local extremum where $f'(x) = 0$, leading to division by zero.
 - Entering an infinite loop when the step size leads to a larger magnitude of the function.
 
 Backtracking can be used to handle these issues by reducing the step size if it results in a worse approximation. This helps ensure convergence towards the root rather than diverging or oscillating indefinitely.
 
 ??x
 The answer with detailed explanations:
-- If \(f'(x) = 0\), the next update step becomes undefined (division by zero).
+- If $f'(x) = 0$, the next update step becomes undefined (division by zero).
 - An infinite loop occurs when the correction step increases the function value, suggesting that the initial guess was too far from the root.
 Backtracking helps by reducing the step size in such cases to find a more suitable path towards the root.
 
@@ -205,22 +312,25 @@ x??
 
 #### Magnetization Search Problem
 
-Background context: The problem involves determining the magnetization \(M(T)\) as a function of temperature for simple magnetic materials. This is done using statistical mechanics principles, specifically the Boltzmann distribution law.
+Background context: The problem involves determining the magnetization $M(T)$ as a function of temperature for simple magnetic materials. This is done using statistical mechanics principles, specifically the Boltzmann distribution law.
 
 The relevant formulas are:
-\[ N_L = \frac{N e^{\mu B / (k_B T)}}{e^{\mu B / (k_B T)} + e^{-\mu B / (k_B T)}} \]
-\[ N_U = \frac{N e^{-\mu B / (k_B T)}}{e^{\mu B / (k_B T)} + e^{-\mu B / (k_B T)}} \]
+$$N_L = \frac{N e^{\mu B / (k_B T)}}{e^{\mu B / (k_B T)} + e^{-\mu B / (k_B T)}}$$
+$$
 
-Where \(N_L\) and \(N_U\) are the number of particles in the lower and upper energy states respectively. The magnetization is given by:
-\[ M(T) = N \mu \tanh(\lambda \mu M(T) / k_B T) \]
-Here, \(\lambda\) is a constant related to the molecular magnetic field.
+N_U = \frac{N e^{-\mu B / (k_B T)}}{e^{\mu B / (k_B T)} + e^{-\mu B / (k_B T)}}$$
 
-The goal is to find \(M(T)\) numerically since there's no analytic solution.
+Where $N_L $ and$N_U$ are the number of particles in the lower and upper energy states respectively. The magnetization is given by:
+$$M(T) = N \mu \tanh(\lambda \mu M(T) / k_B T)$$
+
+Here,$\lambda$ is a constant related to the molecular magnetic field.
+
+The goal is to find $M(T)$ numerically since there's no analytic solution.
 
 :p What is the magnetization equation for simple magnetic materials?
-??x
-\[ M(T) = N \mu \tanh\left(\frac{\lambda \mu M(T)}{k_B T}\right) \]
-This equation relates the magnetization \(M\) to the temperature \(T\), where \(\mu\) is the magnetic moment, \(\lambda\) is related to the molecular magnetic field, and \(N\) is the number of particles.
+??x$$M(T) = N \mu \tanh\left(\frac{\lambda \mu M(T)}{k_B T}\right)$$
+
+This equation relates the magnetization $M $ to the temperature$T $, where$\mu $ is the magnetic moment,$\lambda $ is related to the molecular magnetic field, and$N$ is the number of particles.
 
 x??
 
@@ -231,7 +341,7 @@ x??
 
 Background context: The backtracking method can be used when the Newton-Raphson algorithm fails due to large correction steps leading to an increase in function magnitude. By reducing the step size incrementally, a more stable path towards the root is ensured.
 
-:p How does backtracking work in the context of solving for \(M(T)\) using the Newton-Raphson method?
+:p How does backtracking work in the context of solving for $M(T)$ using the Newton-Raphson method?
 ??x
 Backtracking works by adjusting the step size if the correction step leads to an increase in the function value. Specifically:
 - If the new estimate increases the function value, reduce the step size and try again.
@@ -267,17 +377,17 @@ x??
 
 #### Solving for Magnetization Using Bisection and Newton-Raphson Algorithms
 
-Background context: The magnetization \(M(T)\) can be solved numerically using the bisection method or the Newton-Raphson algorithm. Each method has its advantages:
+Background context: The magnetization $M(T)$ can be solved numerically using the bisection method or the Newton-Raphson algorithm. Each method has its advantages:
 - **Bisection Method**: Guaranteed to converge but slower.
 - **Newton-Raphson Algorithm**: Faster but requires a good initial guess and may fail if not close enough.
 
-:p How would you find the root of \(f(m, t) = m - \tanh(m/t)\) for a given \(t\) using the bisection algorithm?
+:p How would you find the root of $f(m, t) = m - \tanh(m/t)$ for a given $t$ using the bisection algorithm?
 ??x
-To find the root of \(f(m, t) = m - \tanh(m/t)\) using the bisection method:
-1. Choose an interval [a, b] such that \(f(a)\) and \(f(b)\) have opposite signs.
-2. Calculate the midpoint \(c\) and evaluate \(f(c)\).
-3. If \(f(c) = 0\), then \(c\) is the root.
-4. Otherwise, if \(f(a) \cdot f(c) < 0\), set \(b = c\); else, set \(a = c\).
+To find the root of $f(m, t) = m - \tanh(m/t)$ using the bisection method:
+1. Choose an interval [a, b] such that $f(a)$ and $f(b)$ have opposite signs.
+2. Calculate the midpoint $c $ and evaluate$f(c)$.
+3. If $f(c) = 0 $, then $ c$ is the root.
+4. Otherwise, if $f(a) \cdot f(c) < 0 $, set $ b = c $; else, set$ a = c$.
 5. Repeat until convergence.
 
 Here's a pseudocode example:
@@ -303,12 +413,12 @@ x??
 
 Background context: Both algorithms can be used to find roots of a function. The bisection method is guaranteed to converge but is slower, while the Newton-Raphson algorithm converges faster if given a good initial guess.
 
-:p What are some key differences between using the bisection and Newton-Raphson methods for solving \(f(m, t) = m - \tanh(m/t)\)?
+:p What are some key differences between using the bisection and Newton-Raphson methods for solving $f(m, t) = m - \tanh(m/t)$?
 ??x
 - **Bisection Method**:
   - Guaranteed to converge.
   - Slower but more robust since it always reduces the interval where the root lies.
-  - Requires an initial interval [a, b] such that \(f(a) \cdot f(b) < 0\).
+  - Requires an initial interval [a, b] such that $f(a) \cdot f(b) < 0$.
 
 - **Newton-Raphson Algorithm**:
   - Faster convergence if a good initial guess is provided.
@@ -388,7 +498,7 @@ x??
 
 
 #### Least-Squares Fitting
-Background context: The text discusses fitting a theoretical function \(f(E) = f_r (E - E_r)^2 + \Gamma^2 / 4\) to experimental data, where parameters like \(f_r\), \(E_r\), and \(\Gamma\) need to be adjusted.
+Background context: The text discusses fitting a theoretical function $f(E) = f_r (E - E_r)^2 + \Gamma^2 / 4 $ to experimental data, where parameters like$f_r $,$ E_r $, and$\Gamma$ need to be adjusted.
 
 :p How do you perform least-squares fitting on the given theoretical function?
 ??x
@@ -424,10 +534,8 @@ Background context: The text provides the formula for Lagrange interpolation and
 
 :p What is the Lagrange interpolation formula?
 ??x
-The Lagrange interpolation formula for an \(n\)-th degree polynomial through \(n\) points \((x_i, g(x_i))\) is given by:
-\[ g(x) ≃ g_1\lambda_1(x) + g_2\lambda_2(x) + ... + g_n\lambda_n(x), \]
-where
-\[ \lambda_i(x) = \prod_{j \neq i} \frac{x - x_j}{x_i - x_j}. \]
+The Lagrange interpolation formula for an $n $-th degree polynomial through $ n $points$(x_i, g(x_i))$ is given by:
+$$g(x) ≃ g_1\lambda_1(x) + g_2\lambda_2(x) + ... + g_n\lambda_n(x),$$where$$\lambda_i(x) = \prod_{j \neq i} \frac{x - x_j}{x_i - x_j}.$$
 
 For example, for three points:
 ```python

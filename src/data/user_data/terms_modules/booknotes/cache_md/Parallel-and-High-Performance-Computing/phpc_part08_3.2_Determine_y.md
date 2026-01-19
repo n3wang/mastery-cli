@@ -28,15 +28,16 @@ This section provides background on how cache hierarchies have evolved to manage
 The memory hierarchy has grown deeper with the addition of multiple levels of cache, designed to bridge the speed gap between processing units and main memory. Modern processors use a multi-level cache system (L1, L2, L3) to store frequently accessed data closer to the CPU cores.
 
 The general formula for calculating theoretical memory bandwidth is:
-\[ BT = MTR \times Mc \times Tw \times Ns \]
+$$BT = MTR \times Mc \times Tw \times Ns$$
+
 Where:
-- \( MTR \) is the data transfer rate in millions of transfers per second (MT/s),
-- \( Mc \) is the number of memory channels,
-- \( Tw \) is the memory transfer width in bits,
-- \( Ns \) is the number of sockets.
+- $MTR$ is the data transfer rate in millions of transfers per second (MT/s),
+- $Mc$ is the number of memory channels,
+- $Tw$ is the memory transfer width in bits,
+- $Ns$ is the number of sockets.
 
 For example, a system with 3200 MT/s DDR memory, 4 memory channels, and 64-bit transfer width:
-\[ BT = (3200 \text{ MT/s} \times 4 \times 8/8 \times 1) = 12800 \text{ MB/s} \]
+$$BT = (3200 \text{ MT/s} \times 4 \times 8/8 \times 1) = 12800 \text{ MB/s}$$
 
 This evolution helps in improving overall system performance by reducing the latency and increasing the throughput of data access.
 x??

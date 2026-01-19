@@ -10,15 +10,13 @@
 
 Background context: In electronics, current (I), voltage (V), and power (P) are fundamental concepts. These can be represented by formulas:
 - **Current** (I): The rate at which electric charge flows through a conductor. It is measured in Amperes (A).
-  \[ I = \frac{Q}{t} \]
-  Where \( Q \) is the charge and \( t \) is time.
+  $$I = \frac{Q}{t}$$
+
+Where $Q $ is the charge and$t$ is time.
   
 - **Voltage** (V): The difference of potential between two points in an electrical circuit, typically measured in Volts (V).
 
-- **Power** (P): The rate at which energy is transferred or converted, often measured in Watts (W).
-  \[ P = V \times I \]
-
-:p What are the basic concepts of current, voltage, and power in electronics?
+- **Power** (P): The rate at which energy is transferred or converted, often measured in Watts (W).$$P = V \times I$$:p What are the basic concepts of current, voltage, and power in electronics?
 ??x
 Current is the rate at which electric charge flows through a conductor. Voltage measures the difference of potential between two points, while power is the rate at which energy is transferred or converted.
 x??
@@ -67,11 +65,11 @@ x??
 
 #### Relationship Between Voltage, Current, and Resistance (Ohm's Law)
 Background context: The relationship between voltage (V), current (I), and resistance (R) in a circuit is described by Ohm's law:
-\[ V = I \times R \]
+$$
 
-:p What is Ohm’s law?
+V = I \times R$$:p What is Ohm’s law?
 ??x
-Ohm’s law states that the current flowing through a conductor between two points is directly proportional to the voltage across the two points, and inversely proportional to the resistance between them. Mathematically: \( V = I \times R \).
+Ohm’s law states that the current flowing through a conductor between two points is directly proportional to the voltage across the two points, and inversely proportional to the resistance between them. Mathematically:$V = I \times R$.
 ??x
 How does increasing voltage affect the flow of electrons (current)?
 ??x
@@ -84,10 +82,10 @@ x??
 
 
 #### Ohm’s Law: Relating Resistance, Current, and Voltage
-Background context: Georg Simon Ohm formulated the relationship between voltage (V), current (I), and resistance (R) in electrical circuits. The formula \( I = \frac{V}{R} \) represents this relationship.
+Background context: Georg Simon Ohm formulated the relationship between voltage (V), current (I), and resistance (R) in electrical circuits. The formula $I = \frac{V}{R}$ represents this relationship.
 :p What is Ohm's law?
 ??x
-Ohm's Law states that the current (I) flowing through a conductor between two points is directly proportional to the voltage (V) across the two points, and inversely proportional to the resistance (R) of the conductor. This can be expressed mathematically as \( I = \frac{V}{R} \).
+Ohm's Law states that the current (I) flowing through a conductor between two points is directly proportional to the voltage (V) across the two points, and inversely proportional to the resistance (R) of the conductor. This can be expressed mathematically as $I = \frac{V}{R}$.
 ???x
 
 ---

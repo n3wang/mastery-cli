@@ -7,12 +7,13 @@
 
 
 #### Solving Equations
-Background context: To solve equations, isolate the variable by performing inverse operations. For linear equations like \(ax + b = c\), subtract or add constants and divide or multiply by coefficients to get the variable alone.
-:p Solve the equation \(\frac{0.05}{x} = 1\) for \(x\).
+Background context: To solve equations, isolate the variable by performing inverse operations. For linear equations like $ax + b = c$, subtract or add constants and divide or multiply by coefficients to get the variable alone.
+:p Solve the equation $\frac{0.05}{x} = 1 $ for$x$.
 ??x
-To solve \(\frac{0.05}{x} = 1\), multiply both sides of the equation by \(x\):
-\[ 0.05 = x \]
-Thus, \(x = 0.05\).
+To solve $\frac{0.05}{x} = 1 $, multiply both sides of the equation by $ x$:
+$$0.05 = x$$
+
+Thus,$x = 0.05$.
 
 The answer is 0.05.
 x??
@@ -21,17 +22,19 @@ x??
 
 
 #### Quadratic Equations
-Background context: A quadratic equation is in the form \(ax^2 + bx + c = 0\). Solving these involves factoring or using the quadratic formula. For this example, we can factor out a common term and solve for \(x\).
-:p Solve the equation \(x^2 - x - 6 = 0\) for \(x\).
+Background context: A quadratic equation is in the form $ax^2 + bx + c = 0 $. Solving these involves factoring or using the quadratic formula. For this example, we can factor out a common term and solve for $ x$.
+:p Solve the equation $x^2 - x - 6 = 0 $ for$x$.
 ??x
-To solve \(x^2 - x - 6 = 0\), first look for factors of \(-6\) that add up to \(-1\). The numbers are \(-3\) and \(2\):
-\[ (x - 3)(x + 2) = 0 \]
-Set each factor equal to zero:
-\[ x - 3 = 0 \quad \text{or} \quad x + 2 = 0 \]
-Solve for \(x\):
-\[ x = 3 \quad \text{or} \quad x = -2 \]
+To solve $x^2 - x - 6 = 0 $, first look for factors of $-6 $ that add up to$-1 $. The numbers are $-3 $ and$2$:
+$$(x - 3)(x + 2) = 0$$
 
-The answers are \(x = 3\) or \(x = -2\).
+Set each factor equal to zero:
+$$x - 3 = 0 \quad \text{or} \quad x + 2 = 0$$
+
+Solve for $x$:
+$$x = 3 \quad \text{or} \quad x = -2$$
+
+The answers are $x = 3 $ or$x = -2$.
 x??
 
 ---
@@ -50,13 +53,13 @@ x??
 
 
 #### Exponentiation
-Background context: When multiplying a number by itself multiple times, exponents are used. For example, \(a^3 = a \times a \times a\). Exponential properties allow simplification of expressions involving powers.
-:p Simplify the expression \(x^{2+2}\).
+Background context: When multiplying a number by itself multiple times, exponents are used. For example, $a^3 = a \times a \times a$. Exponential properties allow simplification of expressions involving powers.
+:p Simplify the expression $x^{2+2}$.
 ??x
 Using the property that when you multiply two exponents with the same base, you add their exponents:
-\[ x^{2+2} = x^4 \]
+$$x^{2+2} = x^4$$
 
-The answer is \(x^4\).
+The answer is $x^4$.
 x??
 
 ---
@@ -67,7 +70,7 @@ Background context: Power (P) in an electrical system can be calculated using th
 
 :p How do you calculate power when given the current and voltage?
 ??x
-To calculate power, use the formula \( P = I \times V \). In this case, if \( I = 1200 \) amperes and \( V = 120 \) volts, then the power is \( 1200 \times 120 = 144,000 \) watts or 144 kilowatts.
+To calculate power, use the formula $P = I \times V $. In this case, if $ I = 1200 $ amperes and $ V = 120 $ volts, then the power is $1200 \times 120 = 144,000$ watts or 144 kilowatts.
 x??
 
 ---
@@ -78,25 +81,15 @@ Background context: This involves using geometric formulas to calculate areas an
 
 :p What’s the area of a circle with a diameter of 10 inches?
 ??x
-The radius \(r\) of the circle is half the diameter, so:
-\[
-r = \frac{10}{2} = 5 \text{ inches}.
-\]
-Use the formula for the area of a circle, \(A = \pi r^2\):
-\[
-A = \pi (5)^2 = 25\pi.
-\]
+The radius $r$ of the circle is half the diameter, so:
+$$r = \frac{10}{2} = 5 \text{ inches}.$$
 
-: Calculate the volume of a cube with a side length of 4 inches.
+Use the formula for the area of a circle,$A = \pi r^2$:
+$$A = \pi (5)^2 = 25\pi.$$: Calculate the volume of a cube with a side length of 4 inches.
 ??x
-The volume \(V\) of a cube is given by:
-\[
-V = s^3,
-\]
-where \(s\) is the side length. For this problem, \(s = 4\):
-\[
-V = 4^3 = 64 \text{ cubic inches}.
-\]
+The volume $V$ of a cube is given by:
+$$V = s^3,$$where $ s $is the side length. For this problem,$ s = 4$:
+$$V = 4^3 = 64 \text{ cubic inches}.$$
 
 ---
 

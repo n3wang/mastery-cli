@@ -236,17 +236,12 @@ To achieve this, follow these steps:
 1. **Initial Diameter**: The initial diameter of the brass rod is 6.4 mm.
 2. **Final Diameter Requirement**: The final diameter after cold working should be 5.1 mm.
 3. **Percent Cold Work Calculation**:
-   \[
-   \text{percentCW} = \left( \frac{(d_0^2 - d_i^2) \cdot 100}{d_0^2} \right)
-   \]
-   Where \( d_0 = 6.4 \, \text{mm} \) and \( d_i = 5.1 \, \text{mm} \).
+   $$\text{percentCW} = \left( \frac{(d_0^2 - d_i^2) \cdot 100}{d_0^2} \right)$$
+
+Where $d_0 = 6.4 \, \text{mm}$ and $d_i = 5.1 \, \text{mm}$.
 
    Plugging in the values:
-   \[
-   \text{percentCW} = \left( \frac{(6.4^2 - 5.1^2) \cdot 100}{6.4^2} \right) = 36.5\%
-   \]
-
-4. **Cold Working Process**: Cold work the brass rod by drawing it to reduce its diameter from 6.4 mm to 5.1 mm, achieving a 36.5% cold work deformation.
+   $$\text{percentCW} = \left( \frac{(6.4^2 - 5.1^2) \cdot 100}{6.4^2} \right) = 36.5\%$$4. **Cold Working Process**: Cold work the brass rod by drawing it to reduce its diameter from 6.4 mm to 5.1 mm, achieving a 36.5% cold work deformation.
 5. **Mechanical Properties**:
    - Ensure the cold-working process results in a yield strength of at least 345 MPa (50,000 psi).
    - Ensure ductility is more than 20% elongation.
@@ -295,11 +290,10 @@ x??
 #### Grain Size and Time Relationship
 Background context: The text presents Equation 7.9 to describe how grain size changes with time during heat treatment.
 
-:p How does the grain diameter \(d_n\) change over time according to Equation 7.9?
+:p How does the grain diameter $d_n$ change over time according to Equation 7.9?
 ??x
-The grain diameter \(d_n\) increases over time according to the relationship:
-\[d_n - d_0 = Kt\]
-where \(d_0\) is the initial grain diameter, and \(K\) and \(n\) are time-independent constants.
+The grain diameter $d_n$ increases over time according to the relationship:
+$$d_n - d_0 = Kt$$where $ d_0 $ is the initial grain diameter, and $ K $ and $ n$ are time-independent constants.
 x??
 
 ---

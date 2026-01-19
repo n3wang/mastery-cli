@@ -12,7 +12,7 @@ Background context: A spatial hash is a technique used to efficiently manage and
 
 The basic idea behind spatial hashing is to create a grid where objects are placed in the appropriate cell(s) based on their coordinates. This allows for efficient operations such as finding all objects within a certain region.
 
-Complexity: The time complexity of spatial hash lookups and insertions is typically \(O(1)\), making it very fast compared to other methods like binary search trees or k-d trees, which can have complexities up to \(O(\log N)\).
+Complexity: The time complexity of spatial hash lookups and insertions is typically $O(1)$, making it very fast compared to other methods like binary search trees or k-d trees, which can have complexities up to $ O(\log N)$.
 
 :p Write pseudocode for implementing a simple spatial hash for a cloud collision model.
 ??x
@@ -111,13 +111,13 @@ x??
 
 #### Comparison-Based Algorithms vs. Hashing
 
-Background context: Comparison-based algorithms have a theoretical lower complexity limit of \(O(N \log N)\) for sorting and searching tasks. However, hashing provides an alternative approach that can achieve linear time complexity (\(O(N)\)) in many cases.
+Background context: Comparison-based algorithms have a theoretical lower complexity limit of $O(N \log N)$ for sorting and searching tasks. However, hashing provides an alternative approach that can achieve linear time complexity ($ O(N)$) in many cases.
 
 :p How does the comparison-based algorithm's complexity compare to non-comparison algorithms like hashing?
 ??x
-Comparison-based algorithms have a theoretical lower complexity limit of \(O(N \log N)\) for sorting and searching tasks. However, non-comparison algorithms like hashing can achieve linear time complexity (\(O(N)\)) under certain conditions.
+Comparison-based algorithms have a theoretical lower complexity limit of $O(N \log N)$ for sorting and searching tasks. However, non-comparison algorithms like hashing can achieve linear time complexity ($ O(N)$) under certain conditions.
 
-For example, in spatial hashing, the time complexity for operations is typically \(O(1)\), allowing efficient insertion and lookup. This is more favorable than comparison-based methods when dealing with large datasets that need to be processed quickly.
+For example, in spatial hashing, the time complexity for operations is typically $O(1)$, allowing efficient insertion and lookup. This is more favorable than comparison-based methods when dealing with large datasets that need to be processed quickly.
 
 The key difference lies in how they operate: comparison-based algorithms compare elements to sort or find them, while hashing maps keys directly to positions.
 x??
@@ -149,8 +149,8 @@ Background context: The prefix scan (also known as prefix sum) algorithm is a pa
 ??x
 The prefix scan algorithm works by computing the cumulative sum of elements in an array, where each element's value depends on its position relative to previous elements. This allows for efficient computation even with irregularly sized or indexed data structures.
 
-For example, given an array \(A = [a_1, a_2, \ldots, a_n]\), the prefix scan computes an output array \(P\) where:
-\[ P[i] = A[0] + A[1] + \ldots + A[i-1] + A[i] \]
+For example, given an array $A = [a_1, a_2, \ldots, a_n]$, the prefix scan computes an output array $ P$where:
+$$P[i] = A[0] + A[1] + \ldots + A[i-1] + A[i]$$
 
 Here is a simple example in pseudocode:
 

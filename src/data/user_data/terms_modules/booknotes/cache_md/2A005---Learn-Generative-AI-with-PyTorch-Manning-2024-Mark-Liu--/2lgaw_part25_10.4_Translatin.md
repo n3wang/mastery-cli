@@ -12,7 +12,7 @@ The `SimpleLossCompute` class is designed for training a Transformer model by co
 - A criterion function to calculate the loss, and
 - An optimizer to update the model parameters.
 
-This class processes batches of training data (x, y) using the generator for predictions and evaluates the loss by comparing these predictions with the actual labels \(y\).
+This class processes batches of training data (x, y) using the generator for predictions and evaluates the loss by comparing these predictions with the actual labels $y$.
 
 :p What does the `SimpleLossCompute` class do?
 ??x

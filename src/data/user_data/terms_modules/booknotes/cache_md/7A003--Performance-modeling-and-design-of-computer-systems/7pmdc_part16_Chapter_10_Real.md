@@ -71,17 +71,31 @@ Background context: This problem involves a web server with three pages and cach
 :p What are the transition probabilities given in the problem?
 ??x
 The transition probabilities given in the problem are:
-\[ P_{1,1} = 0 \]
-\[ P_{1,2} = x \]
-\[ P_{1,3} = 1 - x \]
-\[ P_{2,1} = y \]
-\[ P_{2,2} = 0 \]
-\[ P_{2,3} = 1 - y \]
-\[ P_{3,1} = 0 \]
-\[ P_{3,2} = 1 \]
-\[ P_{3,3} = 0 \]
+$$P_{1,1} = 0$$
+$$
 
-:p How do you determine the proportion of time that the cache contains certain pages?
+P_{1,2} = x$$
+$$
+
+P_{1,3} = 1 - x$$
+$$
+
+P_{2,1} = y$$
+$$
+
+P_{2,2} = 0$$
+$$
+
+P_{2,3} = 1 - y$$
+$$
+
+P_{3,1} = 0$$
+$$
+
+P_{3,2} = 1$$
+$$
+
+P_{3,3} = 0$$:p How do you determine the proportion of time that the cache contains certain pages?
 ??x
 To find the proportion of time that the cache contains specific combinations of pages (e.g., {1,2}, {2,3}, {1,3}), we need to analyze the Markov chain transitions and use steady-state probabilities.
 
@@ -100,32 +114,28 @@ Background context: This problem involves a router where packets increase or dec
 :p What is the setup of this problem?
 ??x
 The setup involves a Markov chain where at each time step:
-- The number of packets increases by 1 with probability \( 0.4 \)
-- The number of packets decreases by 1 with probability \( 0.6 \)
+- The number of packets increases by 1 with probability $0.4 $- The number of packets decreases by 1 with probability $0.6$ We are interested in the time required for the router to empty, starting from state 1.
 
-We are interested in the time required for the router to empty, starting from state 1.
-
-:p What is the expression for \( E[T_{1,0}] \)?
+:p What is the expression for $E[T_{1,0}]$?
 ??x
 The expected time to get from state 1 to state 0 can be computed using:
-\[ E[T_{1,0}] = \frac{4}{3} \]
-
-:x??
+$$E[T_{1,0}] = \frac{4}{3}$$:x??
 
 ---
 
 
 #### Time to Empty - Part 2
-Background context: This problem is an extension of the previous one but considers a general starting state \( n \).
+Background context: This problem is an extension of the previous one but considers a general starting state $n$.
 
-:p What does \( T_n,0 \) represent?
+:p What does $T_n,0$ represent?
 ??x
-\( T_{n,0} \) represents the time required for the system to get from state \( n \) to state 0.
+$T_{n,0}$ represents the time required for the system to get from state $n$ to state 0.
 
-:p How do you compute \( E[T_{n,0}] \)?
+:p How do you compute $E[T_{n,0}]$?
 ??x
-The expected time to empty starting from state \( n \) can be computed recursively:
-\[ E[T_{1,0}] = 2.5 \]
+The expected time to empty starting from state $n$ can be computed recursively:
+$$E[T_{1,0}] = 2.5$$
+
 For other states, the expected time follows a similar recursive formula derived from the transition probabilities.
 
 :x??
@@ -139,13 +149,10 @@ Background context: This problem involves a DTMC that tracks the number of jobs 
 :p What does the DTMC shown in Figure 10.10 represent?
 ??x
 The DTMC shown in Figure 10.10 represents a system where:
-- The number of jobs can increase or decrease by 1 with probabilities \( p \) and \( q \)
-- A failure occurs, causing all jobs to be lost, with probability \( r \)
-
-:p How do you derive the limiting probability for there being i jobs in the system?
+- The number of jobs can increase or decrease by 1 with probabilities $p $ and$q $- A failure occurs, causing all jobs to be lost, with probability$ r$:p How do you derive the limiting probability for there being i jobs in the system?
 ??x
-The limiting probability \( \pi_i \) can be derived using generating functions by solving:
-\[ \Pi(z) = \sum_{i=0}^{\infty} \pi_i z^i \]
+The limiting probability $\pi_i$ can be derived using generating functions by solving:
+$$\Pi(z) = \sum_{i=0}^{\infty} \pi_i z^i$$
 
 This involves setting up and solving a set of equations based on the transition probabilities.
 

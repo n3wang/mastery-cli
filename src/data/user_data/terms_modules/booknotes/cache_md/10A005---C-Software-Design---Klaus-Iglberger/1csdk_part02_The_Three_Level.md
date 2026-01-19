@@ -6,104 +6,190 @@
 ---
 
 
-#### Overview of Software Development Levels
+#### Software Development Abstraction Layers
 
-In software development, three levels are recognized: **Software Architecture**, **Software Design**, and **Implementation Details**. Each level serves a different purpose and has distinct characteristics.
+Software development operates at three distinct abstraction levels, each addressing different concerns and having different rates of change. Understanding these levels helps in making appropriate design decisions and managing technical debt.
 
-:p What are the three levels of software development mentioned?
+:p What are the three levels of software development and their primary concerns?
 ??x
-The three levels of software development are:
-1. **Software Architecture**
-2. **Software Design**
-3. **Implementation Details**
+The three levels are:
 
-These levels complement each other, with architecture focusing on big decisions, design on interaction among entities, and implementation details on specific code-level concerns.
+1. **Software Architecture** (highest abstraction)
+   - Concerns: System decomposition, component communication, deployment
+   - Examples: Microservices, layered architecture, event-driven architecture
+   - Change frequency: Low (hard to change)
+   - Impact radius: Entire system
+   - Decision drivers: Non-functional requirements (scalability, availability, performance)
+
+2. **Software Design** (middle abstraction)
+   - Concerns: Class relationships, dependency management, extensibility
+   - Examples: Strategy pattern, Visitor pattern, Dependency Injection
+   - Change frequency: Medium
+   - Impact radius: Subsystem or module
+   - Quality attributes: Maintainability, testability, flexibility
+   - Coupling metrics: Afferent/Efferent coupling (Ca/Ce)
+
+3. **Implementation Details** (lowest abstraction)
+   - Concerns: Language idioms, memory management, algorithms
+   - Examples: RAII, copy-and-swap, move semantics, template metaprogramming
+   - Change frequency: High
+   - Impact radius: Individual classes/functions
+   - Performance: O(1) overhead goal for abstractions
+
+**Interdependencies:**
+- Architecture constrains design choices
+- Design patterns realize architectural decisions
+- Implementation idioms support design patterns
+
+```c
+// C example showing three levels:
+
+// 1. Architecture level: System structure
+typedef struct {
+    struct NetworkLayer* network;
+    struct DatabaseLayer* database;
+    struct BusinessLogic* business;
+} SystemArchitecture;
+
+// 2. Design level: Strategy pattern for business rules
+typedef struct {
+    void (*execute)(void* context, void* data);
+} BusinessStrategy;
+
+typedef struct {
+    BusinessStrategy* strategy;
+    void* context;
+} BusinessLogic;
+
+void execute_business_logic(BusinessLogic* logic, void* data) {
+    // Design pattern usage
+    logic->strategy->execute(logic->context, data);
+}
+
+// 3. Implementation level: RAII-style resource management
+typedef struct {
+    FILE* file;
+    int owns_resource;
+} FileHandle;
+
+FileHandle* open_file(const char* path) {
+    FileHandle* handle = malloc(sizeof(FileHandle));
+    handle->file = fopen(path, "r");
+    handle->owns_resource = (handle->file != NULL);
+    return handle;  // O(1) allocation
+}
+
+void close_file(FileHandle* handle) {
+    if (handle && handle->owns_resource && handle->file) {
+        fclose(handle->file);  // Deterministic cleanup
+    }
+    free(handle);
+}
+```
+x??
 
 ---
 
-#### Software Architecture
+#### RAII (Resource Acquisition Is Initialization)
 
-Architecture is about the overall structure and strategy of a software project. It includes high-level concepts like client-server architecture or microservices, which determine how different parts of the system interact. Decisions here are often challenging to change later in the development process.
+RAII is a C++ programming idiom that binds resource lifecycle to object lifetime, leveraging the deterministic destruction of C++ stack objects. This provides exception-safe resource management and eliminates manual cleanup code.
 
-:p What does software architecture primarily focus on?
+:p What is the RAII idiom and how does it provide exception safety?
 ??x
-Software architecture primarily focuses on the big decisions that define the overall structure and strategy of a software project. It includes elements like client-server architecture or microservices, which determine how different parts of the system interact and can significantly affect maintainability, changeability, extensibility, testability, and scalability.
+RAII (Resource Acquisition Is Initialization) ties resource management to object lifetime by:
+1. Acquiring resources in constructor (throwing on failure)
+2. Releasing resources in destructor (guaranteed to be called)
 
----
+**Key properties:**
+- Exception safety: Destructors called during stack unwinding
+- Deterministic cleanup: No garbage collection delay
+- Zero-overhead abstraction: No runtime cost vs manual management
+- Composable: Multiple RAII objects automatically managed
+- RAII objects should follow Rule of Five or Rule of Zero
 
-#### Software Design
-
-Design is concerned with the detailed interactions between components, focusing on aspects like maintainability, changeability, extensibility, testability, and scalability. It uses design patterns to define dependencies among software entities.
-
-:p What are some key aspects of software design?
-??x
-Key aspects of software design include:
-- Maintainability: How easy it is to modify or enhance the system.
-- Changeability: The ease with which different parts can be changed without affecting others.
-- Extensibility: How easily new features or components can be added.
-- Testability: How well the system and its components can be tested.
-- Scalability: How well the system performs as more data or users are added.
-
-Design often employs patterns like Visitor, Strategy, and Decorator to manage dependencies among software entities.
-
----
-
-#### Implementation Details
-
-Implementation details focus on specific code-level concerns such as memory management, performance optimization, exception handling, etc. They include idioms which are commonly used solutions in a particular programming language.
-
-:p What does the implementation level deal with?
-??x
-The implementation level deals with concrete coding details like choosing the appropriate C++ standard or subset, using features, keywords, and language specifics to manage memory acquisition, ensure exception safety, optimize performance, etc. It includes idioms such as copy-and-swap or RAII, which are specific practices in C++.
-
----
-
-#### Idioms
-
-Idioms represent commonly used but language-specific solutions for recurring problems. They can be either implementation patterns or design patterns and are best practices within the community.
-
-:p What is an idiom in software development?
-??x
-An idiom is a common solution to a recurring problem in a particular programming language. Examples include C++ idioms like the copy-and-swap idiom for implementing copy assignment operators, and RAII (Resource Acquisition Is Initialization). These are best practices that don't introduce abstractions but help with practical issues.
-
----
-
-#### Distinguishing Architecture from Design
-
-The line between architecture and design can be blurry. Architecture tends to focus on high-level decisions and key entities like modules or components, while design focuses more on interactions among these entities using patterns.
-
-:p How do architecture and design differ?
-??x
-Architecture focuses on high-level decisions that define the overall structure of a system, such as client-server architecture or microservices, making it hard to change. Design deals with lower-level interactions between components using patterns like Visitor, Strategy, and Decorator, addressing maintainability, extensibility, etc.
-
----
-
-#### RAII Example
-
-RAII (Resource Acquisition Is Initialization) is an idiom in C++ where resources are managed through object lifetimes rather than explicit deallocation functions. This encapsulates resource management within the class lifecycle.
-
-:p What is the RAII idiom?
-??x
-The RAII (Resource Acquisition Is Initialization) idiom in C++ manages resources by acquiring them during construction and releasing them during destruction. For example, a `File` object might open a file when it's created and automatically close it when it goes out of scope.
+**Resource leak prevention:**
+- Constructor failure: No object created, no destructor called
+- Exception thrown: Stack unwinding calls all destructors
+- Normal exit: Destructors called in reverse construction order
 
 ```cpp
 class File {
 private:
     FILE* fp;
+    bool owned;  // Track ownership for move semantics
+
 public:
-    File(const std::string& filename) : fp(fopen(filename.c_str(), "r")) {
-        if (!fp) throw std::runtime_error("File not found");
-    }
-    
-    ~File() { 
-        if (fp != nullptr) fclose(fp); 
+    // Constructor acquires resource
+    explicit File(const char* filename, const char* mode = "r")
+        : fp(fopen(filename, mode)), owned(true) {
+        if (!fp) {
+            throw std::runtime_error("Failed to open file");
+        }
     }
 
-    // Other methods...
+    // Destructor releases resource (noexcept guaranteed)
+    ~File() noexcept {
+        if (owned && fp) {
+            fclose(fp);
+        }
+    }
+
+    // Delete copy operations (prevent double-free)
+    File(const File&) = delete;
+    File& operator=(const File&) = delete;
+
+    // Move semantics for transferring ownership
+    File(File&& other) noexcept
+        : fp(other.fp), owned(other.owned) {
+        other.owned = false;  // Transfer ownership
+    }
+
+    File& operator=(File&& other) noexcept {
+        if (this != &other) {
+            if (owned && fp) fclose(fp);  // Release current
+            fp = other.fp;
+            owned = other.owned;
+            other.owned = false;
+        }
+        return *this;
+    }
+
+    // Access methods
+    FILE* get() const noexcept { return fp; }
 };
-```
 
-This code ensures that the file is closed when the object goes out of scope, encapsulating resource management within the class lifecycle.
+// Exception safety demonstration:
+void process_file(const char* filename) {
+    File f1(filename);  // Acquire resource
+    // If exception thrown here, f1 destructor called
+    File f2("other.txt");
+    // If exception thrown here, both destructors called
+
+    // Manual cleanup not needed - automatic via RAII
+}
+
+// C comparison (manual management, error-prone):
+/*
+int process_file_c(const char* filename) {
+    FILE* f1 = fopen(filename, "r");
+    if (!f1) return -1;
+
+    FILE* f2 = fopen("other.txt", "r");
+    if (!f2) {
+        fclose(f1);  // Must remember to cleanup f1
+        return -1;
+    }
+
+    // Process files...
+    // If error occurs, must cleanup both files manually
+
+    fclose(f2);
+    fclose(f1);  // Easy to forget or get order wrong
+    return 0;
+}
+*/
+```
+x??
 
 ---
 

@@ -60,7 +60,7 @@ x??
 
 
 #### Pair-Wise Comparisons and Computational Complexity
-Background context: In record linkage, when comparing two large datasets for matching, a brute-force approach involves comparing each element in one dataset with every element in another. This leads to an exponential increase in computational complexity as the size of the datasets grows. The number of comparisons is \(O(x^2)\), where \(x\) is the number of records in the datasets.
+Background context: In record linkage, when comparing two large datasets for matching, a brute-force approach involves comparing each element in one dataset with every element in another. This leads to an exponential increase in computational complexity as the size of the datasets grows. The number of comparisons is $O(x^2)$, where $ x$ is the number of records in the datasets.
 :p What issue does this approach face when dealing with large datasets?
 ??x
 This approach faces significant scalability issues, especially as the number of records increases. With two datasets each containing 500k records, there would be 250 billion comparisons needed, which at a processing rate of one million per second still takes about 69 hours. For one million records in each dataset, it would take around 11 days.
@@ -473,11 +473,10 @@ Background context explaining accuracy. It measures the overall correctness of c
 Accuracy measures the ability of the system to make correct classifications (both matches and non-matches) out of all possible classifications.
 
 Formula:
-\[ \text{Accuracy} = \frac{\text{TP} + \text{TN}}{\text{TP} + \text{FP} + \text{FN} + \text{TN}} \]
+$$\text{Accuracy} = \frac{\text{TP} + \text{TN}}{\text{TP} + \text{FP} + \text{FN} + \text{TN}}$$
 
 For the given data in Table 4-9:
-\[ \text{Accuracy} = \frac{3 + 1}{5 + 0 + 1 + 1} = \frac{4}{7} \approx 0.8 \]
-x??
+$$\text{Accuracy} = \frac{3 + 1}{5 + 0 + 1 + 1} = \frac{4}{7} \approx 0.8$$x??
 
 ---
 #### Precision
@@ -487,11 +486,10 @@ Background context explaining precision. It measures the ability of a system to 
 Precision measures the proportion of true positive predictions out of all positive predictions (i.e., both TP and FP).
 
 Formula:
-\[ \text{Precision} = \frac{\text{TP}}{\text{TP} + \text{FP}} \]
+$$\text{Precision} = \frac{\text{TP}}{\text{TP} + \text{FP}}$$
 
 For the given data in Table 4-9:
-\[ \text{Precision} = \frac{3}{3 + 0} = 1 \]
-x??
+$$\text{Precision} = \frac{3}{3 + 0} = 1$$x??
 
 ---
 #### Recall
@@ -501,11 +499,10 @@ Background context explaining recall. It measures the ability of a system to det
 Recall (or Sensitivity) measures the proportion of actual positives that were identified correctly by the system.
 
 Formula:
-\[ \text{Recall} = \frac{\text{TP}}{\text{TP} + \text{FN}} \]
+$$\text{Recall} = \frac{\text{TP}}{\text{TP} + \text{FN}}$$
 
 For the given data in Table 4-9:
-\[ \text{Recall} = \frac{3}{3 + 1} = 0.75 \]
-x??
+$$\text{Recall} = \frac{3}{3 + 1} = 0.75$$x??
 
 ---
 #### F1 Score
@@ -515,11 +512,10 @@ Background context explaining F1 score. It is a harmonic mean of precision and r
 The F1 score provides a balanced measure that takes into account both precision (how many selected items are relevant) and recall (how many relevant items were selected).
 
 Formula:
-\[ \text{F1 Score} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}} \]
+$$\text{F1 Score} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}$$
 
 For the given data in Table 4-9:
-\[ \text{F1 Score} = 2 \times \frac{1 \times 0.75}{1 + 0.75} = \frac{1.5}{1.75} \approx 0.857 \]
-x??
+$$\text{F1 Score} = 2 \times \frac{1 \times 0.75}{1 + 0.75} = \frac{1.5}{1.75} \approx 0.857$$x??
 
 
 #### Link Tables
@@ -669,8 +665,8 @@ Background context explaining common types of errors in financial data with exam
 :p What are some common types of data errors found in financial data?
 ??x
 Common types of data errors include:
-- Random measurement errors (e.g., $9.345 instead of $9.335)
-- Wrong decimal places (e.g., a price of $111.34 instead of $11.134)
+- Random measurement errors (e.g.,$9.345 instead of$9.335)
+- Wrong decimal places (e.g., a price of $111.34 instead of$11.134)
 - Decimal precision issues (e.g., an exchange rate of 1.345 instead of 1.3458)
 - Negative prices (e.g., one Apple stock is worth $-200)
 - Dummy and test quotes

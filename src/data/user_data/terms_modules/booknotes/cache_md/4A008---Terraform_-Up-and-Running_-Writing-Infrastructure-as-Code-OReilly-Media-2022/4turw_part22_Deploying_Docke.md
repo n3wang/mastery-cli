@@ -97,7 +97,7 @@ Background context: After deploying an application using Terraform with EKS, it'
 You can test the application by using the `curl` command on the `service_endpoint` provided in the Terraform output:
 
 ```sh
-$ curl http://774696355.us-east-2.elb.amazonaws.com
+$curl http://774696355.us-east-2.elb.amazonaws.com
 ```
 
 This command sends a request to the load balancer, and if everything is set up correctly, you should receive a response like "Hello Terraform." This confirms that the application is running and accessible via the provided URL.
@@ -114,8 +114,7 @@ Background context: After deploying an application using Terraform on EKS, you c
 ??x
 You can authenticate `kubectl` to interact with an EKS cluster by running:
 
-```sh
-$ aws eks update-kubeconfig --region <REGION> --name <EKS_CLUSTER_NAME>
+```sh$ aws eks update-kubeconfig --region <REGION> --name <EKS_CLUSTER_NAME>
 ```
 
 Replace `<REGION>` and `<EKS_CLUSTER_NAME>` with the appropriate values. For example, if your region is `us-east-2` and your cluster name is `kubernetes-example`, you would run:

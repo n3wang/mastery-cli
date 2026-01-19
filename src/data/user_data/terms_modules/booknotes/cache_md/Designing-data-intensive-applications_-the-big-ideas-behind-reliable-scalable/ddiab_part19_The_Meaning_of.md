@@ -58,11 +58,11 @@ Concurrency control is crucial for ensuring that database transactions do not in
 Race conditions in databases refer to situations where the order of execution of operations matters and can lead to inconsistent or incorrect results. For example, if two transactions try to update the same record simultaneously, the outcome depends on the sequence in which these updates are applied.
 
 These conditions can be illustrated with a simple scenario:
-- Transaction A reads a value \( x \).
-- Transaction B reads the same value \( x \).
-- Both transactions increment \( x \) by 1.
-- If transaction A commits first and then transaction B, the final result is \( x+2 \).
-- Conversely, if transaction B commits first, followed by transaction A, the final result is \( x+1 \).
+- Transaction A reads a value $x$.
+- Transaction B reads the same value $x$.
+- Both transactions increment $x$ by 1.
+- If transaction A commits first and then transaction B, the final result is $x+2$.
+- Conversely, if transaction B commits first, followed by transaction A, the final result is $x+1$.
 
 This inconsistency can be avoided through proper concurrency control mechanisms.
 

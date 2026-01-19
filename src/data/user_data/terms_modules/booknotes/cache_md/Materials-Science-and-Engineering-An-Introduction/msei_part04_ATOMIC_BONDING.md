@@ -7,24 +7,24 @@
 
 
 #### Interatomic Forces and Bonding
-Background context: Understanding atomic bonding is crucial for explaining the physical properties of materials. At large distances, atoms do not influence each other due to negligible interactions; however, at small separations, both attractive (FA) and repulsive (FR) forces come into play. The net force \(F_N\) between two atoms can be described as:
-\[ F_N = F_A + F_R \]
-where the magnitude of these forces depends on the interatomic separation \(r\). Repulsive forces arise from overlapping electron clouds, while attractive forces depend on the type of bonding.
+Background context: Understanding atomic bonding is crucial for explaining the physical properties of materials. At large distances, atoms do not influence each other due to negligible interactions; however, at small separations, both attractive (FA) and repulsive (FR) forces come into play. The net force $F_N$ between two atoms can be described as:
+$$F_N = F_A + F_R$$where the magnitude of these forces depends on the interatomic separation $ r$. Repulsive forces arise from overlapping electron clouds, while attractive forces depend on the type of bonding.
 :p What are the types of interatomic forces and how do they affect the net force between two atoms?
 ??x
-The types of interatomic forces include attractive (\(F_A\)) and repulsive (\(F_R\)). The net force \(F_N\) is the sum of these two:
-\[ F_N = F_A + F_R \]
-At small separations, the overlap of electron clouds results in repulsive forces, while at larger separations, attractive forces dominate. When \(F_A\) and \(F_R\) are equal but opposite, a state of equilibrium exists.
+The types of interatomic forces include attractive ($F_A $) and repulsive ($ F_R $). The net force$ F_N$is the sum of these two:
+$$F_N = F_A + F_R$$
+
+At small separations, the overlap of electron clouds results in repulsive forces, while at larger separations, attractive forces dominate. When $F_A $ and$F_R$ are equal but opposite, a state of equilibrium exists.
 x??
 
 ---
 
 
 #### Dependence of Forces on Interatomic Separation
-Background context: The forces between two atoms depend on their interatomic separation. Figure 2.10a shows the schematic plot of these forces. At large distances, the forces are negligible; as \(r\) decreases, repulsive and attractive forces become significant.
+Background context: The forces between two atoms depend on their interatomic separation. Figure 2.10a shows the schematic plot of these forces. At large distances, the forces are negligible; as $r$ decreases, repulsive and attractive forces become significant.
 :p How do attractive and repulsive forces vary with respect to interatomic separation?
 ??x
-Attractive forces (\(F_A\)) increase up to a certain point before decreasing, while repulsive forces (\(F_R\)) start at zero and increase as the atoms get closer. When \(F_A\) equals \(-F_R\), there is no net force, indicating equilibrium.
+Attractive forces ($F_A $) increase up to a certain point before decreasing, while repulsive forces ($ F_R $) start at zero and increase as the atoms get closer. When$ F_A $equals$-F_R$, there is no net force, indicating equilibrium.
 x??
 
 ---
@@ -32,24 +32,30 @@ x??
 
 #### Potential Energy of Interatomic Bonding
 Background context: Instead of working with forces directly, it can be more convenient to consider potential energies. The relationship between energy and force is given by:
-\[ E = \int F \, dr \]
-For atomic systems, the total net energy \(E_N\) is the sum of attractive (\(E_A\)) and repulsive (\(E_R\)) energies:
-\[ E_N = E_A + E_R \]
-The minimum in the net energy curve corresponds to equilibrium spacing \(r_0\).
+$$E = \int F \, dr$$
+
+For atomic systems, the total net energy $E_N $ is the sum of attractive ($E_A $) and repulsive ($ E_R$) energies:
+$$E_N = E_A + E_R$$
+
+The minimum in the net energy curve corresponds to equilibrium spacing $r_0$.
 :p How are potential energies related to forces, and what does this relationship tell us about bonding?
 ??x
 Potential energies are related to forces by integration. For two atoms:
-\[ E = \int F \, dr \]
+$$E = \int F \, dr$$
+
 This means that force can be derived as the derivative of energy with respect to distance:
-\[ F = -\frac{dE}{dr} \]
-The minimum in the net potential energy curve indicates the equilibrium spacing \(r_0\) and bonding energy \(E_0\), which is the energy required to separate the atoms to an infinite separation.
+$$
+
+F = -\frac{dE}{dr}$$
+
+The minimum in the net potential energy curve indicates the equilibrium spacing $r_0 $ and bonding energy$E_0$, which is the energy required to separate the atoms to an infinite separation.
 x??
 
 ---
 
 
 #### Bonding Energy in Solids
-Background context: While the treatment for two atoms was ideal, solids involve complex interactions among many atoms. A bonding energy analogous to \(E_0\) can still be associated with each atom. The magnitude and shape of this energy curve vary from material to material based on the type of atomic bonding.
+Background context: While the treatment for two atoms was ideal, solids involve complex interactions among many atoms. A bonding energy analogous to $E_0$ can still be associated with each atom. The magnitude and shape of this energy curve vary from material to material based on the type of atomic bonding.
 :p What is the significance of bonding energy in solid materials?
 ??x
 Bonding energy is significant because it represents the energy required to break a bond, which influences various material properties such as strength and reactivity. It varies with the type of bonding and the material's structure.
@@ -60,14 +66,19 @@ x??
 
 #### Force-Potential Energy Relationship
 Background context: The relationship between force and potential energy can also be expressed in terms of derivatives:
-\[ F = -\frac{dE}{dr} \]
+$$F = -\frac{dE}{dr}$$
+
 For two atoms, this means that the net force is the sum of attractive and repulsive forces derived from their respective energies.
 :p How do you derive the force equivalent for potential energies?
 ??x
 To derive the force equivalent for potential energies, use the relationship:
-\[ F = -\frac{dE}{dr} \]
-For two atoms with energies \(E_A\) and \(E_R\):
-\[ F_N = dE_A/dr + dE_R/dr \]
+$$
+
+F = -\frac{dE}{dr}$$
+
+For two atoms with energies $E_A $ and$E_R$:
+$$F_N = dE_A/dr + dE_R/dr$$
+
 This shows that the net force is the sum of the derivatives of the attractive and repulsive potential energies.
 x??
 
@@ -90,7 +101,7 @@ x??
 Background context explaining the concept. The mechanical stiffness of a material is related to the shape of its force-versus-interatomic separation curve. A steeper slope indicates higher stiffness, while shallower slopes indicate more flexible materials.
 :p How does the shape of the force-versus-interatomic separation curve relate to a material's mechanical properties?
 ??x
-The shape of the force-versus-interatomic separation curve determines how stiff or flexible a material is. A steep slope at the \( r = r_0 \) position on the curve indicates high stiffness (or modulus of elasticity), while shallower slopes indicate more flexible materials.
+The shape of the force-versus-interatomic separation curve determines how stiff or flexible a material is. A steep slope at the $r = r_0$ position on the curve indicates high stiffness (or modulus of elasticity), while shallower slopes indicate more flexible materials.
 x??
 
 ---
@@ -131,12 +142,11 @@ x??
 
 
 #### Ionic Bonding Coulombic Force
-Background context explaining the concept. The attractive bonding forces in ionic compounds are coulombic and can be described by the formula \( E_A = - \frac{A}{r} \), where \( A = \frac{1}{4\pi\epsilon_0} |Z_1|e|Z_2|e \). The constant \( A \) is determined experimentally.
+Background context explaining the concept. The attractive bonding forces in ionic compounds are coulombic and can be described by the formula $E_A = - \frac{A}{r}$, where $ A = \frac{1}{4\pi\epsilon_0} |Z_1|e|Z_2|e$. The constant $ A$ is determined experimentally.
 :p What is the mathematical relationship for ionic bonding forces?
 ??x
 The attractive bonding force in ionic compounds follows a coulombic relationship described by:
-\[ E_A = - \frac{A}{r} \]
-where \( A = \frac{1}{4\pi\epsilon_0} |Z_1|e|Z_2|e \). Here, \( \epsilon_0 \) is the permittivity of a vacuum (8.85 × 10⁻¹² F/m), \( |Z_1| \) and \( |Z_2| \) are the absolute values of the valences for the two ion types, and \( e \) is the electronic charge (1.602 × 10⁻¹⁹ C).
+$$E_A = - \frac{A}{r}$$where $ A = \frac{1}{4\pi\epsilon_0} |Z_1|e|Z_2|e $. Here,$\epsilon_0 $ is the permittivity of a vacuum (8.85 × 10⁻¹² F/m),$|Z_1|$ and $|Z_2|$ are the absolute values of the valences for the two ion types, and $e$ is the electronic charge (1.602 × 10⁻¹⁹ C).
 x??
 
 ---
@@ -146,13 +156,12 @@ x??
 
 ---
 #### Ionic Bonding and Energy Relationships
-Ionic bonding involves the electrostatic attraction between oppositely charged ions. The repulsive energy \(ER\) between two ions is given by:
-\[ ER = B r^n \]
-where \(B\) and \(n\) are constants that depend on the specific ionic system, with \(n\) typically around 8.
+Ionic bonding involves the electrostatic attraction between oppositely charged ions. The repulsive energy $ER$ between two ions is given by:
+$$ER = B r^n$$where $ B $ and $ n $ are constants that depend on the specific ionic system, with $ n$ typically around 8.
 
 :p What does the equation for repulsive energy represent in terms of interatomic interactions?
 ??x
-The equation represents the repulsive force between two ions as a function of their separation distance. The exponent \(n = 8\) indicates that the repulsion is significantly stronger at short distances compared to other forces.
+The equation represents the repulsive force between two ions as a function of their separation distance. The exponent $n = 8$ indicates that the repulsion is significantly stronger at short distances compared to other forces.
 x??
 
 ---
@@ -196,22 +205,22 @@ The formation of sodium chloride (NaCl) involves the transfer of an electron fro
 
 :p Describe the process of ionic bonding using the example of NaCl formation.
 ??x
-In NaCl formation, a valence electron is transferred from a sodium atom to a chlorine atom. This results in a positively charged sodium ion (Na\(^+\)) and a negatively charged chloride ion (Cl\(^-\)). The electrostatic attraction between these ions forms an ionic bond.
+In NaCl formation, a valence electron is transferred from a sodium atom to a chlorine atom. This results in a positively charged sodium ion (Na $^+$) and a negatively charged chloride ion (Cl $^-$). The electrostatic attraction between these ions forms an ionic bond.
 x??
 
 ---
 
 
 #### Calculation of Forces Between Ions
-The force of attraction \(FA\) between two ions can be calculated using the formula:
-\[ FA = \frac{1}{4\pi \epsilon_0} \cdot \frac{|Z_1| e |Z_2| e}{r^2} \]
-where \(e\) is the elementary charge, and \(\epsilon_0\) is the vacuum permittivity.
+The force of attraction $FA$ between two ions can be calculated using the formula:
+$$FA = \frac{1}{4\pi \epsilon_0} \cdot \frac{|Z_1| e |Z_2| e}{r^2}$$where $ e $ is the elementary charge, and $\epsilon_0$ is the vacuum permittivity.
 
 :p How do you calculate the force of attraction between two ions?
 ??x
 The force of attraction between two ions can be calculated using Coulomb's law:
-\[ FA = \frac{1}{4\pi \epsilon_0} \cdot \frac{|Z_1| e |Z_2| e}{r^2} \]
-Here, \(|Z_1|\) and \(|Z_2|\) are the absolute values of the ionic charges in units of elementary charge (C), \(e = 1.602 \times 10^{-19}\) C, and \(r\) is the distance between the ions.
+$$FA = \frac{1}{4\pi \epsilon_0} \cdot \frac{|Z_1| e |Z_2| e}{r^2}$$
+
+Here,$|Z_1|$ and $|Z_2|$ are the absolute values of the ionic charges in units of elementary charge (C),$ e = 1.602 \times 10^{-19}$ C, and $r$ is the distance between the ions.
 
 Example code to compute the force:
 ```java

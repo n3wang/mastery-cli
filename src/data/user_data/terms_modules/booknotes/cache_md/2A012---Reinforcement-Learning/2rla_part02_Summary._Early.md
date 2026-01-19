@@ -14,7 +14,7 @@ Background context: In reinforcement learning, state values can converge to diff
 ??x
 When we continue learning from exploratory moves, the state values would converge to a different set of probabilities compared to the case where such learning does not occur. This is because the agent's policy incorporates exploration, which can lead it to visit states that might be less frequent in an unexplored environment.
 
-Example: If the initial state value function \( V(s) \) converges without learning from exploratory moves, it will eventually stabilize at a certain set of probabilities. However, if we do learn from exploratory moves, this stabilization process could result in different values for each state as the agent explores more and encounters states that were initially visited less frequently.
+Example: If the initial state value function $V(s)$ converges without learning from exploratory moves, it will eventually stabilize at a certain set of probabilities. However, if we do learn from exploratory moves, this stabilization process could result in different values for each state as the agent explores more and encounters states that were initially visited less frequently.
 
 ```java
 // Pseudocode to illustrate value update with exploration learning
@@ -55,7 +55,7 @@ Background context: The question pertains to the difference in state values when
 ??x
 Learning from exploratory moves allows the agent to visit a wider range of states and potentially adjust its policy based on these unexplored states. This can lead to different final state values compared to when exploration is not learned, as more frequent visits to less likely states might occur.
 
-Example: If an agent does not learn from exploratory moves, it may converge to a set of state values \( V_1(s) \). However, if the agent continues making exploratory moves, it could lead to a different set of state values \( V_2(s) \), where some states have higher or lower values due to increased exploration.
+Example: If an agent does not learn from exploratory moves, it may converge to a set of state values $V_1(s)$. However, if the agent continues making exploratory moves, it could lead to a different set of state values $ V_2(s)$, where some states have higher or lower values due to increased exploration.
 
 ```java
 // Pseudocode for state value update with and without learning from exploratory moves
@@ -789,7 +789,7 @@ Explanation of actions, their expected rewards (values), and how these are repre
 
 :p What does q⇤(a) represent in the context of a k-armed bandit problem?
 ??x
-q⇤(a) represents the value or expected reward for action `a`. It is defined as the expected reward given that the action `a` is selected: \( q^\star(a) = E[R_t \mid A_t = a] \).
+q⇤(a) represents the value or expected reward for action `a`. It is defined as the expected reward given that the action `a` is selected: $q^\star(a) = E[R_t \mid A_t = a]$.
 
 Example:
 ```java

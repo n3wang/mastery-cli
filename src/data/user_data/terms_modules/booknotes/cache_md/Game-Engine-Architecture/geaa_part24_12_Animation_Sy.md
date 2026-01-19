@@ -168,13 +168,13 @@ Background context: The position of each vertex is calculated using a simple lin
 Linear Interpolation (LERP) is a method used to calculate intermediate values between two known quantities. In the context of vertex positions, LERP interpolates the vertex's position based on its positions in extreme poses. This allows for smooth transitions between different facial expressions.
 
 The formula for LERP can be expressed as:
-\[ \text{lerp}(a, b, t) = (1 - t) \cdot a + t \cdot b \]
+$$\text{lerp}(a, b, t) = (1 - t) \cdot a + t \cdot b$$
 
-Where \(a\) and \(b\) are the two known quantities (vertex positions), and \(t\) is the interpolation factor.
+Where $a $ and$b $ are the two known quantities (vertex positions), and $ t$ is the interpolation factor.
 
 In vertex position calculation:
-- \(v_0\) and \(v_1\) represent the extreme poses.
-- \(t\) is a value between 0 and 1, representing the progression of time or state in animation.
+- $v_0 $ and$v_1$ represent the extreme poses.
+- $t$ is a value between 0 and 1, representing the progression of time or state in animation.
 
 Example code to apply LERP for vertex positions:
 ```java
@@ -506,8 +506,7 @@ Background context: A global pose represents a joint's transformation in model o
 :p How is a global pose calculated for a joint?
 ??x
 A global pose for a joint can be calculated by walking up the skeletal hierarchy and multiplying the local poses from the target joint to the root. The formula used is:
-
-\[ P_j.M = \prod_{i=j}^{0} (P_i.p(i)) \]
+$$P_j.M = \prod_{i=j}^{0} (P_i.p(i))$$
 
 Where `p(i)` returns the parent index of joint `i`.
 

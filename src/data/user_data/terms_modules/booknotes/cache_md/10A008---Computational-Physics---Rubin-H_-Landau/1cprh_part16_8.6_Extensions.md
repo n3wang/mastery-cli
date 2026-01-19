@@ -7,20 +7,18 @@
 
 
 #### Fourth-Order Runge-Kutta Method (rk4)
-Background context explaining the concept. The fourth-order Runge-Kutta method is an algorithm used to solve ordinary differential equations with high precision by approximating the function \( y \) as a Taylor series up to order \( h^2 \). This method provides good balance between power, precision, and programming simplicity.
+Background context explaining the concept. The fourth-order Runge-Kutta method is an algorithm used to solve ordinary differential equations with high precision by approximating the function $y $ as a Taylor series up to order$h^2$. This method provides good balance between power, precision, and programming simplicity.
 If applicable, add code examples with explanations. The rk4 method involves multiple intermediate slopes and uses the Euler algorithm for approximation.
 
 :p What is the formula used in the fourth-order Runge-Kutta method?
 ??x
-The formula used in the fourth-order Runge-Kutta method (rk4) to approximate \( y \) at the next step is given by:
-\[ y_{n+1} = y_n + \frac{1}{6}(k_1 + 2k_2 + 2k_3 + k_4), \]
-where
-\[ k_1 = h f(t_n, y_n), \]
-\[ k_2 = h f\left(t_n + \frac{h}{2}, y_n + \frac{k_1}{2}\right), \]
-\[ k_3 = h f\left(t_n + \frac{h}{2}, y_n + \frac{k_2}{2}\right), \]
-\[ k_4 = h f(t_n + h, y_n + k_3). \]
+The formula used in the fourth-order Runge-Kutta method (rk4) to approximate $y$ at the next step is given by:
+$$y_{n+1} = y_n + \frac{1}{6}(k_1 + 2k_2 + 2k_3 + k_4),$$where$$k_1 = h f(t_n, y_n),$$
+$$k_2 = h f\left(t_n + \frac{h}{2}, y_n + \frac{k_1}{2}\right),$$
+$$k_3 = h f\left(t_n + \frac{h}{2}, y_n + \frac{k_2}{2}\right),$$
+$$k_4 = h f(t_n + h, y_n + k_3).$$
 
-This formula provides an improved approximation to \( f(t,y) \) near the midpoint of the interval.
+This formula provides an improved approximation to $f(t,y)$ near the midpoint of the interval.
 ??x
 ```java
 // Pseudocode for rk4 method
@@ -103,12 +101,12 @@ x??
 
 
 #### Adams-Bashful-Moulton Predictor-Corrector Rule (ABM)
-Background context explaining the concept. The Adams-Bashful-Moulton predictor-corrector rule uses solutions from two previous steps to predict the next value of \( y \), and then corrects this prediction using a higher-order method such as Runge-Kutta.
+Background context explaining the concept. The Adams-Bashful-Moulton predictor-corrector rule uses solutions from two previous steps to predict the next value of $y$, and then corrects this prediction using a higher-order method such as Runge-Kutta.
 If applicable, add code examples with explanations.
 
 :p What is the advantage of the Adams-Bashful-Moulton (ABM) predictor-corrector rule?
 ??x
-The main advantage of the Adams-Bashful-Moulton (ABM) predictor-corrector rule is that it uses solutions from two previous steps to make a prediction for the next value of \( y \), and then corrects this prediction using a higher-order method like Runge-Kutta. This approach can provide high precision by leveraging information from multiple previous steps, making the overall computation more efficient.
+The main advantage of the Adams-Bashful-Moulton (ABM) predictor-corrector rule is that it uses solutions from two previous steps to make a prediction for the next value of $y$, and then corrects this prediction using a higher-order method like Runge-Kutta. This approach can provide high precision by leveraging information from multiple previous steps, making the overall computation more efficient.
 ??x
 ```java
 // Pseudocode for ABM predictor-corrector rule
@@ -184,7 +182,7 @@ Background context: This section describes how to numerically solve the equation
 
 :p What are the steps involved in solving an ODE for a harmonic oscillator numerically?
 ??x
-The steps involve selecting appropriate \( k \) and \( m \) values so that the period \( T = 2\pi/\omega \) is a nice number to work with. Starting with a step size \( h \approx T/5 \), make \( h \) smaller until the solution looks smooth, has a constant period over many cycles, and agrees with the analytic result. Always start with a large \( h \) so that you can see how the bad solution turns good.
+The steps involve selecting appropriate $k $ and$m $ values so that the period$ T = 2\pi/\omega $ is a nice number to work with. Starting with a step size $ h \approx T/5 $, make $ h$smaller until the solution looks smooth, has a constant period over many cycles, and agrees with the analytic result. Always start with a large $ h$ so that you can see how the bad solution turns good.
 
 Code for setting initial conditions:
 ```java
@@ -199,11 +197,11 @@ x??
 
 
 #### Step Size Selection for Numerical Solutions
-Background context: The step size \( h \) is critical in ensuring that the numerical solution converges to the analytic one. Starting with a large \( h \) allows you to see how the initial bad solution improves as \( h \) decreases, leading to a smooth and accurate periodic solution.
+Background context: The step size $h $ is critical in ensuring that the numerical solution converges to the analytic one. Starting with a large$h $ allows you to see how the initial bad solution improves as$h$ decreases, leading to a smooth and accurate periodic solution.
 
 :p How do you determine an appropriate initial step size for the harmonic oscillator?
 ??x
-Start with a step size \( h \approx T/5 \), where \( T = 2\pi/\omega \). Gradually decrease \( h \) until the solution appears smooth, has a constant period over multiple cycles, and matches the analytic result. Always begin with a large \( h \) to observe the transition from an inaccurate to an accurate solution.
+Start with a step size $h \approx T/5 $, where $ T = 2\pi/\omega $. Gradually decrease$ h $ until the solution appears smooth, has a constant period over multiple cycles, and matches the analytic result. Always begin with a large $ h$ to observe the transition from an inaccurate to an accurate solution.
 
 x??
 
@@ -236,7 +234,7 @@ Background context: The table compares the performance of different Runge-Kutta 
 
 :p What is the objective of comparing RK4 and RK45 solvers using Table 8.1?
 ??x
-The objective is to compare the accuracy, number of floating-point operations (FLOPs), execution time, and relative error of rk4 and rk45 methods for solving two nonlinear equations: \(2yy'' + y^2 - y'^2 = 0\) and \(y'' + 6y^5 = 0\).
+The objective is to compare the accuracy, number of floating-point operations (FLOPs), execution time, and relative error of rk4 and rk45 methods for solving two nonlinear equations: $2yy'' + y^2 - y'^2 = 0 $ and$y'' + 6y^5 = 0$.
 
 Example table data:
 ```
@@ -253,11 +251,11 @@ x??
 
 
 #### Nonlinear Oscillations with Different Powers and Forces
-Background context: The harmonic oscillator's potential can be modified by changing the power in \( V(x) = k x^p \). This section explores how different powers affect the system, particularly focusing on the range from \( p=2 \) to \( 12 \).
+Background context: The harmonic oscillator's potential can be modified by changing the power in $V(x) = k x^p $. This section explores how different powers affect the system, particularly focusing on the range from $ p=2 $ to $12$.
 
 :p How do you study nonlinear oscillations for anharmonic potentials?
 ??x
-Study nonlinear oscillations by varying the power \( p \) in the potential function \( V(x) = k x^p \). For example, start with \( p = 2 \) (linear) and increase it to \( p = 12 \), observing how the system's behavior changes. Note that for large values of \( p \), forces and accelerations grow near turning points, requiring smaller step sizes.
+Study nonlinear oscillations by varying the power $p $ in the potential function$V(x) = k x^p $. For example, start with$ p = 2 $(linear) and increase it to$ p = 12 $, observing how the system's behavior changes. Note that for large values of$ p$, forces and accelerations grow near turning points, requiring smaller step sizes.
 
 Example code to set different powers:
 ```java
@@ -272,11 +270,11 @@ x??
 
 
 #### Checking Periodicity and Energy Conservation
-Background context: For a harmonic oscillator or anharmonic potentials, the solution should remain periodic with constant amplitude. Additionally, the maximum speed occurs at \( x=0 \), while zero velocity is observed at the maximum absolute values of \( x \). These properties are consequences of energy conservation.
+Background context: For a harmonic oscillator or anharmonic potentials, the solution should remain periodic with constant amplitude. Additionally, the maximum speed occurs at $x=0 $, while zero velocity is observed at the maximum absolute values of $ x$. These properties are consequences of energy conservation.
 
 :p What checks should be performed to verify the periodicity and energy conservation in an oscillatory system?
 ??x
-Check that the solution remains periodic with constant amplitude for all initial conditions. Verify that the maximum speed occurs at \( x=0 \) and zero velocity at the maximum absolute values of \( x \). These properties ensure that energy is conserved throughout the motion.
+Check that the solution remains periodic with constant amplitude for all initial conditions. Verify that the maximum speed occurs at $x=0 $ and zero velocity at the maximum absolute values of$x$. These properties ensure that energy is conserved throughout the motion.
 
 Example code to check these properties:
 ```java
@@ -291,10 +289,10 @@ x??
 
 
 #### Shape Changes in Oscillations
-The shapes of the oscillations change based on parameters \( p \) or \( \alpha \). This is due to the nature of anharmonic oscillators where the potential energy depends on higher powers of displacement, leading to different restoring forces and thus different oscillation patterns.
-:p Explain why the shapes of the oscillations change for different \( p \) or \( \alpha \).
+The shapes of the oscillations change based on parameters $p $ or$\alpha$. This is due to the nature of anharmonic oscillators where the potential energy depends on higher powers of displacement, leading to different restoring forces and thus different oscillation patterns.
+:p Explain why the shapes of the oscillations change for different $p $ or$\alpha$.
 ??x
-The changes in shape are due to the nonlinearity introduced by higher powers in the potential function. For example, if \( V(x) = k x^p \), then the restoring force is given by \( F = -k p x^{p-1} \). As \( p \) varies, the strength and direction of the force change with displacement, leading to different oscillation patterns.
+The changes in shape are due to the nonlinearity introduced by higher powers in the potential function. For example, if $V(x) = k x^p $, then the restoring force is given by $ F = -k p x^{p-1}$. As $ p$ varies, the strength and direction of the force change with displacement, leading to different oscillation patterns.
 ```java
 // Pseudocode for shape analysis
 for (each value of p or alpha) {
@@ -308,8 +306,8 @@ x??
 
 
 #### Energy Conservation in Nonlinear Oscillators
-The conservation of total energy \( E = KE + PE \) is a stringent test for numerical solutions. For large- \( p \) oscillators, the kinetic and potential energies will fluctuate but should remain constant over time.
-:p Plot the potential energy \( PE(t) \), the kinetic energy \( KE(t) \), and the total energy \( E(t) \) for 50 periods and comment on their correlation.
+The conservation of total energy $E = KE + PE $ is a stringent test for numerical solutions. For large-$ p$ oscillators, the kinetic and potential energies will fluctuate but should remain constant over time.
+:p Plot the potential energy $PE(t)$, the kinetic energy $ KE(t)$, and the total energy $ E(t)$ for 50 periods and comment on their correlation.
 ??x
 Plotting these functions will help verify that the numerical solution respects energy conservation. The potential energy, kinetic energy, and total energy should be constant over time.
 
@@ -346,7 +344,7 @@ x??
 
 #### Precision Assessment
 Use the conservation of energy to assess the precision of numerical solutions. The relative error in total energy should be small over time.
-:p Plot \( -\log_{10} \left( \frac{|E(t) - E(t=0)|}{|E(t=0)|} \right) \) for a large number of periods and check long-term stability.
+:p Plot $-\log_{10} \left( \frac{|E(t) - E(t=0)|}{|E(t=0)|} \right)$ for a large number of periods and check long-term stability.
 ??x
 This plot will help verify that the numerical solution is stable over time. The relative error should remain within acceptable limits.
 
@@ -379,11 +377,11 @@ x??
 
 #### Lowering F0 to Match Natural Restoring Force
 
-Background context: In this step, you need to lower the driving force \( F_0 \) until it closely matches the magnitude of the natural restoring force of the system. This adjustment is crucial for generating beating oscillations.
+Background context: In this step, you need to lower the driving force $F_0$ until it closely matches the magnitude of the natural restoring force of the system. This adjustment is crucial for generating beating oscillations.
 
-:p What should be done with \( F_0 \) in relation to the natural restoring force?
+:p What should be done with $F_0$ in relation to the natural restoring force?
 ??x
-You should reduce \( F_0 \) gradually and monitor the system's response until the driving force closely matches the magnitude of the natural restoring force, which allows for the occurrence of beating. This involves tuning \( F_0 \) such that it is nearly equal to the natural force in absolute value.
+You should reduce $F_0 $ gradually and monitor the system's response until the driving force closely matches the magnitude of the natural restoring force, which allows for the occurrence of beating. This involves tuning$F_0$ such that it is nearly equal to the natural force in absolute value.
 x??
 
 ---
@@ -391,11 +389,11 @@ x??
 
 #### System Frequency Sweep
 
-Background context: After finding an appropriate \( F_0 \), perform a series of runs to progressively increase the driving frequency for a range from \(\frac{\omega_0}{10}\) to \(10\omega_0\). This will help understand how the system's behavior changes over different frequencies.
+Background context: After finding an appropriate $F_0 $, perform a series of runs to progressively increase the driving frequency for a range from $\frac{\omega_0}{10}$ to $10\omega_0$. This will help understand how the system's behavior changes over different frequencies.
 
 :p What is the objective of running the system with varying driver frequencies?
 ??x
-The objective is to observe and record how the system's behavior changes as the driving frequency \(\omega\) increases from \(\frac{\omega_0}{10}\) to \(10\omega_0\). This will provide insights into resonance phenomena, natural frequencies, and potentially nonlinear behaviors.
+The objective is to observe and record how the system's behavior changes as the driving frequency $\omega $ increases from$\frac{\omega_0}{10}$ to $10\omega_0$. This will provide insights into resonance phenomena, natural frequencies, and potentially nonlinear behaviors.
 x??
 
 ---
@@ -403,11 +401,11 @@ x??
 
 #### Plotting Maximum Amplitude vs. Driver Frequency
 
-Background context: Generate a plot showing the maximum amplitude of oscillation as a function of the driver's frequency \(\omega\).
+Background context: Generate a plot showing the maximum amplitude of oscillation as a function of the driver's frequency $\omega$.
 
 :p What should be done to create this plot?
 ??x
-To create this plot, run the system for various frequencies within the specified range and record the maximum amplitude at each step. Use these data points to construct a graph where the x-axis represents the driving frequency \(\omega\) and the y-axis represents the maximum amplitude of oscillation.
+To create this plot, run the system for various frequencies within the specified range and record the maximum amplitude at each step. Use these data points to construct a graph where the x-axis represents the driving frequency $\omega$ and the y-axis represents the maximum amplitude of oscillation.
 x??
 
 ---
@@ -439,11 +437,11 @@ x??
 
 #### Effect of Nonlinearity on Resonance
 
-Background context: Explore how increasing the exponent \( p \) in the potential \( V(x) = k|x|^{p/p} \) affects the character of resonance. For large \( p \), the mass effectively "hits" the wall, leading to a phase mismatch between the driver and the oscillator.
+Background context: Explore how increasing the exponent $p $ in the potential$V(x) = k|x|^{p/p}$ affects the character of resonance. For large $p$, the mass effectively "hits" the wall, leading to a phase mismatch between the driver and the oscillator.
 
-:p How does changing the exponent \( p \) affect the resonance behavior?
+:p How does changing the exponent $p$ affect the resonance behavior?
 ??x
-As the exponent \( p \) increases, the character of the resonance changes significantly. When \( p \) is large, the potential becomes more nonlinear, causing the mass to "hit" a wall or barrier, effectively detuning it from the driving force. This results in the driver being less effective at pumping energy into the system, leading to a broader and less pronounced resonance peak.
+As the exponent $p $ increases, the character of the resonance changes significantly. When$p$ is large, the potential becomes more nonlinear, causing the mass to "hit" a wall or barrier, effectively detuning it from the driving force. This results in the driver being less effective at pumping energy into the system, leading to a broader and less pronounced resonance peak.
 x??
 
 ---
@@ -563,8 +561,7 @@ Background context: The script uses a modified version of the Runge-Kutta 45 (RK
 :p What are the steps involved in the RK45 method used in the script?
 ??x
 The steps involved in the RK45 method used in the script include:
-1. **Estimating k1**: \(k1 = h \cdot f(t, y)\)
-2. **Estimating intermediate values** using \(y_{\text{dumb}}\) to compute \(k2, k3,\) and \(k4\).
+1. **Estimating k1**: $k1 = h \cdot f(t, y)$2. **Estimating intermediate values** using $ y_{\text{dumb}}$to compute $ k2, k3,$and $ k4$.
 3. **Computing weighted sums** of the k-values to estimate the function at different points.
 4. **Error estimation**: Calculating the error based on the differences between the k-values.
 
@@ -689,31 +686,29 @@ The purpose of using Fourier series in analyzing nonlinear oscillators is to dec
 
 
 #### Fourier Series Representation
-Relevant formulas include expressing a periodic function \( y(t) \):
-\[ y(t) = a_0 + \sum_{n=1}^{\infty}(a_n \cos n\omega t + b_n \sin n\omega t). \]
+Relevant formulas include expressing a periodic function $y(t)$:
+$$y(t) = a_0 + \sum_{n=1}^{\infty}(a_n \cos n\omega t + b_n \sin n\omega t).$$
 
 This equation represents the signal as a sum of pure tones with frequencies that are multiples of the fundamental frequency.
 
 :p What is the general form of a Fourier series for a periodic function?
 ??x
-The general form of a Fourier series for a periodic function \( y(t) \) is:
-\[ y(t) = a_0 + \sum_{n=1}^{\infty}(a_n \cos n\omega t + b_n \sin n\omega t). \]
-This representation decomposes the signal into its harmonic components, where each term represents a sine or cosine wave with frequency \( n\omega \).
+The general form of a Fourier series for a periodic function $y(t)$ is:
+$$y(t) = a_0 + \sum_{n=1}^{\infty}(a_n \cos n\omega t + b_n \sin n\omega t).$$
+
+This representation decomposes the signal into its harmonic components, where each term represents a sine or cosine wave with frequency $n\omega$.
 
 ---
 
 
 #### Fourier Series Coefficients
-The coefficients \( a_n \) and \( b_n \) are determined by multiplying both sides of the series equation by \( \cos(n\omega t) \) or \( \sin(n\omega t) \), integrating over one period, and then projecting to find each coefficient.
+The coefficients $a_n $ and$b_n $ are determined by multiplying both sides of the series equation by$\cos(n\omega t)$ or $\sin(n\omega t)$, integrating over one period, and then projecting to find each coefficient.
 
 Relevant formulas:
-\[ (a_n bn) = \frac{2}{T} \int_{0}^{T} y(t) (\cos n\omega t \text{ or } \sin n\omega t) dt. \]
-
-:p How are the coefficients \( a_n \) and \( b_n \) calculated in a Fourier series?
+$$(a_n bn) = \frac{2}{T} \int_{0}^{T} y(t) (\cos n\omega t \text{ or } \sin n\omega t) dt.$$:p How are the coefficients $ a_n $ and $ b_n$ calculated in a Fourier series?
 ??x
-The coefficients \( a_n \) and \( b_n \) in a Fourier series are calculated by integrating the product of the function \( y(t) \) and either \( \cos(n\omega t) \) or \( \sin(n\omega t) \) over one period. The formulas for determining these coefficients are:
-\[ (a_n bn) = \frac{2}{T} \int_{0}^{T} y(t) (\cos n\omega t \text{ or } \sin n\omega t) dt, \]
-where \( \omega = \frac{2\pi}{T} \).
+The coefficients $a_n $ and$b_n $ in a Fourier series are calculated by integrating the product of the function$y(t)$ and either $\cos(n\omega t)$ or $\sin(n\omega t)$ over one period. The formulas for determining these coefficients are:
+$$(a_n bn) = \frac{2}{T} \int_{0}^{T} y(t) (\cos n\omega t \text{ or } \sin n\omega t) dt,$$where $\omega = \frac{2\pi}{T}$.
 
 ---
 
@@ -768,7 +763,7 @@ Background context: Implementing the calculation of Fourier coefficients involve
 
 :p Provide an example of calculating Fourier coefficients in code.
 ??x
-Here is a simple example of how to calculate Fourier coefficients \( a_n \) and \( b_n \) for a given periodic function \( y(t) \):
+Here is a simple example of how to calculate Fourier coefficients $a_n $ and$b_n $ for a given periodic function$y(t)$:
 
 ```java
 public class FourierCoefficients {

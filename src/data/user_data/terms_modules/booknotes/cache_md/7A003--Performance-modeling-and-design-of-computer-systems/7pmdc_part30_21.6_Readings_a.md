@@ -8,11 +8,11 @@
 
 #### Matrix-Analytic Method for M/M/1 Queue
 
-Background context: This section explains how to apply matrix-analytic methods to solve the limiting probabilities of an M/M/1 queue, which has a single server with Poisson arrivals and exponential service times. Key matrices involved are \(Q\), \(B\), \(L\), \(F\), and \(R\).
+Background context: This section explains how to apply matrix-analytic methods to solve the limiting probabilities of an M/M/1 queue, which has a single server with Poisson arrivals and exponential service times. Key matrices involved are $Q $, $ B $,$ L $,$ F $, and$ R$.
 
 :p What is the process for solving the M/M/1 queue using matrix-analytic methods?
 ??x
-The process involves defining the necessary matrices such as \(Q\) (generator matrix), \(B\) (block matrix), \(L\) (limiting probabilities of states with one or more customers), and \(F\) (matrix of transition rates from states to 0). The matrix \(R\) is derived by solving a system of linear equations.
+The process involves defining the necessary matrices such as $Q $(generator matrix),$ B $(block matrix),$ L $(limiting probabilities of states with one or more customers), and$ F $(matrix of transition rates from states to 0). The matrix$ R$ is derived by solving a system of linear equations.
 
 ```java
 // Pseudocode for deriving R in M/M/1 queue
@@ -46,11 +46,11 @@ x??
 
 #### Time-Varying Load in M/M/1 Queue
 
-Background context: This exercise involves analyzing a queue where the load fluctuates between high and low states, with exponential switching times. The objective is to determine the mean response time \(E[T]\) using matrix-analytic methods for different rates of alternation.
+Background context: This exercise involves analyzing a queue where the load fluctuates between high and low states, with exponential switching times. The objective is to determine the mean response time $E[T]$ using matrix-analytic methods for different rates of alternation.
 
 :p What are the steps to apply matrix-analytic methods in this scenario?
 ??x
-The first step involves defining the state space and drawing the Markov chain diagram. Then, compute the generator matrix \(Q\), which is infinite but a portion can be used. The matrices \(F_0\), \(L_0\), \(B_0\), \(F\), \(L\), and \(B\) are derived. Finally, balance equations and normalization constraints are solved to find the limiting probabilities.
+The first step involves defining the state space and drawing the Markov chain diagram. Then, compute the generator matrix $Q $, which is infinite but a portion can be used. The matrices $ F_0 $,$ L_0 $,$ B_0 $,$ F $,$ L $, and$ B$ are derived. Finally, balance equations and normalization constraints are solved to find the limiting probabilities.
 
 ```java
 // Pseudocode for matrix-analytic method with time-varying load
@@ -95,7 +95,7 @@ Background context: This exercise focuses on proving that a Hyperexponential dis
 
 :p How can you prove that the H2 Hyperexponential distribution has DFR?
 ??x
-To prove DFR, start by defining the failure rate function \(r(x) = \frac{f(x)}{F(x)}\), where \(f(x)\) is the density and \(F(x)\) is the cumulative distribution function. For a balanced H2 Hyperexponential with mean 1 and \(C_2 = 10\), compute the failure rate and its derivative.
+To prove DFR, start by defining the failure rate function $r(x) = \frac{f(x)}{F(x)}$, where $ f(x)$is the density and $ F(x)$is the cumulative distribution function. For a balanced H2 Hyperexponential with mean 1 and $ C_2 = 10$, compute the failure rate and its derivative.
 
 ```java
 // Pseudocode for proving DFR in H2 Hyperexponential
@@ -139,11 +139,11 @@ x??
 
 #### Variance of Number of Jobs
 
-Background context: The objective is to derive a closed-form expression for the variance of the number of jobs \(Var(N)\) using matrix-analytic methods. This involves understanding how the generator matrix and limiting probabilities relate.
+Background context: The objective is to derive a closed-form expression for the variance of the number of jobs $Var(N)$ using matrix-analytic methods. This involves understanding how the generator matrix and limiting probabilities relate.
 
 :p How can you derive an expression for the variance of the number of jobs in terms of R?
 ??x
-The variance of the number of jobs \(Var(N)\) can be derived from the matrix \(R\) by leveraging its properties. Specifically, we need to use the relationship between the generator matrix and the limiting probabilities.
+The variance of the number of jobs $Var(N)$ can be derived from the matrix $R$ by leveraging its properties. Specifically, we need to use the relationship between the generator matrix and the limiting probabilities.
 
 ```java
 // Pseudocode for deriving Var(N)
@@ -184,11 +184,11 @@ x??
 
 #### CTMC with Setup Time
 
-Background context: This exercise involves creating a continuous-time Markov chain (CTMC) for different queueing scenarios where jobs are affected by setup times. The setup time \(I\) can be exponentially distributed or Erlang-2 distributed, and the goal is to analyze response time.
+Background context: This exercise involves creating a continuous-time Markov chain (CTMC) for different queueing scenarios where jobs are affected by setup times. The setup time $I$ can be exponentially distributed or Erlang-2 distributed, and the goal is to analyze response time.
 
 :p How would you draw a CTMC for an M/M/1 queue with an exponential setup time?
 ??x
-For an M/M/1 queue with an exponential setup time, where \(I \sim Exp(\alpha)\), we need to define the states and transitions. The states include the number of customers in the system plus the state indicating if a server is being set up.
+For an M/M/1 queue with an exponential setup time, where $I \sim Exp(\alpha)$, we need to define the states and transitions. The states include the number of customers in the system plus the state indicating if a server is being set up.
 
 ```java
 // Pseudocode for drawing CTMC with Exponential setup time
@@ -522,10 +522,9 @@ x??
 #### Limiting Probability in M/M/1/PS Queue
 :p What is the limiting probability of having n jobs in an M/M/1/PS queue, and how does it compare with M/M/1/FCFS?
 ??x
-The limiting probability \(P_n\) for the number of jobs \(n\) in the M/M/1/PS queue can be derived using a CTMC model. For the M/M/1/PS queue, this is equivalent to an M/M/1/FCFS (First-Come-First-Served) queue due to the similar transition rates.
+The limiting probability $P_n $ for the number of jobs$n$ in the M/M/1/PS queue can be derived using a CTMC model. For the M/M/1/PS queue, this is equivalent to an M/M/1/FCFS (First-Come-First-Served) queue due to the similar transition rates.
 The limiting probability for an M/M/1/PS or FCFS queue is given by:
-\[ P_n = \left(1 - \frac{\lambda}{\mu}\right) \left(\frac{\lambda}{\mu}\right)^n \]
-for \( n \geq 0 \).
+$$P_n = \left(1 - \frac{\lambda}{\mu}\right) \left(\frac{\lambda}{\mu}\right)^n$$for $ n \geq 0$.
 
 This result shows that the limiting probabilities for both M/M/1/PS and FCFS are identical, highlighting how PS discipline does not alter the steady-state behavior in a single-server queue under these conditions.
 x??
@@ -565,10 +564,9 @@ x??
 Background context: In a single M/Cox/1/PS server with an abridged two-phase Coxian distribution, each job has to complete phase 1 before potentially moving on to phase 2. The service rate of a student in phase 1 is affected by the number of students also trying to complete that phase.
 Relevant formulas: 
 - Service rate for one student if there were no other students = μ1
-- Actual service rate when sharing the professor's time with n1 + n2 students = \(\frac{\mu_1}{n_1+n_2}\)
-:p What is the service rate experienced by a student in phase 1 (the "quals" phase)?
+- Actual service rate when sharing the professor's time with n1 + n2 students = $\frac{\mu_1}{n_1+n_2}$:p What is the service rate experienced by a student in phase 1 (the "quals" phase)?
 ??x
-The actual service rate for a student in phase 1, given that there are \(n_1 + n_2\) students sharing the professor's time, is \(\frac{\mu_1}{n_1+n_2}\). This reflects the impact of the number of other students on the individual's service rate.
+The actual service rate for a student in phase 1, given that there are $n_1 + n_2 $ students sharing the professor's time, is$\frac{\mu_1}{n_1+n_2}$. This reflects the impact of the number of other students on the individual's service rate.
 ```java
 public class ServiceRateExample {
     private double mu1; // Service rate for phase 1 (quals)
@@ -585,14 +583,14 @@ x??
 ---
 
 #### Local Balance for Phase 1 Departure Rate
-Background context: In the M/Cox/1/PS system, we use local balance equations to derive the limiting probabilities. For phase 1, we need to find \(B_1\), the rate of leaving state \((n_1,n_2)\) due to a departure from phase 1.
+Background context: In the M/Cox/1/PS system, we use local balance equations to derive the limiting probabilities. For phase 1, we need to find $B_1 $, the rate of leaving state $(n_1,n_2)$ due to a departure from phase 1.
 Relevant formulas:
-- Rate leaving state \((n_1,n_2)\) due to a departure from phase 1: \(n_1·π_{n_1,n_2}·\frac{\mu_1}{n_1+n_2}\)
-:p How do we define \(B_1\), the rate of leaving state \((n_1,n_2)\) due to a departure from phase 1?
+- Rate leaving state $(n_1,n_2)$ due to a departure from phase 1:$ n_1·π_{n_1,n_2}·\frac{\mu_1}{n_1+n_2}$:p How do we define $ B_1$, the rate of leaving state $(n_1,n_2)$ due to a departure from phase 1?
 ??x
-The rate of leaving state \((n_1,n_2)\) due to a departure from phase 1 is given by:
-\[ B_1 = n_1·π_{n_1,n_2}·\frac{\mu_1}{n_1+n_2} \]
-This formula accounts for the fact that each of the \(n_1\) jobs in phase 1 leaves at a rate proportional to its individual service rate, which is slowed down by all other students sharing the professor's time.
+The rate of leaving state $(n_1,n_2)$ due to a departure from phase 1 is given by:
+$$B_1 = n_1·π_{n_1,n_2}·\frac{\mu_1}{n_1+n_2}$$
+
+This formula accounts for the fact that each of the $n_1$ jobs in phase 1 leaves at a rate proportional to its individual service rate, which is slowed down by all other students sharing the professor's time.
 ```java
 public class DepartureRateExample {
     private double mu1; // Service rate for phase 1 (quals)
@@ -609,14 +607,14 @@ x??
 ---
 
 #### Local Balance for Phase 2 Departure Rate
-Background context: Similarly, we need to find \(B_2\), the rate of leaving state \((n_1,n_2)\) due to a departure from phase 2.
+Background context: Similarly, we need to find $B_2 $, the rate of leaving state $(n_1,n_2)$ due to a departure from phase 2.
 Relevant formulas:
-- Rate leaving state \((n_1,n_2)\) due to a departure from phase 2: \(π_{n_1,n_2}·\frac{\mu_2 n_2}{n_1+n_2}\)
-:p How do we define \(B_2\), the rate of leaving state \((n_1,n_2)\) due to a departure from phase 2?
+- Rate leaving state $(n_1,n_2)$ due to a departure from phase 2:$π_{n_1,n_2}·\frac{\mu_2 n_2}{n_1+n_2}$:p How do we define $ B_2$, the rate of leaving state $(n_1,n_2)$ due to a departure from phase 2?
 ??x
-The rate of leaving state \((n_1,n_2)\) due to a departure from phase 2 is given by:
-\[ B_2 = π_{n_1,n_2}·\frac{\mu_2 n_2}{n_1+n_2} \]
-This formula reflects the contribution of the students in phase 2, who are each served at rate \(\mu_2\) and there are \(n_2\) such students.
+The rate of leaving state $(n_1,n_2)$ due to a departure from phase 2 is given by:
+$$B_2 = π_{n_1,n_2}·\frac{\mu_2 n_2}{n_1+n_2}$$
+
+This formula reflects the contribution of the students in phase 2, who are each served at rate $\mu_2 $ and there are$n_2$ such students.
 ```java
 public class DepartureRateExample {
     private double mu2; // Service rate for phase 2 (thesis)
@@ -632,14 +630,14 @@ x??
 ---
 
 #### Local Balance for Arrival to Phase 1 from Outside
-Background context: For the local balance equation, we need to consider the rate at which jobs arrive from outside and enter state \((n_1,n_2)\) into phase 1.
+Background context: For the local balance equation, we need to consider the rate at which jobs arrive from outside and enter state $(n_1,n_2)$ into phase 1.
 Relevant formulas:
-- Rate of arriving into phase 1 (B'/0): \(π_{n_1+1,n_2}·μ_1(n_1+1)(1-p) + π_{n_1,n_2+1}·μ_2(n_2+1)\)
-:p How do we define the rate of arrival to phase 1 from outside (B'/0)?
+- Rate of arriving into phase 1 (B'/0):$π_{n_1+1,n_2}·μ_1(n_1+1)(1-p) + π_{n_1,n_2+1}·μ_2(n_2+1)$:p How do we define the rate of arrival to phase 1 from outside (B'/0)?
 ??x
 The rate of arrival to phase 1 from outside is given by:
-\[ B'_0 = π_{n_1+1,n_2}·μ_1(n_1+1)(1-p) + π_{n_1,n_2+1}·μ_2(n_2+1) \]
-This formula accounts for the arrival of new jobs from outside, where with probability \(1-p\), a job arriving from outside will enter phase 1 and with probability \(p\), it will directly enter phase 2.
+$$B'_0 = π_{n_1+1,n_2}·μ_1(n_1+1)(1-p) + π_{n_1,n_2+1}·μ_2(n_2+1)$$
+
+This formula accounts for the arrival of new jobs from outside, where with probability $1-p $, a job arriving from outside will enter phase 1 and with probability $ p$, it will directly enter phase 2.
 ```java
 public class ArrivalRateExample {
     private double mu1; // Service rate for phase 1 (quals)
@@ -658,14 +656,14 @@ x??
 ---
 
 #### Local Balance for Arrival to Phase 2 from Phase 1
-Background context: For the local balance equation, we need to consider the rate at which jobs leave phase 1 and enter state \((n_1,n_2)\) into phase 2.
+Background context: For the local balance equation, we need to consider the rate at which jobs leave phase 1 and enter state $(n_1,n_2)$ into phase 2.
 Relevant formulas:
-- Rate of arriving in phase 2 (B'/2): \(π_{n_1+1,n_2-1}·μ_1(n_1+1)p\)
-:p How do we define the rate of arrival to phase 2 from phase 1 (B'/2)?
+- Rate of arriving in phase 2 (B'/2):$π_{n_1+1,n_2-1}·μ_1(n_1+1)p$:p How do we define the rate of arrival to phase 2 from phase 1 (B'/2)?
 ??x
 The rate of arrival to phase 2 from phase 1 is given by:
-\[ B'_2 = π_{n_1+1,n_2-1}·μ_1(n_1+1)p \]
-This formula accounts for the students who complete phase 1 and move on to phase 2, with a probability \(p\).
+$$B'_2 = π_{n_1+1,n_2-1}·μ_1(n_1+1)p$$
+
+This formula accounts for the students who complete phase 1 and move on to phase 2, with a probability $p$.
 ```java
 public class ArrivalRateExample {
     private double mu1; // Service rate for phase 1 (quals)
@@ -681,76 +679,75 @@ x??
 
 
 #### Equating B1 and B/prime 1
-In the context of an M/G/1/PS system, we need to verify that a given guess for the limiting probabilities is correct. The hint suggests observing that \(B_1 = B'/1 \Rightarrow \pi_{n1,n2} = \rho_1^{n1+n2} n1 \pi_{n1-1,n2}\), where \(\rho_1 = \frac{\lambda}{\mu_1}\).
+In the context of an M/G/1/PS system, we need to verify that a given guess for the limiting probabilities is correct. The hint suggests observing that $B_1 = B'/1 \Rightarrow \pi_{n1,n2} = \rho_1^{n1+n2} n1 \pi_{n1-1,n2}$, where $\rho_1 = \frac{\lambda}{\mu_1}$.
 
-:p What does the equation \(B_1 = B'/1\) imply for the limiting probabilities?
+:p What does the equation $B_1 = B'/1$ imply for the limiting probabilities?
 ??x
-The equation \(B_1 = B'/1\) implies that the first component of the system's limiting probability vector should satisfy a specific relationship, which is verified through combinatorial and probabilistic arguments. This relationship helps in confirming whether the guessed form of \(\pi_{n1,n2}\) holds true.
+The equation $B_1 = B'/1 $ implies that the first component of the system's limiting probability vector should satisfy a specific relationship, which is verified through combinatorial and probabilistic arguments. This relationship helps in confirming whether the guessed form of$\pi_{n1,n2}$ holds true.
 x??
 
 ---
 
 #### Verification for i = 1
-To verify that the guess \(B'/1 = B_1\) holds for \(i=1\), we start by substituting and simplifying.
+To verify that the guess $B'/1 = B_1 $ holds for$i=1$, we start by substituting and simplifying.
 
-:p Verify the equation for \(i=1\).
+:p Verify the equation for $i=1$.
 ??x
 The verification involves showing that:
-\[ \frac{\pi_{n1-1,n2} \lambda}{n1 + n2 - 1 \choose n1 - 1} = \frac{\rho_1^{n1-1+n2}}{n1 + n2 \choose n1} \cdot \rho_1 \]
+$$\frac{\pi_{n1-1,n2} \lambda}{n1 + n2 - 1 \choose n1 - 1} = \frac{\rho_1^{n1-1+n2}}{n1 + n2 \choose n1} \cdot \rho_1$$
 
 By simplifying both sides, we find:
-\[ \frac{n1 + n2}{n1} \rho_1^n = \rho_1^n \]
+$$\frac{n1 + n2}{n1} \rho_1^n = \rho_1^n$$
+
 Thus, the equation holds true.
 
 The detailed steps are as follows:
-\[
+$$
+
 B'/1 = \pi_{n1-1,n2} \lambda
 = \frac{{n1 + n2 - 1 \choose n1 - 1}}{\pi_{0,0}} \rho_1^{n1-1+n2} \lambda
-= \frac{n1(n1 + n2)}{n1 + n2 - 1} \cdot \frac{\rho_1^{n1-1+n2}}{n1 + n2 \choose n1} \cdot \rho_1 \pi_{0,0}
-\]
-After simplification:
-\[ = \frac{n1(n1 + n2)}{n1 + n2 - 1} \cdot \frac{\rho_1^{n1-1+n2}}{n1 + n2 \choose n1} \cdot \rho_1
-= \frac{\rho_1^n}{n1 + n2 \choose n1}
-\]
+= \frac{n1(n1 + n2)}{n1 + n2 - 1} \cdot \frac{\rho_1^{n1-1+n2}}{n1 + n2 \choose n1} \cdot \rho_1 \pi_{0,0}$$
 
-x??
+After simplification:
+$$= \frac{n1(n1 + n2)}{n1 + n2 - 1} \cdot \frac{\rho_1^{n1-1+n2}}{n1 + n2 \choose n1} \cdot \rho_1
+= \frac{\rho_1^n}{n1 + n2 \choose n1}$$x??
 
 ---
 
 #### Verification for i = 2
-The next step is to verify the equation for \(i=2\).
+The next step is to verify the equation for $i=2$.
 
-:p Verify the equation for \(i=2\).
+:p Verify the equation for $i=2$.
 ??x
 We need to show:
-\[ B'/2 = \pi_{n1+1,n2-1} \mu_1 (n1 + 1)p = {n1 + n2 \choose n1 + 1} \rho_1^{n1 + 1} \rho_2^{n2 - 1} \cdot \mu_1 (n1 + 1)p \]
+$$B'/2 = \pi_{n1+1,n2-1} \mu_1 (n1 + 1)p = {n1 + n2 \choose n1 + 1} \rho_1^{n1 + 1} \rho_2^{n2 - 1} \cdot \mu_1 (n1 + 1)p$$
+
 Simplifying the right-hand side:
-\[ = {n1 + n2 \choose n1 + 1} \frac{\rho_1^n}{n1 + 1} \rho_2^0 \cdot \mu_1 (n1 + 1)p
-= \frac{n1 + n2}{n1 + 1} \rho_1^n \rho_2 p = B_2 \]
+$$= {n1 + n2 \choose n1 + 1} \frac{\rho_1^n}{n1 + 1} \rho_2^0 \cdot \mu_1 (n1 + 1)p
+= \frac{n1 + n2}{n1 + 1} \rho_1^n \rho_2 p = B_2$$
 
 By simplifying:
-\[ \pi_{n1+1,n2-1} \mu_1 (n1 + 1)p = {n1 + n2 \choose n1 + 1} \frac{\rho_1^{n1+n2}}{n1 + 1} p
-= {n1 + n2 \choose n1 + 1} \frac{n2}{n1 + 1} \cdot \rho_1^n \rho_2^0 = B_2 \]
-
-x??
+$$\pi_{n1+1,n2-1} \mu_1 (n1 + 1)p = {n1 + n2 \choose n1 + 1} \frac{\rho_1^{n1+n2}}{n1 + 1} p
+= {n1 + n2 \choose n1 + 1} \frac{n2}{n1 + 1} \cdot \rho_1^n \rho_2^0 = B_2$$x??
 
 ---
 
 #### Verification for i = 0
-Finally, we need to verify the equation for \(i=0\).
+Finally, we need to verify the equation for $i=0$.
 
-:p Verify the equation for \(i=0\).
+:p Verify the equation for $i=0$.
 ??x
 The verification involves checking:
-\[ B'/0 = \pi_{n1+1,n2} \mu_1 (n1 + 1)(1 - p) + \pi_{n1,n2+1} \mu_2 (n2 + 1)
-= {n1 + n2 + 1 \choose n1 + 1} \rho_1^{n1 + 1} \rho_2^{n2} \cdot \mu_1 (n1 + 1)(1 - p) + {n1 + n2 + 1 \choose n1} \rho_1^{n1} \rho_2^{n2+1} \cdot \mu_2 (n2 + 1)
-\]
+$$B'/0 = \pi_{n1+1,n2} \mu_1 (n1 + 1)(1 - p) + \pi_{n1,n2+1} \mu_2 (n2 + 1)
+= {n1 + n2 + 1 \choose n1 + 1} \rho_1^{n1 + 1} \rho_2^{n2} \cdot \mu_1 (n1 + 1)(1 - p) + {n1 + n2 + 1 \choose n1} \rho_1^{n1} \rho_2^{n2+1} \cdot \mu_2 (n2 + 1)$$
+
 Simplifying:
-\[ = \frac{n1 + n2 + 1}{n1 + 1} \rho_1^n(1 - p) + \frac{n1 + n2 + 1}{n2 + 1} \rho_2^{n+1}(1 - p)
-= B_0 \]
+$$= \frac{n1 + n2 + 1}{n1 + 1} \rho_1^n(1 - p) + \frac{n1 + n2 + 1}{n2 + 1} \rho_2^{n+1}(1 - p)
+= B_0$$
 
 By simplifying:
-\[ = \pi_{n1,n2} (1 - p) + \pi_{n1,n2} (p) \]
+$$= \pi_{n1,n2} (1 - p) + \pi_{n1,n2} (p)$$
+
 Thus, the equation holds true.
 
 x??
@@ -758,39 +755,35 @@ x??
 ---
 
 #### Calculating P{n jobs in system}
-Using the verified form of the limiting probabilities, we can calculate the probability that there are \(n\) jobs in the system.
+Using the verified form of the limiting probabilities, we can calculate the probability that there are $n$ jobs in the system.
 
-:p How is the probability \(P\{n \text{ jobs in system}\}\) calculated?
+:p How is the probability $P\{n \text{ jobs in system}\}$ calculated?
 ??x
-The probability \(P\{n \text{ jobs in system}\}\) is given by:
-\[ P\{n \text{ jobs in system}\} = \sum_{n1=0}^n \pi_{n1,n2}
-= \sum_{n1=0}^n {n \choose n1} \rho_1^{n1} \rho_2^{n-n1} \pi_{0,0}
-\]
+The probability $P\{n \text{ jobs in system}\}$ is given by:
+$$P\{n \text{ jobs in system}\} = \sum_{n1=0}^n \pi_{n1,n2}
+= \sum_{n1=0}^n {n \choose n1} \rho_1^{n1} \rho_2^{n-n1} \pi_{0,0}$$
 
 This sum is a binomial expansion:
-\[ = (\rho_1 + \rho_2)^n \pi_{0,0}
+$$= (\rho_1 + \rho_2)^n \pi_{0,0}
 = (E[S])^n \pi_{0,0}
-= \rho^n \pi_{0,0} \]
+= \rho^n \pi_{0,0}$$
 
-Thus, the probability that there are \(n\) jobs in the system is:
-\[ P\{n \text{ jobs in system}\} = \rho^n (1 - \rho) \]
-
-x??
+Thus, the probability that there are $n$ jobs in the system is:
+$$P\{n \text{ jobs in system}\} = \rho^n (1 - \rho)$$x??
 
 ---
 
 #### Calculating ρ
-The value of \(\rho\) is given by the sum of the load on each server.
+The value of $\rho$ is given by the sum of the load on each server.
 
-:p Calculate \(\rho + \rho_2\).
+:p Calculate $\rho + \rho_2$.
 ??x
 We have:
-\[ \rho + \rho_2 = \frac{\lambda}{\mu_1} + \lambda p \cdot \frac{1}{\mu_2}
+$$\rho + \rho_2 = \frac{\lambda}{\mu_1} + \lambda p \cdot \frac{1}{\mu_2}
 = \lambda \left( \frac{1}{\mu_1} + \frac{p}{\mu_2} \right)
-= \lambda E[S] = \rho
-\]
+= \lambda E[S] = \rho$$
 
-Where \(E[S]\) is the average service requirement of a job.
+Where $E[S]$ is the average service requirement of a job.
 
 x??
 
@@ -803,8 +796,8 @@ The insensitivity property states that the limiting probabilities are independen
 ??x
 The insensitivity property in queueing theory means that certain performance measures (like the probability distribution of the number of jobs) depend only on the mean service time and not on the detailed distribution of the service times. This is significant because it simplifies analysis for systems with various service distributions.
 
-In this case, \(\rho = \lambda E[S]\), where \(E[S]\) is the average service requirement. The probability that there are \(n\) jobs in the system is given by:
-\[ P\{n \text{ jobs in system}\} = \rho^n (1 - \rho) \]
+In this case,$\rho = \lambda E[S]$, where $ E[S]$is the average service requirement. The probability that there are $ n$ jobs in the system is given by:
+$$P\{n \text{ jobs in system}\} = \rho^n (1 - \rho)$$
 
 This result is identical to an M/M/1 queue, highlighting the insensitivity property.
 
@@ -817,14 +810,12 @@ Consider a time-sharing CPU with Poisson arrivals and general service times.
 
 :p What is the mean response time in this system?
 ??x
-The mean response time \(E[T]\) can be calculated using:
-\[ E[T] = \frac{1}{\mu - \lambda} \]
+The mean response time $E[T]$ can be calculated using:
+$$E[T] = \frac{1}{\mu - \lambda}$$
 
 For the given example:
-\[ \mu = 5, \quad \lambda = 3
-E[T] = \frac{1}{5 - 3} = \frac{1}{2} \text{ sec} \]
-
-x??
+$$\mu = 5, \quad \lambda = 3
+E[T] = \frac{1}{5 - 3} = \frac{1}{2} \text{ sec}$$x??
 
 ---
 
@@ -834,11 +825,14 @@ In a distributed server system with two hosts, where one is twice as fast as the
 :p What is the mean service time on Host 2?
 ??x
 The mean service time on Host 2 is twice that of Host 1. Given:
-\[ E[S_1] = 3 \text{ sec}, \quad E[S_2] = 6 \text{ sec} \]
+$$
 
-Thus, the mean response time \(E[T]\) can be calculated as:
-\[ E[T] = \frac{1}{\mu - \lambda} \]
-Where \(\mu\) is effectively weighted by the probabilities of choosing each host.
+E[S_1] = 3 \text{ sec}, \quad E[S_2] = 6 \text{ sec}$$
+
+Thus, the mean response time $E[T]$ can be calculated as:
+$$E[T] = \frac{1}{\mu - \lambda}$$
+
+Where $\mu$ is effectively weighted by the probabilities of choosing each host.
 
 x??
 

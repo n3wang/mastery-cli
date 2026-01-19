@@ -130,9 +130,9 @@ Background context explaining how grain size affects mechanical properties. Impo
 
 :p What is the relationship between grain size and mechanical properties of metals?
 ??x
-Grain size significantly influences the mechanical properties of polycrystalline metals. Smaller grains generally enhance the material's hardness and strength due to increased total grain boundary area, which acts as a barrier to dislocation motion. The Hall–Petch equation quantifies this relationship: \(\sigma_y = \sigma_0 + k_y d^{-1/2}\), where \(d\) is the average grain diameter.
+Grain size significantly influences the mechanical properties of polycrystalline metals. Smaller grains generally enhance the material's hardness and strength due to increased total grain boundary area, which acts as a barrier to dislocation motion. The Hall–Petch equation quantifies this relationship: $\sigma_y = \sigma_0 + k_y d^{-1/2}$, where $ d$ is the average grain diameter.
 
-The yield strength (\(\sigma_y\)) varies inversely with the square root of the grain size, indicating that finer grains lead to higher strengths. However, very fine grains can also introduce stress concentrations and may not always be beneficial for all materials.
+The yield strength ($\sigma_y$) varies inversely with the square root of the grain size, indicating that finer grains lead to higher strengths. However, very fine grains can also introduce stress concentrations and may not always be beneficial for all materials.
 x??
 
 ---
@@ -143,7 +143,7 @@ Explanation and application of the Hall–Petch equation, which describes how yi
 
 :p What is the Hall–Petch equation?
 ??x
-The Hall–Petch equation relates the yield strength (\(\sigma_y\)) to the grain size \(d\) in a polycrystalline metal. The formula is given by \(\sigma_y = \sigma_0 + k_y d^{-1/2}\), where \(\sigma_0\) and \(k_y\) are constants specific to the material.
+The Hall–Petch equation relates the yield strength ($\sigma_y $) to the grain size $ d $in a polycrystalline metal. The formula is given by$\sigma_y = \sigma_0 + k_y d^{-1/2}$, where $\sigma_0 $ and $k_y$ are constants specific to the material.
 
 This equation indicates that as the grain size decreases, the yield strength increases because there are more grain boundaries acting as barriers to dislocation motion.
 ```java
@@ -213,7 +213,7 @@ In single crystals, plastic deformation occurs through two primary mechanisms:
 - **Slip**: Dislocations move along specific planes (slip planes) within the crystal.
 - **Twinning**: A new crystallographic orientation is created by a sudden rotation of dislocations.
 
-These mechanisms involve the motion of defects in the crystal lattice. For example, under shear stress (\(\tau\)), slip involves the movement of dislocations on specific slip planes, while twinning results in the formation of twin boundaries where the crystal structure undergoes abrupt changes.
+These mechanisms involve the motion of defects in the crystal lattice. For example, under shear stress ($\tau$), slip involves the movement of dislocations on specific slip planes, while twinning results in the formation of twin boundaries where the crystal structure undergoes abrupt changes.
 ```java
 // Pseudocode for modeling slip and twinning mechanisms
 public class DeformationMechanisms {
@@ -343,14 +343,15 @@ x??
 #### Strain Hardening in Metals
 Strain hardening, also known as work hardening, is a strengthening mechanism where metals become harder and stronger due to plastic deformation. This occurs because of an increase in dislocation density within the metal lattice, making it more difficult for dislocations to move.
 
-Background context: The dislocation density increases with increasing cold work (plastic deformation), leading to enhanced resistance to further deformation. Mathematically, this is often described by the true stress-strain relationship given in Equation 6.19, where the parameter \( n \) represents the strain-hardening exponent.
+Background context: The dislocation density increases with increasing cold work (plastic deformation), leading to enhanced resistance to further deformation. Mathematically, this is often described by the true stress-strain relationship given in Equation 6.19, where the parameter $n$ represents the strain-hardening exponent.
 :p What phenomenon explains the increase in strength of a metal due to plastic deformation?
 ??x
 Strain hardening or work hardening occurs because as a metal is plastically deformed (cold worked), dislocation density increases. This increased density hinders the movement of existing dislocations, making it more difficult for the metal to deform further and thus increasing its strength.
 
 Mathematically, this can be described by the true stress-strain relationship:
-\[ \sigma = K \epsilon^n \]
-Where \( \sigma \) is true stress, \( \epsilon \) is true strain, and \( n \) is the strain-hardening exponent. The larger the value of \( n \), the greater the strain hardening for a given amount of plastic strain.
+$$\sigma = K \epsilon^n$$
+
+Where $\sigma $ is true stress,$\epsilon $ is true strain, and$n $ is the strain-hardening exponent. The larger the value of$n$, the greater the strain hardening for a given amount of plastic strain.
 
 Example code (pseudocode):
 ```java
@@ -409,14 +410,14 @@ x??
 
 
 #### Strain Hardening Exponent
-The strain-hardening exponent \( n \) is a critical parameter in the equation relating true stress and strain, which quantifies how well a material can undergo strain hardening.
+The strain-hardening exponent $n$ is a critical parameter in the equation relating true stress and strain, which quantifies how well a material can undergo strain hardening.
 
-Background context: The value of \( n \) gives an indication of the ability of the metal to strain harden. A higher value of \( n \) indicates greater strain hardening for a given amount of plastic strain.
+Background context: The value of $n $ gives an indication of the ability of the metal to strain harden. A higher value of$n$ indicates greater strain hardening for a given amount of plastic strain.
 :p What is the significance of the strain-hardening exponent in materials science?
 ??x
-The strain-hardening exponent, denoted as \( n \), measures how well a material can undergo strain hardening. It provides insight into the metal's response to deformation and its potential for strengthening.
+The strain-hardening exponent, denoted as $n$, measures how well a material can undergo strain hardening. It provides insight into the metal's response to deformation and its potential for strengthening.
 
-Example: If a material has a high value of \( n \), it means that the material becomes significantly stronger (higher yield and tensile strength) with only a small amount of plastic strain, indicating effective work hardening.
+Example: If a material has a high value of $n$, it means that the material becomes significantly stronger (higher yield and tensile strength) with only a small amount of plastic strain, indicating effective work hardening.
 ```java
 public class StrainHardening {
     private double initialYieldStrength;

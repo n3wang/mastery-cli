@@ -184,7 +184,7 @@ Background context: Recurrent Neural Networks (RNNs) are designed to recognize p
 
 :p How do RNNs process input sequences?
 ??x
-RNNs process input sequences by taking into account not only the current input but also all previous inputs through a hidden state. At each time step \( t \), the network takes the hidden state from the previous time step, \( h(t - 1) \), along with the input at the current time step, \( x(t) \), to generate an output, \( y(t) \), and update the hidden state, \( h(t) \).
+RNNs process input sequences by taking into account not only the current input but also all previous inputs through a hidden state. At each time step $t $, the network takes the hidden state from the previous time step, $ h(t - 1)$, along with the input at the current time step,$ x(t)$, to generate an output,$ y(t)$, and update the hidden state,$ h(t)$.
 
 The functioning of RNNs is depicted in Figure 8.1.
 
@@ -514,9 +514,7 @@ During training, the LSTM model makes predictions by shifting the input sequence
 
 For instance, in the example "a frog has four legs", after predicting "frog" based on "a", the model’s output is compared with the actual token "has". This comparison is done using a loss function like cross-entropy:
 
-\[ \text{Loss} = -\sum y_i \log(p_i) \]
-
-where \( y_i \) are one-hot encoded true labels and \( p_i \) are predicted probabilities.
+$$\text{Loss} = -\sum y_i \log(p_i)$$where $ y_i $ are one-hot encoded true labels and $ p_i$ are predicted probabilities.
 
 The model parameters are adjusted iteratively to minimize this loss, typically through backpropagation. Here’s a simple pseudocode for updating the model:
 

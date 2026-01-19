@@ -11,11 +11,10 @@
 Background context: The policy gradient theorem provides a way to update policies in reinforcement learning without needing explicit knowledge of the state distribution. It is particularly useful for gradient ascent on performance measures.
 
 Relevant formulas and explanations:
-\[ \frac{\partial J(\theta)}{\partial \theta} = E_{\pi}\left[ \sum_a q_\pi(s,a) r_\pi(a|s,\theta) \right] / \text{episode length} \]
-For the episodic case, this simplifies to:
-\[ \frac{\partial J(\theta)}{\partial \theta} \propto E_{\pi}\left[ \sum_a q_\pi(s,a) r_\pi(a|s,\theta) \right] \]
+$$\frac{\partial J(\theta)}{\partial \theta} = E_{\pi}\left[ \sum_a q_\pi(s,a) r_\pi(a|s,\theta) \right] / \text{episode length}$$
 
-:p What does the policy gradient theorem provide a way to do?
+For the episodic case, this simplifies to:
+$$\frac{\partial J(\theta)}{\partial \theta} \propto E_{\pi}\left[ \sum_a q_\pi(s,a) r_\pi(a|s,\theta) \right]$$:p What does the policy gradient theorem provide a way to do?
 ??x
 The policy gradient theorem provides a method for updating policies in reinforcement learning by approximating the gradient of performance with respect to the policy parameter, without needing explicit knowledge of the state distribution.
 x??
@@ -28,13 +27,12 @@ x??
 Background context: The REINFORCE algorithm is an application of the policy gradient theorem specifically designed for episodic tasks. It updates the policy based on sampled actions and their returns.
 
 Relevant formulas and explanations:
-\[ \frac{\partial J(\theta)}{\partial \theta} = E_{\pi}\left[ G_t r_\pi(A_t|S_t,\theta) / \pi(A_t|S_t,\theta) \right] \]
-Where \( G_t \) is the return, and the update rule for REINFORCE is:
-\[ \theta_{t+1} = \theta_t + \alpha G_t r_\pi(A_t|S_t,\theta_t) / \pi(A_t|S_t,\theta_t) \]
+$$\frac{\partial J(\theta)}{\partial \theta} = E_{\pi}\left[ G_t r_\pi(A_t|S_t,\theta) / \pi(A_t|S_t,\theta) \right]$$
 
-:p What is the main idea behind the REINFORCE algorithm?
+Where $G_t$ is the return, and the update rule for REINFORCE is:
+$$\theta_{t+1} = \theta_t + \alpha G_t r_\pi(A_t|S_t,\theta_t) / \pi(A_t|S_t,\theta_t)$$:p What is the main idea behind the REINFORCE algorithm?
 ??x
-The main idea behind the REINFORCE algorithm is to update the policy based on sampled actions and their returns, where each increment in the parameter vector is proportional to the product of the return \( G_t \) and a vector that represents the gradient of the probability of taking the action.
+The main idea behind the REINFORCE algorithm is to update the policy based on sampled actions and their returns, where each increment in the parameter vector is proportional to the product of the return $G_t$ and a vector that represents the gradient of the probability of taking the action.
 x??
 
 ---
@@ -46,9 +44,7 @@ Background context: The pseudocode for REINFORCE shows how to implement the algo
 
 Relevant formulas and explanations:
 The update rule is modified to handle discounting as follows:
-\[ \theta_{t+1} = \theta_t + \alpha G_t r_\pi(A_t|S_t,\theta_t) / \pi(A_t|S_t,\theta_t) \]
-
-:p What does the pseudocode for REINFORCE look like?
+$$\theta_{t+1} = \theta_t + \alpha G_t r_\pi(A_t|S_t,\theta_t) / \pi(A_t|S_t,\theta_t)$$:p What does the pseudocode for REINFORCE look like?
 ??x
 The pseudocode for REINFORCE looks as follows:
 ```java
@@ -85,9 +81,8 @@ REINFORCE is described as a stochastic gradient method for policy learning, whic
 ??x
 REINFORCE treats the parameters of the policy as if they were the parameters of a function to be optimized. It uses the policy's action probabilities to compute gradients, which are then used to update the policy parameters in a direction that is expected to improve performance. The key idea is to approximate the gradient of the expected return with respect to the policy parameters using Monte Carlo sampling.
 
-For example, if we have a policy parameterized by \(\theta\), and an episode results in actions \(a_1, a_2, \ldots, a_T\) given states \(s_1, s_2, \ldots, s_T\), the update rule for REINFORCE is:
-\[ \Delta \theta = \alpha \sum_{t=1}^{T} r_t \nabla_\theta \log \pi(a_t | s_t; \theta) \]
-where \(r_t\) is the return up to time step \(t\), and \(\alpha\) is the learning rate. This update rule can be derived by applying the definition of the gradient in a stochastic setting.
+For example, if we have a policy parameterized by $\theta $, and an episode results in actions $ a_1, a_2, \ldots, a_T $given states$ s_1, s_2, \ldots, s_T$, the update rule for REINFORCE is:
+$$\Delta \theta = \alpha \sum_{t=1}^{T} r_t \nabla_\theta \log \pi(a_t | s_t; \theta)$$where $ r_t $ is the return up to time step $ t $, and$\alpha$ is the learning rate. This update rule can be derived by applying the definition of the gradient in a stochastic setting.
 
 ```python
 def reinforce_update(theta, states, actions, returns, alpha):
@@ -110,18 +105,17 @@ x??
 
 
 #### Policy Gradient Theorem with Baseline
-The policy gradient theorem can be extended to include a baseline \(b(s)\), which is any function that does not vary with the action. This extended form of the policy gradient theorem helps in reducing the variance of the updates, potentially leading to faster learning.
+The policy gradient theorem can be extended to include a baseline $b(s)$, which is any function that does not vary with the action. This extended form of the policy gradient theorem helps in reducing the variance of the updates, potentially leading to faster learning.
 
 :p How does including a baseline in the policy gradient theorem affect the update rule?
 ??x
-Including a baseline \(b(s)\) in the policy gradient theorem modifies the update rule as follows:
-\[ \nabla J(\theta) = E_{s,a} [r(a|s; \theta)(q(s, a) - b(s))\nabla_\theta \log \pi(a | s; \theta)] \]
-where \(J(\theta)\) is the expected return with respect to the policy parameterized by \(\theta\), and \(q(s, a)\) is the action value function.
+Including a baseline $b(s)$ in the policy gradient theorem modifies the update rule as follows:
+$$\nabla J(\theta) = E_{s,a} [r(a|s; \theta)(q(s, a) - b(s))\nabla_\theta \log \pi(a | s; \theta)]$$where $ J(\theta)$is the expected return with respect to the policy parameterized by $\theta$, and $ q(s, a)$ is the action value function.
 
 The update rule for REINFORCE with baseline can be written as:
-\[ \theta_{t+1} = \theta_t + \alpha \sum_{t=0}^{T-1} (G_t - b(S_t)) r(\pi(a_t | S_t; \theta_t))\nabla_\theta \log \pi(a_t | S_t; \theta_t) \]
+$$\theta_{t+1} = \theta_t + \alpha \sum_{t=0}^{T-1} (G_t - b(S_t)) r(\pi(a_t | S_t; \theta_t))\nabla_\theta \log \pi(a_t | S_t; \theta_t)$$
 
-Here, \(G_t\) is the return accumulated from time step \(t\) to the end of an episode.
+Here,$G_t $ is the return accumulated from time step$ t$ to the end of an episode.
 
 ```python
 def reinforce_with_baseline_update(theta, states, actions, returns, baseline_func, alpha):
@@ -157,11 +151,8 @@ The provided pseudocode for REINFORCE with baseline outlines an algorithm that i
 ??x
 The key difference lies in how they handle the variance in their update rules:
 
-- **Standard REINFORCE**: The update rule for REINFORCE does not include a baseline. It relies on sampling returns directly from episodes, which can lead to high variance.
-  \[ \theta_{t+1} = \theta_t + \alpha G_t r(\pi(a_t | s_t; \theta_t))\nabla_\theta \log \pi(a_t | s_t; \theta_t) \]
-
-- **REINFORCE with Baseline**: By including a baseline \(b(s)\), the update rule is adjusted to:
-  \[ \theta_{t+1} = \theta_t + \alpha (G_t - b(S_t)) r(\pi(a_t | S_t; \theta_t))\nabla_\theta \log \pi(a_t | S_t; \theta_t) \]
+- **Standard REINFORCE**: The update rule for REINFORCE does not include a baseline. It relies on sampling returns directly from episodes, which can lead to high variance.$$\theta_{t+1} = \theta_t + \alpha G_t r(\pi(a_t | s_t; \theta_t))\nabla_\theta \log \pi(a_t | s_t; \theta_t)$$- **REINFORCE with Baseline**: By including a baseline $ b(s)$, the update rule is adjusted to:
+  $$\theta_{t+1} = \theta_t + \alpha (G_t - b(S_t)) r(\pi(a_t | S_t; \theta_t))\nabla_\theta \log \pi(a_t | S_t; \theta_t)$$
 
 This adjustment can significantly reduce the variance of the updates, especially in environments where actions have similar values.
 
@@ -193,7 +184,7 @@ In REINFORCE with baseline, the state-value function can be used to provide a mo
 
 :p Why might one choose to use a learned state-value function as the baseline?
 ??x
-A learned state-value function \( \hat{v}(s; w) \) can be used as the baseline because it provides an estimate of the expected return from any given state, which can help in differentiating between actions more effectively. When actions have similar values, a random baseline might not be sufficient to differentiate them well.
+A learned state-value function $\hat{v}(s; w)$ can be used as the baseline because it provides an estimate of the expected return from any given state, which can help in differentiating between actions more effectively. When actions have similar values, a random baseline might not be sufficient to differentiate them well.
 
 The key benefits include:
 - **Reduced Variance**: The learned value function can capture the structure of the environment better than a simple constant or average reward.

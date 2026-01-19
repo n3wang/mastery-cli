@@ -345,7 +345,7 @@ Multimodal RAG enhances traditional text-based RAG by integrating image data wit
 # Example: Using CLIP for multimodal retrieval
 library(clip)
 # 1. Generate embeddings for all texts and images
-embeddings <- clip::generate_embeddings(data$texts, data$images)
+embeddings <- clip::generate_embeddings(data $texts, data$ images)
 
 # 2. Given a query, generate its embedding
 query_embedding <- clip::generate_query_embedding(query)

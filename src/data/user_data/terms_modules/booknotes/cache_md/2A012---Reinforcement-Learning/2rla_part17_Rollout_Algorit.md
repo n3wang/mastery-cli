@@ -244,7 +244,7 @@ x??
 
 #### Selection in MCTS
 
-Background context: The selection step of MCTS involves traversing the tree from the root node to a leaf node using a tree policy that balances exploration and exploitation. The policy can be greedy or use an informed rule like \(\epsilon\)-greedy or UCB.
+Background context: The selection step of MCTS involves traversing the tree from the root node to a leaf node using a tree policy that balances exploration and exploitation. The policy can be greedy or use an informed rule like $\epsilon$-greedy or UCB.
 
 :p How does the selection phase work in MCTS?
 ??x
@@ -365,11 +365,11 @@ x??
 
 #### Tree Policy in MCTS
 
-Background context: The tree policy is responsible for selecting nodes to traverse during the selection phase. It balances exploration and exploitation using rules like \(\epsilon\)-greedy or UCB.
+Background context: The tree policy is responsible for selecting nodes to traverse during the selection phase. It balances exploration and exploitation using rules like $\epsilon$-greedy or UCB.
 
 :p What is the role of the tree policy in MCTS?
 ??x
-The tree policy in MCTS guides the traversal from the root node to a leaf node, balancing between exploring new nodes and exploiting known actions with higher values. Common policies include \(\epsilon\)-greedy, where there's a small probability of choosing random actions to explore, or UCB (Upper Confidence Bound) which uses an exploration-exploitation trade-off based on confidence intervals.
+The tree policy in MCTS guides the traversal from the root node to a leaf node, balancing between exploring new nodes and exploiting known actions with higher values. Common policies include $\epsilon$-greedy, where there's a small probability of choosing random actions to explore, or UCB (Upper Confidence Bound) which uses an exploration-exploitation trade-off based on confidence intervals.
 
 ```java
 // Example: \epsilon-greedy Tree Policy in MCTS
@@ -856,13 +856,13 @@ x??
 
 
 #### Action Values vs. State Values vs. Afterstate Values
-Background context explaining that these are different types of values estimated in reinforcement learning (RL). State values (\(V(s)\)) represent the expected return from a state, while action values (\(Q(s,a)\)) represent the expected return starting from state \(s\) and taking action \(a\). Afterstate values are not commonly used but can refer to the value of the next state in some contexts.
+Background context explaining that these are different types of values estimated in reinforcement learning (RL). State values ($V(s)$) represent the expected return from a state, while action values ($ Q(s,a)$) represent the expected return starting from state $ s$and taking action $ a$. Afterstate values are not commonly used but can refer to the value of the next state in some contexts.
 
 :p What kind of values should be estimated?
 ??x
-The primary types of values that need to be estimated are action values (\(Q(s,a)\)) or state values (\(V(s)\)). If only state values are estimated, a separate policy (as in actor–critic methods) is required for action selection.
+The primary types of values that need to be estimated are action values ($Q(s,a)$) or state values ($ V(s)$). If only state values are estimated, a separate policy (as in actor–critic methods) is required for action selection.
 
-Example: In Q-learning, the goal is to estimate \(Q(s,a)\), which can be used directly for action selection. However, if only \(V(s)\) is estimated, an additional step is needed to derive actions.
+Example: In Q-learning, the goal is to estimate $Q(s,a)$, which can be used directly for action selection. However, if only $ V(s)$ is estimated, an additional step is needed to derive actions.
 x??
 
 ---
@@ -873,7 +873,7 @@ Background context explaining that this involves choosing actions to balance exp
 :p How are actions selected to ensure a suitable trade-off between exploration and exploitation?
 ??x
 Several methods can be used:
-- ε-greedy: Choose the greedy action with probability \(1 - \epsilon\) and a random action with probability \(\epsilon\).
+- ε-greedy: Choose the greedy action with probability $1 - \epsilon $ and a random action with probability$\epsilon$.
 - Optimistic Initialization of Values: Start with high initial values for all actions, encouraging exploration.
 - Soft-max Selection: Use the softmax function to select actions based on their expected returns.
 - Upper Confidence Bound (UCB): Balance exploitation and exploration by selecting actions that have not been tried often or have high potential.

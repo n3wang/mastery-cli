@@ -1401,12 +1401,11 @@ x??
 Background context: The Mandelbrot set is a mathematical set of points whose boundary forms a fractal. To visualize it, each pixel on an image represents a complex number, and the color of that pixel depends on whether or not the corresponding complex number belongs to the Mandelbrot set. Typically, this process involves iterating a function many times for each pixel.
 
 The formula used in determining membership in the Mandelbrot set is:
-\[ z_{n+1} = z_n^2 + c \]
-where \( z_0 = 0 \) and \( c \) is a complex number corresponding to the point on the image. The iteration stops if the magnitude of \( z_n \) exceeds 2, indicating that the point does not belong to the set.
+$$z_{n+1} = z_n^2 + c$$where $ z_0 = 0 $ and $ c $ is a complex number corresponding to the point on the image. The iteration stops if the magnitude of $ z_n$ exceeds 2, indicating that the point does not belong to the set.
 
 :p What does the `isMandelbrot` function determine in this context?
 ??x
-The `isMandelbrot` function determines whether a given complex number \( c \) belongs to the Mandelbrot set after a certain number of iterations. It uses the iterative formula \( z_{n+1} = z_n^2 + c \) with initial \( z_0 = 0 \). The function returns true if, after 100 iterations (or fewer), the magnitude of \( z_n \) does not exceed 2.
+The `isMandelbrot` function determines whether a given complex number $c $ belongs to the Mandelbrot set after a certain number of iterations. It uses the iterative formula$z_{n+1} = z_n^2 + c $ with initial$ z_0 = 0 $. The function returns true if, after 100 iterations (or fewer), the magnitude of $ z_n$ does not exceed 2.
 ```csharp
 Func<Complex, int, bool> isMandelbrot = (complex, iterations) => {
     var z = new Complex(0.0f, 0.0f);

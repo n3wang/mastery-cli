@@ -122,19 +122,6 @@ x??
 ---
 
 
-#### Detecting Hallucinations
-Background context on how difficult it is to detect when a human is lying or making things up. Despite this difficulty, efforts have been made to develop methods for detecting and measuring hallucinations in AI models.
-
-:p How challenging is it to detect hallucinations in AI models?
-??x
-Detecting hallucinations in AI models is extremely challenging because it mirrors the difficulty humans face in discerning truth from lies or fabrications. The complexity arises due to the probabilistic nature of how AI models generate outputs, making it hard to distinguish between factual and fabricated information.
-
-There are ongoing efforts to develop methods for detecting hallucinations, which will be discussed in Chapter 4.
-x??
-
----
-
-
 #### Core Design Decisions When Building a Foundation Model
 Background context explaining the importance of considering core design decisions when building foundation models. These choices significantly impact model performance and usability.
 

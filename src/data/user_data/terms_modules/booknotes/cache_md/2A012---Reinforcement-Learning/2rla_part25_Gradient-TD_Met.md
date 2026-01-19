@@ -22,19 +22,21 @@ The objective is to express the PBE using matrix notation to facilitate gradient
 :p How can the PBE be expressed in matrix terms?
 ??x
 The PBE can be expressed as:
-\[ \text{PBE}(w) = x^T D \bar{\xi} - (X D X^T)^{-1} X D \bar{\xi} x^T. \]
-Where \( \bar{\xi} \) is the average feature vector, \( X \) is the matrix of feature vectors, and \( D \) is a diagonal matrix containing the advantage values.
+$$\text{PBE}(w) = x^T D \bar{\xi} - (X D X^T)^{-1} X D \bar{\xi} x^T.$$
+
+Where $\bar{\xi}$ is the average feature vector,$X $ is the matrix of feature vectors, and$D$ is a diagonal matrix containing the advantage values.
 x??
 
 ---
 
 #### Derivation of Gradient
-The gradient with respect to \( w \) is derived from the PBE.
+The gradient with respect to $w$ is derived from the PBE.
 
 :p What is the expression for the gradient of the PBE?
 ??x
-The gradient of the PBE with respect to \( w \) is:
-\[ r\text{PBE}(w) = 2 E[ (x_{t+1} - x_t)^T x^T_t ] E[X_t X_t^T]^{-1} E[\rho_t (x_{t+1} - x_t)x^T_t]. \]
+The gradient of the PBE with respect to $w$ is:
+$$r\text{PBE}(w) = 2 E[ (x_{t+1} - x_t)^T x^T_t ] E[X_t X_t^T]^{-1} E[\rho_t (x_{t+1} - x_t)x^T_t].$$
+
 This gradient expression includes the expectation of several components: the difference between feature vectors, the outer product matrix, and the importance sampling ratio.
 x??
 
@@ -46,8 +48,9 @@ The goal is to formulate an SGD method that can estimate the gradient.
 :p How is the gradient expression used in an SGD method?
 ??x
 To use the gradient expression in an SGD method, we need to sample quantities that have this expectation. The expression for the gradient can be approximated by:
-\[ \hat{r}\text{PBE}(w_t) = E[\rho_t (x_{t+1} - x_t)x^T_t] E[X_t X_t^T]^{-1} E[\rho_t (x_{t+1} - x_t)x^T_t]. \]
-This involves estimating the three components: \( E[(x_{t+1} - x_t)^T x^T_t] \), \( E[X_t X_t^T]^{-1} \), and \( E[\rho_t (x_{t+1} - x_t)x^T_t] \).
+$$\hat{r}\text{PBE}(w_t) = E[\rho_t (x_{t+1} - x_t)x^T_t] E[X_t X_t^T]^{-1} E[\rho_t (x_{t+1} - x_t)x^T_t].$$
+
+This involves estimating the three components:$E[(x_{t+1} - x_t)^T x^T_t]$,$ E[X_t X_t^T]^{-1}$, and $ E[\rho_t (x_{t+1} - x_t)x^T_t]$.
 x??
 
 ---
@@ -57,22 +60,20 @@ The third component is estimated using a form similar to least-squares regressio
 
 :p How is the third component of the gradient expression estimated?
 ??x
-The third component, \( E[X_t X_t^T]^{-1} \), can be approximated using an iterative method such as the Least Mean Squares (LMS) rule. The update for this component is:
-\[ v_{t+1} = v_t + \alpha (\rho_t (x_{t+1} - x_t)x^T_t) v_t, \]
-where \( \alpha > 0 \) is a step-size parameter.
+The third component, $E[X_t X_t^T]^{-1}$, can be approximated using an iterative method such as the Least Mean Squares (LMS) rule. The update for this component is:
+$$v_{t+1} = v_t + \alpha (\rho_t (x_{t+1} - x_t)x^T_t) v_t,$$where $\alpha > 0$ is a step-size parameter.
 x??
 
 ---
 
 #### Updating the Main Parameter Vector
-The main parameter vector \( w \) is updated using the estimated gradient.
+The main parameter vector $w$ is updated using the estimated gradient.
 
-:p How does the update rule for \( w \) look like?
+:p How does the update rule for $w$ look like?
 ??x
-The update rule for the main parameter vector \( w \) can be written as:
-\[ w_{t+1} = w_t - \gamma E[\rho_t (x_t - x_{t+1}) x^T_t] v_t, \]
-where \( \gamma > 0 \) is a step-size parameter.
-This update rule incorporates the estimated gradient and uses the precomputed vector \( v \).
+The update rule for the main parameter vector $w$ can be written as:
+$$w_{t+1} = w_t - \gamma E[\rho_t (x_t - x_{t+1}) x^T_t] v_t,$$where $\gamma > 0$ is a step-size parameter.
+This update rule incorporates the estimated gradient and uses the precomputed vector $v$.
 x??
 
 ---
@@ -82,9 +83,8 @@ The specific algorithm, known as GTD2, is derived from the above steps.
 
 :p What is the GTD2 algorithm?
 ??x
-The GTD2 algorithm updates the main parameter vector \( w \) using:
-\[ w_{t+1} = w_t - \gamma E[\rho_t (x_t - x_{t+1}) x^T_t] v_t, \]
-where \( \gamma > 0 \) is a step-size parameter and \( v_t \) is an estimate of the matrix inverse component.
+The GTD2 algorithm updates the main parameter vector $w$ using:
+$$w_{t+1} = w_t - \gamma E[\rho_t (x_t - x_{t+1}) x^T_t] v_t,$$where $\gamma > 0 $ is a step-size parameter and$v_t$ is an estimate of the matrix inverse component.
 This algorithm has O(d) storage and per-step computation complexity.
 x??
 
@@ -95,9 +95,8 @@ The alternative algorithm, known as TDC, is derived from additional analytic ste
 
 :p What is the TDC (TD(0) with gradient correction) algorithm?
 ??x
-The TDC (TD(0) with gradient correction) algorithm updates the main parameter vector \( w \) using:
-\[ w_{t+1} = w_t - \gamma E[\rho_t (x_t - x_{t+1}) x^T_t] v_t, \]
-where \( \gamma > 0 \) is a step-size parameter and \( v_t \) is an estimate of the matrix inverse component.
+The TDC (TD(0) with gradient correction) algorithm updates the main parameter vector $w$ using:
+$$w_{t+1} = w_t - \gamma E[\rho_t (x_t - x_{t+1}) x^T_t] v_t,$$where $\gamma > 0 $ is a step-size parameter and$v_t$ is an estimate of the matrix inverse component.
 This algorithm has O(d) storage and per-step computation complexity.
 x??
 
@@ -160,11 +159,10 @@ The one-step Emphatic-TD algorithm updates parameters by considering both immedi
 :p What is the formula for updating the parameter vector in the one-step Emphatic-TD algorithm?
 ??x
 The update rule for the one-step Emphatic-TD algorithm is:
-\[ \hat{v}(s_t, w_t) = R_{t+1} + \lambda \hat{v}(s_{t+1}, w_t) - \hat{v}(s_t, w_t) \]
-where \( \lambda \) is the emphasis factor and \( I_t \) is the interest term. The weight update rule is:
-\[ w_{t+1} = w_t + \alpha M_t \delta_t \]
-with
-\[ M_t = \gamma^{t-1} M_0 + I_t, \quad \text{and} \quad \delta_t = R_{t+1} + \lambda \hat{v}(s_{t+1}, w_t) - \hat{v}(s_t, w_t) \]
+$$\hat{v}(s_t, w_t) = R_{t+1} + \lambda \hat{v}(s_{t+1}, w_t) - \hat{v}(s_t, w_t)$$where $\lambda $ is the emphasis factor and$I_t$ is the interest term. The weight update rule is:
+$$w_{t+1} = w_t + \alpha M_t \delta_t$$with$$
+
+M_t = \gamma^{t-1} M_0 + I_t, \quad \text{and} \quad \delta_t = R_{t+1} + \lambda \hat{v}(s_{t+1}, w_t) - \hat{v}(s_t, w_t)$$
 x??
 
 ---

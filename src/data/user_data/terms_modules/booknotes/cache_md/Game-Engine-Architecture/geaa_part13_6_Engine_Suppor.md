@@ -694,7 +694,7 @@ Background context: Efficient memory management is crucial for optimizing perfor
 
 :p What is a way to save memory by utilizing free list pointers inside free memory blocks?
 ??x
-By placing free list pointers directly within the free memory blocks, we can reduce overhead. If each element is smaller than a pointer, 16-bit indices (for example) can replace full pointer values in a linked list if the pool contains no more than \(2^{16} = 65,536\) elements.
+By placing free list pointers directly within the free memory blocks, we can reduce overhead. If each element is smaller than a pointer, 16-bit indices (for example) can replace full pointer values in a linked list if the pool contains no more than $2^{16} = 65,536$ elements.
 ??x
 
 ---
@@ -1712,7 +1712,7 @@ Background context explaining quadratic probing. It involves using a sequence of
 
 :p How does quadratic probing differ from linear probing?
 ??x
-Quadratic probing differs from linear probing by using a sequence of probes \(i_j = (i - j^2)\) for \(j=1, 2, 3, \ldots\). This helps in avoiding key-value pairs clumping up and provides more spread out slots.
+Quadratic probing differs from linear probing by using a sequence of probes $i_j = (i - j^2)$ for $j=1, 2, 3, \ldots$. This helps in avoiding key-value pairs clumping up and provides more spread out slots.
 x??
 
 ---
@@ -1734,7 +1734,7 @@ Background context explaining the slot calculation based on a hash function.
 
 :p How does one calculate the slot index for storing a key in a hash table?
 ??x
-To calculate the slot index for storing a key in a hash table, you typically use the modulo operator with the size of the table. For example, if the hash value is \(h\) and the table size is \(n\), the slot index would be calculated as `h % n`.
+To calculate the slot index for storing a key in a hash table, you typically use the modulo operator with the size of the table. For example, if the hash value is $h $ and the table size is$n$, the slot index would be calculated as `h % n`.
 x??
 
 ---

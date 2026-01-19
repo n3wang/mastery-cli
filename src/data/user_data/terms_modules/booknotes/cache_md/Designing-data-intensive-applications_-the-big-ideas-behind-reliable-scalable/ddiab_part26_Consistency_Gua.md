@@ -316,7 +316,7 @@ The `cas(x, vold, vnew)` operation allows for atomic comparison and update of a 
 
 :p What does the `cas` operation do?
 ??x
-The `cas` (Compare-and-Swap) operation checks if the current value of the variable \( x \) is equal to \( v_{old} \). If true, it atomically sets \( x \) to \( v_{new} \). Otherwise, the operation leaves the register unchanged and returns an error. This ensures that updates are done atomically without interfering with other concurrent operations.
+The `cas` (Compare-and-Swap) operation checks if the current value of the variable $x $ is equal to$v_{old}$. If true, it atomically sets $ x$to $ v_{new}$. Otherwise, the operation leaves the register unchanged and returns an error. This ensures that updates are done atomically without interfering with other concurrent operations.
 x??
 
 ---

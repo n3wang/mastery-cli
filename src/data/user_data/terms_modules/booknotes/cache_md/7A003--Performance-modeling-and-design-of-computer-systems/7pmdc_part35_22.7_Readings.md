@@ -11,12 +11,16 @@
 In this context, we discuss a network consisting of two M/G/1/PS (Phase-Switching) servers connected in tandem. The system has Poisson outside arrivals and general Coxian service times. The key feature here is that jobs move through phases independently, which allows for the product form solution.
 
 Background context: For such a setup, the probability distribution of the number of jobs at each server can be described as follows:
-\[ P\{n \text{jobs at server 1}\} = \frac{\sum_{m=0}^\infty (1-\rho_a)(1-\rho_b) \cdot \rho_a^n \rho_b^m}{\sum_{m=0}^\infty (1 - \rho_a)(1 - \rho_b) \cdot \rho_a^n \rho_b^m} = (1-\rho_a)\rho_a^n \]
-Similarly,
-\[ P\{m \text{jobs at server 2}\} = (1-\rho_b)\rho_b^m. \]
+$$P\{n \text{jobs at server 1}\} = \frac{\sum_{m=0}^\infty (1-\rho_a)(1-\rho_b) \cdot \rho_a^n \rho_b^m}{\sum_{m=0}^\infty (1 - \rho_a)(1 - \rho_b) \cdot \rho_a^n \rho_b^m} = (1-\rho_a)\rho_a^n$$
+
+Similarly,$$
+
+P\{m \text{jobs at server 2}\} = (1-\rho_b)\rho_b^m.$$
 
 Thus, the joint probability is:
-\[ P\{n \text{ jobs at server 1 and } m \text{ jobs at server 2}\} = \rho_a^n(1-\rho_a)(1-\rho_b)\rho_b^m = P\{n \text{ jobs at server 1}\} \cdot P\{m \text{ jobs at server 2}\}. \]
+$$
+
+P\{n \text{ jobs at server 1 and } m \text{ jobs at server 2}\} = \rho_a^n(1-\rho_a)(1-\rho_b)\rho_b^m = P\{n \text{ jobs at server 1}\} \cdot P\{m \text{ jobs at server 2}\}.$$
 
 This implies that the distribution of the number of jobs at each server follows an M/M/1 system.
 
@@ -120,34 +124,19 @@ Background context: The chapter discusses the product form solution for tandem n
 :p How do you verify that a given guess for the limiting probabilities in a tandem network of PS servers satisfies the local balance equations?
 ??x
 To verify that the given guess for the limiting probabilities satisfies the local balance equations, we need to check if it balances at each server and phase. The proposed πn1,n2,m1,m2 is:
-
-\[
-π_{n_1, n_2, m_1, m_2} = \binom{n_1 + n_2}{n_1} ρ_1^{n_1}ρ_2^{n_2}/\left(\binom{m_1 + m_2}{m_1}\right) ρ_3^{m_1}ρ_4^{m_2}π_{0, 0, 0, 0}
-\]
-
-where \( ρ_1 = \lambda / μ_1 \), \( ρ_2 = λp / μ_2 \), \( ρ_3 = \lambda / μ_3 \), and \( ρ_4 = λq / μ_4 \).
+$$π_{n_1, n_2, m_1, m_2} = \binom{n_1 + n_2}{n_1} ρ_1^{n_1}ρ_2^{n_2}/\left(\binom{m_1 + m_2}{m_1}\right) ρ_3^{m_1}ρ_4^{m_2}π_{0, 0, 0, 0}$$where $ρ_1 = \lambda / μ_1 $, $ρ_2 = λp / μ_2 $, $ρ_3 = \lambda / μ_3 $, and $ρ_4 = λq / μ_4$.
 
 The local balance equations for each server can be checked as follows:
 
 For server 1:
 - Balance at the end of phase 1: 
-\[
-\sum_{n_2, m_1, m_2} π_{0, n_2, m_1, m_2} μ_1 = \sum_{n_1, n_2, m_1, m_2} π_{n_1, n_2, m_1, m_2} λp
-\]
-- Balance at the end of phase 2:
-\[
-\sum_{n_1, m_1, m_2} π_{n_1, 0, m_1, m_2} μ_2 = \sum_{n_1, n_2, m_1, m_2} π_{n_1, n_2, m_1, m_2} λq
-\]
+$$\sum_{n_2, m_1, m_2} π_{0, n_2, m_1, m_2} μ_1 = \sum_{n_1, n_2, m_1, m_2} π_{n_1, n_2, m_1, m_2} λp$$- Balance at the end of phase 2:
+$$\sum_{n_1, m_1, m_2} π_{n_1, 0, m_1, m_2} μ_2 = \sum_{n_1, n_2, m_1, m_2} π_{n_1, n_2, m_1, m_2} λq$$
 
 For server 2:
 - Balance at the start of phase 3:
-\[
-\sum_{n_1, n_2, m_2} π_{n_1, n_2, 0, m_2} μ_3 = \sum_{n_1, n_2, m_1, m_2} π_{n_1, n_2, m_1, m_2} λ
-\]
-- Balance at the start of phase 4:
-\[
-\sum_{n_1, n_2, m_1} π_{n_1, n_2, m_1, 0} μ_4 = \sum_{n_1, n_2, m_1, m_2} π_{n_1, n_2, m_1, m_2} λ
-\]
+$$\sum_{n_1, n_2, m_2} π_{n_1, n_2, 0, m_2} μ_3 = \sum_{n_1, n_2, m_1, m_2} π_{n_1, n_2, m_1, m_2} λ$$- Balance at the start of phase 4:
+$$\sum_{n_1, n_2, m_1} π_{n_1, n_2, m_1, 0} μ_4 = \sum_{n_1, n_2, m_1, m_2} π_{n_1, n_2, m_1, m_2} λ$$
 
 By substituting the given π into these equations and simplifying, you can verify that it balances at each step.
 
@@ -226,10 +215,9 @@ Background context: This technique involves tagging an arbitrary arrival in the 
 The tagged job technique involves tagging a specific arriving job (a "tagged" arrival) and analyzing its behavior through the system. By doing so, we can derive the expected time spent in the queue by the tagged arrival, which is equal to the mean waiting time for all jobs.
 
 Key steps include:
-1. Calculate \( E[TQ] \), the mean time in queue.
+1. Calculate $E[TQ]$, the mean time in queue.
 2. Use the equation: 
-\[ E[TQ] = \frac{\rho}{1 - \rho} \cdot E[Se] \]
-where \( \rho \) is the traffic intensity (utilization factor), and \( E[Se] \) is the expected remaining service time given that there is a job in service.
+$$E[TQ] = \frac{\rho}{1 - \rho} \cdot E[Se]$$where $\rho $ is the traffic intensity (utilization factor), and$E[Se]$ is the expected remaining service time given that there is a job in service.
 
 ```java
 // Pseudocode for calculating mean time in queue using tagged job technique
@@ -253,18 +241,21 @@ Background context: Using the tagged job technique, we can derive a formula for 
 
 :p Derive the formula for the mean time in queue for an M/G/1 system.
 ??x
-The mean time in queue \( E[TQ] \) for an M/G/1 system can be derived using the tagged job technique. The key steps are:
+The mean time in queue $E[TQ]$ for an M/G/1 system can be derived using the tagged job technique. The key steps are:
 
-1. **Expectation Breakdown**: 
-\[ E[TQ] = E\left[\frac{N_Q}{\sum_{i=1}^{N_Q} S_i}\right] + E[ \text{unfinished work at server}] \]
-2. **Simplification**:
-\[ E[TQ] = \mathbb{E}\left[\frac{\mathbb{E}[N_Q]}{\mu}\right] + (P\{\text{server busy}\}) \cdot E[Se] \]
-3. **Further Simplification**:
-\[ E[TQ] = \frac{\mathbb{E}[N_Q]}{\mu} + \rho \cdot E[Se] \]
-4. **Final Expression**:
-\[ E[TQ] = \frac{\rho}{1 - \rho} \cdot E[Se] \]
+1. **Expectation Breakdown**:
+$$E[TQ] = E\left[\frac{N_Q}{\sum_{i=1}^{N_Q} S_i}\right] + E[ \text{unfinished work at server}]$$2. **Simplification**:
+$$
 
-Where \( N_Q \) is the number in queue, \( S_i \) are the service times of jobs in the queue, and \( Se \) is the remaining service time when there is a job in service.
+E[TQ] = \mathbb{E}\left[\frac{\mathbb{E}[N_Q]}{\mu}\right] + (P\{\text{server busy}\}) \cdot E[Se]$$3. **Further Simplification**:
+$$
+
+E[TQ] = \frac{\mathbb{E}[N_Q]}{\mu} + \rho \cdot E[Se]$$4. **Final Expression**:
+$$
+
+E[TQ] = \frac{\rho}{1 - \rho} \cdot E[Se]$$
+
+Where $N_Q $ is the number in queue,$S_i $ are the service times of jobs in the queue, and$Se$ is the remaining service time when there is a job in service.
 
 ```java
 // Pseudocode to calculate mean waiting time for M/G/1 system
@@ -288,16 +279,16 @@ Background context: The M/M/1 queue is a special case of the M/G/1 queue where s
 
 :p Derive the mean time in queue for an M/M/1 system.
 ??x
-For the M/M/1 system, where the service time \( S \) follows an Exponential distribution with mean 1/μ:
+For the M/M/1 system, where the service time $S$ follows an Exponential distribution with mean 1/μ:
 
-- The expected remaining service time \( E[Se] = \frac{1}{\mu} \).
+- The expected remaining service time $E[Se] = \frac{1}{\mu}$.
 - Using the formula derived earlier:
-\[ E[TQ] = \frac{\rho}{1 - \rho} \cdot E[Se] = \frac{\rho}{1 - \rho} \cdot \frac{1}{\mu} \]
+$$E[TQ] = \frac{\rho}{1 - \rho} \cdot E[Se] = \frac{\rho}{1 - \rho} \cdot \frac{1}{\mu}$$
 
 Thus, for an M/M/1 system:
-\[ E[TQ] = \frac{\lambda / \mu}{1 - \lambda / \mu} \cdot \frac{1}{\mu} = \frac{\lambda}{\mu (1 - \lambda / \mu)} \]
+$$
 
-```java
+E[TQ] = \frac{\lambda / \mu}{1 - \lambda / \mu} \cdot \frac{1}{\mu} = \frac{\lambda}{\mu (1 - \lambda / \mu)}$$```java
 // Pseudocode to calculate mean waiting time for M/M/1 system
 public class MMOneQueueWaitingTime {
     private double arrivalRate; // λ
@@ -320,16 +311,16 @@ Background context: The M/D/1 queue is another special case of the M/G/1 where s
 
 :p Derive the mean time in queue for an M/D/1 system.
 ??x
-For the M/D/1 system, where the service time \( S \) is deterministic with mean 1/μ:
+For the M/D/1 system, where the service time $S$ is deterministic with mean 1/μ:
 
-- The expected remaining service time \( E[Se] = \frac{1}{2\mu} \), because the remaining service time of a job in service is uniformly distributed between 0 and 1/μ.
+- The expected remaining service time $E[Se] = \frac{1}{2\mu}$, because the remaining service time of a job in service is uniformly distributed between 0 and 1/μ.
 - Using the formula derived earlier:
-\[ E[TQ] = \frac{\rho}{1 - \rho} \cdot E[Se] = \frac{\rho}{1 - \rho} \cdot \frac{1}{2\mu} \]
+$$E[TQ] = \frac{\rho}{1 - \rho} \cdot E[Se] = \frac{\rho}{1 - \rho} \cdot \frac{1}{2\mu}$$
 
 Thus, for an M/D/1 system:
-\[ E[TQ] = \frac{\lambda / \mu}{1 - \lambda / \mu} \cdot \frac{1}{2\mu} \]
+$$
 
-```java
+E[TQ] = \frac{\lambda / \mu}{1 - \lambda / \mu} \cdot \frac{1}{2\mu}$$```java
 // Pseudocode to calculate mean waiting time for M/D/1 system
 public class MDOneQueueWaitingTime {
     private double arrivalRate; // λ
@@ -352,16 +343,16 @@ Background context: The M/Ek/1 queue is a special case where the service time fo
 
 :p Derive the mean time in queue for an M/Ek/1 system.
 ??x
-For the M/Ek/1 system, where the service time \( S \) is Erlang-k distributed:
+For the M/Ek/1 system, where the service time $S$ is Erlang-k distributed:
 
-- The expected remaining service time \( E[Se] = \frac{k}{\mu k - \lambda} \), because the remaining service time of a job in service with an Erlang-k distribution can be derived from its properties.
+- The expected remaining service time $E[Se] = \frac{k}{\mu k - \lambda}$, because the remaining service time of a job in service with an Erlang-k distribution can be derived from its properties.
 - Using the formula derived earlier:
-\[ E[TQ] = \frac{\rho}{1 - \rho} \cdot E[Se] = \frac{\rho}{1 - \rho} \cdot \frac{k}{\mu k - \lambda} \]
+$$E[TQ] = \frac{\rho}{1 - \rho} \cdot E[Se] = \frac{\rho}{1 - \rho} \cdot \frac{k}{\mu k - \lambda}$$
 
 Thus, for an M/Ek/1 system:
-\[ E[TQ] = \frac{\lambda / (\mu k)}{1 - \lambda / (\mu k)} \cdot \frac{k}{\mu k - \lambda} \]
+$$
 
-```java
+E[TQ] = \frac{\lambda / (\mu k)}{1 - \lambda / (\mu k)} \cdot \frac{k}{\mu k - \lambda}$$```java
 // Pseudocode to calculate mean waiting time for M/Ek/1 system
 public class MEKOneQueueWaitingTime {
     private double arrivalRate; // λ
@@ -381,17 +372,16 @@ x??
 
 #### M/G/1 Utilization and Mean Waiting Time
 
-Background context: The traffic intensity or utilization factor \( \rho \) is defined as the ratio of the arrival rate to the service rate. For an M/G/1 system, the mean waiting time can be derived using this factor.
+Background context: The traffic intensity or utilization factor $\rho$ is defined as the ratio of the arrival rate to the service rate. For an M/G/1 system, the mean waiting time can be derived using this factor.
 
-:p Derive the expression for the mean waiting time in terms of the utilization factor \( \rho \).
+:p Derive the expression for the mean waiting time in terms of the utilization factor $\rho$.
 ??x
-The mean waiting time \( E[TQ] \) in an M/G/1 system can be expressed in terms of the traffic intensity (utilization factor) \( \rho \):
+The mean waiting time $E[TQ]$ in an M/G/1 system can be expressed in terms of the traffic intensity (utilization factor)$\rho$:
 
-\[ E[TQ] = \frac{\rho}{(1 - \rho)} \cdot E[Se] \]
+$$E[TQ] = \frac{\rho}{(1 - \rho)} \cdot E[Se]$$
 
 Where:
-- \( \rho = \frac{\lambda}{\mu} \)
-- \( E[Se] \) is the expected remaining service time given that there is a job in service.
+- $\rho = \frac{\lambda}{\mu}$-$ E[Se]$ is the expected remaining service time given that there is a job in service.
 
 This formula captures how the waiting time increases as the system utilization approaches 1, indicating congestion.
 
@@ -419,7 +409,7 @@ Background context: The M/G/1 system allows for any general distribution of serv
 The M/G/1 model can handle any general service time distribution because:
 - It assumes a single server and Poisson arrival process.
 - The system's state (number of jobs in the queue) is defined by the current number of jobs, which includes both those being served and those waiting.
-- By defining \( E[Se] \), the expected remaining service time for a job given that there is one in service, we can generalize the formula for any distribution.
+- By defining $E[Se]$, the expected remaining service time for a job given that there is one in service, we can generalize the formula for any distribution.
 
 This flexibility allows M/G/1 to model systems with various service time distributions such as Exponential (M/M/1), Deterministic (M/D/1), and Erlang-k (M/Ek/1).
 
@@ -438,17 +428,15 @@ x??
 ---
 
 
-#### Traffic Intensity \( \rho \)
+#### Traffic Intensity $\rho $ Background context: The traffic intensity or utilization factor$\rho$ is a key parameter in queuing theory, representing the ratio of the arrival rate to the service rate.
 
-Background context: The traffic intensity or utilization factor \( \rho \) is a key parameter in queuing theory, representing the ratio of the arrival rate to the service rate.
-
-:p Define and explain the concept of traffic intensity \( \rho \).
+:p Define and explain the concept of traffic intensity $\rho$.
 ??x
-Traffic intensity (or utilization factor) \( \rho \) is defined as the ratio of the arrival rate \( \lambda \) to the service rate \( \mu \):
+Traffic intensity (or utilization factor) $\rho $ is defined as the ratio of the arrival rate$\lambda $ to the service rate$\mu$:
 
-\[ \rho = \frac{\lambda}{\mu} \]
+$$\rho = \frac{\lambda}{\mu}$$
 
-This parameter indicates how busy the server is. When \( \rho < 1 \), the system can handle the load without infinite queues, and when \( \rho > 1 \), it leads to queue buildup.
+This parameter indicates how busy the server is. When $\rho < 1 $, the system can handle the load without infinite queues, and when $\rho > 1$, it leads to queue buildup.
 
 ```java
 // Pseudocode to calculate traffic intensity

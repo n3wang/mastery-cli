@@ -13,14 +13,16 @@ Background context explaining how PLCFS works compared to PS. The performance me
 :p What is the expected number of times a tagged job will be interrupted under PLCFS?
 
 ??x
-The expected number of times our tagged job with size \( x \) gets interrupted is given by \( \lambda x \), where \( \lambda \) is the arrival rate. This is because each job creates two preemptions—when it arrives and when it departs.
+The expected number of times our tagged job with size $x $ gets interrupted is given by$\lambda x $, where $\lambda$ is the arrival rate. This is because each job creates two preemptions—when it arrives and when it departs.
 
 The formula for wasted time under PLCFS is:
-\[ E[Wasted-Time (x)] = \lambda x \cdot E[S] \]
-Where \( S \) is the expected length of an interruption, and \( 1 - \rho \) is the utilization factor. The total expected completion time \( E[T(x)] \) for a job under PLCFS is:
-\[ E[T(x)] = x + \frac{\lambda x E[S]}{1 - \rho} = \frac{x}{1 - \rho} \]
-The slowdown for a job of size \( x \) under PLCFS is:
-\[ E[Slowdown (x)] = 1 \]
+$$E[Wasted-Time (x)] = \lambda x \cdot E[S]$$
+
+Where $S $ is the expected length of an interruption, and$1 - \rho $ is the utilization factor. The total expected completion time$E[T(x)]$ for a job under PLCFS is:
+$$E[T(x)] = x + \frac{\lambda x E[S]}{1 - \rho} = \frac{x}{1 - \rho}$$
+
+The slowdown for a job of size $x$ under PLCFS is:
+$$E[Slowdown (x)] = 1$$
 
 C/Java code to illustrate the concept:
 ```java
@@ -46,25 +48,30 @@ x??
 
 #### Derivation of E[T(x)]FB
 
-Background context explaining how to derive \( E[T(x)] \) for FB scheduling, using concepts like job size transformation and remaining work.
+Background context explaining how to derive $E[T(x)]$ for FB scheduling, using concepts like job size transformation and remaining work.
 
-:p What is \( E[T(x)] \) under FB scheduling?
+:p What is $E[T(x)]$ under FB scheduling?
 
 ??x
-The expected completion time \( E[T(x)] \) for a job of size \( x \) under FB scheduling can be derived as follows:
+The expected completion time $E[T(x)]$ for a job of size $x$ under FB scheduling can be derived as follows:
 
-1. The job itself: \( x \) units.
-2. Expected remaining work in the system when the job arrives, assuming all jobs have service requirements no more than \( x \).
+1. The job itself:$x$ units.
+2. Expected remaining work in the system when the job arrives, assuming all jobs have service requirements no more than $x$.
 3. Expected work due to new arrivals while the job is in the system.
 
-The formula for \( E[T(x)] \) under FB scheduling is:
-\[ E[T(x)]FB = x + \frac{\lambda E[S^2_x]}{2(1 - \rho_x)} + \lambda E[T(x)]FBE[Sx] \]
-This can be simplified to:
-\[ E[T(x)]FB = x + \frac{\lambda E[S^2_x]}{2(1 - \rho_x)} + \frac{\rho_x}{1 - \rho_x}E[T(x)]FB \]
+The formula for $E[T(x)]$ under FB scheduling is:
+$$E[T(x)]FB = x + \frac{\lambda E[S^2_x]}{2(1 - \rho_x)} + \lambda E[T(x)]FBE[Sx]$$
 
-By solving for \( E[T(x)]FB \):
-\[ E[T(x)]FB (1 - \rho_x) = x + \frac{\lambda E[S^2_x]}{2(1 - \rho_x)} \]
-\[ E[T(x)]FB = x(1 - \rho_x) + \frac{1}{2} \frac{\lambda E[S^2_x]}{(1 - \rho_x)^2} \]
+This can be simplified to:
+$$
+
+E[T(x)]FB = x + \frac{\lambda E[S^2_x]}{2(1 - \rho_x)} + \frac{\rho_x}{1 - \rho_x}E[T(x)]FB$$
+
+By solving for $E[T(x)]FB$:
+$$E[T(x)]FB (1 - \rho_x) = x + \frac{\lambda E[S^2_x]}{2(1 - \rho_x)}$$
+$$
+
+E[T(x)]FB = x(1 - \rho_x) + \frac{1}{2} \frac{\lambda E[S^2_x]}{(1 - \rho_x)^2}$$
 
 C/Java code to illustrate the concept:
 ```java
@@ -96,8 +103,8 @@ Background context explaining how jobs with decreasing failure rate (DFR) can be
 :p How does the expected completion time under FB compare to PS for DFR job size distributions?
 
 ??x
-For a job size distribution with DFR, younger jobs (jobs that have been in the system longer and thus have had more service) are expected to have lower remaining service times. Therefore, the expected completion time \( E[T] \) under FB scheduling is less than under PS:
-\[ E[T]_{FB} < E[T]_{PS} \]
+For a job size distribution with DFR, younger jobs (jobs that have been in the system longer and thus have had more service) are expected to have lower remaining service times. Therefore, the expected completion time $E[T]$ under FB scheduling is less than under PS:
+$$E[T]_{FB} < E[T]_{PS}$$
 
 This result can be proven formally as stated in [189].
 
@@ -250,15 +257,13 @@ x??
 
 
 #### Average Number of Jobs in Queue
-The average number of jobs in the queue for a specific priority class \(k\) can be calculated using the formula:
-\[ E[NQ(k)] = \frac{\rho_k}{1 - \rho_k} \]
-where \( \rho_k = \lambda_k \cdot E[S_k] \) is the traffic intensity.
+The average number of jobs in the queue for a specific priority class $k$ can be calculated using the formula:
+$$E[NQ(k)] = \frac{\rho_k}{1 - \rho_k}$$where $\rho_k = \lambda_k \cdot E[S_k]$ is the traffic intensity.
 :p What is the average number of jobs in queue for priority class k?
 ??x
-The average number of jobs in queue for a specific priority class \(k\) can be calculated using the formula:
-\[ E[NQ(k)] = \frac{\rho_k}{1 - \rho_k} \]
-where \( \rho_k = \lambda_k \cdot E[S_k] \) is the traffic intensity.
-This formula helps in understanding how many jobs, on average, are waiting to be served at any given time for class \(k\).
+The average number of jobs in queue for a specific priority class $k$ can be calculated using the formula:
+$$E[NQ(k)] = \frac{\rho_k}{1 - \rho_k}$$where $\rho_k = \lambda_k \cdot E[S_k]$ is the traffic intensity.
+This formula helps in understanding how many jobs, on average, are waiting to be served at any given time for class $k$.
 x??
 
 ---
@@ -266,13 +271,11 @@ x??
 
 #### Average Time in Queue
 The average time a job spends in queue before being serviced can be calculated using Little’s Law:
-\[ E[TQ(k)] = E[NQ(k)] \cdot E[S_k] \]
-where \(E[NQ(k)]\) is the average number of jobs in the queue for priority class \(k\), and \(E[S_k]\) is the expected service time.
+$$E[TQ(k)] = E[NQ(k)] \cdot E[S_k]$$where $ E[NQ(k)]$is the average number of jobs in the queue for priority class $ k$, and $ E[S_k]$ is the expected service time.
 :p What is the average time a job spends in queue?
 ??x
 The average time a job spends in queue before being serviced can be calculated using Little’s Law:
-\[ E[TQ(k)] = E[NQ(k)] \cdot E[S_k] \]
-where \(E[NQ(k)]\) is the average number of jobs in the queue for priority class \(k\), and \(E[S_k]\) is the expected service time.
+$$E[TQ(k)] = E[NQ(k)] \cdot E[S_k]$$where $ E[NQ(k)]$is the average number of jobs in the queue for priority class $ k$, and $ E[S_k]$ is the expected service time.
 This formula helps in understanding the delay experienced by jobs waiting to be serviced, providing insights into system performance.
 x??
 

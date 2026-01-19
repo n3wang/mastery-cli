@@ -181,34 +181,39 @@ x??
 #### Buffering Updates Before Writing to Disk
 Background context: In Log-Structured Filesystems (LFS), updates are buffered into a segment before being written all at once to disk. The efficiency of this approach depends on how much data is buffered relative to the disk's performance characteristics, such as transfer rate and positioning overhead.
 
-The relevant formula for calculating the buffer size \(D\) to achieve an effective write rate close to peak bandwidth is:
-\[ T_{\text{write}} = \frac{T_{\text{position}} + D}{R_{\text{peak}}} \]
+The relevant formula for calculating the buffer size $D$ to achieve an effective write rate close to peak bandwidth is:
+$$T_{\text{write}} = \frac{T_{\text{position}} + D}{R_{\text{peak}}}$$
+
 Where:
-- \(T_{\text{write}}\) is the total time to write
-- \(T_{\text{position}}\) is the positioning time (rotation and seek overhead)
-- \(D\) is the amount of data buffered
-- \(R_{\text{peak}}\) is the peak transfer rate
+- $T_{\text{write}}$ is the total time to write
+- $T_{\text{position}}$ is the positioning time (rotation and seek overhead)
+- $D$ is the amount of data buffered
+- $R_{\text{peak}}$ is the peak transfer rate
 
 To get an effective write rate close to the peak rate, we want:
-\[ R_{\text{effective}} = F \times R_{\text{peak}} \]
-Where \(0 < F < 1\).
+$$R_{\text{effective}} = F \times R_{\text{peak}}$$
 
-:p How do you determine the buffer size \(D\) for LFS to achieve a desired effective bandwidth?
+Where $0 < F < 1$.
+
+:p How do you determine the buffer size $D$ for LFS to achieve a desired effective bandwidth?
 ??x
-To determine the buffer size \(D\), we need to ensure that the total write time \(T_{\text{write}}\) is minimized, thereby maximizing the effective write rate. The formula for the effective write rate is:
-\[ R_{\text{effective}} = \frac{D}{T_{\text{position}} + D / R_{\text{peak}}} \]
-We want this to be close to \(F \times R_{\text{peak}}\).
+To determine the buffer size $D $, we need to ensure that the total write time $ T_{\text{write}}$ is minimized, thereby maximizing the effective write rate. The formula for the effective write rate is:
+$$R_{\text{effective}} = \frac{D}{T_{\text{position}} + D / R_{\text{peak}}}$$
 
-To solve for \(D\):
+We want this to be close to $F \times R_{\text{peak}}$.
+
+To solve for $D$:
 1. Set up the equation: 
-\[ \frac{D}{T_{\text{position}} + D / R_{\text{peak}}} = F \times R_{\text{peak}} \]
-2. Simplify and rearrange:
-\[ D = (F \times R_{\text{peak}} \times T_{\text{position}}) + (F \times R_{\text{peak}}^2 / R_{\text{peak}}) \]
-3. Further simplification gives:
-\[ D = \frac{F \times R_{\text{peak}} \times T_{\text{position}}}{1 - F} \]
+$$\frac{D}{T_{\text{position}} + D / R_{\text{peak}}} = F \times R_{\text{peak}}$$2. Simplify and rearrange:
+$$
 
-For example, if \(T_{\text{position}} = 0.01\) seconds and \(R_{\text{peak}} = 100 \, \text{MB/s}\), and we want to achieve 90% of peak bandwidth (\(F = 0.9\)):
-\[ D = \frac{0.9 \times 100 \times 0.01}{1 - 0.9} = 9 \, \text{MB} \]
+D = (F \times R_{\text{peak}} \times T_{\text{position}}) + (F \times R_{\text{peak}}^2 / R_{\text{peak}})$$3. Further simplification gives:
+$$
+
+D = \frac{F \times R_{\text{peak}} \times T_{\text{position}}}{1 - F}$$
+
+For example, if $T_{\text{position}} = 0.01 $ seconds and$R_{\text{peak}} = 100 \, \text{MB/s}$, and we want to achieve 90% of peak bandwidth ($ F = 0.9$):
+$$D = \frac{0.9 \times 100 \times 0.01}{1 - 0.9} = 9 \, \text{MB}$$
 
 This means buffering 9 MB before writing would achieve 90% of the peak write rate.
 
@@ -236,22 +241,22 @@ The key factors influencing the effective bandwidth when writing segments to dis
 1. **Positioning Time (Rotation and Seek Overheads)**: The time taken for the disk head to position itself over a specific block.
 2. **Transfer Rate**: The speed at which data can be transferred from the buffer to the disk.
 
-The formula for total write time \(T_{\text{write}}\) is:
-\[ T_{\text{write}} = \frac{T_{\text{position}} + D}{R_{\text{peak}}} \]
+The formula for total write time $T_{\text{write}}$ is:
+$$T_{\text{write}} = \frac{T_{\text{position}} + D}{R_{\text{peak}}}$$
 
 Where:
-- \(D\) is the size of the segment being written.
-- \(T_{\text{position}}\) is the positioning time (rotation and seek overhead).
-- \(R_{\text{peak}}\) is the peak transfer rate.
+- $D$ is the size of the segment being written.
+- $T_{\text{position}}$ is the positioning time (rotation and seek overhead).
+- $R_{\text{peak}}$ is the peak transfer rate.
 
 To achieve a high effective write rate close to the peak, we need to buffer enough data such that:
-\[ R_{\text{effective}} = F \times R_{\text{peak}} \]
+$$R_{\text{effective}} = F \times R_{\text{peak}}$$
 
-Where \(0 < F < 1\) is the fraction of the peak rate desired. The optimal buffer size can be calculated as:
-\[ D = \frac{F \times R_{\text{peak}} \times T_{\text{position}}}{1 - F} \]
+Where $0 < F < 1$ is the fraction of the peak rate desired. The optimal buffer size can be calculated as:
+$$D = \frac{F \times R_{\text{peak}} \times T_{\text{position}}}{1 - F}$$
 
-For example, with a positioning time of \(0.01\) seconds and a peak transfer rate of 100 MB/s, aiming for 90% of the peak:
-\[ D = \frac{0.9 \times 100 \times 0.01}{1 - 0.9} = 9 \text{MB} \]
+For example, with a positioning time of $0.01$ seconds and a peak transfer rate of 100 MB/s, aiming for 90% of the peak:
+$$D = \frac{0.9 \times 100 \times 0.01}{1 - 0.9} = 9 \text{MB}$$
 
 This calculation helps in optimizing the buffer size to balance between positioning overhead and data transfer rate.
 

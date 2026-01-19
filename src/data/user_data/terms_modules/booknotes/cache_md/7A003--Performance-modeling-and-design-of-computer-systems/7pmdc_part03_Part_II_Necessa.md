@@ -148,7 +148,7 @@ Background context explaining the concept of counting events over time.
 
 :p Which random variable is discrete, the number of arrivals at a website or a continuous one?
 ??x
-The number of arrivals at a website by time \( t \) is a discrete r.v. because it can only take on integer values (0, 1, 2, ...). This is a countable set of possible outcomes.
+The number of arrivals at a website by time $t$ is a discrete r.v. because it can only take on integer values (0, 1, 2, ...). This is a countable set of possible outcomes.
 
 ```java
 // Example code to simulate the number of arrivals
@@ -183,9 +183,8 @@ x??
 #### Geometric Distribution
 Background context: The geometric distribution models the number of trials needed to get the first success in a sequence of independent Bernoulli trials. Each trial has two possible outcomes, success or failure, and is characterized by its own probability of success.
 
-The p.m.f. of the geometric random variable \( X \) (number of trials until the first success) is given by:
-\[ p_X(i) = P(X=i) = (1-p)^{i-1} p \]
-where \( i = 1, 2, 3, ... \).
+The p.m.f. of the geometric random variable $X$ (number of trials until the first success) is given by:
+$$p_X(i) = P(X=i) = (1-p)^{i-1} p$$where $ i = 1, 2, 3, ...$.
 
 :p What does the geometric distribution represent?
 ??x
@@ -196,11 +195,10 @@ x??
 
 
 #### Poisson Distribution
-Background context: The Poisson distribution is used to model the number of events occurring in a fixed interval of time or space, given that these events occur with a known constant mean rate \( \lambda \).
+Background context: The Poisson distribution is used to model the number of events occurring in a fixed interval of time or space, given that these events occur with a known constant mean rate $\lambda$.
 
-The p.m.f. of the Poisson random variable \( X \) (number of events) is given by:
-\[ P(X=k) = \frac{\lambda^k e^{-\lambda}}{k!} \]
-where \( k = 0, 1, 2, ... \).
+The p.m.f. of the Poisson random variable $X$ (number of events) is given by:
+$$P(X=k) = \frac{\lambda^k e^{-\lambda}}{k!}$$where $ k = 0, 1, 2, ...$.
 
 :p How does the Poisson distribution differ from the binomial and geometric distributions?
 ??x
@@ -211,15 +209,15 @@ x??
 
 
 #### Cumulative Distribution Function (c.d.f.)
-Background context: The cumulative distribution function (c.d.f.) of a random variable \( X \), denoted by \( F_X(a) \), is defined as:
-\[ F_X(a) = P(X \leq a) = \sum_{x \leq a} p_X(x) \]
-It provides the probability that the random variable takes on a value less than or equal to \( a \).
+Background context: The cumulative distribution function (c.d.f.) of a random variable $X $, denoted by $ F_X(a)$, is defined as:
+$$F_X(a) = P(X \leq a) = \sum_{x \leq a} p_X(x)$$
+
+It provides the probability that the random variable takes on a value less than or equal to $a$.
 
 :p What does the cumulative distribution function (c.d.f.) represent?
 ??x
-The cumulative distribution function (c.d.f.) of a random variable \( X \), denoted by \( F_X(a) \), represents the probability that the random variable takes on a value less than or equal to \( a \). It is defined as:
-\[ F_X(a) = P(X \leq a) = \sum_{x \leq a} p_X(x) \]
-x??
+The cumulative distribution function (c.d.f.) of a random variable $X $, denoted by $ F_X(a)$, represents the probability that the random variable takes on a value less than or equal to $ a$. It is defined as:
+$$F_X(a) = P(X \leq a) = \sum_{x \leq a} p_X(x)$$x??
 
 ---
 
@@ -227,10 +225,10 @@ x??
 
 
 #### Poisson Distribution
-The Poisson distribution models the number of events occurring within a fixed interval, given that these events occur independently and at a constant average rate. The probability mass function (pmf) for a Poisson random variable \( X \sim \text{Poisson}(\lambda) \) is:
-\[ p_X(i) = e^{-\lambda} \frac{\lambda^i}{i!}, \quad i = 0, 1, 2, ... \]
+The Poisson distribution models the number of events occurring within a fixed interval, given that these events occur independently and at a constant average rate. The probability mass function (pmf) for a Poisson random variable $X \sim \text{Poisson}(\lambda)$ is:
+$$p_X(i) = e^{-\lambda} \frac{\lambda^i}{i!}, \quad i = 0, 1, 2, ...$$
 
-The distribution often approximates the number of arrivals to a website or a router per unit time if \( n \) (the number of sources) is large and \( p \) (individual probability) is small.
+The distribution often approximates the number of arrivals to a website or a router per unit time if $n $(the number of sources) is large and $ p$(individual probability) is small.
 
 :p What does the Poisson distribution model?
 ??x
@@ -241,25 +239,22 @@ x??
 
 
 #### Binomial Distribution Approximation to Poisson
-When \( n \) is large and \( p \) is small, the binomial distribution can be approximated by the Poisson distribution with parameter \( \lambda = np \). This approximation becomes more accurate as both \( n \) increases and \( p \) decreases.
+When $n $ is large and$p $ is small, the binomial distribution can be approximated by the Poisson distribution with parameter$\lambda = np $. This approximation becomes more accurate as both$ n $ increases and $ p$ decreases.
 
 :p How does a Binomial distribution approximate a Poisson distribution?
 ??x
-A Binomial distribution can approximate a Poisson distribution when the number of trials \( n \) is large and the probability of success \( p \) in each trial is small, with the parameter for the Poisson distribution being \( \lambda = np \).
+A Binomial distribution can approximate a Poisson distribution when the number of trials $n $ is large and the probability of success$p $ in each trial is small, with the parameter for the Poisson distribution being$\lambda = np$.
 x??
 
 ---
 
 
 #### Continuous Random Variables and Probability Density Functions (p.d.f.)
-Continuous random variables take on an uncountable number of values. The cumulative distribution function (c.d.f.) \( F_X(a) \) for a continuous r.v. is defined as:
-\[ F_X(a) = P\{-\infty < X \leq a\} = \int_{-\infty}^{a} f_X(x) dx \]
+Continuous random variables take on an uncountable number of values. The cumulative distribution function (c.d.f.) $F_X(a)$ for a continuous r.v. is defined as:
+$$F_X(a) = P\{-\infty < X \leq a\} = \int_{-\infty}^{a} f_X(x) dx$$
 
-The probability density function (p.d.f.) \( f_X(x) \) must satisfy the following conditions:
-1. Non-negativity: \( f_X(x) \geq 0 \)
-2. Total area under the curve is 1: \( \int_{-\infty}^{\infty} f_X(x) dx = 1 \)
-
-:p What defines a valid probability density function (p.d.f.) for a continuous random variable?
+The probability density function (p.d.f.)$f_X(x)$ must satisfy the following conditions:
+1. Non-negativity:$f_X(x) \geq 0 $2. Total area under the curve is 1:$\int_{-\infty}^{\infty} f_X(x) dx = 1$:p What defines a valid probability density function (p.d.f.) for a continuous random variable?
 ??x
 A valid p.d.f. for a continuous random variable must be non-negative and its total area under the curve must equal 1.
 x??
@@ -268,41 +263,42 @@ x??
 
 
 #### Exponential Distribution
-The exponential distribution \( Exp(\lambda) \) models the time between events in a Poisson process. The p.d.f. is:
-\[ f_X(x) = \begin{cases} 
+The exponential distribution $Exp(\lambda)$ models the time between events in a Poisson process. The p.d.f. is:
+$$f_X(x) = \begin{cases} 
 \lambda e^{-\lambda x} & \text{if } x \geq 0 \\
 0 & \text{otherwise}
-\end{cases} \]
+\end{cases}$$
 
 The c.d.f. is:
-\[ F_X(x) = P\{X \leq x\} = \int_{-\infty}^{x} f(t) dt = \begin{cases} 
+$$
+
+F_X(x) = P\{X \leq x\} = \int_{-\infty}^{x} f(t) dt = \begin{cases} 
 0 & \text{if } x < 0 \\
 1 - e^{-\lambda x} & \text{if } x \geq 0
-\end{cases} \]
-
-:p What is the probability density function (p.d.f.) of the exponential distribution?
+\end{cases}$$:p What is the probability density function (p.d.f.) of the exponential distribution?
 ??x
-The p.d.f. of the exponential distribution \( Exp(\lambda) \) is:
-\[ f_X(x) = \begin{cases} 
+The p.d.f. of the exponential distribution $Exp(\lambda)$ is:
+$$f_X(x) = \begin{cases} 
 \lambda e^{-\lambda x} & \text{if } x \geq 0 \\
 0 & \text{otherwise}
-\end{cases} \]
-x??
+\end{cases}$$x??
 
 ---
 
 
 #### Expectation of a Geometric Random Variable
 Background context: A geometric random variable represents the number of trials needed to get the first success in repeated independent Bernoulli trials. The expected value (mean) can be calculated as:
+$$
 
-\[ E[X] = \frac{1}{p} \]
+E[X] = \frac{1}{p}$$
 
-Where \(X\) is a geometric random variable with parameter \(p\).
+Where $X $ is a geometric random variable with parameter$p$.
 
 :p What is the expected number of tosses for getting heads if the probability of heads is 1/3?
 ??x
-The expected number of tosses to get heads when the probability of heads is \( \frac{1}{3} \) can be calculated as:
-\[ E[X] = \frac{1}{\frac{1}{3}} = 3 \]
+The expected number of tosses to get heads when the probability of heads is $\frac{1}{3}$ can be calculated as:
+$$E[X] = \frac{1}{\frac{1}{3}} = 3$$
+
 This means, on average, it takes 3 tosses to get a head.
 x??
 
@@ -310,36 +306,34 @@ x??
 
 
 #### Expectation and Variance of the Poisson Distribution
-Background context: The Poisson distribution is used for modeling the number of events occurring in a fixed interval of time or space. For a random variable \(X \sim \text{Poisson}(\lambda)\), the expectation (mean) is equal to the parameter \(\lambda\).
+Background context: The Poisson distribution is used for modeling the number of events occurring in a fixed interval of time or space. For a random variable $X \sim \text{Poisson}(\lambda)$, the expectation (mean) is equal to the parameter $\lambda$.
 
-The variance of a Poisson random variable \(X \sim \text{Poisson}(\lambda)\) can be calculated as:
-
-\[ E[X] = \lambda \]
-
-:p What is the expected value of a Poisson random variable?
+The variance of a Poisson random variable $X \sim \text{Poisson}(\lambda)$ can be calculated as:
+$$E[X] = \lambda$$:p What is the expected value of a Poisson random variable?
 ??x
-The expected value (mean) of a Poisson random variable \(X \sim \text{Poisson}(\lambda)\) is:
-\[ E[X] = \lambda \]
-This means that both the mean and variance of the Poisson distribution are equal to the parameter \(\lambda\).
+The expected value (mean) of a Poisson random variable $X \sim \text{Poisson}(\lambda)$ is:
+$$E[X] = \lambda$$
+
+This means that both the mean and variance of the Poisson distribution are equal to the parameter $\lambda$.
 x??
 
 ---
 
 
 #### Expectation and Variance of the Exponential Distribution
-Background context: The exponential distribution models the time between events in a Poisson process. For a random variable \(X \sim \text{Exponential}(\lambda)\), the expectation (mean) is given by:
+Background context: The exponential distribution models the time between events in a Poisson process. For a random variable $X \sim \text{Exponential}(\lambda)$, the expectation (mean) is given by:
 
-\[ E[X] = \frac{1}{\lambda} \]
+$$E[X] = \frac{1}{\lambda}$$
 
 The variance of an Exponential random variable can be calculated as:
+$$
 
-\[ Var(X) = \left( \frac{1}{\lambda} \right)^2 = \frac{1}{\lambda^2} \]
-
-:p What is the expected value of an exponentially distributed random variable?
+Var(X) = \left( \frac{1}{\lambda} \right)^2 = \frac{1}{\lambda^2}$$:p What is the expected value of an exponentially distributed random variable?
 ??x
-The expected value (mean) of an Exponential random variable \(X \sim \text{Exponential}(\lambda)\) is:
-\[ E[X] = \frac{1}{\lambda} \]
-This means that if the rate parameter \(\lambda\) is 3 arrivals per second, the expected time until the next arrival is \(\frac{1}{3}\) seconds.
+The expected value (mean) of an Exponential random variable $X \sim \text{Exponential}(\lambda)$ is:
+$$E[X] = \frac{1}{\lambda}$$
+
+This means that if the rate parameter $\lambda $ is 3 arrivals per second, the expected time until the next arrival is$\frac{1}{3}$ seconds.
 x??
 
 ---

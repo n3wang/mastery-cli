@@ -32,7 +32,7 @@
           "id": "6d9e3665-3026-42c2-82ea-fdc644e3936a",
           "listId": "3d766476-da51-484c-99a0-bc213a7ce5ba",
           "title": "Fix indentation for solutions",
-          "description": "Fix indentation for flashcards storage\nI believe either when scanning for flashcards it is not storing the indentation for codeblocks inside of ``` pre blocks. Which is important because without tab indentation doesn't work properly and cant show the code logics . Fix that by including indentations when scanning inside of code blocks.\n",
+          "description": "Fix indentation for flashcards storage\nI believe either when scanning for flashcards from mrkdowns files it is not storing the indentation for both ouside and inside of codeblocks inside of ``` pre blocks. Which is important because without tab indentation, or spaces at the start, there is likely a regex messing it up.  doesn't work properly and cant show the code logics . Fix that by including indentations when scanning inside of code blocks.\n",
           "labels": [],
           "checkboxes": [],
           "comments": []

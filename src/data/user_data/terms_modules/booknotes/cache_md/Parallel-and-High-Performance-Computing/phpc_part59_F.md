@@ -185,7 +185,7 @@ Background context: The Fast Fourier Transform (FFT) is a widely used algorithm 
 
 :p What is the advantage of using FFT over the direct computation of DFT?
 ??x
-The primary advantage of using FFT over the direct computation of DFT is that it drastically reduces the computational complexity, making the transformation much faster and more efficient. The time complexity of a direct DFT is \(O(N^2)\), whereas an FFT algorithm can achieve a time complexity of \(O(N \log N)\).
+The primary advantage of using FFT over the direct computation of DFT is that it drastically reduces the computational complexity, making the transformation much faster and more efficient. The time complexity of a direct DFT is $O(N^2)$, whereas an FFT algorithm can achieve a time complexity of $ O(N \log N)$.
 
 Explanation: By exploiting the symmetries in the DFT, FFT algorithms break down large transforms into smaller ones, reducing the number of required operations significantly. This makes it feasible to process very large datasets efficiently.
 

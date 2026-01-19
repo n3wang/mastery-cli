@@ -10,11 +10,7 @@
 
 Background context: The DFT is a fundamental tool used to analyze signals by transforming them from the time domain to the frequency domain. When using complex numbers, each input signal can be represented as a combination of sine and cosine functions. The formula for DFT is given by:
 
-\[
-X[k] = \sum_{n=0}^{N-1} x[n]e^{-j2\pi kn/N}
-\]
-
-where \(x[n]\) is the time-domain signal, \(X[k]\) is the frequency-domain representation, and \(k\) ranges from 0 to \(N-1\).
+$$X[k] = \sum_{n=0}^{N-1} x[n]e^{-j2\pi kn/N}$$where $ x[n]$ is the time-domain signal,$ X[k]$is the frequency-domain representation, and $ k$ranges from 0 to $ N-1$.
 
 The provided code demonstrates how to compute the DFT using complex numbers. The `DFT` function iterates over each point in the input signal and calculates the corresponding frequency domain values by summing the product of the time-domain values with complex exponentials.
 
@@ -43,9 +39,7 @@ Background context: Similar to the previous DFT implementation using complex num
 
 The formula for computing the imaginary part of the DFT is:
 
-\[
-X[k]_{\text{imag}} = - \sum_{n=0}^{N-1} x[n]\sin(2\pi kn/N)
-\]
+$$X[k]_{\text{imag}} = - \sum_{n=0}^{N-1} x[n]\sin(2\pi kn/N)$$
 
 This method avoids complex arithmetic by separating real and imaginary parts, making it more efficient for certain hardware implementations.
 
@@ -69,7 +63,7 @@ x??
 
 #### Fast Fourier Transform (FFT)
 
-Background context: The FFT is an efficient algorithm to compute the DFT of a sequence. It reduces the complexity from \(O(N^2)\) to \(O(N \log N)\) by exploiting the symmetry and periodicity properties of complex exponentials.
+Background context: The FFT is an efficient algorithm to compute the DFT of a sequence. It reduces the complexity from $O(N^2)$ to $O(N \log N)$ by exploiting the symmetry and periodicity properties of complex exponentials.
 
 The provided `fft` function implements the Cooley-Tukey algorithm, which recursively splits the DFT into smaller DFTs. The function reorders input data in a bit-reversed manner and performs butterfly operations to combine results from lower frequency bins.
 
@@ -139,14 +133,15 @@ x??
 
 
 #### Wave Packet Widths and Fourier Transform
-Background context: This section discusses wave packets and their relationship to time-frequency localization, specifically focusing on the widths \(\Delta t\) and \(\Delta \omega\). The Heisenberg uncertainty principle is introduced as a fundamental relation between these two quantities.
+Background context: This section discusses wave packets and their relationship to time-frequency localization, specifically focusing on the widths $\Delta t $ and$\Delta \omega$. The Heisenberg uncertainty principle is introduced as a fundamental relation between these two quantities.
 
-:p What is the width of a wave packet in terms of time (\(\Delta t\))?
+:p What is the width of a wave packet in terms of time ($\Delta t$)?
 
 ??x
-The width of a wave packet in time, \(\Delta t\), can be estimated using the number of cycles \(N\) and the angular frequency \(\omega_0\). For the specific example given:
-\[ \Delta t = N T = \frac{N}{2\pi/\omega_0} = N / (2\pi) \cdot \omega_0. \]
-Given that \(T = 2\pi/\omega_0\), this is derived from the periodicity of the wave packet.
+The width of a wave packet in time, $\Delta t $, can be estimated using the number of cycles $ N $and the angular frequency$\omega_0$. For the specific example given:
+$$\Delta t = N T = \frac{N}{2\pi/\omega_0} = N / (2\pi) \cdot \omega_0.$$
+
+Given that $T = 2\pi/\omega_0$, this is derived from the periodicity of the wave packet.
 
 The code to calculate this might look like:
 ```java
@@ -166,14 +161,15 @@ x??
 
 #### Fourier Transform of a Simple Wave Packet
 
-Background context: The Fourier transform of the wave packet \(y(t)\) is derived and shown to have non-zero values only around \(\omega_0\). The width in frequency, \(\Delta \omega\), can be estimated from the zeros of the transform.
+Background context: The Fourier transform of the wave packet $y(t)$ is derived and shown to have non-zero values only around $\omega_0$. The width in frequency,$\Delta \omega$, can be estimated from the zeros of the transform.
 
 :p What does the Fourier transform of a simple sine wave look like?
 
 ??x
-The Fourier transform of a simple sine wave \(y(t) = \sin(\omega_0 t)\) for \(|t| < N \pi/\omega_0\) is:
-\[ Y(\omega) = -i \frac{\sqrt{2\pi}}{(\omega^2 - \omega_0^2)} \left[ (\omega_0 + \omega) \sin\left( \frac{N \pi (\omega_0 - \omega)}{\omega_0} \right) - (\omega_0 - \omega) \sin\left( \frac{N \pi (\omega_0 + \omega)}{\omega_0} \right) \right]. \]
-This function has significant values only around \(\omega = \omega_0\) and drops off sharply away from this frequency.
+The Fourier transform of a simple sine wave $y(t) = \sin(\omega_0 t)$ for $|t| < N \pi/\omega_0$ is:
+$$Y(\omega) = -i \frac{\sqrt{2\pi}}{(\omega^2 - \omega_0^2)} \left[ (\omega_0 + \omega) \sin\left( \frac{N \pi (\omega_0 - \omega)}{\omega_0} \right) - (\omega_0 - \omega) \sin\left( \frac{N \pi (\omega_0 + \omega)}{\omega_0} \right) \right].$$
+
+This function has significant values only around $\omega = \omega_0$ and drops off sharply away from this frequency.
 
 The code to evaluate the transform might be:
 ```java
@@ -203,7 +199,7 @@ Background context: This section presents a series of exercises to analyze wave 
 :p What is the first step in analyzing a wave packet?
 
 ??x
-The first step in analyzing a wave packet is to estimate its width \(\Delta t\) using methods such as full-width at half-maxima (FWHM) of \(|y(t)|\). This helps understand how long the signal persists over time.
+The first step in analyzing a wave packet is to estimate its width $\Delta t $ using methods such as full-width at half-maxima (FWHM) of$|y(t)|$. This helps understand how long the signal persists over time.
 
 ```java
 public class WavePacketAnalysis {

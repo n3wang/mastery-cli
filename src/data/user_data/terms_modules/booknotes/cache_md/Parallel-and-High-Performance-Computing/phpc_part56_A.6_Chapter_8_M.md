@@ -282,12 +282,11 @@ Profiling involves various tools depending on the system architecture and progra
 
 Example of measuring CPU frequency:
 ```bash
-$ cpufreq-info -c 0
+$cpufreq-info -c 0
 ```
 
 Example of measuring energy consumption (macOS):
-```bash
-$ powermetrics --samplers smc --report cpu_power --stream-format csv
+```bash$ powermetrics --samplers smc --report cpu_power --stream-format csv
 ```
 
 x??
@@ -307,7 +306,7 @@ To measure memory bandwidth using the STREAM benchmark:
 
 Example command:
 ```bash
-$ ./stream <problem size> <data type>
+$./stream <problem size> <data type>
 ```
 
 x??
@@ -326,8 +325,7 @@ To measure arithmetic intensity, follow these steps:
 2. Analyze the output to determine the ratio of floating-point operations to memory accesses.
 
 Example using Intel Advisor:
-```bash
-$ advizor -collect performance <path/to/executable>
+```bash$ advizor -collect performance <path/to/executable>
 ```
 
 x??
@@ -344,12 +342,11 @@ To measure memory usage, use tools like `pmap`, `valgrind` with memory profiling
 
 Example using `pmap`:
 ```bash
-$ pmap <PID>
+$pmap <PID>
 ```
 
 Example using `valgrind`:
-```bash
-$ valgrind --tool=massif ./your_program
+```bash$ valgrind --tool=massif ./your_program
 ```
 
 x??

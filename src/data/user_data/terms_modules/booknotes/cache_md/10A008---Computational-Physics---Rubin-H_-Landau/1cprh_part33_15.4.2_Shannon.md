@@ -11,12 +11,10 @@
 Background context: The Lyapunov exponent is a measure of chaos in dynamical systems. It indicates the rate at which nearby trajectories diverge or converge.
 
 Relevant formulas:
-\[ \lambda = \lim_{t \to \infty} \frac{1}{t} \ln\left|\frac{\Delta x(t)}{\Delta x(0)}\right| \]
+$$\lambda = \lim_{t \to \infty} \frac{1}{t} \ln\left|\frac{\Delta x(t)}{\Delta x(0)}\right|$$
 
-If \( \lambda > 0 \), the system is chaotic; if \( \lambda < 0 \), it is stable. The Lyapunov exponent can be approximated by:
-\[ \lambda \approx \ln(\mu) \]
-
-:p What does a positive Lyapunov exponent indicate about the system?
+If $\lambda > 0 $, the system is chaotic; if $\lambda < 0$, it is stable. The Lyapunov exponent can be approximated by:
+$$\lambda \approx \ln(\mu)$$:p What does a positive Lyapunov exponent indicate about the system?
 ??x
 A positive Lyapunov exponent indicates that the system is chaotic, meaning nearby trajectories diverge exponentially over time. This rapid divergence makes long-term prediction impossible.
 
@@ -46,17 +44,18 @@ x??
 Background context: The Lotka–Volterra model describes the dynamics of predator-prey populations. It is an extension of the logistic map to include interactions between two species.
 
 Relevant equations:
-\[ \frac{dp}{dt} = a p - b p P \]
-\[ \frac{dP}{dt} = \epsilon b p P - m P \]
+$$\frac{dp}{dt} = a p - b p P$$
+$$\frac{dP}{dt} = \epsilon b p P - m P$$
 
-Where \( a \) is the prey growth rate, \( b \) is the interaction rate, \( \epsilon \) measures predator efficiency, and \( m \) is the mortality rate.
+Where $a $ is the prey growth rate,$b $ is the interaction rate,$\epsilon $ measures predator efficiency, and$m$ is the mortality rate.
 
 :p What are the two differential equations in the Lotka–Volterra model?
 ??x
 The two differential equations in the Lotka–Volterra model are:
-\[ \frac{dp}{dt} = a p - b p P \]
-This describes the prey population growth, which decreases due to predation.
-\[ \frac{dP}{dt} = \epsilon b p P - m P \]
+$$\frac{dp}{dt} = a p - b p P$$
+
+This describes the prey population growth, which decreases due to predation.$$\frac{dP}{dt} = \epsilon b p P - m P$$
+
 This describes the predator population dynamics, where the growth depends on the interaction rate and prey availability.
 
 For example:
@@ -78,9 +77,9 @@ x??
 Background context: Introducing more species can lead to chaotic behavior in predator-prey models. A four-species model is used to explore this complexity.
 
 Relevant equations:
-\[ \frac{d p_i}{dt} = a_i p_i (1 - 4 \sum_{j=1}^{4} b_{ij} p_j) \]
+$$\frac{d p_i}{dt} = a_i p_i (1 - 4 \sum_{j=1}^{4} b_{ij} p_j)$$
 
-Where \( a_i \) measures the growth rate of species \( i \), and \( b_{ij} \) is the interaction coefficient between species \( j \).
+Where $a_i $ measures the growth rate of species$i $, and$ b_{ij}$is the interaction coefficient between species $ j$.
 
 :p How does adding more species to the Lotka–Volterra model affect its behavior?
 ??x
@@ -124,7 +123,7 @@ x??
 
 Periodic behavior in the Lotka-Volterra model arises from the oscillatory nature of predator and prey populations. The model shows that as the prey population grows, there is more food for predators, leading to an increase in the predator population. As the predator population increases, it starts consuming more prey, which leads to a decrease in the prey population. This cycle repeats, creating periodic fluctuations.
 
-To visualize this behavior, you can use numerical methods like Runge-Kutta (rk4) to simulate the model over time and plot the populations of prey (\(p\)) and predators (\(P\)) against time or each other.
+To visualize this behavior, you can use numerical methods like Runge-Kutta (rk4) to simulate the model over time and plot the populations of prey ($p $) and predators ($ P$) against time or each other.
 
 :p What is the question about this concept?
 ??x
@@ -197,7 +196,7 @@ for t in arange(Tmin, Tmax + 1, h):
 
 ```
 
-This code sets up the Lotka-Volterra model and simulates its behavior over time. The prey (\(p\)) and predator (\(P\)) populations are plotted against each other and also shown over time to visualize the periodic cycles.
+This code sets up the Lotka-Volterra model and simulates its behavior over time. The prey ($p $) and predator ($ P$) populations are plotted against each other and also shown over time to visualize the periodic cycles.
 
 --- 
 #### Cycles in Predator-Prey Dynamics
@@ -218,7 +217,7 @@ In ecological terms, periodic solutions signify that both species exhibit natura
 Explain how periodic cycles in predator-prey dynamics are observed and interpreted in the Lotka-Volterra model.
 x??
 
-Periodic cycles in predator-prey dynamics within the Lotka-Volterra model are observed as oscillations between the populations of prey (\(p\)) and predators (\(P\)). These cycles arise from the mutual interaction where an increase in one population stimulates growth in the other, but this increase eventually leads to resource depletion, causing a decline.
+Periodic cycles in predator-prey dynamics within the Lotka-Volterra model are observed as oscillations between the populations of prey ($p $) and predators ($ P$). These cycles arise from the mutual interaction where an increase in one population stimulates growth in the other, but this increase eventually leads to resource depletion, causing a decline.
 
 Interpreting these periodic cycles:
 - **Resource Availability:** The model shows that prey availability is crucial for predator survival.
@@ -350,7 +349,7 @@ Numerical simulation of the Lotka-Volterra model involves using a numerical meth
 
 Here’s how you can set up a simulation:
 
-1. **Define Parameters:** Set initial conditions for the prey (\(p\)) and predator (\(P\)) populations.
+1. **Define Parameters:** Set initial conditions for the prey ($p $) and predator ($ P$) populations.
 2. **Model Equations:** Define the differential equations that describe their interaction.
 3. **Numerical Method:** Use an appropriate numerical method (e.g., Runge-Kutta) to solve these equations over time.
 4. **Plot Results:** Visualize the results to observe periodic behavior and coexistence.
@@ -434,21 +433,21 @@ x??
 
 Parameter changes in the Lotka-Volterra model can significantly impact the coexistence and stability of predator and prey populations. Specifically, small adjustments to parameters like growth rates or interaction terms can lead to different dynamics:
 
-1. **Growth Rate \( r \) for Prey:**
-   - **Increase \( r \):** If the growth rate of prey increases, the prey population grows faster initially but might face greater pressure from predators if the predation term is not adjusted.
-   - **Decrease \( r \):** A decrease in \( r \) can lead to slower prey population growth and potentially more stable coexistence with predator populations.
+1. **Growth Rate $r$ for Prey:**
+   - **Increase $r$:** If the growth rate of prey increases, the prey population grows faster initially but might face greater pressure from predators if the predation term is not adjusted.
+   - **Decrease $r $:** A decrease in $ r$ can lead to slower prey population growth and potentially more stable coexistence with predator populations.
 
-2. **Death Rate \( a \) for Predators:**
-   - **Increase \( a \):** Higher death rates among predators can reduce their numbers faster, leading to less predation pressure on the prey.
-   - **Decrease \( a \):** Lower death rates mean that predators live longer and can exert greater predation pressure, potentially destabilizing coexistence.
+2. **Death Rate $a$ for Predators:**
+   - **Increase $a$:** Higher death rates among predators can reduce their numbers faster, leading to less predation pressure on the prey.
+   - **Decrease $a$:** Lower death rates mean that predators live longer and can exert greater predation pressure, potentially destabilizing coexistence.
 
-3. **Predation Rate \( b \) (or Interaction Term):**
-   - **Increase \( b \):** A higher predation rate means more efficient conversion of prey into predator biomass, which can lead to faster oscillations or even collapse of the prey population.
-   - **Decrease \( b \):** Lower predation rates result in less frequent encounters and reduced predation pressure, promoting coexistence.
+3. **Predation Rate $b$ (or Interaction Term):**
+   - **Increase $b$:** A higher predation rate means more efficient conversion of prey into predator biomass, which can lead to faster oscillations or even collapse of the prey population.
+   - **Decrease $b$:** Lower predation rates result in less frequent encounters and reduced predation pressure, promoting coexistence.
 
-4. **Conversion Efficiency \( c \) (or Interaction Term):**
-   - **Increase \( c \):** Higher conversion efficiency means that more prey are converted into predator biomass, potentially leading to faster oscillations.
-   - **Decrease \( c \):** Lower conversion efficiency can lead to more stable coexistence as less prey is consumed.
+4. **Conversion Efficiency $c$ (or Interaction Term):**
+   - **Increase $c$:** Higher conversion efficiency means that more prey are converted into predator biomass, potentially leading to faster oscillations.
+   - **Decrease $c$:** Lower conversion efficiency can lead to more stable coexistence as less prey is consumed.
 
 These parameter changes can alter the stability and periodicity of cycles in the Lotka-Volterra model. For instance:
 - **Stable Equilibrium:** Small parameter changes might maintain a stable equilibrium where both populations coexist.

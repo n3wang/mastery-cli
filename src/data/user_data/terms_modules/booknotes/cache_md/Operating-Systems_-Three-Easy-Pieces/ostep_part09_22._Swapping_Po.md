@@ -10,9 +10,9 @@
 Background context explaining the role of cache management in virtual memory systems. The primary goal is to minimize cache misses and maximize hits, thereby reducing average memory access time (AMAT).
 
 The formula for AMAT is given as:
-\[ \text{AMAT} = T_M + (P_{\text{miss}} \cdot T_D) \]
+$$\text{AMAT} = T_M + (P_{\text{miss}} \cdot T_D)$$
 
-Where \(T_M\) represents the cost of accessing memory, \(T_D\) the cost of accessing disk, and \(P_{\text{miss}}\) the probability of not finding data in the cache.
+Where $T_M $ represents the cost of accessing memory,$T_D $ the cost of accessing disk, and$ P_{\text{miss}}$ the probability of not finding data in the cache.
 
 :p What is the goal of cache management in virtual memory systems?
 ??x
@@ -41,15 +41,16 @@ x??
 Background context explaining how cache misses increase memory access time.
 
 Cache misses result in additional costs because the data must be fetched from disk. The cost of a cache miss is represented by:
-\[ \text{Cost of Cache Miss} = T_M + (P_{\text{miss}} \cdot T_D) \]
+$$\text{Cost of Cache Miss} = T_M + (P_{\text{miss}} \cdot T_D)$$
 
-Where \(T_M\) is the time to access memory, and \(T_D\) is the time to access disk.
+Where $T_M $ is the time to access memory, and$T_D$ is the time to access disk.
 
 :p What additional cost does a cache miss incur?
 ??x
 A cache miss incurs an additional cost of fetching data from disk, represented by:
-\[ T_M + (P_{\text{miss}} \cdot T_D) \]
-Where \(T_M\) is the memory access time and \(T_D\) is the disk access time.
+$$T_M + (P_{\text{miss}} \cdot T_D)$$
+
+Where $T_M $ is the memory access time and$T_D$ is the disk access time.
 x??
 
 ---
@@ -119,16 +120,16 @@ Background context explaining how to calculate the hit rate of a cache, consider
 :p How is the hit rate calculated for a cache?
 ??x
 The hit rate for a cache can be calculated using the following formula:
-\[ \text{Hit Rate} = \frac{\text{Number of Hits}}{\text{Total Number of References (Hits + Misses)}} \]
+$$\text{Hit Rate} = \frac{\text{Number of Hits}}{\text{Total Number of References (Hits + Misses)}}$$
 
 In the provided example, with 6 hits and 5 misses, the overall hit rate is:
-\[ \text{Overall Hit Rate} = \frac{6}{6+5} = 0.545 \text{ or } 54.5\% \]
+$$\text{Overall Hit Rate} = \frac{6}{6+5} = 0.545 \text{ or } 54.5\%$$
 
 Additionally, if we want to calculate the hit rate excluding compulsory misses (first access to a page), we can subtract these from the total number of references:
-\[ \text{Adjusted Hit Rate} = \frac{\text{Number of Hits After Compulsory Misses}}{\text{Total Number of References After Compulsory Misses}} \]
+$$\text{Adjusted Hit Rate} = \frac{\text{Number of Hits After Compulsory Misses}}{\text{Total Number of References After Compulsory Misses}}$$
 
 In this case, with 3 compulsory misses (initial accesses to pages), the adjusted hit rate is:
-\[ \text{Adjusted Hit Rate} = \frac{6}{9-3+5} = \frac{6}{11} = 0.857 \text{ or } 85.7\% \]
+$$\text{Adjusted Hit Rate} = \frac{6}{9-3+5} = \frac{6}{11} = 0.857 \text{ or } 85.7\%$$
 ??x
 The answer with detailed explanations.
 ```java

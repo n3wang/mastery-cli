@@ -93,7 +93,7 @@ x??
 ---
 
 #### True Value vs Approximate MC Value
-The true value, denoted as \( v_\pi \), represents the expected cumulative reward for starting in a state under policy \(\pi\). The approximate Monte Carlo (MC) values, denoted as \(\hat{v}\), are computed using methods like gradient Monte Carlo and serve as an estimate of the true value.
+The true value, denoted as $v_\pi $, represents the expected cumulative reward for starting in a state under policy $\pi $. The approximate Monte Carlo (MC) values, denoted as $\hat{v}$, are computed using methods like gradient Monte Carlo and serve as an estimate of the true value.
 
 :p How does state aggregation affect the approximation of MC values?
 ??x
@@ -103,7 +103,7 @@ x??
 ---
 
 #### Linear Methods and Feature Vectors
-Linear methods in function approximation use a linear combination of feature vectors to approximate the state-value function. Each state \( s \) is associated with a vector \( x(s) = (x_1(s), x_2(s), ..., x_d(s))^T \), where \( d \) is the number of components, forming a linear basis for the set of approximate functions.
+Linear methods in function approximation use a linear combination of feature vectors to approximate the state-value function. Each state $s $ is associated with a vector$x(s) = (x_1(s), x_2(s), ..., x_d(s))^T $, where$ d$ is the number of components, forming a linear basis for the set of approximate functions.
 
 :p What is a feature vector in the context of linear methods?
 ??x
@@ -113,13 +113,12 @@ x??
 ---
 
 #### Gradient Monte Carlo Algorithm for Linear Approximation
-The gradient Monte Carlo algorithm is used for on-policy prediction tasks with function approximation. It updates the weight vector \( w \) by taking steps in the direction of the negative gradient of the estimated value function.
+The gradient Monte Carlo algorithm is used for on-policy prediction tasks with function approximation. It updates the weight vector $w$ by taking steps in the direction of the negative gradient of the estimated value function.
 
 :p How does the linear case simplify the SGD update rule?
 ??x
-In the linear case, the gradient of the approximate value function with respect to \( w \) is simply the feature vector \( x(s) \). Therefore, the general SGD update rule simplifies to:
-\[ w_{t+1} = w_t + \alpha \left( \hat{v}(S_t, w_t) - v(S_t) \right) x(S_t) \]
-where \( \alpha \) is the learning rate and \( S_t \) is the state at time step \( t \).
+In the linear case, the gradient of the approximate value function with respect to $w $ is simply the feature vector$x(s)$. Therefore, the general SGD update rule simplifies to:
+$$w_{t+1} = w_t + \alpha \left( \hat{v}(S_t, w_t) - v(S_t) \right) x(S_t)$$where $\alpha $ is the learning rate and$S_t $ is the state at time step$t$.
 x??
 
 ---
@@ -129,7 +128,7 @@ For linear function approximation, the gradient Monte Carlo algorithm converges 
 
 :p What guarantees convergence to the global optimum for the linear case?
 ??x
-Convergence to the global optimum is guaranteed when the learning rate \( \alpha \) is reduced over time according to standard conditions. The linear nature of the problem ensures that any method converging to or near a local optimum will also converge to or near the global optimum.
+Convergence to the global optimum is guaranteed when the learning rate $\alpha$ is reduced over time according to standard conditions. The linear nature of the problem ensures that any method converging to or near a local optimum will also converge to or near the global optimum.
 x??
 
 ---
@@ -140,27 +139,27 @@ The semi-gradient TD(0) algorithm, another common on-policy prediction method, c
 :p What is the specific update rule for the semi-gradient TD(0) in the linear case?
 ??x
 The update rule for the semi-gradient TD(0) algorithm in the linear case is:
-\[ w_{t+1} = w_t + \alpha \left[ r(S_t, A_t) + \hat{v}(S_{t+1}, w_t) - \hat{v}(S_t, w_t) \right] x(S_t) \]
-where \( r(S_t, A_t) \) is the immediate reward, and \( S_{t+1} \) is the next state.
+$$w_{t+1} = w_t + \alpha \left[ r(S_t, A_t) + \hat{v}(S_{t+1}, w_t) - \hat{v}(S_t, w_t) \right] x(S_t)$$where $ r(S_t, A_t)$is the immediate reward, and $ S_{t+1}$ is the next state.
 x??
 
 ---
 
 
 #### Update Rule for Linear TD(0)
-The update rule at each time step \(t\) is given by:
-\[ w_{t+1} = w_t + \alpha (R_{t+1} x_t - x_t^T w_t) x_t \]
+The update rule at each time step $t$ is given by:
+$$w_{t+1} = w_t + \alpha (R_{t+1} x_t - x_t^T w_t) x_t$$
+
 Where,
-- \(w_t\) is the weight vector at time step \(t\),
-- \(\alpha\) is the learning rate,
-- \(R_{t+1}\) is the reward received at time step \(t+1\),
-- \(x_t = x(S_t)\) is the feature vector for state \(S_t\).
+- $w_t $ is the weight vector at time step$t$,
+- $\alpha$ is the learning rate,
+- $R_{t+1}$ is the reward received at time step $t+1$,
+- $x_t = x(S_t)$ is the feature vector for state $S_t$.
 
 :p What does this update rule represent in linear TD(0)?
 ??x
-This update rule represents how the weight vector \(w_t\) is updated at each time step in a linear TD(0) algorithm. The update combines the difference between the predicted value (based on current weights and features) and the actual reward to adjust the weights.
+This update rule represents how the weight vector $w_t$ is updated at each time step in a linear TD(0) algorithm. The update combines the difference between the predicted value (based on current weights and features) and the actual reward to adjust the weights.
 
-The term \(R_{t+1} x_t - x_t^T w_t\) calculates the error or discrepancy that needs to be corrected, and this error is scaled by the learning rate \(\alpha\) before being multiplied with the feature vector \(x_t\). This ensures that the weights are adjusted in a way that reduces this error over time.
+The term $R_{t+1} x_t - x_t^T w_t $ calculates the error or discrepancy that needs to be corrected, and this error is scaled by the learning rate$\alpha $ before being multiplied with the feature vector$x_t$. This ensures that the weights are adjusted in a way that reduces this error over time.
 
 ```java
 public class TD0Update {
@@ -181,17 +180,16 @@ x??
 
 #### Expected Weight Vector in Steady State
 The expected next weight vector when the system reaches steady state can be written as:
-\[ E[w_{t+1} | w_t] = w_t + \alpha (b - A w_t) \]
+$$E[w_{t+1} | w_t] = w_t + \alpha (b - A w_t)$$
+
 Where,
-- \(b = E[R_{t+1} x_t]\),
-- \(A = E[ x_t x_t^T ]\).
+- $b = E[R_{t+1} x_t]$,
+- $A = E[ x_t x_t^T ]$.
 
-At steady state, the weight vector \(w_T\) must satisfy:
-\[ b - A w_T = 0 \implies w_T = A^{-1} b \]
-
-:p What condition must be met for the system to converge in linear TD(0)?
+At steady state, the weight vector $w_T$ must satisfy:
+$$b - A w_T = 0 \implies w_T = A^{-1} b$$:p What condition must be met for the system to converge in linear TD(0)?
 ??x
-For the linear TD(0) algorithm to converge, the matrix \(A\) must be positive definite. This ensures that the inverse of \(A\), denoted as \(A^{-1}\), exists and allows us to solve for the weight vector \(w_T = A^{-1} b\).
+For the linear TD(0) algorithm to converge, the matrix $A $ must be positive definite. This ensures that the inverse of$A $, denoted as $ A^{-1}$, exists and allows us to solve for the weight vector $ w_T = A^{-1} b$.
 
 The condition of positive definiteness is crucial because it guarantees stability in the update process, ensuring that the weights will not diverge but rather converge to a fixed point.
 
@@ -217,16 +215,16 @@ x??
 
 #### Convergence Proof of Linear TD(0)
 The update rule can be rewritten in expectation form as:
-\[ E[w_{t+1} | w_t] = (I - \alpha A) w_t + \alpha b \]
+$$E[w_{t+1} | w_t] = (I - \alpha A) w_t + \alpha b$$
 
-For the algorithm to converge, we need \(I - \alpha A\) to have eigenvalues within the unit circle, which is ensured if \(A\) is positive definite and \(\alpha < 1/\lambda_{\max}(A)\).
+For the algorithm to converge, we need $I - \alpha A $ to have eigenvalues within the unit circle, which is ensured if$A $ is positive definite and $\alpha < 1/\lambda_{\max}(A)$.
 
-:p What property must be true for the matrix \(A\) in order to ensure the convergence of linear TD(0)?
+:p What property must be true for the matrix $A$ in order to ensure the convergence of linear TD(0)?
 ??x
-The matrix \(A\) must be positive definite. This ensures that the eigenvalues of \(I - \alpha A\) are such that they lie within the unit circle, ensuring the stability and convergence of the algorithm.
+The matrix $A $ must be positive definite. This ensures that the eigenvalues of$I - \alpha A$ are such that they lie within the unit circle, ensuring the stability and convergence of the algorithm.
 
-The condition for \(\alpha\) is that it should be less than one divided by the largest eigenvalue of \(A\):
-\[ 0 < \alpha < \frac{1}{\lambda_{\max}(A)} \]
+The condition for $\alpha $ is that it should be less than one divided by the largest eigenvalue of$A$:
+$$0 < \alpha < \frac{1}{\lambda_{\max}(A)}$$
 
 This ensures that the update process will gradually adjust the weights towards the fixed point without overshooting or oscillating.
 
@@ -243,22 +241,23 @@ x??
 ---
 
 #### Positive Definiteness of the Amatrix in TD(0)
-The matrix \(A\) is given by:
-\[ A = \sum_{s} \mu(s) \sum_{a, s'} p(s' | s, a) x(s)^T x(s') - (x(s))^T (x(s))^T \]
+The matrix $A$ is given by:
+$$A = \sum_{s} \mu(s) \sum_{a, s'} p(s' | s, a) x(s)^T x(s') - (x(s))^T (x(s))^T$$
+
 Where,
-- \(\mu(s)\) is the stationary distribution under policy \(\pi\),
-- \(p(s' | s, a)\) is the probability of transitioning from state \(s\) to state \(s'\) under action \(a\).
+- $\mu(s)$ is the stationary distribution under policy $\pi$,
+- $p(s' | s, a)$ is the probability of transitioning from state $s$ to state $s'$ under action $a$.
 
 To ensure positive definiteness, it needs to be checked if all columns of the matrix sum to a nonnegative number.
 
 :p How can we check for the positive definiteness of the Amatrix in linear TD(0)?
 ??x
-To check for the positive definiteness of the matrix \(A\) in the context of linear TD(0), one approach is to verify that the inner matrix \(D(I - P)\) has columns that sum to nonnegative numbers. Here, \(D\) is a diagonal matrix with the stationary distribution \(\mu(s)\) on its diagonal and \(P\) is the transition probability matrix.
+To check for the positive definiteness of the matrix $A $ in the context of linear TD(0), one approach is to verify that the inner matrix$D(I - P)$ has columns that sum to nonnegative numbers. Here,$D $ is a diagonal matrix with the stationary distribution$\mu(s)$ on its diagonal and $P$ is the transition probability matrix.
 
-The positive definiteness of \(A = X^T D (I - P) X\) can be assured if all columns of \(D(I - P)\) sum to nonnegative numbers. This was proven by Sutton (1988, p. 27), based on two previously established theorems:
+The positive definiteness of $A = X^T D (I - P) X $ can be assured if all columns of$D(I - P)$ sum to nonnegative numbers. This was proven by Sutton (1988, p. 27), based on two previously established theorems:
 
-1. Any matrix \(M\) is positive definite if and only if the symmetric matrix \(S = M + M^T\) is positive definite.
-2. A symmetric real matrix \(S\) is positive definite if all of its diagonal entries are positive and greater than the sum of the absolute values of the corresponding off-diagonal entries.
+1. Any matrix $M $ is positive definite if and only if the symmetric matrix$S = M + M^T$ is positive definite.
+2. A symmetric real matrix $S$ is positive definite if all of its diagonal entries are positive and greater than the sum of the absolute values of the corresponding off-diagonal entries.
 
 ```java
 public class PositiveDefinitenessCheck {
@@ -286,24 +285,24 @@ x??
 
 #### Key Matrix Stability and TD(0) Convergence
 
-Background context: The text discusses the stability of on-policy TD(0) methods, particularly focusing on the conditions for positive definiteness of the key matrix \( D(I - \pi P) \), where \( \pi \) is a stochastic matrix with \( \rho < 1 \). It also mentions that at the fixed point, the value error (VE) is bounded by the lowest possible error achieved by Monte Carlo methods.
+Background context: The text discusses the stability of on-policy TD(0) methods, particularly focusing on the conditions for positive definiteness of the key matrix $D(I - \pi P)$, where $\pi $ is a stochastic matrix with $\rho < 1$. It also mentions that at the fixed point, the value error (VE) is bounded by the lowest possible error achieved by Monte Carlo methods.
 
-:p What are the conditions for the key matrix \( D(I - \pi P) \) to be positive definite in on-policy TD(0)?
+:p What are the conditions for the key matrix $D(I - \pi P)$ to be positive definite in on-policy TD(0)?
 
 ??x
-The row sums being positive due to \( \pi \) being a stochastic matrix and \( \rho < 1 \), combined with showing that column sums are nonnegative through the stationary distribution \( \mu \). The key matrix is then shown to have all components of its column sum vector as positive, ensuring it's positive definite.
+The row sums being positive due to $\pi $ being a stochastic matrix and$\rho < 1 $, combined with showing that column sums are nonnegative through the stationary distribution $\mu$. The key matrix is then shown to have all components of its column sum vector as positive, ensuring it's positive definite.
 x??
 
 ---
 
 #### TD Fixed Point Error Bound
 
-Background context: The text explains that at the fixed point of on-policy TD(0), the value error (VE) is within a bounded expansion of the lowest possible error. This bound is given by \( VE(w_{TD}) \leq 1 - \rho \cdot min_w VE(w) \).
+Background context: The text explains that at the fixed point of on-policy TD(0), the value error (VE) is within a bounded expansion of the lowest possible error. This bound is given by $VE(w_{TD}) \leq 1 - \rho \cdot min_w VE(w)$.
 
 :p What does the fixed point error bound for on-policy TD(0) tell us about its performance compared to Monte Carlo methods?
 
 ??x
-The fixed point error bound indicates that the asymptotic error of the TD method is no more than \( 1 - \rho \) times the smallest possible error, which is achieved by the Monte Carlo method in the limit. This means for values of \( \rho \) close to one, the expansion factor can be significant, leading to potential loss in asymptotic performance.
+The fixed point error bound indicates that the asymptotic error of the TD method is no more than $1 - \rho $ times the smallest possible error, which is achieved by the Monte Carlo method in the limit. This means for values of$\rho$ close to one, the expansion factor can be significant, leading to potential loss in asymptotic performance.
 
 For example:
 ```java
@@ -419,9 +418,8 @@ Background context: The text introduces the semi-gradient n-step TD algorithm ex
 :p What is the key equation of the n-step semi-gradient TD algorithm used in the example?
 ??x
 The key equation for the n-step semi-gradient TD algorithm, analogous to (7.2), is given by:
-\[ w_{t+n} = w_{t+n-1} + \alpha [G_{t:t+n} - \hat{v}(S_t, w_{t+n-1})] \]
-where \( G_{t:t+n} \) is the n-step return defined as:
-\[ G_{t:t+n} = R_{t+1} + \gamma R_{t+2} + \cdots + \gamma^{n-1} R_{t+n} + \gamma^n \hat{v}(S_{t+n}, w_{t+n-1}) \]
+$$w_{t+n} = w_{t+n-1} + \alpha [G_{t:t+n} - \hat{v}(S_t, w_{t+n-1})]$$where $ G_{t:t+n}$ is the n-step return defined as:
+$$G_{t:t+n} = R_{t+1} + \gamma R_{t+2} + \cdots + \gamma^{n-1} R_{t+n} + \gamma^n \hat{v}(S_{t+n}, w_{t+n-1})$$
 
 This equation updates the value function weights based on the difference between the actual return and the predicted return from the current state.
 
@@ -495,7 +493,7 @@ Background context: The text introduces the concept of feature construction in l
 
 :p In the context of this example, what would the feature vectors be if we were using tabular methods?
 ??x
-In the context of this example, when using tabular methods, each state \( S \) is its own feature vector. This means that for a given state \( S_i \), the feature vector \( \phi(S_i) \) would simply be an indicator function that is 1 at position \( i \) and 0 elsewhere.
+In the context of this example, when using tabular methods, each state $S $ is its own feature vector. This means that for a given state$S_i $, the feature vector$\phi(S_i)$ would simply be an indicator function that is 1 at position $i$ and 0 elsewhere.
 
 ```java
 // Pseudocode for tabular method features
@@ -569,7 +567,7 @@ To better capture state interactions, additional features combining underlying d
 
 :p How can we create features that account for interactions between state dimensions?
 ??x
-One approach is to explicitly include interaction terms in the feature set. For example, if there are two state dimensions \(s_1\) and \(s_2\), you could create a new feature representing their product: \(s_1 \times s_2\). This allows the model to learn different behaviors depending on how these dimensions combine.
+One approach is to explicitly include interaction terms in the feature set. For example, if there are two state dimensions $s_1 $ and$s_2 $, you could create a new feature representing their product:$ s_1 \times s_2$. This allows the model to learn different behaviors depending on how these dimensions combine.
 
 ```java
 // Example of combining state dimensions for interaction capture
@@ -611,8 +609,7 @@ Background context: For a k-dimensional state space, polynomial basis features c
 :p What is the formula for generating order-n polynomial basis features in k dimensions?
 ??x
 The formula for generating order-n polynomial basis features in k dimensions is given by:
-\[ x_i(s) = \prod_{j=1}^{k} s_{i,j}^{c_{i,j}} \]
-where \( c_{i,j} \) are integers in the set {0, 1, ..., n}, and each feature vector contains (n+1)^k distinct features.
+$$x_i(s) = \prod_{j=1}^{k} s_{i,j}^{c_{i,j}}$$where $ c_{i,j}$ are integers in the set {0, 1, ..., n}, and each feature vector contains (n+1)^k distinct features.
 
 Example:
 ```java
@@ -639,7 +636,7 @@ Background context: Fourier basis functions are used to approximate periodic or 
 
 :p How do you represent a function in one dimension using the Fourier series?
 ??x
-A function in one dimension having period \(\tau\) can be represented as a linear combination of sine and cosine functions that are each periodic with periods evenly dividing \(\tau\). For an aperiodic function defined over a bounded interval, these basis features can be used with \(\tau\) set to twice the length of the interval.
+A function in one dimension having period $\tau $ can be represented as a linear combination of sine and cosine functions that are each periodic with periods evenly dividing$\tau $. For an aperiodic function defined over a bounded interval, these basis features can be used with $\tau$ set to twice the length of the interval.
 
 Example:
 ```java
@@ -672,7 +669,7 @@ Background context: In small state spaces (e.g., k ≤ 5), one can use all order
 
 :p How does feature selection work in low-dimensional state spaces?
 ??x
-In low-dimensional state spaces, where the dimension \( k \leq 5 \), it is feasible to include all order-\( n \) Fourier basis functions. This makes the feature selection process automatic since no subset needs to be chosen.
+In low-dimensional state spaces, where the dimension $k \leq 5 $, it is feasible to include all order-$ n$ Fourier basis functions. This makes the feature selection process automatic since no subset needs to be chosen.
 x??
 
 ---
@@ -690,13 +687,13 @@ x??
 
 #### Benefits and Drawbacks of Fourier Features
 
-Background context: Fourier basis features can adaptively select features by setting coefficients \( \mathbf{c} \) to account for suspected interactions among state variables and limiting \( \mathbf{j} \)-values to filter out noise. However, they represent global properties rather than local ones.
+Background context: Fourier basis features can adaptively select features by setting coefficients $\mathbf{c}$ to account for suspected interactions among state variables and limiting $\mathbf{j}$-values to filter out noise. However, they represent global properties rather than local ones.
 
 :p What are the advantages of using Fourier basis features?
 ??x
 The advantages include:
-- Adaptive feature selection by setting coefficients \( \mathbf{c} \) for suspected interactions.
-- Limiting values in \( \mathbf{j} \)-vectors to filter out high-frequency noise, which is often considered noise.
+- Adaptive feature selection by setting coefficients $\mathbf{c}$ for suspected interactions.
+- Limiting values in $\mathbf{j}$-vectors to filter out high-frequency noise, which is often considered noise.
 
 These settings help manage the global properties that Fourier features represent more effectively.
 x??
@@ -711,7 +708,7 @@ Background context: The performance comparison between Fourier and polynomial ba
 ??x
 Learning curves indicate that Fourier bases outperform polynomial bases, especially in high-dimensional state spaces. For example, in a 1000-state random walk, using Fourier basis features of order 5, 10, or 20 yields better performance compared to polynomial bases.
 
-The step-size parameters were optimized differently for each case: \( \alpha = 0.0001 \) for the polynomial basis and \( \alpha = 0.00005 \) for the Fourier basis.
+The step-size parameters were optimized differently for each case: $\alpha = 0.0001 $ for the polynomial basis and$\alpha = 0.00005$ for the Fourier basis.
 x??
 
 ---
@@ -729,13 +726,13 @@ x??
 
 #### Code Example for Step-Size Optimization
 
-Background context: The step-size parameter \( \alpha \) was optimized differently for Fourier and polynomial bases in the 1000-state random walk example.
+Background context: The step-size parameter $\alpha$ was optimized differently for Fourier and polynomial bases in the 1000-state random walk example.
 
 :p How were the step-size parameters adjusted for the gradient Monte Carlo method?
 ??x
 The step-size parameters for the gradient Monte Carlo method were set to:
-- \( \alpha = 0.0001 \) for the polynomial basis.
-- \( \alpha = 0.00005 \) for the Fourier basis.
+- $\alpha = 0.0001$ for the polynomial basis.
+- $\alpha = 0.00005$ for the Fourier basis.
 
 These values were chosen based on empirical optimization to achieve better convergence and performance in each case.
 x??

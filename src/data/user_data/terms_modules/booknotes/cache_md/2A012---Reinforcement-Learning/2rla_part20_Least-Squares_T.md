@@ -7,15 +7,14 @@
 
 
 #### Least-Squares TD (LSTD) Algorithm
-Background context: The Least-Squares TD algorithm, commonly known as LSTD, provides a more data-efficient form of linear TD(0). It directly computes the solution to the TD fixed point problem using estimates of matrices \( A \) and \( b \), rather than iterating iteratively. This approach can be computationally intensive but offers better performance in terms of data efficiency.
+Background context: The Least-Squares TD algorithm, commonly known as LSTD, provides a more data-efficient form of linear TD(0). It directly computes the solution to the TD fixed point problem using estimates of matrices $A $ and$b$, rather than iterating iteratively. This approach can be computationally intensive but offers better performance in terms of data efficiency.
 :p What is LSTD (Least-Squares TD) algorithm?
 ??x
-LSTD is a method for linear function approximation that directly computes the solution to the TD fixed point problem, which is \( w_{TD} = A^{-1} b \), where \( A = E[\sum x_t(x_t - x_{t+1})^T] \) and \( b = E[R_{t+1}x_t] \). It aims to provide a more data-efficient solution compared to iterative methods.
+LSTD is a method for linear function approximation that directly computes the solution to the TD fixed point problem, which is $w_{TD} = A^{-1} b $, where $ A = E[\sum x_t(x_t - x_{t+1})^T]$and $ b = E[R_{t+1}x_t]$. It aims to provide a more data-efficient solution compared to iterative methods.
 ??x
-The algorithm forms estimates of the matrices \( A \) and \( b \), which are given by:
-\[ A_t = t^{-1} \sum_{k=0}^{t-1} x_k (x_k - x_{k+1})^T + \epsilon I \]
-\[ b_t = t^{-1} \sum_{k=0}^{t-1} R_{k+1} x_k \]
-where \( I \) is the identity matrix, and \( \epsilon I \) ensures that \( A_t \) is always invertible.
+The algorithm forms estimates of the matrices $A $ and$b$, which are given by:
+$$A_t = t^{-1} \sum_{k=0}^{t-1} x_k (x_k - x_{k+1})^T + \epsilon I$$
+$$b_t = t^{-1} \sum_{k=0}^{t-1} R_{k+1} x_k$$where $ I $ is the identity matrix, and $\epsilon I $ ensures that$A_t$ is always invertible.
 ??x
 Here’s an example of how the algorithm can be implemented in pseudocode:
 ```pseudocode
@@ -39,11 +38,12 @@ x??
 ---
 
 #### Inverse Computation in LSTD
-Background context: The inverse of the matrix \( A \) used in LSTD can be computed incrementally using the Sherman-Morrison formula, which is more efficient than general matrix inversion.
+Background context: The inverse of the matrix $A$ used in LSTD can be computed incrementally using the Sherman-Morrison formula, which is more efficient than general matrix inversion.
 :p How does the Sherman-Morrison formula help in computing the inverse of a special form matrix in LSTD?
 ??x
-The Sherman-Morrison formula helps by providing an incremental way to compute the inverse of a sum of outer products. For matrices of the form \( A_t = \sum_{k=0}^{t-1} x_k (x_k - x_{k+1})^T + \epsilon I \), the formula is:
-\[ A_t^{-1} = (A_{t-1}^{-1} + x_t(x_t - x_{t+1})^T) / (1 + (x_t - x_{t+1})^T A_{t-1}^{-1} (x_t - x_{t+1})) \]
+The Sherman-Morrison formula helps by providing an incremental way to compute the inverse of a sum of outer products. For matrices of the form $A_t = \sum_{k=0}^{t-1} x_k (x_k - x_{k+1})^T + \epsilon I$, the formula is:
+$$A_t^{-1} = (A_{t-1}^{-1} + x_t(x_t - x_{t+1})^T) / (1 + (x_t - x_{t+1})^T A_{t-1}^{-1} (x_t - x_{t+1}))$$
+
 This avoids the need for general matrix inversion, which is computationally expensive.
 ??x
 The Sherman-Morrison formula can be implemented in pseudocode as follows:
@@ -58,16 +58,16 @@ x??
 ---
 
 #### TD Fixed Point in LSTD
-Background context: The goal of the Least-Squares TD algorithm is to find the solution \( w_{TD} \) that satisfies the TD fixed point equation, which can be computed as:
-\[ w_t = A_t^{-1} b_t \]
-where \( A_t \) and \( b_t \) are estimates formed from data collected over time.
+Background context: The goal of the Least-Squares TD algorithm is to find the solution $w_{TD}$ that satisfies the TD fixed point equation, which can be computed as:
+$$w_t = A_t^{-1} b_t$$where $ A_t $ and $ b_t$ are estimates formed from data collected over time.
 :p What is the goal of using Least-Squares TD in reinforcement learning?
 ??x
-The goal of using Least-Squares TD (LSTD) in reinforcement learning is to find the optimal weight vector \( w_{TD} \) that satisfies the TD fixed point equation: 
-\[ w_t = A_t^{-1} b_t \]
+The goal of using Least-Squares TD (LSTD) in reinforcement learning is to find the optimal weight vector $w_{TD}$ that satisfies the TD fixed point equation:
+$$w_t = A_t^{-1} b_t$$
+
 This method aims to provide a direct, efficient solution for function approximation in reinforcement learning by leveraging matrix algebra.
 ??x
-The goal of LSTD is to directly compute the optimal weights \( w_{TD} \) using the estimated matrices \( A_t \) and \( b_t \), avoiding iterative methods that can be slow. This approach ensures better data efficiency but requires careful management of computational complexity, particularly in terms of matrix inversion.
+The goal of LSTD is to directly compute the optimal weights $w_{TD}$ using the estimated matrices $ A_t $ and $b_t$, avoiding iterative methods that can be slow. This approach ensures better data efficiency but requires careful management of computational complexity, particularly in terms of matrix inversion.
 ```pseudocode
 function LSTD_fixed_point(x_values, r_values):
     t = 0
@@ -88,7 +88,7 @@ x??
 ---
 
 #### Data Efficiency in LSTD
-Background context: One of the key advantages of LSTD over iterative methods like semi-gradient TD is its data efficiency. While it requires more computation per step, it can handle larger state spaces (higher \( d \)) and potentially learn faster.
+Background context: One of the key advantages of LSTD over iterative methods like semi-gradient TD is its data efficiency. While it requires more computation per step, it can handle larger state spaces (higher $d$) and potentially learn faster.
 :p Why is data efficiency important in reinforcement learning applications?
 ??x
 Data efficiency is crucial in reinforcement learning because it determines how quickly the algorithm can adapt to new environments or large-scale problems with many states. More efficient use of data means that fewer experiences are needed to achieve good performance, which is particularly valuable when collecting data is expensive or time-consuming.
@@ -107,11 +107,11 @@ x??
 
 #### On-policy Prediction with Approximation LSTD
 
-Background context: This section discusses on-policy prediction, specifically focusing on using Least-Squares Temporal Difference (LSTD) for approximating value functions. The method involves representing the value function \( v_\pi(s) \approx w^\top x(s) \), where \( x(s) \) is a feature representation of state \( s \). The algorithm updates weights \( w \) to minimize the prediction error.
+Background context: This section discusses on-policy prediction, specifically focusing on using Least-Squares Temporal Difference (LSTD) for approximating value functions. The method involves representing the value function $v_\pi(s) \approx w^\top x(s)$, where $ x(s)$is a feature representation of state $ s$. The algorithm updates weights $ w$ to minimize the prediction error.
 
 :p What is the basic idea behind using LSTD for on-policy prediction in reinforcement learning?
 ??x
-The core idea is to use least-squares methods to find optimal parameters \( w \) that approximate the value function. By minimizing the mean squared error between predicted and actual returns, this approach can efficiently estimate the value function without explicitly visiting all states.
+The core idea is to use least-squares methods to find optimal parameters $w$ that approximate the value function. By minimizing the mean squared error between predicted and actual returns, this approach can efficiently estimate the value function without explicitly visiting all states.
 ```java
 // Pseudocode for LSTD update
 for each episode:
@@ -273,7 +273,7 @@ x??
 Locally weighted regression requires fast ways to perform local regression computations for each query. Researchers have developed various methods to address this, including strategies for forgetting entries to maintain database size within bounds. A kernel function is used to assign weights to examples based on their distance or similarity to the query state.
 :p What is a kernel function in locally weighted regression?
 ??x
-A kernel function \( k \) assigns weights to examples based on their distance or some measure of similarity to the query state. In the case of locally weighted regression, it computes a weighted average of target values from stored examples, where the weight depends on how close the states are.
+A kernel function $k$ assigns weights to examples based on their distance or some measure of similarity to the query state. In the case of locally weighted regression, it computes a weighted average of target values from stored examples, where the weight depends on how close the states are.
 x??
 
 ---
@@ -288,10 +288,10 @@ x??
 ---
 
 #### Kernel Trick Explanation
-Any linear parametric method, like those described in Section 9.4 using feature vectors, can be recast as kernel regression where \( k(s, s0) \) is the inner product of feature vector representations of states.
+Any linear parametric method, like those described in Section 9.4 using feature vectors, can be recast as kernel regression where $k(s, s0)$ is the inner product of feature vector representations of states.
 :p How does the "kernel trick" work?
 ??x
-The kernel trick allows transforming a linear parametric method into a nonparametric one by using an RBF kernel. Specifically, \( k(s, s0) = x(s)^T x(s0) \), where \( x(s) \) and \( x(s0) \) are the feature vector representations of states \( s \) and \( s0 \). This avoids explicit computation in high-dimensional space.
+The kernel trick allows transforming a linear parametric method into a nonparametric one by using an RBF kernel. Specifically, $k(s, s0) = x(s)^T x(s0)$, where $ x(s)$and $ x(s0)$are the feature vector representations of states $ s$and $ s0$. This avoids explicit computation in high-dimensional space.
 x??
 
 ---

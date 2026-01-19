@@ -214,7 +214,7 @@ x??
 #### Arithmetic Intensity Definition
 Background context: In computational performance, arithmetic intensity measures how efficiently a program uses floating-point operations (FLOPs) compared to memory access. It is essential for understanding and optimizing application performance on modern computing hardware.
 
-Formula: \(\text{Arithmetic Intensity} = \frac{\text{Number of FLOPs}}{\text{Number of Memory Operations}}\)
+Formula: $\text{Arithmetic Intensity} = \frac{\text{Number of FLOPs}}{\text{Number of Memory Operations}}$
 
 :p What is arithmetic intensity?
 ??x

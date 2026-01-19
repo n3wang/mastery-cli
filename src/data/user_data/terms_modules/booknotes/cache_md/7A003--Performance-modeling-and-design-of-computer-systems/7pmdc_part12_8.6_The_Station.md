@@ -7,24 +7,24 @@
 
 
 #### Concept of Stationary Distribution and Limiting Probability
-The concept revolves around understanding how, as \(n \to \infty\), the probabilities of being in any state stabilize to a certain distribution. This is denoted by \(\pi_j = \lim_{n \to \infty} P^n_{ij}\), where \(P\) is the transition probability matrix and \(i, j\) are states.
+The concept revolves around understanding how, as $n \to \infty $, the probabilities of being in any state stabilize to a certain distribution. This is denoted by $\pi_j = \lim_{n \to \infty} P^n_{ij}$, where $ P$is the transition probability matrix and $ i, j$ are states.
 
-The stationary distribution \(\vec{\pi} = (\pi_0, \pi_1, ..., \pi_{M-1})\) satisfies the equation \(\vec{\pi} \cdot P = \vec{\pi}\) where \(\sum_{i=0}^{M-1} \pi_i = 1\).
+The stationary distribution $\vec{\pi} = (\pi_0, \pi_1, ..., \pi_{M-1})$ satisfies the equation $\vec{\pi} \cdot P = \vec{\pi}$ where $\sum_{i=0}^{M-1} \pi_i = 1$.
 
 :p What does the stationary distribution represent in a Markov Chain?
 ??x
-The stationary distribution represents the limiting probabilities of being in each state as \(n \to \infty\) and is independent of the initial state. This means that if we start with any distribution, after many transitions, the system's state probability will stabilize to this stationary distribution.
+The stationary distribution represents the limiting probabilities of being in each state as $n \to \infty$ and is independent of the initial state. This means that if we start with any distribution, after many transitions, the system's state probability will stabilize to this stationary distribution.
 x??
 
 ---
 
 
 #### Concept of Stationary Equations for Markov Chains
-The stationary equations for a finite-state discrete-time Markov chain (DTMC) involve finding a probability distribution \(\vec{\pi}\) such that \(\vec{\pi} \cdot P = \vec{\pi}\), where \(P\) is the transition matrix. This means that if the system starts in this distribution, it will remain in the same distribution after any number of transitions.
+The stationary equations for a finite-state discrete-time Markov chain (DTMC) involve finding a probability distribution $\vec{\pi}$ such that $\vec{\pi} \cdot P = \vec{\pi}$, where $ P$ is the transition matrix. This means that if the system starts in this distribution, it will remain in the same distribution after any number of transitions.
 
-:p How do we determine \(\pi_j = \lim_{n \to \infty} P^n_{ij}\)?
+:p How do we determine $\pi_j = \lim_{n \to \infty} P^n_{ij}$?
 ??x
-To determine the stationary probability \(\pi_j\), we can solve the stationary equations. Specifically, for a finite-state DTMC with \(M\) states, find a vector \(\vec{\pi} = (\pi_0, \pi_1, ..., \pi_{M-1})\) such that \(\sum_{i=0}^{M-1} \pi_i = 1\) and \(\pi_j = \sum_{k=0}^{M-1} \pi_k P_{kj}\) for all \(j\).
+To determine the stationary probability $\pi_j $, we can solve the stationary equations. Specifically, for a finite-state DTMC with $ M $states, find a vector$\vec{\pi} = (\pi_0, \pi_1, ..., \pi_{M-1})$ such that $\sum_{i=0}^{M-1} \pi_i = 1$ and $\pi_j = \sum_{k=0}^{M-1} \pi_k P_{kj}$ for all $j$.
 
 Here's the logic in pseudocode:
 ```pseudocode
@@ -59,7 +59,7 @@ For a finite-state DTMC, the theorem states that the stationary distribution obt
 
 :p How does the theorem relate the limiting distribution to the stationary distribution?
 ??x
-The theorem says that for a finite-state DTMC with \(M\) states, if \(\pi_j = \lim_{n \to \infty} P^n_{ij}\) exists, then this \(\vec{\pi}\) is also a stationary distribution and no other stationary distribution can exist. This means the limiting probabilities are exactly the same as the unique stationary distribution.
+The theorem says that for a finite-state DTMC with $M $ states, if$\pi_j = \lim_{n \to \infty} P^n_{ij}$ exists, then this $\vec{\pi}$ is also a stationary distribution and no other stationary distribution can exist. This means the limiting probabilities are exactly the same as the unique stationary distribution.
 
 The proof involves showing that:
 1. The limiting distribution satisfies the stationary equations.
@@ -72,11 +72,11 @@ x??
 
 
 #### Concept of Steady State for Markov Chains
-A Markov Chain is said to be stationary or in steady state if it has a unique stationary distribution \(\vec{\pi}\) and the initial state is chosen according to these stationary probabilities.
+A Markov Chain is said to be stationary or in steady state if it has a unique stationary distribution $\vec{\pi}$ and the initial state is chosen according to these stationary probabilities.
 
 :p What does "stationary" mean for a Markov chain?
 ??x
-For a Markov chain, being "stationary" means that once the system reaches this state (where probabilities of being in any state are given by \(\vec{\pi}\)), it remains there indefinitely. This is achieved if the initial distribution matches \(\vec{\pi}\), ensuring no matter the starting point, after many transitions, the probability distribution stabilizes to \(\vec{\pi}\).
+For a Markov chain, being "stationary" means that once the system reaches this state (where probabilities of being in any state are given by $\vec{\pi}$), it remains there indefinitely. This is achieved if the initial distribution matches $\vec{\pi}$, ensuring no matter the starting point, after many transitions, the probability distribution stabilizes to $\vec{\pi}$.
 x??
 
 ---
@@ -169,17 +169,15 @@ x??
 
 #### Stationary Equations and Limiting Probability Distribution for DTMCs
 
-Background context: In discrete-time Markov chains (DTMCs), the stationary equations are used to find the limiting probability distribution vector \(\pi\). This is done by solving an infinite number of equations, each representing a state's long-term probability. The key idea is that as \(n\) approaches infinity, the probability of being in state \(j\) converges to \(\pi_j\).
+Background context: In discrete-time Markov chains (DTMCs), the stationary equations are used to find the limiting probability distribution vector $\pi $. This is done by solving an infinite number of equations, each representing a state's long-term probability. The key idea is that as $ n $approaches infinity, the probability of being in state$ j $converges to$\pi_j$.
 
 Formulas and explanations:
-- \(\pi_j = \sum_{i=0}^{\infty} P_{ij} \pi_i\)
-- To prove that \(\pi_j\) is bounded above and below by itself, we use the sandwich theorem: 
-  - \( \sum_{i=0}^{M} P_{ij} \pi_i \leq \pi_j \leq \sum_{i=0}^{M} P_{ij} \pi_i + \sum_{i=M+1}^{\infty} \pi_i \)
-  - As \(M\) approaches infinity, the bounds become tighter and converge to \(\pi_j\).
+- $\pi_j = \sum_{i=0}^{\infty} P_{ij} \pi_i $- To prove that $\pi_j$ is bounded above and below by itself, we use the sandwich theorem: 
+  -$\sum_{i=0}^{M} P_{ij} \pi_i \leq \pi_j \leq \sum_{i=0}^{M} P_{ij} \pi_i + \sum_{i=M+1}^{\infty} \pi_i $- As $ M $ approaches infinity, the bounds become tighter and converge to $\pi_j$.
 
 :p What is the main theorem or concept being discussed in this section?
 ??x
-The main theorem discusses how to find the limiting probability distribution vector \(\pi\) for a DTMC by solving an infinite number of stationary equations. It uses the sandwich theorem to prove that the solution converges to the actual probabilities.
+The main theorem discusses how to find the limiting probability distribution vector $\pi$ for a DTMC by solving an infinite number of stationary equations. It uses the sandwich theorem to prove that the solution converges to the actual probabilities.
 x??
 
 ---
@@ -190,21 +188,16 @@ x??
 Background context: The example provided deals with an unbounded queue system where jobs can arrive and depart at each time step according to certain probabilities. The goal is to determine the average number of jobs in the system using a DTMC model.
 
 Formulas and explanations:
-- Transition probability matrix \(P\) for the infinite states (0, 1, 2, ...):
-  - \( P = \begin{pmatrix} 
+- Transition probability matrix $P$ for the infinite states (0, 1, 2, ...):
+  -$ P = \begin{pmatrix} 
     1-r & r & 0 & 0 & \cdots \\
     s(1-r-s) & 1-r-s & s & 0 & \cdots \\
     0 & sr & 1-r-s & s & \cdots \\
     \vdots & \vdots & \vdots & \vdots & \ddots 
-    \end{pmatrix} \)
-- Stationary equations:
-  - \(\pi_0 = \pi_0(1-r) + \pi_1s\)
-  - \(\pi_1 = \pi_0r + \pi_1(1-r-s) + \pi_2s\)
-  - \(\pi_i = r/s \cdot \pi_{i-1}\)
-
-:p What is the structure of the transition probability matrix for this unbounded queue example?
+    \end{pmatrix} $- Stationary equations:
+  -$\pi_0 = \pi_0(1-r) + \pi_1s $-$\pi_1 = \pi_0r + \pi_1(1-r-s) + \pi_2s $-$\pi_i = r/s \cdot \pi_{i-1}$:p What is the structure of the transition probability matrix for this unbounded queue example?
 ??x
-The transition probability matrix \(P\) has a specific structure where each row transitions to itself with probability \(1-r\) and to neighboring states with probabilities dependent on \(r\), \(s\). The matrix extends infinitely, making it difficult to handle using traditional methods.
+The transition probability matrix $P $ has a specific structure where each row transitions to itself with probability$1-r $ and to neighboring states with probabilities dependent on$r $, $ s$. The matrix extends infinitely, making it difficult to handle using traditional methods.
 x??
 
 ---
@@ -212,41 +205,31 @@ x??
 
 #### Solving Stationary Equations
 
-Background context: When dealing with an infinite number of stationary equations in a DTMC, the approach is to express \(\pi_i\) in terms of \(\pi_0\). This involves repeatedly substituting expressions and observing patterns.
+Background context: When dealing with an infinite number of stationary equations in a DTMC, the approach is to express $\pi_i $ in terms of$\pi_0$. This involves repeatedly substituting expressions and observing patterns.
 
 Formulas and explanations:
-- Expressing \(\pi_1\) from \(\pi_0\):
-  - \(\pi_1 = r/s \cdot \pi_0\)
-- Substituting \(\pi_1\) into the second equation to get \(\pi_2\):
-  - \(\pi_2 = (r/s)^2 \cdot \pi_0\)
-- Generalizing this for all states:
-  - \(\pi_i = (r/s)^i \cdot \pi_0\)
-
-:p How do you express \(\pi_1\) in terms of \(\pi_0\)?
+- Expressing $\pi_1 $ from$\pi_0$:
+  - $\pi_1 = r/s \cdot \pi_0 $- Substituting $\pi_1 $ into the second equation to get$\pi_2$:
+  - $\pi_2 = (r/s)^2 \cdot \pi_0$- Generalizing this for all states:
+  -$\pi_i = (r/s)^i \cdot \pi_0 $:p How do you express $\pi_1 $ in terms of$\pi_0$?
 ??x
-We express \(\pi_1\) as \( \pi_1 = r/s \cdot \pi_0 \).
+We express $\pi_1 $ as$\pi_1 = r/s \cdot \pi_0$.
 x??
 
 ---
 
 
-#### Determining \(\pi_0\)
-
-Background context: Once we have the general form for \(\pi_i\), the next step is to determine \(\pi_0\) by using the normalization condition \(\sum_{i=0}^{\infty} \pi_i = 1\).
+#### Determining $\pi_0 $ Background context: Once we have the general form for$\pi_i $, the next step is to determine $\pi_0 $ by using the normalization condition$\sum_{i=0}^{\infty} \pi_i = 1$.
 
 Formulas and explanations:
 - Sum of probabilities:
-  - \( \pi_0(1 + r/s + (r/s)^2 + (r/s)^3 + \cdots) = 1 \)
+  - $\pi_0(1 + r/s + (r/s)^2 + (r/s)^3 + \cdots) = 1$
   - This is a geometric series with sum: 
-    - \( \pi_0 \cdot \frac{1}{1 - r/s} = 1 \)
-
-:p How do you determine the value of \(\pi_0\)?
+    - $\pi_0 \cdot \frac{1}{1 - r/s} = 1 $:p How do you determine the value of$\pi_0$?
 ??x
-To determine \(\pi_0\), we use the normalization condition:
-- \(\pi_0 \cdot (1 + r/s + (r/s)^2 + (r/s)^3 + \cdots) = 1\)
-- This is a geometric series with sum: 
-  - \( \pi_0 \cdot \frac{1}{1 - r/s} = 1 \)
-- Therefore, \(\pi_0 = 1 / (1 - r/s)\).
+To determine $\pi_0$, we use the normalization condition:
+- $\pi_0 \cdot (1 + r/s + (r/s)^2 + (r/s)^3 + \cdots) = 1$- This is a geometric series with sum: 
+  -$\pi_0 \cdot \frac{1}{1 - r/s} = 1 $- Therefore,$\pi_0 = 1 / (1 - r/s)$.
 x??
 
 ---

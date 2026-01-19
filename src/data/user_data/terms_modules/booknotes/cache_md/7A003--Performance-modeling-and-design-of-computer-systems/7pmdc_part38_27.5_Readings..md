@@ -20,18 +20,16 @@ Background context: The problem introduces a scenario where the server can take 
 
 :p How is the response time in an M/G/1 with vacations decomposed?
 ??x
-The response time in an M/G/1 with vacations, denoted as \(\tilde{T}_{M/G/1/Vac}\), can be decomposed into the product of two components: 
+The response time in an M/G/1 with vacations, denoted as $\tilde{T}_{M/G/1/Vac}$, can be decomposed into the product of two components: 
 - The effective service time without considering the vacation periods.
 - The excess duration spent on vacations.
 
 Mathematically:
-\[
-\tilde{T}_{M/G/1/Vac}(s) = \tilde{T}_{M/G/1}(s) \cdot \tilde{V}_e(s)
-\]
+$$\tilde{T}_{M/G/1/Vac}(s) = \tilde{T}_{M/G/1}(s) \cdot \tilde{V}_e(s)$$
 
 Where:
-- \(\tilde{T}_{M/G/1}(s)\) is the Laplace transform of the response time in an M/G/1 without vacations.
-- \(\tilde{V}_e(s)\) represents the excess duration spent on vacations.
+- $\tilde{T}_{M/G/1}(s)$ is the Laplace transform of the response time in an M/G/1 without vacations.
+- $\tilde{V}_e(s)$ represents the excess duration spent on vacations.
 
 :p Provide a hint for proving this decomposition.
 ??x
@@ -52,21 +50,19 @@ A "short busy period" starts when a short job enters the system and ends when th
 
 :p Derive the mean length of a short busy period.
 ??x
-To derive the mean length \(E[T_{short}]\) of a short busy period, we need to consider:
+To derive the mean length $E[T_{short}]$ of a short busy period, we need to consider:
 1. The probability that a short job starts a new busy period.
 2. The expected duration for this short job to complete its service.
 
-Let \(f(s)\) be the pdf and \(F(s)\) the cdf of job sizes. Then:
-\[
-E[T_{short}] = \int_0^t s f(s) ds
-\]
+Let $f(s)$ be the pdf and $F(s)$ the cdf of job sizes. Then:
+$$E[T_{short}] = \int_0^t s f(s) ds$$
 
 For the Laplace transform, we use:
-\[
-L\{T_{short}\}(s) = \frac{\lambda E[S]}{1 - \rho}
-\]
+$$
 
-Where \(E[S]\) is the mean job size and \(\rho\) is the traffic intensity.
+L\{T_{short}\}(s) = \frac{\lambda E[S]}{1 - \rho}$$
+
+Where $E[S]$ is the mean job size and $\rho$ is the traffic intensity.
 
 ---
 
@@ -76,54 +72,44 @@ Background context: In a very large data center, servers are turned off when idl
 :p What is the key decomposition result for the M/M/∞ with setup times?
 ??x
 The key decomposition result for the M/M/∞ with setup times states that:
-\[
-P(i \text{ servers are busy and } j \text{ in setup}) = P(i \text{ servers are busy}) \cdot P(j \text{ servers in setup})
-\]
+$$P(i \text{ servers are busy and } j \text{ in setup}) = P(i \text{ servers are busy}) \cdot P(j \text{ servers in setup})$$
 
 Where:
-- \(i\) is the number of servers busy.
-- \(j\) is the number of servers in setup.
+- $i$ is the number of servers busy.
+- $j$ is the number of servers in setup.
 
 This result shows that the number of busy and setup servers are independent, similar to an M/M/∞ system without setup times.
 
-:p Derive the probability of having \(i\) servers busy for an M/M/∞ system.
+:p Derive the probability of having $i$ servers busy for an M/M/∞ system.
 ??x
 For an M/M/∞ system:
-\[
-P(i \text{ servers are busy}) = e^{-R} \cdot \frac{R^i}{i!}
-\]
+$$P(i \text{ servers are busy}) = e^{-R} \cdot \frac{R^i}{i!}$$
 
-Where \(R = \lambda / \mu\) is the traffic intensity.
+Where $R = \lambda / \mu$ is the traffic intensity.
 
-:p Derive the probability of having \(j\) servers in setup.
+:p Derive the probability of having $j$ servers in setup.
 ??x
 For an M/M/∞ system with setup times:
-\[
-P(j \text{ servers are in setup}) = C_j \cdot \prod_{l=1}^{j} \left( \frac{\lambda}{\lambda + l \alpha} \right)
-\]
+$$P(j \text{ servers are in setup}) = C_j \cdot \prod_{l=1}^{j} \left( \frac{\lambda}{\lambda + l \alpha} \right)$$
 
-Where \(C_j\) is a normalization constant.
+Where $C_j$ is a normalization constant.
 
 ---
 
 #### Number of Jobs Served during M/M/1 Busy Period
 Background context: This problem focuses on deriving the z-transform and moments for the number of jobs served during an M/M/1 busy period, which is crucial for understanding system behavior under various power-saving policies.
 
-:p Derive \(E[N_B]\) for the number of jobs served during an M/M/1 busy period.
+:p Derive $E[N_B]$ for the number of jobs served during an M/M/1 busy period.
 ??x
 The expected number of jobs served during a busy period in an M/M/1 queue can be derived as:
-\[
-E[N_B] = \frac{\mu - \lambda}{24}
-\]
+$$E[N_B] = \frac{\mu - \lambda}{24}$$
 
-Where \(\mu\) is the service rate and \(\lambda\) is the arrival rate.
+Where $\mu $ is the service rate and$\lambda$ is the arrival rate.
 
-:p Derive \(z\)-transform of \(N_B\) for an M/M/1 busy period.
+:p Derive $z $-transform of $ N_B$ for an M/M/1 busy period.
 ??x
 The z-transform of the number of jobs served during a busy period in an M/M/1 queue can be derived as:
-\[
-\hat{N_B}(z) = \frac{\mu (1 - z)}{(24 + \mu (1 - z))}
-\]
+$$\hat{N_B}(z) = \frac{\mu (1 - z)}{(24 + \mu (1 - z))}$$
 
 To find the first and second moments, differentiate the transform.
 
@@ -132,23 +118,19 @@ To find the first and second moments, differentiate the transform.
 #### Number of Jobs Served during M/G/1 Busy Period with Setup Time
 Background context: This problem extends the previous one to an M/G/1 queue where there is a general setup time for service when the server becomes idle.
 
-:p Derive \(z\)-transform \(\hat{N}_{setup B}(z)\) for the number of jobs served during a busy period in an M/G/1 setup system.
+:p Derive $z $-transform $\hat{N}_{setup B}(z)$ for the number of jobs served during a busy period in an M/G/1 setup system.
 ??x
 The z-transform for the number of jobs served during a busy period in an M/G/1 setup system can be derived as:
-\[
-\hat{N}_{setup B}(z) = \frac{\mu (1 - z)}{(24 + \mu (1 - z))}
-\]
+$$\hat{N}_{setup B}(z) = \frac{\mu (1 - z)}{(24 + \mu (1 - z))}$$
 
-Where \(I\) is the general random variable representing the setup time.
+Where $I$ is the general random variable representing the setup time.
 
 :p Determine the mean number of jobs served during a busy period.
 ??x
 The mean number of jobs served during a busy period can be derived by differentiating the z-transform:
-\[
-E[N_{setup B}] = \frac{\mu - \lambda}{24}
-\]
+$$E[N_{setup B}] = \frac{\mu - \lambda}{24}$$
 
-Where \(\mu\) is the service rate and \(\lambda\) is the arrival rate.
+Where $\mu $ is the service rate and$\lambda$ is the arrival rate.
 
 ---
 
@@ -158,18 +140,16 @@ Background context: This problem revisits the ON/OFF policy in an M/M/1 queue sy
 :p How do you derive the limiting probabilities for all states using transforms?
 ??x
 To derive the limiting probabilities for all states in an M/M/1 queue with setup times:
-1. Define the state space as \((i, j)\) where \(i\) is the number of jobs in the system and \(j\) represents the server state (busy or idle).
+1. Define the state space as $(i, j)$ where $i$ is the number of jobs in the system and $j$ represents the server state (busy or idle).
 2. Set up the balance equations using the arrival and departure rates.
 3. Use the transform method to solve for the limiting probabilities.
 
 :p How do you find the mean response time?
 ??x
 The mean response time can be derived by:
-\[
-E[T] = \frac{1}{\mu - \lambda} + \frac{\alpha E[S]}{\mu (\mu - \lambda)}
-\]
+$$E[T] = \frac{1}{\mu - \lambda} + \frac{\alpha E[S]}{\mu (\mu - \lambda)}$$
 
-Where \(E[S]\) is the expected job size and \(\alpha\) is the rate parameter for the setup time.
+Where $E[S]$ is the expected job size and $\alpha$ is the rate parameter for the setup time.
 
 ---
 

@@ -17,11 +17,10 @@ x??
 
 #### Little's Law
 Little’s Law relates the mean number of jobs in a system (L) to the mean response time experienced by arrivals (W). Mathematically, it can be expressed as:
-\[ L = \lambda W \]
-where \( \lambda \) is the arrival rate. This law is crucial for understanding and predicting system behavior without detailed modeling.
+$$L = \lambda W$$where $\lambda$ is the arrival rate. This law is crucial for understanding and predicting system behavior without detailed modeling.
 :p What does Little's Law state?
 ??x
-Little’s Law states that the mean number of jobs in a system (L) is equal to the arrival rate (\(\lambda\)) multiplied by the average time spent by each job in the system (W). Mathematically, \( L = \lambda W \).
+Little’s Law states that the mean number of jobs in a system (L) is equal to the arrival rate ($\lambda $) multiplied by the average time spent by each job in the system (W). Mathematically, $ L = \lambda W$.
 x??
 
 ---
@@ -50,15 +49,14 @@ x??
 
 
 #### Little's Law for Open Systems
-Background context explaining the concept. Little’s Law states that the average number of jobs in a system \( E[N] \) is equal to the product of the average arrival rate into the system \( λ \) and the mean time a job spends in the system \( E[T] \). This can be expressed as:
-\[ E[N] = λE[T] \]
-It applies to both open and closed systems, making it broadly applicable. The setup for Little’s Law involves understanding the average number of jobs (\( N \)), the arrival rate (\( λ \)), and the time spent in the system (\( T \)).
+Background context explaining the concept. Little’s Law states that the average number of jobs in a system $E[N]$ is equal to the product of the average arrival rate into the system $λ$ and the mean time a job spends in the system $E[T]$. This can be expressed as:
+$$E[N] = λE[T]$$
+It applies to both open and closed systems, making it broadly applicable. The setup for Little’s Law involves understanding the average number of jobs ($N $), the arrival rate ($λ$), and the time spent in the system ($ T$).
 
 :p What does Little's Law state about an open system?
 ??x
-Little's Law states that for any ergodic open system, the expected number of jobs \( E[N] \) in the system is equal to the product of the average arrival rate into the system \( λ \) and the mean time a job spends in the system \( E[T] \). Mathematically, this can be expressed as:
-\[ E[N] = λE[T] \]
-x??
+Little's Law states that for any ergodic open system, the expected number of jobs $E[N]$ in the system is equal to the product of the average arrival rate into the system $λ$ and the mean time a job spends in the system $E[T]$. Mathematically, this can be expressed as:
+$$E[N] = λE[T]$$x??
 
 ---
 #### Ergodic Open Systems
@@ -73,43 +71,40 @@ x??
 
 ---
 #### Setup for Little's Law
-Background context explaining the concept. The setup for Little’s Law involves understanding a simple system with arrivals (rate \( λ \)), departures, and the time in the system (\( T \)). This setup helps to visualize how the average number of jobs in the system is related to the arrival rate and the time spent.
+Background context explaining the concept. The setup for Little’s Law involves understanding a simple system with arrivals (rate $λ$), departures, and the time in the system ($ T$). This setup helps to visualize how the average number of jobs in the system is related to the arrival rate and the time spent.
 
 :p How is the setup for Little's Law described?
 ??x
 The setup for Little’s Law involves a system with:
-- Arrivals at a rate \( λ \)
+- Arrivals at a rate $λ$
 - Departures from the system
-- The time each job spends in the system, denoted as \( T \)
-
-This setup allows us to understand how the average number of jobs in the system (\( E[N] \)) is related to the arrival rate and the time spent.
+- The time each job spends in the system, denoted as $T $ This setup allows us to understand how the average number of jobs in the system ($E[N]$) is related to the arrival rate and the time spent.
 x??
 
 ---
 #### Application of Little's Law
-Background context explaining the concept. The usefulness of Little’s Law lies in its ability to help compute \( E[T] \) when we already know how to calculate \( E[N] \). This can be particularly useful in analyzing queueing systems, as many techniques exist for computing \( E[N] \).
+Background context explaining the concept. The usefulness of Little’s Law lies in its ability to help compute $E[T]$ when we already know how to calculate $E[N]$. This can be particularly useful in analyzing queueing systems, as many techniques exist for computing $ E[N]$.
 
 :p How does Little's Law simplify analysis?
 ??x
-Little's Law simplifies analysis by allowing us to immediately obtain the mean time jobs spend in the system (\( E[T] \)) once we know the expected number of jobs (\( E[N] \)) and the average arrival rate into the system (\( λ \)). This can be particularly useful when analyzing complex queueing systems where direct computation of \( E[T] \) might be challenging.
+Little's Law simplifies analysis by allowing us to immediately obtain the mean time jobs spend in the system ($E[T]$) once we know the expected number of jobs ($ E[N]$) and the average arrival rate into the system ($λ$). This can be particularly useful when analyzing complex queueing systems where direct computation of $ E[T]$ might be challenging.
 
-For example, if you have a system with an average number of 100 jobs (\( E[N] = 100 \)) and an arrival rate of 50 jobs per hour (\( λ = 50 \)), Little's Law tells us that the mean time spent in the system is:
-\[ E[T] = \frac{E[N]}{λ} = \frac{100}{50} = 2 \text{ hours} \]
-x??
+For example, if you have a system with an average number of 100 jobs ($E[N] = 100 $) and an arrival rate of 50 jobs per hour ($λ = 50$), Little's Law tells us that the mean time spent in the system is:
+$$E[T] = \frac{E[N]}{λ} = \frac{100}{50} = 2 \text{ hours}$$x??
 
 ---
 
 
 #### Little's Law Intuition
 
-Background context: The passage provides an intuitive understanding of Little’s Law, which states that the average number of jobs \(N\) in a system is equal to the arrival rate \(\lambda\) multiplied by the average time a job spends in the system \(E[T]\). This relationship can be visualized through examples and simple logic.
+Background context: The passage provides an intuitive understanding of Little’s Law, which states that the average number of jobs $N $ in a system is equal to the arrival rate$\lambda $ multiplied by the average time a job spends in the system$E[T]$. This relationship can be visualized through examples and simple logic.
 
 :p What is the intuition behind Little's Law as described in the text?
 
 ??x
-The passage suggests that if jobs leave quickly (low \(E[T]\)), then the system needs less space to accommodate them. Conversely, if jobs take longer to process (high \(E[T]\)), more space (higher \(E[N]\)) is needed. This relationship can be represented as \(N \approx 1/\lambda \cdot E[N]\), where \(1/\lambda\) represents the average time between arrivals.
+The passage suggests that if jobs leave quickly (low $E[T]$), then the system needs less space to accommodate them. Conversely, if jobs take longer to process (high $ E[T]$), more space (higher $ E[N]$) is needed. This relationship can be represented as $ N \approx 1/\lambda \cdot E[N]$, where $1/\lambda$ represents the average time between arrivals.
 
-For a single FCFS queue, if you see \(E[N]\) jobs in the system and each job takes an average of \(1/\lambda\) to complete, then it logically follows that the total time spent by all jobs is approximately \(N \cdot 1/\lambda\).
+For a single FCFS queue, if you see $E[N]$ jobs in the system and each job takes an average of $1/\lambda$ to complete, then it logically follows that the total time spent by all jobs is approximately $N \cdot 1/\lambda$.
 
 ```java
 public class LittleLawIntuition {
@@ -131,15 +126,15 @@ x??
 
 #### Little's Law for Closed Systems
 
-Background context: In a closed system, the number of jobs \(N\) is constant and equal to the multiprogramming level. Little’s Law simplifies in this scenario to \(N = X \cdot E[T]\), where \(X\) is the throughput (rate of completions).
+Background context: In a closed system, the number of jobs $N $ is constant and equal to the multiprogramming level. Little’s Law simplifies in this scenario to$N = X \cdot E[T]$, where $ X$ is the throughput (rate of completions).
 
 :p What does Little's Law state for a closed system?
 
 ??x
-For a closed system, Little’s Law states that the number of jobs \(N\) in the system is equal to the throughput \(X\) (the rate at which jobs are completed) multiplied by the average time \(E[T]\) each job spends in the system. This can be written as:
-\[ N = X \cdot E[T] \]
+For a closed system, Little’s Law states that the number of jobs $N $ in the system is equal to the throughput$X $(the rate at which jobs are completed) multiplied by the average time $ E[T]$ each job spends in the system. This can be written as:
+$$N = X \cdot E[T]$$
 
-For example, if a batch processing system has 100 jobs and an average completion time of 2 hours per job, with a throughput of 50 jobs per hour, then \(N = 50 \times 2 = 100\).
+For example, if a batch processing system has 100 jobs and an average completion time of 2 hours per job, with a throughput of 50 jobs per hour, then $N = 50 \times 2 = 100$.
 
 ```java
 public class ClosedSystemExample {
@@ -161,13 +156,13 @@ x??
 
 #### Proof of Little’s Law for Open Systems (Statement via Time Averages)
 
-Background context: The proof involves the relationship between the arrival rate \(\lambda\) and the throughput \(X\). It states that the average number of jobs in a system \(N_{\text{time avg}}\) is equal to the product of the average arrival rate \(\lambda\) and the average time each job spends in the system \(T_{\text{time avg}}\).
+Background context: The proof involves the relationship between the arrival rate $\lambda $ and the throughput$X $. It states that the average number of jobs in a system$ N_{\text{time avg}}$is equal to the product of the average arrival rate $\lambda$ and the average time each job spends in the system $T_{\text{time avg}}$.
 
-:p How does Little’s Law for open systems state the relationship between \(\lambda\), \(X\), and \(N_{\text{time avg}}\), \(T_{\text{time avg}}\)?
+:p How does Little’s Law for open systems state the relationship between $\lambda $, $ X $, and$ N_{\text{time avg}}$,$ T_{\text{time avg}}$?
 
 ??x
-Little's Law for open systems states that the average number of jobs in a system \(N_{\text{time avg}}\) is equal to the product of the arrival rate \(\lambda\) and the average time each job spends in the system \(T_{\text{time avg}}\):
-\[ N_{\text{time avg}} = \lambda \cdot T_{\text{time avg}} \]
+Little's Law for open systems states that the average number of jobs in a system $N_{\text{time avg}}$ is equal to the product of the arrival rate $\lambda$ and the average time each job spends in the system $T_{\text{time avg}}$:
+$$N_{\text{time avg}} = \lambda \cdot T_{\text{time avg}}$$
 
 This relationship holds because, over a long period, the number of jobs arriving equals the number of jobs leaving (throughput), and each job spends an average amount of time in the system.
 
@@ -190,16 +185,16 @@ x??
 
 #### Utilization Law Proof
 
-Background context: The utilization law states that the long-run fraction of time a device is busy \(\rho_i\) is equal to the ratio of the average arrival rate \(\lambda_i\) to the average service rate \(\mu_i\). This can be proven using Little’s Law.
+Background context: The utilization law states that the long-run fraction of time a device is busy $\rho_i $ is equal to the ratio of the average arrival rate$\lambda_i $ to the average service rate$\mu_i$. This can be proven using Little’s Law.
 
 :p How would you use Little's Law to prove the Utilization Law?
 
 ??x
 To prove the utilization law, we consider a system consisting only of the service facility without the associated queue. In such a system, the number of jobs is always either 0 or 1 (since there can be at most one job being serviced). Applying Little’s Law:
-\[ N_{\text{time avg}} = \lambda_i \cdot T_{\text{time avg}} \]
+$$N_{\text{time avg}} = \lambda_i \cdot T_{\text{time avg}}$$
 
-Given that \(N_{\text{time avg}}\) is the long-run fraction of time the device is busy, and since \(T_{\text{time avg}}\) (the average time a job spends in the system) can be expressed as the reciprocal of the service rate (\(\mu_i^{-1}\)), we have:
-\[ \rho_i = \lambda_i / \mu_i \]
+Given that $N_{\text{time avg}}$ is the long-run fraction of time the device is busy, and since $T_{\text{time avg}}$(the average time a job spends in the system) can be expressed as the reciprocal of the service rate ($\mu_i^{-1}$), we have:
+$$\rho_i = \lambda_i / \mu_i$$
 
 This shows that the long-run fraction of time the device is busy is equal to the ratio of the arrival rate to the service rate.
 

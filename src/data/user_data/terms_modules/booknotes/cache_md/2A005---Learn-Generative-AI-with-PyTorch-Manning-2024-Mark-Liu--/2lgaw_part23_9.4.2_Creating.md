@@ -115,15 +115,13 @@ The multihead attention mechanism is a key component of Transformer models. It i
 Multihead attention allows the model to jointly attend to information from different representation subspaces at different positions. This is achieved by splitting the query (Q), key (K), and value (V) vectors into multiple heads, each processing a subset of these vectors.
 
 The split queries, keys, and values are transformed using weight matrices:
-- \( Q = X * W_Q \)
-- \( K = X * W_K \)
-- \( V = X * W_V \)
+- $Q = X * W_Q $-$ K = X * W_K $-$ V = X * W_V$
 
 For example, if there are 8 attention heads, the dimensions might be adjusted accordingly. The attention scores for each head are calculated as follows:
 
-\[ \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V \]
+$$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
 
-Where \( d_k \) is the dimension of the key vector.
+Where $d_k$ is the dimension of the key vector.
 
 Example code snippet:
 ```python
@@ -215,7 +213,7 @@ The positional encoding is added to the input embeddings before being fed into t
 \text{PE}_{(pos,2i+1)} = \cos\left(\frac{pos}{10000^{2i/d_{\text{model}}}}\right)
 ```
 
-where \( pos \) is the position and \( i \) is the dimension index.
+where $pos $ is the position and$i$ is the dimension index.
 
 This ensures that the model can learn to understand positional information, which is crucial for tasks like translation where word order is significant.
 

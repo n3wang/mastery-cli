@@ -180,11 +180,10 @@ Parallel computing can significantly reduce an application’s run time, often r
 ??x
 Speedup measures the factor by which running an algorithm in parallel reduces its execution time compared to running it sequentially. It is calculated using the formula:
 
-\[ \text{Speedup} = \frac{\text{Time taken by serial program}}{\text{Time taken by parallel program}} \]
+$$\text{Speedup} = \frac{\text{Time taken by serial program}}{\text{Time taken by parallel program}}$$
 
 For example, if a serial program takes 10 seconds and a parallel version of the same program takes 2 seconds to run on multiple cores, then the speedup would be:
-
-\[ \text{Speedup} = \frac{10}{2} = 5 \]
+$$\text{Speedup} = \frac{10}{2} = 5$$
 
 This indicates that the parallel version is five times faster than the serial version.
 
@@ -240,10 +239,10 @@ Parallel computing contributes to energy efficiency by enabling applications to 
 One way this works is through the use of more efficient processors like GPUs that can handle specific tasks with lower power requirements compared to traditional CPUs. By offloading work from the main CPU to these specialized parallel processors, overall energy consumption can be reduced.
 
 Example: Suppose a multimedia application running on a mobile device uses 120W for 24 hours in serial mode:
-\[ \text{Energy Usage} = 120 \, \text{W} \times 24 \, \text{hours} = 2880 \, \text{kWhrs} \]
+$$\text{Energy Usage} = 120 \, \text{W} \times 24 \, \text{hours} = 2880 \, \text{kWhrs}$$
 
 By using a GPU with a thermal design power of 300W, the energy usage could be reduced to:
-\[ \text{Energy Usage} = 300 \, \text{W} \times 24 \, \text{hours} = 720 \, \text{kWhrs} \]
+$$\text{Energy Usage} = 300 \, \text{W} \times 24 \, \text{hours} = 720 \, \text{kWhrs}$$
 
 In this example, even though the application might take longer to run on the GPU, the overall energy savings could be significant.
 
@@ -281,10 +280,10 @@ Parallel computing helps in reducing costs primarily through two mechanisms:
 2. **Optimized Resource Utilization**: Parallel processing can distribute tasks across multiple cores or nodes, thereby reducing the need for high-end hardware and minimizing idle time.
 
 For instance, if a serial program uses 120W of power over 24 hours:
-\[ \text{Energy Usage} = 120 \, \text{W} \times 24 \, \text{hours} = 2880 \, \text{kWhrs} \]
+$$\text{Energy Usage} = 120 \, \text{W} \times 24 \, \text{hours} = 2880 \, \text{kWhrs}$$
 
 By using a GPU with a thermal design power (TDP) of 300W to achieve the same results in less time:
-\[ \text{Energy Usage} = 300 \, \text{W} \times 24 \, \text{hours} = 720 \, \text{kWhrs} \]
+$$\text{Energy Usage} = 300 \, \text{W} \times 24 \, \text{hours} = 720 \, \text{kWhrs}$$
 
 Here, even though the TDP is higher for the GPU, the reduced run time can lead to significant cost savings over a long period.
 

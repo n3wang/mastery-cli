@@ -237,7 +237,7 @@ Database transactions, especially non-idempotent ones like money transfers, can 
 
 :p Why is the transaction in Example 12-1 problematic?
 ??x
-The transaction in Example 12-1 is problematic because it is not idempotent. An idempotent operation can be safely retried without changing the result, but this transaction involves two updates: one to increase the balance and another to decrease it. If the transaction is retried, the balance could end up being increased by $22 instead of just $11.
+The transaction in Example 12-1 is problematic because it is not idempotent. An idempotent operation can be safely retried without changing the result, but this transaction involves two updates: one to increase the balance and another to decrease it. If the transaction is retried, the balance could end up being increased by $22 instead of just$11.
 
 To handle such transactions correctly, a database might use a two-phase commit protocol that ensures atomicity even if retries occur.
 ```java

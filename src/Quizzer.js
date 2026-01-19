@@ -619,9 +619,28 @@ class Quizzer {
 		});
 		let exit = false;
 
-		const printCardsLeft = (cardsLeft, cardsLearnt) => {
+		// Load localStorage for tracking today's progress
+		const { LocalStorage } = require('./LocalStorage');
+		const localStorage = new LocalStorage();
+		await localStorage.load();
+
+		// Get today's total learned count for motivation
+		// Reload data each time to get the most recent count
+		const getTodayLearnedCount = async () => {
+			const date = new Date().toISOString().split('T')[0];
+			try {
+				await localStorage.load();
+				const dayData = localStorage.date_based_stats?.[date] || {};
+				return dayData.flashcard_learned?.value || 0;
+			} catch {
+				return 0;
+			}
+		};
+
+		const printCardsLeft = async (cardsLeft, cardsLearnt) => {
+			const todayTotal = await getTodayLearnedCount();
 			console.log(
-				`\nCards left: ${cardsLeft} || Cards completed: ${cardsLearnt}\n`
+				`\nCards left: ${cardsLeft} || Cards completed: ${cardsLearnt} || Today: ${todayTotal}\n`
 			);
 		};
 
@@ -651,15 +670,24 @@ class Quizzer {
 				);
 
 			const card_to_ask = studyScheduler.getCard();
+
+			// Prepare progress stats to display with the card
+			const todayTotal = await getTodayLearnedCount();
+			const progressStats = {
+				cardsLeft: studyScheduler.getCardsToLearn(),
+				cardsCompleted: studyScheduler.getCardsLearnt(),
+				todayTotal: todayTotal
+			};
+
 			const answered_correctly = await this.ask_term_question(
 				card_to_ask,
-				{ exitMethod: exitMethod }
+				{ exitMethod: exitMethod, progressStats: progressStats }
 			);
 
 			studyScheduler.solveCard(answered_correctly);
 			await studyScheduler.saveCards();
 
-			printCardsLeft(
+			await printCardsLeft(
 				studyScheduler.getCardsToLearn(),
 				studyScheduler.getCardsLearnt()
 			);
@@ -1162,7 +1190,7 @@ class Quizzer {
 
 	async ask_term_question(
 		term_selected,
-		{ ask_if_correct = true, exitMethod = () => {}, is_try_questin_again: is_try_question_again=false } = {}
+		{ ask_if_correct = true, exitMethod = () => {}, is_try_questin_again: is_try_question_again=false, progressStats = null } = {}
 	) {
 		try {
 			// Start running the question_attempt
@@ -1202,9 +1230,22 @@ class Quizzer {
 			// Create flashcard markdown file before showing the question
 			await this.createFlashcardMarkdown(term_selected, false);
 
+			// Display progress stats at the top if provided
+			if (progressStats) {
+				const statsText = `Cards left: ${progressStats.cardsLeft} || Cards completed: ${progressStats.cardsCompleted} || Today: ${progressStats.todayTotal}`;
+				if (Settings?.minimal_colors) {
+					console.log(statsText);
+				} else {
+					console.log(chalk.hex('#90EE90').bold(statsText));
+				}
+				console.log(''); // Add spacing
+			}
+
 			const isOfflineMessage = Settings?.online
 				? ''
-				: `|${chalk.hex(CONSTANTS.CUTEYELLOW).inverse(' offline ')}`;
+				: Settings?.minimal_colors
+					? ' | offline'
+					: `|${chalk.hex(CONSTANTS.CUTEYELLOW).inverse(' offline ')}`;
 			// console.log(term_selected);
 			// console.trace()
 			if (term_selected?.reference_page ?? false) {
@@ -1219,13 +1260,19 @@ class Quizzer {
 					console.log(`${term_selected?.reference_page}`);
 				}
 			}
-			console.log(
-				`${chalk
-					.hex(CONSTANTS.CUTEBLUE)
-					.inverse(` ${term_selected.term} `)}|${chalk
-					.hex(CONSTANTS.PUNCHPINK)
-					.inverse(` ${term_selected.category} `)}${isOfflineMessage}`
-			);
+
+			// Display term and category with or without colors based on setting
+			if (Settings?.minimal_colors) {
+				console.log(`${term_selected.term} | ${term_selected.category}${isOfflineMessage}`);
+			} else {
+				console.log(
+					`${chalk
+						.hex(CONSTANTS.CUTEBLUE)
+						.inverse(` ${term_selected.term} `)}|${chalk
+						.hex(CONSTANTS.PUNCHPINK)
+						.inverse(` ${term_selected.category} `)}${isOfflineMessage}`
+				);
+			}
 
 			if (term_selected?.attachment ?? false) {
 				let image_file = getAbsoluteUri(term_selected?.attachment);
@@ -1240,10 +1287,18 @@ class Quizzer {
 			const storedFeedback = this.feedbackStorage.getFeedbackByTerm(term_selected);
 			if (storedFeedback && storedFeedback.feedback) {
 				console.log(''); // Add spacing
-				console.log(chalk.hex(CONSTANTS.CUTEYELLOW).bold('Corrections:'));
+				if (Settings?.minimal_colors) {
+					console.log('Corrections:');
+				} else {
+					console.log(chalk.hex(CONSTANTS.CUTEYELLOW).bold('Corrections:'));
+				}
 				printMarked(storedFeedback.feedback, { use_markdown: true });
 				const feedbackDate = new Date(storedFeedback.timestamp).toLocaleDateString();
-				console.log(chalk.gray(`(Added on ${feedbackDate})`));
+				if (Settings?.minimal_colors) {
+					console.log(`(Added on ${feedbackDate})`);
+				} else {
+					console.log(chalk.gray(`(Added on ${feedbackDate})`));
+				}
 				console.log(''); // Add spacing
 			}
 

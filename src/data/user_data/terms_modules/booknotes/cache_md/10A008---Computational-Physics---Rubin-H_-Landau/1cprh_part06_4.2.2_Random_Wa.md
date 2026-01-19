@@ -47,8 +47,8 @@ Background context: A random walk models the movement of particles in a medium. 
 :p Describe how to simulate a random walk for an artificial walker.
 ??x
 To simulate a random walk, we can use the following steps:
-1. Start at the origin \((0, 0)\).
-2. Take \(N\) steps in the \(XY\)-plane where each step is of fixed length but direction is independent.
+1. Start at the origin $(0, 0)$.
+2. Take $N $ steps in the$XY$-plane where each step is of fixed length but direction is independent.
 
 ```python
 import numpy as np
@@ -82,23 +82,24 @@ x??
 
 
 #### Random Walk Distance After N Steps
-Background context: The provided text discusses how to calculate the radial distance \(R\) from the starting point after \(N\) steps in a random walk. For a large number of steps, the cross-terms in the equation vanish due to randomness.
+Background context: The provided text discusses how to calculate the radial distance $R $ from the starting point after$N$ steps in a random walk. For a large number of steps, the cross-terms in the equation vanish due to randomness.
 
 Relevant formulas:
-\[ R^2 = ( \Delta x_1 + \Delta x_2 + \cdots + \Delta x_N )^2 + ( \Delta y_1 + \Delta y_2 + \cdots + \Delta y_N )^2 \]
+$$R^2 = ( \Delta x_1 + \Delta x_2 + \cdots + \Delta x_N )^2 + ( \Delta y_1 + \Delta y_2 + \cdots + \Delta y_N )^2$$
 
 When the walk is random, averaging over a large number of such steps, all cross-terms vanish, and we get:
-\[ R_{\text{rms}}^2 = N r_{\text{rms}}^2 \]
-where \(r_{\text{rms}}\) is the root-mean-square (RMS) step size.
+$$
 
-:p How does the radial distance \(R\) from the starting point after \(N\) steps in a random walk behave?
+R_{\text{rms}}^2 = N r_{\text{rms}}^2$$where $ r_{\text{rms}}$ is the root-mean-square (RMS) step size.
+
+:p How does the radial distance $R $ from the starting point after$N$ steps in a random walk behave?
 ??x
-When the number of steps \(N\) is large, the average radial distance \(R_{\text{rms}}\) from the origin grows as \(\sqrt{N}\) times the RMS step size. This means that while the vector displacement averages to zero due to the randomness in direction at each step, the average length of these displacements does not vanish and increases with the square root of the number of steps.
+When the number of steps $N $ is large, the average radial distance$R_{\text{rms}}$ from the origin grows as $\sqrt{N}$ times the RMS step size. This means that while the vector displacement averages to zero due to the randomness in direction at each step, the average length of these displacements does not vanish and increases with the square root of the number of steps.
 
-The RMS step size \(r_{\text{rms}}\) can be related to the typical step magnitude in a random walk. If each step is normalized to have an RMS value of 1 (unit-length steps), then:
-\[ R_{\text{rms}} = \sqrt{N} \]
+The RMS step size $r_{\text{rms}}$ can be related to the typical step magnitude in a random walk. If each step is normalized to have an RMS value of 1 (unit-length steps), then:
+$$R_{\text{rms}} = \sqrt{N}$$
 
-For large \(N\), the average distance from the origin will be approximately \(\sqrt{N}\) times the typical step size.
+For large $N $, the average distance from the origin will be approximately$\sqrt{N}$ times the typical step size.
 x??
 
 ---
@@ -129,9 +130,9 @@ steps = [(take_step() for _ in range(1000))]
 
 :p How does the code simulate a unit-length step in a random walk?
 ??x
-The code simulates a unit-length step by first generating random values \(\Delta x'\) and \(\Delta y'\) in the range [-1, 1]. These values are then normalized to have a length of one (unit vector). This is achieved by calculating the Euclidean norm \(L = \sqrt{(\Delta x')^2 + (\Delta y')^2}\), and scaling \(\Delta x'\) and \(\Delta y'\) by \(1/L\).
+The code simulates a unit-length step by first generating random values $\Delta x'$ and $\Delta y'$ in the range [-1, 1]. These values are then normalized to have a length of one (unit vector). This is achieved by calculating the Euclidean norm $L = \sqrt{(\Delta x')^2 + (\Delta y')^2}$, and scaling $\Delta x'$ and $\Delta y'$ by $1/L$.
 
-The resulting \(\Delta x\) and \(\Delta y\) will be unit vectors in a random direction, ensuring that each step is of unit length.
+The resulting $\Delta x $ and$\Delta y$ will be unit vectors in a random direction, ensuring that each step is of unit length.
 x??
 
 ---
@@ -144,9 +145,9 @@ Background context: The text describes an implementation of a 2D random walk sim
 ??x
 To simulate a 2D random walk, follow these steps:
 
-1. **Generate Random Steps**: Independently choose random values \(\Delta x'\) and \(\Delta y'\) in the range [-1, 1].
+1. **Generate Random Steps**: Independently choose random values $\Delta x'$ and $\Delta y'$ in the range [-1, 1].
 2. **Normalize to Unit Length**: Convert the generated values into unit vectors.
-3. **Repeat for Many Trials**: Perform multiple trials (each with \(N\) steps), ensuring each trial starts from a different initial point.
+3. **Repeat for Many Trials**: Perform multiple trials (each with $N$ steps), ensuring each trial starts from a different initial point.
 
 Example pseudocode:
 ```python
@@ -184,7 +185,7 @@ Background context: The text mentions plotting the distance covered over steps t
 
 :p What does the plot "Distance vs Steps" illustrate?
 ??x
-The "Distance vs Steps" plot illustrates how the root-mean-square (RMS) distance \(R_{\text{rms}}\) from the starting point increases as a function of the number of steps \(N\). For a random walk, this plot typically shows that the RMS distance scales linearly with \(\sqrt{N}\).
+The "Distance vs Steps" plot illustrates how the root-mean-square (RMS) distance $R_{\text{rms}}$ from the starting point increases as a function of the number of steps $N$. For a random walk, this plot typically shows that the RMS distance scales linearly with $\sqrt{N}$.
 
 The plot can help in understanding the scaling behavior and verifying theoretical predictions. If the simulation results align well with the expected theoretical curve, it indicates that the model is correctly implementing the randomness and step generation process.
 
@@ -213,23 +214,16 @@ x??
 
 #### Mean Squared Distance Calculation for Random Walks
 
-Background context explaining the concept. The mean squared distance \( R^2 \) is a statistical measure used to understand the diffusion of particles in a random walk. The formula provided describes how to calculate the average of the mean squared distances over multiple trials.
+Background context explaining the concept. The mean squared distance $R^2$ is a statistical measure used to understand the diffusion of particles in a random walk. The formula provided describes how to calculate the average of the mean squared distances over multiple trials.
 
-Theoretical prediction (4.14) states that for a simple 2D random walk, the expected behavior of the mean squared distance \( R^2 \) is linear with respect to time \( N \). This can be expressed as:
+Theoretical prediction (4.14) states that for a simple 2D random walk, the expected behavior of the mean squared distance $R^2 $ is linear with respect to time$N$. This can be expressed as:
 
-\[ R^2(N) = 2 D N \]
-
-where \( D \) is the diffusion coefficient.
+$$R^2(N) = 2 D N$$where $ D$ is the diffusion coefficient.
 
 :p What is the formula for calculating the average mean squared distance over multiple trials?
 ??x
 The formula for calculating the average mean squared distance over multiple trials is given by:
-
-\[
-\langle R^2(N) \rangle = \frac{1}{K} \sum_{k=1}^{K} R^2(k)(N)
-\]
-
-where \( K \) is the number of trials, and \( R^2(k)(N) \) is the mean squared distance for the \( k \)-th trial at time step \( N \).
+$$\langle R^2(N) \rangle = \frac{1}{K} \sum_{k=1}^{K} R^2(k)(N)$$where $ K $ is the number of trials, and $ R^2(k)(N)$is the mean squared distance for the $ k$-th trial at time step $ N$.
 
 This formula helps to average out fluctuations and provide a more reliable estimate of the diffusion behavior.
 
@@ -244,21 +238,13 @@ Background context explaining the concept. After calculating the mean squared di
 
 The formula provided checks whether:
 
-\[ \langle \Delta x_i \Delta x_j \neq i \rangle_{R^2} \approx \langle \Delta x_i \Delta y_j \neq i \rangle_{R^2} \approx 0 \]
-
-:p How do you check the validity of assumptions in a random walk?
+$$\langle \Delta x_i \Delta x_j \neq i \rangle_{R^2} \approx \langle \Delta x_i \Delta y_j \neq i \rangle_{R^2} \approx 0$$:p How do you check the validity of assumptions in a random walk?
 ??x
 To check the validity of assumptions, calculate the correlation between steps for different directions and ensure that they are approximately zero. This indicates that there is no significant dependence on direction, supporting isotropy.
 
-For instance, if we consider two distinct positions \( i \) and \( j \), we can compute:
+For instance, if we consider two distinct positions $i $ and$j$, we can compute:
 
-\[ \langle \Delta x_i \Delta x_j \neq i \rangle_{R^2} \]
-
-and
-
-\[ \langle \Delta x_i \Delta y_j \neq i \rangle_{R^2} \]
-
-where \( \Delta x_i, \Delta y_j \) are the displacements in respective directions. If these values are close to zero for both single long runs and averaged over multiple trials, it suggests that the assumptions hold.
+$$\langle \Delta x_i \Delta x_j \neq i \rangle_{R^2}$$and$$\langle \Delta x_i \Delta y_j \neq i \rangle_{R^2}$$where $\Delta x_i, \Delta y_j$ are the displacements in respective directions. If these values are close to zero for both single long runs and averaged over multiple trials, it suggests that the assumptions hold.
 
 x??
 
@@ -287,16 +273,16 @@ x??
 
 Background context: A self-avoiding random walk is a model used to simulate how proteins fold. In this context, hydrophobic (H) and polar (P) monomers represent different types of amino acids. The goal is to find the configuration with minimal energy, where the number of H–H contacts is maximized.
 
-The effective diffusion coefficient \(D\) within a medium can be calculated using Einstein's relation:
-\[ D = \frac{2d \cdot \langle r^2 \rangle}{\text{dt}} \]
-where \(d\) is the number of spatial dimensions (2 for 2D, 3 for 3D).
+The effective diffusion coefficient $D$ within a medium can be calculated using Einstein's relation:
+$$D = \frac{2d \cdot \langle r^2 \rangle}{\text{dt}}$$where $ d$ is the number of spatial dimensions (2 for 2D, 3 for 3D).
 
 :p How does the diffusion coefficient change with different spatial dimensions in a self-avoiding random walk?
 ??x
-In a 2D space, the effective diffusion coefficient \( D \) is given by:
-\[ D = \frac{4 \cdot \langle r^2 \rangle}{\text{dt}} \]
-whereas in a 3D space, it would be:
-\[ D = \frac{6 \cdot \langle r^2 \rangle}{\text{dt}} \]
+In a 2D space, the effective diffusion coefficient $D$ is given by:
+$$D = \frac{4 \cdot \langle r^2 \rangle}{\text{dt}}$$whereas in a 3D space, it would be:
+$$
+
+D = \frac{6 \cdot \langle r^2 \rangle}{\text{dt}}$$
 
 This means the diffusion coefficient is higher in 3D compared to 2D due to more available directions for movement.
 
@@ -309,13 +295,12 @@ x??
 
 Background context: Proteins are large biological molecules formed from chains of amino acids, which consist of hydrophobic (H) and polar (P) monomers. The goal is to simulate the folding process using a Monte Carlo method on a 2D square lattice.
 
-The energy \( E \) of a chain is defined as:
-\[ E = -\epsilon f \]
-where \( \epsilon \) is a positive constant, and \( f \) is the number of H–H contacts that are not directly connected (P–P and H–P bonds do not lower the energy).
+The energy $E$ of a chain is defined as:
+$$E = -\epsilon f$$where $\epsilon $ is a positive constant, and$f$ is the number of H–H contacts that are not directly connected (P–P and H–P bonds do not lower the energy).
 
-:p What does the energy function \( E = -\epsilon f \) represent in the context of protein folding?
+:p What does the energy function $E = -\epsilon f$ represent in the context of protein folding?
 ??x
-The energy function \( E = -\epsilon f \) represents the total energy of a protein sequence, where \( \epsilon \) is a positive constant that scales the effect of H–H contacts. The term \( f \) counts the number of H–H contacts that are not directly connected (indicating favorable interactions due to steric exclusion).
+The energy function $E = -\epsilon f $ represents the total energy of a protein sequence, where$\epsilon $ is a positive constant that scales the effect of H–H contacts. The term$f$ counts the number of H–H contacts that are not directly connected (indicating favorable interactions due to steric exclusion).
 
 To minimize energy:
 - More H–H contacts lead to lower energy.
@@ -424,23 +409,18 @@ x??
 
 #### Limiting Behavior of Exponential Decay
 
-In scenarios where a large number of particles \( N \to \infty \) and the observation time interval \( \Delta t \to 0 \), the difference equation (4.21) approximates to a differential equation, leading us to derive the well-known exponential decay law.
+In scenarios where a large number of particles $N \to \infty $ and the observation time interval$\Delta t \to 0$, the difference equation (4.21) approximates to a differential equation, leading us to derive the well-known exponential decay law.
 
 :p What is the differential equation that describes exponential decay in this context?
 ??x
-The differential equation that describes exponential decay when \( N \to \infty \) and \( \Delta t \to 0 \) is:
+The differential equation that describes exponential decay when $N \to \infty $ and$\Delta t \to 0$ is:
 
-\[
-\frac{dN(t)}{dt} = -\lambda N(t)
-\]
+$$\frac{dN(t)}{dt} = -\lambda N(t)$$
 
 This can be integrated to give the time dependencies of the total number of particles and their activity:
+$$
 
-\[
-N(t) = N(0)e^{-\lambda t} = N(0)e^{-t/\tau}, \quad \text{and} \quad \frac{dN}{dt}(t) = -\lambda N(0)e^{-\lambda t}
-\]
-
-where \( \lambda \) is the decay rate and \( \tau = \frac{1}{\lambda} \) is the mean lifetime.
+N(t) = N(0)e^{-\lambda t} = N(0)e^{-t/\tau}, \quad \text{and} \quad \frac{dN}{dt}(t) = -\lambda N(0)e^{-\lambda t}$$where $\lambda $ is the decay rate and$\tau = \frac{1}{\lambda}$ is the mean lifetime.
 x??
 
 ---
@@ -448,7 +428,7 @@ x??
 
 #### Discrete Decay Simulation
 
-Simulating radioactive decay with discrete steps involves incrementing time in intervals of \( \Delta t \). For each interval, we count how many nuclei have decayed. The simulation ends when there are no more nuclei left to decay.
+Simulating radioactive decay with discrete steps involves incrementing time in intervals of $\Delta t$. For each interval, we count how many nuclei have decayed. The simulation ends when there are no more nuclei left to decay.
 
 :p What is the pseudocode for a simple radioactive decay simulator?
 ??x
@@ -470,8 +450,8 @@ Output t, Delta, N
 ```
 
 In this code:
-- \( N \) is the initial number of particles.
-- \( \lambda \) is the decay rate.
+- $N$ is the initial number of particles.
+- $\lambda$ is the decay rate.
 - `r_i` are random numbers between 0 and 1.
 - The loop increments time by one step each iteration until no more nuclei are left to decay.
 x??
@@ -481,11 +461,11 @@ x??
 
 #### Context of Exponential Decay Limitation
 
-In natural conditions, where \( N(t) \) can be a small number, the process is statistical rather than continuous. Although the fundamental law of nature remains valid, exponential decay (4.24) becomes less accurate as \( N \) decreases.
+In natural conditions, where $N(t)$ can be a small number, the process is statistical rather than continuous. Although the fundamental law of nature remains valid, exponential decay (4.24) becomes less accurate as $N$ decreases.
 
 :p Why does exponential decay become inaccurate for smaller numbers of particles?
 ??x
-Exponential decay becomes inaccurate when the number of particles \( N(t) \) is small because it approximates a continuous process. In reality, with few particles, each event (decay) is stochastic and random. The discrete nature of particle interactions means that the exponential model's assumptions about a smooth transition are no longer valid.
+Exponential decay becomes inaccurate when the number of particles $N(t)$ is small because it approximates a continuous process. In reality, with few particles, each event (decay) is stochastic and random. The discrete nature of particle interactions means that the exponential model's assumptions about a smooth transition are no longer valid.
 
 For very low numbers of particles, fluctuations become significant, leading to statistical variations that deviate from the expected behavior described by the continuous exponential decay equation.
 x??

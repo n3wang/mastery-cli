@@ -17,10 +17,10 @@ Consider two work-conserving policies A and B:
 - Policy A serves the shortest available job first, resulting in a few large jobs being left.
 - Policy B serves the longest available job first, leaving many more small jobs behind.
 
-By Little's Law, which states \( E[N] = \lambda E[T] \) where \( N \) is the number of items in system and \( T \) is the average time spent per item, we can see that:
+By Little's Law, which states $E[N] = \lambda E[T]$ where $ N $ is the number of items in system and $T$ is the average time spent per item, we can see that:
 
-- For policy B, since there are many more small jobs, \( E[N] \) would be higher.
-- Therefore, by Little's Law, \( E[T] \) for B would also be higher.
+- For policy B, since there are many more small jobs, $E[N]$ would be higher.
+- Therefore, by Little's Law, $E[T]$ for B would also be higher.
 
 The key point is:
 ```java
@@ -59,7 +59,7 @@ x??
 ---
 
 #### Tail Behavior of Response Time
-Background context: Understanding the tail behavior of response times is crucial for setting Service Level Agreements (SLAs), as it helps in ensuring that extreme delays are kept under control. The probability that a response time exceeds some level \( x \) is denoted as \( P{T > x} \).
+Background context: Understanding the tail behavior of response times is crucial for setting Service Level Agreements (SLAs), as it helps in ensuring that extreme delays are kept under control. The probability that a response time exceeds some level $x $ is denoted as$P{T > x}$.
 
 :p Why does knowing mean slowdown being low tell us anything about the maximum slowdown?
 ??x
@@ -87,7 +87,7 @@ Background context: As mean slowdown becomes popular, researchers are concerned 
 :p What performance metric can tell us if jobs are being starved?
 ??x
 To determine if jobs are being starved, one should look at mean slowdown as a function of job size. For instance:
-- "What is the expected slowdown of jobs of size \( x \)? "
+- "What is the expected slowdown of jobs of size $x$? "
 - "What is the expected slowdown for the maximum job size? "
 - "What is the expected slowdown for jobs in the 99th percentile of the job size distribution?"
 
@@ -106,19 +106,17 @@ x??
 ---
 
 #### Deriving Performance Metrics
-Background context: For various scheduling policies in the M/G/1 queue, we typically derive \( E[T] \) (mean time in system) and \( E[T(x)] \) (mean time in system for a job of size x). To find mean slowdown given these metrics:
-- First, derive \( E[Slowdown(x)] = \frac{E[T(x)]}{x} \).
-- Then, use this to get the overall mean slowdown: \( E[Slowdown] = \int \frac{E[Slowdown(x)] f_S(x)}{dx} \).
+Background context: For various scheduling policies in the M/G/1 queue, we typically derive $E[T]$(mean time in system) and $ E[T(x)]$ (mean time in system for a job of size x). To find mean slowdown given these metrics:
+- First, derive $E[Slowdown(x)] = \frac{E[T(x)]}{x}$.
+- Then, use this to get the overall mean slowdown: $E[Slowdown] = \int \frac{E[Slowdown(x)] f_S(x)}{dx}$.
 
-:p How can we derive mean slowdown given \( E[T] \) and \( E[T(x)] \)?
+:p How can we derive mean slowdown given $E[T]$ and $E[T(x)]$?
 ??x
 To derive mean slowdown, follow these steps:
-1. Derive the mean slowdown for a job of size \( x \):
-   - \( E[Slowdown(x)] = \frac{E[T(x)]}{x} \)
+1. Derive the mean slowdown for a job of size $x$:
+   - $E[Slowdown(x)] = \frac{E[T(x)]}{x}$
 2. Use this to get overall mean slowdown:
-   - \( E[Slowdown] = \int \frac{E[Slowdown(x)] f_S(x)}{dx} \)
-
-Where \( f_S(x) \) is the job size distribution.
+   - $E[Slowdown] = \int \frac{E[Slowdown(x)] f_S(x)}{dx}$ Where $f_S(x)$ is the job size distribution.
 
 ```java
 // Example logic in pseudocode for deriving mean slowdown
@@ -149,9 +147,8 @@ x??
 The M/G/1 queue with FCFS service order has a specific embedded DTMC formulation. This helps in understanding the behavior of jobs over time, particularly at departure points.
 :p What is the embedded DTMC formulation for an M/G/1/FCFS queue?
 ??x
-For the M/G/1/FCFS queue, we consider the number of jobs in the system at the time of each departure. Let \( \{X_i, i \geq 0\} \) be a sequence representing these states. The transition probability is given by:
-\[ P_{ij} = \text{Probability that when leaving state } i, \text{ we next go to state } j = \frac{\lambda^{j-i+1} e^{-\lambda x}}{(j-i+1)!} f_S(x) dx \]
-where \( f_S(x) \) is the service time distribution. The limiting probability \( \pi_i \) specifies the fraction of jobs that leave behind \( i \) jobs.
+For the M/G/1/FCFS queue, we consider the number of jobs in the system at the time of each departure. Let $\{X_i, i \geq 0\}$ be a sequence representing these states. The transition probability is given by:
+$$P_{ij} = \text{Probability that when leaving state } i, \text{ we next go to state } j = \frac{\lambda^{j-i+1} e^{-\lambda x}}{(j-i+1)!} f_S(x) dx$$where $ f_S(x)$is the service time distribution. The limiting probability $\pi_i$ specifies the fraction of jobs that leave behind $i$ jobs.
 x??
 
 ---
@@ -187,9 +184,8 @@ x??
 For M/G/1/LCFS, we can use the Laplace transform of waiting times to derive its variance. This involves understanding the busy periods started by job sizes and using these to compute the expected waiting time.
 :p How do you determine Var(T)LCFS?
 ??x
-To find \( \tilde{T}_{\text{LCFS}}(s) \), we use the Laplace transform of the excess service time, denoted as \( \tilde{S}_e(s) \). The waiting time is given by:
-\[ \tilde{T}_{\text{LCFS}}(s|busy) = \frac{\tilde{S}_e(s)}{s + \lambda - \frac{\lambda}{\tilde{B}(s)}} \]
-where \( \tilde{S}_e(s) \) and \( \tilde{B}(s) \) are the Laplace transforms of the excess service time and busy period, respectively.
+To find $\tilde{T}_{\text{LCFS}}(s)$, we use the Laplace transform of the excess service time, denoted as $\tilde{S}_e(s)$. The waiting time is given by:
+$$\tilde{T}_{\text{LCFS}}(s|busy) = \frac{\tilde{S}_e(s)}{s + \lambda - \frac{\lambda}{\tilde{B}(s)}}$$where $\tilde{S}_e(s)$ and $\tilde{B}(s)$ are the Laplace transforms of the excess service time and busy period, respectively.
 x??
 
 ---
@@ -259,14 +255,8 @@ Background context: While Processor-Sharing can be beneficial for short jobs by 
 ??x
 Consider two jobs both arriving at time 0, with each job having a size of 1:
 - For FCFS: 
-  - \(E[T]_{FCFS} = 1.5\)
-  - \(E[\text{Slowdown}]_{FCFS} = 1.5\)
-
-- For PS:
-  - \(E[T]_{PS} = 2\)
-  - \(E[\text{Slowdown}]_{PS} = 2\)
-
-In this example, both the mean response time and mean slowdown are higher for PS compared to FCFS.
+  -$E[T]_{FCFS} = 1.5 $-$ E[\text{Slowdown}]_{FCFS} = 1.5$- For PS:
+  -$E[T]_{PS} = 2 $-$ E[\text{Slowdown}]_{PS} = 2$ In this example, both the mean response time and mean slowdown are higher for PS compared to FCFS.
 
 ```java
 public class ExampleArrivalSequence {
@@ -320,72 +310,56 @@ x??
 
 #### Expected Number of Jobs in System with Size x to x+h
 
-Background context: The question asks about expressing the expected number of jobs in a system with original sizes between \(x\) and \(x + h\). It highlights that the original job size distribution is given by \(f(\cdot)\), but the job sizes in the system have a different probability density function (pdf) due to preemptive service.
+Background context: The question asks about expressing the expected number of jobs in a system with original sizes between $x $ and$x + h $. It highlights that the original job size distribution is given by $ f(\cdot)$, but the job sizes in the system have a different probability density function (pdf) due to preemptive service.
 
-:p Can we express the expected number of jobs in the system with size between \(x\) and \(x + h\) as \(E[N] f(x) h + o(h)\)?
+:p Can we express the expected number of jobs in the system with size between $x $ and$x + h $ as$E[N] f(x) h + o(h)$?
 ??x
-No, because the job sizes in the system are processed differently compared to their original arrival sizes. The pdf of job sizes in the system (\(fsys(\cdot)\)) is not necessarily the same as \(f(\cdot)\), especially considering that small jobs are finished more quickly.
+No, because the job sizes in the system are processed differently compared to their original arrival sizes. The pdf of job sizes in the system ($fsys(\cdot)$) is not necessarily the same as $ f(\cdot)$, especially considering that small jobs are finished more quickly.
 
-To find \(fsys(w)\), we condition on the job’s age:
-\[
-fsys(w) = \int_0^w fsys(w | \text{job has age } x) \cdot P\{\text{job has age } x\} dx
-= \int_0^w fsys(w | \text{job has age } x) \cdot f_e(x) dx,
-\]
-where \(f_e(x)\) is the exponential distribution for job arrival times. This simplifies to:
-\[
-fsys(w) = f(w) \cdot \frac{w}{E[S]},
-\]
-where \(E[S]\) is the mean service time.
+To find $fsys(w)$, we condition on the job’s age:
+$$fsys(w) = \int_0^w fsys(w | \text{job has age } x) \cdot P\{\text{job has age } x\} dx
+= \int_0^w fsys(w | \text{job has age } x) \cdot f_e(x) dx,$$where $ f_e(x)$ is the exponential distribution for job arrival times. This simplifies to:
+$$fsys(w) = f(w) \cdot \frac{w}{E[S]},$$where $ E[S]$ is the mean service time.
 
-Using this, we can find the expected number of jobs in the system with sizes between \(x\) and \(x + h\):
-\[
-E[\text{Number of jobs in system with size } (x, x + h)] = E[N] \cdot fsys(x) \cdot h + o(h),
-= \frac{\rho}{1 - \rho} \cdot \frac{x \cdot f(x)}{E[S]} \cdot h + o(h).
-\]
-The rate of arrivals of jobs into the system with size between \(x\) and \(x + h\) is:
-\[
-E[\text{Rate of arrivals of jobs with size } (x, x + h)] = \lambda \cdot f(x) \cdot h + o(h).
-\]
+Using this, we can find the expected number of jobs in the system with sizes between $x $ and$x + h$:
+$$E[\text{Number of jobs in system with size } (x, x + h)] = E[N] \cdot fsys(x) \cdot h + o(h),
+= \frac{\rho}{1 - \rho} \cdot \frac{x \cdot f(x)}{E[S]} \cdot h + o(h).$$
 
-Applying Little’s Law, we find the expected time in the system for jobs with original sizes between \(x\) and \(x + h\):
-\[
-E[T(x)] = \frac{\rho}{1 - \rho} \cdot x \cdot f(x),
-\]
-which completes the proof of Theorem 30.4.
+The rate of arrivals of jobs into the system with size between $x $ and$x + h$ is:
+$$E[\text{Rate of arrivals of jobs with size } (x, x + h)] = \lambda \cdot f(x) \cdot h + o(h).$$
+
+Applying Little’s Law, we find the expected time in the system for jobs with original sizes between $x $ and$x + h$:
+$$E[T(x)] = \frac{\rho}{1 - \rho} \cdot x \cdot f(x),$$which completes the proof of Theorem 30.4.
 
 x??
 
 #### Intuition Behind (30.2)
 
-Background context: Equation (30.2) shows how \(fsys(w)\), the pdf for job sizes in the system, relates to the original job size distribution \(f(w)\).
+Background context: Equation (30.2) shows how $fsys(w)$, the pdf for job sizes in the system, relates to the original job size distribution $ f(w)$.
 
 :p Explain the intuition behind equation (30.2).
 ??x
 In equation (30.2):
-\[
-fsys(w) = f(w) \cdot \frac{w}{E[S]}.
-\]
-The factor that multiplies \(f(w)\) is \(\frac{w}{E[S]}\), which is greater than 1 for large jobs and less than 1 for small jobs. This indicates that the probability of finding a job with size \(w\) in the system increases as \(w\) gets larger, compared to what it would be under the original distribution.
+$$fsys(w) = f(w) \cdot \frac{w}{E[S]}.$$
 
-For small values of \(w\), \(\frac{w}{E[S]}\) is small, reducing the likelihood of having such jobs. Conversely, for large values of \(w\), this factor becomes significant, making larger jobs more likely in the system.
+The factor that multiplies $f(w)$ is $\frac{w}{E[S]}$, which is greater than 1 for large jobs and less than 1 for small jobs. This indicates that the probability of finding a job with size $ w$in the system increases as $ w$ gets larger, compared to what it would be under the original distribution.
+
+For small values of $w $, $\frac{w}{E[S]}$ is small, reducing the likelihood of having such jobs. Conversely, for large values of $w$, this factor becomes significant, making larger jobs more likely in the system.
 
 x??
 
 #### Response Time and Busy Period Length under M/G/1/PS
 
-Background context: The text discusses how the expected response time for a job of size \(x\) in an M/G/1/PS queue is equal to the mean length of a busy period started by a job of size \(x\), both of which are given by \(\frac{x}{1 - \rho}\).
+Background context: The text discusses how the expected response time for a job of size $x $ in an M/G/1/PS queue is equal to the mean length of a busy period started by a job of size$x $, both of which are given by$\frac{x}{1 - \rho}$.
 
-:p What is the intuition behind the expression \(\frac{x}{1 - \rho}\) for response time under M/G/1/PS?
+:p What is the intuition behind the expression $\frac{x}{1 - \rho}$ for response time under M/G/1/PS?
 ??x
-The expression \(\frac{x}{1 - \rho}\) represents the expected time a job of size \(x\) spends in the system. The factor \(1 - \rho\) is the utilization factor, which captures how busy the server is on average.
+The expression $\frac{x}{1 - \rho}$ represents the expected time a job of size $x$ spends in the system. The factor $1 - \rho$ is the utilization factor, which captures how busy the server is on average.
 
-When an arrival sees \(\frac{\rho}{1 - \rho}\) jobs in the system (which is the steady-state number of jobs in the system), each job contributes to slowing down new arrivals. The total slowdown for a job of size \(x\) is proportional to the number of jobs in the system plus one, i.e., \(\frac{\rho}{1 - \rho} + 1 = \frac{1}{1 - \rho}\).
+When an arrival sees $\frac{\rho}{1 - \rho}$ jobs in the system (which is the steady-state number of jobs in the system), each job contributes to slowing down new arrivals. The total slowdown for a job of size $x$ is proportional to the number of jobs in the system plus one, i.e.,$\frac{\rho}{1 - \rho} + 1 = \frac{1}{1 - \rho}$.
 
 Thus, any arrival should take:
-\[
-E[T(x)] = x \cdot \frac{1}{1 - \rho}
-\]
-time to leave the system.
+$$E[T(x)] = x \cdot \frac{1}{1 - \rho}$$time to leave the system.
 
 x??
 
@@ -403,15 +377,15 @@ x??
 
 #### M/G/1/PS Queue Analysis
 
-Background context: The text discusses the analysis of an M/G/1/PS queue, highlighting its simplicity and beauty in terms of expected slowdown for jobs of size \(x\).
+Background context: The text discusses the analysis of an M/G/1/PS queue, highlighting its simplicity and beauty in terms of expected slowdown for jobs of size $x$.
 
-:p What are some other expressions that also have the form \(\frac{x}{1 - \rho}\)?
+:p What are some other expressions that also have the form $\frac{x}{1 - \rho}$?
 ??x
-The expression \(\frac{x}{1 - \rho}\) appears in multiple contexts related to the M/G/1/PS queue. Specifically, it represents both the expected response time for a job of size \(x\) and the mean length of a busy period started by a job of size \(x\).
+The expression $\frac{x}{1 - \rho}$ appears in multiple contexts related to the M/G/1/PS queue. Specifically, it represents both the expected response time for a job of size $x$ and the mean length of a busy period started by a job of size $x$.
 
 For instance:
-- The expected response time for a job of size \(x\) is \(\frac{x}{1 - \rho}\).
-- The expected length of a busy period initiated by a job of size \(x\) is also \(\frac{x}{1 - \rho}\).
+- The expected response time for a job of size $x $ is$\frac{x}{1 - \rho}$.
+- The expected length of a busy period initiated by a job of size $x $ is also$\frac{x}{1 - \rho}$.
 
 These two concepts are related but not identical, as the busy period can be longer than the response time due to additional factors like job arrivals during the busy period.
 
@@ -420,18 +394,14 @@ x??
 #### Transform Equation for M/G/1/FCFS
 
 Background context: The text mentions a transform equation for waiting time in the M/G/1/FCFS queue, which is given by:
-\[
-\widetilde{T}_{Q, \text{FCFS}}(s) = \frac{1 - \rho}{1 - \rho/s} \cdot \widetilde{S}(s),
-\]
-where \(\widetilde{S}(s)\) is the Laplace transform of the service time.
+$$\widetilde{T}_{Q, \text{FCFS}}(s) = \frac{1 - \rho}{1 - \rho/s} \cdot \widetilde{S}(s),$$where $\widetilde{S}(s)$ is the Laplace transform of the service time.
 
 :p What is the form of the waiting time (delay) in the M/G/1/FCFS queue?
 ??x
 The waiting time (delay) in the M/G/1/FCFS queue, when transformed using the Laplace domain, is given by:
-\[
-\widetilde{T}_{Q, \text{FCFS}}(s) = \frac{1 - \rho}{1 - \rho/s} \cdot \widetilde{S}(s).
-\]
-This equation captures how the waiting time varies with the service time and the utilization factor \(\rho\).
+$$\widetilde{T}_{Q, \text{FCFS}}(s) = \frac{1 - \rho}{1 - \rho/s} \cdot \widetilde{S}(s).$$
+
+This equation captures how the waiting time varies with the service time and the utilization factor $\rho$.
 
 x??
 

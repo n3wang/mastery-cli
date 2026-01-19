@@ -93,8 +93,9 @@ Background context: The attention mechanism is a core component of Transformer m
 The attention mechanism assigns scores by first passing inputs through three neural network layers (query Q, key K, and value V) to calculate attention weights. These weights are then used to weigh the importance of different elements in the sequence when generating the output.
 
 The scoring formula can be simplified as follows:
-\[ \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V \]
-Where \( Q \), \( K \), and \( V \) are matrices of query, key, and value vectors respectively. The dot product between the query and key is normalized by the square root of the key's dimension to ensure the softmax function works well.
+$$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
+
+Where $Q $, $ K $, and$ V$ are matrices of query, key, and value vectors respectively. The dot product between the query and key is normalized by the square root of the key's dimension to ensure the softmax function works well.
 
 In practice, this mechanism helps in understanding how words interact with each other across a sentence or document.
 ??x

@@ -86,7 +86,7 @@ In leaderless replication, an invariant is a condition that must be satisfied to
 - When a client sends a write request, it waits for at least W replicas to acknowledge it before proceeding.
 - For reads, the client queries R replicas and uses the most recent value from the responses.
 
-The invariant is: \( W + R > N \), which guarantees that at least one record in the read set will reflect the latest write. This ensures consistent updates even without a leader.
+The invariant is: $W + R > N$, which guarantees that at least one record in the read set will reflect the latest write. This ensures consistent updates even without a leader.
 x??
 
 ---
@@ -106,13 +106,13 @@ x??
 ---
 
 #### Edge Cases in Leaderless Replication
-Even if \( W + R > N \), edge cases can still lead to inconsistent states, particularly when not all replicas successfully receive the writes.
+Even if $W + R > N$, edge cases can still lead to inconsistent states, particularly when not all replicas successfully receive the writes.
 
 :p What are some edge cases in leaderless replication?
 ??x
-Edge cases in leaderless replication include situations where a write operation succeeds on fewer than W replicas and fails on others. This can leave replicas in an inconsistent state despite \( W + R > N \).
+Edge cases in leaderless replication include situations where a write operation succeeds on fewer than W replicas and fails on others. This can leave replicas in an inconsistent state despite $W + R > N$.
 
-For example, if a client sends a write request but only \( W - 1 \) replicas successfully acknowledge it, the remaining replica might not have the latest data. This inconsistency persists unless additional mechanisms handle such cases.
+For example, if a client sends a write request but only $W - 1$ replicas successfully acknowledge it, the remaining replica might not have the latest data. This inconsistency persists unless additional mechanisms handle such cases.
 x??
 
 ---
@@ -154,30 +154,30 @@ Background context: As you scale your application, the total number of failures 
 
 :p How does the total number of failures change with an operation that has a certain probability of failing?
 ??x
-The total number of failures increases linearly with the total number of operations performed. If an operation has a probability \( p \) of failing, and you perform \( N \) such operations, then the expected number of failures is approximately \( N \times p \).
+The total number of failures increases linearly with the total number of operations performed. If an operation has a probability $p $ of failing, and you perform$N $ such operations, then the expected number of failures is approximately$N \times p$.
 
 For example:
 If each request to a service has a 0.1% chance of failing and the service processes 10 million requests per day, the expected number of failures would be:
 
-\[ \text{Expected Failures} = 10,000,000 \times 0.001 = 10,000 \]
+$$\text{Expected Failures} = 10,000,000 \times 0.001 = 10,000$$
 
 This indicates that without proper resiliency patterns, a significant number of operations might fail.
 x??
 
 ---
 #### Availability and "Nines"
-Background context: The availability of a system is often discussed in terms of "nines," which represent the uptime percentage. For example, two nines (\(2\text{nines}\)) means 99% uptime or 0.536 minutes down per day.
+Background context: The availability of a system is often discussed in terms of "nines," which represent the uptime percentage. For example, two nines ($2\text{nines}$) means 99% uptime or 0.536 minutes down per day.
 
 :p What does "two nines" mean in terms of availability?
 ??x
-"Two nines" means a system is available 99% of the time, which translates to about 0.536 minutes of downtime per day (or \(15\) minutes).
+"Two nines" means a system is available 99% of the time, which translates to about 0.536 minutes of downtime per day (or $15$ minutes).
 
 For example:
-If you need at least two nines (\(2\text{nines}\)) of availability:
+If you need at least two nines ($2\text{nines}$) of availability:
 
-\[ \text{Downtime} = 1 - 0.99 = 0.01 \]
+$$\text{Downtime} = 1 - 0.99 = 0.01$$
 
-This is approximately 1% downtime, meaning the system can be unavailable for up to \(86400 \times 0.01 = 864\) seconds or about \(15\) minutes per day.
+This is approximately 1% downtime, meaning the system can be unavailable for up to $86400 \times 0.01 = 864 $ seconds or about$15$ minutes per day.
 x??
 
 ---

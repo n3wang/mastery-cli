@@ -7,93 +7,89 @@
 
 
 #### N* and Dmax Concept
-Background context explaining the concept of \(N^*\) and \(D_{\text{max}}\) in the context of system performance analysis. The knee of the \(X \text{ vs } N\) and \(E[R] \text{ vs } N\) curves occurs at some point denoted by \(N^*\), where \(N^* = \frac{D + E[Z]}{D_{\text{max}}}\). This represents the multiprogramming level beyond which there must be some queueing in the system.
+Background context explaining the concept of $N^*$ and $D_{\text{max}}$ in the context of system performance analysis. The knee of the $X \text{ vs } N$ and $E[R] \text{ vs } N$ curves occurs at some point denoted by $N^*$, where $ N^* = \frac{D + E[Z]}{D_{\text{max}}}$. This represents the multiprogramming level beyond which there must be some queueing in the system.
 
-:p What does \(N^*\) represent?
+:p What does $N^*$ represent?
+??x $N^*$ represents the point beyond which there must be some queueing in the system, where $E[R] > D$.
+
+The knee of the $X \text{ vs } N $ and$E[R] \text{ vs } N $ curves occurs at$N^*$, indicating that for fixed $ N > N^*$, to get more throughput one must decrease $ D_{\text{max}}$. Similarly, to lower response time, one must also decrease $ D_{\text{max}}$.
+
 ??x
-\(N^*\) represents the point beyond which there must be some queueing in the system, where \(E[R] > D\).
-
-The knee of the \(X \text{ vs } N\) and \(E[R] \text{ vs } N\) curves occurs at \(N^*\), indicating that for fixed \(N > N^*\), to get more throughput one must decrease \(D_{\text{max}}\). Similarly, to lower response time, one must also decrease \(D_{\text{max}}\).
-
-??x
-To improve system performance in the high \(N\) regime, focus on decreasing \(D_{\text{max}}\), as it is the bottleneck. Other changes will be largely ineffective.
+To improve system performance in the high $N $ regime, focus on decreasing$D_{\text{max}}$, as it is the bottleneck. Other changes will be largely ineffective.
 
 ---
 
 
 #### Example with Simple System and Improvement
-Background context explaining the example where a simple closed network has two servers both with service rate \(\mu = \frac{1}{3}\). The system was modified by replacing one server with a faster one of service rate \(\mu = \frac{1}{2}\).
+Background context explaining the example where a simple closed network has two servers both with service rate $\mu = \frac{1}{3}$. The system was modified by replacing one server with a faster one of service rate $\mu = \frac{1}{2}$.
 
 :p How much does throughput and mean response time improve when going from the original system to the "improved" system?
 ??x
-Neither throughput nor mean response time improves. This is because the high \(N\) regime is dominated by \(D_{\text{max}}\), which has not changed.
+Neither throughput nor mean response time improves. This is because the high $N $ regime is dominated by$D_{\text{max}}$, which has not changed.
 
-The performance remains the same as both systems have a high load, and thus, \(D_{\text{max}}\) does not change despite one server being faster.
+The performance remains the same as both systems have a high load, and thus, $D_{\text{max}}$ does not change despite one server being faster.
 
 ??x
-Both systems remain in the high \(N\) regime where \(D_{\text{max}}\) is dominant. Therefore, any improvement at the server level does not affect performance significantly due to the queuing behavior at high loads.
+Both systems remain in the high $N $ regime where$D_{\text{max}}$ is dominant. Therefore, any improvement at the server level does not affect performance significantly due to the queuing behavior at high loads.
 
 ---
 
 
 #### Batch Case and E[Z] = 0
-Background context explaining what happens when \(E[Z]\) goes to zero (the batch case). In this scenario, \(N^*\) decreases because the domination of \(D_{\text{max}}\) occurs with fewer jobs in the system.
+Background context explaining what happens when $E[Z]$ goes to zero (the batch case). In this scenario,$ N^*$ decreases because the domination of $D_{\text{max}}$ occurs with fewer jobs in the system.
 
-:p What happens if \(E[Z]\) goes to zero?
+:p What happens if $E[Z]$ goes to zero?
 ??x
-If \(E[Z]\) goes to zero, meaning we are in a batch case, \(N^*\) decreases. This means that the domination of \(D_{\text{max}}\) occurs with fewer jobs in the system.
+If $E[Z]$ goes to zero, meaning we are in a batch case,$ N^*$ decreases. This means that the domination of $D_{\text{max}}$ occurs with fewer jobs in the system.
 
 This implies that for batch systems, the performance characteristics can change significantly as there is less overhead due to job arrival and departure.
 
 ??x
-In a batch environment where each job arrives all at once and leaves after completion, the threshold point \(N^*\) decreases. This means that even with fewer jobs, queueing behavior becomes more significant due to the reduced interval between job arrivals.
+In a batch environment where each job arrives all at once and leaves after completion, the threshold point $N^*$ decreases. This means that even with fewer jobs, queueing behavior becomes more significant due to the reduced interval between job arrivals.
 
 ---
 
 
 #### Simple Closed System Analysis
-Background context explaining the simple closed system with \(N = 20\), \(\mathbb{E}[Z] = 5\). Considering two systems: 
-- **System A**: \(D_{cpu} = 4.6\), \(D_{disk} = 4.0\)
-- **System B**: \(D_{cpu} = 4.9\), \(N = 10, D_{disk} = 1.9\) (slower CPU and faster disk).
+Background context explaining the simple closed system with $N = 20 $, $\mathbb{E}[Z] = 5$. Considering two systems: 
+- **System A**: $D_{cpu} = 4.6 $, $ D_{disk} = 4.0 $- **System B**:$ D_{cpu} = 4.9 $,$ N = 10, D_{disk} = 1.9$(slower CPU and faster disk).
 
 :p Which system has higher throughput?
 ??x
 System A has a higher throughput.
 
-To determine which system wins, we calculate \(N^*\):
+To determine which system wins, we calculate $N^*$:
 - For System A: 
-  \[
-  N^A = \frac{D + E[Z]}{D_{\text{max}}} = \frac{4.6 + 5}{4.6} \approx 20.5
-  \]
-  Since \(N = 20 < N^A\), System A has a lower \(D_{\text{max}}\) and thus higher throughput.
+  $$N^A = \frac{D + E[Z]}{D_{\text{max}}} = \frac{4.6 + 5}{4.6} \approx 20.5$$
+
+Since $N = 20 < N^A $, System A has a lower$ D_{\text{max}}$ and thus higher throughput.
 
 - For System B:
-  \[
-  N^B = \frac{4.9 + 5}{1.9} \approx 13
-  \]
-  Since \(N = 20 > N^B\), System A has a lower \(D_{\text{max}}\) and thus higher throughput.
+$$N^B = \frac{4.9 + 5}{1.9} \approx 13$$
+
+Since $N = 20 > N^B $, System A has a lower$ D_{\text{max}}$ and thus higher throughput.
 
 ??x
-System A wins because it has a lower \(D_{\text{max}}\). The throughput is determined by the bottleneck, which in this case is \(D_{disk}\) for both systems. However, System A's \(D_{cpu}\) value results in a lower \(N^*\), making it more efficient.
+System A wins because it has a lower $D_{\text{max}}$. The throughput is determined by the bottleneck, which in this case is $ D_{disk}$for both systems. However, System A's $ D_{cpu}$value results in a lower $ N^*$, making it more efficient.
 
 ---
 
 
 #### Balancing among Three Disks
-Background context explaining how balancing among three disks can impact the system. The goal is to further reduce \(D_{\text{max}}\) by spreading the load across multiple disks.
+Background context explaining how balancing among three disks can impact the system. The goal is to further reduce $D_{\text{max}}$ by spreading the load across multiple disks.
 
 :p What happens if we balance among three fast disks?
 ??x
-Balancing among three fast disks significantly reduces \(D_{\text{max}}\), leading to substantial improvements in both throughput and response time. The system becomes more efficient, as the load is distributed across multiple resources, reducing the bottleneck effect.
+Balancing among three fast disks significantly reduces $D_{\text{max}}$, leading to substantial improvements in both throughput and response time. The system becomes more efficient, as the load is distributed across multiple resources, reducing the bottleneck effect.
 
 ??x
-By balancing among three fast disks, we achieve a lower \(D_{\text{max}}\), which leads to better performance for higher \(N\) values where queueing effects are most significant. This results in improved throughput and response time as seen in the graphs provided.
+By balancing among three fast disks, we achieve a lower $D_{\text{max}}$, which leads to better performance for higher $ N$ values where queueing effects are most significant. This results in improved throughput and response time as seen in the graphs provided.
 
 ---
 
 
 #### Performance Improvement Analysis
-Background context explaining the analysis of four possible improvements on a harder example, labeled 1, 2, 3, and 4. The performance is evaluated for \(N\) values from 1 to 4.
+Background context explaining the analysis of four possible improvements on a harder example, labeled 1, 2, 3, and 4. The performance is evaluated for $N$ values from 1 to 4.
 
 :p What are the effects of the four possible improvements?
 ??x
@@ -102,7 +98,7 @@ Improvements 2 and 3 (balancing disks without hardware expense) yield similar re
 Improvement 4 (adding a second fast disk) yields the most dramatic improvement.
 
 ??x
-The analysis shows that adding more resources to handle higher loads can significantly improve system performance. Improvements like balancing disks may help, but they do not match the impact of having multiple redundant fast disks in terms of reducing \(D_{\text{max}}\) and improving overall throughput and response time. ```java
+The analysis shows that adding more resources to handle higher loads can significantly improve system performance. Improvements like balancing disks may help, but they do not match the impact of having multiple redundant fast disks in terms of reducing $D_{\text{max}}$ and improving overall throughput and response time. ```java
 public class PerformanceAnalysis {
     public void analyzeImprovements() {
         // Simulate different scenarios for N values from 1 to 4
@@ -146,7 +142,7 @@ public class PerformanceAnalysis {
 ```
 x?? 
 
-The code simulates the analysis of different system improvements and their effects on throughput and response time. Each scenario is evaluated based on \(N\) values, showing that adding more redundant resources can significantly improve performance, especially in higher load regimes.
+The code simulates the analysis of different system improvements and their effects on throughput and response time. Each scenario is evaluated based on $N$ values, showing that adding more redundant resources can significantly improve performance, especially in higher load regimes.
 
 --- 
 --- 
@@ -1709,15 +1705,15 @@ The code simulates the analysis of different system improvements and their effec
 
 
 #### Outside Arrival Rates - Open Networks
-Background context: The text discusses how the asymptotic bounds for closed networks do not directly apply to open networks. In an open network, jobs arrive from outside and can leave at any time after service completion. The main difference is that the utilization \(X\) (the fraction of time a device is busy) in an open network is constrained by both its processing capacity and the arrival rate.
+Background context: The text discusses how the asymptotic bounds for closed networks do not directly apply to open networks. In an open network, jobs arrive from outside and can leave at any time after service completion. The main difference is that the utilization $X$(the fraction of time a device is busy) in an open network is constrained by both its processing capacity and the arrival rate.
 
 :p What are the limitations when applying closed network asymptotic bounds to open networks?
 ??x
-In open networks, the asymptotic bounds derived for closed networks do not directly apply because the utilization \(X\) in an open systems is bounded by \(\frac{1}{D_{\text{max}}}\), where \(D_{\text{max}}\) is the maximum service time. This means that even if a device has high processing capacity, its actual utilization will be limited by the incoming job rate and not necessarily reach the asymptotic bound derived for closed networks.
+In open networks, the asymptotic bounds derived for closed networks do not directly apply because the utilization $X $ in an open systems is bounded by$\frac{1}{D_{\text{max}}}$, where $ D_{\text{max}}$ is the maximum service time. This means that even if a device has high processing capacity, its actual utilization will be limited by the incoming job rate and not necessarily reach the asymptotic bound derived for closed networks.
 
 For example, in an open network with average service times:
-- If jobs require 3 seconds on average to complete, \(D_{\text{max}} = 3\) seconds.
-- Thus, the maximum utilization \(X \leq \frac{1}{3}\), regardless of the arrival rate or processing speed.
+- If jobs require 3 seconds on average to complete,$D_{\text{max}} = 3$ seconds.
+- Thus, the maximum utilization $X \leq \frac{1}{3}$, regardless of the arrival rate or processing speed.
 
 This limitation means that bounds derived for closed networks may not accurately predict performance in open systems unless the outside arrival rate is high enough to bring the system close to its asymptotic regime.
 
@@ -1808,31 +1804,27 @@ x??
 #### Proportional Power - Machine Speed and Power
 Background context: In power distribution systems, the speed of a machine is proportional to the power allocated. The goal is to maximize system throughput by optimally dividing the total power budget between two machines based on their processing probabilities.
 
-:p What choice for dividing power \(W\) and picking \(p\) will maximize the throughput in a closed batch system with two servers?
+:p What choice for dividing power $W $ and picking$p$ will maximize the throughput in a closed batch system with two servers?
 ??x
 To maximize throughput, we need to balance the load across both servers. The optimal strategy is to allocate power such that the effective service rates of both machines are equalized.
 
 Given:
-- Total power budget: \(W\)
-- Number of jobs routed to server 1: \(pN\)
-- Number of jobs routed to server 2: \((1-p)N\)
+- Total power budget:$W $- Number of jobs routed to server 1:$ pN $- Number of jobs routed to server 2:$(1-p)N $ Let's denote the speed of machine 1 as$w_1 $ and machine 2 as$w_2$. The throughput is maximized when:
+$$w_1 \cdot p = w_2 \cdot (1 - p)$$
 
-Let's denote the speed of machine 1 as \(w_1\) and machine 2 as \(w_2\). The throughput is maximized when:
-\[ w_1 \cdot p = w_2 \cdot (1 - p) \]
+If $w_1 = w_2 $, then$ p = 0.5$.
 
-If \(w_1 = w_2\), then \(p = 0.5\).
-
-For general \(w_1\) and \(w_2\):
+For general $w_1 $ and$w_2$:
 - Allocate power such that the effective speeds are equal.
 - This can be achieved by solving:
-\[ \frac{W}{w_1} \cdot p = \frac{W}{w_2} \cdot (1 - p) \]
+$$\frac{W}{w_1} \cdot p = \frac{W}{w_2} \cdot (1 - p)$$
 
-Solving for \(p\):
-\[ p = \frac{w_2}{w_1 + w_2} \]
-\[ 1 - p = \frac{w_1}{w_1 + w_2} \]
+Solving for $p$:
+$$p = \frac{w_2}{w_1 + w_2}$$
+$$1 - p = \frac{w_1}{w_1 + w_2}$$
 
 Thus, the optimal strategy is to divide power and choose routing probabilities such that:
-- \(p = \frac{\text{speed of slower machine}}{\text{sum of speeds}}\)
+- $p = \frac{\text{speed of slower machine}}{\text{sum of speeds}}$
 - This ensures balanced load distribution.
 
 x??

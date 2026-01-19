@@ -188,7 +188,7 @@ Here is an example of how you might set them up:
      ID : [a-zA-Z_][a-zA-Z0-9]* ;
      NUMBER : [0-9]+ ;
      
-     program : ID '=' NUMBER { System.out.println("Found: " + $1 + "=" + $3); } ;
+     program : ID '=' NUMBER { System.out.println("Found: " + $1 + "=" +$3); } ;
      ```
 
 Using a build tool like Ant or Maven, you can generate the lexer and parser from these files:

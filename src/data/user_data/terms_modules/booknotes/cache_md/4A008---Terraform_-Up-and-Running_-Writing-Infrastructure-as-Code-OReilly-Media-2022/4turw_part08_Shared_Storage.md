@@ -15,7 +15,7 @@ The purpose of running the `terraform plan` command is to generate a detailed re
 
 ```sh
 # Example of running terraform plan
-$ terraform plan
+$terraform plan
 
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
   + create
@@ -362,20 +362,18 @@ Background context: After setting up workspaces, you can use Terraform commands 
 ??x
 First, initialize the backend with the appropriate configuration:
 
-```sh
-$ terraform init -backend-config="backend.tf"
+```sh$ terraform init -backend-config="backend.tf"
 ```
 
 Then, create a new workspace for your environment:
 
 ```sh
-$ terraform workspace new staging
+$terraform workspace new staging
 ```
 
 Finally, apply the changes to deploy the resource in that specific workspace:
 
-```sh
-$ terraform apply
+```sh$ terraform apply
 ```
 x??
 

@@ -47,9 +47,8 @@ Background context explaining the box counting algorithm to determine fractal di
 
 :p What is the formula for determining the number of segments needed to cover a line using the box counting algorithm?
 ??x
-The number of segments needed to cover a line of length \( L \) with segment size \( r \) can be described by:
-\[ N(r) = \frac{L}{r} = Cr \]
-where \( C \) is a constant. This relationship helps in understanding the scaling behavior and calculating the fractal dimension.
+The number of segments needed to cover a line of length $L $ with segment size$r$ can be described by:
+$$N(r) = \frac{L}{r} = Cr$$where $ C$ is a constant. This relationship helps in understanding the scaling behavior and calculating the fractal dimension.
 
 ---
 
@@ -60,13 +59,10 @@ Background context explaining the calculation of fractal dimension through the b
 :p How would you calculate the fractal dimension using the box counting algorithm?
 ??x
 To calculate the fractal dimension, follow these steps:
-1. Determine \( N(r) \), the number of segments needed to cover a line or area.
+1. Determine $N(r)$, the number of segments needed to cover a line or area.
 2. Use the relationship: 
-\[ \log N(r) = \log C - d_f \log r \]
-3. Solve for \( d_f \):
-\[ d_f = -\lim_{r \to 0} \frac{\Delta \log N(r)}{\Delta \log r} \]
-
----
+$$\log N(r) = \log C - d_f \log r$$3. Solve for $ d_f$:
+$$d_f = -\lim_{r \to 0} \frac{\Delta \log N(r)}{\Delta \log r}$$---
 
 
 #### Concept: Scale and Self-Similarity
@@ -85,25 +81,24 @@ Using different scales (high or low) helps reveal the self-similar nature of coa
 
 Background context: The coastline problem involves using box counting to determine the fractal dimension of a perimeter, not an entire figure. This method is used because coastlines exhibit self-similarity at different scales, making them a good candidate for fractal analysis.
 
-Formula: 
-\[ \log N \approx \log A + df \cdot \log s \]
+Formula:
+$$\log N \approx \log A + df \cdot \log s$$
+
 Where:
-- \( N \) is the number of boxes required to cover the coastline.
-- \( A \) is an area constant.
-- \( df \) is the fractal dimension.
-- \( s \) is the scale.
+- $N$ is the number of boxes required to cover the coastline.
+- $A$ is an area constant.
+- $df$ is the fractal dimension.
+- $s$ is the scale.
 
 Equation (14.25) provides a way to calculate the fractal dimension:
-\[ df \approx \frac{\log N_2 - \log N_1}{\log(s_2/s_1)} \]
-
-:p How do you determine the number of boxes needed to cover the coastline at different scales?
+$$df \approx \frac{\log N_2 - \log N_1}{\log(s_2/s_1)}$$:p How do you determine the number of boxes needed to cover the coastline at different scales?
 ??x
 To determine the number of boxes required, start with the largest scale and progressively use smaller boxes. Count how many boxes are needed for each size.
 
 For example:
-- Use 1 × 1 cm boxes and find \( N_1 = 24 \) at \( s_1 = 17 \).
-- Use 0.5 × 0.5 cm boxes and find \( N_2 = 51 \) at \( s_2 = 34 \).
-- Use 1 × 1 mm boxes and find \( N_3 = 406 \) at \( s_3 = 170 \).
+- Use 1 × 1 cm boxes and find $N_1 = 24 $ at$s_1 = 17$.
+- Use 0.5 × 0.5 cm boxes and find $N_2 = 51 $ at$s_2 = 34$.
+- Use 1 × 1 mm boxes and find $N_3 = 406 $ at$s_3 = 170$.
 
 x??
 
@@ -115,21 +110,17 @@ x??
 Background context: Once you have determined the number of boxes required at different scales, plotting log(N) versus log(s) should yield a straight line with a slope equal to the fractal dimension.
 
 Formula:
-\[ df \approx \frac{\log N_2 - \log N_1}{\log(s_2/s_1)} \]
-
-:p How do you calculate the fractal dimension using the box counting method?
+$$df \approx \frac{\log N_2 - \log N_1}{\log(s_2/s_1)}$$:p How do you calculate the fractal dimension using the box counting method?
 ??x
-Plot log(N) versus log(s). The slope of this line gives the fractal dimension, \( df \).
+Plot log(N) versus log(s). The slope of this line gives the fractal dimension,$df$.
 
 For example:
-- At a scale of 17 cm, \( N = 24 \).
-- At a scale of 34 cm, \( N = 51 \).
-- At a scale of 170 mm, \( N = 406 \).
+- At a scale of 17 cm, $N = 24$.
+- At a scale of 34 cm, $N = 51$.
+- At a scale of 170 mm, $N = 406$.
 
 Using these values:
-\[ df \approx \frac{\log(406) - \log(24)}{\log(170/17)} \]
-
-x??
+$$df \approx \frac{\log(406) - \log(24)}{\log(170/17)}$$x??
 
 ---
 
@@ -139,15 +130,14 @@ x??
 Background context: The concept revolves around understanding how correlated growth processes, such as those seen in plant growth or surface film deposition, can lead to fractal structures. A specific example is given where a particle's likelihood of sticking depends inversely on its distance from the last deposited particle.
 
 Relevant formulas:
-\[ \pi = c d^{-\eta} \]
+$$\pi = c d^{-\eta}$$
 
-Explanation: Here, \(c\) is a constant that sets the probability scale and \(\eta\) is a parameter which determines how strongly particles are attracted to each other. For our implementation, \(\eta = 2\), implying an inverse square relationship.
+Explanation: Here,$c $ is a constant that sets the probability scale and$\eta $ is a parameter which determines how strongly particles are attracted to each other. For our implementation,$\eta = 2$, implying an inverse square relationship.
 
 :p How does the correlated growth model work in this context?
 ??x
-In this model, the likelihood of a particle sticking (\(\pi\)) depends on its distance \(d\) from the last deposited particle. Specifically, the probability is given by:
-\[ \pi = c d^{-2} \]
-where \(c\) is a constant. This means that particles are more likely to stick closer together than farther apart.
+In this model, the likelihood of a particle sticking ($\pi $) depends on its distance $ d$from the last deposited particle. Specifically, the probability is given by:
+$$\pi = c d^{-2}$$where $ c$ is a constant. This means that particles are more likely to stick closer together than farther apart.
 
 Code Example (Pseudocode):
 ```java
@@ -217,13 +207,13 @@ x??
 
 
 #### Fractal Dimension Estimation for Cluster Coverage
-Background context: The fractal dimension \(d_f\) of a cluster can be estimated from an \( \log(\rho) \) vs. \( \log(L) \) plot, where \( \rho \) is the density and \( L \) is the characteristic length scale. If the cluster is fractal, then \( \rho \propto L^{d_f-2} \). This relationship implies that a straight line with slope \( d_f - 2 \) on the log-log plot corresponds to a fractal dimension of \( d_f \).
+Background context: The fractal dimension $d_f $ of a cluster can be estimated from an$\log(\rho)$ vs.$\log(L)$ plot, where $\rho$ is the density and $ L $ is the characteristic length scale. If the cluster is fractal, then $\rho \propto L^{d_f-2}$. This relationship implies that a straight line with slope $ d_f - 2$on the log-log plot corresponds to a fractal dimension of $ d_f$.
 :p How can we estimate the fractal dimension of a cluster?
 ??x
-To estimate the fractal dimension, first generate an \( \log(\rho) \) vs. \( \log(L) \) plot for the given cluster. The slope of this line will give us \( d_f - 2 \). For instance, if we find that the graph has a slope of \(-0.36\), then \( d_f = 1.66 \).
+To estimate the fractal dimension, first generate an $\log(\rho)$ vs.$\log(L)$ plot for the given cluster. The slope of this line will give us $ d_f - 2 $. For instance, if we find that the graph has a slope of $-0.36 $, then $ d_f = 1.66$.
 
 This method is based on the relationship:
-\[ \rho \propto L^{d_f-2} \]
+$$\rho \propto L^{d_f-2}$$
 
 In practice, since random numbers are involved, each generated plot might vary slightly, but the estimated fractal dimension should be similar across different trials.
 ??x

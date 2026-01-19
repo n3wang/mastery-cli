@@ -393,11 +393,9 @@ x??
 Background context: In the Completely Fair Scheduler (CFS), process priority is managed using a mechanism called "nice levels." The nice level can range from -20 to +19, with 0 as the default. Positive values imply lower priority, while negative values imply higher priority. These priorities are translated into weights that affect how much CPU time each process receives.
 
 Relevant formula: 
-\[ \text{timeslice}_k = \frac{\text{weight}_k}{\sum_{i=0}^{n-1}\text{weight}_i} \cdot \text{schedlatency} \]
-
-:p What is the timeslice calculation in CFS based on?
+$$\text{timeslice}_k = \frac{\text{weight}_k}{\sum_{i=0}^{n-1}\text{weight}_i} \cdot \text{schedlatency}$$:p What is the timeslice calculation in CFS based on?
 ??x
-The timeslice for a process \( k \) is calculated as its weight divided by the sum of weights of all processes, multiplied by the scheduling latency. This accounts for the priority differences among processes.
+The timeslice for a process $k$ is calculated as its weight divided by the sum of weights of all processes, multiplied by the scheduling latency. This accounts for the priority differences among processes.
 
 ```c
 #include <stdio.h>
@@ -433,14 +431,12 @@ x??
 
 #### Virtual Run Time Calculation in CFS
 
-Background context: The virtual runtime (\(vruntime_i\)) is a measure used by the Completely Fair Scheduler (CFS) to track the accumulated time each process has been scheduled. This helps in maintaining fairness among processes, especially when different nice levels are assigned.
+Background context: The virtual runtime ($vruntime_i$) is a measure used by the Completely Fair Scheduler (CFS) to track the accumulated time each process has been scheduled. This helps in maintaining fairness among processes, especially when different nice levels are assigned.
 
 Relevant formula:
-\[ \text{vruntime}_i = \text{vruntime}_i + \frac{\text{weight}_0}{\text{weight}_i} \cdot \text{runtime}_i \]
-
-:p How does CFS calculate the virtual runtime for a process?
+$$\text{vruntime}_i = \text{vruntime}_i + \frac{\text{weight}_0}{\text{weight}_i} \cdot \text{runtime}_i$$:p How does CFS calculate the virtual runtime for a process?
 ??x
-The virtual runtime for a process \( i \) is updated by adding to its current value, a fraction of the actual runtime that has been accrued. The fraction is inversely proportional to the weight of the process.
+The virtual runtime for a process $i$ is updated by adding to its current value, a fraction of the actual runtime that has been accrued. The fraction is inversely proportional to the weight of the process.
 
 ```java
 public class Process {
@@ -455,7 +451,7 @@ public class Process {
 }
 ```
 
-In the example, if process A has a weight of 3121 and runs for some duration, its \(vruntime\) will be updated more slowly compared to process B, which has a default weight of 1024.
+In the example, if process A has a weight of 3121 and runs for some duration, its $vruntime$ will be updated more slowly compared to process B, which has a default weight of 1024.
 
 x??
 
@@ -477,7 +473,7 @@ Red-black trees maintain balance through a set of rules:
 4. If a node is red, both its children are black.
 5. For each node, all simple paths from the node to descendant leaves contain the same number of black nodes.
 
-This balance ensures that operations such as insertion and lookup remain efficient with a time complexity of \(O(\log n)\).
+This balance ensures that operations such as insertion and lookup remain efficient with a time complexity of $O(\log n)$.
 
 ```java
 public class RBNode {

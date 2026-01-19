@@ -183,17 +183,13 @@ Background context: The goal is to evaluate the cost-effectiveness of different 
 :p Calculate the flop/dollar ratio for the listed GPUs.
 ??x
 To calculate the flop/dollar ratio, use the formula:
-\[ \text{Flop per Dollar} = \frac{\text{Achievable Performance (Gflops/sec)}}{\text{Price (\$)}} \]
-
-For example, with V100:
-\[ \text{Flop per Dollar for V100} = \frac{108.23}{630} \approx 0.172 Gflops/\$ \]
-
-Repeat this calculation for each GPU listed in Table 9.7.
+$$ \text{Flop per Dollar} = \frac{\text{Achievable Performance (Gflops/sec)}}{\text{Price (\$)}} $$For example, with V100:
+$$ \text{Flop per Dollar for V100} = \frac{108.23}{630} \approx 0.172 Gflops/\$ $$Repeat this calculation for each GPU listed in Table 9.7.
 
 For V100:
 ```plaintext
 Achievable Performance: 108.23 Gflops/sec
-Price: $630
+Price:$630
 
 Flop per Dollar = 108.23 / 630 \approx 0.172 Gflops/\$
 ```

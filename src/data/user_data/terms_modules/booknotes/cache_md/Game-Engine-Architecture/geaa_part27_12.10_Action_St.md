@@ -157,19 +157,11 @@ Background context: In animation systems, a flat weighted average approach is us
 ??x
 The flat weighted average approach involves maintaining a list of all currently active animations with associated blend weights. For each joint, the final pose is computed by taking a simple weighted average of the poses from each active animation.
 
-For example, if we have two active animations \(A_1\) and \(A_2\), their translations at time \(t\) can be represented as vectors \(\mathbf{v}_1(t)\) and \(\mathbf{v}_2(t)\), with blend weights \(w_0 = 1 - b\) and \(w_1 = b\) respectively. The weighted average for the final pose of a joint is calculated as:
+For example, if we have two active animations $A_1 $ and$A_2 $, their translations at time$ t $can be represented as vectors$\mathbf{v}_1(t)$ and $\mathbf{v}_2(t)$, with blend weights $ w_0 = 1 - b$and $ w_1 = b$respectively. The weighted average for the final pose of a joint is calculated as:
+$$\mathbf{v}_{avg}(t) = w_0 \mathbf{v}_1(t) + w_1 \mathbf{v}_2(t)$$
 
-\[
-\mathbf{v}_{avg}(t) = w_0 \mathbf{v}_1(t) + w_1 \mathbf{v}_2(t)
-\]
-
-If we generalize this to \(N\) active animations, the formula becomes:
-
-\[
-\mathbf{v}_{avg} = \sum_{i=0}^{N-1} w_i \mathbf{v}_i
-\]
-
-where \(\sum_{i=0}^{N-1} w_i = 1\).
+If we generalize this to $N$ active animations, the formula becomes:
+$$\mathbf{v}_{avg} = \sum_{i=0}^{N-1} w_i \mathbf{v}_i$$where $\sum_{i=0}^{N-1} w_i = 1$.
 
 In practice, this method simplifies the blending process by treating all active animations equally and weighting their contributions linearly.
 
@@ -185,7 +177,7 @@ Background context: An alternative to the flat weighted average approach is usin
 ??x
 In the blend tree approach, each active animation is treated as a leaf node in a tree structure. The internal nodes of this tree perform blending operations to combine these animations into higher-level action states. Additional nodes are introduced for transient cross-fades between clips.
 
-For instance, if we have a blend tree with two leaf nodes representing active animations \(A_1\) and \(A_2\), an interior node could perform linear interpolation (LERP) between them:
+For instance, if we have a blend tree with two leaf nodes representing active animations $A_1 $ and$A_2$, an interior node could perform linear interpolation (LERP) between them:
 
 ```java
 public class BlendNode {
@@ -206,7 +198,7 @@ public class BlendNode {
 }
 ```
 
-This node would take the current poses from \(A_1\) and \(A_2\) and blend them linearly based on some blending parameter.
+This node would take the current poses from $A_1 $ and$A_2$ and blend them linearly based on some blending parameter.
 
 ??x
 

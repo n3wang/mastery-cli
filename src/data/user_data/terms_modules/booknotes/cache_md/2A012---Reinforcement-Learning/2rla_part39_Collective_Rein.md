@@ -495,9 +495,9 @@ The TD-error modulation hypothesis suggests that dopamine neurons signal predict
 
 Formally, this can be expressed as:
 
-\[ \Delta V(s) = \alpha [r - \gamma V(s')] \]
+$$\Delta V(s) = \alpha [r - \gamma V(s')]$$
 
-Where \( r \) is the reward, \( V(s') \) is the value of the next state, and \( \gamma \) is the discount factor.
+Where $r $ is the reward,$ V(s')$ is the value of the next state, and $\gamma$ is the discount factor.
 
 ??x
 The TD-error modulation hypothesis proposes that dopamine neurons signal prediction errors to guide learning. This connection helps explain how the brain updates its values based on differences between expected and actual rewards.
@@ -628,7 +628,7 @@ Background context: The actor learning rule discussed here is more complex than 
 
 :p How does the actor learning rule differ from early models?
 ??x
-The actor learning rule in this context is more complex as it includes full eligibility traces of \((A_t - \pi(A_t|S_t,\theta))x(S_t)\) rather than just \(A_t \times x(S_t)\). This improvement incorporates the policy gradient theory and contributions from Williams (1986, 1992), which enhanced the ability to implement a policy-gradient method in neural network models.
+The actor learning rule in this context is more complex as it includes full eligibility traces of $(A_t - \pi(A_t|S_t,\theta))x(S_t)$ rather than just $A_t \times x(S_t)$. This improvement incorporates the policy gradient theory and contributions from Williams (1986, 1992), which enhanced the ability to implement a policy-gradient method in neural network models.
 
 ---
 

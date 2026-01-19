@@ -9,37 +9,31 @@
 #### Interplanar Spacing and Lattice Parameter Computations
 Background context: In X-ray diffraction, the spacing between atomic planes (interplanar spacing) can be calculated using Bragg's law. The lattice parameter of a crystal is also determined from these calculations.
 
-:p What is the formula used to calculate interplanar spacing \(d_{hkl}\)?
+:p What is the formula used to calculate interplanar spacing $d_{hkl}$?
 ??x
-The formula for calculating interplanar spacing \(d_{hkl}\) is:
-\[ d_{hkl} = \frac{n\lambda}{2 \sin \theta} \]
-where:
-- \(n\) is the order of diffraction,
-- \(\lambda\) is the wavelength of the X-ray radiation,
-- \(\theta\) is half the diffraction angle.
+The formula for calculating interplanar spacing $d_{hkl}$ is:
+$$d_{hkl} = \frac{n\lambda}{2 \sin \theta}$$where:
+- $n$ is the order of diffraction,
+- $\lambda$ is the wavelength of the X-ray radiation,
+- $\theta$ is half the diffraction angle.
 
-For example, if the first peak results from diffraction by the (111) set of planes and occurs at \(2\theta = 31.3^\circ\), with a wavelength \(\lambda = 0.1542 \text{ nm}\):
-\[ d_{111} = \frac{(1)(0.1542 \text{ nm})}{2 \sin (31.3^\circ / 2)} = 0.2858 \text{ nm} \]
-
-x??
+For example, if the first peak results from diffraction by the (111) set of planes and occurs at $2\theta = 31.3^\circ $, with a wavelength $\lambda = 0.1542 \text{ nm}$:
+$$d_{111} = \frac{(1)(0.1542 \text{ nm})}{2 \sin (31.3^\circ / 2)} = 0.2858 \text{ nm}$$x??
 
 ---
 
 
 #### Lattice Parameter Determination
-Background context: The lattice parameter \(a\) can be determined from the interplanar spacing using the formula:
-\[ a = d_{hkl} \sqrt{h^2 + k^2 + l^2} \]
-where \(d_{hkl}\) is the interplanar spacing and \((h, k, l)\) are Miller indices.
+Background context: The lattice parameter $a$ can be determined from the interplanar spacing using the formula:
+$$a = d_{hkl} \sqrt{h^2 + k^2 + l^2}$$where $ d_{hkl}$is the interplanar spacing and $(h, k, l)$ are Miller indices.
 
-:p What is the formula used to determine the lattice parameter \(a\)?
+:p What is the formula used to determine the lattice parameter $a$?
 ??x
-The formula for determining the lattice parameter \(a\) is:
-\[ a = d_{hkl} \sqrt{h^2 + k^2 + l^2} \]
+The formula for determining the lattice parameter $a$ is:
+$$a = d_{hkl} \sqrt{h^2 + k^2 + l^2}$$
 
-For example, for the (111) set of planes with interplanar spacing \(d_{111} = 0.2858 \text{ nm}\):
-\[ a = 0.2858 \text{ nm} \sqrt{(1)^2 + (1)^2 + (1)^2} = 0.4950 \text{ nm} \]
-
-x??
+For example, for the (111) set of planes with interplanar spacing $d_{111} = 0.2858 \text{ nm}$:
+$$a = 0.2858 \text{ nm} \sqrt{(1)^2 + (1)^2 + (1)^2} = 0.4950 \text{ nm}$$x??
 
 ---
 
@@ -84,7 +78,7 @@ Background context: Crystallographic points, directions, and planes are specifie
 :p How are crystallographic directions indexed?
 ??x
 Crystallographic directions are indexed in terms of differences between vector head and tail coordinates. The general formula is:
-\[ [h k l] = \left[ (h, 0, 0) - (0, 0, 0) \right], \left[ (0, k, 0) - (0, 0, 0) \right], \left[ (0, 0, l) - (0, 0, 0) \right] \]
+$$[h k l] = \left[ (h, 0, 0) - (0, 0, 0) \right], \left[ (0, k, 0) - (0, 0, 0) \right], \left[ (0, 0, l) - (0, 0, 0) \right]$$
 
 For example, a direction in the [110] system means moving one unit along the x-axis and one unit along the y-axis.
 
@@ -99,17 +93,13 @@ Background context: X-ray diffractometry is used to determine crystal structures
 :p What is Bragg's law?
 ??x
 Bragg's law specifies the condition for diffraction:
-\[ n\lambda = 2d \sin \theta \]
+$$n\lambda = 2d \sin \theta$$where:
+- $n$ is the order of diffraction,
+- $\lambda$ is the wavelength of X-rays,
+- $d$ is the interplanar spacing.
 
-where:
-- \(n\) is the order of diffraction,
-- \(\lambda\) is the wavelength of X-rays,
-- \(d\) is the interplanar spacing.
-
-For example, if an x-ray with a wavelength \(\lambda = 0.1542 \text{ nm}\) diffracts at an angle where \(2\theta = 31.3^\circ\), then:
-\[ d_{111} = \frac{(1)(0.1542 \text{ nm})}{2 \sin (31.3^\circ / 2)} = 0.2858 \text{ nm} \]
-
-x??
+For example, if an x-ray with a wavelength $\lambda = 0.1542 \text{ nm}$ diffracts at an angle where $2\theta = 31.3^\circ$, then:
+$$d_{111} = \frac{(1)(0.1542 \text{ nm})}{2 \sin (31.3^\circ / 2)} = 0.2858 \text{ nm}$$x??
 
 ---
 
@@ -133,20 +123,19 @@ x??
 
 
 #### Unit Cell Edge Length for FCC
-Background context: The face-centered cubic (FCC) structure is a common crystal lattice where atoms are located at each corner and the center of each face. The unit cell edge length can be derived from the atomic radius \(R\).
+Background context: The face-centered cubic (FCC) structure is a common crystal lattice where atoms are located at each corner and the center of each face. The unit cell edge length can be derived from the atomic radius $R$.
 
 Relevant formulas:
-\[ a = 2R\sqrt{2} \]
+$$a = 2R\sqrt{2}$$
 
 :p What is the formula for calculating the unit cell edge length in an FCC structure?
 ??x
-The formula to calculate the unit cell edge length (\(a\)) of an FCC crystal lattice, given the atomic radius \(R\), is:
+The formula to calculate the unit cell edge length ($a $) of an FCC crystal lattice, given the atomic radius $ R$, is:
 
-\[ a = 2R\sqrt{2} \]
+$$a = 2R\sqrt{2}$$
 
-This relationship arises because the body diagonal of the cube (which connects two opposite vertices through the interior) spans four atomic radii. Given that this diagonal equals \(a\sqrt{3}\), setting it equal to \(4R\) and solving for \(a\) yields:
-
-\[ a = 2R\sqrt{2} \]
+This relationship arises because the body diagonal of the cube (which connects two opposite vertices through the interior) spans four atomic radii. Given that this diagonal equals $a\sqrt{3}$, setting it equal to $4R $ and solving for $ a $ yields:
+$$a = 2R\sqrt{2}$$
 
 No code is necessary here as it's a straightforward mathematical relationship.
 x??
@@ -158,13 +147,14 @@ x??
 Background context: The atomic packing factor (APF) measures the fraction of the unit cell volume occupied by atoms. It provides insight into how efficiently the atoms are packed in different crystal structures.
 
 Relevant formulas:
-\[ APF = \frac{\text{Volume of atoms in a unit cell}}{\text{Total unit cell volume}} = \frac{V_{\text{atoms}}}{V_C} \]
+$$
 
-:p What does the atomic packing factor (APF) represent?
+APF = \frac{\text{Volume of atoms in a unit cell}}{\text{Total unit cell volume}} = \frac{V_{\text{atoms}}}{V_C}$$:p What does the atomic packing factor (APF) represent?
 ??x
 The atomic packing factor (APF) represents the fraction of the unit cell volume occupied by atoms. It is calculated as:
+$$
 
-\[ APF = \frac{\text{Volume of atoms in a unit cell}}{\text{Total unit cell volume}} = \frac{V_{\text{atoms}}}{V_C} \]
+APF = \frac{\text{Volume of atoms in a unit cell}}{\text{Total unit cell volume}} = \frac{V_{\text{atoms}}}{V_C}$$
 
 This factor helps us understand how densely packed the atoms are within the crystal structure.
 x??
@@ -176,17 +166,16 @@ x??
 Background context: The body-centered cubic (BCC) structure is a common lattice where there is an atom at each corner and one in the center of the cube.
 
 Relevant formulas:
-\[ a = 4R\sqrt{3} \]
+$$a = 4R\sqrt{3}$$
 
-:p What is the formula to calculate the unit cell edge length (\(a\)) for BCC?
+:p What is the formula to calculate the unit cell edge length ($a$) for BCC?
 ??x
-The formula to calculate the unit cell edge length (\(a\)) for body-centered cubic (BCC) structure, given the atomic radius \(R\), is:
+The formula to calculate the unit cell edge length ($a $) for body-centered cubic (BCC) structure, given the atomic radius $ R$, is:
 
-\[ a = 4R\sqrt{3} \]
+$$a = 4R\sqrt{3}$$
 
-This relationship arises because the body diagonal of the cube spans three atomic radii along each axis. Given that this diagonal equals \(a\sqrt{3}\), setting it equal to \(4R\) and solving for \(a\) yields:
-
-\[ a = 4R\sqrt{3} \]
+This relationship arises because the body diagonal of the cube spans three atomic radii along each axis. Given that this diagonal equals $a\sqrt{3}$, setting it equal to $4R $ and solving for $ a $ yields:
+$$a = 4R\sqrt{3}$$
 
 No code is necessary here as it's a straightforward mathematical relationship.
 x??
@@ -195,23 +184,23 @@ x??
 
 
 #### Theoretical Density of a Metal
-Background context: The theoretical density (\(\rho\)) of a metal can be calculated from the number of atoms in a unit cell and the atomic weight.
+Background context: The theoretical density ($\rho$) of a metal can be calculated from the number of atoms in a unit cell and the atomic weight.
 
 Relevant formulas:
-\[ \rho = \frac{nA}{V_C} \]
+$$\rho = \frac{nA}{V_C}$$
 
-Where \(n\) is the number of atoms per unit cell, \(A\) is the atomic weight, and \(V_C\) is the volume of the unit cell.
+Where $n $ is the number of atoms per unit cell,$A $ is the atomic weight, and$ V_C$ is the volume of the unit cell.
 
-:p What formula is used to calculate the theoretical density (\(\rho\)) of a metal?
+:p What formula is used to calculate the theoretical density ($\rho$) of a metal?
 ??x
-The formula for calculating the theoretical density (\(\rho\)) of a metal from the number of atoms in a unit cell and the atomic weight is:
+The formula for calculating the theoretical density ($\rho$) of a metal from the number of atoms in a unit cell and the atomic weight is:
 
-\[ \rho = \frac{nA}{V_C} \]
+$$\rho = \frac{nA}{V_C}$$
 
 Where:
-- \(n\) is the number of atoms per unit cell,
-- \(A\) is the atomic weight (mass of one atom),
-- \(V_C\) is the volume of the unit cell.
+- $n$ is the number of atoms per unit cell,
+- $A$ is the atomic weight (mass of one atom),
+- $V_C$ is the volume of the unit cell.
 
 This formula provides a way to estimate the density based on the crystal structure and atomic properties.
 x??
@@ -220,22 +209,22 @@ x??
 
 
 #### Point Index Reference
-Background context: The point index (\(q\)) references a lattice plane or direction vector in terms of its position relative to an axis.
+Background context: The point index ($q$) references a lattice plane or direction vector in terms of its position relative to an axis.
 
 Relevant formulas:
-\[ q = \frac{aP_x}{x} \]
+$$q = \frac{aP_x}{x}$$
 
-Where \(P_x\) is the intercept on the x-axis and \(x\) is the unit cell length along that axis.
+Where $P_x $ is the intercept on the x-axis and$x$ is the unit cell length along that axis.
 
-:p How does one calculate the point index (\(q\)) referenced to the x-axis?
+:p How does one calculate the point index ($q$) referenced to the x-axis?
 ??x
-The point index (\(q\)) referencing a lattice plane or direction vector in terms of its position relative to the x-axis can be calculated using:
+The point index ($q$) referencing a lattice plane or direction vector in terms of its position relative to the x-axis can be calculated using:
 
-\[ q = \frac{aP_x}{x} \]
+$$q = \frac{aP_x}{x}$$
 
 Where:
-- \(P_x\) is the intercept on the x-axis,
-- \(x\) is the unit cell length along that axis.
+- $P_x$ is the intercept on the x-axis,
+- $x$ is the unit cell length along that axis.
 
 This formula helps in determining the orientation or position of a lattice plane or vector within the crystal structure.
 x??
@@ -274,8 +263,7 @@ Atomic packing factor refers to the fraction of volume occupied by atoms within 
 ??x
 The atomic packing factor (APF) is the ratio of the total volume occupied by atoms to the unit cell volume in a crystalline material. It measures how efficiently space is used by atoms within the crystal lattice.
 Formula:
-\[ \text{APF} = \frac{\text{Volume occupied by atoms}}{\text{Unit cell volume}} \]
-x??
+$$\text{APF} = \frac{\text{Volume occupied by atoms}}{\text{Unit cell volume}}$$x??
 
 ---
 
@@ -286,8 +274,7 @@ Bragg’s law describes the condition for constructive interference of waves in 
 :p What is Bragg's law?
 ??x
 Bragg's law states that constructive interference occurs when:
-\[ n\lambda = 2d \sin(\theta) \]
-where \( n \) is an integer (order of reflection), \( \lambda \) is the wavelength of the incident radiation, \( d \) is the spacing between atomic planes in a crystal, and \( \theta \) is the angle of incidence.
+$$n\lambda = 2d \sin(\theta)$$where $ n $is an integer (order of reflection),$\lambda $ is the wavelength of the incident radiation,$d $ is the spacing between atomic planes in a crystal, and$\theta$ is the angle of incidence.
 x??
 
 ---
@@ -353,8 +340,7 @@ Diffraction is the bending of waves around obstacles or through openings.
 ??x
 Diffraction occurs when waves bend as they pass around objects or through small openings. In crystallography, it involves the scattering of X-rays by a crystal's periodic atomic arrangement, leading to constructive and destructive interference patterns.
 Bragg's law governs this process:
-\[ n\lambda = 2d \sin(\theta) \]
-where \( n \), \( \lambda \), \( d \), and \( \theta \) are as defined earlier.
+$$n\lambda = 2d \sin(\theta)$$where $ n $,$\lambda $,$ d $, and$\theta$ are as defined earlier.
 x??
 
 ---
@@ -377,7 +363,7 @@ Lattice parameters define the size and shape of a unit cell in a crystal structu
 
 :p What are lattice parameters?
 ??x
-Lattice parameters include the lengths of the edges (a, b, c) and the angles between them (\(\alpha\), \(\beta\), \(\gamma\)) that describe the dimensions and orientation of a unit cell. They are essential for understanding the crystal structure.
+Lattice parameters include the lengths of the edges (a, b, c) and the angles between them ($\alpha $, $\beta $, $\gamma$) that describe the dimensions and orientation of a unit cell. They are essential for understanding the crystal structure.
 Example:
 ```java
 public class LatticeParameters {
@@ -418,7 +404,7 @@ Miller indices indicate the orientation of crystal planes.
 
 :p What are Miller indices?
 ??x
-Miller indices (\(hkl\)) specify the orientation of a plane within a crystal lattice. They are determined by taking reciprocals of the intercepts made by the plane on the three axes and normalizing them to integers.
+Miller indices ($hkl$) specify the orientation of a plane within a crystal lattice. They are determined by taking reciprocals of the intercepts made by the plane on the three axes and normalizing them to integers.
 Example:
 A (100) plane has intercepts: x = 1, y = ∞, z = ∞
 The Miller indices are (100).

@@ -421,9 +421,7 @@ Occupancy is a measure of how busy the compute units are during calculations and
 :p What is occupancy in GPU programming?
 ??x
 Occupancy measures how efficiently the GPU's compute units are utilized. It is calculated as the number of active threads or subgroups divided by the maximum possible number of threads per compute unit.
-\[
-\text{Occupancy} = \frac{\text{Number of Active Threads}}{\text{Maximum Number of Threads Per Compute Unit}}
-\]
+$$\text{Occupancy} = \frac{\text{Number of Active Threads}}{\text{Maximum Number of Threads Per Compute Unit}}$$
 x??
 
 ---

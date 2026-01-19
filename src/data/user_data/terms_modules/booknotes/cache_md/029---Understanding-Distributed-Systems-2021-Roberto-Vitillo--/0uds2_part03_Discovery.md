@@ -170,30 +170,97 @@ x??
 
 
 ---
-#### API and Service Communication Styles
-APIs expose operations to consumers through a set of interfaces implemented by business logic. Remote clients cannot access these directly; adapters make up the service’s application programming interface (API) and translate messages received from IPC mechanisms into interface calls.
+#### Service Communication Patterns
 
-:p What are adapters in the context of APIs?
+Distributed systems use various communication patterns to enable interaction between services. Understanding these patterns is crucial for designing scalable and fault-tolerant systems.
+
+:p What are the key differences between synchronous and asynchronous communication patterns in distributed systems?
 ??x
-Adapters are components that translate messages received from IPC mechanisms into interface calls, allowing remote clients to interact with a service indirectly. This translation enables communication between different processes or systems through well-defined interfaces.
-x??
+Communication patterns in distributed systems fall into two main categories:
 
----
-#### Direct vs Indirect Communication
-The communication style between a client and a service can be direct or indirect. In direct communication, both processes must be up and running for the communication to succeed. However, in some cases, indirect communication via a broker is used when direct communication guarantees are not needed or hard to achieve.
+**Synchronous (Request-Response)**
+- Client blocks waiting for response
+- Simple programming model (like function calls)
+- Strong coupling: both services must be available
+- Latency directly impacts client performance
+- Example latency formula: Total = Network_RTT + Server_Processing
+- Use cases: User-facing APIs, real-time queries
 
-:p What are the advantages of using indirect communication over direct communication?
-??x
-Indirect communication provides more flexibility as it allows services to be loosely coupled through a broker. This approach can enhance fault tolerance and scalability since services do not need to be available for every request, making the system more resilient.
-x??
+**Asynchronous (Message-Driven)**
+- Client doesn't block, uses callbacks/promises/futures
+- Decoupled: services communicate via message brokers
+- Better fault tolerance and scalability
+- Complexity: must handle eventual consistency
+- Throughput formula: T = N / (Network_RTT + Server_Processing), where N = pipeline depth
+- Use cases: Event processing, background jobs, data pipelines
 
----
-#### Request-Response Communication Style
-The focus of this chapter is on direct communication called request-response, where a client sends a request message to a service, which replies with a response message. This style is similar to function calls but operates across process boundaries and over the network.
+**Performance comparison:**
+```
+Synchronous:   [Request] --RTT--> [Process] --RTT--> [Response]
+Total time: 2*RTT + Processing
 
-:p What does synchronous communication in request-response mean?
-??x
-Synchronous communication blocks the client while waiting for the response from the server. The client waits until it receives the response before proceeding with further actions, which can lead to inefficiencies if not managed properly.
+Asynchronous:  [Request] --RTT--> [Queue] (client continues)
+               [Worker processes when available]
+Total time: RTT (from client perspective)
+```
+
+```c
+// C implementation of async request pattern
+typedef struct {
+    void (*callback)(void* result, void* context);
+    void* context;
+    int request_id;
+    time_t timestamp;
+} AsyncRequest;
+
+typedef struct {
+    AsyncRequest* requests;
+    int capacity;
+    int count;
+    pthread_mutex_t lock;
+} RequestQueue;
+
+// Async request (non-blocking)
+int send_async_request(RequestQueue* queue, void* data,
+                       void (*callback)(void*, void*), void* context) {
+    pthread_mutex_lock(&queue->lock);
+
+    if (queue->count >= queue->capacity) {
+        pthread_mutex_unlock(&queue->lock);
+        return -1;  // Queue full: O(1) check
+    }
+
+    AsyncRequest* req = &queue->requests[queue->count++];
+    req->callback = callback;
+    req->context = context;
+    req->request_id = generate_id();
+    req->timestamp = time(NULL);
+
+    pthread_mutex_unlock(&queue->lock);
+    return req->request_id;  // Returns immediately
+}
+
+// Sync request (blocking)
+void* send_sync_request(const char* server, void* data, size_t size) {
+    int sock = socket(AF_INET, SOCK_STREAM, 0);
+    connect(sock, server_addr, sizeof(server_addr));  // Blocks
+
+    send(sock, data, size, 0);     // Blocks
+    void* response = recv_response(sock);  // Blocks
+
+    close(sock);
+    return response;  // Total time: 2*RTT + processing
+}
+```
+
+**Trade-offs summary:**
+| Aspect | Synchronous | Asynchronous |
+|--------|-------------|--------------|
+| Latency visibility | Direct | Hidden |
+| Error handling | Immediate | Deferred |
+| Debugging | Easier | Harder |
+| Scalability | Limited | Better |
+| Consistency | Strong | Eventual |
 x??
 
 ---

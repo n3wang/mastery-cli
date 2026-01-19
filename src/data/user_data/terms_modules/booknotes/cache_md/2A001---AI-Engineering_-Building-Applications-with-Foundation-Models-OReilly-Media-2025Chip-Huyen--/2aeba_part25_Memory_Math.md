@@ -11,29 +11,25 @@
 Background context: During inference, only the forward pass is executed. The memory required includes model weights and activation values. Transformer models also need additional memory for attention mechanism's key-value vectors.
 
 Relevant formulas:
-- Model parameter count \( N \)
-- Memory per parameter \( M \)
+- Model parameter count $N $- Memory per parameter$ M$
 
 Memory needed to load the model’s parameters: 
-\[ \text{Total Memory} = N \times M \]
+$$\text{Total Memory} = N \times M$$
 
 For many applications, activation values and key-value vectors are 20% of the memory for the model's weights. Therefore:
-\[ \text{Total Inference Memory} = N \times M \times 1.2 \]
-
-:p What is the total inference memory needed for a 13B-parameter model with each parameter requiring 2 bytes?
+$$\text{Total Inference Memory} = N \times M \times 1.2$$:p What is the total inference memory needed for a 13B-parameter model with each parameter requiring 2 bytes?
 ??x
 The total inference memory needed would be calculated as follows:
 
 Given:
-- \( N = 13,000,000,000 \) parameters (13B)
-- \( M = 2 \) bytes per parameter
+- $N = 13,000,000,000$ parameters (13B)
+- $M = 2$ bytes per parameter
 
-Total memory for model’s weights: 
-\[ 13,000,000,000 \times 2 \text{ bytes} = 26 \text{ GB} \]
+Total memory for model’s weights:
+$$13,000,000,000 \times 2 \text{ bytes} = 26 \text{ GB}$$
 
 Since the activation values and key-value vectors are assumed to be 20% of the model's weights:
-\[ \text{Total Inference Memory} = 26 \text{ GB} \times 1.2 = 31.2 \text{ GB} \]
-x??
+$$\text{Total Inference Memory} = 26 \text{ GB} \times 1.2 = 31.2 \text{ GB}$$x??
 
 ---
 
@@ -43,34 +39,29 @@ x??
 Background context: During training, you need memory for model’s weights and activations (as discussed in inference), gradients, and optimizer states.
 
 Relevant formulas:
-- Model parameter count \( N \)
-- Memory per parameter \( M \)
-
-Training memory is calculated as:
-\[ \text{Training Memory} = \text{Model Weights} + \text{Activations} + \text{Gradients} + \text{Optimizer States} \]
-
-:p What is the total training memory needed for a 13B-parameter model with each parameter requiring 2 bytes?
+- Model parameter count $N $- Memory per parameter $ M$ Training memory is calculated as:
+$$\text{Training Memory} = \text{Model Weights} + \text{Activations} + \text{Gradients} + \text{Optimizer States}$$:p What is the total training memory needed for a 13B-parameter model with each parameter requiring 2 bytes?
 ??x
 For a 13B-parameter model, each parameter requires 2 bytes. Let's calculate the memory required:
 
 Given:
-- \( N = 13,000,000,000 \) parameters (13B)
-- \( M = 2 \) bytes per parameter
+- $N = 13,000,000,000$ parameters (13B)
+- $M = 2$ bytes per parameter
 
-Memory for model’s weights: 
-\[ 13,000,000,000 \times 2 \text{ bytes} = 26 \text{ GB} \]
+Memory for model’s weights:
+$$13,000,000,000 \times 2 \text{ bytes} = 26 \text{ GB}$$
 
 If we assume the memory needed for activations is less than that of the model's weights, but considering practical scenarios where activation memory can be much larger:
-\[ \text{Total Training Memory} = \text{Model Weights} + \text{Activations} + \text{Gradients} + \text{Optimizer States} \]
+$$\text{Total Training Memory} = \text{Model Weights} + \text{Activations} + \text{Gradients} + \text{Optimizer States}$$
 
 For simplicity, let’s assume activations are 20% of the model's weights:
-\[ \text{Activation Memory} = 26 \text{ GB} \times 0.2 = 5.2 \text{ GB} \]
+$$\text{Activation Memory} = 26 \text{ GB} \times 0.2 = 5.2 \text{ GB}$$
 
 Now, using Adam optimizer (which stores two values per parameter for gradients and optimizer states):
-\[ \text{Gradients + Optimizer States} = 13,000,000,000 \times 3 \times 2 \text{ bytes} / 8 = 96 \text{ GB} \]
+$$\text{Gradients + Optimizer States} = 13,000,000,000 \times 3 \times 2 \text{ bytes} / 8 = 96 \text{ GB}$$
 
 Therefore:
-\[ \text{Total Training Memory} = 26 \text{ GB} + 5.2 \text{ GB} + 96 \text{ GB} = 127.2 \text{ GB} \]
+$$\text{Total Training Memory} = 26 \text{ GB} + 5.2 \text{ GB} + 96 \text{ GB} = 127.2 \text{ GB}$$
 x??
 
 ---

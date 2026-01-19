@@ -39,13 +39,11 @@ Background context: Cosine similarity is a measure of the angle between two vect
 ??x
 Cosine similarity measures the cosine of the angle between two non-zero vectors. It is calculated as:
 
-\[
-\text{cosine\_similarity} = \frac{\mathbf{A} \cdot \mathbf{B}}{\|\mathbf{A}\|_2 \|\mathbf{B}\|_2}
-\]
+$$\text{cosine\_similarity} = \frac{\mathbf{A} \cdot \mathbf{B}}{\|\mathbf{A}\|_2 \|\mathbf{B}\|_2}$$
 
 Where:
-- \(\mathbf{A} \cdot \mathbf{B}\) is the dot product of vectors A and B.
-- \(\|\mathbf{A}\|_2\) and \(\|\mathbf{B}\|_2\) are the L2 norms (lengths) of vectors A and B.
+- $\mathbf{A} \cdot \mathbf{B}$ is the dot product of vectors A and B.
+- $\|\mathbf{A}\|_2 $ and$\|\mathbf{B}\|_2$ are the L2 norms (lengths) of vectors A and B.
 
 In Python, you can calculate cosine similarity using:
 

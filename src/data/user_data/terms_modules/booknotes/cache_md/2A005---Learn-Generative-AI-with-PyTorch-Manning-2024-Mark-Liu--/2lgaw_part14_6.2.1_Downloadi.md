@@ -211,7 +211,7 @@ Explanation of what residual connections are and why they help in very deep netw
 ??x
 A residual connection is used to bypass one or more layers in a neural network. It helps mitigate the vanishing gradient problem by allowing gradients to flow directly through the skip connection, thus preserving useful signals.
 
-The input \( x \) is added back to the output of transformations \( f(x) \).
+The input $x $ is added back to the output of transformations$f(x)$.
 
 ```plaintext
 Input: x

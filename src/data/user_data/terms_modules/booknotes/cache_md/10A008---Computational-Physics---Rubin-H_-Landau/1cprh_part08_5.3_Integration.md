@@ -8,13 +8,13 @@
 
 #### Trapezoid Rule Implementation
 Background context: The trapezoid rule is a numerical integration method that approximates the integral of a function by dividing the area under the curve into trapezoids. Each interval is divided, and a straight line connects the endpoints to approximate the function within each subinterval.
-Formula: \[ \int_a^b f(x) dx \approx h \left( \frac{1}{2}f(x_0) + f(x_1) + \cdots + f(x_{N-1}) + \frac{1}{2}f(x_N) \right) \]
-Where \(h = \frac{b-a}{N}\), and the weights are given by:
-\[ w_i = \begin{cases} 
+Formula: $$\int_a^b f(x) dx \approx h \left( \frac{1}{2}f(x_0) + f(x_1) + \cdots + f(x_{N-1}) + \frac{1}{2}f(x_N) \right)$$
+
+Where $h = \frac{b-a}{N}$, and the weights are given by:
+$$w_i = \begin{cases} 
 \frac{h}{2}, & \text{for } i=0, N \\
 h, & \text{for } 1 \leq i < N-1
-\end{cases} \]
-:p How does the trapezoid rule approximate the integral?
+\end{cases}$$:p How does the trapezoid rule approximate the integral?
 ??x
 The trapezoid rule approximates the integral by dividing the interval [a, b] into N subintervals and constructing a straight line between each pair of adjacent points to form trapezoids. The area under these trapezoids is then summed up.
 
@@ -41,14 +41,13 @@ x??
 
 #### Simpson’s Rule Implementation
 Background context: Simpson's rule approximates the integral by fitting a parabola to each pair of intervals and integrating under these parabolic segments. The method uses three points per interval, leading to more accurate results.
-Formula: \[ \int_{x_i}^{x_i + h} f(x) dx \approx \frac{h}{3} [f(x_i) + 4f(x_i + \frac{h}{2}) + f(x_i + h)] \]
-:p How does Simpson’s rule approximate the integral?
+Formula:
+$$\int_{x_i}^{x_i + h} f(x) dx \approx \frac{h}{3} [f(x_i) + 4f(x_i + \frac{h}{2}) + f(x_i + h)]$$:p How does Simpson’s rule approximate the integral?
 ??x
 Simpson's rule approximates the integral by fitting a parabola to each pair of adjacent intervals. For each interval, it uses three points: the endpoints and the midpoint. The area under this parabolic segment is calculated using the formula:
+$$\int_{x_i}^{x_i + h} f(x) dx \approx \frac{h}{3} [f(x_i) + 4f(x_i + \frac{h}{2}) + f(x_i + h)]$$
 
-\[ \int_{x_i}^{x_i + h} f(x) dx \approx \frac{h}{3} [f(x_i) + 4f(x_i + \frac{h}{2}) + f(x_i + h)] \]
-
-Here, \(h = \frac{b-a}{N}\), and N must be odd because the number of intervals is even.
+Here,$h = \frac{b-a}{N}$, and N must be odd because the number of intervals is even.
 
 ```java
 public class SimpsonsRule {
@@ -73,27 +72,30 @@ x??
 Background context: The error in numerical integration can be estimated using the properties of the function and the number of intervals used. For trapezoid and Simpson’s rules, the approximation errors are related to higher derivatives of the function.
 
 For the trapezoid rule:
-\[ E_t = O\left(\frac{(b-a)^3}{N^2}\right) f''(x) \]
+$$E_t = O\left(\frac{(b-a)^3}{N^2}\right) f''(x)$$
 
 For Simpson's rule:
-\[ E_s = O\left(\frac{(b-a)^5}{N^4}\right) f^{(4)}(x) \]
+$$
+
+E_s = O\left(\frac{(b-a)^5}{N^4}\right) f^{(4)}(x)$$
 
 The relative error for the trapezoid and Simpson’s rules is given by:
-\[ \epsilon_t, s = \frac{E_t, s}{f} \]
-:p How do we estimate the errors in numerical integration?
+$$\epsilon_t, s = \frac{E_t, s}{f}$$:p How do we estimate the errors in numerical integration?
 ??x
-Errors in numerical integration can be estimated using the properties of the function \( f(x) \). For the trapezoid and Simpson’s rules, the approximation error is related to higher derivatives of the function. The formulas for these errors are:
+Errors in numerical integration can be estimated using the properties of the function $f(x)$. For the trapezoid and Simpson’s rules, the approximation error is related to higher derivatives of the function. The formulas for these errors are:
 
 For the trapezoid rule:
-\[ E_t = O\left(\frac{(b-a)^3}{N^2}\right) f''(x) \]
+$$E_t = O\left(\frac{(b-a)^3}{N^2}\right) f''(x)$$
 
 And for Simpson's rule:
-\[ E_s = O\left(\frac{(b-a)^5}{N^4}\right) f^{(4)}(x) \]
+$$
+
+E_s = O\left(\frac{(b-a)^5}{N^4}\right) f^{(4)}(x)$$
 
 The relative error can be measured as:
-\[ \epsilon_t, s = \frac{E_t, s}{f} \]
+$$\epsilon_t, s = \frac{E_t, s}{f}$$
 
-This helps in determining the number of intervals \( N \) needed to achieve a desired accuracy.
+This helps in determining the number of intervals $N$ needed to achieve a desired accuracy.
 
 ```java
 public class ErrorEstimation {
@@ -146,7 +148,7 @@ x??
 Background context: The text explains how higher-order algorithms can reduce the integration error by using known functional dependence on interval size. It specifically mentions Simpson’s rule and introduces a method called Romberg extrapolation to improve accuracy.
 :p How does Romberg’s extrapolation work?
 ??x
-Romberg’s extrapolation improves the accuracy of numerical integration by reducing the leading error term proportional to \( h^2 \). By computing the integral at two different interval sizes (h and h/2), we can eliminate the \( h^2 \) term in the error expansion.
+Romberg’s extrapolation improves the accuracy of numerical integration by reducing the leading error term proportional to $h^2 $. By computing the integral at two different interval sizes (h and h/2), we can eliminate the $ h^2$ term in the error expansion.
 ```java
 // Pseudocode for Romberg's extrapolation
 public class RombergExtrapolation {
@@ -168,10 +170,10 @@ x??
 
 
 #### Gaussian Quadrature Overview
-Background context: The text introduces Gaussian quadrature as a method for numerical integration where the points and weights are chosen to make the integration exact for polynomials of degree up to \( 2N - 1 \). It explains that this approach often provides higher accuracy than simpler methods like the trapezoid or Simpson’s rules.
+Background context: The text introduces Gaussian quadrature as a method for numerical integration where the points and weights are chosen to make the integration exact for polynomials of degree up to $2N - 1$. It explains that this approach often provides higher accuracy than simpler methods like the trapezoid or Simpson’s rules.
 :p What is Gaussian quadrature?
 ??x
-Gaussian quadrature is a numerical integration method where specific points and weights are chosen such that the integration of polynomials up to degree \( 2N - 1 \) can be computed exactly. This approach uses fewer points than simpler methods like the trapezoid or Simpson’s rules, leading to higher accuracy for the same number of function evaluations.
+Gaussian quadrature is a numerical integration method where specific points and weights are chosen such that the integration of polynomials up to degree $2N - 1$ can be computed exactly. This approach uses fewer points than simpler methods like the trapezoid or Simpson’s rules, leading to higher accuracy for the same number of function evaluations.
 ```java
 // Pseudocode for Gaussian quadrature
 public class GaussianQuadrature {
@@ -199,10 +201,10 @@ Background context: The text lists several types of Gaussian quadrature rules an
 :p What are the different types of Gaussian quadrature rules?
 ??x
 Gaussian quadrature rules use specific points and weights to make integration exact for polynomials up to a certain degree. The types include:
-- **Gauss-Legendre**: For general integrals over \([-1, 1]\) with no weighting function.
-- **Gauss-Chebyshev**: Used for integrating functions with singularities at the endpoints of the interval \([-1, 1]\).
+- **Gauss-Legendre**: For general integrals over $[-1, 1]$ with no weighting function.
+- **Gauss-Chebyshev**: Used for integrating functions with singularities at the endpoints of the interval $[-1, 1]$.
 - **Gauss-Hermite**: Suitable for integrands that are smooth or can be made so by removing a polynomial factor.
-- **Gauss-Laguerre**: Useful for integrals over \([0, ∞)\) with an exponential weighting function.
+- **Gauss-Laguerre**: Useful for integrals over $[0, ∞)$ with an exponential weighting function.
 
 ```java
 // Pseudocode to generate and use Gauss-Legendre points and weights
@@ -227,75 +229,57 @@ x??
 
 #### Gaussian Quadrature Mapping
 
-Background context: This section explains how to map Gaussian points from the interval \([-1, 1]\) to other intervals for numerical integration. The formulas provided ensure that the integration rule remains valid under these transformations.
+Background context: This section explains how to map Gaussian points from the interval $[-1, 1]$ to other intervals for numerical integration. The formulas provided ensure that the integration rule remains valid under these transformations.
 
-:p What is the formula used to map Gaussian points and weights uniformly from \([-1, 1]\) to \([a, b]\)?
+:p What is the formula used to map Gaussian points and weights uniformly from $[-1, 1]$ to $[a, b]$?
 ??x
-The formula used maps the Gaussian point \(y_i\) with weight \(w'_i\) in the interval \([-1, 1]\) to a new interval \([a, b]\):
+The formula used maps the Gaussian point $y_i $ with weight$w'_i $ in the interval$[-1, 1]$ to a new interval $[a, b]$:
 
-\[ x_i = \frac{b+a}{2} + \frac{b-a}{2} y_i \]
-\[ w_i = \frac{b-a}{2} w'_i \]
+$$x_i = \frac{b+a}{2} + \frac{b-a}{2} y_i$$
+$$w_i = \frac{b-a}{2} w'_i$$
 
 This ensures that the integral is correctly transformed:
-
-\[ \int_a^b f(x) \, dx = \frac{b-a}{2} \int_{-1}^{1} f\left(\frac{b+a}{2} + \frac{b-a}{2} y_i \right) dy_i. \]
-
-:p What is the formula used to map Gaussian points and weights from \(0\) to \(\infty\)?
+$$\int_a^b f(x) \, dx = \frac{b-a}{2} \int_{-1}^{1} f\left(\frac{b+a}{2} + \frac{b-a}{2} y_i \right) dy_i.$$:p What is the formula used to map Gaussian points and weights from $0 $ to$\infty$?
 ??x
-The formula used maps the Gaussian point \(y_i\) with weight \(w'_i\) in the interval \([-1, 1]\) to a new interval \([0, \infty)\):
+The formula used maps the Gaussian point $y_i $ with weight$w'_i $ in the interval$[-1, 1]$ to a new interval $[0, \infty)$:
 
-\[ x_i = \frac{a}{1 + y_i} \]
-\[ w_i = \frac{2a (1 - y_i)^2}{(1 - y_i)^2 w'_i} \]
+$$x_i = \frac{a}{1 + y_i}$$
+$$w_i = \frac{2a (1 - y_i)^2}{(1 - y_i)^2 w'_i}$$
 
 This ensures that the integral is correctly transformed:
-
-\[ \int_0^\infty f(x) \, dx = a \sum_{i=1}^{N} \left(\frac{f\left(\frac{a}{1 + y_i}\right)}{(1 - y_i)^2 w'_i}\right). \]
-
-:p What is the formula used to map Gaussian points and weights from \(-\infty\) to \(\infty\) with a scaling factor \(a\)?
+$$\int_0^\infty f(x) \, dx = a \sum_{i=1}^{N} \left(\frac{f\left(\frac{a}{1 + y_i}\right)}{(1 - y_i)^2 w'_i}\right).$$:p What is the formula used to map Gaussian points and weights from $-\infty $ to$\infty $ with a scaling factor$a$?
 ??x
-The formula used maps the Gaussian point \(y_i\) with weight \(w'_i\) in the interval \([-1, 1]\) to a new interval \((-\infty, \infty)\):
+The formula used maps the Gaussian point $y_i $ with weight$w'_i $ in the interval$[-1, 1]$ to a new interval $(-\infty, \infty)$:
 
-\[ x_i = ay_i \sqrt{1 - y_i^2} \]
-\[ w_i = \frac{a (1 + y_i^2)}{(1 - y_i^2)^2} w'_i \]
+$$x_i = ay_i \sqrt{1 - y_i^2}$$
+$$w_i = \frac{a (1 + y_i^2)}{(1 - y_i^2)^2} w'_i$$
 
 This ensures that the integral is correctly transformed:
-
-\[ \int_{-\infty}^\infty f(x) \, dx = a \sum_{i=1}^{N} \left(\frac{f\left(ay_i \sqrt{1 - y_i^2}\right)}{(1 - y_i^2)^2 w'_i}\right). \]
-
-:p What is the formula used to map Gaussian points and weights from \(a\) to \(\infty\) with a midpoint at \(a + 2b\)?
+$$\int_{-\infty}^\infty f(x) \, dx = a \sum_{i=1}^{N} \left(\frac{f\left(ay_i \sqrt{1 - y_i^2}\right)}{(1 - y_i^2)^2 w'_i}\right).$$:p What is the formula used to map Gaussian points and weights from $ a $ to $\infty $ with a midpoint at$a + 2b$?
 ??x
-The formula used maps the Gaussian point \(y_i\) with weight \(w'_i\) in the interval \([-1, 1]\) to a new interval \([a, \infty)\):
+The formula used maps the Gaussian point $y_i $ with weight$w'_i $ in the interval$[-1, 1]$ to a new interval $[a, \infty)$:
 
-\[ x_i = a + \frac{2b}{1 - y_i} \]
-\[ w_i = \frac{2(b+a)}{(1 - y_i)^2} w'_i \]
+$$x_i = a + \frac{2b}{1 - y_i}$$
+$$w_i = \frac{2(b+a)}{(1 - y_i)^2} w'_i$$
 
 This ensures that the integral is correctly transformed:
-
-\[ \int_a^\infty f(x) \, dx = (b+a) \sum_{i=1}^{N} \left(\frac{f\left(a + \frac{2b}{1 - y_i}\right)}{(1 - y_i)^2 w'_i}\right). \]
-
-:p What is the formula used to map Gaussian points and weights from \(0\) to \(b\) with a midpoint at \(\frac{ab}{(b+a)}\)?
+$$\int_a^\infty f(x) \, dx = (b+a) \sum_{i=1}^{N} \left(\frac{f\left(a + \frac{2b}{1 - y_i}\right)}{(1 - y_i)^2 w'_i}\right).$$:p What is the formula used to map Gaussian points and weights from $0 $ to$b $ with a midpoint at$\frac{ab}{(b+a)}$?
 ??x
-The formula used maps the Gaussian point \(y_i\) with weight \(w'_i\) in the interval \([-1, 1]\) to a new interval \([0, b]\):
+The formula used maps the Gaussian point $y_i $ with weight$w'_i $ in the interval$[-1, 1]$ to a new interval $[0, b]$:
 
-\[ x_i = \frac{a + (b - a) y_i}{2} \]
-\[ w_i = \frac{b-a}{2} w'_i \]
+$$x_i = \frac{a + (b - a) y_i}{2}$$
+$$w_i = \frac{b-a}{2} w'_i$$
 
 This ensures that the integral is correctly transformed:
-
-\[ \int_0^b f(x) \, dx = (b-a) \sum_{i=1}^{N} \left(\frac{f\left(\frac{a + (b - a) y_i}{2}\right)}{2 w'_i}\right). \]
-
-:p What is the formula used to map Gaussian points and weights from \(0\) to \(b\) with uniform distribution?
+$$\int_0^b f(x) \, dx = (b-a) \sum_{i=1}^{N} \left(\frac{f\left(\frac{a + (b - a) y_i}{2}\right)}{2 w'_i}\right).$$:p What is the formula used to map Gaussian points and weights from $0 $ to$b$ with uniform distribution?
 ??x
-The formula maps the Gaussian point \(y_i\) in the interval \([-1, 1]\) to a new interval \([0, b]\):
+The formula maps the Gaussian point $y_i $ in the interval$[-1, 1]$ to a new interval $[0, b]$:
 
-\[ x_i = \frac{a + (b - a) y_i}{2} \]
-\[ w_i = \frac{b-a}{2} \]
+$$x_i = \frac{a + (b - a) y_i}{2}$$
+$$w_i = \frac{b-a}{2}$$
 
 This ensures that the integral is correctly transformed:
-
-\[ \int_0^b f(x) \, dx = (b-a) \sum_{i=1}^{N} \left(\frac{f\left(\frac{a + (b - a) y_i}{2}\right)}{2}\right). \]
-
-:p What is the objective of using these mappings in Gaussian quadrature?
+$$\int_0^b f(x) \, dx = (b-a) \sum_{i=1}^{N} \left(\frac{f\left(\frac{a + (b - a) y_i}{2}\right)}{2}\right).$$:p What is the objective of using these mappings in Gaussian quadrature?
 ??x
 The objective is to adapt the Gaussian quadrature points and weights to different integration intervals, ensuring that the numerical integration rule remains accurate. This allows for efficient and precise integration over various domains by leveraging the optimal properties of Gaussian quadrature.
 
@@ -306,25 +290,17 @@ The objective is to adapt the Gaussian quadrature points and weights to differen
 
 Background context: This concept uses the mean value theorem from calculus to approximate integrals using random sampling. It provides a simple yet effective method for numerical integration, especially when exact analytical solutions are not available.
 
-:p How is the integral of a function \(f(x)\) over \([a, b]\) expressed using the mean value theorem?
+:p How is the integral of a function $f(x)$ over $[a, b]$ expressed using the mean value theorem?
 ??x
-The integral of a function \(f(x)\) over the interval \([a, b]\) can be expressed as:
-
-\[ I = \int_a^b f(x) \, dx = (b - a) \langle f \rangle \]
-
-where \(\langle f \rangle\) is the mean value of the function over that interval.
+The integral of a function $f(x)$ over the interval $[a, b]$ can be expressed as:
+$$I = \int_a^b f(x) \, dx = (b - a) \langle f \rangle$$where $\langle f \rangle$ is the mean value of the function over that interval.
 
 :p How does the Monte Carlo integration algorithm use random points to estimate the integral?
 ??x
-The Monte Carlo integration algorithm uses random points within the interval \([a, b]\) to approximate the integral. Specifically:
+The Monte Carlo integration algorithm uses random points within the interval $[a, b]$ to approximate the integral. Specifically:
+$$\langle f \rangle \approx \frac{1}{N} \sum_{i=1}^{N} f(x_i)$$where $ x_i $ are uniformly distributed random samples between $ a $ and $ b$. The integral can then be estimated as:
 
-\[ \langle f \rangle \approx \frac{1}{N} \sum_{i=1}^{N} f(x_i) \]
-
-where \(x_i\) are uniformly distributed random samples between \(a\) and \(b\). The integral can then be estimated as:
-
-\[ I \approx (b - a) \langle f \rangle = (b - a) \frac{1}{N} \sum_{i=1}^{N} f(x_i) \]
-
-:p What is the pseudocode for performing Monte Carlo integration using random sampling?
+$$I \approx (b - a) \langle f \rangle = (b - a) \frac{1}{N} \sum_{i=1}^{N} f(x_i)$$:p What is the pseudocode for performing Monte Carlo integration using random sampling?
 ??x
 ```java
 public class MonteCarloIntegration {
@@ -345,13 +321,13 @@ public class MonteCarloIntegration {
 }
 ```
 
-The code generates \(N\) random samples between \(a\) and \(b\), evaluates the function at each sample, and computes the mean value. The integral is then estimated by scaling this mean value by \((b - a)\).
+The code generates $N $ random samples between$a $ and$b $, evaluates the function at each sample, and computes the mean value. The integral is then estimated by scaling this mean value by $(b - a)$.
 
 :p How does the Monte Carlo integration method compare in terms of efficiency to traditional numerical methods like trapezoidal or Simpson's rule?
 ??x
 The Monte Carlo integration method is generally less efficient than traditional numerical methods such as the trapezoidal or Simpson’s rule for low-dimensional integrals. However, it becomes more advantageous as the dimensionality of the integral increases due to the curse of dimensionality.
 
-Traditional methods suffer from poor convergence rates when dealing with high-dimensional problems, while Monte Carlo integration converges much faster and is relatively easy to implement. The efficiency difference can be summarized by noting that traditional methods require significantly smaller \(N\) for high dimensions compared to Monte Carlo methods to achieve similar accuracy.
+Traditional methods suffer from poor convergence rates when dealing with high-dimensional problems, while Monte Carlo integration converges much faster and is relatively easy to implement. The efficiency difference can be summarized by noting that traditional methods require significantly smaller $N$ for high dimensions compared to Monte Carlo methods to achieve similar accuracy.
 
 :p What are the key differences between using Gaussian quadrature versus mean value theorem for numerical integration?
 ??x
@@ -367,39 +343,36 @@ Gaussian quadrature and the mean value theorem for integration serve different p
   - Works well in higher dimensions due to better scaling properties.
   - Relies on statistical methods for convergence rather than specific optimal points.
 
-:p How can the power-law dependence of error on the number of points \(N\) be determined from a log-log plot?
+:p How can the power-law dependence of error on the number of points $N$ be determined from a log-log plot?
 ??x
-The power-law dependence of the error \(\epsilon\) on the number of points \(N\) can be determined by analyzing a log-log plot. Specifically:
+The power-law dependence of the error $\epsilon $ on the number of points$N$ can be determined by analyzing a log-log plot. Specifically:
+$$\epsilon \approx C N^\alpha$$which implies that in a log-log plot, the relationship will appear as a straight line with slope $\alpha$:
 
-\[ \epsilon \approx C N^\alpha \]
+$$\log \epsilon = \alpha \log N + \text{constant}$$
 
-which implies that in a log-log plot, the relationship will appear as a straight line with slope \(\alpha\):
+By fitting this linear model to the data points, you can estimate $\alpha$ and thus determine the power-law exponent.
 
-\[ \log \epsilon = \alpha \log N + \text{constant} \]
-
-By fitting this linear model to the data points, you can estimate \(\alpha\) and thus determine the power-law exponent.
-
-:p How does the error behavior of trapezoidal and Simpson's rules change as \(N\) increases?
+:p How does the error behavior of trapezoidal and Simpson's rules change as $N$ increases?
 ??x
-The error behavior of the trapezoidal rule and Simpson’s rule changes with increasing \(N\):
+The error behavior of the trapezoidal rule and Simpson’s rule changes with increasing $N$:
 
 - **Trapezoidal Rule**:
-  - Error decreases linearly with \(N\).
-  - The error term is proportional to \(\frac{1}{N^2}\).
+  - Error decreases linearly with $N$.
+  - The error term is proportional to $\frac{1}{N^2}$.
 
 - **Simpson's Rule**:
-  - Error decreases quadratically with \(N\).
-  - The error term is proportional to \(\frac{1}{N^4}\).
+  - Error decreases quadratically with $N$.
+  - The error term is proportional to $\frac{1}{N^4}$.
 
-In a log-log plot, the power-law behavior would show a slope of \(-2\) for trapezoidal rule and \(-4\) for Simpson’s rule.
+In a log-log plot, the power-law behavior would show a slope of $-2 $ for trapezoidal rule and$-4$ for Simpson’s rule.
 
 :p What does the negative ordinate on the log-log plot represent in terms of decimal places of precision?
 ??x
-The negative ordinate on the log-log plot represents the number of significant decimal places of precision. Specifically, if the slope is \(\alpha\), then:
+The negative ordinate on the log-log plot represents the number of significant decimal places of precision. Specifically, if the slope is $\alpha$, then:
 
-\[ \text{Number of decimal places} = -\alpha \]
+$$\text{Number of decimal places} = -\alpha$$
 
-For example, a slope of \(-2\) indicates that doubling \(N\) results in an improvement of about 1 decimal place in precision.
+For example, a slope of $-2 $ indicates that doubling$N$ results in an improvement of about 1 decimal place in precision.
 
 ---
 
@@ -410,7 +383,7 @@ Background context: This section demonstrates how to implement the `gauss` funct
 
 :p What does the `gauss` function do?
 ??x
-The `gauss` function generates the \(N\) Gauss-Legendre quadrature points and corresponding weights used in numerical integration. It leverages the properties of Legendre polynomials to ensure optimal distribution of points, providing high accuracy for a small number of evaluations.
+The `gauss` function generates the $N$ Gauss-Legendre quadrature points and corresponding weights used in numerical integration. It leverages the properties of Legendre polynomials to ensure optimal distribution of points, providing high accuracy for a small number of evaluations.
 
 :p Provide an implementation example of the `gauss` function.
 ??x
@@ -435,12 +408,9 @@ The `gauss` function uses the roots of Legendre polynomials to determine the sam
 :p How can you use the generated points and weights for numerical integration?
 ??x
 You can use the generated points and weights to perform numerical integration by evaluating the integrand at each point, multiplying by the corresponding weight, and summing up the results scaled by the length of the interval. The formula is:
-
-\[ \int_a^b f(x) \, dx \approx (b - a) \sum_{i=1}^{N} w_i f(x_i) \]
-
-:p How does the `gauss` function ensure that it can be used in other applications?
+$$\int_a^b f(x) \, dx \approx (b - a) \sum_{i=1}^{N} w_i f(x_i)$$:p How does the `gauss` function ensure that it can be used in other applications?
 ??x
-The `gauss` function is designed to generate points and weights for any number of points \(N\), making it flexible and reusable across various applications. It ensures optimal distribution of points, which is crucial for numerical integration but also useful in other areas such as:
+The `gauss` function is designed to generate points and weights for any number of points $N$, making it flexible and reusable across various applications. It ensures optimal distribution of points, which is crucial for numerical integration but also useful in other areas such as:
 
 - **Optimization**: Using these points can help find the minimum or maximum of a function.
 - **Interpolation**: The points can be used to construct interpolating polynomials.
@@ -468,7 +438,7 @@ integral_estimate = (b - a) * sum(weights * f(points))
 print("Integral estimate:", integral_estimate)
 ```
 
-The `gauss` function generates the required points and weights for numerical integration. The example demonstrates how to use these points to integrate the function \(f(x) = e^{-x^2}\) over the interval \([0, 1]\). The result is an approximation of the definite integral.
+The `gauss` function generates the required points and weights for numerical integration. The example demonstrates how to use these points to integrate the function $f(x) = e^{-x^2}$ over the interval $[0, 1]$. The result is an approximation of the definite integral.
 
 ---
 

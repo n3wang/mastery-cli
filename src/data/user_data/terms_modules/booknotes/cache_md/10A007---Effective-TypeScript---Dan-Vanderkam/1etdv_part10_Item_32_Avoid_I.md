@@ -374,7 +374,7 @@ const alanT = {
 function eulogize(person: Person) {
     console.log(`Name: ${person.name}`);
     if (person.birth) {  // Check for presence of birth details
-        console.log(`Born on ${person.birth.date} in ${person.birth.place}.`);
+        console.log(`Born on ${person.birth.date} in${person.birth.place}.`);
     }
 }
 ```

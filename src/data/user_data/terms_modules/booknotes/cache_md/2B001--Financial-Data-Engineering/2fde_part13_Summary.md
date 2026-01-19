@@ -196,7 +196,7 @@ Background context: The text explains that a Data Storage System (DSS) must ensu
 
 :p What is the transactional guarantee in DSS?
 ??x
-Transactional guarantees ensure that all instructions within a single transaction are either fully committed or not executed at all, maintaining the integrity of the data state. This means that if you have $10,000 and attempt to buy a book for $50 and a car for $10,000 in one transaction, your final balance must be exactly $9,950 or zero, not negative.
+Transactional guarantees ensure that all instructions within a single transaction are either fully committed or not executed at all, maintaining the integrity of the data state. This means that if you have $10,000 and attempt to buy a book for $50 and a car for $10,000 in one transaction, your final balance must be exactly$9,950 or zero, not negative.
 
 For example:
 ```java

@@ -180,7 +180,7 @@ Background context: This concept introduces how to calculate arithmetic intensit
 :p What formula was used to calculate the arithmetic intensity?
 ??x
 The arithmetic intensity was calculated as follows:
-\[ \text{Arithmetic intensity} = 5 \times 2000 \times 2000 / 64.1 \text{ MB} = 0.312 \text{ flops/byte or } 2.5 \text{ flops/word} \]
+$$\text{Arithmetic intensity} = 5 \times 2000 \times 2000 / 64.1 \text{ MB} = 0.312 \text{ flops/byte or } 2.5 \text{ flops/word}$$
 
 This formula takes into account the number of floating-point operations and the total memory used.
 
@@ -335,12 +335,11 @@ Loop overhead costs (Lc) are assigned to account for the branching and control o
 :p How do you estimate the loop overhead in performance models?
 ??x
 The loop overhead cost (Lc) is estimated at about 20 cycles per exit, which includes costs for branching and control. The loop penalty (Lp) is then calculated as:
-
-\[ \text{Loop Penalty} = \frac{\text{Lc}}{\text{v}} \]
+$$\text{Loop Penalty} = \frac{\text{Lc}}{\text{v}}$$
 
 Where:
-- \( \text{Lc} \) is the loop cost, typically 20 cycles.
-- \( \text{v} \) is the processor frequency.
+- $\text{Lc}$ is the loop cost, typically 20 cycles.
+- $\text{v}$ is the processor frequency.
 
 For a MacBook Pro with a 2.7 GHz processor:
 
@@ -369,7 +368,7 @@ Background context: The choice of data structure is critical for performance in 
 ??x
 The two primary computations used are:
 1. Computing `pavg[C]`, which calculates the average density of materials in each cell.
-2. Evaluating `p[C][m]`, representing the pressure in each material within a given cell, using the ideal gas law: \( p = \frac{nrt}{v} \).
+2. Evaluating `p[C][m]`, representing the pressure in each material within a given cell, using the ideal gas law:$p = \frac{nrt}{v}$.
 
 Both computations have an arithmetic intensity of 1 flop per word or lower and are expected to be bandwidth-limited.
 
@@ -483,13 +482,13 @@ However, the performance is dominated by memory bandwidth constraints due to fre
 The performance is affected by memory bandwidth, especially with frequent conditional checks leading to high branch prediction miss rates. Memory savings through compressed sparse storage can offset these issues.
 
 Performance model:
-\[ \text{PM} = N_c(N_m + F_fN_m + 2) * \frac{8}{\text{Stream}} + B_pF_fN_cN_m \]
+$$\text{PM} = N_c(N_m + F_fN_m + 2) * \frac{8}{\text{Stream}} + B_pF_fN_cN_m$$
 
 Where:
-- \( N_c \): Number of cells
-- \( N_m \): Number of materials
-- \( F_f \): Fill fraction (fraction of non-zero elements)
-- \( B_p \): Branch prediction miss probability
+- $N_c$: Number of cells
+- $N_m$: Number of materials
+- $F_f$: Fill fraction (fraction of non-zero elements)
+- $B_p$: Branch prediction miss probability
 
 Example code to compute average density with a cell-dominant loop:
 ```c

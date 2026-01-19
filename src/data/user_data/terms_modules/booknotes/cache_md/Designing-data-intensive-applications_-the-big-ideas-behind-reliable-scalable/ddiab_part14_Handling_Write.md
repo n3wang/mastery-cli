@@ -108,8 +108,8 @@ Example: Bucardo allows users to implement conflict handlers using Perl scripts.
 ```perl
 # Example of a simple Perl script for conflict resolution in Bucardo
 sub custom_conflict_handler {
-    my ($new_value, $old_value) = @_;
-    if ($new_value > $old_value) {
+    my ($new_value,$ old_value) = @_;
+    if ($new_value >$ old_value) {
         return $new_value;
     } else {
         return $old_value;

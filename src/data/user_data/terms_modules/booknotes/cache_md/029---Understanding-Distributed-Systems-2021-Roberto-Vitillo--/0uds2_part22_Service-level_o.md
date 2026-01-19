@@ -7,7 +7,7 @@
 
 
 #### Little's Law
-Little's Law is a fundamental principle used to understand queuing systems. It states that the average number of items in a system (\(L\)) equals the average arrival rate (\(\lambda\)) multiplied by the average time an item spends in the system (\(W\)), or mathematically, \(L = \lambda W\).
+Little's Law is a fundamental principle used to understand queuing systems. It states that the average number of items in a system ($L $) equals the average arrival rate ($\lambda $) multiplied by the average time an item spends in the system ($ W $), or mathematically,$ L = \lambda W$.
 
 :p What does Little's Law describe in terms of queuing systems?
 ??x
@@ -363,9 +363,7 @@ For example, to trigger an alert when 2% of the error budget has been burned in 
    - SLO period = 1 day = 720 hours
 
 2. **Burn rate calculation:**
-   \[
-   \text{burnrate} = \frac{\text{errorbudgetconsumed}}{\text{timeperiodelapsed}} = \frac{0.02}{\frac{1 \, \text{day}}{30 \, \text{days}}} = 6
-   \]
+   $$\text{burnrate} = \frac{\text{errorbudgetconsumed}}{\text{timeperiodelapsed}} = \frac{0.02}{\frac{1 \, \text{day}}{30 \, \text{days}}} = 6$$
 
 3. **Set the threshold:**
    - The burn rate should be set to 14.4 to trigger an alert when 2% of the error budget has been burned in one hour.

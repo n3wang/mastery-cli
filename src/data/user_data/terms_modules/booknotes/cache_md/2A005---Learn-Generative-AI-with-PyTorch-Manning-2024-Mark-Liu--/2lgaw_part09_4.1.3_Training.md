@@ -8,11 +8,11 @@
 
 #### Modifying Generator G for Clothing Item Generation
 
-Background context: In this exercise, you need to modify the generator \(G\) so that it has different output sizes in its first three layers compared to the original. The new output sizes are 1000, 500, and 200 instead of 1024, 512, and 256 respectively. This modification ensures that the generator's architecture mirrors the discriminator's structure used in exercise 4.1.
+Background context: In this exercise, you need to modify the generator $G$ so that it has different output sizes in its first three layers compared to the original. The new output sizes are 1000, 500, and 200 instead of 1024, 512, and 256 respectively. This modification ensures that the generator's architecture mirrors the discriminator's structure used in exercise 4.1.
 
-:p How should you modify the generator \(G\) to match the new layer sizes?
+:p How should you modify the generator $G$ to match the new layer sizes?
 ??x
-To modify the generator \(G\), you need to adjust the number of outputs in its first three layers as follows:
+To modify the generator $G$, you need to adjust the number of outputs in its first three layers as follows:
 - The first layer should have 1000 outputs.
 - The second layer should have 500 outputs.
 - The third layer should have 200 outputs.
@@ -40,11 +40,11 @@ x??
 
 #### Defining Loss Function and Optimizers for GANs
 
-Background context: The loss function used in this exercise is binary cross-entropy (BCE) because the discriminator \(D\) performs a binary classification problem, determining whether an input image is real or fake. Both the generator \(G\) and the discriminator \(D\) will use the Adam optimizer with a learning rate of 0.0001.
+Background context: The loss function used in this exercise is binary cross-entropy (BCE) because the discriminator $D $ performs a binary classification problem, determining whether an input image is real or fake. Both the generator$G $ and the discriminator$D$ will use the Adam optimizer with a learning rate of 0.0001.
 
 :p What loss function and optimizers are used in this exercise?
 ??x
-The loss function used is binary cross-entropy (BCE), which is suitable for the binary classification problem performed by the discriminator \(D\). The optimizers for both the generator \(G\) and the discriminator \(D\) are Adam with a learning rate of 0.0001.
+The loss function used is binary cross-entropy (BCE), which is suitable for the binary classification problem performed by the discriminator $D $. The optimizers for both the generator $ G $and the discriminator$ D$ are Adam with a learning rate of 0.0001.
 
 ```python
 # Define the loss function and optimizers
@@ -126,7 +126,7 @@ The `see_output()` function generates 32 fake images by passing random noise thr
 
 1. **Generate Fake Samples**:
    - Generate 32 samples from a standard normal distribution.
-   - Pass this noise to the generator \(G\) to produce fake samples.
+   - Pass this noise to the generator $G$ to produce fake samples.
 
 2. **Visualize the Generated Images**:
    - Normalize and reshape the generated images.

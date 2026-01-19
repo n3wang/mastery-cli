@@ -92,13 +92,9 @@ For example, here is an excerpt:
 ```cmake
 target_include_directories(MinWorkExampleMPI        PRIVATE ${MPI_C_INCLUDE_PATH})
 target_compile_options(MinWorkExampleMPI            PRIVATE ${MPI_C_COMPILE_FLAGS})
-target_link_libraries(MinWorkExampleMPI             ${MPI_C_LIBRARIES} ${MPI_C_LINK_FLAGS})
+target_link_libraries(MinWorkExampleMPI             ${MPI_C_LIBRARIES}${MPI_C_LINK_FLAGS})
 enable_testing()
-add_test(MPITest ${MPIEXEC} ${MPIEXEC_NUMPROC_FLAG}
-         ${MPIEXEC_MAX_NUMPROCS}
-         ${MPIEXEC_PREFLAGS}
-         ${CMAKE_CURRENT_BINARY_DIR}/MinWorkExampleMPI
-         ${MPIEXEC_POSTFLAGS})
+add_test(MPITest ${MPIEXEC}${MPIEXEC_NUMPROC_FLAG}${MPIEXEC_MAX_NUMPROCS}${MPIEXEC_PREFLAGS}${CMAKE_CURRENT_BINARY_DIR}/MinWorkExampleMPI${MPIEXEC_POSTFLAGS})
 ```
 x??
 

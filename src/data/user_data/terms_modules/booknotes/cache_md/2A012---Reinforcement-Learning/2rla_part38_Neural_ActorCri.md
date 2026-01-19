@@ -38,13 +38,13 @@ TD errors are crucial in reinforcement learning algorithms that use temporal dif
 :p What is a TD error?
 ??x
 A TD error, denoted as , represents the discrepancy between the actual reward received and the expected discounted future rewards. It helps the actor update its policy based on the critic's feedback.
-\[ \Delta V(s) = r + \gamma V(s') - V(s) \]
+$$\Delta V(s) = r + \gamma V(s') - V(s)$$
 
 Where:
-- \( r \): The immediate reward
-- \( \gamma \): Discount factor
-- \( V(s) \): State value function
-- \( V(s') \): Next state value function
+- $r$: The immediate reward
+- $\gamma$: Discount factor
+- $V(s)$: State value function
+- $V(s')$: Next state value function
 
 Example of TD error calculation in pseudocode:
 ```python
@@ -111,9 +111,10 @@ Background context: The critic network plays a crucial role in estimating state 
 
 :p How does the critic network compute TD errors?
 ??x
-The critic network computes TD errors by combining the current state value estimate with the reward signal. The formula for updating the state value \(V(s)\) is:
-\[ V(s_{t+1}) \leftarrow V(s_t) + \alpha [R_t - V(s_t)] \]
-Where \(R_t\) is the immediate reward and \(\alpha\) is the learning rate.
+The critic network computes TD errors by combining the current state value estimate with the reward signal. The formula for updating the state value $V(s)$ is:
+$$V(s_{t+1}) \leftarrow V(s_t) + \alpha [R_t - V(s_t)]$$
+
+Where $R_t $ is the immediate reward and$\alpha$ is the learning rate.
 ??x
 
 ---
@@ -125,8 +126,9 @@ Background context: The actor network determines which action to take based on t
 :p How does the actor network use TD errors?
 ??x
 The actor network uses TD errors to update its policy parameters, aiming to improve the quality of actions taken. The update rule can be simplified as:
-\[ \pi(a|s) \leftarrow \pi(a|s) + \alpha_a [TD\ error] \cdot \nabla_{\pi} \log \pi(a|s) \]
-Where \(a\) is an action, \(s\) is a state, and \(\alpha_a\) is the learning rate for the actor.
+$$\pi(a|s) \leftarrow \pi(a|s) + \alpha_a [TD\ error] \cdot \nabla_{\pi} \log \pi(a|s)$$
+
+Where $a $ is an action,$s $ is a state, and$\alpha_a$ is the learning rate for the actor.
 ??x
 
 ---
@@ -189,7 +191,7 @@ Background context: The text explains that the actor and critic components use t
 
 :p How do the actor and critic use the TD error differently?
 ??x
-The actor uses the TD error to update action probabilities in favor of actions that lead to higher-valued states by making \( \Delta w_t \) positive. The critic uses the TD error to adjust its value function parameters, aiming to reduce the magnitude of the TD error as close to zero as possible.
+The actor uses the TD error to update action probabilities in favor of actions that lead to higher-valued states by making $\Delta w_t$ positive. The critic uses the TD error to adjust its value function parameters, aiming to reduce the magnitude of the TD error as close to zero as possible.
 
 Example code snippet:
 ```java
@@ -221,7 +223,7 @@ Background context: The text discusses how eligibility traces are used in actor-
 
 :p What role do eligibility traces play in actor and critic learning?
 ??x
-Eligibility traces (\( \zeta_t \)) are crucial as they indicate which parts of the neural network should be updated when a new piece of information (like a TD error) is available. The actor uses eligibility traces to update action probabilities, while the critic uses them to adjust its value function parameters.
+Eligibility traces ($\zeta_t$) are crucial as they indicate which parts of the neural network should be updated when a new piece of information (like a TD error) is available. The actor uses eligibility traces to update action probabilities, while the critic uses them to adjust its value function parameters.
 
 Example code snippet:
 ```java
@@ -269,14 +271,14 @@ x??
 Background context explaining the critic unit's role in learning. The critic unit is used to approximate the value function, which helps in determining how good a given state is for an agent in a reinforcement learning scenario.
 
 The formula provided for updating the critic parameters is:
-\[ w_{t+1} = w_t + \alpha_w \cdot z_{w,t} \]
-\[ z_{w,t} = (1 - \omega) \cdot z_{w,t-1} + r \cdot \hat{v}(S_t, w) \]
+$$w_{t+1} = w_t + \alpha_w \cdot z_{w,t}$$
+$$z_{w,t} = (1 - \omega) \cdot z_{w,t-1} + r \cdot \hat{v}(S_t, w)$$
 
-Where \( \omega \in [0, 1) \) is the discount rate parameter, and \( \alpha_w > 0 \) is the step-size parameter. The reinforcement signal \( r \) corresponds to a dopamine signal being broadcast to all of the critic unit's synapses.
+Where $\omega \in [0, 1)$ is the discount rate parameter, and $\alpha_w > 0$ is the step-size parameter. The reinforcement signal $r$ corresponds to a dopamine signal being broadcast to all of the critic unit's synapses.
 
 :p What does the update rule for the critic parameters in the learning algorithm entail?
 ??x
-The update rule for the critic parameters involves adjusting the weight vector \( w \) based on the reinforcement signal and the eligibility trace. The eligibility trace, \( z_{w,t} \), is updated using a discount rate \( \omega \). This process allows the critic to learn the value function over time.
+The update rule for the critic parameters involves adjusting the weight vector $w $ based on the reinforcement signal and the eligibility trace. The eligibility trace,$ z_{w,t}$, is updated using a discount rate $\omega$. This process allows the critic to learn the value function over time.
 
 ```java
 // Pseudocode for updating the critic parameters
@@ -304,14 +306,14 @@ x??
 Background context explaining the actor unit's role in learning. The actor unit decides on actions based on the current state, using a policy derived from the value function estimated by the critic.
 
 The formula provided for updating the actor parameters is:
-\[ \theta_t = \theta_{t-1} + \alpha_\theta \cdot z_{\theta,t} \]
-\[ z_{\theta,t} = (1 - \omega) \cdot z_{\theta,t-1} + r \ln \pi(A|S, \theta) \]
+$$\theta_t = \theta_{t-1} + \alpha_\theta \cdot z_{\theta,t}$$
+$$z_{\theta,t} = (1 - \omega) \cdot z_{\theta,t-1} + r \ln \pi(A|S, \theta)$$
 
-Where \( \theta \in [0, 1] \) is the weight vector for the actor unit, and \( \alpha_\theta > 0 \) is the step-size parameter. The reinforcement signal \( r \) corresponds to a dopamine signal.
+Where $\theta \in [0, 1]$ is the weight vector for the actor unit, and $\alpha_\theta > 0$ is the step-size parameter. The reinforcement signal $r$ corresponds to a dopamine signal.
 
 :p How does the learning rule for the actor parameters work?
 ??x
-The learning rule for the actor parameters involves adjusting the weight vector \( \theta \) based on the log probability of the chosen action and the reinforcement signal. This process helps in optimizing the policy that guides the agent's actions.
+The learning rule for the actor parameters involves adjusting the weight vector $\theta$ based on the log probability of the chosen action and the reinforcement signal. This process helps in optimizing the policy that guides the agent's actions.
 
 ```java
 // Pseudocode for updating the actor parameters
@@ -345,8 +347,8 @@ Background context explaining how eligibility traces work in the learning proces
 Eligibility traces are vectors that track the importance of a particular weight or synapse in predicting future rewards. They help in deciding which weights should be modified when an update is needed, without requiring the exact sequence of events to repeat. This mechanism is crucial for TD (Temporal Difference) learning algorithms.
 
 In the context provided:
-- \( z_{w,t} \) tracks the importance of each critic synapse.
-- Each actor unit's synapses have their own eligibility traces, accumulated based on recent activity and decayed over time according to \( \omega \).
+- $z_{w,t}$ tracks the importance of each critic synapse.
+- Each actor unit's synapses have their own eligibility traces, accumulated based on recent activity and decayed over time according to $\omega$.
 
 ```java
 // Pseudocode for eligibility trace update in a TD learning context
@@ -372,12 +374,12 @@ Background context explaining how the actor-critic model integrates both an acto
 
 :p What is the role of the critic unit in the actor-critic model?
 ??x
-The critic unit's primary role in the actor-critic model is to evaluate the state values. It approximates the value function \( \hat{v}(s, w) \), which helps the agent understand how good or bad a given state is. This evaluation guides the learning process of both the actor and critic units.
+The critic unit's primary role in the actor-critic model is to evaluate the state values. It approximates the value function $\hat{v}(s, w)$, which helps the agent understand how good or bad a given state is. This evaluation guides the learning process of both the actor and critic units.
 
 The formula for the value function approximation is:
-\[ \hat{v}(s, w) = w > x(s) \]
+$$\hat{v}(s, w) = w > x(s)$$
 
-Where \( x(s) \) is a feature vector representation of state \( s \), and \( w \) are the weights that parameterize the linear combination of features to approximate the value.
+Where $x(s)$ is a feature vector representation of state $ s $, and $ w$ are the weights that parameterize the linear combination of features to approximate the value.
 
 ```java
 // Pseudocode for calculating value function approximation
@@ -410,20 +412,17 @@ x??
 
 #### Action Probabilities via Exponential Soft-Max Distribution
 
-The weighted sum \( \mathbf{\theta}^T \mathbf{x}(s_t) \) of an actor’s input vector determines its actions’ probabilities according to a logistic function (exponential soft-max distribution).
+The weighted sum $\mathbf{\theta}^T \mathbf{x}(s_t)$ of an actor’s input vector determines its actions’ probabilities according to a logistic function (exponential soft-max distribution).
 
-\[
-\pi(1|s, \mathbf{\theta}) = \frac{1}{1 + e^{-\mathbf{\theta}^T \mathbf{x}(s)}}
-\]
+$$\pi(1|s, \mathbf{\theta}) = \frac{1}{1 + e^{-\mathbf{\theta}^T \mathbf{x}(s)}}$$
 
-This equation defines the probability of taking action 1 given state \( s \) and weights \( \mathbf{\theta} \).
+This equation defines the probability of taking action 1 given state $s $ and weights$\mathbf{\theta}$.
 
 :p What function determines the probability of an actor unit performing a specific action?
 ??x
 The probability is determined by the logistic function:
-\[
-\pi(1|s, \mathbf{\theta}) = \frac{1}{1 + e^{-\mathbf{\theta}^T \mathbf{x}(s)}}
-\]
+$$\pi(1|s, \mathbf{\theta}) = \frac{1}{1 + e^{-\mathbf{\theta}^T \mathbf{x}(s)}}$$
+
 This function maps the weighted sum of inputs to a value between 0 and 1, representing the probability of taking action 1.
 x??
 
@@ -432,25 +431,20 @@ x??
 
 #### Incrementing Weights
 
-The weights of each actor unit are incremented based on the reinforcement signal \( \delta_t \), similar to how critic units are updated. The update rule is:
+The weights of each actor unit are incremented based on the reinforcement signal $\delta_t$, similar to how critic units are updated. The update rule is:
 
-\[
-\mathbf{\theta} \leftarrow \mathbf{\theta} + \alpha \delta_t z_{t,\mathbf{\theta}}
-\]
+$$\mathbf{\theta} \leftarrow \mathbf{\theta} + \alpha \delta_t z_{t,\mathbf{\theta}}$$
 
 Where:
-- \( \alpha \) is the learning rate.
-- \( z_{t,\mathbf{\theta}} \) is the eligibility trace vector.
+- $\alpha$ is the learning rate.
+- $z_{t,\mathbf{\theta}}$ is the eligibility trace vector.
 
 :p How are the weights of actor units updated?
 ??x
 The weights are updated using a similar rule to the critic units, where:
+$$\mathbf{\theta} \leftarrow \mathbf{\theta} + \alpha \delta_t z_{t,\mathbf{\theta}}$$
 
-\[
-\mathbf{\theta} \leftarrow \mathbf{\theta} + \alpha \delta_t z_{t,\mathbf{\theta}}
-\]
-
-Here, \( \alpha \) is the learning rate, and \( z_{t,\mathbf{\theta}} \) represents the eligibility trace vector that captures recent values of \( r \ln \pi(A_t|S_t, \mathbf{\theta}) \).
+Here,$\alpha $ is the learning rate, and$z_{t,\mathbf{\theta}}$ represents the eligibility trace vector that captures recent values of $r \ln \pi(A_t|S_t, \mathbf{\theta})$.
 x??
 
 ---
@@ -458,11 +452,11 @@ x??
 
 #### Eligibility Trace Vector
 
-The actor’s eligibility trace vector \( z_{\mathbf{\theta} t} \) is a running average of \( r \ln \pi(A_t|S_t, \mathbf{\theta}) \), reflecting the postsynaptic activity.
+The actor’s eligibility trace vector $z_{\mathbf{\theta} t}$ is a running average of $r \ln \pi(A_t|S_t, \mathbf{\theta})$, reflecting the postsynaptic activity.
 
 :p What does the eligibility trace vector capture in actor units?
 ??x
-The eligibility trace vector captures the influence of recent actions on the reinforcement signal. Specifically, it is a running average of \( r \ln \pi(A_t|S_t, \mathbf{\theta}) \), indicating how the policy parameters (synaptic efficacies) contributed to the action taken.
+The eligibility trace vector captures the influence of recent actions on the reinforcement signal. Specifically, it is a running average of $r \ln \pi(A_t|S_t, \mathbf{\theta})$, indicating how the policy parameters (synaptic efficacies) contributed to the action taken.
 
 This helps in attributing credit or blame for rewards and punishments to the correct synaptic connections.
 x??
@@ -472,19 +466,12 @@ x??
 
 #### Contingent Eligibility Trace
 
-The eligibility trace of an actor’s synapse is contingent on both presynaptic activity \( \mathbf{x}(s_t) \) and postsynaptic activity \( A_t \). The update rule for action taken at time \( t \):
+The eligibility trace of an actor’s synapse is contingent on both presynaptic activity $\mathbf{x}(s_t)$ and postsynaptic activity $ A_t $. The update rule for action taken at time $ t$:
 
-\[
-\delta_t = -A_t \left(1 - \pi(A_t|S_t, \mathbf{\theta})\right)
-\]
-
-:p What is the formula for the reinforcement signal \( \delta_t \) in actor units?
+$$\delta_t = -A_t \left(1 - \pi(A_t|S_t, \mathbf{\theta})\right)$$:p What is the formula for the reinforcement signal $\delta_t$ in actor units?
 ??x
-The reinforcement signal \( \delta_t \) for an action taken at time \( t \) is given by:
-
-\[
-\delta_t = -A_t \left(1 - \pi(A_t|S_t, \mathbf{\theta})\right)
-\]
+The reinforcement signal $\delta_t $ for an action taken at time$t$ is given by:
+$$\delta_t = -A_t \left(1 - \pi(A_t|S_t, \mathbf{\theta})\right)$$
 
 This equation accounts for the discrepancy between the actual action taken and the probability of that action according to the current policy.
 x??
@@ -500,8 +487,8 @@ Both critic and actor learning rules are related to Hebb's classic proposal that
 ??x
 The main difference between critic and actor learning rules lies in their eligibility traces:
 
-- Critic units use a non-contingent eligibility trace that depends only on presynaptic activity \( \mathbf{x}(s_t) \).
-- Actor units have a contingent eligibility trace, which additionally depends on the postsynaptic activity \( A_t \).
+- Critic units use a non-contingent eligibility trace that depends only on presynaptic activity $\mathbf{x}(s_t)$.
+- Actor units have a contingent eligibility trace, which additionally depends on the postsynaptic activity $A_t$.
 
 This allows for more nuanced updates to synapse efficacies based on both the input and output of neurons.
 x??
@@ -519,7 +506,7 @@ Background context: The provided text discusses the actor and critic learning ru
 The actor and critic learning rules involve multiple factors that influence synaptic plasticity, unlike Hebb's simpler proposal. The eligibility traces in the actor rule depend on both presynaptic and postsynaptic activities, with critical timing involved in how reinforcement signals affect synapses.
 
 For the actor unit:
-- It uses three-factor learning (presynaptic activity \(x(S_t)\), postsynaptic activity \(A_{\tau \leftarrow}^{\pi}(A_{\tau \leftarrow}|S_t,\chi)\), and reward signal).
+- It uses three-factor learning (presynaptic activity $x(S_t)$, postsynaptic activity $ A_{\tau \leftarrow}^{\pi}(A_{\tau \leftarrow}|S_t,\chi)$, and reward signal).
 - The timing of these factors is crucial for synaptic weight changes.
 ??x
 The answer with detailed explanations:
@@ -547,8 +534,8 @@ Background context: The text explains that the contingent eligibility traces for
 Contingent eligibility traces for the actor unit are designed to correctly allocate credit for reinforcement by considering both presynaptic and postsynaptic activities, with the timing of these events being crucial. The formula provided ignores the time it takes for synaptic input to affect neuron firing, but in reality, this activation delay is significant.
 
 The expression for contingent eligibility traces given in the text:
-\[ A_{\tau \leftarrow}^{\pi}(A_{\tau \leftarrow}|S_t,\chi) x(S_t) \]
-indicates that both presynaptic (\(x(S_t)\)) and postsynaptic factors are involved. However, for a more realistic model, these traces need to account for the actual activation time of neurons.
+$$A_{\tau \leftarrow}^{\pi}(A_{\tau \leftarrow}|S_t,\chi) x(S_t)$$
+indicates that both presynaptic ($x(S_t)$) and postsynaptic factors are involved. However, for a more realistic model, these traces need to account for the actual activation time of neurons.
 
 :p How do contingent eligibility traces need to be adjusted in a more realistic model?
 ??x

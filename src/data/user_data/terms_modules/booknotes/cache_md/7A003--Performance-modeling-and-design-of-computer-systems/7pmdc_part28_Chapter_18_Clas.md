@@ -75,17 +75,17 @@ x??
 #### Notation and Modeling for Classed Jackson Networks
 Background context: The provided text introduces notation and modeling for a classed Jackson network, which is an extension of the basic Jackson network with additional features. It defines various quantities such as arrival rates (both total and per-class), service rates, utilization, and routing probabilities.
 
-:p What are the definitions of \( r_i \) and \( \lambda_i \)?
+:p What are the definitions of $r_i $ and$\lambda_i$?
 ??x
-\( r_i \) is the arrival rate to server \( i \) from outside the network. On the other hand, \( \lambda_i \) represents the total arrival rate to server \( i \), which includes both inside and outside arrivals.
+$r_i $ is the arrival rate to server$i $ from outside the network. On the other hand,$\lambda_i $ represents the total arrival rate to server$i$, which includes both inside and outside arrivals.
 
 For per-class rates:
-- \( r_i(c) \) denotes the arrival rate of class \( c \) jobs to server \( i \) from outside the network.
-- \( \lambda_i(c) \) is the total arrival rate of class \( c \) jobs to server \( i \).
+- $r_i(c)$ denotes the arrival rate of class $ c $ jobs to server $i$ from outside the network.
+- $\lambda_i(c)$ is the total arrival rate of class $ c $ jobs to server $i$.
 
 The relationships between these quantities are given by:
-\[ r_i = \sum_{c=1}^l r_i(c) \]
-\[ \lambda_i = \sum_{c=1}^l \lambda_i(c) \]
+$$r_i = \sum_{c=1}^l r_i(c)$$
+$$\lambda_i = \sum_{c=1}^l \lambda_i(c)$$
 
 This notation is crucial for understanding the flow of different classes of packets through the network.
 
@@ -95,21 +95,21 @@ This notation is crucial for understanding the flow of different classes of pack
 
 
 #### Deriving Total Arrival Rates
-Background context: The text discusses how to derive total arrival rates \( \lambda_j \) into server \( j \). However, it notes that we cannot directly solve for \( \lambda_j \), but can compute per-class arrival rates \( \lambda_j(c) \).
+Background context: The text discusses how to derive total arrival rates $\lambda_j $ into server$j $. However, it notes that we cannot directly solve for$\lambda_j $, but can compute per-class arrival rates $\lambda_j(c)$.
 
-:p How do you compute the total arrival rate \( \lambda_j \)?
+:p How do you compute the total arrival rate $\lambda_j$?
 ??x
-To compute the total arrival rate \( \lambda_j \), which is the sum of all per-class arrival rates into server \( j \):
+To compute the total arrival rate $\lambda_j $, which is the sum of all per-class arrival rates into server $ j$:
 
-\[ \lambda_j = \sum_{c=1}^l \lambda_j(c) \]
+$$\lambda_j = \sum_{c=1}^l \lambda_j(c)$$
 
 Where:
-- \( \lambda_j(c) \) is the arrival rate of class \( c \) jobs into server \( j \), which can be determined by solving a system of simultaneous equations.
-The equation for \( \lambda_j(c) \) is given by:
+- $\lambda_j(c)$ is the arrival rate of class $ c $ jobs into server $j$, which can be determined by solving a system of simultaneous equations.
+The equation for $\lambda_j(c)$ is given by:
 
-\[ \lambda_j(c) = r_j(c) + \sum_{i=1}^k \sum_{c'=1}^l \lambda_i(c') P(c')(c)_ij \]
+$$\lambda_j(c) = r_j(c) + \sum_{i=1}^k \sum_{c'=1}^l \lambda_i(c') P(c')(c)_ij$$
 
-Here, \( P(c')(c)_ij \) represents the probability that a job at server \( i \) of class \( c' \) next moves to server \( j \) and becomes a class \( c \) job.
+Here,$P(c')(c)_ij $ represents the probability that a job at server$i $ of class$c'$ next moves to server $j$ and becomes a class $ c$ job.
 
 ??x
 
@@ -119,21 +119,19 @@ Here, \( P(c')(c)_ij \) represents the probability that a job at server \( i \) 
 #### State Space of CTMC for Classed Networks
 Background context: The text explains how to model the state space for continuous-time Markov chains (CTMC) in classed networks. It highlights that knowing just the number of jobs at each server is insufficient; we need additional information about the classes of these jobs.
 
-:p What is the definition of the state \( z_i \)?
+:p What is the definition of the state $z_i$?
 ??x
-The state of server \( i \), denoted as \( z_i \), consists of the class and order of the packets in the queue. Specifically:
+The state of server $i $, denoted as $ z_i$, consists of the class and order of the packets in the queue. Specifically:
 
-\[ z_i = (c(1)_i, c(2)_i, ..., c(n_i)_i) \]
+$$z_i = (c(1)_i, c(2)_i, ..., c(n_i)_i)$$
 
 Where:
-- \( n_i \) is the number of jobs at server \( i \).
-- \( c(j)_i \) denotes the class of the \( j \)-th job in the queue at server \( i \), with \( c(1)_i \) being the class of the first (serving) job, and so on.
+- $n_i $ is the number of jobs at server$i$.
+- $c(j)_i $ denotes the class of the$j $-th job in the queue at server$ i $, with$ c(1)_i$ being the class of the first (serving) job, and so on.
 
 The state of the network is then represented as:
 
-\[ z = (z_1, z_2, ..., z_k) \]
-
-??x
+$$z = (z_1, z_2, ..., z_k)$$??x
 
 ---
 
@@ -141,15 +139,15 @@ The state of the network is then represented as:
 #### Single-Server Classed Network
 Background context: The text introduces a single-server classed network to understand the behavior of such networks. It considers an M/M/1 queue with multiple classes of packets.
 
-:p What is the limiting probability \( \pi(c(1)_1, c(2)_1, ..., c(n_1)_1) \)?
+:p What is the limiting probability $\pi(c(1)_1, c(2)_1, ..., c(n_1)_1)$?
 ??x
-The limiting probability that the state of the system at server 1 is \( (c(1)_1, c(2)_1, ..., c(n_1)_1) \) can be guessed as:
+The limiting probability that the state of the system at server 1 is $(c(1)_1, c(2)_1, ..., c(n_1)_1)$ can be guessed as:
 
-\[ \pi(c(1)_1, c(2)_1, ..., c(n_1)_1) = \frac{\lambda_1^{(c(1)_1)} \lambda_1^{(c(2)_1)} ... \lambda_1^{(c(n_1)_1)}}{(\mu_1)^{n_1} (1 - \rho_1)} \]
+$$\pi(c(1)_1, c(2)_1, ..., c(n_1)_1) = \frac{\lambda_1^{(c(1)_1)} \lambda_1^{(c(2)_1)} ... \lambda_1^{(c(n_1)_1)}}{(\mu_1)^{n_1} (1 - \rho_1)}$$
 
 Where:
-- \( \lambda_1^{(c(i)_1)} \) is the arrival rate for class \( c(i)_1 \).
-- \( \rho_1 = \frac{\lambda_1}{\mu_1} \).
+- $\lambda_1^{(c(i)_1)}$ is the arrival rate for class $c(i)_1$.
+- $\rho_1 = \frac{\lambda_1}{\mu_1}$.
 
 This formula accounts for the probability of having specific classes in a given order at the head of the queue.
 
@@ -159,18 +157,18 @@ This formula accounts for the probability of having specific classes in a given 
 
 
 #### Proof of Limiting Probability Formula
-Background context: The text provides an outline to prove that the guessed limiting probability \( \pi(c(1)_1, c(2)_1, ..., c(n_1)_1) \) satisfies the balance equations for a single-server classed network.
+Background context: The text provides an outline to prove that the guessed limiting probability $\pi(c(1)_1, c(2)_1, ..., c(n_1)_1)$ satisfies the balance equations for a single-server classed network.
 
 :p How do you verify that the guessed formula satisfies the balance equations?
 ??x
-To verify, we need to show that the rate of leaving the state \( (c(1)_1, c(2)_1, ..., c(n_1)_1) \) equals the rate of entering this state.
+To verify, we need to show that the rate of leaving the state $(c(1)_1, c(2)_1, ..., c(n_1)_1)$ equals the rate of entering this state.
 
 Leaving the state:
 - Occurs due to an arrival or a departure.
 - The probability is computed as the sum over all possible transitions from one state to another.
 
 Entering the state:
-- Occurs when a new job arrives in any position, maintaining the order and class specified by \( (c(1)_1, c(2)_1, ..., c(n_1)_1) \).
+- Occurs when a new job arrives in any position, maintaining the order and class specified by $(c(1)_1, c(2)_1, ..., c(n_1)_1)$.
 
 The balance equations can be verified by ensuring that these rates are equal, which involves detailed combinatorial arguments and calculations.
 
@@ -187,17 +185,18 @@ The balance equations can be verified by ensuring that these rates are equal, wh
 :p What is the mechanism described for transitioning from one state to another in an M/M/1 classed queue?
 ??x
 The mechanism involves two main ways:
-1. **Arrival of a New Job:** If the system is in state \((c(1)1, c(2)1, ..., c(n_1 - 1)1)\), and a job of class \(c(n_1)1\) arrives, it joins the end of the queue.
-2. **Departure from the Queue:** If the system is in state \((c, c(1)1, c(2)1, ..., c(n_1)1)\) where the head of the queue has class \(c\), and a departure occurs, this job leaves the system.
+1. **Arrival of a New Job:** If the system is in state $(c(1)1, c(2)1, ..., c(n_1 - 1)1)$, and a job of class $ c(n_1)1$ arrives, it joins the end of the queue.
+2. **Departure from the Queue:** If the system is in state $(c, c(1)1, c(2)1, ..., c(n_1)1)$ where the head of the queue has class $c$, and a departure occurs, this job leaves the system.
 
 The rate of leaving due to a departure from the queue can be derived as follows:
-\[ \text{Rate Leave} = \pi(c(1)1, c(2)1, ..., c(n_1 - 1)1) \cdot \lambda_1 + \sum_{c} \pi(c, c(1)1, c(2)1, ..., c(n_1)1) \cdot \mu_1 \]
+$$\text{Rate Leave} = \pi(c(1)1, c(2)1, ..., c(n_1 - 1)1) \cdot \lambda_1 + \sum_{c} \pi(c, c(1)1, c(2)1, ..., c(n_1)1) \cdot \mu_1$$
 
 The rate of entering is:
-\[ \text{Rate Enter} = \pi(c(1)1, c(2)1, ..., c(n_1 - 1)1) \cdot \lambda_1 / (c(n_1)1) + \sum_{c} \pi(c, c(1)1, c(2)1, ..., c(n_1)1) \cdot \mu_1 \]
+$$\text{Rate Enter} = \pi(c(1)1, c(2)1, ..., c(n_1 - 1)1) \cdot \lambda_1 / (c(n_1)1) + \sum_{c} \pi(c, c(1)1, c(2)1, ..., c(n_1)1) \cdot \mu_1$$
 
-By substituting and simplifying using the guess from equation \(18.2\), it is shown that:
-\[ \text{Rate Leave} = \text{Rate Enter} \]
+By substituting and simplifying using the guess from equation $18.2$, it is shown that:
+$$\text{Rate Leave} = \text{Rate Enter}$$
+
 This confirms the consistency of rates leaving and entering, ensuring balance in the system.
 
 ??x
@@ -219,23 +218,22 @@ x??
 
 #### Product Form Theorem for Classed Networks
 
-**Background context:** This theorem generalizes the concept of product form solutions to classed networks of queues with multiple servers. It provides a formula for calculating the limiting probabilities \( \pi(z1, z2, ..., zk) \), where each server \(i\) can be in different states \(zi\).
+**Background context:** This theorem generalizes the concept of product form solutions to classed networks of queues with multiple servers. It provides a formula for calculating the limiting probabilities $\pi(z1, z2, ..., zk)$, where each server $ i$can be in different states $ zi$.
 
 :p What does Theorem 18.1 state about the limiting probabilities in a classed network of queues?
 ??x
-Theorem 18.1 states that for a classed network with \(k\) servers, the limiting probabilities are given by:
-\[ \pi(z_1, z_2, ..., z_k) = \frac{1}{\prod_{i=1}^k P(\text{state at server } i \text{ is } z_i)} \]
+Theorem 18.1 states that for a classed network with $k$ servers, the limiting probabilities are given by:
+$$\pi(z_1, z_2, ..., z_k) = \frac{1}{\prod_{i=1}^k P(\text{state at server } i \text{ is } z_i)}$$
 
 Where:
-- \(z_i = (c(1)i, c(2)i, ..., c(ni)i)\)
-- Each server behaves like an M/M/1 queue with specific states.
-- The probability \(P(\text{state at server } i \text{ is } z_i)\) can be computed by summing over all other states.
+- $z_i = (c(1)i, c(2)i, ..., c(ni)i)$- Each server behaves like an M/M/1 queue with specific states.
+- The probability $P(\text{state at server } i \text{ is } z_i)$ can be computed by summing over all other states.
 
-The key formula for the probability of state \(zi\) at server \(i\) is:
-\[ P(\text{state at server } i \text{ is } z_i) = (1 - \rho_i) \cdot \frac{\lambda_i^{n_i} / (\mu_i^{n_i})}{\sum_{j=0}^{\infty} \left( \frac{\lambda_j}{\mu_j} \right)^j} \]
+The key formula for the probability of state $zi $ at server$i$ is:
+$$P(\text{state at server } i \text{ is } z_i) = (1 - \rho_i) \cdot \frac{\lambda_i^{n_i} / (\mu_i^{n_i})}{\sum_{j=0}^{\infty} \left( \frac{\lambda_j}{\mu_j} \right)^j}$$
 
 Where:
-- \( \rho_i = \frac{\lambda_i}{\mu_i} \) is the traffic intensity for server \(i\).
+- $\rho_i = \frac{\lambda_i}{\mu_i}$ is the traffic intensity for server $i$.
 
 ??x
 The answer involves understanding that the product form solution applies to classed networks, allowing us to calculate the limiting probabilities by breaking down the network into individual servers and using their specific states.
@@ -270,11 +268,11 @@ x??
 
 :p How is the number of jobs in each queue distributed according to Corollary 18.2?
 ??x
-Corollary 18.2 states that in a classed network, the probability distribution of \(n_i\) jobs at server \(i\) follows:
-\[ P(n_{ij} \text{ jobs at server } i) = (1 - \rho_i)^{\rho_i^{n_i}} / (1 - \rho_i) \]
+Corollary 18.2 states that in a classed network, the probability distribution of $n_i $ jobs at server$i$ follows:
+$$P(n_{ij} \text{ jobs at server } i) = (1 - \rho_i)^{\rho_i^{n_i}} / (1 - \rho_i)$$
 
 Where:
-- \( \rho_i = \frac{\lambda_i}{\mu_i} \) is the traffic intensity for each server.
+- $\rho_i = \frac{\lambda_i}{\mu_i}$ is the traffic intensity for each server.
 - The formula simplifies to a product form solution, where each server's state probability is independent of others.
 
 ??x

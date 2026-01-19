@@ -398,8 +398,7 @@ x??
 Background context explaining RNNs. RNNs are a type of neural network designed to handle sequential data, such as time series or natural language processing tasks. Unlike traditional feedforward networks, where each input is processed independently, RNNs maintain an internal state that captures information from previous inputs.
 
 Relevant formulas: The core idea behind RNNs can be described by the following equation for a single time step:
-\[ h_t = \text{activation}(W_{hh}h_{t-1} + W_{xh}x_t + b_h) \]
-where \( h_t \) is the hidden state at time step \( t \), \( x_t \) is the input at time step \( t \), and \( W \) and \( b \) are learned weights and biases.
+$$h_t = \text{activation}(W_{hh}h_{t-1} + W_{xh}x_t + b_h)$$where $ h_t $ is the hidden state at time step $ t $,$ x_t $ is the input at time step $ t $, and$ W $ and $ b$ are learned weights and biases.
 
 :p What distinguishes RNNs from traditional feedforward neural networks?
 ??x
@@ -413,11 +412,11 @@ x??
 Background context explaining LSTMs. LSTM is a type of RNN designed to address the vanishing gradient problem and handle long-term dependencies in sequential data.
 
 Relevant formulas: An LSTM cell includes gates that control the flow of information:
-\[ i_t = \sigma(W_i [h_{t-1}, x_t] + b_i) \]
-\[ f_t = \sigma(W_f [h_{t-1}, x_t] + b_f) \]
-\[ o_t = \sigma(W_o [h_{t-1}, x_t] + b_o) \]
-\[ c_t = f_t \odot c_{t-1} + i_t \odot \text{tanh}(W_c [h_{t-1}, x_t] + b_c) \]
-\[ h_t = o_t \odot \text{tanh}(c_t) \]
+$$i_t = \sigma(W_i [h_{t-1}, x_t] + b_i)$$
+$$f_t = \sigma(W_f [h_{t-1}, x_t] + b_f)$$
+$$o_t = \sigma(W_o [h_{t-1}, x_t] + b_o)$$
+$$c_t = f_t \odot c_{t-1} + i_t \odot \text{tanh}(W_c [h_{t-1}, x_t] + b_c)$$
+$$h_t = o_t \odot \text{tanh}(c_t)$$
 
 :p What are the main components of an LSTM cell?
 ??x

@@ -59,9 +59,9 @@ Background context explaining the self-attention mechanism used in the Transform
 Self-attention allows every position in the input sequence to attend to all other positions. This mechanism helps capture dependencies between different parts of the sentence, which is crucial for understanding the context.
 
 The formula for multi-head self-attention can be expressed as:
-\[ \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V \]
+$$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
 
-Where \( Q \), \( K \), and \( V \) are the query, key, and value matrices respectively. The output is concatenated across heads.
+Where $Q $, $ K $, and$ V$ are the query, key, and value matrices respectively. The output is concatenated across heads.
 x??
 
 ---
@@ -190,13 +190,15 @@ Transformers address the issue of sequence order by adding positional encodings 
 The positional encoding is calculated using sine and cosine functions of varying frequencies. The vector values are determined by specific formulas involving pos (position of a token within the sequence) and i (index within the vector).
 
 Formula:
-\[ PE_{(pos, 2i)} = \sin\left(\frac{pos}{10000^{2i/d}}\right) \]
-\[ PE_{(pos, 2i+1)} = \cos\left(\frac{pos}{10000^{2i/d}}\right) \]
+$$PE_{(pos, 2i)} = \sin\left(\frac{pos}{10000^{2i/d}}\right)$$
+$$
+
+PE_{(pos, 2i+1)} = \cos\left(\frac{pos}{10000^{2i/d}}\right)$$
 
 Where:
-- \( pos \): Position of the token in the sequence (ranging from 0 to 5)
-- \( i \): Index within the vector
-- \( d \): Embedding dimension (e.g., 256)
+- $pos$: Position of the token in the sequence (ranging from 0 to 5)
+- $i$: Index within the vector
+- $d$: Embedding dimension (e.g., 256)
 
 :p How are positional encodings added to word embeddings?
 ??x
@@ -525,9 +527,9 @@ Multihead attention allows the model to attend to different positions of a seque
 For example, in the phrase "How are you?", one head might focus on understanding context, while another might focus on capturing syntactic relations.
 
 The formula for scaled dot-product attention is:
-\[ \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V \]
+$$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
 
-Where \( Q, K, V \) are the query, key, and value matrices respectively, and \( d_k \) is the dimension of keys.
+Where $Q, K, V $ are the query, key, and value matrices respectively, and$d_k$ is the dimension of keys.
 x??
 
 ---
@@ -540,7 +542,7 @@ The attention function takes in queries (Q), keys (K), and values (V) to compute
 ??x
 The attention() function calculates the scaled dot-product attention score using the following steps:
 1. Compute the dot product of Q and K^T.
-2. Scale the result by \( \frac{1}{\sqrt{d_k}} \).
+2. Scale the result by $\frac{1}{\sqrt{d_k}}$.
 3. Apply softmax to normalize scores.
 4. Apply dropout for regularization (optional).
 

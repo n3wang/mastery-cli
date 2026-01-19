@@ -25,19 +25,18 @@ Background context: The forward diffusion process involves incrementally adding 
 :p What formula represents the addition of noise in one step during the forward diffusion?
 
 ??x
-The formula for the noisy image \( x_{t+1} \) at time step \( t+1 \) is given by:
-\[ x_{t+1} = \sqrt{1 - \beta_t} x_t + \sqrt{\beta_t} \epsilon_t \]
+The formula for the noisy image $x_{t+1}$ at time step $t+1$ is given by:
+$$x_{t+1} = \sqrt{1 - \beta_t} x_t + \sqrt{\beta_t} \epsilon_t$$
 
 Where:
-- \( x_t \) is the noisy image at time step \( t \)
-- \( \epsilon_t \) is the noise added at time step \( t \), which follows a standard normal distribution (mean 0, variance 1)
-- \( \beta_t \) measures the weight placed on the noise in each time step
+- $x_t $ is the noisy image at time step$t $-$\epsilon_t $ is the noise added at time step$t$, which follows a standard normal distribution (mean 0, variance 1)
+- $\beta_t$ measures the weight placed on the noise in each time step
 
 ??x
 The formula for adding noise to an image during one time step in the forward diffusion process is:
-\[ x_{t+1} = \sqrt{1 - \beta_t} x_t + \sqrt{\beta_t} \epsilon_t \]
+$$x_{t+1} = \sqrt{1 - \beta_t} x_t + \sqrt{\beta_t} \epsilon_t$$
 
-Explanation: This equation adds a small amount of Gaussian noise \( \epsilon_t \) to the clean image \( x_t \), scaled by \( \sqrt{\beta_t} \). The term \( \sqrt{1 - \beta_t} x_t \) ensures that the original image is still present, but gradually less so as more noise is introduced.
+Explanation: This equation adds a small amount of Gaussian noise $\epsilon_t $ to the clean image$x_t $, scaled by$\sqrt{\beta_t}$. The term $\sqrt{1 - \beta_t} x_t$ ensures that the original image is still present, but gradually less so as more noise is introduced.
 
 ---
 

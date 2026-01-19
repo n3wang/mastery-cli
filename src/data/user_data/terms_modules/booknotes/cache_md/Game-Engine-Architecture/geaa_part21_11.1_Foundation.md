@@ -413,16 +413,12 @@ x??
 
 
 #### Model Space Axes and Their Mapping
-Background context: The axes of model space are usually aligned with natural directions such as "front," "left," "right," and "up." These axes can be mapped to the standard basis vectors \(i\), \(j\), and \(k\) (or equivalently, \(F\), \(L\), and \(U\)).
+Background context: The axes of model space are usually aligned with natural directions such as "front," "left," "right," and "up." These axes can be mapped to the standard basis vectors $i $, $ j $, and$ k $(or equivalently,$ F $,$ L $, and$ U$).
 
 :p How do we map model space axes to the standard coordinate system?
 ??x
-We typically define three unit vectors in model space: \(F\) for "front," \(L\) for "left," and \(U\) for "up." These can be mapped onto the standard basis vectors as follows:
-- \(F = k\)
-- \(L = i\)
-- \(U = j\)
-
-This mapping is arbitrary but should remain consistent across all models in the engine. For example, we might use \(L = i\), \(U = j\), and \(F = k\) to map model space axes to world space.
+We typically define three unit vectors in model space: $F $ for "front,"$L $ for "left," and$U$ for "up." These can be mapped onto the standard basis vectors as follows:
+- $F = k $-$ L = i $-$ U = j $This mapping is arbitrary but should remain consistent across all models in the engine. For example, we might use$ L = i $,$ U = j $, and$ F = k$ to map model space axes to world space.
 x??
 
 ---
@@ -445,27 +441,25 @@ Background context: The model-to-world matrix (MM.W) is crucial for transforming
 :p How is the model-to-world matrix represented mathematically?
 ??x
 The model-to-world matrix can be represented as follows:
-\[ MM.W = \begin{bmatrix}
+$$MM.W = \begin{bmatrix}
 (RS)_{M.W} & t_M \\
 0 & 1
-\end{bmatrix} \]
+\end{bmatrix}$$
 
-Here, \( (RS)_{M.W} \) is the upper 3×3 rotation and scaling matrix that rotates and scales model-space vertices into world space, while \( t_M \) is the translation vector expressed in world space.
+Here,$(RS)_{M.W}$ is the upper 3×3 rotation and scaling matrix that rotates and scales model-space vertices into world space, while $t_M$ is the translation vector expressed in world space.
 
-If we express the unit model-space basis vectors \( i_M \), \( j_M \), and \( k_M \) in world-space coordinates, the matrix can also be written as:
-\[ MM.W = \begin{bmatrix}
+If we express the unit model-space basis vectors $i_M $, $ j_M $, and$ k_M$ in world-space coordinates, the matrix can also be written as:
+$$MM.W = \begin{bmatrix}
 i_M & 0 \\
 j_M & 0 \\
 k_M & 0 \\
 t_M & 1
-\end{bmatrix} \]
-
-:p How does the rendering engine calculate a vertex's world space equivalent?
+\end{bmatrix}$$:p How does the rendering engine calculate a vertex's world space equivalent?
 ??x
 The rendering engine calculates a vertex’s world-space coordinates as follows:
-\[ v_W = v_{M} \cdot MM.W \]
+$$v_W = v_{M} \cdot MM.W$$
 
-Here, \( v_{M} \) is the vertex in model space, and \( MM.W \) is the transformation matrix that converts it to world space.
+Here,$v_{M}$ is the vertex in model space, and $MM.W$ is the transformation matrix that converts it to world space.
 x??
 
 ---
@@ -476,18 +470,16 @@ Background context: Surface normals must be transformed properly when converting
 
 :p How are surface normals transformed in the model-to-world space?
 ??x
-To transform a normal vector \( \vec{n} \) from model space to world space, it must be multiplied by the inverse transpose of the model-to-world transformation matrix:
-\[ \vec{n}_{W} = (MM.W)^{-T} \cdot \vec{n}_M \]
+To transform a normal vector $\vec{n}$ from model space to world space, it must be multiplied by the inverse transpose of the model-to-world transformation matrix:
+$$\vec{n}_{W} = (MM.W)^{-T} \cdot \vec{n}_M$$
 
-If our matrix does not contain any scale or shear, we can transform the normal correctly by setting its \( w \)-component to zero before multiplication.
+If our matrix does not contain any scale or shear, we can transform the normal correctly by setting its $w$-component to zero before multiplication.
 
 :p What if the matrix contains no scale or shear?
 ??x
-If the matrix does not contain any scale or shear transformations (i.e., it is an orthogonal transformation), we can simplify the process of transforming normals. In this case, we simply set their \( w \)-components to zero prior to multiplying by the model-to-world matrix:
-\[ \vec{n}_M.w = 0 \]
-\[ \vec{n}_{W} = MM.W \cdot \vec{n}_M \]
-
-:p How is this applied in practice?
+If the matrix does not contain any scale or shear transformations (i.e., it is an orthogonal transformation), we can simplify the process of transforming normals. In this case, we simply set their $w$-components to zero prior to multiplying by the model-to-world matrix:
+$$\vec{n}_M.w = 0$$
+$$\vec{n}_{W} = MM.W \cdot \vec{n}_M$$:p How is this applied in practice?
 ??x
 In practice, we can implement this logic as follows:
 
@@ -563,7 +555,7 @@ The position vector defines the 3D location of a vertex in model space.
 
 :p What is the position vector?
 ??x
-The position vector defines the 3D position of a vertex within an object's local coordinate system known as model space. It typically includes three components: \(p_x\), \(p_y\), and \(p_z\).
+The position vector defines the 3D position of a vertex within an object's local coordinate system known as model space. It typically includes three components:$p_x $, $ p_y $, and$ p_z$.
 ```java
 Vector3f position = new Vector3f(pix, piy, piz);
 ```
@@ -977,9 +969,9 @@ The Phong reflection model consists of three main terms:
 - Specular term: Models bright highlights on glossy surfaces.
 
 The ambient, diffuse, and specular terms are combined to determine the final intensity and color of a surface. The formula for calculating Phong reflection at a point is:
-\[ I = (kA \cdot A) + \sum_i [ kD (\mathbf{N} \cdot \mathbf{L}_i) + kS (R_i \cdot \mathbf{V})^a] \cdot C_i \]
+$$I = (kA \cdot A) + \sum_i [ kD (\mathbf{N} \cdot \mathbf{L}_i) + kS (R_i \cdot \mathbf{V})^a] \cdot C_i$$
 
-Where \( \mathbf{I} \) is the reflected light intensity, \( \mathbf{kA} \) is ambient reflectivity, \( A \) is ambient light intensity, \( \mathbf{kD} \) and \( C_i \) are diffuse reflectivity and color of light source \( i \), respectively; \( \mathbf{L}_i \) is the direction to the light source, \( \mathbf{N} \) is the surface normal at the point, \( R_i \cdot V \) is the reflection vector dot product with viewing vector, and \( a \) is the glossiness exponent.
+Where $\mathbf{I}$ is the reflected light intensity,$\mathbf{kA}$ is ambient reflectivity,$A $ is ambient light intensity,$\mathbf{kD}$ and $ C_i $ are diffuse reflectivity and color of light source $ i $, respectively;$\mathbf{L}_i $ is the direction to the light source,$\mathbf{N}$ is the surface normal at the point,$R_i \cdot V $ is the reflection vector dot product with viewing vector, and$a$ is the glossiness exponent.
 
 ??x
 
@@ -1010,7 +1002,7 @@ Vector3 PhongReflectionModel(const Vector3& V, const Vector3& N,
 }
 ```
 
-This function takes in the viewing direction \( \mathbf{V} \), surface normal \( \mathbf{N} \), light direction \( \mathbf{L_i} \), and other parameters, and returns the total reflected light intensity. The `max` function is used to handle negative dot products by ensuring only positive contributions.
+This function takes in the viewing direction $\mathbf{V}$, surface normal $\mathbf{N}$, light direction $\mathbf{L_i}$, and other parameters, and returns the total reflected light intensity. The `max` function is used to handle negative dot products by ensuring only positive contributions.
 
 ??x
 ---
@@ -1025,8 +1017,8 @@ Background context: The Hadamard product, also known as component-wise multiplic
 ??x
 The Hadamard product is a binary operation that takes two vectors of equal size and produces another vector where each element is the product of the corresponding elements from the input vectors. In the context provided, this concept is used to calculate lighting contributions component-wise for each color channel (Red, Green, Blue).
 
-For example, if we have two vectors \( A = [A_x, A_y, A_z] \) and \( B = [B_x, B_y, B_z] \), their Hadamard product \( C = A \odot B \) would be:
-\[ C = [A_x \cdot B_x, A_y \cdot B_y, A_z \cdot B_z] \]
+For example, if we have two vectors $A = [A_x, A_y, A_z]$ and $B = [B_x, B_y, B_z]$, their Hadamard product $ C = A \odot B$ would be:
+$$C = [A_x \cdot B_x, A_y \cdot B_y, A_z \cdot B_z]$$
 
 This is applied in the provided formulas for calculating reflected light contributions to each color channel. The vectors and scalars involved are typically lighting-related parameters like light intensity and surface properties.
 
@@ -1053,25 +1045,19 @@ x??
 
 
 #### Calculation of the Reflected Light Vector R
-Background context: The reflected light vector \( R \) is calculated based on the original light direction vector \( L \) and the surface normal \( N \). This calculation is crucial for Phong shading models to determine specular highlights.
+Background context: The reflected light vector $R $ is calculated based on the original light direction vector$L $ and the surface normal$N$. This calculation is crucial for Phong shading models to determine specular highlights.
 
-:p How is the reflected light vector \( R \) calculated from the light direction vector \( L \) and the surface normal \( N \)?
+:p How is the reflected light vector $R $ calculated from the light direction vector$L $ and the surface normal$N$?
 ??x
-The reflection of a light ray's direction vector \( L_i \) about the surface normal \( N \) can be calculated using vector math. The key idea here is to decompose the light direction vector into its normal and tangential components.
+The reflection of a light ray's direction vector $L_i $ about the surface normal$N$ can be calculated using vector math. The key idea here is to decompose the light direction vector into its normal and tangential components.
 
-1. First, express \( L \) as:
-\[ L = L_N + L_T \]
-where:
-- \( L_N \) is the normal component of \( L \)
-- \( L_T \) is the tangential component of \( L \)
+1. First, express $L$ as:
+$$L = L_N + L_T$$where:
+- $L_N $ is the normal component of$L $-$ L_T $ is the tangential component of $ L $2. The normal component$ L_N $ can be found by scaling the unit normal vector $ N $ with the dot product $(N \cdot L_i)$:
+$$L_N = (N \cdot L_i)N$$3. Since the reflected vector $ R_i$ has the same normal component but opposite tangential component, we have:
+$$R_i = 2L_N - L_i = 2(N \cdot L_i)N - L_i$$
 
-2. The normal component \( L_N \) can be found by scaling the unit normal vector \( N \) with the dot product \( (N \cdot L_i) \):
-\[ L_N = (N \cdot L_i)N \]
-
-3. Since the reflected vector \( R_i \) has the same normal component but opposite tangential component, we have:
-\[ R_i = 2L_N - L_i = 2(N \cdot L_i)N - L_i \]
-
-This equation can be used to find all \( R_i \) values corresponding to each light direction \( L_i \).
+This equation can be used to find all $R_i $ values corresponding to each light direction$L_i$.
 
 ```java
 // Example Java code snippet for calculating the reflected vector
@@ -1102,19 +1088,20 @@ x??
 
 
 #### Blinn-Phong Lighting Model
-Background context: The Blinn-Phong lighting model is a variation of the Phong shading model that calculates specular reflection differently. It uses a halfway vector \( H \) between the light direction vector \( L \) and the view vector \( V \).
+Background context: The Blinn-Phong lighting model is a variation of the Phong shading model that calculates specular reflection differently. It uses a halfway vector $H $ between the light direction vector$L $ and the view vector$V$.
 
 :p What is the Blinn-Phong lighting model, and how does it differ from the standard Phong model?
 ??x
 The Blinn-Phong lighting model is an improvement over the standard Phong shading model in terms of runtime efficiency. The main difference lies in how specular reflection is calculated:
 
-- **Standard Phong Model**: Specular highlights are calculated using \( (R \cdot V)^a \), where \( R \) is the reflected vector.
-- **Blinn-Phong Model**: Instead, it uses a halfway vector \( H \):
-\[ H = \frac{L + V}{\| L + V \|} \]
-The specular component in Blinn-Phong is then:
-\[ (N \cdot H)^a \]
+- **Standard Phong Model**: Specular highlights are calculated using $(R \cdot V)^a $, where $ R$ is the reflected vector.
+- **Blinn-Phong Model**: Instead, it uses a halfway vector $H$:
+$$H = \frac{L + V}{\| L + V \|}$$
 
-This simplifies the calculations because the dot product between the normal and the halfway vector is often easier to compute. The exponent \( a \) is slightly different from Phong's, but it aims to closely match the equivalent Phong specular term.
+The specular component in Blinn-Phong is then:
+$$(N \cdot H)^a$$
+
+This simplifies the calculations because the dot product between the normal and the halfway vector is often easier to compute. The exponent $a$ is slightly different from Phong's, but it aims to closely match the equivalent Phong specular term.
 
 In summary, Blinn-Phong offers more efficiency at the cost of some accuracy, though it can provide better results for certain surfaces due to its empirical matching.
 
@@ -1230,8 +1217,7 @@ Background context: A spot light is a type of point light source that illuminate
 :p Describe how a spot light model works.
 ??x
 A spot light starts at full intensity within an inner cone and then gradually decreases in intensity up to an outer cone where the intensity drops to zero. The falloff of light can be modeled using a simple formula that considers both angular and radial factors:
-\[ I(\theta, r) = I_0 \cdot (\cos(\theta - \theta_{min}) / \cos(\theta_{max} - \theta_{min}))^n \cdot e^{-\alpha r^2} \]
-where \(I_0\) is the maximum intensity, \(\theta\) is the angle from the center direction vector, \(\theta_{min}\) and \(\theta_{max}\) are the inner and outer cone angles respectively, \(n\) is a falloff exponent (usually 1 or 2), \(\alpha\) is a constant that controls the decay rate with distance \(r\).
+$$I(\theta, r) = I_0 \cdot (\cos(\theta - \theta_{min}) / \cos(\theta_{max} - \theta_{min}))^n \cdot e^{-\alpha r^2}$$where $ I_0 $is the maximum intensity,$\theta $ is the angle from the center direction vector,$\theta_{min}$ and $\theta_{max}$ are the inner and outer cone angles respectively,$n $ is a falloff exponent (usually 1 or 2),$\alpha $ is a constant that controls the decay rate with distance$r$.
 
 ```java
 public class SpotLight {
@@ -1328,8 +1314,7 @@ x??
 Background context: In 3D graphics, the view space or camera space is a coordinate system where the focal point of the virtual camera is at the origin. The camera usually "looks" down the positive or negative z-axis, with the y-axis pointing up (yup) and x-axis to the left or right.
 
 Relevant formulas: 
-\[ MV.W = \begin{bmatrix} i_V & 0 \\ j_V & 0 \\ k_V & 0 \\ t_V & 1 \end{bmatrix} \]
-where \(i_V\), \(j_V\), and \(k_V\) are the basis vectors of camera space expressed in world-space coordinates, and \(t_V\) is the position vector.
+$$MV.W = \begin{bmatrix} i_V & 0 \\ j_V & 0 \\ k_V & 0 \\ t_V & 1 \end{bmatrix}$$where $ i_V $,$ j_V $, and$ k_V $are the basis vectors of camera space expressed in world-space coordinates, and$ t_V$ is the position vector.
 
 :p What is view space or camera space?
 ??x
@@ -1344,12 +1329,11 @@ x??
 Background context: To transform vertices from model space to view space, we need a world-to-view matrix which is the inverse of the view-to-world matrix.
 
 Relevant formulas:
-\[ MW.V = M^{-1}_{V.W} \]
-where \(M_{view}\) represents the view-to-world matrix and \(MW.V\) is the world-to-view matrix. This matrix is sometimes called the "view matrix".
+$$MW.V = M^{-1}_{V.W}$$where $ M_{view}$represents the view-to-world matrix and $ MW.V$ is the world-to-view matrix. This matrix is sometimes called the "view matrix".
 
 :p What is the world-to-view matrix, and why is it used?
 ??x
-The world-to-view matrix (\(MW.V\)) is the inverse of the view-to-world matrix (\(M_{V.W}\)). It is used to transform vertices from world space into view space. This matrix is often concatenated with the model-to-world matrix before rendering a particular mesh instance.
+The world-to-view matrix ($MW.V $) is the inverse of the view-to-world matrix ($ M_{V.W}$). It is used to transform vertices from world space into view space. This matrix is often concatenated with the model-to-world matrix before rendering a particular mesh instance.
 x??
 
 ---
@@ -1360,8 +1344,7 @@ x??
 Background context: In OpenGL, the combined transformation of the model-to-world and world-to-view matrices results in the model-view matrix.
 
 Relevant formulas:
-\[ MM.V = M_{modelview} \]
-where \(MM.V\) is the model-view matrix, which combines the transformations from model space to view space with a single matrix multiply operation.
+$$MM.V = M_{modelview}$$where $ MM.V$ is the model-view matrix, which combines the transformations from model space to view space with a single matrix multiply operation.
 
 :p What is the model-view matrix in OpenGL?
 ??x
@@ -1376,14 +1359,13 @@ x??
 Background context: Projections are used to transform 3D scenes into 2D images on a screen. The most common type is perspective projection, which mimics real-world camera behavior where objects appear smaller as they get farther from the camera.
 
 Relevant formulas:
-- Perspective projection formula (simplified): 
-\[ \text{Perspective} = \begin{bmatrix}
+- Perspective projection formula (simplified):
+$$\text{Perspective} = \begin{bmatrix}
 \frac{1}{f} & 0 & 0 & 0 \\
 0 & \frac{1}{f} & 0 & 0 \\
 0 & 0 & -\frac{(z_{far} + z_{near})}{(z_{far} - z_{near})} & -\frac{2 z_{far} z_{near}}{z_{far} - z_{near}} \\
 0 & 0 & -1 & 0
-\end{bmatrix} \]
-where \(f\) is the focal length, and \(z_{far}\) and \(z_{near}\) are the far and near clipping planes.
+\end{bmatrix}$$where $ f $ is the focal length, and $ z_{far}$and $ z_{near}$ are the far and near clipping planes.
 
 :p What are perspective and orthographic projections?
 ??x
@@ -1408,11 +1390,11 @@ x??
 
 
 #### View Volume Representation: Point-Normal Form
-Background context explaining how planes can be represented using point-normal form in both perspectives and orthogonal projections. Mention that \(i\) indexes the six planes.
+Background context explaining how planes can be represented using point-normal form in both perspectives and orthogonal projections. Mention that $i$ indexes the six planes.
 
 :p How are planes represented in view volume representations?
 ??x
-Planes in view volumes can be compactly represented using either a point-normal form \((n_i^x, n_i^y, n_i^z, d_i)\) or pairs of vectors \((Q_i, n_i)\), where \(i\) indexes the six planes.
+Planes in view volumes can be compactly represented using either a point-normal form $(n_i^x, n_i^y, n_i^z, d_i)$ or pairs of vectors $(Q_i, n_i)$, where $ i$ indexes the six planes.
 x??
 
 ---
@@ -1435,18 +1417,15 @@ Background context explaining the perspective projection matrix for transforming
 :p What is the perspective projection matrix for OpenGL?
 ??x
 The perspective projection matrix for OpenGL transforms points from view space to homogeneous clip space. It has the form:
-
-\[
-MV.H = 
+$$MV.H = 
 \begin{pmatrix}
 2 \frac{n - r}{r + l} & 0 & 0 & 0 \\
 0 & 2 \frac{t - b}{t + b} & 0 & 0 \\
 (r + l) / (f - n) & (t + b) / (f - n) & -(1 + f/n) & -2 \\
 0 & 0 & -1 & 0
-\end{pmatrix}
-\]
+\end{pmatrix}$$
 
-Where \(n, r, l, t, b\) are the near, right, left, top, and bottom plane distances respectively, and \(f, n\) are the far and near planes.
+Where $n, r, l, t, b $ are the near, right, left, top, and bottom plane distances respectively, and$f, n$ are the far and near planes.
 x??
 
 ---

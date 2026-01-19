@@ -9,11 +9,11 @@
 #### Contiguous Data Arrays and State Arrays
 The storage layout includes multiple arrays to manage both pure and mixed cells efficiently.
 
-Background context: For each cell, there is a state array that holds values such as volume fraction (Vf), density (\(\rho\)), temperature (t), and pressure (p). Additionally, there are mixed data storage arrays that contain information about the materials within the cell.
+Background context: For each cell, there is a state array that holds values such as volume fraction (Vf), density ($\rho$), temperature (t), and pressure (p). Additionally, there are mixed data storage arrays that contain information about the materials within the cell.
 
 :p What role do the "state arrays" play in this storage scheme?
 ??x
-The state arrays store critical material properties such as volume fraction (Vf), density (\(\rho\)), temperature (t), and pressure (p) for each material in a cell. These arrays are essential for managing the physical characteristics of materials within the cells.
+The state arrays store critical material properties such as volume fraction (Vf), density ($\rho$), temperature (t), and pressure (p) for each material in a cell. These arrays are essential for managing the physical characteristics of materials within the cells.
 
 Explanation: By keeping these values in an array, the system can quickly access and update the state of each material, which is crucial for simulations or other dynamic processes.
 x??
@@ -27,10 +27,9 @@ Background context: The performance model analyzes the memory bandwidth requirem
 :p What are the key components of the performance model described?
 ??x
 The key components of the performance model include:
-- Memory bytes (membytes) calculation: \( \text{membytes} = 6.74 \, \text{Mbytes} \)
-- FLOPS (floating point operations per second): \( \text{flops} = .24 \, \text{Mflops} \)
+- Memory bytes (membytes) calculation: $\text{membytes} = 6.74 \, \text{Mbytes}$- FLOPS (floating point operations per second):$\text{flops} = .24 \, \text{Mflops}$
 - Estimated runtime using the Stream benchmark and cache parameters: 
-\[ \text{PM} = \frac{\text{membytes}}{\text{Stream} + Lp \cdot Mf \cdot Nc} = 0.87 \, \text{ms} \]
+$$\text{PM} = \frac{\text{membytes}}{\text{Stream} + Lp \cdot Mf \cdot Nc} = 0.87 \, \text{ms}$$
 
 Relevant code snippet:
 ```java
@@ -59,7 +58,7 @@ Background context: The material-dominant algorithm processes each material subs
 :p What are the key steps in the material-dominant algorithm for processing a cell's density?
 ??x
 The key steps in the material-dominant algorithm to process a cell's density are as follows:
-1. Initialize average density \( \rho_{\text{ave}[C]} \) to 0.
+1. Initialize average density $\rho_{\text{ave}[C]}$ to 0.
 2. For each material subset, retrieve pointers and perform necessary operations.
 3. Sum up the contributions of cells from each material subset.
 4. Compute the final average density by dividing the total sum by the volume.
@@ -101,8 +100,8 @@ The primary differences are:
 2. **Computational Efficiency**: By focusing on specific materials rather than the entire mesh, the material-centric approach reduces unnecessary operations and improves performance.
 
 For example:
-- Full cell-centric: \( \text{membytes} = 424 \) MB
-- Material-centric compressed sparse: \( \text{membytes} = 74 \) MB
+- Full cell-centric:$\text{membytes} = 424$ MB
+- Material-centric compressed sparse:$\text{membytes} = 74$ MB
 
 This highlights the efficiency gains in memory usage and computation.
 x??
@@ -270,14 +269,11 @@ Background context on how network bandwidth is measured differently from memory 
 :p How does the simple network performance model estimate message transfer time?
 ??x
 The simple network performance model for estimating message transfer time is given by:
-\[ \text{Time (ms)} = \text{latency} (\mu\text{s}) + \frac{\text{bytes\_moved (MBytes)}}{\text{bandwidth (GB/s)}} \]
+$$\text{Time (ms)} = \text{latency} (\mu\text{s}) + \frac{\text{bytes\_moved (MBytes)}}{\text{bandwidth (GB/s)}}$$
 
 For example, with a latency of 5 µs and bandwidth of 1 GB/s, the model can be used to estimate transfer times for different message sizes:
-- For a 1 MB message: \( 5 \mu\text{s} + \frac{8}{1024} = 5.0078125 \mu\text{s} \approx 5 \mu\text{s} \)
-- For an 8 KB message: \( 5 \mu\text{s} + \frac{0.008}{1024} = 5.000003814697265 \mu\text{s} \approx 5 \mu\text{s} \)
-
-However, for smaller messages like 1 KB or less, the latency becomes more significant:
-- For a 1 KB message: \( 5 \mu\text{s} + \frac{0.001}{1024} = 5.0009765625 \mu\text{s} \approx 5 \mu\text{s} \)
+- For a 1 MB message:$5 \mu\text{s} + \frac{8}{1024} = 5.0078125 \mu\text{s} \approx 5 \mu\text{s}$- For an 8 KB message:$5 \mu\text{s} + \frac{0.008}{1024} = 5.000003814697265 \mu\text{s} \approx 5 \mu\text{s}$ However, for smaller messages like 1 KB or less, the latency becomes more significant:
+- For a 1 KB message:$5 \mu\text{s} + \frac{0.001}{1024} = 5.0009765625 \mu\text{s} \approx 5 \mu\text{s}$
 
 In such cases, the latency dominates the transfer time.
 

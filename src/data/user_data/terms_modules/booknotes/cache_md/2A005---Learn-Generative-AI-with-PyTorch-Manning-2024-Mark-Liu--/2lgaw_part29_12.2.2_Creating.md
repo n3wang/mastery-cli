@@ -99,14 +99,11 @@ x??
 Background context: The causal self-attention mechanism is a fundamental component of transformers, particularly useful for sequence modeling tasks like language generation. It allows each position in a sequence to attend to all positions before it in the sequence, effectively capturing dependencies in time series data or sequential text.
 
 Relevant formulas:
-\[
-\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
-\]
-where \( Q \), \( K \), and \( V \) are the query, key, and value matrices, respectively. \( d_k \) is the dimension of the key vectors.
+$$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$where $ Q $,$ K $, and$ V $ are the query, key, and value matrices, respectively. $ d_k$ is the dimension of the key vectors.
 
 :p What does the CausalSelfAttention class do in a transformer model?
 ??x
-The CausalSelfAttention class defines the causal self-attention mechanism for transformers. It processes input embeddings to compute attention weights based on query (\( Q \)), key (\( K \)), and value (\( V \)) matrices, which are derived from the input embeddings. The class ensures that each token only attends to tokens before it in the sequence.
+The CausalSelfAttention class defines the causal self-attention mechanism for transformers. It processes input embeddings to compute attention weights based on query ($Q $), key ($ K $), and value ($ V$) matrices, which are derived from the input embeddings. The class ensures that each token only attends to tokens before it in the sequence.
 
 Code example:
 ```python

@@ -263,12 +263,10 @@ To derive the mean response time E[T], we need to consider the service times at 
 - For large jobs (S ≥ 10), the service time is T2 = S / μ2, where μ2 is the service rate for Host 2.
 
 The mean response time E[T] can be computed using the law of total expectation:
-\[ E[T] = \lambda \left( \int_{0}^{10} \frac{t}{\mu_1} f_S(t) dt + \int_{10}^{\infty} \frac{t}{\mu_2} f_S(t) dt \right) \]
-where \( f_S(t) \) is the probability density function of job sizes.
+$$E[T] = \lambda \left( \int_{0}^{10} \frac{t}{\mu_1} f_S(t) dt + \int_{10}^{\infty} \frac{t}{\mu_2} f_S(t) dt \right)$$where $ f_S(t)$ is the probability density function of job sizes.
 
 For a different power-law distribution, we can adjust the exponents accordingly. For instance, with P{S>x}=x−1.5, the mean response time would be:
-\[ E[T] = \lambda \left( \int_{0}^{10} \frac{t}{\mu_1} t^{-1.5} dt + \int_{10}^{\infty} \frac{t}{\mu_2} t^{-1.5} dt \right) \]
-??x
+$$E[T] = \lambda \left( \int_{0}^{10} \frac{t}{\mu_1} t^{-1.5} dt + \int_{10}^{\infty} \frac{t}{\mu_2} t^{-1.5} dt \right)$$??x
 ---
 
 #### PS Server Farm with SITA Task Assignment
@@ -277,12 +275,12 @@ Background context: A server farm has two identical PS ( Processor Sharing ) hos
 ??x
 To minimize the mean response time, we need to balance the load on both servers. The key idea is to find a job size threshold such that the fraction of jobs sent to each host is equal.
 
-Let \( x \) be the cutoff value. If small jobs (size < \( x \)) are routed to Host 1 and large jobs (size ≥ \( x \)) are routed to Host 2, we need to balance their expected arrival rates:
-\[ \text{Fraction of small jobs} = P(S < x) \]
-\[ \text{Fraction of large jobs} = P(S \geq x) \]
+Let $x $ be the cutoff value. If small jobs (size <$x $) are routed to Host 1 and large jobs (size ≥$ x$) are routed to Host 2, we need to balance their expected arrival rates:
+$$\text{Fraction of small jobs} = P(S < x)$$
+$$\text{Fraction of large jobs} = P(S \geq x)$$
 
-For a balanced load, these fractions should be equal. Therefore, the optimal \( x \) is where:
-\[ P(S < x) = 0.5 \]
+For a balanced load, these fractions should be equal. Therefore, the optimal $x$ is where:
+$$P(S < x) = 0.5$$
 
 This ensures that half the jobs are sent to each host, balancing the load and minimizing the mean response time.
 ??x
@@ -292,25 +290,24 @@ This ensures that half the jobs are sent to each host, balancing the load and mi
 Background context: A server farm has two identical hosts, one handling small jobs (S < 10) using FCFS scheduling and the other handling large jobs (S ≥ 10) using PS scheduling. The job size distribution is given, and the load balancing condition is that ρ = λE[S] / 2.
 :p Derive an expression for E[T], the mean response time experienced by an arriving job, as a function of ρ, λ, fS(t), and FS(t).
 ??x
-The mean response time \( E[T] \) can be derived using the properties of FCFS and PS queues.
+The mean response time $E[T]$ can be derived using the properties of FCFS and PS queues.
 
 For small jobs (S < 10):
-- The arrival rate is \( \lambda P(S < 10) \)
-- Service time is \( T_1 = S / μ_1 \), where \( μ_1 \) is the service rate for Host 1
+- The arrival rate is $\lambda P(S < 10)$- Service time is $ T_1 = S / μ_1$, where $μ_1$ is the service rate for Host 1
 
 The mean response time for FCFS:
-\[ E[T_{\text{small}}] = \frac{\lambda P(S < 10)}{\mu_1} + \frac{\int_{0}^{10} \frac{t}{\mu_1^2} f_S(t) dt}{\mu_1 - \lambda P(S < 10)} \]
+$$E[T_{\text{small}}] = \frac{\lambda P(S < 10)}{\mu_1} + \frac{\int_{0}^{10} \frac{t}{\mu_1^2} f_S(t) dt}{\mu_1 - \lambda P(S < 10)}$$
 
 For large jobs (S ≥ 10):
-- The arrival rate is \( \lambda P(S \geq 10) \)
-- Service time is \( T_2 = S / μ_2 \), where \( μ_2 \) is the service rate for Host 2
+- The arrival rate is $\lambda P(S \geq 10)$- Service time is $ T_2 = S / μ_2$, where $μ_2$ is the service rate for Host 2
 
 The mean response time for PS:
-\[ E[T_{\text{large}}] = \frac{\lambda P(S \geq 10)}{\mu_2} + \frac{\int_{10}^{\infty} \frac{t}{\mu_2^2} f_S(t) dt}{\mu_2 - \lambda P(S \geq 10)} \]
+$$E[T_{\text{large}}] = \frac{\lambda P(S \geq 10)}{\mu_2} + \frac{\int_{10}^{\infty} \frac{t}{\mu_2^2} f_S(t) dt}{\mu_2 - \lambda P(S \geq 10)}$$
 
 Combining these, the total mean response time is:
-\[ E[T] = E[T_{\text{small}}] + E[T_{\text{large}}] \]
-??x
+$$
+
+E[T] = E[T_{\text{small}}] + E[T_{\text{large}}]$$??x
 ---
 
 #### Equivalence of LWL and M/G/k
@@ -322,12 +319,12 @@ To prove this, we use mathematical induction.
 **Base Case:** For one job, it is trivially true since only one server will be used in both LWL and M/G/k.
 
 **Inductive Step:**
-Assume that for \( n \) jobs, each job is served by the same server in both systems. We need to show that adding a new job (job \( n+1 \)) maintains this property.
+Assume that for $n $ jobs, each job is served by the same server in both systems. We need to show that adding a new job (job$n+1$) maintains this property.
 
 - In LWL, when a new job arrives, it will be added to the wait list of the same server as the previous job if possible.
 - In M/G/k, each job follows its service sequence independently. However, under identical conditions and tied resolution, both systems treat jobs identically.
 
-By induction, this holds for all \( n \) jobs, ensuring that each job is served by the same server in both LWL and M/G/k.
+By induction, this holds for all $n$ jobs, ensuring that each job is served by the same server in both LWL and M/G/k.
 ??x
 ---
 
@@ -336,22 +333,23 @@ Background context: Comparing the performance of one fast machine versus two slo
 :p Compute E[TQ] as a function of λ in both cases and determine which case results in lower mean waiting time.
 ??x
 For the single "fast" machine (M/G/1):
-- Service rate \( \mu = 2s \) for large jobs, \( s \) for small jobs
-- Arrival rate \( \lambda \)
+- Service rate $\mu = 2s $ for large jobs,$ s$ for small jobs
+- Arrival rate $\lambda$
 
 Mean waiting time:
-\[ E[T_{Q,1}] = \frac{\rho^2}{2(1-\rho)} + \frac{1}{\mu_1} \]
-where \( \rho = \lambda / (3s) \).
+$$E[T_{Q,1}] = \frac{\rho^2}{2(1-\rho)} + \frac{1}{\mu_1}$$where $\rho = \lambda / (3s)$.
 
 For two slow machines (each with rate 0.5s):
 - Each machine handles half the jobs
 - Mean waiting time for each machine:
-\[ E[T_{Q,2}] = \frac{\left(\frac{\lambda}{2}\right)^2}{1 - \frac{\lambda}{2}} + \frac{1}{0.5s} \]
+$$E[T_{Q,2}] = \frac{\left(\frac{\lambda}{2}\right)^2}{1 - \frac{\lambda}{2}} + \frac{1}{0.5s}$$
 
 Combining both machines' waiting times:
-\[ E[T_{Q,2}] = 2 \times \left( \frac{\left(\frac{\lambda}{2}\right)^2}{1 - \frac{\lambda}{2}} + \frac{1}{0.5s} \right) \]
+$$
 
-By comparing \( E[T_{Q,1}] \) and \( E[T_{Q,2}] \), we find that the single fast machine results in lower mean waiting time due to better utilization of resources.
+E[T_{Q,2}] = 2 \times \left( \frac{\left(\frac{\lambda}{2}\right)^2}{1 - \frac{\lambda}{2}} + \frac{1}{0.5s} \right)$$
+
+By comparing $E[T_{Q,1}]$ and $E[T_{Q,2}]$, we find that the single fast machine results in lower mean waiting time due to better utilization of resources.
 ??x
 ---
 
@@ -359,18 +357,17 @@ By comparing \( E[T_{Q,1}] \) and \( E[T_{Q,2}] \), we find that the single fast
 Background context: Evaluating whether load balancing between two identical FCFS hosts is always beneficial or if unbalancing can improve performance.
 :p Determine the cutoff x under SITA-E and its impact on E[TQ].
 ??x
-Under SITA-E, the cutoff \( x \) balances the load at the two hosts. Given:
-\[ \rho = 0.5 \]
-and a Bounded Pareto distribution with mean 3,000.
+Under SITA-E, the cutoff $x$ balances the load at the two hosts. Given:
+$$\rho = 0.5$$and a Bounded Pareto distribution with mean 3,000.
 
-The cutoff \( x \) can be determined by solving for the median of the distribution to ensure equal expected loads on both servers. Once found, calculate \( E[TQ] \).
+The cutoff $x $ can be determined by solving for the median of the distribution to ensure equal expected loads on both servers. Once found, calculate$E[TQ]$.
 
-To find the optimal \( x \):
-\[ P(S < x) = 0.5 \]
+To find the optimal $x$:
+$$P(S < x) = 0.5$$
 
 Using this value, compute the mean response time for each server and sum them up.
 
-Unbalancing can be done by slightly adjusting \( x \) to see if it improves performance.
+Unbalancing can be done by slightly adjusting $x$ to see if it improves performance.
 ??x
 --- 
 

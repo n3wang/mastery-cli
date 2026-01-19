@@ -7,11 +7,11 @@
 
 
 #### Kernel Trick in Function Approximation
-Background context: The kernel trick allows expressing any linear parametric method as kernel regression. For example, if feature vectors \( x(s) = (x_1(s), x_2(s), \ldots, x_d(s))^T \) represent states, the inner product of these vectors can be used to form a kernel function: \( k(s, s_0) = x(s)^T x(s_0) \). This avoids explicitly working in high-dimensional feature space and instead works directly with stored training examples.
+Background context: The kernel trick allows expressing any linear parametric method as kernel regression. For example, if feature vectors $x(s) = (x_1(s), x_2(s), \ldots, x_d(s))^T $ represent states, the inner product of these vectors can be used to form a kernel function:$ k(s, s_0) = x(s)^T x(s_0)$. This avoids explicitly working in high-dimensional feature space and instead works directly with stored training examples.
 
 :p How does the kernel trick work?
 ??x
-The kernel trick expresses any linear parametric method as kernel regression. It uses the inner product of feature vectors to form a kernel function, \( k(s, s_0) = x(s)^T x(s_0) \), allowing efficient computation without explicitly working in high-dimensional space.
+The kernel trick expresses any linear parametric method as kernel regression. It uses the inner product of feature vectors to form a kernel function, $k(s, s_0) = x(s)^T x(s_0)$, allowing efficient computation without explicitly working in high-dimensional space.
 x??
 
 ---
@@ -24,9 +24,9 @@ In on-policy prediction, traditionally all states are treated equally. However, 
 Interest and emphasis allow for more targeted use of function approximation resources by weighting the updates according to how important specific states or state-action pairs are. Interest indicates the degree of focus on a particular state, while emphasis controls the magnitude of the update.
 
 Relevant equations:
-- \( M_t = I_t + \gamma M_{t-n} \)
+- $M_t = I_t + \gamma M_{t-n}$
 - The general n-step learning rule: 
-\[ w^{(t+n)} = w^{(t+n-1)} + \alpha M_t [G_{t:t+n} - \hat{v}(S_t, w^{(t+n-1)})] \]
+$$w^{(t+n)} = w^{(t+n-1)} + \alpha M_t [G_{t:t+n} - \hat{v}(S_t, w^{(t+n-1)})]$$
 
 These equations enable more accurate value estimates by adjusting the updates based on interest and emphasis.
 x??
@@ -35,30 +35,30 @@ x??
 
 
 #### Interest Definition
-Interest is a non-negative scalar random variable that indicates how much we care about accurately valuing specific states or state-action pairs. It can be set in any causal manner, depending on the trajectory up to time \( t \) or learned parameters at time \( t \).
+Interest is a non-negative scalar random variable that indicates how much we care about accurately valuing specific states or state-action pairs. It can be set in any causal manner, depending on the trajectory up to time $t $ or learned parameters at time$t$.
 :p How is interest defined and used in on-policy learning?
 ??x
 Interest is a measure indicating the degree of focus on certain states or actions. If we don't care about a state, its interest is 0; if fully focused, it can be 1 or any non-negative value.
 
 Relevant formula:
-\[ M_t = I_t + \gamma M_{t-n} \]
+$$M_t = I_t + \gamma M_{t-n}$$
 
-This equation recursively determines the emphasis \( M_t \) based on interest and previous emphasis values.
+This equation recursively determines the emphasis $M_t$ based on interest and previous emphasis values.
 x??
 
 ---
 
 
 #### Emphasis Definition
-Emphasis is another non-negative scalar random variable that multiplies the learning update, emphasizing or de-emphasizing updates at time \( t \). It influences how much weight each state update carries in the overall learning process.
+Emphasis is another non-negative scalar random variable that multiplies the learning update, emphasizing or de-emphasizing updates at time $t$. It influences how much weight each state update carries in the overall learning process.
 :p What is emphasis and how does it work?
 ??x
 Emphasis is a factor that modifies the learning rate of updates. By setting higher emphasis on certain states, more accurate value estimates can be achieved for those specific states.
 
 Relevant equations:
-- \( M_t = I_t + \gamma M_{t-n} \)
+- $M_t = I_t + \gamma M_{t-n}$
 - General n-step update rule: 
-\[ w^{(t+n)} = w^{(t+n-1)} + \alpha M_t [G_{t:t+n} - \hat{v}(S_t, w^{(t+n-1)})] \]
+$$w^{(t+n)} = w^{(t+n-1)} + \alpha M_t [G_{t:t+n} - \hat{v}(S_t, w^{(t+n-1)})]$$
 
 These equations allow for more targeted updates by adjusting the learning rate based on interest and previous emphasis.
 x??
@@ -67,7 +67,7 @@ x??
 
 
 #### Interest and Emphasis in MC
-Monte Carlo (MC) methods can benefit from interest and emphasis. In this context, all updates are made at the end of episodes, with \( G_t:t+n = G_t \).
+Monte Carlo (MC) methods can benefit from interest and emphasis. In this context, all updates are made at the end of episodes, with $G_t:t+n = G_t$.
 :p How does interest and emphasis work in Monte Carlo methods?
 ??x
 In Monte Carlo methods, interest and emphasis adjust the update rules by weighting states according to their importance. For instance, if only the first state is of interest, its weight (interest) will be 1, while others are 0.
@@ -95,9 +95,9 @@ TD methods can also incorporate interest and emphasis. Two-step semi-gradient TD
 Interest and emphasis modify the learning process such that states with higher interest receive more accurate value estimates, while those with lower interest are less updated.
 
 Relevant equations:
-- Interest equation: \( M_t = I_t + \gamma M_{t-n} \)
+- Interest equation: $M_t = I_t + \gamma M_{t-n}$
 - General n-step update rule: 
-\[ w^{(t+n)} = w^{(t+n-1)} + \alpha M_t [G_{t:t+n} - \hat{v}(S_t, w^{(t+n-1)})] \]
+$$w^{(t+n)} = w^{(t+n-1)} + \alpha M_t [G_{t:t+n} - \hat{v}(S_t, w^{(t+n-1)})]$$
 
 These adjustments can lead to more accurate value estimates for important states and less updates for unimportant ones.
 x??
@@ -109,7 +109,7 @@ x??
 Consider a four-state Markov reward process where interest is assigned only to the first state, leading to different convergence outcomes in MC and TD methods.
 :p Provide an example illustrating the use of interest and emphasis in on-policy learning?
 ??x
-In this example, we have a four-state Markov reward process. Interest is assigned as follows: state 1 (leftmost) has \( I_0 = 1 \), while others are 0.
+In this example, we have a four-state Markov reward process. Interest is assigned as follows: state 1 (leftmost) has $I_0 = 1$, while others are 0.
 
 For MC methods:
 - Without interest and emphasis, the algorithm converges to an intermediate value.
@@ -131,8 +131,7 @@ x??
 On-policy prediction, also known as policy evaluation, is a method used to estimate the value function under a fixed policy. The goal is to generalize from limited experience data and use existing methods for supervised learning function approximation by treating each update as a training example.
 
 The mean squared value error (VE) is defined as:
-\[ VE(w) = \mathbb{E}_{s \sim \mu} [(v_\pi(s) - v_{\pi w}(s))^2] \]
-where \( v_\pi(s) \) is the true value function, and \( v_{\pi w}(s) \) is the approximated value function using weight vector \( w \).
+$$VE(w) = \mathbb{E}_{s \sim \mu} [(v_\pi(s) - v_{\pi w}(s))^2]$$where $ v_\pi(s)$is the true value function, and $ v_{\pi w}(s)$is the approximated value function using weight vector $ w$.
 
 :p What is the purpose of on-policy prediction in reinforcement learning?
 ??x
@@ -143,11 +142,11 @@ x??
 
 
 #### Parameterized Function Approximation
-In parameterized function approximation, the policy is represented using a weight vector \( w \). Although the number of components in \( w \) can be large, the state space is much larger, leading to an approximate solution.
+In parameterized function approximation, the policy is represented using a weight vector $w $. Although the number of components in $ w$ can be large, the state space is much larger, leading to an approximate solution.
 
 :p How does parameterized function approximation work in reinforcement learning?
 ??x
-Parameterized function approximation works by representing the policy with a weight vector \( w \). The value function \( v_\pi(s) \) is approximated as a weighted sum of features, where each feature corresponds to a component in the weight vector. This approach allows for generalization but results in an approximate solution due to the large state space.
+Parameterized function approximation works by representing the policy with a weight vector $w $. The value function $ v_\pi(s)$ is approximated as a weighted sum of features, where each feature corresponds to a component in the weight vector. This approach allows for generalization but results in an approximate solution due to the large state space.
 x??
 
 ---
@@ -158,18 +157,18 @@ Stochastic gradient descent (SGD) is a popular method to find a good weight vect
 
 :p What is stochastic gradient descent (SGD)?
 ??x
-Stochastic gradient descent (SGD) is an optimization algorithm that updates the weights \( w \) of a model incrementally using one or more training examples at a time, rather than computing the full gradient over all training data. This makes it computationally efficient for large datasets.
+Stochastic gradient descent (SGD) is an optimization algorithm that updates the weights $w$ of a model incrementally using one or more training examples at a time, rather than computing the full gradient over all training data. This makes it computationally efficient for large datasets.
 x??
 
 ---
 
 
 #### n-step Semi-gradient TD
-The n-step semi-gradient TD method is an extension of the semi-gradient TD algorithm that includes gradient Monte Carlo and semi-gradient TD(0) as special cases when \( n = 1 \).
+The n-step semi-gradient TD method is an extension of the semi-gradient TD algorithm that includes gradient Monte Carlo and semi-gradient TD(0) as special cases when $n = 1$.
 
 :p What is the n-step semi-gradient TD method?
 ??x
-The n-step semi-gradient TD method extends the semi-gradient TD algorithm by considering multiple steps into the future. When \( n = 1 \), it reduces to gradient Monte Carlo, and for \( n = 1 \), it becomes semi-gradient TD(0). This method helps in improving the accuracy of value function approximations.
+The n-step semi-gradient TD method extends the semi-gradient TD algorithm by considering multiple steps into the future. When $n = 1 $, it reduces to gradient Monte Carlo, and for $ n = 1$, it becomes semi-gradient TD(0). This method helps in improving the accuracy of value function approximations.
 x??
 
 ---
@@ -180,7 +179,7 @@ Semi-gradient methods are not true gradient methods because the weight vector ap
 
 :p Why are semi-gradient methods considered not true gradient methods?
 ??x
-Semi-gradient methods are considered not true gradient methods because the weight vector \( w \) appears in the update target, yet this appearance is not accounted for in the computation of the gradient. This makes them "semi" -gradient, as they incorporate some elements of bootstrapping (like dynamic programming) into their updates.
+Semi-gradient methods are considered not true gradient methods because the weight vector $w$ appears in the update target, yet this appearance is not accounted for in the computation of the gradient. This makes them "semi" -gradient, as they incorporate some elements of bootstrapping (like dynamic programming) into their updates.
 x??
 
 ---
@@ -191,7 +190,7 @@ Linear function approximation involves representing the value estimates as sums 
 
 :p What is linear function approximation?
 ??x
-Linear function approximation represents the value estimates \( v_{\pi w}(s) \) as a weighted sum of features: \( v_{\pi w}(s) = w^T \phi(s) \). Here, \( \phi(s) \) are feature vectors derived from states. This approach is well understood theoretically and works effectively in practice with appropriate feature selection.
+Linear function approximation represents the value estimates $v_{\pi w}(s)$ as a weighted sum of features:$ v_{\pi w}(s) = w^T \phi(s)$. Here,$\phi(s)$ are feature vectors derived from states. This approach is well understood theoretically and works effectively in practice with appropriate feature selection.
 x??
 
 ---
@@ -213,7 +212,7 @@ LSTD stands for Least-Squares Temporal Difference, which is the most data-effici
 
 :p What is LSTD?
 ??x
-Least-Squares Temporal Difference (LSTD) is a linear TD prediction method that finds the optimal weight vector \( w \) by solving a least-squares problem. It is highly data-efficient, making it suitable for scenarios with limited data but requires computational resources proportional to the square of the number of weights.
+Least-Squares Temporal Difference (LSTD) is a linear TD prediction method that finds the optimal weight vector $w$ by solving a least-squares problem. It is highly data-efficient, making it suitable for scenarios with limited data but requires computational resources proportional to the square of the number of weights.
 x??
 
 ---
@@ -233,10 +232,10 @@ x??
 
 
 #### Linear Semi-Gradient n-step TD Convergence
-Background context: The text discusses the convergence properties of linear semi-gradient n-step temporal difference (TD) methods. These methods are used in reinforcement learning and are known to converge under standard conditions, providing an error bound that is within a range achievable by Monte Carlo methods. As \(n\) increases, this bound approaches zero.
+Background context: The text discusses the convergence properties of linear semi-gradient n-step temporal difference (TD) methods. These methods are used in reinforcement learning and are known to converge under standard conditions, providing an error bound that is within a range achievable by Monte Carlo methods. As $n$ increases, this bound approaches zero.
 :p What does the text say about the convergence properties of linear semi-gradient n-step TD?
 ??x
-The text states that linear semi-gradient n-step TD is guaranteed to converge under standard conditions for all \(n\). The error achieved asymptotically by Monte Carlo methods provides a bounding error. This bound becomes tighter as \(n\) increases and approaches zero, although very high \(n\) results in slower learning.
+The text states that linear semi-gradient n-step TD is guaranteed to converge under standard conditions for all $n $. The error achieved asymptotically by Monte Carlo methods provides a bounding error. This bound becomes tighter as $ n $increases and approaches zero, although very high$ n$ results in slower learning.
 
 For example:
 ```java
@@ -276,7 +275,7 @@ x??
 Background context: The text discusses the convergence properties of linear TD(0) methods. Sutton proved that in the mean, linear TD(0) converges to the minimal value error (VE) solution when feature vectors are linearly independent.
 :p What did Sutton prove about linear TD(0)?
 ??x
-Sutton proved that under the condition where feature vectors \(\{x(s): s \in S\}\) are linearly independent, linear TD(0) converges in the mean to the minimal value error (VE) solution.
+Sutton proved that under the condition where feature vectors $\{x(s): s \in S\}$ are linearly independent, linear TD(0) converges in the mean to the minimal value error (VE) solution.
 
 For example:
 ```java
@@ -296,7 +295,7 @@ x??
 
 
 #### Semi-Gradient TD(0)
-Background context: The text explains that semi-gradient TD(0) was first explored by Sutton as part of the linear TD(\(-\)) algorithm. This method uses a combination of on-policy and off-policy learning, making it suitable for function approximation.
+Background context: The text explains that semi-gradient TD(0) was first explored by Sutton as part of the linear TD($-$) algorithm. This method uses a combination of on-policy and off-policy learning, making it suitable for function approximation.
 :p What is the term "semi-gradient" used to describe in this context?
 ??x
 The term "semi-gradient" describes bootstrapping methods that use gradient descent techniques but only update part of the weights based on the gradient. This approach combines on-policy and off-policy learning, making it particularly useful for function approximation.

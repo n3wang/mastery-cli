@@ -84,10 +84,10 @@ Training large language models (LLMs) can be expensive due to the high computati
 For instance, if renting an A100-80GB GPU costs $1.50/hr and it was rented for 3,311,616 hours, the total cost would be significantly high.
 :p What is the formula to calculate the total cost of training a model?
 ??x
-The total cost \( C \) can be calculated using the following formula:
-\[ C = \text{GPU Rental Rate} \times \text{Number of Hours} \]
+The total cost $C$ can be calculated using the following formula:
+$$C = \text{GPU Rental Rate} \times \text{Number of Hours}$$
 
-For example, with an A100-80GB GPU rental rate at $1.50/hr and a usage time of 3,311,616 hours:
+For example, with an A100-80GB GPU rental rate at$1.50/hr and a usage time of 3,311,616 hours:
 ```java
 double gpuRentalRate = 1.5; // dollars per hour
 long hoursUsed = 3_311_616;

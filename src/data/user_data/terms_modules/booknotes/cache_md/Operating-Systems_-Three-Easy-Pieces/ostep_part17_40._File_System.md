@@ -207,25 +207,25 @@ Background context: In modern file systems like vsfs, each file is represented b
 ??x
 To find the byte address of an inode, we need to multiply the i-number by the size of an inode. In this case, each inode is 256 bytes and the start address of the inode region on disk is at 12KB (0x3000 in hexadecimal). The formula to calculate the offset into the inode table is:
 
-\[ \text{offset} = \text{i-number} \times \text{sizeof(inode)} \]
+$$\text{offset} = \text{i-number} \times \text{sizeof(inode)}$$
 
 To get the correct byte address, we add this offset to the start address of the inode region on disk.
 
 For example, to find the location of inode 32:
-- Calculate the offset: \( 32 \times 256 = 8192 \) bytes.
-- Add this to the start address of the inode table (0x3000): \( 0x3000 + 0x2000 = 0x5000 \).
+- Calculate the offset:$32 \times 256 = 8192$ bytes.
+- Add this to the start address of the inode table (0x3000):$0x3000 + 0x2000 = 0x5000$.
 
 So, the byte address would be 0x5000.
 
 To convert this byte address into sector addresses:
 - The block size is usually 4096 bytes (0x1000).
-- Divide the byte offset by the block size to get the block number: \( \text{blk} = \frac{\text{offset}}{\text{blockSize}} = \frac{8192}{4096} = 2 \).
+- Divide the byte offset by the block size to get the block number: $\text{blk} = \frac{\text{offset}}{\text{blockSize}} = \frac{8192}{4096} = 2$.
 
 To find the sector address:
-\[ \text{sector} = \left( \frac{\text{blk} \times \text{blockSize}}{\text{sectorSize}} + \text{inodeStartAddr} \right) / \text{sectorSize} \]
+$$\text{sector} = \left( \frac{\text{blk} \times \text{blockSize}}{\text{sectorSize}} + \text{inodeStartAddr} \right) / \text{sectorSize}$$
 
 In this case, since we are in bytes and the sector size is 512 bytes:
-\[ \text{sector} = \left( \frac{8192}{512} + 4096 \right) / 512 = \left( 16 + 4096 \right) / 512 = 8 \]
+$$\text{sector} = \left( \frac{8192}{512} + 4096 \right) / 512 = \left( 16 + 4096 \right) / 512 = 8$$
 
 So, the sector address is 8.
 
@@ -395,30 +395,20 @@ Using the multi-level index approach allows for managing large files by leveragi
 :p How big of a file can be handled with a triple-indirect block, given a 4KB block size and 4-byte pointers?
 ??x
 With a triple-indirect block, we can handle an even larger file. The formula to determine the maximum file size is:
-
-\[
-\text{Max File Size} = (12 + \text{Single Indirect Blocks} + \text{Double Indirect Blocks} + \text{Triple Indirect Blocks}) \times \text{Block Size}
-\]
+$$\text{Max File Size} = (12 + \text{Single Indirect Blocks} + \text{Double Indirect Blocks} + \text{Triple Indirect Blocks}) \times \text{Block Size}$$
 
 Given a 4KB block size, we can calculate the maximum file size as follows:
 
 - Direct pointers: 12 blocks
-- Single indirect block: \(1024\) blocks (since each single indirect pointer points to an array of 1024 4-byte addresses)
-- Double indirect block: Each double indirect block point to another set of 1024 single indirect blocks, thus \(1024 \times 1024 = 1048576\) blocks
-- Triple indirect block: Each triple indirect block points to another set of 1048576 single indirect blocks, thus \(1024 \times 1048576 = 1073741824\) blocks
+- Single indirect block:$1024$ blocks (since each single indirect pointer points to an array of 1024 4-byte addresses)
+- Double indirect block: Each double indirect block point to another set of 1024 single indirect blocks, thus $1024 \times 1024 = 1048576$ blocks
+- Triple indirect block: Each triple indirect block points to another set of 1048576 single indirect blocks, thus $1024 \times 1048576 = 1073741824$ blocks
 
 Total blocks:
-
-\[
-12 + 1024 + 1048576 + 1073741824 = 1074747436
-\]
+$$12 + 1024 + 1048576 + 1073741824 = 1074747436$$
 
 Each block is 4KB, so the maximum file size would be:
-
-\[
-1074747436 \times 4096 \text{ bytes} = 435.2 GB \approx 435GB
-\]
-??x
+$$1074747436 \times 4096 \text{ bytes} = 435.2 GB \approx 435GB$$??x
 The maximum file size that can be handled with a triple-indirect block is approximately 435GB, given the parameters mentioned.
 
 ```java
@@ -1526,10 +1516,10 @@ Background context: The process of reducing overhead by doing more work per over
 The example provided discusses achieving 50% peak disk performance by balancing seek and transfer time, where 10 ms are spent seeking and another 10 ms transferring data for a total of 20 ms operation time.
 
 The relevant formula for calculating the chunk size is given as:
-\[ \text{Chunk Size} = \frac{\text{Transfer Rate} \times \text{Seek Time}}{\text{100\% - Desired Bandwidth Percentage}} \]
+$$\text{Chunk Size} = \frac{\text{Transfer Rate} \times \text{Seek Time}}{\text{100\% - Desired Bandwidth Percentage}}$$
 
 Where Transfer Rate is 40 MB/s and Seek Time is 10 ms. For example, to achieve 50% of peak bandwidth:
-\[ \text{Chunk Size} = \frac{40 \times 1024 \times 10}{(1 - 0.5)} = 409.6 KB \]
+$$\text{Chunk Size} = \frac{40 \times 1024 \times 10}{(1 - 0.5)} = 409.6 KB$$
 
 :p What is the chunk size needed to achieve 50% of peak disk performance?
 ??x

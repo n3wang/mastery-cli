@@ -7,8 +7,8 @@
 
 
 #### Burgers Vector and Dislocation Types
-Background context: The Burgers vector, denoted by \( \mathbf{b} \), is a vector that describes the magnitude and direction of lattice distortion associated with a dislocation. For edge and screw dislocations, the relative orientation between the dislocation line and Burgers vector defines their nature. Edge dislocations have perpendicular orientations, while screw dislocations have parallel ones.
-:p What does the Burgers vector (\( \mathbf{b} \)) describe in terms of dislocations?
+Background context: The Burgers vector, denoted by $\mathbf{b}$, is a vector that describes the magnitude and direction of lattice distortion associated with a dislocation. For edge and screw dislocations, the relative orientation between the dislocation line and Burgers vector defines their nature. Edge dislocations have perpendicular orientations, while screw dislocations have parallel ones.
+:p What does the Burgers vector ($\mathbf{b}$) describe in terms of dislocations?
 ??x
 The Burgers vector describes the magnitude and direction of lattice distortion associated with a dislocation. For edge dislocations, it is perpendicular to the dislocation line, whereas for screw dislocations, it is parallel.
 x??
@@ -77,10 +77,10 @@ x??
 
 
 #### Small-Angle Grain Boundaries
-Background context: Small-angle grain boundaries are formed by aligning edge dislocations, leading to a tilt boundary where the angle of misorientation (\( \theta \)) is typically on the order of a few degrees. These can be described using arrays of dislocations.
+Background context: Small-angle grain boundaries are formed by aligning edge dislocations, leading to a tilt boundary where the angle of misorientation ($\theta$) is typically on the order of a few degrees. These can be described using arrays of dislocations.
 :p How do small-angle grain boundaries form?
 ??x
-Small-angle grain boundaries form when edge dislocations are aligned, resulting in a tilt boundary with an angle of misorientation \( \theta \) typically on the order of a few degrees. This alignment can be described by dislocation arrays.
+Small-angle grain boundaries form when edge dislocations are aligned, resulting in a tilt boundary with an angle of misorientation $\theta$ typically on the order of a few degrees. This alignment can be described by dislocation arrays.
 x??
 
 ---
@@ -177,7 +177,7 @@ x??
 In solids, every atom rapidly vibrates about its lattice position. The frequency, amplitude, and energy of these vibrations vary from atom to atom at any given time. The average vibrational activity is related to the temperature of the solid.
 :p How do atomic vibrations relate to the properties of materials?
 ??x
-Atomic vibrations are fundamental in determining various material properties. At higher temperatures, atoms vibrate more vigorously, potentially disrupting bonds and leading to phenomena like melting. The vibrational frequency is typically on the order of \(10^{13}\) vibrations per second at room temperature.
+Atomic vibrations are fundamental in determining various material properties. At higher temperatures, atoms vibrate more vigorously, potentially disrupting bonds and leading to phenomena like melting. The vibrational frequency is typically on the order of $10^{13}$ vibrations per second at room temperature.
 x??
 
 ---

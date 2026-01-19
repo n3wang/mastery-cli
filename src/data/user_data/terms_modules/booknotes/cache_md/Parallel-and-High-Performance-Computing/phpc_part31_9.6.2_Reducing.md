@@ -119,8 +119,7 @@ Background context: The text discusses the trade-offs between running multiple j
 :p How does adding more processors affect parallel efficiency according to Amdahl’s law?
 ??x
 Amdahl's Law states that the maximum speedup achievable by using multiple processors is limited by the parts of the program that cannot be parallelized. The formula for Amdahl's Law is:
-\[ S(p) = \frac{1}{(1 - P + \frac{P}{p})} \]
-where \( S(p) \) is the speedup, \( p \) is the number of processors, and \( P \) is the fraction of the program that can be parallelized. As more processors are added, the improvement in run time decreases because a larger portion of the code must still be executed sequentially.
+$$S(p) = \frac{1}{(1 - P + \frac{P}{p})}$$where $ S(p)$ is the speedup,$ p $ is the number of processors, and $ P$ is the fraction of the program that can be parallelized. As more processors are added, the improvement in run time decreases because a larger portion of the code must still be executed sequentially.
 x??
 
 ---

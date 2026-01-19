@@ -227,7 +227,7 @@ Background context: The text discusses how tools like ts-node and bundlers can p
 ??x
 Running ts-node with `--transpileOnly` will tell it to skip type checking and simply transform your TypeScript code into JavaScript. This can significantly speed up development time, especially for small or trivial programs where the time taken by type checking is noticeable.
 ```bash
-$ time ts-node --transpileOnly hello.ts  # Runs faster as it skips type checking
+$time ts-node --transpileOnly hello.ts  # Runs faster as it skips type checking
 ```
 x??
 
@@ -238,8 +238,7 @@ Background context: The text highlights how turning off type checking can improv
 :p How does running TypeScript with `--transpileOnly` affect the iteration cycle?
 ??x
 Running TypeScript with `--transpileOnly` significantly reduces the time it takes to run a program by skipping type checking. For example, a trivial TypeScript program runs much faster without type checking:
-```bash
-$ time ts-node --transpileOnly hello.ts  # Quick execution due to no type checking
+```bash$ time ts-node --transpileOnly hello.ts  # Quick execution due to no type checking
 ```
 This can greatly enhance the developer's iteration cycle and overall experience.
 x??
@@ -265,7 +264,7 @@ Background context: The text mentions that using a tool like `knip` can help ide
 ??x
 `knip` is a tool designed to detect and report both local and third-party unused symbols and dependencies. By using `knip`, you can identify unused third-party modules, which often contain extensive type declarations that are not used in your codebase. This helps reduce the overall size of your project and improve performance.
 ```bash
-$ tsc --listFiles  # Lists all sources included in the TypeScript project
+$tsc --listFiles  # Lists all sources included in the TypeScript project
 ```
 x??
 
@@ -276,8 +275,7 @@ Background context: The text concludes by suggesting a visual approach to unders
 :p What is the purpose of using treemaps for managing TypeScript projects?
 ??x
 Using treemaps to visualize dependencies provides a graphical representation of how different modules and their sub-modules relate to each other. This can help developers understand the complexity of their project's dependency tree, making it easier to identify and remove unused or redundant dependencies.
-```bash
-$ tsc --listFiles  # Produces output showing all included sources
+```bash$ tsc --listFiles  # Produces output showing all included sources
 ```
 By visualizing these relationships, you can better manage your project's dependencies and improve overall performance.
 x??
@@ -497,7 +495,7 @@ class Person {
   }
   
   getName(): string {
-    return `${this.first} ${this.last}`;
+    return `${this.first}${this.last}`;
   }
 }
 

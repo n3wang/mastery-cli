@@ -82,7 +82,7 @@ Non-idempotent transactions, like transferring money between accounts, must hand
 
 :p Why is the transaction in Example 12-1 problematic?
 ??x
-The transaction in Example 12-1 is non-idempotent and may lead to double deductions or credits if retried. Specifically, sending the `COMMIT` again after a network timeout could result in $22 being transferred instead of just $11.
+The transaction in Example 12-1 is non-idempotent and may lead to double deductions or credits if retried. Specifically, sending the `COMMIT` again after a network timeout could result in $22 being transferred instead of just$11.
 
 ```java
 public void transferFunds(int accountIdFrom, int accountIdTo, double amount) {

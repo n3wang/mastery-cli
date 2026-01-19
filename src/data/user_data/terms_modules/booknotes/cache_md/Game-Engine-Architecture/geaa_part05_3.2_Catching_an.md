@@ -584,12 +584,11 @@ x??
 
 
 #### Floating-Point Representation Overview
-Background context: A 32-bit floating-point number uses a specific format to represent both very large and very small numbers. The representation includes a sign bit, an exponent, and a mantissa (also known as the significand). The value \(v\) is calculated using the formula:
-\[ v = s \cdot 2^{(e - 127)} \cdot (1 + m) \]
-where:
-- \(s\) is the sign bit (\(+1\) or \(-1\))
-- \(e\) is the biased exponent
-- \(m\) is the mantissa
+Background context: A 32-bit floating-point number uses a specific format to represent both very large and very small numbers. The representation includes a sign bit, an exponent, and a mantissa (also known as the significand). The value $v$ is calculated using the formula:
+$$v = s \cdot 2^{(e - 127)} \cdot (1 + m)$$where:
+- $s $ is the sign bit ($+1 $ or$-1$)
+- $e$ is the biased exponent
+- $m$ is the mantissa
 
 The exponent is biased by 127 to allow for both positive and negative exponents, making it easier to represent a wide range of values.
 
@@ -598,9 +597,9 @@ The exponent is biased by 127 to allow for both positive and negative exponents,
 The floating-point number format includes three components: the sign bit, the biased exponent (8 bits), and the mantissa (23 bits).
 
 Explanation:
-- The **sign bit** (\(s\)) is used to denote whether the number is positive or negative.
-- The **exponent** (\(e\)) is a 7-bit value with a bias of 127, allowing for both positive and negative exponents.
-- The **mantissa** (\(m\)), also known as the significand, includes an implicit leading '1' bit that is not stored. The remaining bits represent the fractional part.
+- The **sign bit** ($s$) is used to denote whether the number is positive or negative.
+- The **exponent** ($e$) is a 7-bit value with a bias of 127, allowing for both positive and negative exponents.
+- The **mantissa** ($m$), also known as the significand, includes an implicit leading '1' bit that is not stored. The remaining bits represent the fractional part.
 
 ??x
 The answer provides a clear breakdown of the components used in floating-point representation and their roles:
@@ -631,11 +630,11 @@ Background context: For floating-point values with magnitudes much less than one
 
 :p Explain the effects when magnitude is much smaller.
 ??x
-When the magnitude of a floating-point number is much smaller (less than 1), the **exponent** will be a large negative value. This shifts the significant digits towards the right, leaving fewer bits available for the fractional part (\(m\)). As a result, there is a loss of precision in representing the fractional component.
+When the magnitude of a floating-point number is much smaller (less than 1), the **exponent** will be a large negative value. This shifts the significant digits towards the right, leaving fewer bits available for the fractional part ($m$). As a result, there is a loss of precision in representing the fractional component.
 ??x
 Explanation:
-- The **exponent** \(e\) will be a large negative number, meaning it has been subtracted by a large value from 127.
-- This shift causes the implicit leading '1' to move further right, leaving fewer bits for the actual mantissa (\(m\)).
+- The **exponent** $e$ will be a large negative number, meaning it has been subtracted by a large value from 127.
+- This shift causes the implicit leading '1' to move further right, leaving fewer bits for the actual mantissa ($m$).
 - Consequently, the precision of the fractional part decreases.
 
 ```java
@@ -689,12 +688,12 @@ The gap between zero and the smallest non-zero value is known as the subnormal v
 #### Impact of Floating-Point Precision on Game Time Tracking
 Background context explaining how the magnitude of a game's clock variable affects its precision over time. The example uses a floating-point variable to track absolute game time in seconds.
 
-:p How long can a 32-bit floating-point variable represent game time before adding \(1/30^{\text{th}}\) of a second no longer changes its value?
+:p How long can a 32-bit floating-point variable represent game time before adding $1/30^{\text{th}}$ of a second no longer changes its value?
 ??x
-The answer is that a 32-bit floating-point variable using the IEEE 754 standard has a precision limit such that after approximately 12.14 days (or about 220 seconds), adding \(1/30^{\text{th}}\) of a second to it no longer changes its value.
+The answer is that a 32-bit floating-point variable using the IEEE 754 standard has a precision limit such that after approximately 12.14 days (or about 220 seconds), adding $1/30^{\text{th}}$ of a second to it no longer changes its value.
 
-To understand this, consider the machine epsilon for single-precision floats is roughly \(2^{-23}\). After accumulating error over time, the total change might be less than this smallest representable difference. In practice:
-\[ 12.14 \text{ days} = \frac{2^{23}}{30} \approx 220 \text{ seconds}. \]
+To understand this, consider the machine epsilon for single-precision floats is roughly $2^{-23}$. After accumulating error over time, the total change might be less than this smallest representable difference. In practice:
+$$12.14 \text{ days} = \frac{2^{23}}{30} \approx 220 \text{ seconds}.$$
 
 For a game that is expected to run for much shorter durations, using a 32-bit floating-point clock in seconds can be sufficient.
 x??

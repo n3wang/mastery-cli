@@ -411,16 +411,13 @@ Background context explaining the concept. Include any relevant formulas or data
 ??x
 Term frequency (TF) measures how frequently a term appears in a document. It quantifies the importance of a term within that specific document.
 
-Mathematically, for a given term \( t \) and document \( D \), TF can be computed as:
-\[
-TF(t, D) = \frac{\text{Number of times term } t \text{ appears in document } D}{\text{Total number of terms in document } D}
-\]
+Mathematically, for a given term $t $ and document$D$, TF can be computed as:
+$$TF(t, D) = \frac{\text{Number of times term } t \text{ appears in document } D}{\text{Total number of terms in document } D}$$
 
 For example, if the word "Vietnamese" appears 3 times and the total number of words in a recipe document is 100:
-\[
-TF(\text{Vietnamese}, D) = \frac{3}{100} = 0.03
-\]
-x??
+$$
+
+TF(\text{Vietnamese}, D) = \frac{3}{100} = 0.03$$x??
 
 ---
 
@@ -432,16 +429,12 @@ Background context explaining the concept. Include any relevant formulas or data
 Inverse document frequency (IDF) measures the importance of a term across all documents in a collection. A term that appears frequently across many documents is considered less informative.
 
 Mathematically, IDF can be computed as:
-\[
-IDF(t) = \log{\left(\frac{N}{C(t)}\right)}
-\]
-where \( N \) is the total number of documents and \( C(t) \) is the number of documents containing term \( t \).
+$$
+
+IDF(t) = \log{\left(\frac{N}{C(t)}\right)}$$where $ N $ is the total number of documents and $ C(t)$is the number of documents containing term $ t$.
 
 For example, if "for" appears in 5 out of 10 documents:
-\[
-IDF(\text{for}) = \log{\left(\frac{10}{5}\right)} = \log(2)
-\]
-x??
+$$IDF(\text{for}) = \log{\left(\frac{10}{5}\right)} = \log(2)$$x??
 
 ---
 
@@ -452,24 +445,19 @@ Background context explaining the concept. Include any relevant formulas or data
 ??x
 Term Frequency-Inverse Document Frequency (TF-IDF) is an algorithm that combines both term frequency (TF) and inverse document frequency (IDF). It provides a numerical score to reflect the importance of a term in a document relative to a collection of documents.
 
-The TF-IDF score for a document \( D \) with respect to a query \( Q \) can be computed as:
-\[
-Score(D, Q) = \sum_{i=1}^{q} IDF(t_i) \times f(t_i, D)
-\]
-where \( t_1, t_2, ..., t_q \) are the terms in the query \( Q \), \( f(t_i, D) \) is the term frequency of term \( t_i \) in document \( D \), and \( IDF(t_i) = \log{\left(\frac{N}{C(t_i)}\right)} \).
+The TF-IDF score for a document $D $ with respect to a query$Q$ can be computed as:
+$$Score(D, Q) = \sum_{i=1}^{q} IDF(t_i) \times f(t_i, D)$$where $ t_1, t_2, ..., t_q $ are the terms in the query $ Q $,$ f(t_i, D)$is the term frequency of term $ t_i$in document $ D $, and $ IDF(t_i) = \log{\left(\frac{N}{C(t_i)}\right)}$.
 
 For example, if "Vietnamese" appears 3 times in a document (with total words being 100), and it appears in 5 out of 10 documents:
-\[
-TF(\text{Vietnamese}, D) = \frac{3}{100} = 0.03
-\]
-\[
-IDF(\text{Vietnamese}) = \log{\left(\frac{10}{5}\right)} = \log(2)
-\]
-\[
-Score(D, Q) = IDF(\text{Vietnamese}) \times TF(\text{Vietnamese}, D) = \log(2) \times 0.03
-\]
+$$TF(\text{Vietnamese}, D) = \frac{3}{100} = 0.03$$
+$$
 
-This score indicates the importance of "Vietnamese" in document \( D \).
+IDF(\text{Vietnamese}) = \log{\left(\frac{10}{5}\right)} = \log(2)$$
+$$
+
+Score(D, Q) = IDF(\text{Vietnamese}) \times TF(\text{Vietnamese}, D) = \log(2) \times 0.03$$
+
+This score indicates the importance of "Vietnamese" in document $D$.
 x??
 
 ---
@@ -503,19 +491,15 @@ Background context explaining the concept. Include any relevant formulas or data
 BM25 (Best Matching algorithm) is a modification of the TF-IDF algorithm, specifically designed to improve ranking by normalizing term frequency scores based on document length.
 
 Key Differences:
-- BM25 adjusts the term frequency score (\( f(t_i, D) \)) with two additional parameters: \( k_1 \) and \( b \):
-  - \( k_1 \): A constant that determines how much importance is given to higher frequencies.
-  - \( b \): A constant related to the average document length.
+- BM25 adjusts the term frequency score ($f(t_i, D)$) with two additional parameters:$ k_1 $ and $ b$:
+  - $k_1$: A constant that determines how much importance is given to higher frequencies.
+  - $b$: A constant related to the average document length.
 
 Adjusted TF-IDF Score:
-\[
-Score(D, Q) = \sum_{i=1}^{q} IDF(t_i) \times \frac{k_1 (1 + f(t_i, D))}{k_1 + f(t_i, D)}
-\]
+$$Score(D, Q) = \sum_{i=1}^{q} IDF(t_i) \times \frac{k_1 (1 + f(t_i, D))}{k_1 + f(t_i, D)}$$
 
-For example, if \( k_1 = 1.2 \), \( b = 0.75 \), and the document length is 100 words:
-\[
-Score(D, Q) = IDF(\text{Vietnamese}) \times \frac{k_1 (1 + f(\text{Vietnamese}, D))}{k_1 + f(\text{Vietnamese}, D)}
-\]
+For example, if $k_1 = 1.2 $, $ b = 0.75$, and the document length is 100 words:
+$$Score(D, Q) = IDF(\text{Vietnamese}) \times \frac{k_1 (1 + f(\text{Vietnamese}, D))}{k_1 + f(\text{Vietnamese}, D)}$$
 x??
 
 ---

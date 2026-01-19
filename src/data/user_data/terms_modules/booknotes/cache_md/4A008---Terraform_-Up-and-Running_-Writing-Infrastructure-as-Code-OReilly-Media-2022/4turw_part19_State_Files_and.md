@@ -37,12 +37,11 @@ To manage secrets in plan files, it is crucial to encrypt these files both in tr
 
 For example:
 ```bash
-$ terraform plan -out=example.plan
+$terraform plan -out=example.plan
 ```
 If you save a plan file like `example.plan`, the database username and password will be stored in plain text within this file. To encrypt it, you could use AWS S3 with server-side encryption (SSE-S3):
 ```bash
-# Assuming your S3 bucket supports SSE-S3
-$ aws s3 cp example.plan s3://your-s3-bucket/example.plan --sse AES256
+# Assuming your S3 bucket supports SSE-S3$ aws s3 cp example.plan s3://your-s3-bucket/example.plan --sse AES256
 ```
 This ensures that the plan file is encrypted on disk.
 

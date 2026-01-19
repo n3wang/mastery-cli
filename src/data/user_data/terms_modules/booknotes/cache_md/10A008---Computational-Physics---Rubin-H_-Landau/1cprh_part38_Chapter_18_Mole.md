@@ -13,20 +13,14 @@ Background context: The ideal gas law can be derived by confining noninteracting
 The ideal gas law is derived by considering non-interacting particles confined in a box of volume V at temperature T. Each particle has kinetic energy and follows statistical mechanics principles.
 
 1. **Kinetic Energy**: The average kinetic energy per molecule is given by:
-   \[
-   E = \frac{3}{2} kT
-   \]
-2. **Number of Molecules**: Let N be the number of molecules.
-3. **Total Energy**: The total internal energy \( U \) of the gas is:
-   \[
-   U = \frac{3}{2} NkT
-   \]
+   $$E = \frac{3}{2} kT$$2. **Number of Molecules**: Let N be the number of molecules.
+3. **Total Energy**: The total internal energy $U$ of the gas is:
+$$U = \frac{3}{2} NkT$$
 
 The pressure P exerted by these molecules on the walls of the box can be derived from considering the collisions and the force exerted, leading to the ideal gas law:
+$$
 
-\[
-PV = NkT
-\]
+PV = NkT$$
 
 This derivation simplifies complex interactions to understand basic principles.
 x??
@@ -40,12 +34,10 @@ Background context: MD simulations extend the concept of non-interacting molecul
 ??x
 Molecular Dynamics (MD) simulations use Newton’s laws as their basis to study bulk properties of systems. These simulations involve a large number of particles where each particle's position and velocity change continuously with time due to intermolecular forces.
 
-The key equation for the acceleration of a molecule \(i\) is:
-\[
-\frac{d^2 \mathbf{r}_i}{dt^2} = -\nabla_i U(\{\mathbf{r}_j\})
-\]
+The key equation for the acceleration of a molecule $i$ is:
+$$\frac{d^2 \mathbf{r}_i}{dt^2} = -\nabla_i U(\{\mathbf{r}_j\})$$
 
-Where \(U(\{\mathbf{r}_j\})\) is the total potential energy due to interactions between all particles.
+Where $U(\{\mathbf{r}_j\})$ is the total potential energy due to interactions between all particles.
 x??
 
 ---
@@ -68,20 +60,14 @@ Background context: The Lennard-Jones potential models intermolecular interactio
 :p What is the Lennard-Jones potential?
 ??x
 The Lennard-Jones (LJ) potential describes the interaction between two particles as a sum of a long-range attractive force and a short-range repulsive force:
+$$u(r) = 4 \epsilon \left[ \left(\frac{\sigma}{r}\right)^{12} - \left(\frac{\sigma}{r}\right)^6 \right]$$
 
-\[
-u(r) = 4 \epsilon \left[ \left(\frac{\sigma}{r}\right)^{12} - \left(\frac{\sigma}{r}\right)^6 \right]
-\]
-
-Where \( r \) is the distance between particles, and:
-- \(\epsilon\) determines the strength of interaction,
-- \(\sigma\) defines the length scale.
+Where $r$ is the distance between particles, and:
+- $\epsilon$ determines the strength of interaction,
+- $\sigma$ defines the length scale.
 
 The force derived from this potential is:
-
-\[
-f(r) = -\frac{du}{dr} = 48 \epsilon \left[ \left(\frac{\sigma}{r}\right)^{12} - \frac{1}{2} \left(\frac{\sigma}{r}\right)^6 \right] r
-\]
+$$f(r) = -\frac{du}{dr} = 48 \epsilon \left[ \left(\frac{\sigma}{r}\right)^{12} - \frac{1}{2} \left(\frac{\sigma}{r}\right)^6 \right] r$$
 
 This potential models the transition from repulsion to attraction and is useful in simulating argon, which has a solid-like behavior at low temperatures.
 x??
@@ -93,15 +79,11 @@ x??
 Background context: The force between molecules can be calculated using the gradient of the potential energy function. This calculation is crucial for implementing MD simulations.
 :p How do you calculate the force in an MD simulation using the Lennard-Jones potential?
 ??x
-To calculate the force \( f \) between two particles using the Lennard-Jones potential, we use the following formula:
-
-\[
-f(r) = -\frac{du}{dr} = 48 \epsilon \left[ \left(\frac{\sigma}{r}\right)^{12} - \frac{1}{2} \left(\frac{\sigma}{r}\right)^6 \right] r
-\]
+To calculate the force $f$ between two particles using the Lennard-Jones potential, we use the following formula:
+$$f(r) = -\frac{du}{dr} = 48 \epsilon \left[ \left(\frac{\sigma}{r}\right)^{12} - \frac{1}{2} \left(\frac{\sigma}{r}\right)^6 \right] r$$
 
 Where:
-- \( u(r) = 4 \epsilon \left[ \left(\frac{\sigma}{r}\right)^{12} - \left(\frac{\sigma}{r}\right)^6 \right] \)
-- \( f(r) \) is the force at distance \( r \).
+- $u(r) = 4 \epsilon \left[ \left(\frac{\sigma}{r}\right)^{12} - \left(\frac{\sigma}{r}\right)^6 \right]$-$ f(r)$is the force at distance $ r$.
 
 This formula captures both the repulsive and attractive forces based on the distance between particles.
 x??
@@ -115,13 +97,11 @@ Background context: After running a simulation long enough to stabilize, time av
 ??x
 Time averages in MD simulations are used after the system has stabilized to extract dynamic properties that can be related to thermodynamic parameters. By averaging over a sufficient number of trajectories, one can determine quantities like pressure, temperature, and energy fluctuations.
 
-For example, if we want to find the average kinetic energy \( \langle E_k \rangle \):
+For example, if we want to find the average kinetic energy $\langle E_k \rangle$:
 
-\[
-\langle E_k \rangle = \frac{1}{N} \sum_{i=1}^N \frac{m v_i^2}{2}
-\]
+$$\langle E_k \rangle = \frac{1}{N} \sum_{i=1}^N \frac{m v_i^2}{2}$$
 
-Where \( N \) is the number of particles, and \( m \), \( v_i \) are the mass and velocity of each particle respectively.
+Where $N $ is the number of particles, and$m $,$ v_i$ are the mass and velocity of each particle respectively.
 x??
 
 ---
@@ -141,45 +121,37 @@ x??
 
 #### Equipartition Theorem
 
-Background context: The equipartition theorem states that each degree of freedom in a system at thermal equilibrium has an average energy of \( \frac{k_B T}{2} \). This is used to relate the kinetic energy (KE) of particles to temperature.
+Background context: The equipartition theorem states that each degree of freedom in a system at thermal equilibrium has an average energy of $\frac{k_B T}{2}$. This is used to relate the kinetic energy (KE) of particles to temperature.
 
 :p How does the equipartition theorem apply to molecular dynamics simulations?
 ??x
-The equipartition theorem is applied by noting that in a system at thermal equilibrium, each degree of freedom per particle has an average energy of \( \frac{k_B T}{2} \). For molecules with three degrees of freedom (translational), the total average kinetic energy is given by:
+The equipartition theorem is applied by noting that in a system at thermal equilibrium, each degree of freedom per particle has an average energy of $\frac{k_B T}{2}$. For molecules with three degrees of freedom (translational), the total average kinetic energy is given by:
 
-\[ \langle KE \rangle = \frac{N_3 k_B T}{2} \]
+$$\langle KE \rangle = \frac{N_3 k_B T}{2}$$
 
-Where \( N \) is the number of particles and \( k_B = 1.38 \times 10^{-23} J/K \). The temperature can then be calculated using this relation.
+Where $N $ is the number of particles and$k_B = 1.38 \times 10^{-23} J/K$. The temperature can then be calculated using this relation.
 
 :p What formula relates kinetic energy to temperature in MD simulations?
 ??x
 The relationship between the average kinetic energy (KE) and temperature is given by:
 
-\[ \langle KE \rangle = \frac{N_3 k_B T}{2} \]
+$$\langle KE \rangle = \frac{N_3 k_B T}{2}$$
 
-Where \( N \) is the number of particles, and \( k_B \) is Boltzmann's constant. Solving for temperature \( T \):
+Where $N $ is the number of particles, and$k_B $ is Boltzmann's constant. Solving for temperature$T$:
 
-\[ T = \frac{2 \langle KE \rangle}{k_B N_3} \]
-
-:p What is the formula to calculate pressure in MD simulations?
+$$T = \frac{2 \langle KE \rangle}{k_B N_3}$$:p What is the formula to calculate pressure in MD simulations?
 ??x
-The pressure \( P \) in an MD simulation can be determined using the Virial theorem:
+The pressure $P$ in an MD simulation can be determined using the Virial theorem:
+$$PV = N k_B T + W$$
 
-\[ PV = N k_B T + W \]
-Where \( W = \frac{1}{N-1} \sum_{i<j} r_{ij} \cdot f_{ij} \)
-
-For a general case, the pressure is given by:
-
-\[ P = \frac{\rho (2 \langle KE \rangle + W)}{3} \]
-
-:p How does periodic boundary conditions (PBCs) work in MD simulations?
+Where $W = \frac{1}{N-1} \sum_{i<j} r_{ij} \cdot f_{ij}$ For a general case, the pressure is given by:
+$$P = \frac{\rho (2 \langle KE \rangle + W)}{3}$$:p How does periodic boundary conditions (PBCs) work in MD simulations?
 ??x
 Periodic boundary conditions (PBCs) are used to simulate an infinite system within a finite computational box. When a particle leaves the simulation volume, it re-enters from the opposite side:
-
-\[ x \Rightarrow \begin{cases} 
+$$x \Rightarrow \begin{cases} 
 x + L_x & \text{if } x \leq 0 \\
 x - L_x & \text{if } x > L_x
-\end{cases} \]
+\end{cases}$$
 
 This ensures that interactions are considered between all molecules and their images, maintaining the continuity of properties at the edges.
 
@@ -223,7 +195,7 @@ The initial random distribution serves to speed up the equilibration process by 
 
 :p How does an MD simulation predict bulk properties?
 ??x
-An MD simulation can predict bulk properties well with large numbers of particles (e.g., \(10^{23}\)). However, with fewer particles (e.g., \(10^6\) to \(10^9\)), the system must be handled carefully. Techniques such as PBCs are used to simulate a larger effective volume.
+An MD simulation can predict bulk properties well with large numbers of particles (e.g.,$10^{23}$). However, with fewer particles (e.g.,$10^6 $ to$10^9$), the system must be handled carefully. Techniques such as PBCs are used to simulate a larger effective volume.
 
 :p What is surface effect in MD simulations?
 ??x
@@ -346,8 +318,7 @@ Background context: RMS displacement is a measure of how much particles move ove
 :p What is the formula for calculating root-mean-square displacement?
 ??x
 The RMS displacement is calculated using:
-\[ \text{RMS} = \sqrt{\frac{1}{N} \sum_{i=1}^{N} (r_i(t) - r_i(0))^2 } \]
-where \( N \) is the number of particles, and \( r_i(t) \) are their positions at time \( t \).
+$$\text{RMS} = \sqrt{\frac{1}{N} \sum_{i=1}^{N} (r_i(t) - r_i(0))^2 }$$where $ N $ is the number of particles, and $ r_i(t)$are their positions at time $ t$.
 ```python
 def calculate_rms_displacement(positions):
     sum_of_squares = 0
@@ -367,7 +338,7 @@ Background context: Lighter molecules tend to diffuse more quickly than heavier 
 :p How do you generalize the velocity-Verlet algorithm for particles of different masses?
 ??x
 Generalize by incorporating mass into the acceleration calculation:
-\[ \text{acceleration} = \frac{\text{force}}{\text{mass}} \]
+$$\text{acceleration} = \frac{\text{force}}{\text{mass}}$$
 In pseudocode, this would look like:
 ```python
 def compute_acceleration(position, mass):

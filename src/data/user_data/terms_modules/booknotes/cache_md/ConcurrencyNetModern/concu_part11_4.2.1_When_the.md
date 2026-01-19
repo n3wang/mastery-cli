@@ -27,7 +27,7 @@ Background context: The optimal number of worker threads should be equal to the 
 :p How does determining the optimal number of worker threads help in performance optimization?
 ??x
 Determining the optimal number of worker threads helps by balancing between maximizing parallelism and reducing overhead. Too few threads underutilize cores, while too many can lead to excessive context-switching overhead, degrading performance. For example, with a quad-core machine having 50% average core utilization:
-- Optimal worker threads: \(4 \text{ cores} \times \frac{100\%}{50\%} = 8\) threads.
+- Optimal worker threads: $4 \text{ cores} \times \frac{100\%}{50\%} = 8$ threads.
 Too many threads beyond this point would increase context-switching costs, reducing overall efficiency.
 
 ```csharp
@@ -49,10 +49,7 @@ Background context: In the Mandelbrot example, memory allocation for `Complex` o
 Converting a reference type to a value type optimizes memory by eliminating heap allocations for short-lived objects, reducing the burden on the garbage collector. `Complex` class instances are reference types that consume additional memory due to pointers and overhead. By changing `class Complex` to `struct Complex`, each instance is allocated directly on the stack rather than the heap.
 
 For example, a 1 million-element array of `Complex` objects in a 32-bit machine would consume:
-- Heap-based: \(8 + (4 \times 10^6) + (8 + 24 \times 10^6) = 72 MB\)
-- Stack-based: \(8 + (24 \times 10^6) = 24 MB\)
-
-This reduces GC frequency and pauses, improving overall performance.
+- Heap-based:$8 + (4 \times 10^6) + (8 + 24 \times 10^6) = 72 MB $- Stack-based:$8 + (24 \times 10^6) = 24 MB$ This reduces GC frequency and pauses, improving overall performance.
 
 ```csharp
 // Original class definition
@@ -180,14 +177,11 @@ x??
 Background context explaining the concept. Amdahl's Law is used to predict the theoretical speedup when using parallel processing on a sequential program.
 
 The formula for calculating speedup according to Amdahl's Law is:
-\[ \text{Speedup} = \frac{1}{(1 - P + (P / N))} \]
-- \( P \) represents the percentage of the code that can run in parallel.
-- \( N \) is the number of available cores.
+$$\text{Speedup} = \frac{1}{(1 - P + (P / N))}$$-$ P$ represents the percentage of the code that can run in parallel.
+- $N$ is the number of available cores.
 
-For example, if 70% of a program can be made to run in parallel on a quad-core machine (\(N = 4\)), then:
-\[ \text{Speedup} = \frac{1}{(1 - .7 + (.7 / 4))} = \frac{1}{(.3 + .175)} = \frac{1}{0.475} \approx 2.12 \]
-
-:p What is Amdahl's Law used for?
+For example, if 70% of a program can be made to run in parallel on a quad-core machine ($N = 4$), then:
+$$\text{Speedup} = \frac{1}{(1 - .7 + (.7 / 4))} = \frac{1}{(.3 + .175)} = \frac{1}{0.475} \approx 2.12$$:p What is Amdahl's Law used for?
 ??x
 Amdahl's Law is used to predict the theoretical speedup of a program using parallel processing on a sequential part.
 x??
@@ -200,10 +194,9 @@ x??
 Background context explaining the concept. Gustafson's Law improves upon Amdahl's Law by considering the increase in data volume and number of cores.
 
 The formula for calculating speedup according to Gustafson's Law is:
-\[ \text{Speedup} = S + (N \times P) \]
-- \( S \) represents the sequential units of work.
-- \( P \) defines the number of units of work that can be executed in parallel.
-- \( N \) is the number of available cores.
+$$\text{Speedup} = S + (N \times P)$$-$ S$ represents the sequential units of work.
+- $P$ defines the number of units of work that can be executed in parallel.
+- $N$ is the number of available cores.
 
 Gustafson's Law suggests that as more cores are added, performance improves because the amount of data to process increases. This is particularly relevant in big data scenarios where the volume of data grows significantly over time.
 

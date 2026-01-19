@@ -22,7 +22,7 @@ The text differentiates between the hidden state and the cell state within an LS
 
 :p How does the hidden state differ from the cell state?
 ??x
-The hidden state, denoted as \( h_t \), is output by the LSTM at each time step and represents the current context or information. The cell state, denoted as \( C_t \), serves as a memory component that stores information over multiple timesteps.
+The hidden state, denoted as $h_t $, is output by the LSTM at each time step and represents the current context or information. The cell state, denoted as $ C_t$, serves as a memory component that stores information over multiple timesteps.
 x??
 
 ---
@@ -33,7 +33,7 @@ This mechanism determines which parts of the previous cell state should be disca
 
 :p How does the forget gate in an LSTM work?
 ??x
-The forget gate is a dense layer with its own weights and biases. It takes the concatenation of the previous hidden state \( h_{t-1} \) and the current input \( x_t \), passes it through a sigmoid function, producing a vector \( f_t \). Each element in \( f_t \) (of length equal to the number of units in the cell) is between 0 and 1, indicating how much of each unit from the previous cell state \( C_{t-1} \) should be discarded.
+The forget gate is a dense layer with its own weights and biases. It takes the concatenation of the previous hidden state $h_{t-1}$ and the current input $ x_t $, passes it through a sigmoid function, producing a vector $ f_t$. Each element in $ f_t$(of length equal to the number of units in the cell) is between 0 and 1, indicating how much of each unit from the previous cell state $ C_{t-1}$ should be discarded.
 
 Example Code:
 ```java
@@ -63,7 +63,7 @@ This mechanism decides how much new information should be added to the cell stat
 
 :p What is the role of the input gate in an LSTM?
 ??x
-The input gate, similar to the forget gate, takes the concatenation of the previous hidden state \( h_{t-1} \) and the current input \( x_t \), passes it through a sigmoid function. This produces a vector \( i_t \) where each element is between 0 and 1, indicating how much new information should be added to the cell state.
+The input gate, similar to the forget gate, takes the concatenation of the previous hidden state $h_{t-1}$ and the current input $ x_t $, passes it through a sigmoid function. This produces a vector $ i_t$ where each element is between 0 and 1, indicating how much new information should be added to the cell state.
 
 Example Code:
 ```java
@@ -93,7 +93,7 @@ This step combines the forget and input gates to update the cell state.
 
 :p How does the LSTM update its cell state?
 ??x
-The updated cell state \( C_t \) is calculated by first multiplying the forget gate vector \( f_t \) element-wise with the previous cell state \( C_{t-1} \). This is then added to the result of multiplying the input gate vector \( i_t \) and the generated new information vector \( C'_{t} \).
+The updated cell state $C_t $ is calculated by first multiplying the forget gate vector$f_t $ element-wise with the previous cell state$C_{t-1}$. This is then added to the result of multiplying the input gate vector $ i_t$and the generated new information vector $ C'_{t}$.
 
 Example Code:
 ```java
@@ -119,16 +119,15 @@ x??
 
 
 #### Element-wise Multiplication and Tanh Activation
-Background context explaining how the element-wise multiplication of \( \text{ot} \) with the updated cell state \( C_t \), after applying a tanh activation function, produces the new hidden state \( h_t \). The formula for this is:
-\[ h_t = \sigma(ot) \cdot \tanh(C_t) \]
-where \( \sigma \) is the sigmoid function.
+Background context explaining how the element-wise multiplication of $\text{ot}$ with the updated cell state $ C_t $, after applying a tanh activation function, produces the new hidden state $ h_t$. The formula for this is:
+$$h_t = \sigma(ot) \cdot \tanh(C_t)$$where $\sigma$ is the sigmoid function.
 
-:p What is the process of obtaining the new hidden state \( h_t \) in an LSTM?
+:p What is the process of obtaining the new hidden state $h_t$ in an LSTM?
 ??x
-The process involves applying a tanh activation to the updated cell state \( C_t \), which normalizes it between -1 and 1. Then, element-wise multiplication with the output gate \( \text{ot} \) is performed. The formula for this is:
-\[ h_t = \sigma(ot) \cdot \tanh(C_t) \]
+The process involves applying a tanh activation to the updated cell state $C_t $, which normalizes it between -1 and 1. Then, element-wise multiplication with the output gate $\text{ot}$ is performed. The formula for this is:
+$$h_t = \sigma(ot) \cdot \tanh(C_t)$$
 
-Here, \( \sigma(ot) \) acts as a gating mechanism that controls how much of the updated cell state should be included in the new hidden state.
+Here,$\sigma(ot)$ acts as a gating mechanism that controls how much of the updated cell state should be included in the new hidden state.
 x??
 
 ---

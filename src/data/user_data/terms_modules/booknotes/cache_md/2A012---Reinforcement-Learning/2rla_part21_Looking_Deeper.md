@@ -7,31 +7,27 @@
 
 
 #### Interest and Emphasis in On-policy Learning
-In on-policy learning, states are typically treated equally. However, sometimes certain states or state-action pairs are more important than others. The interest \( I_t \) is a non-negative scalar measure indicating how much we care about accurately valuing the state (or state-action pair) at time \( t \). It can be set in any causal way and influences the distribution used for learning.
+In on-policy learning, states are typically treated equally. However, sometimes certain states or state-action pairs are more important than others. The interest $I_t $ is a non-negative scalar measure indicating how much we care about accurately valuing the state (or state-action pair) at time$t$. It can be set in any causal way and influences the distribution used for learning.
 
 The general n-step learning rule modifies the update step as follows:
-\[ w_{t+n} = w_{t+n-1} + \alpha M_t [G_{t:t+n} - \hat{v}(S_t, w_{t+n-1})] \]
-where \( G_{t:t+n} \) is the n-step return and \( \hat{v}(S_t, w_{t+n-1}) \) is the estimated value function. The emphasis \( M_t \) multiplies the learning update to emphasize or de-emphasize updates at time \( t \).
+$$w_{t+n} = w_{t+n-1} + \alpha M_t [G_{t:t+n} - \hat{v}(S_t, w_{t+n-1})]$$where $ G_{t:t+n}$is the n-step return and $\hat{v}(S_t, w_{t+n-1})$ is the estimated value function. The emphasis $ M_t $ multiplies the learning update to emphasize or de-emphasize updates at time $t$.
 
 The emphasis is recursively defined by:
-\[ M_t = I_t + \gamma^n M_{t-n} \]
-with \( M_0 = 0 \) for all \( t < 0 \).
+$$M_t = I_t + \gamma^n M_{t-n}$$with $ M_0 = 0 $ for all $ t < 0$.
 
 :p What is the interest and emphasis concept in on-policy learning?
 ??x
-Interest and emphasis allow for a more targeted use of function approximation resources by weighting the importance of states or state-action pairs. Interest \( I_t \) indicates how much we care about accurately valuing a state, while emphasis \( M_t \) modifies the update step to emphasize or de-emphasize learning based on this interest.
+Interest and emphasis allow for a more targeted use of function approximation resources by weighting the importance of states or state-action pairs. Interest $I_t $ indicates how much we care about accurately valuing a state, while emphasis$M_t$ modifies the update step to emphasize or de-emphasize learning based on this interest.
 
 :p How is the general n-step learning rule modified with interest and emphasis?
 ??x
 The general n-step learning rule is updated by including an emphasis term:
-\[ w_{t+n} = w_{t+n-1} + \alpha M_t [G_{t:t+n} - \hat{v}(S_t, w_{t+n-1})] \]
-where \( G_{t:t+n} \) represents the n-step return and \( \hat{v}(S_t, w_{t+n-1}) \) is the estimated value function. The emphasis term \( M_t \) adjusts the learning update based on the interest level.
+$$w_{t+n} = w_{t+n-1} + \alpha M_t [G_{t:t+n} - \hat{v}(S_t, w_{t+n-1})]$$where $ G_{t:t+n}$represents the n-step return and $\hat{v}(S_t, w_{t+n-1})$ is the estimated value function. The emphasis term $M_t$ adjusts the learning update based on the interest level.
 
 :p How is the emphasis defined recursively?
 ??x
-The emphasis \( M_t \) is defined recursively as:
-\[ M_t = I_t + \gamma^n M_{t-n} \]
-where \( \gamma \) is the discount factor. For initial times, \( M_0 = 0 \).
+The emphasis $M_t$ is defined recursively as:
+$$M_t = I_t + \gamma^n M_{t-n}$$where $\gamma $ is the discount factor. For initial times,$ M_0 = 0$.
 
 :p What is an example illustrating the benefits of using interest and emphasis?
 ??x
@@ -39,11 +35,11 @@ An example involves a four-state Markov reward process where states have true va
 
 :p How does gradient Monte Carlo perform with interest and emphasis in this example?
 ??x
-Gradient Monte Carlo algorithms without considering interest and emphasis will converge to a parameter vector \( w_1 = (3.5, 1.5) \), giving state 1 an intermediate value of 3.5. In contrast, methods using interest and emphasis can learn the exact value for the first state (4) while not updating parameters for other states due to zero emphasis.
+Gradient Monte Carlo algorithms without considering interest and emphasis will converge to a parameter vector $w_1 = (3.5, 1.5)$, giving state 1 an intermediate value of 3.5. In contrast, methods using interest and emphasis can learn the exact value for the first state (4) while not updating parameters for other states due to zero emphasis.
 
 :p How do two-step semi-gradient TD methods perform with and without interest and emphasis in this example?
 ??x
-Two-step semi-gradient TD methods without interest and emphasis will converge to \( w_1 = (3.5, 1.5) \). Methods using interest and emphasis, however, will converge to \( w_1 = (4, 2) \), accurately valuing the first state while avoiding updates for other states.
+Two-step semi-gradient TD methods without interest and emphasis will converge to $w_1 = (3.5, 1.5)$. Methods using interest and emphasis, however, will converge to $ w_1 = (4, 2)$, accurately valuing the first state while avoiding updates for other states.
 
 ---
 ---
@@ -60,11 +56,11 @@ x??
 ---
 
 #### Concept: Parameterized Function Approximation
-Background context explaining that parameterized functions are used in reinforcement learning where the policy is represented by a weight vector \( w \). The state space is much larger than the number of components in \( w \), leading to an approximate solution.
+Background context explaining that parameterized functions are used in reinforcement learning where the policy is represented by a weight vector $w $. The state space is much larger than the number of components in $ w$, leading to an approximate solution.
 
 :p What is the role of parameterized function approximation in reinforcement learning?
 ??x
-Parameterized function approximation plays a crucial role in handling large state spaces by representing policies with a weight vector \( w \). This allows for more flexible and scalable solutions compared to methods that cannot handle high-dimensional spaces. However, due to the vastness of the state space relative to the number of components in \( w \), only approximate solutions are possible.
+Parameterized function approximation plays a crucial role in handling large state spaces by representing policies with a weight vector $w $. This allows for more flexible and scalable solutions compared to methods that cannot handle high-dimensional spaces. However, due to the vastness of the state space relative to the number of components in $ w$, only approximate solutions are possible.
 x??
 
 ---
@@ -74,9 +70,10 @@ Background context explaining that the mean squared value error (VE) is a measur
 
 :p What is the meaning of VE in reinforcement learning?
 ??x
-The Mean Squared Value Error (VE) measures the difference between the true value function \( v_\pi(s) \) and the approximated value function \( v_\pi^w(s) \). It provides a clear way to rank different value-function approximations for the on-policy case. The formula is:
-\[ VE(w) = E_{s \sim \mu}[(v_\pi(s) - v_\pi^w(s))^2] \]
-Where \( \mu \) is the on-policy distribution.
+The Mean Squared Value Error (VE) measures the difference between the true value function $v_\pi(s)$ and the approximated value function $v_\pi^w(s)$. It provides a clear way to rank different value-function approximations for the on-policy case. The formula is:
+$$VE(w) = E_{s \sim \mu}[(v_\pi(s) - v_\pi^w(s))^2]$$
+
+Where $\mu$ is the on-policy distribution.
 x??
 
 ---
@@ -96,9 +93,10 @@ Background context explaining that n-step semi-gradient TD is a natural learning
 
 :p What is the significance of n-step semi-gradient TD in reinforcement learning?
 ??x
-n-step semi-gradient TD is significant because it provides a flexible framework that includes gradient Monte Carlo and semi-gradient TD(0) as special cases when \( n = 1 \). This method updates weights based on multiple steps of experience, making it more adaptable to different scenarios. The update rule can be written as:
-\[ w^{(t+1)} = w^{(t)} + \alpha (r_t + \gamma v_\pi^w(s_{t+1}) - v_\pi^w(s_t)) \nabla v_\pi^w(s_t) \]
-Where \( r_t \) is the reward, \( \gamma \) is the discount factor, and \( \alpha \) is the learning rate.
+n-step semi-gradient TD is significant because it provides a flexible framework that includes gradient Monte Carlo and semi-gradient TD(0) as special cases when $n = 1$. This method updates weights based on multiple steps of experience, making it more adaptable to different scenarios. The update rule can be written as:
+$$w^{(t+1)} = w^{(t)} + \alpha (r_t + \gamma v_\pi^w(s_{t+1}) - v_\pi^w(s_t)) \nabla v_\pi^w(s_t)$$
+
+Where $r_t $ is the reward,$\gamma $ is the discount factor, and$\alpha$ is the learning rate.
 x??
 
 ---
@@ -154,11 +152,11 @@ x??
 
 #### Linear Semi-Gradient n-step TD Convergence
 
-Linear semi-gradient n-step TD is guaranteed to converge under standard conditions for all \(n\), tending towards an approximate value error (VE) that is within a bound of the optimal error. This bound tightens with higher values of \(n\) and approaches zero as \(n \rightarrow 1\). However, in practice, very high \(n\) results in slow learning, suggesting some degree of bootstrapping (\(n < 1\)) is usually preferable.
+Linear semi-gradient n-step TD is guaranteed to converge under standard conditions for all $n $, tending towards an approximate value error (VE) that is within a bound of the optimal error. This bound tightens with higher values of $ n $and approaches zero as$ n \rightarrow 1 $. However, in practice, very high$ n $results in slow learning, suggesting some degree of bootstrapping ($ n < 1$) is usually preferable.
 
 :p What does linear semi-gradient n-step TD converge to under standard conditions?
 ??x
-Linear semi-gradient n-step TD converges to an approximate value error (VE) that is within a bound of the optimal error. This bound tightens with higher values of \(n\) and approaches zero as \(n \rightarrow 1\).
+Linear semi-gradient n-step TD converges to an approximate value error (VE) that is within a bound of the optimal error. This bound tightens with higher values of $n $ and approaches zero as$n \rightarrow 1$.
 x??
 
 ---
@@ -176,11 +174,11 @@ x??
 
 #### Semi-Gradient TD(0)
 
-Semi-gradient TD(0) was first explored by Sutton (1984, 1988), as part of the linear TD(\(\lambda\)) algorithm. The term "semi-gradient" to describe these bootstrapping methods is new to the second edition of this book.
+Semi-gradient TD(0) was first explored by Sutton (1984, 1988), as part of the linear TD($\lambda$) algorithm. The term "semi-gradient" to describe these bootstrapping methods is new to the second edition of this book.
 
 :p What was the initial exploration of semi-gradient TD(0) by Sutton?
 ??x
-Sutton initially explored semi-gradient TD(0) as part of the linear TD(\(\lambda\)) algorithm. The term "semi-gradient" to describe these bootstrapping methods is new to the second edition of this book.
+Sutton initially explored semi-gradient TD(0) as part of the linear TD($\lambda$) algorithm. The term "semi-gradient" to describe these bootstrapping methods is new to the second edition of this book.
 x??
 
 ---
@@ -442,12 +440,10 @@ x??
 
 
 #### Episodic Semi-gradient Control
-Episodic semi-gradient control extends the ideas of semi-gradient prediction methods to action values, allowing for parametric approximation. In this method, the approximate action-value function \(\hat{q}^{\pi}(s, a; w)\) is represented as a parameterized functional form with weight vector \(w\). The update rule for the weights \(w\) in the semi-gradient Sarsa algorithm can be expressed as:
-\[ w_{t+1} = w_t + \alpha \left( U_t - \hat{q}(s, a; w_t) \right) \nabla_w \hat{q}(s, a; w_t) \]
-
-:p What is the update rule for semi-gradient Sarsa in episodic control?
+Episodic semi-gradient control extends the ideas of semi-gradient prediction methods to action values, allowing for parametric approximation. In this method, the approximate action-value function $\hat{q}^{\pi}(s, a; w)$ is represented as a parameterized functional form with weight vector $w$. The update rule for the weights $ w$in the semi-gradient Sarsa algorithm can be expressed as:
+$$w_{t+1} = w_t + \alpha \left( U_t - \hat{q}(s, a; w_t) \right) \nabla_w \hat{q}(s, a; w_t)$$:p What is the update rule for semi-gradient Sarsa in episodic control?
 ??x
-The update rule for semi-gradient Sarsa involves adjusting the weight vector \(w\) based on the difference between the target value \(U_t\) and the current prediction \(\hat{q}(s, a; w_t)\), weighted by the gradient of the action-value function with respect to the weights. This ensures that the predicted values align better with actual returns.
+The update rule for semi-gradient Sarsa involves adjusting the weight vector $w $ based on the difference between the target value$U_t $ and the current prediction$\hat{q}(s, a; w_t)$, weighted by the gradient of the action-value function with respect to the weights. This ensures that the predicted values align better with actual returns.
 ```java
 // Pseudocode for semi-gradient Sarsa update rule
 public void updateWeights(double[] wt, double alpha, double Ut, double[] gradQ) {
@@ -465,15 +461,14 @@ x??
 ---
 
 #### Mountain Car Task Example
-The Mountain Car task is a classic example used to illustrate continuous control tasks. In this problem, the goal is to drive an underpowered car up a steep mountain road. The action space consists of three possible actions: full throttle forward (+1), full throttle reverse (−1), and zero throttle (0). The state space includes position \(x_t\) and velocity \(\dot{x}_t\).
+The Mountain Car task is a classic example used to illustrate continuous control tasks. In this problem, the goal is to drive an underpowered car up a steep mountain road. The action space consists of three possible actions: full throttle forward (+1), full throttle reverse (−1), and zero throttle (0). The state space includes position $x_t $ and velocity$\dot{x}_t$.
 
 The dynamics of the system are described by:
-\[ x_{t+1} = \text{bound}\left( x_t + \dot{x}_t + 1 \right) - \frac{2}{30} \cos(3 x_t), \]
-where bound operation enforces \( -1.2 \leq x_{t+1} \leq 0.5 \) and \(-0.07 \leq \dot{x}_{t+1} \leq 0.07\).
+$$x_{t+1} = \text{bound}\left( x_t + \dot{x}_t + 1 \right) - \frac{2}{30} \cos(3 x_t),$$where bound operation enforces $-1.2 \leq x_{t+1} \leq 0.5 $ and$-0.07 \leq \dot{x}_{t+1} \leq 0.07$.
 
 :p What are the dynamics of the Mountain Car task?
 ??x
-The dynamics of the Mountain Car task involve updating the position \(x_{t+1}\) based on the current position and velocity, with a cosine term to simulate the effect of gravity. The position is constrained between \(-1.2\) and \(0.5\), and the velocity is bounded between \(-0.07\) and \(0.07\).
+The dynamics of the Mountain Car task involve updating the position $x_{t+1}$ based on the current position and velocity, with a cosine term to simulate the effect of gravity. The position is constrained between $-1.2$ and $0.5$, and the velocity is bounded between $-0.07 $ and $0.07$.
 ```java
 // Pseudocode for updating state in Mountain Car task
 public double updatePosition(double x, double dx) {
@@ -486,11 +481,11 @@ x??
 ---
 
 #### Tile Coding Feature Vector
-For the Mountain Car task, tile coding is used to convert continuous state and action variables into a discrete feature vector. The position \(x\) and velocity \(\dot{x}\) are mapped to a grid of tiles, where each tile covers an 8th of the bounded distance in both dimensions. The indices for the active tiles are determined using the `IHT` algorithm.
+For the Mountain Car task, tile coding is used to convert continuous state and action variables into a discrete feature vector. The position $x $ and velocity$\dot{x}$ are mapped to a grid of tiles, where each tile covers an 8th of the bounded distance in both dimensions. The indices for the active tiles are determined using the `IHT` algorithm.
 
 :p How is the state-action feature vector created for the Mountain Car task?
 ??x
-The state-action feature vector for the Mountain Car task is created by applying tile coding to the continuous state and action variables. Each pair of state \(s\) and action \(a\) is mapped to a set of binary features, which are then combined linearly with the parameter vector \(w\). The indices for active tiles are obtained using an `IHT` algorithm.
+The state-action feature vector for the Mountain Car task is created by applying tile coding to the continuous state and action variables. Each pair of state $s $ and action$a $ is mapped to a set of binary features, which are then combined linearly with the parameter vector$w$. The indices for active tiles are obtained using an `IHT` algorithm.
 ```java
 // Pseudocode for creating feature vector using tile coding
 public int[] getTileIndices(double x, double dx, Action action) {
@@ -526,11 +521,11 @@ x??
 ---
 
 #### Episodic Semi-gradient Sarsa Pseudocode
-The episodic semi-gradient Sarsa algorithm follows the general pattern of on-policy GPI (Gradient Policy Improvement). It uses a parameterized action-value function and updates it based on observed returns. The policy is improved by following an \(\epsilon\)-greedy strategy, where actions are selected according to the current estimates.
+The episodic semi-gradient Sarsa algorithm follows the general pattern of on-policy GPI (Gradient Policy Improvement). It uses a parameterized action-value function and updates it based on observed returns. The policy is improved by following an $\epsilon$-greedy strategy, where actions are selected according to the current estimates.
 
 :p What is the pseudocode for the episodic semi-gradient Sarsa algorithm?
 ??x
-The pseudocode for the episodic semi-gradient Sarsa algorithm involves initializing weights \(w\) and then iteratively updating them based on observed returns. The policy is improved using \(\epsilon\)-greedy action selection.
+The pseudocode for the episodic semi-gradient Sarsa algorithm involves initializing weights $w $ and then iteratively updating them based on observed returns. The policy is improved using$\epsilon$-greedy action selection.
 ```java
 // Pseudocode for Episodic Semi-gradient Sarsa Algorithm
 public void semiGradientSarsa(double[] w, double alpha, double epsilon) {

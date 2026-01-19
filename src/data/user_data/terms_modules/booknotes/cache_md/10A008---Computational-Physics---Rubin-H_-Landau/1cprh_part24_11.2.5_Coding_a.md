@@ -7,15 +7,12 @@
 
 
 #### Loss Function and Weight Adjustment
-Background context: In neural networks, the loss function measures how well the network is performing. The goal during training is to minimize this loss by adjusting the weights of the network. The provided example focuses on a single weight adjustment for the first hidden layer node \(h1\).
+Background context: In neural networks, the loss function measures how well the network is performing. The goal during training is to minimize this loss by adjusting the weights of the network. The provided example focuses on a single weight adjustment for the first hidden layer node $h1$.
 Relevant formulas include:
-- \(\frac{\partial h1}{\partial w1} = -2df dx( w1x1 + w2x2 + b1) = -0.0904\)
-- \(\frac{\partial \mathcal{L}}{\partial w1} = 0.0214\)
-
-If we decrease \(w1\), the loss should get smaller, leading to better predictions.
-:p What is the value of \(\frac{\partial h1}{\partial w1}\) in this example?
+- $\frac{\partial h1}{\partial w1} = -2df dx( w1x1 + w2x2 + b1) = -0.0904 $-$\frac{\partial \mathcal{L}}{\partial w1} = 0.0214 $ If we decrease$w1$, the loss should get smaller, leading to better predictions.
+:p What is the value of $\frac{\partial h1}{\partial w1}$ in this example?
 ??x
-The value of \(\frac{\partial h1}{\partial w1}\) is \(-0.0904\). This indicates that a small change in \(w1\) will result in a corresponding change in the activation of the first hidden layer node, affecting the loss function.
+The value of $\frac{\partial h1}{\partial w1}$ is $-0.0904$. This indicates that a small change in $ w1$ will result in a corresponding change in the activation of the first hidden layer node, affecting the loss function.
 x??
 
 ---
@@ -23,13 +20,13 @@ x??
 
 #### Weight Update Using Stochastic Gradient Descent
 Background context: To adjust weights in a neural network, we use optimization techniques like stochastic gradient descent. The formula for updating the weight is:
-\[ w(new)_1 \approx w(old)_1 - \eta \frac{\partial \mathcal{L}}{\partial w1} \]
-where \(\eta\) is the learning rate.
-:p What is the formula for updating \(w_1\) using stochastic gradient descent?
+$$w(new)_1 \approx w(old)_1 - \eta \frac{\partial \mathcal{L}}{\partial w1}$$where $\eta$ is the learning rate.
+:p What is the formula for updating $w_1$ using stochastic gradient descent?
 ??x
-The formula for updating \(w_1\) using stochastic gradient descent is:
-\[ w(new)_1 \approx w(old)_1 - \eta \frac{\partial \mathcal{L}}{\partial w1} \]
-Here, \(\eta\) (learning rate) determines the step size in adjusting the weights.
+The formula for updating $w_1$ using stochastic gradient descent is:
+$$w(new)_1 \approx w(old)_1 - \eta \frac{\partial \mathcal{L}}{\partial w1}$$
+
+Here,$\eta$(learning rate) determines the step size in adjusting the weights.
 x??
 
 ---
@@ -37,9 +34,9 @@ x??
 
 #### Plotting Loss Over Learning Trials
 Background context: After running a simple network, plotting the loss over learning trials helps visualize how the model is improving. The example provided shows that the initial loss was 0.164 and reduced to 0.002 after several iterations.
-:p How would you plot the loss versus the number of learning trials \(N\)?
+:p How would you plot the loss versus the number of learning trials $N$?
 ??x
-To plot the loss versus the number of learning trials \(N\), you can use a simple plotting library like matplotlib in Python:
+To plot the loss versus the number of learning trials $N$, you can use a simple plotting library like matplotlib in Python:
 ```python
 import matplotlib.pyplot as plt
 
@@ -59,9 +56,9 @@ x??
 #### Calculating Mass Excess for Hydrogen Isotopes
 Background context: In nuclear physics, the mass excess of an element gives the difference between its actual atomic mass and the sum of its constituent masses. This can be calculated using TensorFlow to handle tensor operations.
 
-:p How do you calculate the mass excess \(M - A \cdot u\) for hydrogen isotopes in TensorFlow?
+:p How do you calculate the mass excess $M - A \cdot u$ for hydrogen isotopes in TensorFlow?
 ??x
-To calculate the mass excess \(M - A \cdot u\) for hydrogen isotopes, follow these steps:
+To calculate the mass excess $M - A \cdot u$ for hydrogen isotopes, follow these steps:
 ```python
 import tensorflow as tf
 
@@ -84,8 +81,8 @@ print("Binding energy per nucleon:", B.numpy())
 ```
 
 Explanation:
-- The binding energy \(B\) is calculated as \(\frac{m_{H} + i \cdot m_N - m_A \cdot 931.494028}{A}\).
-- \(m_H\) and \(mN\) are the masses of hydrogen and a neutron in MeV/c².
+- The binding energy $B $ is calculated as$\frac{m_{H} + i \cdot m_N - m_A \cdot 931.494028}{A}$.
+- $m_H $ and$mN$ are the masses of hydrogen and a neutron in MeV/c².
 - The binding energy per nucleon is calculated for each isotope, from deuterium to helium-7.
 
 The output will be an array of binding energies per nucleon for each hydrogen isotope.

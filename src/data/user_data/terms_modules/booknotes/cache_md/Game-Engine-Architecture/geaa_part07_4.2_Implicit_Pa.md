@@ -288,16 +288,14 @@ x??
 
 ---
 #### Pipeline Latency and Throughput
-Pipeline latency is the total time required to process a single instruction, which is the sum of the latencies of all stages in the pipeline. The formula for calculating latency \( T_{\text{pipeline}} \) with \( N \) stages is:
-\[ T_{\text{pipeline}} = \sum_{i=0}^{N-1} T_i \]
+Pipeline latency is the total time required to process a single instruction, which is the sum of the latencies of all stages in the pipeline. The formula for calculating latency $T_{\text{pipeline}}$ with $N$ stages is:
+$$T_{\text{pipeline}} = \sum_{i=0}^{N-1} T_i$$
 
-Throughput, on the other hand, measures how many instructions can be processed per unit time. The throughput \( f \) is determined by the latency of the slowest stage in the pipeline and can be expressed as:
-\[ f = \frac{1}{\max(T_i)} \]
-
-:p What formula describes the total latency in a pipeline?
+Throughput, on the other hand, measures how many instructions can be processed per unit time. The throughput $f$ is determined by the latency of the slowest stage in the pipeline and can be expressed as:
+$$f = \frac{1}{\max(T_i)}$$:p What formula describes the total latency in a pipeline?
 ??x
-The total latency in a pipeline, \( T_{\text{pipeline}} \), is calculated by summing up the latencies of all stages. This can be expressed as:
-\[ T_{\text{pipeline}} = \sum_{i=0}^{N-1} T_i \]
+The total latency in a pipeline,$T_{\text{pipeline}}$, is calculated by summing up the latencies of all stages. This can be expressed as:
+$$T_{\text{pipeline}} = \sum_{i=0}^{N-1} T_i$$
 
 This means adding together the time required for each stage in the pipeline to complete its task.
 x??

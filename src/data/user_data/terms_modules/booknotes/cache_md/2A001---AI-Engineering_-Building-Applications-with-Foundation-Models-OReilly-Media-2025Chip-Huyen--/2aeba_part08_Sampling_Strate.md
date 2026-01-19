@@ -10,15 +10,13 @@
 
 Logits are raw scores output by a language model, which do not directly represent probabilities. To convert logits to probabilities, a softmax layer is often used.
 
-Logits for each token \(x_1, x_2, ..., x_N\) in the vocabulary can be converted into probabilities using the formula:
-\[ p_i = \text{softmax}(x_i) = \frac{e^{x_i}}{\sum_{j=1}^N e^{x_j}} \]
-
-:p What is the role of logits and softmax in a language model?
+Logits for each token $x_1, x_2, ..., x_N$ in the vocabulary can be converted into probabilities using the formula:
+$$p_i = \text{softmax}(x_i) = \frac{e^{x_i}}{\sum_{j=1}^N e^{x_j}}$$:p What is the role of logits and softmax in a language model?
 ??x
 Logits are the raw scores output by the model for each token, which do not directly represent probabilities. The softmax function converts these logits into probabilities that sum up to one, allowing them to be used as a probability distribution.
 
-The formula for converting logits \(x_1, x_2, ..., x_N\) into probabilities is:
-\[ p_i = \frac{e^{x_i}}{\sum_{j=1}^N e^{x_j}} \]
+The formula for converting logits $x_1, x_2, ..., x_N$ into probabilities is:
+$$p_i = \frac{e^{x_i}}{\sum_{j=1}^N e^{x_j}}$$
 
 This ensures that the generated probabilities are valid and can be used to sample tokens.
 x??
@@ -30,10 +28,10 @@ x??
 
 Sampling strategies in language models allow for generating text with specific characteristics, such as creativity or predictability.
 
-One common strategy is **temperature sampling**, which involves adjusting the probability distribution of token selection by dividing the logits by a temperature parameter \(T\). This affects how often the model selects high-probability tokens versus low-probability tokens.
+One common strategy is **temperature sampling**, which involves adjusting the probability distribution of token selection by dividing the logits by a temperature parameter $T$. This affects how often the model selects high-probability tokens versus low-probability tokens.
 
-The adjusted logit for the \(i\)th token with a given temperature \(T\) is:
-\[ \frac{x_i}{T} \]
+The adjusted logit for the $i $ th token with a given temperature$T$ is:
+$$\frac{x_i}{T}$$
 
 Softmax is then applied to this adjusted logit instead of the original logits.
 
@@ -42,9 +40,9 @@ Softmax is then applied to this adjusted logit instead of the original logits.
 Temperature affects how often the model selects high-probability tokens versus low-probability tokens. A higher temperature causes the probability distribution to be more chaotic, allowing lower-probability tokens to surface more frequently. Conversely, a lower temperature makes the model more consistent by favoring high-probability tokens.
 
 For example:
-- With \(T = 1\), the probabilities are distributed as normal.
-- With \(T < 1\) (e.g., 0.5), higher probabilities are reduced, and lower probabilities are increased.
-- With \(T > 1\), higher probabilities are increased further, making the model more creative but potentially less coherent.
+- With $T = 1$, the probabilities are distributed as normal.
+- With $T < 1$(e.g., 0.5), higher probabilities are reduced, and lower probabilities are increased.
+- With $T > 1$, higher probabilities are increased further, making the model more creative but potentially less coherent.
 
 This parameter can be adjusted to balance between creativity and coherence in generated text.
 x??
@@ -306,11 +304,9 @@ Explanation of calculating log probabilities for sequence generation and why itâ
 ??x
 Log probability is often used in sequence models because working with logarithms can simplify numerical computations. The log probability of a sequence of tokens is the sum of the individual token probabilities, which avoids underflow issues common when dealing with very small probabilities.
 
-Given a sequence \( [t_1, t_2, ..., t_n] \), the log probability can be calculated as:
+Given a sequence $[t_1, t_2, ..., t_n]$, the log probability can be calculated as:
 
-\[ \logprob(t_1, t_2, ..., t_n) = \sum_{i=1}^{n} \log(p(t_i | t_{<i})) \]
-
-where \( p(t_i | t_{<i}) \) is the conditional probability of token \( t_i \) given all previous tokens.
+$$\logprob(t_1, t_2, ..., t_n) = \sum_{i=1}^{n} \log(p(t_i | t_{<i}))$$where $ p(t_i | t_{<i})$is the conditional probability of token $ t_i$ given all previous tokens.
 
 ```java
 public class LogProbCalculator {

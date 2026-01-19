@@ -117,18 +117,14 @@ Background context: In deep learning, batch normalization is a technique used to
 ??x
 Batch normalization normalizes the outputs from the previous layer, ensuring that they have a mean close to 0 and standard deviation close to 1. This is achieved using the following formulas:
 
-For each channel \(i\):
+For each channel $i$:
 
-- Mean \(\mu_i = \frac{1}{m} \sum_{j=1}^{m} x_{ij}\)
-- Standard Deviation \(\sigma_i^2 = \frac{1}{m} \sum_{j=1}^{m} (x_{ij} - \mu_i)^2\)
-
-Where \(m\) is the batch size.
+- Mean $\mu_i = \frac{1}{m} \sum_{j=1}^{m} x_{ij}$- Standard Deviation $\sigma_i^2 = \frac{1}{m} \sum_{j=1}^{m} (x_{ij} - \mu_i)^2 $ Where $m$ is the batch size.
 
 The normalized output for each sample in the channel can be calculated as:
+$$y_{ij} = \gamma_i \cdot \frac{x_{ij} - \mu_i}{\sqrt{\sigma_i^2 + \epsilon}} + \beta_i$$
 
-\[ y_{ij} = \gamma_i \cdot \frac{x_{ij} - \mu_i}{\sqrt{\sigma_i^2 + \epsilon}} + \beta_i \]
-
-Here, \(\gamma_i\) and \(\beta_i\) are learnable parameters for scaling and shifting the normalized values.
+Here,$\gamma_i $ and$\beta_i$ are learnable parameters for scaling and shifting the normalized values.
 
 ```python
 import torch.nn as nn

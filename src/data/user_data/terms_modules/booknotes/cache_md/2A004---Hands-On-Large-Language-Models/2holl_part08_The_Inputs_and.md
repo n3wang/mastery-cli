@@ -15,10 +15,7 @@ The key difference is that Transformers can handle parallelization efficiently. 
 The key characteristics of the Transformer model include its use of self-attention mechanisms, which enable it to process entire sequences without relying on sequential processing. This allows for parallelization, making it more efficient compared to RNNs and LSTMs.
 
 Self-attention is defined as follows:
-\[
-\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
-\]
-where \( Q \), \( K \), and \( V \) are the query, key, and value matrices respectively.
+$$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$where $ Q $,$ K $, and$ V$ are the query, key, and value matrices respectively.
 
 The model is composed of multiple layers including self-attention and feed-forward neural networks.
 x??

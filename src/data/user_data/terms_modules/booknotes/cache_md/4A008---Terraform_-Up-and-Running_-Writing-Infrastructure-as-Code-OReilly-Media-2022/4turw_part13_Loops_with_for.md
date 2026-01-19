@@ -456,7 +456,7 @@ The `for` expression with lists allows you to create a list by iterating over an
 Example:
 ```terraform
 output "bios" {
-  value = [for name, role in var.hero_thousand_faces : "${name} is the ${role}"]
+  value = [for name, role in var.hero_thousand_faces : "${name} is the${role}"]
 }
 ```
 This will loop through each element in `var.hero_thousand_faces` (a map where keys are names and values are roles) and generate a string for each pair.
@@ -465,10 +465,10 @@ This will loop through each element in `var.hero_thousand_faces` (a map where ke
 The answer with detailed explanations.
 ```terraform
 output "bios" {
-  value = [for name, role in var.hero_thousand_faces : "${name} is the ${role}"]
+  value = [for name, role in var.hero_thousand_faces : "${name} is the${role}"]
 }
 ```
-In this example, `var.hero_thousand_faces` is a map where keys are names and values are roles. The `for` expression iterates over each key-value pair (name, role), and for each iteration, it generates a string in the format `${name} is the ${role}`.
+In this example, `var.hero_thousand_faces` is a map where keys are names and values are roles. The `for` expression iterates over each key-value pair (name, role), and for each iteration, it generates a string in the format `${name} is the${role}`.
 
 The resulting list will be:
 ```plaintext

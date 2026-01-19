@@ -40,7 +40,7 @@ x??
 
 #### Dead Zones
 
-Background context explaining the concept. When using analog devices like joysticks, thumb sticks, or triggers, they produce input values ranging between predefined minimum and maximum values (Imin and Imax). However, due to physical or electronic noise, these inputs may fluctuate around a neutral point \( I_0 \), which ideally should be zero for centered controls. Introducing a dead zone around \( I_0 \) helps in filtering out these small fluctuations.
+Background context explaining the concept. When using analog devices like joysticks, thumb sticks, or triggers, they produce input values ranging between predefined minimum and maximum values (Imin and Imax). However, due to physical or electronic noise, these inputs may fluctuate around a neutral point $I_0 $, which ideally should be zero for centered controls. Introducing a dead zone around $ I_0$ helps in filtering out these small fluctuations.
 
 :p What is the purpose of using a dead zone in HID systems?
 ??x
@@ -58,21 +58,20 @@ A first-order low-pass filter can be implemented to smooth out the raw input dat
 ??x
 A discrete first-order low-pass filter can be implemented using a combination of the current unfiltered input value and the filtered value from the previous frame. The formula for this is:
 
-\[ f(t) = (1 - \alpha)f(t - \Delta t) + \alpha u(t) \]
+$$f(t) = (1 - \alpha)f(t - \Delta t) + \alpha u(t)$$
 
 Where:
-- \( f(t) \) is the filtered value at time 't'.
-- \( u(t) \) is the unfiltered input value at time 't'.
-- \( \alpha \) is a constant that determines how much weight to give to the current input vs. the previous filtered value.
-- \( \Delta t \) is the frame duration.
+- $f(t)$ is the filtered value at time 't'.
+- $u(t)$ is the unfiltered input value at time 't'.
+- $\alpha$ is a constant that determines how much weight to give to the current input vs. the previous filtered value.
+- $\Delta t$ is the frame duration.
 
-The parameter \( \alpha \) can be calculated as:
-
-\[ \alpha = \frac{\Delta t}{RC + \Delta t} \]
+The parameter $\alpha$ can be calculated as:
+$$\alpha = \frac{\Delta t}{RC + \Delta t}$$
 
 Where:
-- \( R \) and \( C \) are resistance and capacitance values from a traditional RC low-pass filter circuit, respectively.
-- \( \Delta t \) is the frame duration.
+- $R $ and$C$ are resistance and capacitance values from a traditional RC low-pass filter circuit, respectively.
+- $\Delta t$ is the frame duration.
 
 In practice, this can be implemented in C or C++ as follows:
 

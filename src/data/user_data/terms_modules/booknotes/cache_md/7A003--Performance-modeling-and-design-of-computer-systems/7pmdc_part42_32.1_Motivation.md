@@ -58,13 +58,13 @@ Background context: The calculation involves three key components: the remaining
 The three main components are:
 1. Remaining service time of the current job.
 2. Expected wait time until a higher-priority job arrives.
-3. Sum of the moments \(E[S_k]\) for all classes.
+3. Sum of the moments $E[S_k]$ for all classes.
 These components help in accurately estimating the mean time in system for a given priority class.
 x??
 
 
 #### Component (2) of E[T(k)] Calculation
-Background context: In a preemptive priority queue, we need to determine the expected time required to complete service on all jobs of priority 1 through k already in the system when our arrival walks in. This is component (2) of \(E[T(k)]\). The key difference from non-preemptive systems is that jobs may have been partially worked on.
+Background context: In a preemptive priority queue, we need to determine the expected time required to complete service on all jobs of priority 1 through k already in the system when our arrival walks in. This is component (2) of $E[T(k)]$. The key difference from non-preemptive systems is that jobs may have been partially worked on.
 
 :p How do we compute component (2) for a preemptive priority queue?
 ??x
@@ -73,31 +73,19 @@ We cannot use the same approach as in non-preemptive queues, where you add up th
 The computation involves considering the total expected remaining work if the system had only arrivals of classes 1 through k and using a work-conserving scheduling order such as FCFS (First-Come-First-Served).
 
 Formula:
-\[
-(2) = \frac{\lambda}{\sum_{i=1}^k p_i E[S_i]} \left(\frac{1 - \sum_{i=1}^k \rho_i}{\sum_{i=1}^k \rho_i}\right)
-\]
+$$(2) = \frac{\lambda}{\sum_{i=1}^k p_i E[S_i]} \left(\frac{1 - \sum_{i=1}^k \rho_i}{\sum_{i=1}^k \rho_i}\right)$$
 
 Simplified:
-\[
-(2) = \sum_{i=1}^k \rho_i \frac{E[S_i^2]}{2 E[S_i] (1 - \sum_{i=1}^k \rho_i)} = \frac{\lambda}{1 - \sum_{i=1}^{k-1} \rho_i} + \sum_{i=1}^k \rho_i \frac{E[S_i^2]}{2 E[S_i] (1 - \sum_{i=1}^k \rho_i)}
-\]
-
-x??
+$$(2) = \sum_{i=1}^k \rho_i \frac{E[S_i^2]}{2 E[S_i] (1 - \sum_{i=1}^k \rho_i)} = \frac{\lambda}{1 - \sum_{i=1}^{k-1} \rho_i} + \sum_{i=1}^k \rho_i \frac{E[S_i^2]}{2 E[S_i] (1 - \sum_{i=1}^k \rho_i)}$$x??
 
 ---
 
 #### Component (3) of E[T(k)] Calculation
-Background context: Component (3) of \(E[T(k)]\) is the expected total service time required for all jobs of priority 1 through k-1 that arrive before our arrival. This can be simplified as follows:
-\[
-(3) = \frac{\sum_{i=1}^{k-1} E[T(i)] \cdot \lambda_i \cdot E[S_i]}{E[T(k)] \sum_{i=1}^{k-1} \rho_i} = \frac{E[T(k)]}{\sum_{i=1}^{k-1} \rho_i}
-\]
-
-:p How is component (3) computed?
+Background context: Component (3) of $E[T(k)]$ is the expected total service time required for all jobs of priority 1 through k-1 that arrive before our arrival. This can be simplified as follows:
+$$(3) = \frac{\sum_{i=1}^{k-1} E[T(i)] \cdot \lambda_i \cdot E[S_i]}{E[T(k)] \sum_{i=1}^{k-1} \rho_i} = \frac{E[T(k)]}{\sum_{i=1}^{k-1} \rho_i}$$:p How is component (3) computed?
 ??x
 Component (3) is simplified to:
-\[
-(3) = \frac{\sum_{i=1}^{k-1} E[T(i)] \cdot \lambda_i \cdot E[S_i]}{E[T(k)] \sum_{i=1}^{k-1} \rho_i}
-\]
+$$(3) = \frac{\sum_{i=1}^{k-1} E[T(i)] \cdot \lambda_i \cdot E[S_i]}{E[T(k)] \sum_{i=1}^{k-1} \rho_i}$$
 
 This formula represents the expected total service time for all jobs of priority 1 through k-1, given by the weighted sum of expected times and considering the mean service times.
 
@@ -106,27 +94,21 @@ x??
 ---
 
 #### Total Expected Time in System (E[T(k)]P-Priority)
-Background context: The total expected time in system \(E[T(k)]_{\text{P-Priority}}\) for a job of class k in a preemptive priority queue is the sum of three components:
-1. \(E[S_k]\): Mean service time for a job of priority class k.
+Background context: The total expected time in system $E[T(k)]_{\text{P-Priority}}$ for a job of class k in a preemptive priority queue is the sum of three components:
+1.$E[S_k]$: Mean service time for a job of priority class k.
 2. Component (2) as described above, representing the expected remaining work due to jobs of priorities 1 through k.
 3. Component (3), representing the expected total service time required for all jobs of priority 1 through k-1.
 
 Formula:
-\[
-E[T(k)]_{\text{P-Priority}} = E[S_k] + \sum_{i=1}^k \rho_i \frac{E[S_i^2]}{2 E[S_i] (1 - \sum_{i=1}^k \rho_i)} + \frac{E[T(k)]}{\sum_{i=1}^{k-1} \rho_i}
-\]
+$$E[T(k)]_{\text{P-Priority}} = E[S_k] + \sum_{i=1}^k \rho_i \frac{E[S_i^2]}{2 E[S_i] (1 - \sum_{i=1}^k \rho_i)} + \frac{E[T(k)]}{\sum_{i=1}^{k-1} \rho_i}$$
 
 Simplified:
-\[
-E[T(k)]_{\text{P-Priority}} = E[S_k] + \frac{\lambda}{1 - \sum_{i=1}^{k-1} \rho_i} + \sum_{i=1}^k \rho_i \frac{E[S_i^2]}{(1 - \sum_{i=1}^k \rho_i) E[S_i]}
-\]
+$$
 
-:p What is the formula for \(E[T(k)]P-Priority\)?
+E[T(k)]_{\text{P-Priority}} = E[S_k] + \frac{\lambda}{1 - \sum_{i=1}^{k-1} \rho_i} + \sum_{i=1}^k \rho_i \frac{E[S_i^2]}{(1 - \sum_{i=1}^k \rho_i) E[S_i]}$$:p What is the formula for $ E[T(k)]P-Priority$?
 ??x
 The total expected time in system for a job of class k under preemptive priority can be computed using the following expression:
-\[
-E[T(k)]_{\text{P-Priority}} = E[S_k] + \frac{\lambda}{1 - \sum_{i=1}^{k-1} \rho_i} + \sum_{i=1}^k \rho_i \frac{E[S_i^2]}{(1 - \sum_{i=1}^k \rho_i) E[S_i]}
-\]
+$$E[T(k)]_{\text{P-Priority}} = E[S_k] + \frac{\lambda}{1 - \sum_{i=1}^{k-1} \rho_i} + \sum_{i=1}^k \rho_i \frac{E[S_i^2]}{(1 - \sum_{i=1}^k \rho_i) E[S_i]}$$
 
 This expression accounts for the mean service time, the remaining work due to jobs of priorities 1 through k, and the total service time required for jobs of priority 1 through k-1.
 
@@ -143,10 +125,10 @@ Background context: In preemptive queues, the residence time is different from t
 ??x
 In preemptive priority queues, the residence time is longer than the service time because it includes all interruptions where the job may be interrupted by higher-priority jobs and then resumed later. The service time only accounts for the actual processing time of the job.
 
-:p How can we interpret \(E[T(k)]P-Priority\)?
+:p How can we interpret $E[T(k)]P-Priority$?
 ??x
-The expression \(E[T(k)]_{\text{P-Priority}} = E[S_k] + \frac{\lambda}{1 - \sum_{i=1}^{k-1} \rho_i} + \sum_{i=1}^k \rho_i \frac{E[S_i^2]}{(1 - \sum_{i=1}^k \rho_i) E[S_i]}\) can be interpreted as the total expected time in the system for a job of class k under preemptive priority. It breaks down into:
-- The mean service time \(E[S_k]\),
+The expression $E[T(k)]_{\text{P-Priority}} = E[S_k] + \frac{\lambda}{1 - \sum_{i=1}^{k-1} \rho_i} + \sum_{i=1}^k \rho_i \frac{E[S_i^2]}{(1 - \sum_{i=1}^k \rho_i) E[S_i]}$ can be interpreted as the total expected time in the system for a job of class k under preemptive priority. It breaks down into:
+- The mean service time $E[S_k]$,
 - An adjustment term accounting for the remaining work due to jobs of priorities 1 through k,
 - And an additional term representing the total service time required for lower-priority jobs.
 
@@ -156,14 +138,12 @@ x??
 
 
 #### First Term Explanation
-Background context: The first term \( E[S_k] \left(1 - \sum_{i=1}^{k-1} \rho_i\right) \) represents the mean residence time of a job of class \( k \), denoted as \( E[\text{Res}(k)] \). It calculates the expected length of a busy period started by a job of size \( E[S_k] \), where only jobs of classes 1 through \( k-1 \) are allowed in this busy period.
+Background context: The first term $E[S_k] \left(1 - \sum_{i=1}^{k-1} \rho_i\right)$ represents the mean residence time of a job of class $ k $, denoted as $ E[\text{Res}(k)]$. It calculates the expected length of a busy period started by a job of size $ E[S_k]$, where only jobs of classes 1 through $ k-1$ are allowed in this busy period.
 
 Formula: 
-\[ E[\text{Res}(k)] = E[S_k] \left(1 - \sum_{i=1}^{k-1} \rho_i\right) \]
-
-:p What does the first term \( E[S_k] \left(1 - \sum_{i=1}^{k-1} \rho_i\right) \) represent in a preemptive priority queueing system?
+$$E[\text{Res}(k)] = E[S_k] \left(1 - \sum_{i=1}^{k-1} \rho_i\right)$$:p What does the first term $ E[S_k] \left(1 - \sum_{i=1}^{k-1} \rho_i\right)$ represent in a preemptive priority queueing system?
 ??x
-The first term represents the mean residence time of the job of class \( k \), which is equivalent to the expected length of a busy period initiated by a job of size \( E[S_k] \). This busy period only includes interruptions from jobs of classes 1 through \( k-1 \).
+The first term represents the mean residence time of the job of class $k $, which is equivalent to the expected length of a busy period initiated by a job of size $ E[S_k]$. This busy period only includes interruptions from jobs of classes 1 through $ k-1$.
 
 ```java
 // Pseudocode for calculating the mean residence time
@@ -181,17 +161,15 @@ x??
 ---
 
 #### Second Term Explanation
-Background context: The second term in equation \(32.1\) is defined as:
-\[ E[\text{Wait}(k)] = \frac{\sum_{i=1}^{k} \rho_i E[S_i^2]} {2E[S_k] (1 - \sum_{i=1}^{k-1} \rho_i)} \left( \frac{1}{1 - \sum_{i=1}^{k} \rho_i} \right) \]
+Background context: The second term in equation $32.1$ is defined as:
+$$E[\text{Wait}(k)] = \frac{\sum_{i=1}^{k} \rho_i E[S_i^2]} {2E[S_k] (1 - \sum_{i=1}^{k-1} \rho_i)} \left( \frac{1}{1 - \sum_{i=1}^{k} \rho_i} \right)$$
 
-This term represents the mean time until a job of priority \( k \) first receives service. It is almost identical to \( E[\text{TQ}(k)] \) for non-preemptive priority, but accounts only for jobs of class 1 through \( k \).
+This term represents the mean time until a job of priority $k $ first receives service. It is almost identical to$E[\text{TQ}(k)]$ for non-preemptive priority, but accounts only for jobs of class 1 through $k$.
 
 Formula: 
-\[ E[\text{Wait}(k)] = \frac{\sum_{i=1}^{k} \rho_i E[S_i^2]} {2E[S_k] (1 - \sum_{i=1}^{k-1} \rho_i)} \left( \frac{1}{1 - \sum_{i=1}^{k} \rho_i} \right) \]
-
-:p What does the second term in equation \(32.1\) represent?
+$$E[\text{Wait}(k)] = \frac{\sum_{i=1}^{k} \rho_i E[S_i^2]} {2E[S_k] (1 - \sum_{i=1}^{k-1} \rho_i)} \left( \frac{1}{1 - \sum_{i=1}^{k} \rho_i} \right)$$:p What does the second term in equation $32.1$ represent?
 ??x
-The second term represents the mean time until a job of priority \( k \) first receives service. It accounts only for jobs of class 1 through \( k \), unlike the non-preemptive case, which considers all classes.
+The second term represents the mean time until a job of priority $k $ first receives service. It accounts only for jobs of class 1 through$k$, unlike the non-preemptive case, which considers all classes.
 
 ```java
 // Pseudocode for calculating the waiting time
@@ -217,7 +195,7 @@ Background context: In the case of non-preemptive priority and Shortest Job Firs
 
 :p Is a high-priority job in a preemptive priority queue guaranteed to have better performance than in non-preemptive priority, even with high variability in job sizes?
 ??x
-Yes, a high-priority job in a preemptive priority queue is more likely to have better performance. This is because the mean residence time and waiting time depend only on the first \( k \) classes of jobs (where \( k \) is the priority level). Thus, higher-priority jobs see less variability compared to non-preemptive systems where all job sizes contribute.
+Yes, a high-priority job in a preemptive priority queue is more likely to have better performance. This is because the mean residence time and waiting time depend only on the first $k $ classes of jobs (where$k$ is the priority level). Thus, higher-priority jobs see less variability compared to non-preemptive systems where all job sizes contribute.
 
 ```java
 // Pseudocode for comparing preemptive vs. non-preemptive priority
@@ -279,58 +257,49 @@ x??
 
 ---
 #### Response Time Analysis in M/G/1 Setting
-The response time for SRPT in the M/G/1 setting includes both waiting time and residence time. The formula for the expected response time \( E[T(x)] \) is:
-\[ E[T(x)] = E[Wait(x)] + E[Res(x)] \]
-where
-\[ E[Wait(x)] = \frac{\lambda^2}{\int_0^x t^2 f(t) dt} + \frac{\lambda^2 x^2 (1 - F(x))}{(1 - \rho_x)^2} \]
-and 
-\[ E[Res(x)] = \int_0^x \frac{dt}{1 - \rho_t}, \quad \text{with } \rho_x = \frac{\lambda}{\int_0^x t f(t) dt}. \]
+The response time for SRPT in the M/G/1 setting includes both waiting time and residence time. The formula for the expected response time $E[T(x)]$ is:
+$$E[T(x)] = E[Wait(x)] + E[Res(x)]$$where$$
 
-:p What is the formula for \( E[T(x)] \)?
+E[Wait(x)] = \frac{\lambda^2}{\int_0^x t^2 f(t) dt} + \frac{\lambda^2 x^2 (1 - F(x))}{(1 - \rho_x)^2}$$and$$
+
+E[Res(x)] = \int_0^x \frac{dt}{1 - \rho_t}, \quad \text{with } \rho_x = \frac{\lambda}{\int_0^x t f(t) dt}.$$:p What is the formula for $ E[T(x)]$?
 ??x
-The expected response time \( E[T(x)] \) in SRPT is given by:
-\[ E[T(x)] = E[Wait(x)] + E[Res(x)], \]
-where \( E[Wait(x)] \) and \( E[Res(x)] \) are the waiting time and residence time, respectively.
+The expected response time $E[T(x)]$ in SRPT is given by:
+$$E[T(x)] = E[Wait(x)] + E[Res(x)],$$where $ E[Wait(x)]$and $ E[Res(x)]$ are the waiting time and residence time, respectively.
 x??
 
 ---
 #### Residence Time Understanding
-The term representing mean residence time for a job of size \( x \) under SRPT is:
-\[ E[Res(x)] = \int_0^x \frac{dt}{1 - \rho_t}. \]
-
-:p Why does the residence time in SRPT increase as the job ages?
+The term representing mean residence time for a job of size $x$ under SRPT is:
+$$E[Res(x)] = \int_0^x \frac{dt}{1 - \rho_t}.$$:p Why does the residence time in SRPT increase as the job ages?
 ??x
-In SRPT, a job’s "priority" increases over time. Therefore, once a job has started service, its effective slowdown factor should depend on its remaining service requirement \( t \) and be related to the load of all jobs with smaller sizes. As a job ages, it encounters more and smaller jobs in the system, causing it to take longer to complete.
+In SRPT, a job’s "priority" increases over time. Therefore, once a job has started service, its effective slowdown factor should depend on its remaining service requirement $t$ and be related to the load of all jobs with smaller sizes. As a job ages, it encounters more and smaller jobs in the system, causing it to take longer to complete.
 x??
 
 ---
 #### Waiting Time Analysis
 The waiting time for SRPT is given by:
-\[ E[Wait(x)] = \frac{\lambda^2}{\int_0^x t^2 f(t) dt} + \frac{\lambda^2 x^2 (1 - F(x))}{(1 - \rho_x)^2}. \]
-
-:p What does the second term in \( E[Wait(x)] \) represent?
+$$E[Wait(x)] = \frac{\lambda^2}{\int_0^x t^2 f(t) dt} + \frac{\lambda^2 x^2 (1 - F(x))}{(1 - \rho_x)^2}.$$:p What does the second term in $ E[Wait(x)]$ represent?
 ??x
-The second term, \( \frac{\lambda^2 x^2 (1 - F(x))}{(1 - \rho_x)^2} \), represents the contribution of jobs with sizes greater than \( x \) to the waiting time. It suggests that larger jobs contribute more significantly as they are still in the system and have a higher remaining processing time.
+The second term,$\frac{\lambda^2 x^2 (1 - F(x))}{(1 - \rho_x)^2}$, represents the contribution of jobs with sizes greater than $ x$ to the waiting time. It suggests that larger jobs contribute more significantly as they are still in the system and have a higher remaining processing time.
 x??
 
 ---
 #### SRPT vs PSJF
 The response time for SRPT can be compared to PSJF (Shortest Job First). The waiting time expression for SRPT, when ignoring the second term:
-\[ E[Wait(x)] = \frac{\lambda^2}{\int_0^x t^2 f(t) dt} + \frac{\lambda^2 x^2 (1 - F(x))}{(1 - \rho_x)^2}, \]
-resembles that of PSJF, where only jobs with size \( \leq x \) contribute to the waiting time.
+$$E[Wait(x)] = \frac{\lambda^2}{\int_0^x t^2 f(t) dt} + \frac{\lambda^2 x^2 (1 - F(x))}{(1 - \rho_x)^2},$$resembles that of PSJF, where only jobs with size $\leq x$ contribute to the waiting time.
 :p How does SRPT's waiting time compare to PSJF?
 ??x
-SRPT’s waiting time expression is similar to PSJF but includes an additional term representing the contribution from larger jobs. This means that in SRPT, all job sizes contribute to the waiting time of a job, not just those smaller than or equal to \( x \).
+SRPT’s waiting time expression is similar to PSJF but includes an additional term representing the contribution from larger jobs. This means that in SRPT, all job sizes contribute to the waiting time of a job, not just those smaller than or equal to $x$.
 x??
 
 ---
 #### FB Scheduling Comparison
-The numerator of \( E[Wait(x)]_{SRPT} \) is similar to \( E[S^2_x] \), used in FB (Fairness-Based) scheduling. The formula for the numerator in SRPT waiting time:
-\[ \lambda^2 E[S^2_x], \]
-is analogous to FB's approach.
+The numerator of $E[Wait(x)]_{SRPT}$ is similar to $E[S^2_x]$, used in FB (Fairness-Based) scheduling. The formula for the numerator in SRPT waiting time:
+$$\lambda^2 E[S^2_x],$$is analogous to FB's approach.
 :p How does SRPT’s waiting time expression compare to FB?
 ??x
-SRPT’s waiting time expression has a similar numerator structure to FB, where \( \lambda^2 E[S^2_x] \) represents the expected contribution from all job sizes. However, the denominator involves \( \rho_x \), as in PSJF, because only jobs of size \( \leq x \) are allowed to enter the busy period.
+SRPT’s waiting time expression has a similar numerator structure to FB, where $\lambda^2 E[S^2_x]$ represents the expected contribution from all job sizes. However, the denominator involves $\rho_x$, as in PSJF, because only jobs of size $\leq x$ are allowed to enter the busy period.
 x??
 
 ---
@@ -338,17 +307,17 @@ x??
 
 #### SRPT Waiting Time Derivation Overview
 Background context: The text discusses the precise derivation of the SRPT (Shortest Remaining Processing Time) waiting time, focusing on how work found by an arrival affects its waiting time. This involves understanding the work seen by an arrival before it starts running and the busy periods associated with this work.
-:p What is \( W_{SRPT}^x \) in the context of SRPT?
+:p What is $W_{SRPT}^x$ in the context of SRPT?
 ??x
-\( W_{SRPT}^x \) represents the work found in the system that is "relevant" to an arriving job of size \( x \), meaning the work that runs before the arrival of size \( x \) starts running.
+$W_{SRPT}^x $ represents the work found in the system that is "relevant" to an arriving job of size$x $, meaning the work that runs before the arrival of size$ x$ starts running.
 x??
 
 ---
 #### Work Found by Arrival of Size x (WSRP Tx)
-Background context: The SRPT algorithm considers two types of jobs when determining the work found by an arrival of size \( x \): type a and type b. Type a includes jobs that are in the system with original size \( \leq x \), while type b includes jobs originally larger than \( x \) but now reduced to size \( \leq x \).
+Background context: The SRPT algorithm considers two types of jobs when determining the work found by an arrival of size $x $: type a and type b. Type a includes jobs that are in the system with original size $\leq x $, while type b includes jobs originally larger than $ x $ but now reduced to size $\leq x$.
 :p How many type b jobs can there be?
 ??x
-There can be at most one job of type b. Furthermore, no more type b jobs will enter the system until the arrival of size \( x \) has left the system entirely.
+There can be at most one job of type b. Furthermore, no more type b jobs will enter the system until the arrival of size $x$ has left the system entirely.
 x??
 
 ---
@@ -361,26 +330,27 @@ x??
 
 ---
 #### Tagged Job Argument for Type a Arrivals
-Background context: To determine the mean delay \( E[T_Q] \) for a type a arrival, a tagged job argument is used. This involves calculating the expected number of type a jobs in the queue and their service time.
-:p How is the mean delay \( E[T_Q] \) calculated?
+Background context: To determine the mean delay $E[T_Q]$ for a type a arrival, a tagged job argument is used. This involves calculating the expected number of type a jobs in the queue and their service time.
+:p How is the mean delay $E[T_Q]$ calculated?
 ??x
-The mean delay \( E[T_Q] \) for a type a arrival is calculated by considering the number of type a jobs in the queue, denoted as \( N_Q \), and their expected remaining service times. The formula uses the probability that an arriving job finds a busy server, which is \( \rho_x \), and the expected excess service time.
+The mean delay $E[T_Q]$ for a type a arrival is calculated by considering the number of type a jobs in the queue, denoted as $ N_Q $, and their expected remaining service times. The formula uses the probability that an arriving job finds a busy server, which is $\rho_x$, and the expected excess service time.
 x??
 
 ---
 #### Detailed Calculation for Mean Delay
-Background context: Using a tagged-job argument, we can calculate the mean delay \( E[T_Q] \) by considering the number of type a jobs in the queue and their expected remaining service times. This involves integrating job size distributions to find the fraction of time the server is busy.
+Background context: Using a tagged-job argument, we can calculate the mean delay $E[T_Q]$ by considering the number of type a jobs in the queue and their expected remaining service times. This involves integrating job size distributions to find the fraction of time the server is busy.
 :p What formula represents the mean delay for a type a arrival?
 ??x
-The mean delay \( E[T_Q] \) can be calculated using the formula:
-\[ E[T_Q] = \frac{\lambda E[S_x]}{1 - \rho_x} \cdot \frac{E[S^2_x]}{2E[S_x]} \]
-Where \( \lambda \) is the arrival rate, \( E[S_x] \) is the expected job size, and \( \rho_x = \lambda E[S_x] \).
+The mean delay $E[T_Q]$ can be calculated using the formula:
+$$E[T_Q] = \frac{\lambda E[S_x]}{1 - \rho_x} \cdot \frac{E[S^2_x]}{2E[S_x]}$$
+
+Where $\lambda $ is the arrival rate,$ E[S_x]$ is the expected job size, and $\rho_x = \lambda E[S_x]$.
 x??
 
 ---
 #### Example Code for Calculation
 Background context: The calculation involves integrating over the job size distribution to find the fraction of time the server is busy.
-:p Provide an example code snippet in Java to calculate \( E[T_Q] \)?
+:p Provide an example code snippet in Java to calculate $E[T_Q]$?
 ??x
 ```java
 public class SRPTWaitingTime {

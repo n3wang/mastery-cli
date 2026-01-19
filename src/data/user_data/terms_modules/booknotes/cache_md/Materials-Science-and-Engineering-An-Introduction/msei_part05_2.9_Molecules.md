@@ -43,9 +43,9 @@ Background context: Covalent-ionic bonds represent a mix of ionic and covalent b
 ??x
 The percent ionic character can be approximated using the formula:
 
-\[ \text{percentIC} = \left\{1 - \exp\left[-0.25(X_A - X_B)^2\right]\right\} \times 100 \]
+$$\text{percentIC} = \left\{1 - \exp\left[-0.25(X_A - X_B)^2\right]\right\} \times 100$$
 
-Where \(X_A\) and \(X_B\) are the electronegativities of the atoms forming the bond, with \(A\) being the more electronegative atom.
+Where $X_A $ and$X_B $ are the electronegativities of the atoms forming the bond, with $ A$ being the more electronegative atom.
 
 ```java
 // Pseudocode for calculating percent ionic character.
@@ -130,17 +130,16 @@ The materials are classified based on their bonding types:
 
 
 #### Calculation of Theoretical Density for Copper
-Background context: The theoretical density \( \rho \) can be calculated using the formula \( \rho = \frac{nA}{V_C N_A} \), where \( n \) is the number of atoms per unit cell, \( A \) is the atomic weight, \( V_C \) is the volume of the unit cell, and \( N_A \) is Avogadro's number.
+Background context: The theoretical density $\rho $ can be calculated using the formula$\rho = \frac{nA}{V_C N_A}$, where $ n$is the number of atoms per unit cell,$ A $is the atomic weight,$ V_C $ is the volume of the unit cell, and $ N_A$ is Avogadro's number.
 
-:p What is the formula for calculating the theoretical density \( \rho \)?
+:p What is the formula for calculating the theoretical density $\rho$?
 ??x
-The formula for calculating the theoretical density \( \rho \) is given by:
-\[ \rho = \frac{nA}{V_C N_A} \]
-where:
-- \( n \) is the number of atoms per unit cell,
-- \( A \) is the atomic weight,
-- \( V_C \) is the volume of the unit cell,
-- \( N_A \) is Avogadro's number.
+The formula for calculating the theoretical density $\rho$ is given by:
+$$\rho = \frac{nA}{V_C N_A}$$where:
+- $n$ is the number of atoms per unit cell,
+- $A$ is the atomic weight,
+- $V_C$ is the volume of the unit cell,
+- $N_A$ is Avogadro's number.
 x??
 
 ---
@@ -162,7 +161,7 @@ Background context: The cubic system has the highest symmetry with equal edge le
 
 :p What are the defining characteristics of the cubic crystal system?
 ??x
-The cubic crystal system is characterized by having all three edge lengths (a, b, c) equal and all interaxial angles (\( \alpha = \beta = \gamma = 90^\circ \)). It has the highest degree of symmetry among the crystal systems.
+The cubic crystal system is characterized by having all three edge lengths (a, b, c) equal and all interaxial angles ($\alpha = \beta = \gamma = 90^\circ$). It has the highest degree of symmetry among the crystal systems.
 x??
 
 ---

@@ -79,7 +79,7 @@ Example:
  * @returns A greeting formatted for human consumption.
  */
 function greetFullTSDoc(name: string, title: string): string {
-    return `Hello ${title} ${name}`;
+    return `Hello ${title}${name}`;
 }
 
 // In an editor, hovering over `greetFullTSDoc` will show the TSDoc comments.

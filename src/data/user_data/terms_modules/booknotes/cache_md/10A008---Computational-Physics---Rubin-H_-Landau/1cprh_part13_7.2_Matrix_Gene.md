@@ -16,31 +16,27 @@ Background context: The text discusses solving systems of linear equations using
 The system of nonlinear equations can be represented in matrix form as follows:
 
 Given:
-\[ f + F' \Delta x = 0 \]
+$$f + F' \Delta x = 0$$
+
 This can be rewritten using matrices as:
-\[ F' \Delta x = -f \]
+$$
+
+F' \Delta x = -f$$
 
 Where:
-- \( \Delta x = \begin{bmatrix} \Delta x_1 \\ \Delta x_2 \\ \vdots \\ \Delta x_n \end{bmatrix} \)
-- \( f = \begin{bmatrix} f_1 \\ f_2 \\ \vdots \\ f_n \end{bmatrix} \)
-- \( F' = \begin{bmatrix}
+- $\Delta x = \begin{bmatrix} \Delta x_1 \\ \Delta x_2 \\ \vdots \\ \Delta x_n \end{bmatrix}$-$ f = \begin{bmatrix} f_1 \\ f_2 \\ \vdots \\ f_n \end{bmatrix}$-$ F' = \begin{bmatrix}
 \frac{\partial f_1}{\partial x_1} & \cdots & \frac{\partial f_1}{\partial x_n} \\
 \frac{\partial f_2}{\partial x_1} & \cdots & \frac{\partial f_2}{\partial x_n} \\
 \vdots & \ddots & \vdots \\
 \frac{\partial f_n}{\partial x_1} & \cdots & \frac{\partial f_n}{\partial x_n}
-\end{bmatrix} \)
+\end{bmatrix} $The equation $ F' \Delta x = -f$ is in the standard form of a linear system, often written as:
+$$A \Delta x = b$$where $ A = F'$,$\Delta x $ is the vector of unknowns, and$b = -f$.
 
-The equation \( F' \Delta x = -f \) is in the standard form of a linear system, often written as:
-\[ A \Delta x = b \]
-where \( A = F' \), \( \Delta x \) is the vector of unknowns, and \( b = -f \).
-
-The solution to this equation can be obtained by multiplying both sides by the inverse of the matrix \( F' \):
-\[ \Delta x = -F'^{-1} f \]
+The solution to this equation can be obtained by multiplying both sides by the inverse of the matrix $F'$:
+$$\Delta x = -F'^{-1} f$$
 
 However, if an exact derivative is not available or too complex, a forward-difference approximation can be used:
-\[ \frac{\partial f_i}{\partial x_j} \approx \frac{f(x_j + \delta x_j) - f(x_j)}{\delta x_j} \]
-
-x??
+$$\frac{\partial f_i}{\partial x_j} \approx \frac{f(x_j + \delta x_j) - f(x_j)}{\delta x_j}$$x??
 
 ---
 
@@ -52,11 +48,10 @@ Background context: The text discusses the use of numerical derivatives to solve
 :p How is a forward-difference approximation used to estimate partial derivatives?
 
 ??x
-A forward-difference approximation can be used to estimate partial derivatives when exact forms are difficult or impractical. The formula for estimating the partial derivative of \( f_i \) with respect to \( x_j \) is:
+A forward-difference approximation can be used to estimate partial derivatives when exact forms are difficult or impractical. The formula for estimating the partial derivative of $f_i $ with respect to$x_j$ is:
+$$\frac{\partial f_i}{\partial x_j} \approx \frac{f(x_j + \delta x_j) - f(x_j)}{\delta x_j}$$
 
-\[ \frac{\partial f_i}{\partial x_j} \approx \frac{f(x_j + \delta x_j) - f(x_j)}{\delta x_j} \]
-
-Here, each individual \( x_j \) is varied independently by an arbitrary small change \( \delta x_j \).
+Here, each individual $x_j $ is varied independently by an arbitrary small change$\delta x_j$.
 
 :p How would you implement the forward-difference approximation for a function with multiple variables in pseudocode?
 
@@ -89,7 +84,7 @@ function forwardDifferenceApproximation(f, x, delta_x)
     return derivatives
 ```
 
-This pseudocode iterates over each variable, perturbs its value by \( \delta x \), evaluates the function at both the perturbed and original points, and then calculates the finite difference approximation.
+This pseudocode iterates over each variable, perturbs its value by $\delta x$, evaluates the function at both the perturbed and original points, and then calculates the finite difference approximation.
 
 x??
 
@@ -103,27 +98,25 @@ Background context: The text introduces the eigenvalue problem, which is a speci
 :p What is the eigenvalue problem in the context of linear algebra?
 
 ??x
-The eigenvalue problem in linear algebra involves finding scalars \( \lambda \) and corresponding non-zero vectors \( x \), such that:
+The eigenvalue problem in linear algebra involves finding scalars $\lambda $ and corresponding non-zero vectors$x$, such that:
 
-\[ A x = \lambda x \]
+$$A x = \lambda x$$where $ A $is a known square matrix,$ x $ is an unknown vector, and $\lambda $ is the scalar eigenvalue. To solve this problem, we can rewrite it in a form involving the identity matrix$I$:
 
-where \( A \) is a known square matrix, \( x \) is an unknown vector, and \( \lambda \) is the scalar eigenvalue. To solve this problem, we can rewrite it in a form involving the identity matrix \( I \):
+$$(A - \lambda I) x = 0$$
 
-\[ (A - \lambda I) x = 0 \]
+For non-trivial solutions ($x \neq 0 $), the matrix $ A - \lambda I$ must be singular, meaning its determinant must be zero:
 
-For non-trivial solutions (\( x \neq 0 \)), the matrix \( A - \lambda I \) must be singular, meaning its determinant must be zero:
+$$\det(A - \lambda I) = 0$$
 
-\[ \det(A - \lambda I) = 0 \]
-
-The values of \( \lambda \) that satisfy this equation are the eigenvalues of the matrix \( A \).
+The values of $\lambda $ that satisfy this equation are the eigenvalues of the matrix$A$.
 
 :p How would you solve for the eigenvalues using a computer program?
 
 ??x
 To find the eigenvalues, you can follow these steps:
 
-1. **Calculate the determinant**: First, write a function to calculate the determinant of the matrix \( A - \lambda I \).
-2. **Solve the characteristic equation**: Set up and solve the equation \( \det(A - \lambda I) = 0 \).
+1. **Calculate the determinant**: First, write a function to calculate the determinant of the matrix $A - \lambda I$.
+2. **Solve the characteristic equation**: Set up and solve the equation $\det(A - \lambda I) = 0$.
 
 Here’s an example in Python using NumPy:
 
@@ -149,7 +142,7 @@ print(eigenvalues)
 ```
 
 In this code:
-- `det_A_minus_lambdaI` calculates the determinant of \( A - \lambda I \).
+- `det_A_minus_lambdaI` calculates the determinant of $A - \lambda I$.
 - `np.roots` is used to solve the polynomial equation derived from the characteristic polynomial.
 
 x??
@@ -207,20 +200,20 @@ x??
 
 #### Processing Time and Complexity
 
-Background context: The text explains that matrix operations like inversion have a complexity of \( O(N^3) \), where \( N \) is the dimension of the square matrix. This affects how processing time increases with larger matrices.
+Background context: The text explains that matrix operations like inversion have a complexity of $O(N^3)$, where $ N$ is the dimension of the square matrix. This affects how processing time increases with larger matrices.
 
 :p What is the computational complexity of inverting a 2D square matrix, and why does it matter?
 
 ??x
-The computational complexity of inverting a 2D square matrix (or any square matrix of dimension \( N \)) is \( O(N^3) \). This means that if you double the size of a 2D square matrix, the processing time increases by a factor of eight.
+The computational complexity of inverting a 2D square matrix (or any square matrix of dimension $N $) is $ O(N^3)$. This means that if you double the size of a 2D square matrix, the processing time increases by a factor of eight.
 
 For example:
 - Doubling the number of integration steps for a 2D problem would result in an eightfold increase in processing time due to the cubic relationship between the matrix dimension and the computational complexity.
 
-:p How can we illustrate the \( O(N^3) \) complexity with an example?
+:p How can we illustrate the $O(N^3)$ complexity with an example?
 
 ??x
-To illustrate the \( O(N^3) \) complexity, consider a simple Python example:
+To illustrate the $O(N^3)$ complexity, consider a simple Python example:
 
 ```python
 def invert_matrix(matrix):
@@ -256,9 +249,9 @@ print(f"Ratio of processing times: {time_ratio}")
 ```
 
 In this example:
-- We measure the time taken to invert a \( 10 \times 10 \) matrix.
-- Then we double the size to \( 20 \times 20 \) and measure the time again.
-- The ratio of these times should be approximately eight, reflecting the \( O(N^3) \) complexity.
+- We measure the time taken to invert a $10 \times 10$ matrix.
+- Then we double the size to $20 \times 20$ and measure the time again.
+- The ratio of these times should be approximately eight, reflecting the $O(N^3)$ complexity.
 
 x??
 
@@ -449,11 +442,11 @@ x??
 
 
 #### Solving Matrix Equations using NumPy
-Background context: In NumPy, you can solve matrix equations such as \(Ax = b\) using linear algebra functions provided by NumPy's `linalg` module. The `solve` function is used to find the solution vector \(x\).
+Background context: In NumPy, you can solve matrix equations such as $Ax = b $ using linear algebra functions provided by NumPy's `linalg` module. The `solve` function is used to find the solution vector$x$.
 
 :p How do you solve a matrix equation using NumPy?
 ??x
-To solve a matrix equation like \(Ax = b\) in NumPy, you can use the `solve` function from the `numpy.linalg` package.
+To solve a matrix equation like $Ax = b$ in NumPy, you can use the `solve` function from the `numpy.linalg` package.
 
 Here's an example:
 
@@ -470,7 +463,7 @@ x = np.linalg.solve(A, b)
 print('Solution:', x)
 ```
 
-The `solve` function automatically handles matrix operations and returns the solution vector \(x\).
+The `solve` function automatically handles matrix operations and returns the solution vector $x$.
 
 x??
 
@@ -478,7 +471,7 @@ x??
 
 
 #### Matrix Inverse Calculation in NumPy
-Background context: Another way to solve a matrix equation like \(Ax = b\) is by calculating the inverse of matrix \(A\) (denoted as \(A^{-1}\)) and then using it to find the solution. This can be done using `numpy.linalg.inv`.
+Background context: Another way to solve a matrix equation like $Ax = b $ is by calculating the inverse of matrix$A $(denoted as$ A^{-1}$) and then using it to find the solution. This can be done using `numpy.linalg.inv`.
 
 :p How do you calculate the inverse of a matrix in NumPy?
 ??x
@@ -496,9 +489,9 @@ A = np.array([[1, 2, 3], [22, 32, 42], [55, 66, 100]])
 print(np.dot(np.linalg.inv(A), A))
 ```
 
-This will output an identity matrix, confirming that the `inv` function correctly computes \(A^{-1}\).
+This will output an identity matrix, confirming that the `inv` function correctly computes $A^{-1}$.
 
-To solve for \(x\) using the inverse, you can do:
+To solve for $x$ using the inverse, you can do:
 
 ```python
 # Solve the equation Ax = b for x using the inverse of A

@@ -10,12 +10,12 @@
 Background context: When performing multidimensional integrations, especially with a large number of dimensions (N), traditional numerical integration methods can become computationally expensive or impractical. The Monte Carlo method offers an alternative that is more efficient as the dimensionality increases.
 
 Relevant formulas and explanations:
-- Standard deviation of the integral value after N samples: \(\sigma_I \approx \frac{\sigma_f}{\sqrt{N}}\) for normal distributions.
-- For a 36-dimensional integration with \(64^2\) points in each dimension, the total number of evaluations would be approximately \(10^{65}\).
+- Standard deviation of the integral value after N samples: $\sigma_I \approx \frac{\sigma_f}{\sqrt{N}}$ for normal distributions.
+- For a 36-dimensional integration with $64^2 $ points in each dimension, the total number of evaluations would be approximately$10^{65}$.
 
 :p What is the error reduction rate for Monte Carlo integration as N increases?
 ??x
-The error in Monte Carlo integration decreases at a rate of \(1/\sqrt{N}\). This means that doubling the number of samples reduces the relative error by about 41%.
+The error in Monte Carlo integration decreases at a rate of $1/\sqrt{N}$. This means that doubling the number of samples reduces the relative error by about 41%.
 
 ```java
 // Pseudocode to simulate Monte Carlo Integration
@@ -54,15 +54,15 @@ x??
 
 
 #### Error Analysis in High-Dimensional Integration
-Background context: The relative error in Monte Carlo integration decreases as \(1/\sqrt{N}\), which means that the method is more advantageous for higher dimensions compared to traditional methods like Simpson's rule, where the number of points per dimension would decrease with increasing dimensionality.
+Background context: The relative error in Monte Carlo integration decreases as $1/\sqrt{N}$, which means that the method is more advantageous for higher dimensions compared to traditional methods like Simpson's rule, where the number of points per dimension would decrease with increasing dimensionality.
 
 Relevant formulas and explanations:
-- For a 3-dimensional integral using Monte Carlo, the error could be comparable to other integration schemes when \(D \approx 3 - 4\).
+- For a 3-dimensional integral using Monte Carlo, the error could be comparable to other integration schemes when $D \approx 3 - 4$.
 - For higher dimensions (larger D), Monte Carlo becomes more accurate due to its statistical nature.
 
 :p How does the number of points per dimension change in high-dimensional integrals for both Monte Carlo and traditional methods?
 ??x
-In Monte Carlo, the number of points remains relatively constant as \(N\) increases, leading to a decrease in error rate \(1/\sqrt{N}\). In contrast, for traditional methods like Simpson's rule, the number of points per dimension decreases with increasing dimensionality (D), making them less effective.
+In Monte Carlo, the number of points remains relatively constant as $N $ increases, leading to a decrease in error rate$1/\sqrt{N}$. In contrast, for traditional methods like Simpson's rule, the number of points per dimension decreases with increasing dimensionality (D), making them less effective.
 
 ```java
 // Pseudocode comparing Monte Carlo and Simpson's Rule
@@ -102,11 +102,11 @@ x??
 Background context: To evaluate a high-dimensional integral using Monte Carlo, we need to generate random samples in the multidimensional space and compute their function values. This process is particularly useful for large dimensions where traditional methods become computationally expensive.
 
 Relevant formulas and explanations:
-- For a 10D integral \(I = \int_0^1 dx_1 \cdots dx_{10} (x_1 + x_2 + \cdots + x_{10})^2\), the goal is to estimate its value using Monte Carlo.
+- For a 10D integral $I = \int_0^1 dx_1 \cdots dx_{10} (x_1 + x_2 + \cdots + x_{10})^2$, the goal is to estimate its value using Monte Carlo.
 
 :p What is the objective of this implementation?
 ??x
-The objective is to evaluate the 10-dimensional integral \(I = \int_0^1 dx_1 \cdots dx_{10} (x_1 + x_2 + \cdots + x_{10})^2\) using Monte Carlo integration, which involves generating random points in a 10D space and computing the function value at each point.
+The objective is to evaluate the 10-dimensional integral $I = \int_0^1 dx_1 \cdots dx_{10} (x_1 + x_2 + \cdots + x_{10})^2$ using Monte Carlo integration, which involves generating random points in a 10D space and computing the function value at each point.
 
 ```java
 // Pseudocode for 10-Dimensional Monte Carlo Integration
@@ -145,11 +145,11 @@ x??
 Background context: After performing the Monte Carlo integration, it is important to check if the numerical result matches the known analytic solution. This ensures the correctness and accuracy of the method.
 
 Relevant formulas and explanations:
-- The expected value for a 10-dimensional integral \(I = \int_0^1 dx_1 \cdots dx_{10} (x_1 + x_2 + \cdots + x_{10})^2\) is known to be 155/6.
+- The expected value for a 10-dimensional integral $I = \int_0^1 dx_1 \cdots dx_{10} (x_1 + x_2 + \cdots + x_{10})^2$ is known to be 155/6.
 
 :p How do you verify the correctness of your Monte Carlo integration result?
 ??x
-To verify the correctness, compare the numerical result obtained from Monte Carlo integration with the known analytic solution \(I = \frac{155}{6}\).
+To verify the correctness, compare the numerical result obtained from Monte Carlo integration with the known analytic solution $I = \frac{155}{6}$.
 
 ```java
 // Pseudocode for verifying the result
@@ -372,22 +372,19 @@ x??
 
 
 #### Quantum Bound States I
-Background context: The problem involves finding the energies of a particle bound within a 1D square well. The potential \( V(x) \) is defined as:
-\[ V(x) = \begin{cases} 
+Background context: The problem involves finding the energies of a particle bound within a 1D square well. The potential $V(x)$ is defined as:
+$$V(x) = \begin{cases} 
 -10, & \text{for } |x| \leq a \\
 0, & \text{for } |x| > a
-\end{cases} \]
+\end{cases}$$
 
-The energies of the bound states \( E_B < 0 \) are solutions to transcendental equations given by:
-\[ \sqrt{10 - E_B} \tan(\sqrt{10 - E_B}) = \sqrt{E_B} \quad (\text{even}), \]
-\[ \sqrt{10 - E_B} \cot(\sqrt{10 - E_B}) = \sqrt{E_B} \quad (\text{odd}). \]
-
-:p What are the transcendental equations used to find the bound states energies in a 1D square well?
+The energies of the bound states $E_B < 0$ are solutions to transcendental equations given by:
+$$\sqrt{10 - E_B} \tan(\sqrt{10 - E_B}) = \sqrt{E_B} \quad (\text{even}),$$
+$$\sqrt{10 - E_B} \cot(\sqrt{10 - E_B}) = \sqrt{E_B} \quad (\text{odd}).$$:p What are the transcendental equations used to find the bound states energies in a 1D square well?
 ??x
 The transcendental equations used to find the bound state energies in a 1D square well are:
-\[ \sqrt{10 - E_B} \tan(\sqrt{10 - E_B}) = \sqrt{E_B} \quad (\text{even}), \]
-\[ \sqrt{10 - E_B} \cot(\sqrt{10 - E_B}) = \sqrt{E_B} \quad (\text{odd}). \]
-x??
+$$\sqrt{10 - E_B} \tan(\sqrt{10 - E_B}) = \sqrt{E_B} \quad (\text{even}),$$
+$$\sqrt{10 - E_B} \cot(\sqrt{10 - E_B}) = \sqrt{E_B} \quad (\text{odd}).$$x??
 
 ---
 
@@ -397,7 +394,7 @@ Background context: The bisection search algorithm is a reliable but slow trial-
 
 :p What is the basis of the bisection algorithm?
 ??x
-The basis of the bisection algorithm involves starting with an interval \([x_-, x_+]\) where \(f(x_-)\) and \(f(x_+)\) have opposite signs. The algorithm repeatedly divides this interval in half, choosing the subinterval where the function changes sign until a root is found within a desired precision.
+The basis of the bisection algorithm involves starting with an interval $[x_-, x_+]$ where $f(x_-)$ and $f(x_+)$ have opposite signs. The algorithm repeatedly divides this interval in half, choosing the subinterval where the function changes sign until a root is found within a desired precision.
 
 ```python
 def bisection(f, a, b, tol):
@@ -423,21 +420,21 @@ x??
 
 
 #### Bisection Search in Practice: Finding Bound States Energies
-Background context: Given the function \( \sqrt{10 - E_B} \tan(\sqrt{10 - E_B}) - \sqrt{E_B} = 0 \) for even wave functions, and \( \sqrt{10 - E_B} \cot(\sqrt{10 - E_B}) - \sqrt{E_B} = 0 \) for odd wave functions. The algorithm starts with an interval where the function changes sign.
+Background context: Given the function $\sqrt{10 - E_B} \tan(\sqrt{10 - E_B}) - \sqrt{E_B} = 0 $ for even wave functions, and$\sqrt{10 - E_B} \cot(\sqrt{10 - E_B}) - \sqrt{E_B} = 0$ for odd wave functions. The algorithm starts with an interval where the function changes sign.
 
 :p How do you apply the bisection search to find bound state energies?
 ??x
-To apply the bisection search, start by finding an initial interval \([a, b]\) where \( f(a) < 0 \) and \( f(b) > 0 \). For example:
-1. Evaluate \(f(0)\) and \(f(10)\):
-   - If \(f(0) = 3\) (positive) and \(f(10) = -2\) (negative), then choose the interval \([0, 10]\).
+To apply the bisection search, start by finding an initial interval $[a, b]$ where $ f(a) < 0 $ and $ f(b) > 0 $. For example:
+1. Evaluate $f(0)$ and $f(10)$:
+   - If $f(0) = 3 $(positive) and $ f(10) = -2 $(negative), then choose the interval$[0, 10]$.
    
-2. Compute the midpoint \(c = (a + b) / 2\). Check if \(f(c)\) is close to zero or changes sign.
+2. Compute the midpoint $c = (a + b) / 2 $. Check if $ f(c)$ is close to zero or changes sign.
 
 3. Repeat this process:
-   - If \(f(a) * f(c) < 0\), then the root lies between \(a\) and \(c\).
-   - Otherwise, it lies between \(c\) and \(b\).
+   - If $f(a) * f(c) < 0 $, then the root lies between $ a $and$ c$.
+   - Otherwise, it lies between $c $ and$b$.
 
-4. Continue until \(|b - a|\) is less than the desired tolerance.
+4. Continue until $|b - a|$ is less than the desired tolerance.
 
 Example in Python:
 ```python

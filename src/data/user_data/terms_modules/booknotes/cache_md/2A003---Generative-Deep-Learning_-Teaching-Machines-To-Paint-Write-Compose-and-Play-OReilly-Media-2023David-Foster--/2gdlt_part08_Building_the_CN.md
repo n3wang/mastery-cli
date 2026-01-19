@@ -136,8 +136,7 @@ x??
 Background context: Batch normalization is a technique used to normalize the input layer by adjusting and scaling the activations. It speeds up learning and improves generalization.
 
 Relevant formulas or data: The formula for batch normalization can be represented as:
-\[ \text{Y} = \frac{\text{X} - \mu}{\sigma + \epsilon} \cdot \gamma + \beta \]
-where \( X \) is the input, \( \mu \) and \( \sigma \) are mean and standard deviation of the batch, respectively, and \( \gamma \) and \( \beta \) are learnable parameters.
+$$\text{Y} = \frac{\text{X} - \mu}{\sigma + \epsilon} \cdot \gamma + \beta$$where $ X $is the input,$\mu $ and$\sigma $ are mean and standard deviation of the batch, respectively, and$\gamma $ and$\beta$ are learnable parameters.
 
 :p What is the purpose of Batch Normalization in a CNN?
 ??x
@@ -164,13 +163,11 @@ x??
 Background context: The LeakyReLU activation function is used as an alternative to the ReLU function. While ReLU can cause "dead" neurons by always outputting zero for negative inputs, LeakyReLU allows a small, non-zero gradient when the input is negative.
 
 Relevant formulas or data: The formula for LeakyReLU is:
-\[ \text{LeakyReLU}(x) = 
+$$\text{LeakyReLU}(x) = 
 \begin{cases} 
 x & \text{if } x > 0 \\
 \alpha x & \text{if } x < 0
-\end{cases}
-\]
-where \( \alpha \) is a small positive number, typically between 0.01 and 0.2.
+\end{cases}$$where $\alpha$ is a small positive number, typically between 0.01 and 0.2.
 
 :p What is the advantage of using LeakyReLU over ReLU?
 ??x
@@ -219,54 +216,37 @@ x??
 #### Variational Autoencoder (VAE)
 Background context: The variational autoencoder is a powerful generative model that uses probabilistic modeling and optimization techniques to learn a latent space representation of input data. It allows for generating new samples by sampling from this learned distribution. VAEs are particularly useful in image generation, where they can produce realistic faces or modify existing images.
 
-The core idea behind VAEs is to encode the input into a latent variable \( z \) and then decode it back to reconstruct the original input. This process involves two main steps: encoding and decoding.
+The core idea behind VAEs is to encode the input into a latent variable $z$ and then decode it back to reconstruct the original input. This process involves two main steps: encoding and decoding.
 
 :p What is the variational autoencoder (VAE)?
 ??x
 The variational autoencoder is a type of generative model that learns a probabilistic mapping from an input space to a latent space, enabling the generation of new samples by sampling from this learned distribution. It involves two main steps: encoding and decoding.
 
-In more detail, given an input \( x \), the VAE encodes it into a latent variable \( z \) using an encoder network, which is typically a neural network that outputs parameters for a probability distribution over \( z \). The decoder then takes this \( z \) and generates a reconstructed output \( \hat{x} \).
+In more detail, given an input $x $, the VAE encodes it into a latent variable $ z $ using an encoder network, which is typically a neural network that outputs parameters for a probability distribution over $ z $. The decoder then takes this$ z $ and generates a reconstructed output $\hat{x}$.
 
 The training objective of VAEs involves maximizing the evidence lower bound (ELBO):
 
-\[
-\mathcal{L}(x, z) = \mathbb{E}_{q(z|x)}[\log p(x|z)] - D_{KL}(q(z|x) || p(z))
-\]
-
-where \( q(z|x) \) is the encoder distribution and \( p(z) \) is a prior distribution (often chosen to be Gaussian).
+$$\mathcal{L}(x, z) = \mathbb{E}_{q(z|x)}[\log p(x|z)] - D_{KL}(q(z|x) || p(z))$$where $ q(z|x)$is the encoder distribution and $ p(z)$ is a prior distribution (often chosen to be Gaussian).
 
 :p How does VAE encoding work?
 ??x
-In VAE encoding, an input \( x \) is encoded into a latent variable \( z \). This process involves using an encoder network that outputs parameters for a probability distribution over \( z \), often represented as:
+In VAE encoding, an input $x $ is encoded into a latent variable$z $. This process involves using an encoder network that outputs parameters for a probability distribution over$ z$, often represented as:
 
-\[
-q(z|x) = \mathcal{N}(z; \mu(x), \sigma^2(x))
-\]
-
-where \( \mu(x) \) and \( \sigma(x) \) are the mean and standard deviation of the Gaussian distribution, which are functions of the input \( x \).
+$$q(z|x) = \mathcal{N}(z; \mu(x), \sigma^2(x))$$where $\mu(x)$ and $\sigma(x)$ are the mean and standard deviation of the Gaussian distribution, which are functions of the input $x$.
 
 :p How does VAE decoding work?
 ??x
-In VAE decoding, a latent variable \( z \) is decoded back to reconstruct the original input \( x \). This involves using a decoder network that takes \( z \) as input and generates the reconstructed output \( \hat{x} \):
+In VAE decoding, a latent variable $z $ is decoded back to reconstruct the original input$x $. This involves using a decoder network that takes$ z $as input and generates the reconstructed output$\hat{x}$:
 
-\[
-p(x|z) = p_\theta(\hat{x}|z)
-\]
-
-where \( \theta \) represents the parameters of the decoder network.
+$$p(x|z) = p_\theta(\hat{x}|z)$$where $\theta$ represents the parameters of the decoder network.
 
 :p What is the evidence lower bound (ELBO)?
 ??x
 The evidence lower bound (ELBO) is a key objective function used in training VAEs. It is defined as:
-
-\[
-\mathcal{L}(x, z) = \mathbb{E}_{q(z|x)}[\log p(x|z)] - D_{KL}(q(z|x) || p(z))
-\]
-
-where:
-- \( q(z|x) \) is the encoder distribution.
-- \( p(z) \) is the prior distribution over the latent space (often Gaussian).
-- \( D_{KL} \) denotes the Kullback-Leibler divergence.
+$$\mathcal{L}(x, z) = \mathbb{E}_{q(z|x)}[\log p(x|z)] - D_{KL}(q(z|x) || p(z))$$where:
+- $q(z|x)$ is the encoder distribution.
+- $p(z)$ is the prior distribution over the latent space (often Gaussian).
+- $D_{KL}$ denotes the Kullback-Leibler divergence.
 
 The ELBO balances two terms: maximizing the likelihood of the data and minimizing the KL divergence between the learned posterior and the prior. Training involves optimizing this objective to find a good balance.
 x??
@@ -275,33 +255,26 @@ x??
 
 
 #### Generative Adversarial Network (GAN)
-Background context: Generative Adversarial Networks (GANs) are a type of generative model that consists of two neural networks, a generator \( G \) and a discriminator \( D \), competing against each other. The generator creates samples from a latent space to generate realistic data, while the discriminator evaluates these generated samples along with real data and provides feedback on their authenticity.
+Background context: Generative Adversarial Networks (GANs) are a type of generative model that consists of two neural networks, a generator $G $ and a discriminator$D$, competing against each other. The generator creates samples from a latent space to generate realistic data, while the discriminator evaluates these generated samples along with real data and provides feedback on their authenticity.
 
 The key idea is that as the generator tries to produce more convincing fake samples, the discriminator becomes better at distinguishing between real and fake samples. This adversarial process leads to the improvement of both networks over iterations.
 
 :p What is a Generative Adversarial Network (GAN)?
 ??x
-A Generative Adversarial Network (GAN) consists of two neural networks: a generator \( G \) and a discriminator \( D \). The generator creates samples from a latent space, aiming to produce realistic data, while the discriminator evaluates these generated samples along with real data and provides feedback on their authenticity.
+A Generative Adversarial Network (GAN) consists of two neural networks: a generator $G $ and a discriminator$D$. The generator creates samples from a latent space, aiming to produce realistic data, while the discriminator evaluates these generated samples along with real data and provides feedback on their authenticity.
 
 The goal is for the generator to produce samples that fool the discriminator into thinking they are real. This adversarial process leads to improved performance of both networks over iterations.
 
 :p How does the training objective of a GAN work?
 ??x
-The training objective of a GAN involves two separate objectives: one for the generator \( G \) and one for the discriminator \( D \).
+The training objective of a GAN involves two separate objectives: one for the generator $G $ and one for the discriminator$D$.
 
 For the generator, the goal is to maximize the probability that the discriminator outputs real on its generated samples. This can be formulated as:
 
-\[
-\max_G \mathbb{E}_{z \sim p_z(z)}[\log(1 - D(G(z)))]
-\]
-
-where \( z \) represents a latent variable sampled from some prior distribution, and \( G(z) \) is the generated sample.
+$$\max_G \mathbb{E}_{z \sim p_z(z)}[\log(1 - D(G(z)))]$$where $ z $ represents a latent variable sampled from some prior distribution, and $ G(z)$ is the generated sample.
 
 For the discriminator, the goal is to maximize its ability to distinguish between real and fake samples:
-
-\[
-\max_D \mathbb{E}_{x \sim p_{data}(x)}[\log D(x)] + \mathbb{E}_{z \sim p_z(z)}[\log(1 - D(G(z)))]
-\]
+$$\max_D \mathbb{E}_{x \sim p_{data}(x)}[\log D(x)] + \mathbb{E}_{z \sim p_z(z)}[\log(1 - D(G(z)))]$$
 
 :p How is GAN training typically implemented?
 ??x
@@ -346,33 +319,23 @@ These models learn to generate sequences by predicting each element based on the
 Long Short-Term Memory (LSTM) networks are a type of recurrent neural network designed to handle long-term dependencies in sequence data. LSTMs include memory cells that can maintain information over long periods by using gates: input, forget, and output gates.
 
 The key components of an LSTM cell are:
-- Input gate (\( \sigma_{i_t} \)): Controls the flow of new information into the cell.
-- Forget gate (\( \sigma_{f_t} \)): Decides which part of the cell state to discard.
-- Output gate (\( \sigma_{o_t} \)): Controls what is output from the cell.
+- Input gate ($\sigma_{i_t}$): Controls the flow of new information into the cell.
+- Forget gate ($\sigma_{f_t}$): Decides which part of the cell state to discard.
+- Output gate ($\sigma_{o_t}$): Controls what is output from the cell.
 
 The equations for an LSTM are:
 
-\[
-i_t = \sigma_{i_t}(x_t, h_{t-1})
-\]
+$$i_t = \sigma_{i_t}(x_t, h_{t-1})$$
 
-\[
-f_t = \sigma_{f_t}(x_t, h_{t-1})
-\]
+$$f_t = \sigma_{f_t}(x_t, h_{t-1})$$
 
-\[
-C_t = f_tC_{t-1} + i_t \odot \tilde{C}_t
-\]
+$$
 
-\[
-o_t = \sigma_{o_t}(x_t, h_{t-1})
-\]
+C_t = f_tC_{t-1} + i_t \odot \tilde{C}_t$$
 
-\[
-h_t = o_t \cdot \text{tanh}(C_t)
-\]
+$$o_t = \sigma_{o_t}(x_t, h_{t-1})$$
 
-where \( x_t \) is the input at time step \( t \), and \( C_t \) is the cell state.
+$$h_t = o_t \cdot \text{tanh}(C_t)$$where $ x_t $ is the input at time step $ t $, and$ C_t$ is the cell state.
 
 :p How does PixelCNN work?
 ??x
@@ -418,12 +381,9 @@ RealNVP is an example of a normalizing flow model that uses a sequence of invert
 
 Here’s a high-level overview:
 
-1. **Input Splitting**: The input \( \mathbf{x} \) is split into two parts: \( \mathbf{y}_s \) (the shifted part) and \( \mathbf{y}_t \) (the transformed part).
-2. **Transformation**: A neural network transforms \( \mathbf{y}_t \) based on \( \mathbf{y}_s \):
-   \[
-   \log(\mathbf{y}_{s,t}) = f(\mathbf{x})
-   \]
-3. **Invertibility and Jacobian**: The transformation is invertible, and the determinant of the Jacobian matrix can be computed to allow for efficient sampling.
+1. **Input Splitting**: The input $\mathbf{x}$ is split into two parts:$\mathbf{y}_s $(the shifted part) and $\mathbf{y}_t$ (the transformed part).
+2. **Transformation**: A neural network transforms $\mathbf{y}_t $ based on$\mathbf{y}_s$:
+   $$\log(\mathbf{y}_{s,t}) = f(\mathbf{x})$$3. **Invertibility and Jacobian**: The transformation is invertible, and the determinant of the Jacobian matrix can be computed to allow for efficient sampling.
 
 :p What are the benefits of using RealNVP?
 ??x
@@ -440,33 +400,23 @@ x??
 
 
 #### Energy-Based Models (EBMs)
-Background context: Energy-based models are a family of models that train a scalar energy function \( E(\mathbf{x}) \) to score the validity of a given input. The lower the energy, the more likely the input is considered valid.
+Background context: Energy-based models are a family of models that train a scalar energy function $E(\mathbf{x})$ to score the validity of a given input. The lower the energy, the more likely the input is considered valid.
 
 The training process involves learning this energy function using techniques like contrastive divergence and sampling new observations with Langevin dynamics.
 
 :p What are Energy-Based Models?
 ??x
-Energy-based models (EBMs) train a scalar energy function \( E(\mathbf{x}) \) to score the validity of a given input. The lower the energy, the more likely the input is considered valid. This approach allows for flexible modeling of complex distributions by optimizing an energy function.
+Energy-based models (EBMs) train a scalar energy function $E(\mathbf{x})$ to score the validity of a given input. The lower the energy, the more likely the input is considered valid. This approach allows for flexible modeling of complex distributions by optimizing an energy function.
 
 :p How does Contrastive Divergence work?
 ??x
 Contrastive divergence (CD) is a technique used to train energy-based models (EBMs). It approximates the gradient of the log-likelihood with a single Gibbs sampling step:
-
-\[
-\nabla_{\mathbf{w}} \log p(\mathbf{x}) = \nabla_{\mathbf{w}} E(\mathbf{x}) - \nabla_{\mathbf{w}} \mathbb{E}_{q_\theta} [E(\mathbf{x}')]
-\]
-
-where \( q_\theta \) is the approximate posterior distribution obtained from a single Gibbs sampling step.
+$$\nabla_{\mathbf{w}} \log p(\mathbf{x}) = \nabla_{\mathbf{w}} E(\mathbf{x}) - \nabla_{\mathbf{w}} \mathbb{E}_{q_\theta} [E(\mathbf{x}')]$$where $ q_\theta$ is the approximate posterior distribution obtained from a single Gibbs sampling step.
 
 :p How does Langevin Dynamics work?
 ??x
 Langevin dynamics is a technique used for sampling new observations in energy-based models (EBMs). It involves simulating a Markov chain that converges to the target distribution by adding noise and updating based on the gradient of the energy function:
-
-\[
-\mathbf{x}_{t+1} = \mathbf{x}_t + \eta \nabla E(\mathbf{x}_t) + \sqrt{2\eta} \boldsymbol{\epsilon}
-\]
-
-where \( \eta \) is a small step size and \( \boldsymbol{\epsilon} \) are noise terms.
+$$\mathbf{x}_{t+1} = \mathbf{x}_t + \eta \nabla E(\mathbf{x}_t) + \sqrt{2\eta} \boldsymbol{\epsilon}$$where $\eta $ is a small step size and$\boldsymbol{\epsilon}$ are noise terms.
 
 :p What are the advantages of using Energy-Based Models?
 ??x
@@ -499,14 +449,9 @@ The diffusion process in diffusion models works as follows:
 
 Here’s an overview:
 
-- **Diffusion Process**: Add noise incrementally over time steps \( t \) following a schedule:
-  \[
-  \mathbf{x}_t = \sqrt{1 - \beta_t} \mathbf{x}_{t-1} + \sqrt{\beta_t} \epsilon
-  \]
-- **Reversal Learning**: Train a model to predict the noise added at each step and remove it:
-  \[
-  \epsilon = \text{model}(\mathbf{x}_t, t)
-  \]
+- **Diffusion Process**: Add noise incrementally over time steps $t$ following a schedule:
+$$\mathbf{x}_t = \sqrt{1 - \beta_t} \mathbf{x}_{t-1} + \sqrt{\beta_t} \epsilon$$- **Reversal Learning**: Train a model to predict the noise added at each step and remove it:
+$$\epsilon = \text{model}(\mathbf{x}_t, t)$$
 
 :p What are some applications of Diffusion Models?
 ??x

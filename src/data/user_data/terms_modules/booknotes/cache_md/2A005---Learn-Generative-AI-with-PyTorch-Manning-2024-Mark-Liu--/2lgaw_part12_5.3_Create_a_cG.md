@@ -172,9 +172,9 @@ A gradient penalty is calculated as the squared deviation of the gradient norms 
 
 The formula for calculating the gradient penalty can be written as:
 
-\[ \text{Gradient Penalty} = \left\| \nabla_{\tilde{x}} f(\tilde{x}) - 1 \right\|^2 \]
+$$\text{Gradient Penalty} = \left\| \nabla_{\tilde{x}} f(\tilde{x}) - 1 \right\|^2$$
 
-Where \( \tilde{x} \) is a randomly chosen point on the line between real and fake images, and \( f(\cdot) \) represents the critic's output.
+Where $\tilde{x}$ is a randomly chosen point on the line between real and fake images, and $f(\cdot)$ represents the critic's output.
 
 :p How do you implement gradient penalty in practice?
 ??x
@@ -212,7 +212,7 @@ Background context: The next step is to train the conditional GAN (cGAN) using t
 
 :p How do you train a cGAN with Wasserstein distance?
 ??x
-Training a cGAN with Wasserstein distance involves optimizing both the generator \(G\) and critic \(D\). The objective for the generator is to maximize the expected score from the critic, while the critic aims to minimize the difference between its scores on real and fake images.
+Training a cGAN with Wasserstein distance involves optimizing both the generator $G $ and critic$D$. The objective for the generator is to maximize the expected score from the critic, while the critic aims to minimize the difference between its scores on real and fake images.
 
 The training process can be outlined as follows:
 
@@ -285,7 +285,7 @@ The loss function for the critic has three components:
 3. Gradient penalty loss.
 
 This is represented by the formula:
-\[ \text{loss\_critic} = -(\text{torch.mean(critic\_real) - torch.mean(critic\_fake)}) + 10 * gp \]
+$$\text{loss\_critic} = -(\text{torch.mean(critic\_real) - torch.mean(critic\_fake)}) + 10 * gp$$
 x??
 
 ---

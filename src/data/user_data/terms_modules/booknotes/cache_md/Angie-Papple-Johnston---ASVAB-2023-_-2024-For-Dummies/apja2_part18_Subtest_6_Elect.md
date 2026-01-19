@@ -7,89 +7,89 @@
 
 
 #### Solving for an Unknown
-Background context: The problem involves solving for an unknown variable \(x\) in a simple algebraic equation.
+Background context: The problem involves solving for an unknown variable $x$ in a simple algebraic equation.
 
-:p Given the equation \(24 = 2 + x\), what is the value of \(x\)?
-
-??x
-To solve for \(x\), isolate \(x\) on one side of the equation. Start by subtracting 2 from both sides:
-
-\[24 - 2 = 2 + x - 2\]
-
-This simplifies to:
-\[22 = x\]
-
-Therefore, \(x = 22\).
-
-:p To check your answer, substitute \(x = 22\) back into the original equation and verify.
+:p Given the equation $24 = 2 + x $, what is the value of $ x$?
 
 ??x
-Substitute \(x = 22\) into the original equation:
-
-\[24 = 2 + 22\]
+To solve for $x $, isolate $ x$on one side of the equation. Start by subtracting 2 from both sides:
+$$24 - 2 = 2 + x - 2$$
 
 This simplifies to:
-\[24 = 24\]
+$$22 = x$$
+
+Therefore,$x = 22$.
+
+:p To check your answer, substitute $x = 22$ back into the original equation and verify.
+
+??x
+Substitute $x = 22$ into the original equation:
+$$24 = 2 + 22$$
+
+This simplifies to:
+$$24 = 24$$
 
 The left side equals the right side, confirming that the solution is correct.
 
-Therefore, the value of \(x\) is \(\boxed{22}\).
+Therefore, the value of $x $ is$\boxed{22}$.
 x??
 
 ---
 
 
 #### Calculating Circumference and Diameter
-Background context: The relationship between the circumference (\(C\)) and diameter (\(d\)) of a circle involves the constant \(\pi\). The formula used is \(C = \pi d\).
+Background context: The relationship between the circumference ($C $) and diameter ($ d $) of a circle involves the constant$\pi $. The formula used is $ C = \pi d$.
 
 :p Given that the circumference of a circle is 24 feet, what is the approximate diameter in feet?
 
 ??x
 Given:
-\[ C = 24 \text{ feet} \]
+$$C = 24 \text{ feet}$$
 
 Using the formula for the circumference of a circle:
-\[ C = \pi d \]
+$$
 
-To find \(d\), rearrange the formula to solve for \(d\):
-\[ d = \frac{C}{\pi} \]
+C = \pi d$$
 
-Substitute the given value of \(C\) and use \(\pi \approx 3.14\):
+To find $d $, rearrange the formula to solve for$ d$:
+$$d = \frac{C}{\pi}$$
 
-\[ d = \frac{24}{3.14} \approx 7.64 \text{ feet} \]
+Substitute the given value of $C $ and use$\pi \approx 3.14$:
 
-Therefore, the diameter is approximately \(\boxed{7.64}\) feet.
+$$d = \frac{24}{3.14} \approx 7.64 \text{ feet}$$
+
+Therefore, the diameter is approximately $\boxed{7.64}$ feet.
 x??
 
 ---
 
 
 #### Ohm's Law
-Background context: Ohm’s law states that the voltage (\(V\)) across a resistor is proportional to the current (\(I\)) flowing through it and inversely proportional to the resistance (\(R\)). The formula used is \(V = IR\).
+Background context: Ohm’s law states that the voltage ($V $) across a resistor is proportional to the current ($ I $) flowing through it and inversely proportional to the resistance ($ R $). The formula used is$ V = IR$.
 
-:p According to Ohm's law, what does \(V\) represent?
+:p According to Ohm's law, what does $V$ represent?
 
 ??x
 According to Ohm’s law:
-\[ V = IR \]
+$$V = IR$$
 
-\(V\) represents the voltage across a resistor. It measures the electrical potential difference in volts.
+$V$ represents the voltage across a resistor. It measures the electrical potential difference in volts.
 
-Therefore, according to Ohm's law, \(V\) is \(\boxed{\text{the voltage}}\).
+Therefore, according to Ohm's law,$V $ is$\boxed{\text{the voltage}}$.
 x??
 
 ---
 
 
 #### Electrical Potential Difference
-Background context: Voltage is commonly used as a short name for electrical potential difference and is measured in volts (\(V\)).
+Background context: Voltage is commonly used as a short name for electrical potential difference and is measured in volts ($V$).
 
 :p What does the term "voltage" refer to?
 
 ??x
-The term "voltage" refers to the measure of the electric potential difference between two points in an electrical circuit. It represents how much energy is available per unit charge to move through a conductor, and it is measured in volts (\(V\)).
+The term "voltage" refers to the measure of the electric potential difference between two points in an electrical circuit. It represents how much energy is available per unit charge to move through a conductor, and it is measured in volts ($V$).
 
-Therefore, voltage refers to \(\boxed{\text{the electrical potential difference}}\).
+Therefore, voltage refers to $\boxed{\text{the electrical potential difference}}$.
 x??
 
 ---
@@ -103,21 +103,21 @@ Background context: A diode has two terminals (an anode and cathode) and allows 
 ??x
 The primary function of a diode is to allow current to flow in only one direction, acting as a one-way valve for electricity. This property makes it useful in various applications like voltage regulation and signal processing.
 
-Therefore, the primary function of a diode is \(\boxed{\text{to allow current flow in only one direction}}\).
+Therefore, the primary function of a diode is $\boxed{\text{to allow current flow in only one direction}}$.
 x??
 
 ---
 
 
 #### Current vs. Voltage
-Background context: Current (\(I\)) is the flow of electric charge and voltage (\(V\)) is the measure of potential difference in an electrical circuit.
+Background context: Current ($I $) is the flow of electric charge and voltage ($ V$) is the measure of potential difference in an electrical circuit.
 
 :p What does current represent in an electrical circuit?
 
 ??x
 Current represents the flow of electric charge through a conductor. It measures how much charge passes a given point per unit time, typically expressed in amperes (A).
 
-Therefore, current represents \(\boxed{\text{the flow of electric charge}}\).
+Therefore, current represents $\boxed{\text{the flow of electric charge}}$.
 x??
 
 ---

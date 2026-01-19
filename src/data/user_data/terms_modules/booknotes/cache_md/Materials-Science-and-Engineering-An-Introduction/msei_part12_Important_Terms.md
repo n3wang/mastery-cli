@@ -7,15 +7,15 @@
 
 
 #### Average Atomic Weight of a Two-Component Alloy (4.11a)
-Background context: The average atomic weight (\(A_{\text{ave}}\)) of a two-component alloy can be calculated using the formula \(A_{\text{ave}} = C_1 A_1 + C_2 A_2\), where:
-- \(C_1\) and \(C_2\) are the atom percent of elements 1 and 2 in the alloy.
-- \(A_1\) and \(A_2\) are their respective atomic weights.
+Background context: The average atomic weight ($A_{\text{ave}}$) of a two-component alloy can be calculated using the formula $ A_{\text{ave}} = C_1 A_1 + C_2 A_2$, where:
+- $C_1 $ and$C_2$ are the atom percent of elements 1 and 2 in the alloy.
+- $A_1 $ and$A_2$ are their respective atomic weights.
 
 This concept is crucial for understanding the properties of alloys, as it directly impacts mechanical behavior and phase composition.
 
-:p What is the formula to calculate the average atomic weight (\(A_{\text{ave}}\)) of a two-component alloy?
+:p What is the formula to calculate the average atomic weight ($A_{\text{ave}}$) of a two-component alloy?
 ??x
-The formula to calculate the average atomic weight of a two-component alloy is \(A_{\text{ave}} = C_1 A_1 + C_2 A_2\), where \(C_1\) and \(C_2\) are the atom percent, and \(A_1\) and \(A_2\) are the atomic weights of elements 1 and 2 in the alloy.
+The formula to calculate the average atomic weight of a two-component alloy is $A_{\text{ave}} = C_1 A_1 + C_2 A_2 $, where $ C_1 $and$ C_2 $are the atom percent, and$ A_1 $and$ A_2$ are the atomic weights of elements 1 and 2 in the alloy.
 x??
 
 ---
@@ -78,27 +78,25 @@ x??
 Background context: Fick’s laws describe the rate of mass transfer in solids, liquids, and gases due to the movement of particles from high concentration regions to low concentration regions.
 
 Fick's First Law:
-\[ J = -D \frac{\Delta c}{\Delta x} \]
+$$J = -D \frac{\Delta c}{\Delta x}$$
 
 Fick's Second Law:
-\[ \frac{\partial c}{\partial t} = D \frac{\partial^2 c}{\partial x^2} \]
+$$\frac{\partial c}{\partial t} = D \frac{\partial^2 c}{\partial x^2}$$
 
 Where:
-- \( J \) is the diffusional flux (mol/m²·s)
-- \( D \) is the diffusion coefficient (m²/s)
-- \( c \) is the concentration (mol/m³)
-- \( t \) is time (s)
-- \( x \) is position (m)
+- $J$ is the diffusional flux (mol/m²·s)
+- $D$ is the diffusion coefficient (m²/s)
+- $c$ is the concentration (mol/m³)
+- $t$ is time (s)
+- $x$ is position (m)
 
 :p Write Fick’s first and second laws in equation form and define all parameters.
 ??x
 Fick's First Law:
-\[ J = -D \frac{\Delta c}{\Delta x} \]
-where \( J \) is the diffusional flux, \( D \) is the diffusion coefficient, \( \Delta c \) is the concentration difference, and \( \Delta x \) is the distance.
+$$J = -D \frac{\Delta c}{\Delta x}$$where $ J $is the diffusional flux,$ D $is the diffusion coefficient,$\Delta c $ is the concentration difference, and$\Delta x$ is the distance.
 
 Fick's Second Law:
-\[ \frac{\partial c}{\partial t} = D \frac{\partial^2 c}{\partial x^2} \]
-where \( c \) is the concentration, \( t \) is time, and \( x \) is position.
+$$\frac{\partial c}{\partial t} = D \frac{\partial^2 c}{\partial x^2}$$where $ c $is the concentration,$ t $ is time, and $ x$ is position.
 x??
 
 ---
@@ -109,15 +107,13 @@ Background context: For diffusion into a semi-infinite solid with constant surfa
 
 :p Write the solution to Fick’s second law for diffusion into a semi-infinite solid when the concentration at the surface is held constant.
 ??x
-The solution to Fick's Second Law for diffusion into a semi-infinite solid, where the concentration \( c \) at the surface \( x = 0 \) is held constant and the initial condition is \( c(x, t=0) = 0 \), is given by:
+The solution to Fick's Second Law for diffusion into a semi-infinite solid, where the concentration $c $ at the surface$x = 0 $ is held constant and the initial condition is$c(x, t=0) = 0$, is given by:
 
-\[ c(x,t) = C_0 e^{-\frac{D t}{x^2}} \]
-
-where:
-- \( C_0 \) is the concentration at the surface,
-- \( D \) is the diffusion coefficient,
-- \( x \) is the distance from the surface,
-- \( t \) is time.
+$$c(x,t) = C_0 e^{-\frac{D t}{x^2}}$$where:
+- $C_0$ is the concentration at the surface,
+- $D$ is the diffusion coefficient,
+- $x$ is the distance from the surface,
+- $t$ is time.
 x??
 
 ---
@@ -178,9 +174,8 @@ Background context explaining the concept. The rate of mass transfer in diffusio
 
 :p What is the diffusion flux?
 ??x
-The diffusion flux \( J \) represents the rate at which an element diffuses through and perpendicular to a unit cross-sectional area of solid per unit time. It is mathematically represented as:
-\[ J = \frac{M}{A t} \]
-where \( M \) is the mass (or number of atoms) diffusing, \( A \) is the cross-sectional area across which diffusion occurs, and \( t \) is the elapsed diffusion time.
+The diffusion flux $J$ represents the rate at which an element diffuses through and perpendicular to a unit cross-sectional area of solid per unit time. It is mathematically represented as:
+$$J = \frac{M}{A t}$$where $ M $is the mass (or number of atoms) diffusing,$ A $ is the cross-sectional area across which diffusion occurs, and $ t$ is the elapsed diffusion time.
 x??
 
 ---
@@ -189,14 +184,14 @@ x??
 
 
 #### Fick’s First Law
-Background context: Fick's first law describes the steady-state diffusion flux in a single direction. The equation is given as \(J = -D \frac{dC}{dx}\), where \(J\) is the diffusion flux, \(D\) is the diffusion coefficient, and \(\frac{dC}{dx}\) is the concentration gradient.
+Background context: Fick's first law describes the steady-state diffusion flux in a single direction. The equation is given as $J = -D \frac{dC}{dx}$, where $ J$is the diffusion flux,$ D $is the diffusion coefficient, and$\frac{dC}{dx}$ is the concentration gradient.
 
 :p What does Fick's first law describe?
 ??x
-Fick's first law describes the steady-state diffusion flux in a single direction. The equation for this is \(J = -D \frac{dC}{dx}\), where:
-- \(J\) is the diffusion flux,
-- \(D\) is the diffusion coefficient, expressed in square meters per second (m²/s),
-- \(\frac{dC}{dx}\) is the concentration gradient.
+Fick's first law describes the steady-state diffusion flux in a single direction. The equation for this is $J = -D \frac{dC}{dx}$, where:
+- $J$ is the diffusion flux,
+- $D$ is the diffusion coefficient, expressed in square meters per second (m²/s),
+- $\frac{dC}{dx}$ is the concentration gradient.
 
 The negative sign indicates that diffusion occurs down the concentration gradient, from a high to a low concentration.
 x??
@@ -216,26 +211,23 @@ x??
 
 
 #### Concentration Profile and Gradient
-Background context: The concentration profile is a curve representing how concentration \(C\) varies with position \(x\). The concentration gradient \(\frac{dC}{dx}\) at any point on this curve can be calculated as \(\Delta C / \Delta x = \frac{CA - CB}{xA - xB}\), where \(CA\) and \(CB\) are concentrations at points \(xA\) and \(xB\).
+Background context: The concentration profile is a curve representing how concentration $C $ varies with position$x $. The concentration gradient $\frac{dC}{dx}$ at any point on this curve can be calculated as $\Delta C / \Delta x = \frac{CA - CB}{xA - xB}$, where $ CA$and $ CB$are concentrations at points $ xA$and $ xB$.
 
 :p What is the formula for concentration gradient?
 ??x
 The formula for the concentration gradient is:
-\[
-\frac{dC}{dx} = \frac{\Delta C}{\Delta x} = \frac{CA - CB}{xA - xB}
-\]
-where \(CA\) and \(CB\) are concentrations at points \(xA\) and \(xB\) respectively.
+$$\frac{dC}{dx} = \frac{\Delta C}{\Delta x} = \frac{CA - CB}{xA - xB}$$where $ CA $ and $ CB $ are concentrations at points $ xA $ and $ xB$ respectively.
 x??
 
 ---
 
 
 #### Diffusion Coefficient
-Background context: The diffusion coefficient \(D\) is a constant of proportionality in Fick's first law. It measures the rate of diffusion and is expressed in square meters per second (m²/s).
+Background context: The diffusion coefficient $D$ is a constant of proportionality in Fick's first law. It measures the rate of diffusion and is expressed in square meters per second (m²/s).
 
 :p What does the diffusion coefficient represent?
 ??x
-The diffusion coefficient \(D\) represents the rate at which particles diffuse through a medium, measured in square meters per second (m²/s).
+The diffusion coefficient $D$ represents the rate at which particles diffuse through a medium, measured in square meters per second (m²/s).
 x??
 
 ---
@@ -245,11 +237,9 @@ x??
 
 #### Fick's First Law and Steady-State Diffusion
 Background context explaining the concept. Fick's first law is used to determine the diffusion flux under steady-state conditions. The formula given by Equation 5.2 is:
-\[ J = -D \frac{C_A - C_B}{x_A - x_B} \]
-
-:p What does Fick's first law calculate?
+$$J = -D \frac{C_A - C_B}{x_A - x_B}$$:p What does Fick's first law calculate?
 ??x
-Fick's first law calculates the diffusion flux (J) through a material under steady-state conditions, where \( D \) is the diffusion coefficient, and \( C_A - C_B \) and \( x_A - x_B \) represent the concentration difference and distance between two points respectively.
+Fick's first law calculates the diffusion flux (J) through a material under steady-state conditions, where $D $ is the diffusion coefficient, and$C_A - C_B $ and$x_A - x_B$ represent the concentration difference and distance between two points respectively.
 x??
 
 ---
@@ -257,11 +247,9 @@ x??
 
 #### Nonsteady-State Diffusion
 Background context explaining the concept. When the condition of nonsteady state is achieved, Fick's second law (Equation 5.4a) is used:
-\[ \frac{\partial C}{\partial t} = D \frac{\partial^2 C}{\partial x^2} \]
-
-:p What is used to describe diffusion in a nonsteady-state condition?
+$$\frac{\partial C}{\partial t} = D \frac{\partial^2 C}{\partial x^2}$$:p What is used to describe diffusion in a nonsteady-state condition?
 ??x
-Fick's second law, given by the equation \( \frac{\partial C}{\partial t} = D \frac{\partial^2 C}{\partial x^2} \), is used to describe diffusion in a nonsteady-state condition.
+Fick's second law, given by the equation $\frac{\partial C}{\partial t} = D \frac{\partial^2 C}{\partial x^2}$, is used to describe diffusion in a nonsteady-state condition.
 x??
 
 ---
@@ -269,13 +257,14 @@ x??
 
 #### Semi-Infinite Solid Solution for Nonsteady-State Diffusion
 Background context explaining the concept. For a semi-infinite solid with constant surface concentration, the solution to Fick's second law (Equation 5.5) is:
-\[ \frac{C_x - C_0}{C_s - C_0} = 1 - \text{erf}\left(\frac{x}{2\sqrt{D t}}\right) \]
-Where \( erf(z) \) is the Gaussian error function.
+$$\frac{C_x - C_0}{C_s - C_0} = 1 - \text{erf}\left(\frac{x}{2\sqrt{D t}}\right)$$
+
+Where $erf(z)$ is the Gaussian error function.
 
 :p What equation describes the concentration profile in a semi-infinite solid with constant surface concentration?
 ??x
 The equation that describes the concentration profile in a semi-infinite solid with constant surface concentration is:
-\[ \frac{C_x - C_0}{C_s - C_0} = 1 - \text{erf}\left(\frac{x}{2\sqrt{D t}}\right) \]
+$$\frac{C_x - C_0}{C_s - C_0} = 1 - \text{erf}\left(\frac{x}{2\sqrt{D t}}\right)$$
 x??
 
 ---

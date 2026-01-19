@@ -188,7 +188,7 @@ x??
 
 
 #### Constant Multiplier Matters
-Even though asymptotic complexity hides constant factors, in practical applications, these constants can significantly affect the actual runtime. For instance, a difference between \(O(N)\) and \(O(2N)\) might be negligible for large N but could matter when N is small.
+Even though asymptotic complexity hides constant factors, in practical applications, these constants can significantly affect the actual runtime. For instance, a difference between $O(N)$ and $O(2N)$ might be negligible for large N but could matter when N is small.
 :p Why do we need to consider constants even if they are hidden in asymptotic complexity?
 ??x
 Constants in algorithms can have a significant impact on performance, especially when the input size is not very large. In asymptotic analysis, these constants are often absorbed into the Big O notation, making them seem less important for large N. However, in real-world scenarios with finite data sizes, ignoring these constants can lead to suboptimal choices.
@@ -209,10 +209,10 @@ x??
 
 
 #### Logarithmic Terms and Constants
-In asymptotic analysis, the difference between logarithmic terms such as \(\log N\) and \(2\log N\) is absorbed into the constant multiplier. However, in practical scenarios with finite data sizes, these differences can be significant because constants do not cancel out.
-:p How does the difference between \(\log N\) and \(2\log N\) affect performance analysis?
+In asymptotic analysis, the difference between logarithmic terms such as $\log N $ and$2\log N$ is absorbed into the constant multiplier. However, in practical scenarios with finite data sizes, these differences can be significant because constants do not cancel out.
+:p How does the difference between $\log N $ and$2\log N$ affect performance analysis?
 ??x
-The difference between \(\log N\) and \(2\log N\) is typically ignored in asymptotic complexity as they both belong to the same Big O class, i.e., \(O(\log N)\). However, when analyzing algorithms with finite input sizes, these constants can make a noticeable difference. For example, doubling the logarithmic factor could mean twice as many operations for small N.
+The difference between $\log N $ and$2\log N $ is typically ignored in asymptotic complexity as they both belong to the same Big O class, i.e.,$ O(\log N)$. However, when analyzing algorithms with finite input sizes, these constants can make a noticeable difference. For example, doubling the logarithmic factor could mean twice as many operations for small N.
 ```java
 // Example code comparing different logarithmic factors
 public void compareLogarithms(int n) {
@@ -230,9 +230,9 @@ x??
 
 #### Doubling the Input Size
 In algorithmic complexity, doubling the input size typically doubles the runtime. However, in practical applications with finite data sizes, the actual increase might not be as straightforward due to constant factors and other overheads.
-:p How does doubling the input size affect an \(O(N^2)\) algorithm?
+:p How does doubling the input size affect an $O(N^2)$ algorithm?
 ??x
-Doubling the input size for an \(O(N^2)\) algorithm roughly quadruples the runtime because of the quadratic relationship. However, in practical scenarios with finite data sizes, there are additional constant factors and overheads that can make this increase more complex. For example, if you double N from 10 to 20, the runtime might not just be four times as much due to cache effects, instruction pipelining, or other hardware optimizations.
+Doubling the input size for an $O(N^2)$ algorithm roughly quadruples the runtime because of the quadratic relationship. However, in practical scenarios with finite data sizes, there are additional constant factors and overheads that can make this increase more complex. For example, if you double N from 10 to 20, the runtime might not just be four times as much due to cache effects, instruction pipelining, or other hardware optimizations.
 ```java
 // Example of an O(N^2) algorithm
 public void quadraticAlgorithm(int[] arr) {
@@ -249,12 +249,12 @@ x??
 
 
 #### Example of Performance Models
-Performance models provide a more detailed analysis by including constants and lower-order terms. For example, in the packet distribution problem with 100 participants and folders, an \(O(N^2)\) approach might be inefficient compared to sorting and using binary search.
+Performance models provide a more detailed analysis by including constants and lower-order terms. For example, in the packet distribution problem with 100 participants and folders, an $O(N^2)$ approach might be inefficient compared to sorting and using binary search.
 :p How does a performance model differ from algorithmic complexity analysis?
 ??x
 A performance model provides a more detailed view of an algorithm's runtime by including constants and lower-order terms that are often hidden in asymptotic complexity. This allows for a better understanding of the actual performance, especially for finite input sizes.
 
-For instance, if you have 100 participants (N=100) and folders, an \(O(N^2)\) algorithm would require approximately 5000 operations, while a sorted list with binary search could be done in about 173 operations (\(O(N \log N)\)).
+For instance, if you have 100 participants (N=100) and folders, an $O(N^2)$ algorithm would require approximately 5000 operations, while a sorted list with binary search could be done in about 173 operations ($ O(N \log N)$).
 
 ```java
 // Example of O(N^2) vs. O(N log N)
@@ -408,9 +408,7 @@ Background context: After finding the correct indices using either linear or bis
 ??x
 The interpolation calculation works by using bilinear interpolation to estimate the value at a given point based on its position relative to the nearest data points. The formula used is as follows:
 
-\[
-value = xfrac \cdot yfrac \cdot data(dd+1,tt+1) + (1 - xfrac) \cdot yfrac \cdot data(dd, tt+1) + xfrac \cdot (1 - yfrac) \cdot data(dd+1,tt) + (1 - xfrac) \cdot (1 - yfrac) \cdot data(dd, tt)
-\]
+$$value = xfrac \cdot yfrac \cdot data(dd+1,tt+1) + (1 - xfrac) \cdot yfrac \cdot data(dd, tt+1) + xfrac \cdot (1 - yfrac) \cdot data(dd+1,tt) + (1 - xfrac) \cdot (1 - yfrac) \cdot data(dd, tt)$$
 
 For example:
 - `xfrac` and `yfrac` represent the fractional distances from the nearest grid points.
@@ -430,7 +428,7 @@ Background context explaining the difference between comparison sort and hash so
 
 :p What is a comparison sort?
 ??x
-A comparison sort algorithm sorts items by repeatedly comparing pairs of elements and swapping them if they are in the wrong order. This process continues until the entire list is sorted. The best comparison sort algorithms have an average time complexity of \( O(N \log N) \).
+A comparison sort algorithm sorts items by repeatedly comparing pairs of elements and swapping them if they are in the wrong order. This process continues until the entire list is sorted. The best comparison sort algorithms have an average time complexity of $O(N \log N)$.
 
 ```java
 public class ComparisonSort {
@@ -520,7 +518,7 @@ Background context explaining bisection search and its performance compared to l
 
 :p What is the time complexity of bisection search?
 ??x
-The time complexity of bisection search is \( O(\log N) \). This makes it more efficient than linear search for large datasets, although in practice, the overhead of comparisons might reduce its advantage slightly.
+The time complexity of bisection search is $O(\log N)$. This makes it more efficient than linear search for large datasets, although in practice, the overhead of comparisons might reduce its advantage slightly.
 
 ```java
 public class BisectionSearch {
@@ -637,7 +635,7 @@ x??
 
 
 #### Load Factor and Hash Collisions
-Background context explaining the concept of load factor, its significance, and how collisions affect hash table efficiency. The formula \( \text{Load Factor} = \frac{n}{k} \) is provided where \( n \) is the number of entries and \( k \) is the number of buckets.
+Background context explaining the concept of load factor, its significance, and how collisions affect hash table efficiency. The formula $\text{Load Factor} = \frac{n}{k}$ is provided where $ n $ is the number of entries and $k$ is the number of buckets.
 If applicable, add code examples with explanations:
 ```java
 public class HashTable {
@@ -664,7 +662,7 @@ public class HashTable {
 ```
 :p What is the load factor in a hash table and how does it affect its performance?
 ??x
-The load factor of a hash table is the fraction of the number of entries to the total number of buckets, given by \( \text{Load Factor} = \frac{n}{k} \). A higher load factor means that the table is more full, which can lead to an increased number of collisions. As the load factor increases beyond .8 to .9, the efficiency of hash table operations decreases due to the increase in collisions and degradation of performance.
+The load factor of a hash table is the fraction of the number of entries to the total number of buckets, given by $\text{Load Factor} = \frac{n}{k}$. A higher load factor means that the table is more full, which can lead to an increased number of collisions. As the load factor increases beyond .8 to .9, the efficiency of hash table operations decreases due to the increase in collisions and degradation of performance.
 ```java
 // Example Java code for a simple hash table with handling of collisions
 public class HashTable {
@@ -796,20 +794,20 @@ x??
 
 
 #### k-D Tree Algorithm
-The k-D tree splits a mesh into two equal halves in one dimension (either x or y), then repeats this process recursively until the object is found. This results in an algorithm with \(O(N \log N)\) complexity for both construction and search operations.
+The k-D tree splits a mesh into two equal halves in one dimension (either x or y), then repeats this process recursively until the object is found. This results in an algorithm with $O(N \log N)$ complexity for both construction and search operations.
 :p What does the k-D tree algorithm do?
 ??x
-The k-D tree algorithm splits a mesh into two equal halves in one dimension (either x or y), then repeats this process recursively until the object is found. This results in an algorithm with \(O(N \log N)\) complexity for both construction and search operations.
+The k-D tree algorithm splits a mesh into two equal halves in one dimension (either x or y), then repeats this process recursively until the object is found. This results in an algorithm with $O(N \log N)$ complexity for both construction and search operations.
 x??
 
 ---
 
 
 #### Quadtree Algorithm
-The quadtree has four children for each parent, corresponding to the four quadrants of a cell. It starts from the root at the coarsest level of the mesh and subdivides down to the finest level, also with \(O(N \log N)\) complexity.
+The quadtree has four children for each parent, corresponding to the four quadrants of a cell. It starts from the root at the coarsest level of the mesh and subdivides down to the finest level, also with $O(N \log N)$ complexity.
 :p What is the structure of the quadtree algorithm?
 ??x
-The quadtree algorithm has four children for each parent, corresponding to the four quadrants of a cell. It starts from the root at the coarsest level of the mesh and subdivides down to the finest level, also with \(O(N \log N)\) complexity.
+The quadtree algorithm has four children for each parent, corresponding to the four quadrants of a cell. It starts from the root at the coarsest level of the mesh and subdivides down to the finest level, also with $O(N \log N)$ complexity.
 x??
 
 ---

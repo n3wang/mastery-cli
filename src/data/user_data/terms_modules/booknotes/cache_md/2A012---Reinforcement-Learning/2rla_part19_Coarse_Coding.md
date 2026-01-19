@@ -31,9 +31,8 @@ Background context: In linear function approximation, the value function is appr
 
 :p How are weights updated in linear function approximation during training?
 ??x
-Weights are updated using gradient descent. The update rule for a weight \( w_i \) due to a state \( s \) is given by:
-\[ w_i = w_i + \alpha \Delta v(s) f_i(s) \]
-where \( \alpha \) is the step-size parameter, and \( \Delta v(s) \) is the error in value function prediction at state \( s \). The feature \( f_i(s) \) is 1 if state \( s \) lies within the receptive field of feature \( i \), and 0 otherwise.
+Weights are updated using gradient descent. The update rule for a weight $w_i $ due to a state$s$ is given by:
+$$w_i = w_i + \alpha \Delta v(s) f_i(s)$$where $\alpha $ is the step-size parameter, and$\Delta v(s)$ is the error in value function prediction at state $ s $. The feature $ f_i(s)$is 1 if state $ s$lies within the receptive field of feature $ i$, and 0 otherwise.
 x??
 
 ---
@@ -118,7 +117,7 @@ The feature vector in tile coding is constructed by having one component per til
 
 :p How is the feature vector x(s) created in tile coding?
 ??x
-In tile coding, each state s is represented by a feature vector \( x(s) \), where each component corresponds to whether a particular tile from any tiling contains the state. For example, if there are 4 tilings and each has 4 tiles, then there will be 64 components in the feature vector. Each component is either 0 or 1, indicating whether the corresponding tile contains the state.
+In tile coding, each state s is represented by a feature vector $x(s)$, where each component corresponds to whether a particular tile from any tiling contains the state. For example, if there are 4 tilings and each has 4 tiles, then there will be 64 components in the feature vector. Each component is either 0 or 1, indicating whether the corresponding tile contains the state.
 
 ```java
 // Pseudocode for constructing a feature vector x(s)
@@ -161,9 +160,9 @@ One practical advantage of tile coding is that it maintains a consistent number 
 
 :p How does setting the step-size parameter (α) work with tile coding?
 ??x
-In tile coding, the step-size parameter \( \alpha \) is often set such that it is inversely proportional to the number of active features or tilings. This ensures that each tiling contributes equally to the update rule in learning algorithms like gradient Monte Carlo.
+In tile coding, the step-size parameter $\alpha$ is often set such that it is inversely proportional to the number of active features or tilings. This ensures that each tiling contributes equally to the update rule in learning algorithms like gradient Monte Carlo.
 
-For example, if there are 50 tilings and a single step-size value per state update (e.g., \( \alpha = 0.0001/50 \)), this setup ensures exact one-trial learning where each feature vector component contributes equally to the update process.
+For example, if there are 50 tilings and a single step-size value per state update (e.g., $\alpha = 0.0001/50$), this setup ensures exact one-trial learning where each feature vector component contributes equally to the update process.
 x??
 
 ---
@@ -214,7 +213,7 @@ The effectiveness of tile coding depends on several factors, including:
 
 These parameters affect how states are represented and approximated. Smaller tiles provide more detailed representations but increase computational complexity. The choice of these parameters balances between approximation accuracy and computational efficiency.
 
-For example, if we have a tile width \( w \) and \( n \) tilings, the fundamental unit is \( w/n \). Within small squares with side length \( w \), all states activate the same tiles, share the same feature representation, and receive the same approximated value.
+For example, if we have a tile width $w $ and$n $ tilings, the fundamental unit is$ w/n $. Within small squares with side length $ w$, all states activate the same tiles, share the same feature representation, and receive the same approximated value.
 x??
 
 ---
@@ -272,8 +271,9 @@ x??
 Background context: A one-dimensional example of RBF features shows how a Gaussian response can be used to model continuous-valued states. The function xi(s) is defined by the distance between state s and feature center ci, scaled by width i.
 :p How does the formula for RBF features work?
 ??x
-The formula for RBF features works by defining a Gaussian (bell-shaped) response based on the distance between the current state \(s\) and the center of the feature \(c_i\), scaled by the feature's width \(\sigma_i\):
-\[ x_i(s) = e^{-\frac{\|s - c_i\|^2}{2\sigma_i^2}} \]
+The formula for RBF features works by defining a Gaussian (bell-shaped) response based on the distance between the current state $s $ and the center of the feature$c_i $, scaled by the feature's width$\sigma_i$:
+$$x_i(s) = e^{-\frac{\|s - c_i\|^2}{2\sigma_i^2}}$$
+
 This ensures a smooth transition in function values as states move closer to or further from the feature center.
 x??
 
@@ -283,7 +283,7 @@ x??
 Background context: RBF features are implemented by defining Gaussian responses for each state, with parameters dependent on the distance and width of the feature. The norm metric can vary depending on task requirements.
 :p How would you implement a one-dimensional RBF in code?
 ??x
-To implement a one-dimensional RBF in code, you would define a function that calculates the Gaussian response based on the input state \(s\), center \(c_i\), and width \(\sigma_i\):
+To implement a one-dimensional RBF in code, you would define a function that calculates the Gaussian response based on the input state $s $, center $ c_i $, and width$\sigma_i$:
 ```java
 public class RbfFeature {
     private double c; // feature center
@@ -299,7 +299,7 @@ public class RbfFeature {
     }
 }
 ```
-This class allows you to create RBF features and evaluate their response at any given state \(s\).
+This class allows you to create RBF features and evaluate their response at any given state $s$.
 x??
 
 ---
@@ -547,17 +547,10 @@ This helps in reducing internal covariate shift, making the network easier to tr
 ??x
 Here’s how batch normalization works:
 
-1. **Compute Mini-Batch Statistics**: For each mini-batch, compute the mean \(\mu\) and variance \(\sigma^2\).
+1. **Compute Mini-Batch Statistics**: For each mini-batch, compute the mean $\mu $ and variance$\sigma^2$.
 2. **Normalize Activations**: Normalize the activations using these statistics:
-   \[
-   x' = \frac{x - \mu}{\sqrt{\sigma^2 + \epsilon}}
-   \]
-3. **Scale and Shift**: Scale and shift the normalized values by learnable parameters \(\gamma\) (scale) and \(\beta\) (shift):
-   \[
-   y = \gamma x' + \beta
-   \]
-
-```python
+   $$x' = \frac{x - \mu}{\sqrt{\sigma^2 + \epsilon}}$$3. **Scale and Shift**: Scale and shift the normalized values by learnable parameters $\gamma $(scale) and $\beta$(shift):
+$$y = \gamma x' + \beta$$```python
 import numpy as np
 
 def batch_norm(x, gamma, beta, mean, var, epsilon=1e-8):
@@ -612,7 +605,7 @@ public class ResidualBlock {
 }
 ```
 
-In this example, `SubtractionLayer` computes \( y - x \) where \( y \) is the output of a deeper network and \( x \) is the identity function. The `AdditionLayer` then adds back the original input to form the residual function.
+In this example, `SubtractionLayer` computes $y - x $ where$y $ is the output of a deeper network and$x$ is the identity function. The `AdditionLayer` then adds back the original input to form the residual function.
 
 By doing so, the network learns the difference from the identity function directly, making it easier for gradient-based algorithms to make progress in training.
 x??

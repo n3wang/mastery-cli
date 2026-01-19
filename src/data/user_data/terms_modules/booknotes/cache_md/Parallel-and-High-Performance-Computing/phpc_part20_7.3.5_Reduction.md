@@ -24,7 +24,8 @@ Background context: The example examines how OpenMP can improve performance by a
 :p How do you calculate the speedup using OpenMP in this scenario?
 ??x
 To calculate the speedup, divide the serial runtime by the parallel runtime. For instance:
-\[ \text{Stencil speedup} = \frac{\text{serial run-time}}{\text{parallel run-time}} = 17.0 \]
+$$\text{Stencil speedup} = \frac{\text{serial run-time}}{\text{parallel run-time}} = 17.0$$
+
 This means the parallel version is 17 times faster than the serial version.
 x??
 
@@ -37,7 +38,7 @@ Background context: The text explains how to calculate the parallel efficiency, 
 :p How do you calculate the parallel efficiency for an OpenMP application?
 ??x
 Parallel efficiency can be calculated by dividing the actual speedup by the ideal speedup. In this example:
-\[ \text{Stencil parallel efficiency} = \frac{\text{stencil speedup}}{\text{ideal speedup}} = \frac{17}{88} = 19\% \]
+$$\text{Stencil parallel efficiency} = \frac{\text{stencil speedup}}{\text{ideal speedup}} = \frac{17}{88} = 19\%$$
 This indicates that only 19 percent of the available threads are effectively utilized.
 x??
 

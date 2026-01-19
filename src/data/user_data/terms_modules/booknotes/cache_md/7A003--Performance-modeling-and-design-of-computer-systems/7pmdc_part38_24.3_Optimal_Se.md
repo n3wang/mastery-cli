@@ -328,9 +328,9 @@ Background context: Scheller-Wolf and Sigman [156, 155] have proven an upper bou
 
 ??x
 The key findings regarding upper bounds on mean delay in G/G/k systems include:
-1. **Upper Bound Independence**: The upper bound does not depend on any moment higher than the \( (k+1)^{th} \) moment, and it particularly does not depend on the variance of job size [156, 155].
-2. **Resource Requirement (R)**: For \( R < \left\lfloor \frac{k}{2} \right\rfloor \), where \( R = k\rho \), this result holds.
-3. **Generalization**: The upper bound is generalized to allow for higher load, \( R < k - 1 \) [156].
+1. **Upper Bound Independence**: The upper bound does not depend on any moment higher than the $(k+1)^{th}$ moment, and it particularly does not depend on the variance of job size [156, 155].
+2. **Resource Requirement (R)**: For $R < \left\lfloor \frac{k}{2} \right\rfloor $, where $ R = k\rho$, this result holds.
+3. **Generalization**: The upper bound is generalized to allow for higher load, $R < k - 1$ [156].
 
 ??x
 The answer with detailed explanations.
@@ -370,16 +370,15 @@ Background context: The problem involves a server farm with two identical FCFS h
 
 :p Derive the mean response time, E[T], for this system.
 ??x
-To derive the mean response time \(E[T]\) in this system, we need to consider both routing and service times. The job sizes follow a power-law distribution given by:
-\[ P\{S > x\} = x^{-2.5} \]
-for \(1 \leq x < \infty\).
+To derive the mean response time $E[T]$ in this system, we need to consider both routing and service times. The job sizes follow a power-law distribution given by:
+$$P\{S > x\} = x^{-2.5}$$for $1 \leq x < \infty$.
 
-- **Routing Rule**: Small jobs (\(S < 10\)) are routed to the first server, and large jobs (\(S \geq 10\)) are routed to the second server.
-- **Service Times**: Assume service times are exponentially distributed with rate \(\mu\) for simplicity.
+- **Routing Rule**: Small jobs ($S < 10 $) are routed to the first server, and large jobs ($ S \geq 10$) are routed to the second server.
+- **Service Times**: Assume service times are exponentially distributed with rate $\mu$ for simplicity.
 
-The mean response time \(E[T]\) can be derived by considering the routing probabilities and average service times at each server. Let's denote:
-- The fraction of small jobs as \(p_s\), and large jobs as \(1 - p_s\).
-- Small job size distribution: \(\text{Poisson}(10)\).
+The mean response time $E[T]$ can be derived by considering the routing probabilities and average service times at each server. Let's denote:
+- The fraction of small jobs as $p_s $, and large jobs as $1 - p_s$.
+- Small job size distribution: $\text{Poisson}(10)$.
 
 The mean response time can be calculated using Little's Law for both servers, combining routing probabilities and service times.
 
@@ -410,16 +409,15 @@ Background context: This problem considers a server farm with two identical PS h
 
 :p Prove that the SITA cutoff which minimizes mean response time is that which balances load between the two hosts.
 ??x
-To minimize the mean response time in a server farm with PS hosts and SITA task assignment, we need to show that balancing the load across both hosts results in the minimum \(E[T]\).
+To minimize the mean response time in a server farm with PS hosts and SITA task assignment, we need to show that balancing the load across both hosts results in the minimum $E[T]$.
 
 - **SITA (Size Interval Task Assignment)**: Jobs are routed based on their size intervals.
 - **PS (Processor Sharing)**: Each job sees all servers as a single server with an effective service rate.
 
-Assume the job sizes follow some distribution, and let \(\rho\) represent the load. The key idea is to use the balance between small and large jobs to ensure efficient processing.
+Assume the job sizes follow some distribution, and let $\rho$ represent the load. The key idea is to use the balance between small and large jobs to ensure efficient processing.
 
-The mean response time \(E[T]\) can be expressed using Little's Law:
-\[ E[T] = \frac{\rho}{\mu} + D \]
-where \(D\) depends on the distribution of job sizes and their routing. By balancing load, we minimize the impact of job size variability and ensure efficient use of resources.
+The mean response time $E[T]$ can be expressed using Little's Law:
+$$E[T] = \frac{\rho}{\mu} + D$$where $ D$ depends on the distribution of job sizes and their routing. By balancing load, we minimize the impact of job size variability and ensure efficient use of resources.
 
 ```java
 public class PSFServerFarm {
@@ -438,17 +436,16 @@ x??
 #### Hybrid Server Farm
 Background context: The problem involves a server farm with two identical hosts, where small jobs are scheduled FCFS on the first host and large jobs on the second using PS. Load is balanced such that each host handles an equal amount of work.
 
-:p Write an expression for \(E[T]\), the mean response time experienced by an arriving job.
+:p Write an expression for $E[T]$, the mean response time experienced by an arriving job.
 ??x
-To derive the mean response time \(E[T]\) in this hybrid server farm setup, we need to consider both the routing and service times. Let's denote:
-- The probability density function (pdf) of job sizes as \(f_S(t)\).
-- The cumulative distribution function (cdf) of job sizes as \(F_S(t) = P\{S < t\}\).
+To derive the mean response time $E[T]$ in this hybrid server farm setup, we need to consider both the routing and service times. Let's denote:
+- The probability density function (pdf) of job sizes as $f_S(t)$.
+- The cumulative distribution function (cdf) of job sizes as $F_S(t) = P\{S < t\}$.
 
-Given that small jobs (\(S < 10\)) go to the first server and large jobs (\(S \geq 10\)) go to the second, we can express \(E[T]\) as:
-\[ E[T] = p_s \cdot E[T_1] + (1 - p_s) \cdot E[T_2] \]
-where:
-- \(p_s\) is the probability that a job size is less than 10.
-- \(E[T_1]\) and \(E[T_2]\) are the mean response times at the first and second servers, respectively.
+Given that small jobs ($S < 10 $) go to the first server and large jobs ($ S \geq 10 $) go to the second, we can express$ E[T]$ as:
+$$E[T] = p_s \cdot E[T_1] + (1 - p_s) \cdot E[T_2]$$where:
+- $p_s$ is the probability that a job size is less than 10.
+- $E[T_1]$ and $E[T_2]$ are the mean response times at the first and second servers, respectively.
 
 ```java
 public class HybridServerFarm {
@@ -469,14 +466,14 @@ x??
 
 
 #### Equivalence of LWL and M/G/k
-Background context: This problem explores the equivalence between Last-Worst-Least (LWL) and an \(M/G/k\) system, where both systems process the same job sequence.
+Background context: This problem explores the equivalence between Last-Worst-Least (LWL) and an $M/G/k$ system, where both systems process the same job sequence.
 
 :p Prove by induction that each job is served by the same server in both systems.
 ??x
-To prove that each job is served by the same server in both LWL and M/G/k systems, we can use mathematical induction. Assume that all jobs up to time \(n\) are served correctly in both systems.
+To prove that each job is served by the same server in both LWL and M/G/k systems, we can use mathematical induction. Assume that all jobs up to time $n$ are served correctly in both systems.
 
-- **Base Case**: For \(n = 1\), check if the first job is assigned to the correct server.
-- **Inductive Step**: Assume for some \(k\), all jobs from 1 to \(k\) are correctly assigned. Show that the \((k+1)\)-th job is also correctly assigned.
+- **Base Case**: For $n = 1$, check if the first job is assigned to the correct server.
+- **Inductive Step**: Assume for some $k $, all jobs from 1 to $ k $are correctly assigned. Show that the$(k+1)$-th job is also correctly assigned.
 
 If both systems use the same tie-breaking rules and process the same sequence, they will serve the jobs in the exact same manner.
 
@@ -501,22 +498,24 @@ Background context: This problem compares the performance of one fast machine wi
 ??x
 To determine which architecture is better for a heavy-tailed job size distribution:
 
-- **One Fast Machine**: \(M/G/1\)
-- **Two Slow Machines**: Split jobs into small and large, where small go to one machine and large to another.
+- **One Fast Machine**: $M/G/1$- **Two Slow Machines**: Split jobs into small and large, where small go to one machine and large to another.
 
 For a heavy-tailed distribution:
 - Small jobs (0.01 seconds) on the slow machine.
 - Large jobs (1 second) on the slow machine.
 
-The mean waiting time \(E[T_Q]\) can be computed as follows:
-
-\[ E[T_Q] = \frac{\lambda}{\mu} + \text{other terms} \]
+The mean waiting time $E[T_Q]$ can be computed as follows:
+$$E[T_Q] = \frac{\lambda}{\mu} + \text{other terms}$$
 
 For a single fast machine:
-\[ E[T_{Q,1}] = \frac{\lambda E[S]}{\mu} + \text{other terms} \]
+$$
+
+E[T_{Q,1}] = \frac{\lambda E[S]}{\mu} + \text{other terms}$$
 
 For two slow machines:
-\[ E[T_{Q,2}] = 2 \cdot \left( \frac{\lambda (0.01) + \lambda (1)}{2\mu} \right) + \text{other terms} \]
+$$
+
+E[T_{Q,2}] = 2 \cdot \left( \frac{\lambda (0.01) + \lambda (1)}{2\mu} \right) + \text{other terms}$$
 
 By comparing the waiting times, we can determine which architecture is better.
 
@@ -535,19 +534,18 @@ x??
 
 
 #### To Balance Load or Not to Balance Load?
-Background context: This problem explores whether load balancing between two identical FCFS hosts is always beneficial for minimizing \(E[T_Q]\).
+Background context: This problem explores whether load balancing between two identical FCFS hosts is always beneficial for minimizing $E[T_Q]$.
 
 :p Determine the cutoff under SITA-E and its impact on mean delay.
 ??x
 To determine the optimal cutoff under SITA-E, we need to balance the load at both servers. Given:
-- System load \(\rho = 0.5\).
+- System load $\rho = 0.5$.
 - Bounded Pareto job size distribution with mean 3000.
 
-The cutoff \(x\) balances the load such that each server handles half of the traffic.
+The cutoff $x$ balances the load such that each server handles half of the traffic.
 
 The mean response time can be computed using:
-\[ E[T] = p_s \cdot \frac{1}{2\mu} + (1 - p_s) \cdot \frac{1}{\mu} \]
-where \(p_s\) is the fraction of small jobs.
+$$E[T] = p_s \cdot \frac{1}{2\mu} + (1 - p_s) \cdot \frac{1}{\mu}$$where $ p_s$ is the fraction of small jobs.
 
 ```java
 public class LoadBalancing {
@@ -570,17 +568,16 @@ x??
 #### Hybrid Server Farm with Different Descriptions
 Background context: This problem focuses on a hybrid server farm setup, but includes specific details to differentiate it from previous descriptions.
 
-:p Write an expression for \(E[T]\) in this specific hybrid scenario.
+:p Write an expression for $E[T]$ in this specific hybrid scenario.
 ??x
-To derive the mean response time \(E[T]\) for this specific hybrid server farm:
-- Small jobs (\(S < 10\)) are scheduled FCFS on the first server.
-- Large jobs (\(S \geq 10\)) use PS on the second server.
+To derive the mean response time $E[T]$ for this specific hybrid server farm:
+- Small jobs ($S < 10$) are scheduled FCFS on the first server.
+- Large jobs ($S \geq 10$) use PS on the second server.
 
 The mean response time can be expressed as:
-\[ E[T] = p_s \cdot E[T_1] + (1 - p_s) \cdot E[T_2] \]
-where:
-- \(p_s\) is the probability that a job size is less than 10.
-- \(E[T_1]\) and \(E[T_2]\) are the mean response times at the first and second servers, respectively.
+$$E[T] = p_s \cdot E[T_1] + (1 - p_s) \cdot E[T_2]$$where:
+- $p_s$ is the probability that a job size is less than 10.
+- $E[T_1]$ and $E[T_2]$ are the mean response times at the first and second servers, respectively.
 
 ```java
 public class SpecificHybridServerFarm {

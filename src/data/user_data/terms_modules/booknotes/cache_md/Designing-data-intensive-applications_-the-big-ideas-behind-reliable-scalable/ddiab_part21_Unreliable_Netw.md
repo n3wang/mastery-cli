@@ -449,7 +449,7 @@ Background context: In systems where packet delays are unpredictable, setting ti
 
 :p What guarantee would make setting a reliable timeout feasible in networks?
 ??x
-If packets were guaranteed to be delivered within some time \( d \) or dropped, and non-failed nodes always handled requests within time \( r \), then you could set a reasonable timeout as \( 2d + r \). This ensures that if no response is received within this period, the network or node failure can be detected.
+If packets were guaranteed to be delivered within some time $d $ or dropped, and non-failed nodes always handled requests within time$r $, then you could set a reasonable timeout as$2d + r$. This ensures that if no response is received within this period, the network or node failure can be detected.
 ```java
 public class ReliableNetworkExample {
     int deliveryTime = 5; // seconds (guaranteed max delay for packets)

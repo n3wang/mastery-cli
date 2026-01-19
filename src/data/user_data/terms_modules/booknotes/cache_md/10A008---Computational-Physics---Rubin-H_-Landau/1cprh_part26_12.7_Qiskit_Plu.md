@@ -67,14 +67,13 @@ The Quantum Fourier Transform (QFT) is a quantum version of the Discrete Fourier
 
 :p What is QFT and how does it differ from DFT?
 ??x
-The Quantum Fourier Transform (QFT) is a quantum analog of the Discrete Fourier Transform (DFT). While DFT operates on classical data points in the time domain, transforming them into frequency components, QFT operates on qubits and transforms an N-qubit state into its spectral representation. Unlike classical DFT, which has a complexity of \(O(N^2)\), QFT can be performed using only \(O(N \log N)\) quantum gates.
+The Quantum Fourier Transform (QFT) is a quantum analog of the Discrete Fourier Transform (DFT). While DFT operates on classical data points in the time domain, transforming them into frequency components, QFT operates on qubits and transforms an N-qubit state into its spectral representation. Unlike classical DFT, which has a complexity of $O(N^2)$, QFT can be performed using only $ O(N \log N)$ quantum gates.
 
 The QFT is defined as:
-\[ \text{QFT} |x\rangle = \frac{1}{\sqrt{N}} \sum_{y=0}^{N-1} e^{-2\pi i x y / N} |y\rangle \]
+$$\text{QFT} |x\rangle = \frac{1}{\sqrt{N}} \sum_{y=0}^{N-1} e^{-2\pi i x y / N} |y\rangle$$
 
-For a 2-qubit system, the QFT can be implemented using Hadamard and controlled phase gates. The general formula for the QFT of \(n\) qubits is:
-\[ \text{QFT}|x\rangle = \frac{1}{\sqrt{N}} \sum_{y=0}^{N-1} e^{-2\pi i x y / N} |y\rangle \]
-where \(x\) and \(y\) are binary representations of the qubit state.
+For a 2-qubit system, the QFT can be implemented using Hadamard and controlled phase gates. The general formula for the QFT of $n$ qubits is:
+$$\text{QFT}|x\rangle = \frac{1}{\sqrt{N}} \sum_{y=0}^{N-1} e^{-2\pi i x y / N} |y\rangle$$where $ x $ and $ y$ are binary representations of the qubit state.
 
 ```python
 from qiskit import QuantumCircuit

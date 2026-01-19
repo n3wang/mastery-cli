@@ -104,8 +104,7 @@ Background context: A simple network performance model can be used to evaluate t
 :p What is the basic formula for calculating network transfer time?
 ??x
 The basic formula for calculating network transfer time is:
-\[ \text{Time (ms)} = \text{latency (\( \mu \)secs)} + \frac{\text{bytes\_moved (MBytes)}}{\text{bandwidth (GB/s)}} \]
-This model helps in understanding how latency and bandwidth impact the overall performance of network communications.
+$$ \text{Time (ms)} = \text{latency ($\mu $ secs)} + \frac{\text{bytes\_moved (MBytes)}}{\text{bandwidth (GB/s)}} $$This model helps in understanding how latency and bandwidth impact the overall performance of network communications.
 ```java
 // Pseudo-code for calculating network transfer time
 double calculateNetworkTime(double bytesMoved, double bandwidthGbps) {
@@ -121,7 +120,7 @@ x??
 #### Reduction Operation in Parallel Computing
 Parallel computing involves distributing tasks among multiple processors to speed up execution. A reduction operation is a common task where an array's values are combined into a single value or smaller multidimensional arrays.
 
-For example, if we have an array of cell counts across multiple processors and want to sum them up, this can be done through a reduction operation. The time complexity for such operations in parallel computing can often involve logarithmic communication hops: \(\log_2N\), where \(N\) is the number of ranks (processors).
+For example, if we have an array of cell counts across multiple processors and want to sum them up, this can be done through a reduction operation. The time complexity for such operations in parallel computing can often involve logarithmic communication hops:$\log_2N $, where $ N$ is the number of ranks (processors).
 
 :p Explain what a reduction operation is in the context of parallel computing.
 ??x
@@ -138,11 +137,11 @@ x??
 
 
 #### Pair-Wise Communication in Reduction Operations
-The reduction sum can be performed using a tree-like pattern, where communication hops between processors are reduced to \(\log_2N\). This helps minimize the time required for the operation when dealing with thousands of processors.
+The reduction sum can be performed using a tree-like pattern, where communication hops between processors are reduced to $\log_2N$. This helps minimize the time required for the operation when dealing with thousands of processors.
 
 :p Describe how pair-wise communication works in reduction operations.
 ??x
-Pair-wise communication in reduction operations involves combining data from two processors at each step until a single value is obtained. The process forms a tree-like pattern, where each level halves the number of elements being processed. This reduces the number of communication hops to \(\log_2N\), making it more efficient with larger numbers of processors.
+Pair-wise communication in reduction operations involves combining data from two processors at each step until a single value is obtained. The process forms a tree-like pattern, where each level halves the number of elements being processed. This reduces the number of communication hops to $\log_2N$, making it more efficient with larger numbers of processors.
 
 For example:
 ```java

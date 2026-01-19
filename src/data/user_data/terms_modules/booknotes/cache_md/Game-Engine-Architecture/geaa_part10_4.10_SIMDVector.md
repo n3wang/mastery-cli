@@ -419,20 +419,20 @@ x??
 
 
 #### Cartesian Coordinates
-The Cartesian coordinate system is a common method for representing points in space. In 2D, a point \( P \) can be represented as \( (x, y) \), while in 3D, it would be \( (x, y, z) \). This system allows for precise location representation and mathematical operations.
+The Cartesian coordinate system is a common method for representing points in space. In 2D, a point $P $ can be represented as$(x, y)$, while in 3D, it would be $(x, y, z)$. This system allows for precise location representation and mathematical operations.
 :p How do you represent a point in Cartesian coordinates?
 ??x
-A point in Cartesian coordinates is typically represented as an ordered tuple of numbers. In two dimensions, a point might be written as \( P = (x, y) \), while in three dimensions, it would be \( P = (x, y, z) \). For example, the point \( (3, 4, 2) \) represents a location in 3D space with x=3, y=4, and z=2.
+A point in Cartesian coordinates is typically represented as an ordered tuple of numbers. In two dimensions, a point might be written as $P = (x, y)$, while in three dimensions, it would be $ P = (x, y, z)$. For example, the point $(3, 4, 2)$ represents a location in 3D space with x=3, y=4, and z=2.
 x??
 
 ---
 
 
 #### Cartesian Coordinate System
-Background context: The Cartesian coordinate system is a fundamental method for specifying points in 2D or 3D space using two or three mutually perpendicular axes. A point \(P\) is represented by a pair or triple of real numbers, \((Px, Py)\) or \((Px, Py, Pz)\).
+Background context: The Cartesian coordinate system is a fundamental method for specifying points in 2D or 3D space using two or three mutually perpendicular axes. A point $P $ is represented by a pair or triple of real numbers,$(Px, Py)$ or $(Px, Py, Pz)$.
 :p What is the Cartesian coordinate system used to specify?
 ??x
-The Cartesian coordinate system uses two or three mutually perpendicular axes to specify points in 2D or 3D space. A point \(P\) can be represented by a pair of coordinates in 2D (\(Px, Py\)) or a triple of coordinates in 3D (\(Px, Py, Pz\)).
+The Cartesian coordinate system uses two or three mutually perpendicular axes to specify points in 2D or 3D space. A point $P $ can be represented by a pair of coordinates in 2D ($Px, Py $) or a triple of coordinates in 3D ($ Px, Py, Pz$).
 x??
 
 ---
@@ -442,7 +442,7 @@ x??
 Background context: In three-dimensional Cartesian coordinates, we can choose between a right-handed (RH) or left-handed (LH) coordinate system. The orientation of these systems differs in how their axes are oriented relative to each other.
 :p What is the difference between right-handed and left-handed coordinate systems?
 ??x
-In a right-handed coordinate system, when you curl the fingers of your right hand around the z-axis with the thumb pointing toward positive \(z\) coordinates, your fingers point from the x-axis toward the y-axis. In contrast, in a left-handed coordinate system, this is done using your left hand, resulting in different directions for one of the axes.
+In a right-handed coordinate system, when you curl the fingers of your right hand around the z-axis with the thumb pointing toward positive $z$ coordinates, your fingers point from the x-axis toward the y-axis. In contrast, in a left-handed coordinate system, this is done using your left hand, resulting in different directions for one of the axes.
 x??
 
 ---
@@ -760,13 +760,11 @@ x??
 #### Magnitude of a Vector
 The magnitude of a vector is its length in 2D or 3D space. It can be calculated using the Pythagorean theorem and is represented by placing vertical bars around the vector symbol.
 
-Formula: \( |a| = \sqrt{a_x^2 + a_y^2 + a_z^2} \)
-
-:p How do you calculate the magnitude of a vector?
+Formula:$|a| = \sqrt{a_x^2 + a_y^2 + a_z^2}$:p How do you calculate the magnitude of a vector?
 ??x
-The magnitude of a vector can be calculated using the Pythagorean theorem. For a 3D vector \( \vec{a} = (a_x, a_y, a_z) \), its magnitude is given by:
+The magnitude of a vector can be calculated using the Pythagorean theorem. For a 3D vector $\vec{a} = (a_x, a_y, a_z)$, its magnitude is given by:
 
-\[ |a| = \sqrt{a_x^2 + a_y^2 + a_z^2} \]
+$$|a| = \sqrt{a_x^2 + a_y^2 + a_z^2}$$
 
 In practice, you can use the squared magnitude for efficiency since it avoids taking the square root.
 
@@ -790,7 +788,7 @@ Vector operations can be used to solve real-world game problems. For instance, y
 
 :p How do you find a character's position on the next frame using vectors?
 ??x
-To find a character's position on the next frame, you scale its velocity vector by the frame time interval \( \Delta t \) and add it to the current position. This process is known as explicit Euler integration.
+To find a character's position on the next frame, you scale its velocity vector by the frame time interval $\Delta t$ and add it to the current position. This process is known as explicit Euler integration.
 
 ```java
 Point3d updatePosition(Point3d currentPosition, Vector3d velocity, double deltaTime) {
@@ -811,7 +809,7 @@ To determine if two spheres intersect, you can use vector operations. Subtractin
 
 :p How do you test for intersection between two spheres using vectors?
 ??x
-To test for intersection between two spheres, subtract their centers to get a direction vector \( \vec{d} = \vec{C2} - \vec{C1} \). The magnitude of this vector determines how far apart the sphere's centers are. If this distance is less than the sum of the spheres' radii, they intersect.
+To test for intersection between two spheres, subtract their centers to get a direction vector $\vec{d} = \vec{C2} - \vec{C1}$. The magnitude of this vector determines how far apart the sphere's centers are. If this distance is less than the sum of the spheres' radii, they intersect.
 
 ```java
 boolean checkIntersection(Sphere s1, Sphere s2) {
@@ -832,11 +830,9 @@ x??
 #### Normalization and Unit Vectors
 Normalization is a process used to convert a vector into a unit vector, maintaining its direction but reducing its magnitude to 1. This concept is crucial in 3D mathematics and game programming for simplifying calculations.
 
-The formula for normalization involves multiplying a vector \( v \) by the reciprocal of its magnitude:
+The formula for normalization involves multiplying a vector $v$ by the reciprocal of its magnitude:
 
-\[ u = \frac{v}{|v|} \]
-
-where \( |v| \) denotes the length (magnitude) of the vector \( v \). The resulting vector \( u \) will have a magnitude of 1.
+$$u = \frac{v}{|v|}$$where $|v|$ denotes the length (magnitude) of the vector $ v $. The resulting vector $ u$ will have a magnitude of 1.
 
 :p What is normalization in the context of vectors?
 ??x
@@ -847,36 +843,32 @@ x??
 
 
 #### Dot Product and Projection Vectors
-The dot product (or scalar product) between two vectors \( \mathbf{a} \) and \( \mathbf{b} \) is a scalar value that can be computed by summing the products of their corresponding components:
+The dot product (or scalar product) between two vectors $\mathbf{a}$ and $\mathbf{b}$ is a scalar value that can be computed by summing the products of their corresponding components:
 
-\[ \mathbf{a} \cdot \mathbf{b} = ax \, bx + ay \, by + az \, bz \]
+$$\mathbf{a} \cdot \mathbf{b} = ax \, bx + ay \, by + az \, bz$$
 
 Alternatively, it can also be expressed as the product of the magnitudes of the vectors and the cosine of the angle between them:
-
-\[ \mathbf{a} \cdot \mathbf{b} = |a| \, |b| \cos(\theta) \]
+$$\mathbf{a} \cdot \mathbf{b} = |a| \, |b| \cos(\theta)$$
 
 The dot product is commutative and distributive over vector addition.
 
 :p How do you calculate the dot product of two vectors?
 ??x
-The dot product of two vectors \( \mathbf{a} \) and \( \mathbf{b} \) can be calculated by summing the products of their corresponding components:
-
-\[ \mathbf{a} \cdot \mathbf{b} = ax \, bx + ay \, by + az \, bz \]
+The dot product of two vectors $\mathbf{a}$ and $\mathbf{b}$ can be calculated by summing the products of their corresponding components:
+$$\mathbf{a} \cdot \mathbf{b} = ax \, bx + ay \, by + az \, bz$$
 
 This can also be computed using the magnitudes of the vectors and the cosine of the angle between them:
-
-\[ \mathbf{a} \cdot \mathbf{b} = |a| \, |b| \cos(\theta) \]
-x??
+$$\mathbf{a} \cdot \mathbf{b} = |a| \, |b| \cos(\theta)$$x??
 
 ---
 
 
 #### Vector Projection
-The dot product is used to project one vector onto another. When \( u \) is a unit vector (\(|u| = 1\)), the dot product \( (a \cdot u) \) represents the length of the projection of vector \( a \) on the infinite line defined by the direction of \( u \).
+The dot product is used to project one vector onto another. When $u $ is a unit vector ($|u| = 1 $), the dot product $(a \cdot u)$ represents the length of the projection of vector $ a $ on the infinite line defined by the direction of $u$.
 
 :p What does the dot product represent in the context of vector projection?
 ??x
-The dot product between a vector \( a \) and a unit vector \( u \) represents the length of the projection of vector \( a \) onto the infinite line defined by the direction of \( u \). This is useful for determining how much one vector aligns with another in terms of magnitude.
+The dot product between a vector $a $ and a unit vector$u $ represents the length of the projection of vector$ a $ onto the infinite line defined by the direction of $u$. This is useful for determining how much one vector aligns with another in terms of magnitude.
 x??
 
 ---
@@ -885,19 +877,18 @@ x??
 #### Magnitude as a Dot Product
 The squared magnitude (length^2) of a vector can be found using the dot product of the vector with itself. The actual magnitude is then obtained by taking the square root:
 
-\[ |a|^2 = \mathbf{a} \cdot \mathbf{a} \]
+$$|a|^2 = \mathbf{a} \cdot \mathbf{a}$$
 
-Thus, \( |a| = \sqrt{\mathbf{a} \cdot \mathbf{a}} \).
+Thus,$|a| = \sqrt{\mathbf{a} \cdot \mathbf{a}}$.
 
 :p How can you calculate the squared magnitude of a vector using the dot product?
 ??x
-The squared magnitude (length^2) of a vector \( \mathbf{a} \) can be calculated by taking the dot product of the vector with itself:
+The squared magnitude (length^2) of a vector $\mathbf{a}$ can be calculated by taking the dot product of the vector with itself:
 
-\[ |a|^2 = \mathbf{a} \cdot \mathbf{a} \]
+$$|a|^2 = \mathbf{a} \cdot \mathbf{a}$$
 
 To find the actual magnitude, take the square root of this value:
-\[ |a| = \sqrt{\mathbf{a} \cdot \mathbf{a}} \]
-x??
+$$|a| = \sqrt{\mathbf{a} \cdot \mathbf{a}}$$x??
 
 ---
 
@@ -905,16 +896,13 @@ x??
 #### Dot Product Tests
 Dot products are used to test various relationships between vectors, such as collinearity or perpendicularity.
 
-For any two arbitrary vectors \( a \) and \( b \), the following tests can be performed using dot product:
+For any two arbitrary vectors $a $ and$b$, the following tests can be performed using dot product:
 
 - **Collinear**: Two vectors are collinear if their dot product is equal to the product of their magnitudes. Mathematically:
-  \[ \mathbf{a} \cdot \mathbf{b} = |a| \, |b| \]
-  
-:p What test can you perform using the dot product to determine if two vectors are collinear?
+  $$\mathbf{a} \cdot \mathbf{b} = |a| \, |b|$$:p What test can you perform using the dot product to determine if two vectors are collinear?
 ??x
-You can use the dot product to test if two vectors \( \mathbf{a} \) and \( \mathbf{b} \) are collinear by checking if their dot product is equal to the product of their magnitudes:
-
-\[ \mathbf{a} \cdot \mathbf{b} = |a| \, |b| \]
+You can use the dot product to test if two vectors $\mathbf{a}$ and $\mathbf{b}$ are collinear by checking if their dot product is equal to the product of their magnitudes:
+$$\mathbf{a} \cdot \mathbf{b} = |a| \, |b|$$
 
 If this condition holds true, then the vectors are collinear.
 x??
@@ -928,10 +916,7 @@ x??
 Background context: The dot product is a fundamental operation that combines two vectors to produce a scalar. It measures how much one vector goes in the direction of another and can be used for various applications like determining angles, testing collinearity, or finding projections.
 
 Relevant formulas:
-- \(a \cdot b = |a| |b| \cos(\theta)\)
-- For unit vectors: \(a \cdot b = \cos(\theta)\)
-
-Explanation: The dot product yields a scalar value that reflects the alignment of two vectors. If the vectors are in the same direction, the result is positive; if they are opposite, it's negative. When the angle between them is 90 degrees, the result is zero.
+- $a \cdot b = |a| |b| \cos(\theta)$- For unit vectors:$ a \cdot b = \cos(\theta)$ Explanation: The dot product yields a scalar value that reflects the alignment of two vectors. If the vectors are in the same direction, the result is positive; if they are opposite, it's negative. When the angle between them is 90 degrees, the result is zero.
 
 :p What does the dot product tell us about the relationship between two vectors?
 ??x
@@ -948,14 +933,14 @@ x??
 Background context: Vectors are collinear if they lie on the same line or parallel lines. The dot product can be used to determine their orientation.
 
 Relevant formulas:
-- For unit vectors, \(a \cdot b = 1\) when they are in the same direction.
-- For unit vectors, \(a \cdot b = -1\) when they are in opposite directions.
+- For unit vectors,$a \cdot b = 1$ when they are in the same direction.
+- For unit vectors,$a \cdot b = -1$ when they are in opposite directions.
 
 :p How can you use the dot product to determine if two vectors are collinear and in which direction?
 ??x
 To determine if two vectors are collinear and their relative orientation:
-- If \(a \cdot b > 0\), the vectors are in the same direction.
-- If \(a \cdot b < 0\), the vectors are in opposite directions.
+- If $a \cdot b > 0$, the vectors are in the same direction.
+- If $a \cdot b < 0$, the vectors are in opposite directions.
 
 Code Example:
 ```java
@@ -990,11 +975,11 @@ x??
 Background context: Two vectors are perpendicular if the angle between them is 90 degrees. The dot product of two perpendicular vectors is zero.
 
 Relevant formulas:
-- \(a \cdot b = 0\) when \(a\) and \(b\) are perpendicular.
+- $a \cdot b = 0 $ when$a $ and$b$ are perpendicular.
 
 :p How can you use the dot product to determine if two vectors are perpendicular?
 ??x
-To determine if two vectors are perpendicular, check if their dot product equals zero. If \(a \cdot b = 0\), then vectors \(a\) and \(b\) are perpendicular.
+To determine if two vectors are perpendicular, check if their dot product equals zero. If $a \cdot b = 0 $, then vectors $ a $and$ b$ are perpendicular.
 
 Code Example:
 ```java
@@ -1021,14 +1006,14 @@ x??
 Background context: In game programming, the dot product can be used to determine if an enemy is in front or behind a player character. This involves creating vectors from the player's position to the enemy’s position and comparing it with the direction vector the player is facing.
 
 Relevant formulas:
-- \(d = (E - P) \cdot f\), where \(d > 0\) means the enemy is in front, and \(d < 0\) means behind.
-- Here, \(P\) is the player’s position, \(E\) is the enemy's position, and \(f\) is the direction vector.
+- $d = (E - P) \cdot f $, where $ d > 0 $means the enemy is in front, and$ d < 0$ means behind.
+- Here,$P $ is the player’s position,$E $ is the enemy's position, and$f$ is the direction vector.
 
 :p How can you use dot product to determine if an enemy is in front or behind a player character?
 ??x
 To determine if an enemy is in front or behind a player character:
-1. Calculate the vector from the player’s position (\(P\)) to the enemy's position (\(E\)): \(v = E - P\).
-2. Compute the dot product of this vector with the direction vector (\(f\)) the player is facing.
+1. Calculate the vector from the player’s position ($P $) to the enemy's position ($ E $):$ v = E - P$.
+2. Compute the dot product of this vector with the direction vector ($f$) the player is facing.
 3. If the result is positive, the enemy is in front; if negative, behind.
 
 Code Example:
@@ -1061,15 +1046,15 @@ x??
 Background context: The dot product can be used to find the height of a point above or below a plane. This involves using the normal vector of the plane and calculating the projection of the position vector onto this normal.
 
 Relevant formulas:
-- \(h = (P - Q) \cdot n\), where \(h\) is the height, \(Q\) is any point on the plane, and \(n\) is the normal to the plane.
+- $h = (P - Q) \cdot n $, where $ h $is the height,$ Q $is any point on the plane, and$ n$ is the normal to the plane.
 - The magnitude of the cross product can be used for similar calculations but in a different context.
 
 :p How can you use the dot product to find the height of a point above or below a plane?
 ??x
-To find the height of a point (\(P\)) above or below a plane:
-1. Define a vector from any point on the plane (\(Q\)) to the point in question (\(P - Q\)).
-2. Compute the dot product of this vector with the normal vector (\(n\)) to the plane.
-3. The result gives the height: \(h = (P - Q) \cdot n\).
+To find the height of a point ($P$) above or below a plane:
+1. Define a vector from any point on the plane ($Q $) to the point in question ($ P - Q$).
+2. Compute the dot product of this vector with the normal vector ($n$) to the plane.
+3. The result gives the height: $h = (P - Q) \cdot n$.
 
 Code Example:
 ```java
@@ -1091,17 +1076,14 @@ x??
 Background context: The magnitude of the cross product vector is equal to the area of the parallelogram formed by the two vectors. This can be used to find the area of a triangle.
 
 Relevant formulas:
-- \(|a \times b| = |a||b|\sin(\theta)\)
-- Area of a triangle: \(\frac{1}{2} |(P_2 - P_1) \times (P_3 - P_1)|\)
-
-:p How can you use the cross product to find the area of a triangle?
+- $|a \times b| = |a||b|\sin(\theta)$- Area of a triangle:$\frac{1}{2} |(P_2 - P_1) \times (P_3 - P_1)|$:p How can you use the cross product to find the area of a triangle?
 ??x
 To find the area of a triangle given its vertices:
-1. Calculate two vectors from one vertex to the other two: \(v_1 = P_2 - P_1\) and \(v_2 = P_3 - P_1\).
-2. Compute their cross product: \((P_2 - P_1) \times (P_3 - P_1)\).
+1. Calculate two vectors from one vertex to the other two:$v_1 = P_2 - P_1 $ and$v_2 = P_3 - P_1$.
+2. Compute their cross product: $(P_2 - P_1) \times (P_3 - P_1)$.
 3. The magnitude of the resulting vector gives twice the area of the triangle.
-4. Therefore, the area \(A\) is given by:
-   \[ A = \frac{1}{2} |(P_2 - P_1) \times (P_3 - P_1)| \]
+4. Therefore, the area $A$ is given by:
+$$A = \frac{1}{2} |(P_2 - P_1) \times (P_3 - P_1)|$$
 
 Code Example:
 ```java
@@ -1144,7 +1126,7 @@ Background context: The cross product can be used to find a vector that is perpe
 
 :p How can we use the cross product to find a vector perpendicular to two given vectors?
 ??x
-To find a vector that is perpendicular to two given vectors \(\mathbf{a}\) and \(\mathbf{b}\), you can compute their cross product \( \mathbf{c} = \mathbf{a} \times \mathbf{b} \). The resulting vector \(\mathbf{c}\) will be perpendicular to both \(\mathbf{a}\) and \(\mathbf{b}\).
+To find a vector that is perpendicular to two given vectors $\mathbf{a}$ and $\mathbf{b}$, you can compute their cross product $\mathbf{c} = \mathbf{a} \times \mathbf{b}$. The resulting vector $\mathbf{c}$ will be perpendicular to both $\mathbf{a}$ and $\mathbf{b}$.
 
 ```java
 // Pseudocode for finding a perpendicular vector using cross product
@@ -1162,12 +1144,8 @@ Background context: The cross products of the standard basis vectors in 3D space
 
 :p What are the cross products of the Cartesian basis vectors, and what do they represent?
 ??x
-The cross products of the Cartesian basis vectors \(\mathbf{i}\), \(\mathbf{j}\), and \(\mathbf{k}\) are as follows:
-- \( \mathbf{i} \times \mathbf{j} = -\mathbf{j} \times \mathbf{i} = \mathbf{k} \)
-- \( \mathbf{j} \times \mathbf{k} = -\mathbf{k} \times \mathbf{j} = \mathbf{i} \)
-- \( \mathbf{k} \times \mathbf{i} = -\mathbf{i} \times \mathbf{k} = \mathbf{j} \)
-
-These represent the directions of positive rotations about the x, y, and z axes respectively. The "reversed" order in some products (like \( \mathbf{j} \times \mathbf{k} \) vs. \( \mathbf{k} \times \mathbf{j} \)) indicates that rotation from one axis to another is defined as a positive direction.
+The cross products of the Cartesian basis vectors $\mathbf{i}$,$\mathbf{j}$, and $\mathbf{k}$ are as follows:
+- $\mathbf{i} \times \mathbf{j} = -\mathbf{j} \times \mathbf{i} = \mathbf{k}$-$\mathbf{j} \times \mathbf{k} = -\mathbf{k} \times \mathbf{j} = \mathbf{i}$-$\mathbf{k} \times \mathbf{i} = -\mathbf{i} \times \mathbf{k} = \mathbf{j}$ These represent the directions of positive rotations about the x, y, and z axes respectively. The "reversed" order in some products (like $\mathbf{j} \times \mathbf{k}$ vs.$\mathbf{k} \times \mathbf{j}$) indicates that rotation from one axis to another is defined as a positive direction.
 
 ```java
 // Pseudocode for computing basis vector cross products
@@ -1181,11 +1159,11 @@ x??
 
 
 #### Cross Product Application in Game Development: Finding Local Orientation Vectors
-Background context: In game development, knowing an object’s local unit basis vectors can help determine its orientation. By using the cross product, we can easily find these vectors if only given \( \mathbf{k}_{\text{local}} \).
+Background context: In game development, knowing an object’s local unit basis vectors can help determine its orientation. By using the cross product, we can easily find these vectors if only given $\mathbf{k}_{\text{local}}$.
 
 :p How can you use the cross product to find a matrix representing an object's orientation?
 ??x
-Given that you know an object’s local \( \mathbf{k}_{\text{local}} \) vector, and assuming no roll about this axis, you can find the local x-axis (i.e., \( \mathbf{i}_{\text{local}} \)) by taking the cross product between \( \mathbf{k}_{\text{local}} \) and the world space up vector \( \mathbf{j}_{\text{world}} = [0, 1, 0] \). Then find the local y-axis (j-local) by crossing i-local with k-local.
+Given that you know an object’s local $\mathbf{k}_{\text{local}}$ vector, and assuming no roll about this axis, you can find the local x-axis (i.e.,$\mathbf{i}_{\text{local}}$) by taking the cross product between $\mathbf{k}_{\text{local}}$ and the world space up vector $\mathbf{j}_{\text{world}} = [0, 1, 0]$. Then find the local y-axis (j-local) by crossing i-local with k-local.
 
 ```java
 // Pseudocode for finding local orientation vectors using cross product
@@ -1202,14 +1180,14 @@ x??
 
 
 #### Torque Calculation in Physics Simulations
-Background context explaining the calculation of torque when a force is applied off-center to an object. The torque (N) is calculated as the cross product of the position vector \(\vec{r}\) from the center of mass to the point at which the force F is applied.
+Background context explaining the calculation of torque when a force is applied off-center to an object. The torque (N) is calculated as the cross product of the position vector $\vec{r}$ from the center of mass to the point at which the force F is applied.
 
 :p How do you calculate torque in physics simulations?
 ??x
-To calculate the torque (N) in physics simulations, use the formula \( N = \vec{r} \times \vec{F} \), where:
-- \(\vec{r}\) is the vector from the center of mass to the point at which the force \(\vec{F}\) is applied.
+To calculate the torque (N) in physics simulations, use the formula $N = \vec{r} \times \vec{F}$, where:
+- $\vec{r}$ is the vector from the center of mass to the point at which the force $\vec{F}$ is applied.
 
-For example, if you have a position vector \(\vec{r}\) and a force vector \(\vec{F}\):
+For example, if you have a position vector $\vec{r}$ and a force vector $\vec{F}$:
 
 ```java
 Vector3 r = ...; // Position vector

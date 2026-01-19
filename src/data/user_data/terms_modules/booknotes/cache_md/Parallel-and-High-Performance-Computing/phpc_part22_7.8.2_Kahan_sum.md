@@ -366,7 +366,7 @@ Background context: The provided analysis indicates that the `PrefixScan` functi
 :p What is the theoretical parallelism scaling for the `PrefixScan` function?
 ??x
 The theoretical parallelism scaling for the `PrefixScan` function can be approximated by the formula:
-\[ \text{Parallel_timer} = 2 \times \frac{\text{serial_time}}{\text{nthreads}} \]
+$$\text{Parallel_timer} = 2 \times \frac{\text{serial_time}}{\text{nthreads}}$$
 
 This suggests that the execution time decreases linearly with an increase in the number of threads, up to a certain point. For example, on a Skylake Gold 6152 architecture, this function scales well until around 44 threads, at which point it reaches its peak performance.
 

@@ -23,25 +23,23 @@ x??
 
 Background context explaining the concept. A simple test of uniformity involves evaluating the `k`-th moment of a distribution using the formula:
 
-\[ \langle x^k \rangle = \frac{1}{N} \sum_{i=1}^{N} x_i^k \]
+$$\langle x^k \rangle = \frac{1}{N} \sum_{i=1}^{N} x_i^k$$
 
 If the numbers are distributed uniformly, then the `k`-th moment is approximately given by:
+$$\langle x^k \rangle \approx \int_0^1 dx \, x^k P(x) \approx \frac{1}{k+1} + O\left(\frac{1}{\sqrt{N}}\right)$$
 
-\[ \langle x^k \rangle \approx \int_0^1 dx \, x^k P(x) \approx \frac{1}{k+1} + O\left(\frac{1}{\sqrt{N}}\right) \]
-
-If the deviation from this formula varies as \( 1/\sqrt{N} \), then you know that the distribution is random because this result derives from assuming randomness.
+If the deviation from this formula varies as $1/\sqrt{N}$, then you know that the distribution is random because this result derives from assuming randomness.
 
 :p How do you test uniformity using the k-th moment?
 ??x
 Evaluate the `k`-th moment of a distribution with:
 
-\[ \langle x^k \rangle = \frac{1}{N} \sum_{i=1}^{N} x_i^k \]
+$$\langle x^k \rangle = \frac{1}{N} \sum_{i=1}^{N} x_i^k$$
 
 If the numbers are uniformly distributed, then:
+$$\langle x^k \rangle \approx \frac{1}{k+1} + O\left(\frac{1}{\sqrt{N}}\right)$$
 
-\[ \langle x^k \rangle \approx \frac{1}{k+1} + O\left(\frac{1}{\sqrt{N}}\right) \]
-
-If the deviation from this formula varies as \( 1/\sqrt{N} \), it indicates randomness in the distribution.
+If the deviation from this formula varies as $1/\sqrt{N}$, it indicates randomness in the distribution.
 x??
 
 ---
@@ -51,15 +49,16 @@ x??
 
 Background context explaining the concept. Another simple test determines the near-neighbor correlation in your random sequence by taking sums of products for small `k`:
 
-\[ C(k) = \frac{1}{N} \sum_{i=1}^{N} x_i x_{i+k}, \quad (k=1,2,\ldots) \]
+$$C(k) = \frac{1}{N} \sum_{i=1}^{N} x_i x_{i+k}, \quad (k=1,2,\ldots)$$
 
 If points are not correlated, the correlation function should be close to zero.
 
 :p How do you determine near-neighbor correlations in a random sequence?
 ??x
 Calculate the near-neighbor correlation by taking sums of products for small `k`:
+$$
 
-\[ C(k) = \frac{1}{N} \sum_{i=1}^{N} x_i x_{i+k}, \quad (k=1,2,\ldots) \]
+C(k) = \frac{1}{N} \sum_{i=1}^{N} x_i x_{i+k}, \quad (k=1,2,\ldots)$$
 
 If points are not correlated, the correlation function should be close to zero. This test helps identify any regularity in the sequence.
 x??
@@ -147,42 +146,41 @@ These flashcards cover key concepts from the provided text, focusing on testing 
 Background context explaining the concept. The forward difference algorithm is a method for approximating derivatives of numerical data using finite differences, derived from Taylor series expansions. It uses two points to approximate the derivative by fitting a straight line between them.
 
 The exact formula is given by:
-\[ \frac{dy(t)}{dt} ||| fd \approx \frac{y(t+h) - y(t)}{h} \]
+$$\frac{dy(t)}{dt} ||| fd \approx \frac{y(t+h) - y(t)}{h}$$
 
-If we ignore higher-order terms, this approximation has an error proportional to \( h \). The error can be estimated as follows:
+If we ignore higher-order terms, this approximation has an error proportional to $h$. The error can be estimated as follows:
 
-If \( y(t) = a + bt^2 \), the exact derivative is:
-\[ y' = 2bt \]
+If $y(t) = a + bt^2$, the exact derivative is:
+$$y' = 2bt$$
+
 The computed derivative using forward difference is:
-\[ \frac{dy(t)}{dt} ||| fd \approx \frac{y(t+h) - y(t)}{h} = 2bt + bh \]
+$$\frac{dy(t)}{dt} ||| fd \approx \frac{y(t+h) - y(t)}{h} = 2bt + bh$$
 
-This becomes a good approximation only for small \( h \ll 1/b \).
+This becomes a good approximation only for small $h \ll 1/b$.
 
 :p What is the formula used in the forward difference algorithm?
 ??x
-The formula used in the forward difference algorithm to approximate the derivative of a function \( y(t) \) at time \( t \):
-\[ \frac{dy(t)}{dt} ||| fd = \frac{y(t+h) - y(t)}{h} \]
-x??
+The formula used in the forward difference algorithm to approximate the derivative of a function $y(t)$ at time $t$:
+$$\frac{dy(t)}{dt} ||| fd = \frac{y(t+h) - y(t)}{h}$$x??
 
 ---
 
 
 #### Central Difference Algorithm
-Background context explaining the concept. The central difference algorithm provides a more accurate approximation to the derivative compared to the forward difference by stepping both forward and backward half a step, effectively using three points (two on each side of \( t \)).
+Background context explaining the concept. The central difference algorithm provides a more accurate approximation to the derivative compared to the forward difference by stepping both forward and backward half a step, effectively using three points (two on each side of $t$).
 
 The formula is:
-\[ \frac{dy(t)}{dt} ||| cd = \frac{y(t+h/2) - y(t-h/2)}{h} \]
+$$\frac{dy(t)}{dt} ||| cd = \frac{y(t+h/2) - y(t-h/2)}{h}$$
 
-The error in this approximation can be estimated by substituting the Taylor series expansions for \( y(t+h/2) \) and \( y(t-h/2) \):
-\[ \frac{dy(t)}{dt} ||| cd \approx y'(t) + \frac{1}{24} h^2 y'''(t) + O(h^4) \]
+The error in this approximation can be estimated by substituting the Taylor series expansions for $y(t+h/2)$ and $y(t-h/2)$:
+$$\frac{dy(t)}{dt} ||| cd \approx y'(t) + \frac{1}{24} h^2 y'''(t) + O(h^4)$$
 
-This error is of the order \( O(h^2) \), making it more accurate than the forward difference, which is only of the order \( O(h) \).
+This error is of the order $O(h^2)$, making it more accurate than the forward difference, which is only of the order $ O(h)$.
 
 :p What is the formula for the central difference algorithm?
 ??x
-The formula used in the central difference algorithm to approximate the derivative of a function \( y(t) \):
-\[ \frac{dy(t)}{dt} ||| cd = \frac{y(t+h/2) - y(t-h/2)}{h} \]
-x??
+The formula used in the central difference algorithm to approximate the derivative of a function $y(t)$:
+$$\frac{dy(t)}{dt} ||| cd = \frac{y(t+h/2) - y(t-h/2)}{h}$$x??
 
 ---
 
@@ -191,17 +189,16 @@ x??
 Background context explaining the concept. The extrapolated difference algorithm improves upon existing algorithms by combining them in a way that reduces errors. One such combination is using both half-step and quarter-step central differences.
 
 For instance, the extended difference algorithm uses:
-\[ \frac{dy(t)}{dt} ||| ed = \frac{4 D_{cd}(y(t, h/2)) - D_{cd}(y(t, h))}{3} \]
+$$\frac{dy(t)}{dt} ||| ed = \frac{4 D_{cd}(y(t, h/2)) - D_{cd}(y(t, h))}{3}$$
 
-Where \( D_{cd} \) represents the central-difference algorithm. This eliminates lower-order terms and provides a more accurate derivative.
+Where $D_{cd}$ represents the central-difference algorithm. This eliminates lower-order terms and provides a more accurate derivative.
 
-If \( h=0.4 \) and \( y^{(5)} \approx 1 \), then there will be only one significant term left in the error expansion, making it very precise for higher derivatives of low order polynomials.
+If $h=0.4 $ and$y^{(5)} \approx 1$, then there will be only one significant term left in the error expansion, making it very precise for higher derivatives of low order polynomials.
 
 :p What is the formula for the extended difference algorithm?
 ??x
-The formula used in the extended difference algorithm to approximate the derivative of a function \( y(t) \):
-\[ \frac{dy(t)}{dt} ||| ed = \frac{4 D_{cd}(y(t, h/2)) - D_{cd}(y(t, h))}{3} \]
-x??
+The formula used in the extended difference algorithm to approximate the derivative of a function $y(t)$:
+$$\frac{dy(t)}{dt} ||| ed = \frac{4 D_{cd}(y(t, h/2)) - D_{cd}(y(t, h))}{3}$$x??
 
 ---
 
@@ -209,18 +206,18 @@ x??
 
 
 #### Central Difference for Second Derivatives
-Background context: The central difference method is used to approximate the second derivative of a function \( y(t) \). It involves calculating the first derivative at points \( t + h/2 \) and \( t - h/2 \), and then using these values to find the second derivative. This method is more accurate than forward differences, but it can suffer from additional subtractive cancellations.
+Background context: The central difference method is used to approximate the second derivative of a function $y(t)$. It involves calculating the first derivative at points $ t + h/2$and $ t - h/2$, and then using these values to find the second derivative. This method is more accurate than forward differences, but it can suffer from additional subtractive cancellations.
 
 :p What is the central difference formula for the second derivative?
 ??x
-The central difference formula for the second derivative of a function \( y(t) \) at point \( t \) using step size \( h \) is:
+The central difference formula for the second derivative of a function $y(t)$ at point $ t $ using step size $h$ is:
 
-\[ \frac{d^2y}{dt^2} \bigg|_{t} \approx \frac{y(t + h/2) - y(t - h/2)}{h} \]
+$$\frac{d^2y}{dt^2} \bigg|_{t} \approx \frac{y(t + h/2) - y(t - h/2)}{h}$$
 
 This can be further simplified to:
-\[ \frac{d^2y}{dt^2} \bigg|_{t} \approx \frac{y(t + h) + y(t - h) - 2y(t)}{h^2} \]
+$$\frac{d^2y}{dt^2} \bigg|_{t} \approx \frac{y(t + h) + y(t - h) - 2y(t)}{h^2}$$
 
-The latter form is more compact and requires fewer steps, but it might increase subtractive cancellation by first storing the "large" number \( y(t + h/2) + y(t - h/2) \) and then subtracting another large number \( 2y(t) \).
+The latter form is more compact and requires fewer steps, but it might increase subtractive cancellation by first storing the "large" number $y(t + h/2) + y(t - h/2)$ and then subtracting another large number $2y(t)$.
 
 ??x
 ```java
@@ -244,9 +241,9 @@ Background context: To improve accuracy, the central difference method can be ex
 
 :p What is the formula for the extrapolated difference approximation of the second derivative?
 ??x
-The formula for the extrapolated difference approximation of the second derivative of a function \( y(t) \) at point \( t \) using step size \( h/4 \) and \( h/2 \) is:
+The formula for the extrapolated difference approximation of the second derivative of a function $y(t)$ at point $ t $ using step size $ h/4 $ and $h/2$ is:
 
-\[ \frac{d^2y}{dt^2} \bigg|_{t} \approx \frac{8(y(t + h/4) - y(t - h/4)) - (y(t + h/2) - y(t - h/2))}{3h} \]
+$$\frac{d^2y}{dt^2} \bigg|_{t} \approx \frac{8(y(t + h/4) - y(t - h/4)) - (y(t + h/2) - y(t - h/2))}{3h}$$
 
 This method is more accurate but requires evaluating the function at multiple points.
 
@@ -268,31 +265,28 @@ x??
 
 
 #### Error Analysis for Numerical Differentiation
-Background context: The accuracy of numerical differentiation methods depends on the step size \( h \). The approximation error decreases with a smaller step size, but round-off errors increase. A balance must be found where the sum of application and round-off errors is minimized.
+Background context: The accuracy of numerical differentiation methods depends on the step size $h$. The approximation error decreases with a smaller step size, but round-off errors increase. A balance must be found where the sum of application and round-off errors is minimized.
 
 :p What are the formulas for the approximation and round-off errors in numerical differentiation?
 ??x
 The formulas for the approximation and round-off errors in numerical differentiation are as follows:
 
 - For forward difference:
-  \[ \epsilon_{fd, app} \approx \frac{y''(h^2)}{2} \]
-
-- For central difference:
-  \[ \epsilon_{cd, app} \approx \frac{y'''(h^2)}{24} \]
+  $$\epsilon_{fd, app} \approx \frac{y''(h^2)}{2}$$- For central difference:
+$$\epsilon_{cd, app} \approx \frac{y'''(h^2)}{24}$$
 
 The round-off error is estimated as:
-\[ \epsilon_{ro} \approx \frac{\epsilon_m}{h} \]
+$$\epsilon_{ro} \approx \frac{\epsilon_m}{h}$$
 
-Where \( \epsilon_m \) is the machine precision.
+Where $\epsilon_m$ is the machine precision.
 
 To find the optimal step size, we equate the approximation and round-off errors:
-
-\[ \epsilon_{ro} = \epsilon_{fd, app} \Rightarrow \frac{\epsilon_m}{h} = \frac{y''(h^2)}{2} \]
-\[ h_{fd} \approx 4 \times 10^{-8} \]
+$$\epsilon_{ro} = \epsilon_{fd, app} \Rightarrow \frac{\epsilon_m}{h} = \frac{y''(h^2)}{2}$$
+$$h_{fd} \approx 4 \times 10^{-8}$$
 
 And for central difference:
-\[ \epsilon_{ro} = \epsilon_{cd, app} \Rightarrow \frac{\epsilon_m}{h} = \frac{y'''(h^2)}{24} \]
-\[ h_{cd} \approx 3 \times 10^{-5} \]
+$$\epsilon_{ro} = \epsilon_{cd, app} \Rightarrow \frac{\epsilon_m}{h} = \frac{y'''(h^2)}{24}$$
+$$h_{cd} \approx 3 \times 10^{-5}$$
 
 These step sizes show that the central difference method can use a larger step size while maintaining accuracy.
 
@@ -318,22 +312,16 @@ x??
 
 
 #### Programming Numerical Differentiation
-Background context: Implementing numerical differentiation involves evaluating the function at specific points and using difference formulas to approximate derivatives. The accuracy of these approximations depends on the step size \( h \), which needs to be chosen carefully.
+Background context: Implementing numerical differentiation involves evaluating the function at specific points and using difference formulas to approximate derivatives. The accuracy of these approximations depends on the step size $h$, which needs to be chosen carefully.
 
 :p How would you implement forward, central, and extrapolated difference methods in a program?
 ??x
 The implementation of forward, central, and extrapolated difference methods involves evaluating the function at specific points and applying the respective formulas. Here’s how it can be done:
 
 - **Forward Difference**:
-  \[ d^2y/dt^2(t) \approx \frac{y(t + h) - y(t)}{h} \]
-
-- **Central Difference**:
-  \[ d^2y/dt^2(t) \approx \frac{y(t + h/2) - y(t - h/2)}{h} \]
-
-- **Extrapolated Difference**:
-  \[ d^2y/dt^2(t) \approx \frac{8(y(t + h/4) - y(t - h/4)) - (y(t + h/2) - y(t - h/2))}{3h} \]
-
-:p What is the code for implementing these methods in Java?
+  $$d^2y/dt^2(t) \approx \frac{y(t + h) - y(t)}{h}$$- **Central Difference**:
+$$d^2y/dt^2(t) \approx \frac{y(t + h/2) - y(t - h/2)}{h}$$- **Extrapolated Difference**:
+$$d^2y/dt^2(t) \approx \frac{8(y(t + h/4) - y(t - h/4)) - (y(t + h/2) - y(t - h/2))}{3h}$$:p What is the code for implementing these methods in Java?
 ??x
 ```java
 public class NumericalDifferentiation {
@@ -362,16 +350,16 @@ x??
 
 
 #### Testing Numerical Differentiation
-Background context: To test the numerical differentiation methods, we need to evaluate their accuracy for different step sizes \( h \). The goal is to find the smallest step size where the error equals machine precision.
+Background context: To test the numerical differentiation methods, we need to evaluate their accuracy for different step sizes $h$. The goal is to find the smallest step size where the error equals machine precision.
 
 :p How would you test the forward, central, and extrapolated difference methods in practice?
 ??x
 To test the forward, central, and extrapolated difference methods, follow these steps:
 
-1. **Define the function**: Use a known function like \( \cos(t) \).
+1. **Define the function**: Use a known function like $\cos(t)$.
 2. **Evaluate derivatives**: Compute the exact derivative of the function at specific points.
 3. **Calculate approximations**: Use the numerical differentiation methods to approximate the second derivative.
-4. **Compare errors**: Print out the derivative and its relative error as functions of \( h \). Reduce the step size \( h \) until the error equals machine precision.
+4. **Compare errors**: Print out the derivative and its relative error as functions of $h $. Reduce the step size $ h$ until the error equals machine precision.
 
 :p What is an example of how to test these methods in a program?
 ??x
