@@ -21,6 +21,24 @@
           "labels": [],
           "checkboxes": [],
           "comments": []
+        },
+        {
+          "id": "28791b98-6a90-414d-9e3f-e2f2e4364cd0",
+          "listId": "c83cefdc-13d7-4ce8-b338-0a7aa7eb7a34",
+          "title": "Add more configurables in the settings, and defalts shoul dbe written with their diff options",
+          "description": "",
+          "labels": [],
+          "checkboxes": [],
+          "comments": []
+        },
+        {
+          "id": "5c5c1a66-4cd0-4a41-8f11-68e9cc956b91",
+          "listId": "c83cefdc-13d7-4ce8-b338-0a7aa7eb7a34",
+          "title": "Support quick deletion",
+          "description": "allowable in configuration, default is off.\n\nWhat?\n!! for creating a to-remove queue which will be ignored when studying. Then create a js queue for later revision and true removal. \nalso add that to the options.\n",
+          "labels": [],
+          "checkboxes": [],
+          "comments": []
         }
       ]
     },
@@ -33,6 +51,15 @@
           "listId": "3d766476-da51-484c-99a0-bc213a7ce5ba",
           "title": "Fix indentation for solutions",
           "description": "Fix indentation for flashcards storage\nI believe either when scanning for flashcards from mrkdowns files it is not storing the indentation for both ouside and inside of codeblocks inside of ``` pre blocks. Which is important because without tab indentation, or spaces at the start, there is likely a regex messing it up.  doesn't work properly and cant show the code logics . Fix that by including indentations when scanning inside of code blocks.\n",
+          "labels": [],
+          "checkboxes": [],
+          "comments": []
+        },
+        {
+          "id": "25199b52-41bf-43be-abcb-ec021a354fe5",
+          "listId": "3d766476-da51-484c-99a0-bc213a7ce5ba",
+          "title": "Last Session Learned Queue",
+          "description": "to ensure learning. whenever a flashcard is learnt, using a similar code pattern to before create a queue on review_decks.json under index of [date]: {revised: false, decks: List[Dict]} for the cards and accumulate everything learnt that date. \n\n\n",
           "labels": [],
           "checkboxes": [],
           "comments": []
