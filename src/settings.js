@@ -30,6 +30,24 @@ const getDirAbsoluteUri = (
 
 // Get the path to your personal settings file
 const absolute_settings_uri = getDirAbsoluteUri(`user_data/settings.json`);
+const absolute_template_uri = getDirAbsoluteUri(`user_data/_settings.json`);
+
+// If settings.json doesn't exist, copy from _settings.json
+const fs = require('fs');
+if (!fs.existsSync(absolute_settings_uri)) {
+	if (fs.existsSync(absolute_template_uri)) {
+		try {
+			const defaultSettings = fs.readFileSync(absolute_template_uri, 'utf-8');
+			fs.writeFileSync(absolute_settings_uri, defaultSettings);
+			console.log(`Created settings.json from _settings.json template`);
+		} catch (error) {
+			console.error(`Error copying _settings.json to settings.json:`, error.message);
+			throw error;
+		}
+	} else {
+		throw new Error(`Neither settings.json nor _settings.json found in ${path.dirname(absolute_settings_uri)}`);
+	}
+}
 
 // Load and export your settings so other parts of the app can use them
 module.exports = require(absolute_settings_uri);

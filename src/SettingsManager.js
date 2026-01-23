@@ -6,6 +6,24 @@ const { APIDICT } = require('./constants');
 class SettingsManager {
 	constructor({} = {}) {
 		this.settings_path = path.join(__dirname, 'user_data', 'settings.json');
+		this._settings_path = path.join(__dirname, 'user_data', '_settings.json');
+		
+		// If settings.json doesn't exist, copy from _settings.json
+		if (!fs.existsSync(this.settings_path)) {
+			if (fs.existsSync(this._settings_path)) {
+				try {
+					const defaultSettings = fs.readFileSync(this._settings_path, 'utf-8');
+					fs.writeFileSync(this.settings_path, defaultSettings);
+					console.log(`Created settings.json from _settings.json template`);
+				} catch (error) {
+					console.error(`Error copying _settings.json to settings.json:`, error.message);
+					throw error;
+				}
+			} else {
+				throw new Error(`Neither settings.json nor _settings.json found in ${path.dirname(this.settings_path)}`);
+			}
+		}
+		
 		this._settings = require(this.settings_path);
 	}
 
