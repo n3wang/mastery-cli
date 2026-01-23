@@ -162,6 +162,14 @@ class FeedbackStorage {
 	}
 
 	/**
+	 * Get the absolute path to the feedback JSON file
+	 * @returns {string} - Absolute file path
+	 */
+	getFilePath() {
+		return this.filepath;
+	}
+
+	/**
 	 * Clear all feedback
 	 */
 	clear() {

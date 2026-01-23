@@ -366,6 +366,11 @@ class Mastery {
 
 				await this.mQuizer.resetStudySessionQueues(categoryParam);
 			},
+			cleanup: async () => {
+				// Display deletion queue information and JSON file location
+				await this.ensureTermsLoaded();
+				await this.mQuizer.cleanupDeletionQueue(flags.backup || false);
+			},
 			cses: async () => {
 				await this.ensureTermsLoaded();
 				return this.mQuizer.cloze_study_session();

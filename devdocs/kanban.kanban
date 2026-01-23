@@ -7,17 +7,8 @@
         {
           "id": "7f61e118-97e6-4a27-acf3-0e6f918168fa",
           "listId": "c83cefdc-13d7-4ce8-b338-0a7aa7eb7a34",
-          "title": "better temp problems fill ups.",
-          "description": "better temp problems fill ups. the idea is to populate the ",
-          "labels": [],
-          "checkboxes": [],
-          "comments": []
-        },
-        {
-          "id": "bbc954fc-28ad-4469-bd4c-56dbabce86fd",
-          "listId": "c83cefdc-13d7-4ce8-b338-0a7aa7eb7a34",
-          "title": "Imrprove the todays creation cards",
-          "description": "how?\n- remove the ",
+          "title": "Production Environment",
+          "description": "better temp problems fill ups. the idea is to populate the the temporal problems for teh base preparation of everything. then also of course ignore everything that is not production ready. \n\nProbably is time to create a production ready project for just the production to code in.\n\n\n",
           "labels": [],
           "checkboxes": [],
           "comments": []
@@ -32,10 +23,49 @@
           "comments": []
         },
         {
-          "id": "5c5c1a66-4cd0-4a41-8f11-68e9cc956b91",
+          "id": "90d0861b-d31f-4d3c-aa9f-1f0cfe6353bf",
           "listId": "c83cefdc-13d7-4ce8-b338-0a7aa7eb7a34",
-          "title": "Support quick deletion",
-          "description": "allowable in configuration, default is off.\n\nWhat?\n!! for creating a to-remove queue which will be ignored when studying. Then create a js queue for later revision and true removal. \nalso add that to the options.\n",
+          "title": "Design Backend  Web Portal and Features Excalidraw",
+          "description": "",
+          "labels": [],
+          "checkboxes": [],
+          "comments": []
+        },
+        {
+          "id": "36711e1d-b04b-49e0-be3a-cd0121d2f4c0",
+          "listId": "c83cefdc-13d7-4ce8-b338-0a7aa7eb7a34",
+          "title": "Clean Unused Code",
+          "description": "",
+          "labels": [],
+          "checkboxes": [
+            {
+              "id": "0b76f700-d6c1-4d12-9cb2-65ddb3333f7b",
+              "title": "Create a list of all comamnds and hidden methods and create a table listing howlikely is that they are not being used, or overshadowed",
+              "checked": true
+            },
+            {
+              "id": "691111ae-9690-4b19-b0ab-cbdb7f6c5e83",
+              "title": "Start removing and standarizating if possible",
+              "checked": false
+            },
+            {
+              "id": "db9142f2-969b-4202-b139-679d88ac067a",
+              "title": "Add a plan to detect unused code through logging into data/log file for later review and aggregation, include date in the format of the log to standarize and error. make it now a tab separated logs (or;)",
+              "checked": false
+            },
+            {
+              "id": "4b5377d1-d2e7-4cda-bd2c-9fbf41f29290",
+              "title": "Also start taking into account the features that are incomplete and or should no go to production",
+              "checked": false
+            }
+          ],
+          "comments": []
+        },
+        {
+          "id": "6671cfad-4f5a-4efc-bf3d-e3ed07015cb0",
+          "listId": "c83cefdc-13d7-4ce8-b338-0a7aa7eb7a34",
+          "title": "Create MCLI Own Kanban System",
+          "description": "This kanban would include thing slike prs when pushing with mcli commit can use to track (or ask if move to complete)\n",
           "labels": [],
           "checkboxes": [],
           "comments": []
@@ -47,19 +77,10 @@
       "title": "Doing",
       "cards": [
         {
-          "id": "6d9e3665-3026-42c2-82ea-fdc644e3936a",
+          "id": "5c5c1a66-4cd0-4a41-8f11-68e9cc956b91",
           "listId": "3d766476-da51-484c-99a0-bc213a7ce5ba",
-          "title": "Fix indentation for solutions",
-          "description": "Fix indentation for flashcards storage\nI believe either when scanning for flashcards from mrkdowns files it is not storing the indentation for both ouside and inside of codeblocks inside of ``` pre blocks. Which is important because without tab indentation, or spaces at the start, there is likely a regex messing it up.  doesn't work properly and cant show the code logics . Fix that by including indentations when scanning inside of code blocks.\n",
-          "labels": [],
-          "checkboxes": [],
-          "comments": []
-        },
-        {
-          "id": "25199b52-41bf-43be-abcb-ec021a354fe5",
-          "listId": "3d766476-da51-484c-99a0-bc213a7ce5ba",
-          "title": "Last Session Learned Queue",
-          "description": "to ensure learning. whenever a flashcard is learnt, using a similar code pattern to before create a queue on review_decks.json under index of [date]: {revised: false, decks: List[Dict]} for the cards and accumulate everything learnt that date. \n\n\n",
+          "title": "Support quick deletion",
+          "description": "\nallowable in configuration, default is off.\n\nWhen writting the user input (answer) \"!!\" (careful that ! is the command to quit the session, !! if detected should not quit the study session ) it should add into a to-remove queue which will be ignored when studying. Then create a js queue which if if not empty whenever running maid ses should indicate the absolute path to find and review for true removal. (Also remind that maid cleanp command) it should also remind if exists any term with feedback in it\n\nfrom the options when removing:\n\nContinue to next question\nTry the question again\nProvide feedback about this term\n[new: move to deletion queue]\n[new: force remove] #this would force removing it from the things\nRate this flashcard\nReset deck progress\nQuit the entire session\n\n\n\nThere should be also a maid cleanup for removing all the terms that are on that to be deleted queue if running like maid cleanup --backup will remove them but move them to backup folder\n\nAlso create a logs.txt file in data where each time that the user removes or completes a deck, provides feedback then the actionis logged, also usage stats (useful for future improvement) this should be configurable in settings.json\n",
           "labels": [],
           "checkboxes": [],
           "comments": []
@@ -70,6 +91,78 @@
       "id": "5969e69c-fe41-4634-85b5-3cd8c9380974",
       "title": "Done",
       "cards": [
+        {
+          "id": "10eb0e8d-4e25-4bc9-8676-bd6b2ec51aec",
+          "listId": "5969e69c-fe41-4634-85b5-3cd8c9380974",
+          "title": "Clean and Organize Automated Decks",
+          "description": "To be both added and modified from processed.\nReduce manually\nAdd the chinese description (and translated answer) \n\nThe idea of the chinese description is making it a bit tougher toanswer. That would be entire different folders.\n\nTo test, actually read and then decrease, have a kanban for this on the own esresearch\n\n",
+          "labels": [],
+          "checkboxes": [
+            {
+              "id": "f87da3f3-e111-440a-85f3-268064fe0bd0",
+              "title": "Designing Data Intensive Applications",
+              "checked": false
+            },
+            {
+              "id": "5a889021-2e91-4904-afe9-901b71f6034f",
+              "title": "Asvab -> Chinese Prompts",
+              "checked": false
+            },
+            {
+              "id": "5cdcb717-fa49-4d4e-b8d7-9d687da640dc",
+              "title": "C Software",
+              "checked": false
+            },
+            {
+              "id": "8b6df95f-a03e-4ba0-87d5-fb2e77c259fe",
+              "title": "Parallel ",
+              "checked": false
+            },
+            {
+              "id": "f9b5d08e-e4c4-44ec-b133-2901a2f88c4a",
+              "title": "Business Law",
+              "checked": false
+            },
+            {
+              "id": "d711b99b-c799-4c5f-96f3-b34a8f641100",
+              "title": "Fluent Python",
+              "checked": false
+            },
+            {
+              "id": "27fb3bf4-fe41-42f0-8165-b6217570bf72",
+              "title": "Kubernetes",
+              "checked": false
+            }
+          ],
+          "comments": []
+        },
+        {
+          "id": "bbc954fc-28ad-4469-bd4c-56dbabce86fd",
+          "listId": "5969e69c-fe41-4634-85b5-3cd8c9380974",
+          "title": "Imrprove the todays creation cards",
+          "description": "how?\n- remove the ",
+          "labels": [],
+          "checkboxes": [],
+          "comments": []
+        },
+        {
+          "id": "25199b52-41bf-43be-abcb-ec021a354fe5",
+          "listId": "5969e69c-fe41-4634-85b5-3cd8c9380974",
+          "title": "Last Session Learned Queue",
+          "description": "to ensure learning. whenever a flashcard is learnt, using a similar code pattern to before on create a queue on src/user_data/review_decks.json under index of [date]: {revised: false, decks: List[Dict]} for the cards and accumulate everything learnt  (successfully learnt, not just seen cards) on that date. \n\nThen when running maid ses or maid fses it should appears the days decks for today and last session so that we can review all decks learnt last session or today. Store up to 5 different dates, after 5 dates remove the oldest one\n\n",
+          "labels": [],
+          "checkboxes": [],
+          "comments": []
+        },
+        {
+          "id": "6d9e3665-3026-42c2-82ea-fdc644e3936a",
+          "listId": "5969e69c-fe41-4634-85b5-3cd8c9380974",
+          "title": "Fix indentation for solutions",
+          "description": "Fix indentation for flashcards storage\nI believe either when scanning for flashcards from mrkdowns files it is not storing the indentation for both ouside and inside of codeblocks inside of ``` pre blocks. Which is important because without tab indentation, or spaces at the start, there is likely a regex messing it up.  doesn't work properly and cant show the code logics . Fix that by including indentations when scanning inside of code blocks.\n",
+          "labels": [],
+          "checkboxes": [],
+          "comments": []
+        },
         {
           "id": "a8092e97-653b-4cf5-8689-c180e8410b5e",
           "listId": "5969e69c-fe41-4634-85b5-3cd8c9380974",

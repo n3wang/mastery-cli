@@ -47,6 +47,9 @@ const { StorableQueue } = require('./StorableQueue');
 const { HashStorage } = require('./HashStorage');
 const { FeedbackStorage } = require('./FeedbackStorage');
 const { RatingStorage } = require('./RatingStorage');
+const { ReviewDecksStorage } = require('./ReviewDecksStorage');
+const { DeletionQueueStorage } = require('./DeletionQueueStorage');
+const { ActionLogger } = require('./ActionLogger');
 const crypto = require('crypto');
 
 // const DEBUG = true
@@ -72,6 +75,16 @@ class Quizzer {
 
 		// Initialize rating storage
 		this.ratingStorage = new RatingStorage('term_ratings');
+
+		// Initialize review decks storage for spaced repetition
+		this.reviewDecksStorage = new ReviewDecksStorage('review_decks');
+
+		// Initialize deletion queue storage
+		this.deletionQueueStorage = new DeletionQueueStorage('deletion_queue');
+
+		// Initialize action logger (check if logging is enabled in settings)
+		const loggingEnabled = Settings?.logging?.enabled ?? true;
+		this.actionLogger = new ActionLogger('logs.txt', loggingEnabled);
 	}
 
 	/**
@@ -589,6 +602,57 @@ class Quizzer {
 	async runStudySession(selected_terms, deck_name, options = {}) {
 		const { resetScheduler = false } = options;
 
+		// Filter out terms in deletion queue
+		const originalCount = selected_terms.length;
+		selected_terms = selected_terms.filter(term => !this.deletionQueueStorage.isInQueue(term));
+		const filteredCount = originalCount - selected_terms.length;
+		
+		if (filteredCount > 0) {
+			console.log(`\n⚠ ${filteredCount} term(s) filtered out (in deletion queue)`);
+		}
+
+		// Check deletion queue and show reminder
+		const queueCount = this.deletionQueueStorage.getCount();
+		if (queueCount > 0) {
+			const jsonFilePath = this.deletionQueueStorage.getFilePath();
+			const itemsWithFeedback = this.deletionQueueStorage.getItemsWithFeedback();
+			const itemsByFile = this.deletionQueueStorage.getItemsByFilePath();
+			const filePaths = Object.keys(itemsByFile);
+			
+			console.log(`\n📋 Deletion Queue: ${queueCount} term(s) being ignored`);
+			console.log(`📁 JSON File: ${jsonFilePath}`);
+			if (itemsWithFeedback.length > 0) {
+				console.log(`⚠ ${itemsWithFeedback.length} term(s) have feedback`);
+			}
+			if (filePaths.length > 0) {
+				console.log(`📁 Terms grouped by file:`);
+				filePaths.forEach(filePath => {
+					const items = itemsByFile[filePath];
+					console.log(`   ${filePath} (${items.length} term(s))`);
+				});
+			}
+			console.log(`💡 Use "maid cleanup" to view deletion queue details\n`);
+		}
+
+		// Check for feedback availability in selected terms
+		let termsWithFeedbackCount = 0;
+		for (const term of selected_terms) {
+			const feedback = this.feedbackStorage.getFeedbackByTerm(term);
+			if (feedback && feedback.feedback && feedback.feedback.trim() !== '') {
+				termsWithFeedbackCount++;
+			}
+		}
+
+		if (termsWithFeedbackCount > 0) {
+			const feedbackFilePath = this.feedbackStorage.getFilePath();
+			console.log(`\n📝 Feedback Available: ${termsWithFeedbackCount} term(s) in this session have feedback/corrections`);
+			console.log(`📁 Feedback JSON File: ${feedbackFilePath}`);
+			console.log(`💡 Feedback will be displayed when reviewing each term\n`);
+		}
+
+		// Log session start
+		this.actionLogger.logSessionStart(deck_name, selected_terms.length);
+
 		// Store current deck terms for reset functionality
 		this.currentDeckTerms = selected_terms;
 		this.currentDeckName = deck_name;
@@ -693,6 +757,10 @@ class Quizzer {
 			);
 		}
 
+		// Log session end
+		const completedCount = studyScheduler.getCardsLearnt();
+		this.actionLogger.logSessionEnd(deck_name, completedCount, selected_terms.length);
+
 		// Check if reset was triggered during the session
 		if (this.shouldResetAndRestart) {
 			console.log('Reloading deck with reset progress...\n');
@@ -703,6 +771,10 @@ class Quizzer {
 		// If deck completed (not exited early), offer to reset progress
 		if (!exit && studyScheduler.is_completed) {
 			console.log('\n✓ Deck completed!');
+			
+			// Log deck completion
+			this.actionLogger.logDeckCompletion(deck_name, selected_terms.length, completedCount);
+			
 			const resetPrompt = new Confirm({
 				name: 'resetProgress',
 				message: 'Would you like to reset this deck\'s progress and restart?',
@@ -806,6 +878,16 @@ class Quizzer {
 			} else {
 				deckChoices.unshift('Today\'s Deck (Generate now)');
 			}
+		}
+
+		// Add review deck options (today's learned cards and last session)
+		const availableReviewDecks = this.reviewDecksStorage.getAvailableReviewDecks();
+		const reviewDeckMapping = {};
+		for (const reviewDeck of availableReviewDecks) {
+			const revisedMark = reviewDeck.revised ? ' [Revised]' : '';
+			const choiceLabel = `[Review] ${reviewDeck.label}${revisedMark}`;
+			reviewDeckMapping[choiceLabel] = reviewDeck;
+			deckChoices.unshift(choiceLabel);
 		}
 
 		const ms_deck = new AutoComplete({
@@ -913,6 +995,24 @@ class Quizzer {
 			return this.runStudySession(allTerms, 'daily_deck');
 		}
 
+		// Handle Review Deck selection
+		if (deck_selected_key.startsWith('[Review]')) {
+			const selectedReviewDeck = reviewDeckMapping[deck_selected_key];
+			if (!selectedReviewDeck || selectedReviewDeck.cards.length === 0) {
+				console.log('No cards available in this review deck.');
+				return;
+			}
+
+			console.log(`\nStarting review session for ${selectedReviewDeck.date}...`);
+			console.log(`Cards to review: ${selectedReviewDeck.cards.length}\n`);
+
+			// Mark the deck as revised after starting the session
+			this.reviewDecksStorage.markAsRevised(selectedReviewDeck.date);
+
+			const deckName = `review_${selectedReviewDeck.date}`;
+			return this.runStudySession(selectedReviewDeck.cards, deckName);
+		}
+
 		// Convert display title back to original title for dictionary lookup
 		const originalKey = displayToOriginalMapping[deck_selected_key] || deck_selected_key;
 		let deck_selected = dictOptions[originalKey].name;
@@ -978,6 +1078,29 @@ class Quizzer {
 			console.log('Use "mastery mask-list" to see available masks.');
 			console.log('Use "mastery mask-toggle <mask-name>" to enable a mask.\n');
 			return;
+		}
+
+		// Check deletion queue and show reminder (same as in runStudySession)
+		const queueCount = this.deletionQueueStorage.getCount();
+		if (queueCount > 0) {
+			const jsonFilePath = this.deletionQueueStorage.getFilePath();
+			const itemsWithFeedback = this.deletionQueueStorage.getItemsWithFeedback();
+			const itemsByFile = this.deletionQueueStorage.getItemsByFilePath();
+			const filePaths = Object.keys(itemsByFile);
+			
+			console.log(`\n📋 Deletion Queue: ${queueCount} term(s) being ignored`);
+			console.log(`📁 JSON File: ${jsonFilePath}`);
+			if (itemsWithFeedback.length > 0) {
+				console.log(`⚠ ${itemsWithFeedback.length} term(s) have feedback`);
+			}
+			if (filePaths.length > 0) {
+				console.log(`📁 Terms grouped by file:`);
+				filePaths.forEach(filePath => {
+					const items = itemsByFile[filePath];
+					console.log(`   ${filePath} (${items.length} term(s))`);
+				});
+			}
+			console.log(`💡 Use "maid cleanup" to view deletion queue details\n`);
 		}
 
 		console.log(`\nFiltered by active masks: ${settingsManager.getActiveMasks().join(', ')}\n`);
@@ -1078,6 +1201,16 @@ class Quizzer {
 			}
 		}
 
+		// Add review deck options (today's learned cards and last session)
+		const availableReviewDecks = this.reviewDecksStorage.getAvailableReviewDecks();
+		const reviewDeckMapping = {};
+		for (const reviewDeck of availableReviewDecks) {
+			const revisedMark = reviewDeck.revised ? ' [Revised]' : '';
+			const choiceLabel = `[Review] ${reviewDeck.label}${revisedMark}`;
+			reviewDeckMapping[choiceLabel] = reviewDeck;
+			deckChoices.unshift(choiceLabel);
+		}
+
 		const { AutoComplete } = require('enquirer');
 		const ms_deck = new AutoComplete({
 			name: 'StudyOption',
@@ -1086,6 +1219,24 @@ class Quizzer {
 		});
 
 		let deck_selected_key = await ms_deck.run();
+
+		// Handle Review Deck selection
+		if (deck_selected_key.startsWith('[Review]')) {
+			const selectedReviewDeck = reviewDeckMapping[deck_selected_key];
+			if (!selectedReviewDeck || selectedReviewDeck.cards.length === 0) {
+				console.log('No cards available in this review deck.');
+				return;
+			}
+
+			console.log(`\nStarting review session for ${selectedReviewDeck.date}...`);
+			console.log(`Cards to review: ${selectedReviewDeck.cards.length}\n`);
+
+			// Mark the deck as revised after starting the session
+			this.reviewDecksStorage.markAsRevised(selectedReviewDeck.date);
+
+			const deckName = `review_${selectedReviewDeck.date}`;
+			return this.runStudySession(selectedReviewDeck.cards, deckName);
+		}
 
 		if (deck_selected_key.startsWith('Today\'s Deck')) {
 			const dailyDeckManager = new DailyDeckManager(Settings);
@@ -1317,6 +1468,18 @@ class Quizzer {
 				return false;
 			}
 
+			// Check for deletion queue marker "!!" (before exit check to prevent quitting)
+			if (user_res === '!!') {
+				const added = this.deletionQueueStorage.addToQueue(term_selected, this.feedbackStorage);
+				if (added) {
+					console.log('Term added to deletion queue. It will be ignored in future study sessions.');
+					this.actionLogger.logDeletionQueueAdd(term_selected);
+				} else {
+					console.log('Term is already in deletion queue.');
+				}
+				return false; // Skip this term
+			}
+
 			if (user_requests_exit(user_res)) {
 				exitMethod();
 				return false;
@@ -1383,6 +1546,10 @@ class Quizzer {
 								message: 'Provide feedback about this term'
 							},
 							{
+								name: 'movetodeletionqueue',
+								message: 'Move to deletion queue'
+							},
+							{
 								name: 'rateflashcard',
 								message: 'Rate this flashcard'
 							},
@@ -1431,6 +1598,9 @@ class Quizzer {
 							this.feedbackStorage.addFeedbackByTerm(term_selected, feedback);
 							console.log('✓ Feedback saved and will appear with this term in future reviews');
 
+							// Log feedback action
+							this.actionLogger.logFeedback(term_selected, feedback);
+
 							// Also create annotation file for daily record
 							await this.createAnnotation(
 								term_selected,
@@ -1438,6 +1608,16 @@ class Quizzer {
 								feedback
 							);
 						}
+					} else if (selectedOption === 'movetodeletionqueue') {
+						const added = this.deletionQueueStorage.addToQueue(term_selected, this.feedbackStorage);
+						if (added) {
+							console.log('✓ Term added to deletion queue. It will be ignored in future study sessions.');
+							console.log(`   Deletion queue JSON: ${this.deletionQueueStorage.getFilePath()}`);
+							this.actionLogger.logDeletionQueueAdd(term_selected);
+						} else {
+							console.log('Term is already in deletion queue.');
+						}
+						return false; // Skip this term
 					} else if (selectedOption === 'rateflashcard') {
 						// Show existing ratings for this term
 						const existingRatings = this.ratingStorage.getRatingsByTerm(term_selected);
@@ -1496,6 +1676,8 @@ class Quizzer {
 				// Record term completion for hash-based tracking if answer is correct
 				if (ISANSWERCORRECT && !is_try_question_again ) {
 					await this.recordTermCompletion(term_selected);
+					// Add to review deck for spaced repetition
+					this.reviewDecksStorage.addLearnedCard(term_selected);
 				}
 			}
 
@@ -1741,6 +1923,51 @@ class Quizzer {
 			}
 		} catch (error) {
 			console.error('Failed to create flashcard markdown:', error.message);
+		}
+	}
+
+	/**
+	 * Display deletion queue information and JSON file location
+	 * This is a reference view - the JSON file contains all terms to ignore
+	 */
+	async cleanupDeletionQueue(backup = false) {
+		const queue = this.deletionQueueStorage.getQueue();
+		const jsonFilePath = this.deletionQueueStorage.getFilePath();
+		
+		console.log(`\n📋 Deletion Queue Information`);
+		console.log(`📁 JSON File Location: ${jsonFilePath}`);
+		console.log(`📊 Total terms in ignore list: ${queue.length}\n`);
+
+		if (queue.length === 0) {
+			console.log('✓ Deletion queue is empty. No terms are being ignored.\n');
+			return;
+		}
+
+		const itemsByFile = this.deletionQueueStorage.getItemsByFilePath();
+		const filePaths = Object.keys(itemsByFile);
+		const itemsWithFeedback = this.deletionQueueStorage.getItemsWithFeedback();
+
+		if (itemsWithFeedback.length > 0) {
+			console.log(`⚠ ${itemsWithFeedback.length} term(s) have feedback - review carefully!\n`);
+		}
+
+		console.log(`📁 Terms grouped by file path:`);
+		filePaths.forEach(filePath => {
+			const items = itemsByFile[filePath];
+			console.log(`\n   ${filePath} (${items.length} term(s))`);
+			items.forEach(item => {
+				const feedbackNote = item.hasFeedback ? ' [has feedback]' : '';
+				console.log(`     - ${item.termName}${feedbackNote}`);
+			});
+		});
+
+		if (backup) {
+			console.log(`\n💾 Backup mode: Would backup files before manual removal`);
+			console.log(`   Note: Terms are not automatically removed. Edit the JSON file manually or remove from source files.\n`);
+		} else {
+			console.log(`\n💡 Note: This JSON file is an ignore list. Terms listed here are filtered out during study sessions.`);
+			console.log(`   To permanently remove terms, edit the source markdown files manually.`);
+			console.log(`   The JSON file location is shown above for your reference.\n`);
 		}
 	}
 

@@ -5,7 +5,7 @@ const ABOUT = {
 };
 
 const EXTERNAL_CONTENT_FOLDERS = [
-	'E:\\Documents\\GitHub\\ai-assistant-framework\\exploration\\ollama-ebook-summary\\refined_docs\\book_notes'
+	'E:\\Documents\\GitHub\\ai-assistant-framework\\exploration\\ollama-ebook-summary\\refined_docs\\01-book_notes'
 ];
 
 module.exports = {

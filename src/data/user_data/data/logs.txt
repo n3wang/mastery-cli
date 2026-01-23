@@ -1,0 +1,7 @@
+{"timestamp":"2026-01-23T09:01:03.959Z","action":"session_start","deckName":"language","termCount":111}
+{"timestamp":"2026-01-23T09:02:12.240Z","action":"deletion_queue_add","term":"1 - Convert from Integer to Binary String and reverse","category":"KJavaLeetcode > language","filePath":"E:\\Documents\\obsidian\\general-docs-public\\content\\1 - software-engineering\\P1 - Languages & Libraries\\K2 - Java Leetcode.md"}
+{"timestamp":"2026-01-23T09:02:26.847Z","action":"deletion_queue_add","term":"2 - Having Parameters as a list in a method and implementing lists","category":"KJavaLeetcode > language","filePath":"E:\\Documents\\obsidian\\general-docs-public\\content\\1 - software-engineering\\P1 - Languages & Libraries\\K2 - Java Leetcode.md"}
+{"timestamp":"2026-01-23T09:02:33.814Z","action":"deletion_queue_add","term":"3 - Handling Nulls","category":"KJavaLeetcode > language","filePath":"E:\\Documents\\obsidian\\general-docs-public\\content\\1 - software-engineering\\P1 - Languages & Libraries\\K2 - Java Leetcode.md"}
+{"timestamp":"2026-01-23T09:02:57.539Z","action":"feedback","term":"4 - Using hashsets","category":"KJavaLeetcode > language","filePath":"E:\\Documents\\obsidian\\general-docs-public\\content\\1 - software-engineering\\P1 - Languages & Libraries\\K2 - Java Leetcode.md","feedbackLength":28}
+{"timestamp":"2026-01-23T09:02:58.853Z","action":"session_end","deckName":"language","completedCount":0,"totalCount":111}
+{"timestamp":"2026-01-23T09:15:51.154Z","action":"session_start","deckName":"Business-Law_-Text-and-Cases","termCount":2203}

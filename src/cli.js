@@ -41,6 +41,12 @@ const flags = {
 		default: false,
 		alias: 'r',
 		desc: 'Reset the scheduler'
+	},
+	backup: {
+		type: 'boolean',
+		default: false,
+		alias: 'b',
+		desc: 'Backup files before cleanup'
 	}
 };
 
@@ -74,6 +80,10 @@ class CommandsInformation {
 			'reset-queues': new Command(
 				'Reset study session progress queues while preserving hash-based term completion data',
 				'reset-queues'
+			),
+			cleanup: new Command(
+				'View deletion queue JSON file location and contents (ignore list for study sessions)',
+				'cleanup'
 			),
 			dsa: new Command(
 				'Select data structures and algorithms for practice',
