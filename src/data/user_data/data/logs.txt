@@ -6,3 +6,6 @@
 {"timestamp":"2026-01-23T09:02:58.853Z","action":"session_end","deckName":"language","completedCount":0,"totalCount":111}
 {"timestamp":"2026-01-23T09:15:51.154Z","action":"session_start","deckName":"Business-Law_-Text-and-Cases","termCount":2203}
 {"timestamp":"2026-01-23T12:48:52.265Z","action":"session_end","deckName":"Business-Law_-Text-and-Cases","completedCount":0,"totalCount":2203}
+{"timestamp":"2026-02-02T02:48:34.444Z","action":"session_start","deckName":"Parallel-and-High-Performance-Computing","termCount":1016}
+{"timestamp":"2026-02-12T11:52:30.669Z","action":"session_start","deckName":"b04-consulting","termCount":1123}
+{"timestamp":"2026-02-12T11:52:52.104Z","action":"session_end","deckName":"b04-consulting","completedCount":0,"totalCount":1123}
