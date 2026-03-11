@@ -17,5 +17,76 @@
         "prompt": "How does MongoDB manage partitioning in distributed systems?"
       }
     ]
+  },
+  "2026-02-14": {
+    "revised": false,
+    "decks": [
+      {
+        "term": "2 - Virtualization",
+        "category": "osteppartDialogue > Operating-Systems_-Three-Easy-Pieces",
+        "description": ":m Background context: Virtualization involves creating a virtual machine (VM) that behaves like an actual computer with its own CPU, memory, storage, etc., but operates on top of the host operating system. This is one of the three easy pieces in understanding operating systems.\n",
+        "example": ":m Virtualization refers to the process of running multiple virtual machines (VMs) on a single physical machine. Each VM has its own set of resources such as CPU, memory, and storage, which are abstracted from the underlying hardware by the host operating system. This allows for efficient resource utilization and flexibility in managing different environments.",
+        "prompt": "What is virtualization?"
+      }
+    ]
+  },
+  "2026-02-23": {
+    "revised": true,
+    "decks": [
+      {
+        "term": "2 - Value Distance",
+        "category": "cbonhqpartTheRoleofaC > b04-consulting",
+        "description": ":m Background context: The concept of value distance is introduced as the difference between what clients state they want and what they actually need. Effective consultants must bridge this gap by delving deeper into client requirements through questioning techniques like \"why?\".",
+        "example": ":m Value distance refers to the discrepancy between a client's stated wants and their actual needs. Successful consultants aim to narrow this gap by thoroughly understanding what the client truly requires, often through probing questions that reveal underlying issues not initially recognized by the client.",
+        "prompt": "What does the term \"value distance\" refer to in consulting?"
+      }
+    ]
+  },
+  "2026-03-04": {
+    "revised": false,
+    "decks": [
+      {
+        "term": "1 - 日心说的提出（哥白尼革命）",
+        "category": "Chistoryth > chineseexperience",
+        "description": ":m 在1543年，波兰天文学家尼古拉·哥白尼（Nicolaus Copernicus）发表了《天体运行论》，提出**地球并非宇宙中心，而是围绕太阳公转**。这被称为“哥白尼革命”，标志着**现代科学的开端**，动摇了中世纪以地球为中心的宇宙观。 ",
+        "example": ":m 1543年，哥白尼提出地球绕太阳公转的日心说。这一理论彻底改变了人类对宇宙的认识，奠定了现代天文学与科学革命的基础。",
+        "prompt": "哥白尼在什么时候提出了日心说？这一理论有什么重大影响？"
+      },
+      {
+        "term": "2 - 达·芬奇与《蒙娜丽莎》",
+        "category": "Chistoryth > chineseexperience",
+        "description": ":m 1503年，意大利文艺复兴艺术家兼发明家**莱昂纳多·达·芬奇（Leonardo da Vinci）**开始绘制《蒙娜丽莎》，三年后完成。这幅画成为世界上最著名的艺术作品之一，体现了文艺复兴时期对人性与美的追求。 ",
+        "example": ":m 16世纪初，达·芬奇在文艺复兴时期创作了《蒙娜丽莎》。这幅画表现了文艺复兴强调的理性、自然与人文精神。",
+        "prompt": "《蒙娜丽莎》是在哪个世纪创作的？它体现了哪个文化运动的特点？"
+      },
+      {
+        "term": "3 - 彼得·亨莱因与怀表的诞生",
+        "category": "Chistoryth > chineseexperience",
+        "description": ":m 1510年，德国纽伦堡的发明家**彼得·亨莱因（Peter Henlein）**发明了世界上第一块**便携式怀表**，标志着机械钟表技术的突破，让个人计时成为可能。 ",
+        "example": ":m 德国人彼得·亨莱因在1510年代发明了第一块怀表，推动了个人时间管理与机械工程的发展。",
+        "prompt": "谁发明了第一块怀表？它出现于哪个年代？"
+      },
+      {
+        "term": "4 - 马丁·路德与宗教改革",
+        "category": "Chistoryth > chineseexperience",
+        "description": ":m 1517年，德国修士**马丁·路德（Martin Luther）**在萨克森教堂门上张贴《九十五条论纲》，反对教皇滥用赎罪券，掀起了**宗教改革运动**，导致欧洲宗教与政治格局的巨大变革。 ",
+        "example": ":m 他张贴《九十五条论纲》，公开挑战罗马教廷的权威，引发了宗教改革运动，使欧洲出现新教与天主教的分裂。",
+        "prompt": "马丁·路德在1517年做了什么？这引发了什么历史运动？"
+      },
+      {
+        "term": "5 - 麦哲伦环球航行",
+        "category": "Chistoryth > chineseexperience",
+        "description": ":m 1519年，葡萄牙探险家**费尔南多·麦哲伦（Ferdinand Magellan）**从西班牙出发，展开了人类首次环球航行。虽然他在菲律宾被杀，但他的船队在1522年返回西班牙，**证明了地球是圆的**。 ",
+        "example": ":m 1519年，麦哲伦从西班牙出航，虽然途中去世，但船队在1522年完成环球航行，证明了地球是圆形的。",
+        "prompt": "麦哲伦的航行在哪一年开始？他的航行证明了什么？"
+      },
+      {
+        "term": "6 - 英国国教的建立",
+        "category": "Chistoryth > chineseexperience",
+        "description": ":m 1531年，英格兰国王**亨利八世（Henry VIII）**脱离罗马教廷，成立**英格兰国教会（Church of England）**，并自任教会首脑，引发英国长期的宗教与政治动荡。 ",
+        "example": ":m 亨利八世于1531年因与教皇冲突而脱离罗马教廷，自立英格兰国教会，以便掌握宗教权力与政治控制。",
+        "prompt": "英格兰国教会是谁建立的？出于什么原因？"
+      }
+    ]
   }
 }

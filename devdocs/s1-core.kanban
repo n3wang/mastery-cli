@@ -5,33 +5,6 @@
       "title": "TODO",
       "cards": [
         {
-          "id": "7f61e118-97e6-4a27-acf3-0e6f918168fa",
-          "listId": "c83cefdc-13d7-4ce8-b338-0a7aa7eb7a34",
-          "title": "Production Environment",
-          "description": "better temp problems fill ups. the idea is to populate the the temporal problems for teh base preparation of everything. then also of course ignore everything that is not production ready. \n\nProbably is time to create a production ready project for just the production to code in.\n\n\n",
-          "labels": [],
-          "checkboxes": [],
-          "comments": []
-        },
-        {
-          "id": "28791b98-6a90-414d-9e3f-e2f2e4364cd0",
-          "listId": "c83cefdc-13d7-4ce8-b338-0a7aa7eb7a34",
-          "title": "Add more configurables in the settings, and defalts shoul dbe written with their diff options",
-          "description": "",
-          "labels": [],
-          "checkboxes": [],
-          "comments": []
-        },
-        {
-          "id": "90d0861b-d31f-4d3c-aa9f-1f0cfe6353bf",
-          "listId": "c83cefdc-13d7-4ce8-b338-0a7aa7eb7a34",
-          "title": "Design Backend  Web Portal and Features Excalidraw",
-          "description": "",
-          "labels": [],
-          "checkboxes": [],
-          "comments": []
-        },
-        {
           "id": "36711e1d-b04b-49e0-be3a-cd0121d2f4c0",
           "listId": "c83cefdc-13d7-4ce8-b338-0a7aa7eb7a34",
           "title": "Clean Unused Code",
@@ -62,6 +35,33 @@
           "comments": []
         },
         {
+          "id": "7f61e118-97e6-4a27-acf3-0e6f918168fa",
+          "listId": "c83cefdc-13d7-4ce8-b338-0a7aa7eb7a34",
+          "title": "Production Environment",
+          "description": "better temp problems fill ups. the idea is to populate the the temporal problems for teh base preparation of everything. then also of course ignore everything that is not production ready. \n\nProbably is time to create a production ready project for just the production to code in.\n\n\n",
+          "labels": [],
+          "checkboxes": [],
+          "comments": []
+        },
+        {
+          "id": "28791b98-6a90-414d-9e3f-e2f2e4364cd0",
+          "listId": "c83cefdc-13d7-4ce8-b338-0a7aa7eb7a34",
+          "title": "Add more configurables in the settings, and defalts shoul dbe written with their diff options",
+          "description": "",
+          "labels": [],
+          "checkboxes": [],
+          "comments": []
+        },
+        {
+          "id": "90d0861b-d31f-4d3c-aa9f-1f0cfe6353bf",
+          "listId": "c83cefdc-13d7-4ce8-b338-0a7aa7eb7a34",
+          "title": "Design Backend  Web Portal and Features Excalidraw",
+          "description": "",
+          "labels": [],
+          "checkboxes": [],
+          "comments": []
+        },
+        {
           "id": "6671cfad-4f5a-4efc-bf3d-e3ed07015cb0",
           "listId": "c83cefdc-13d7-4ce8-b338-0a7aa7eb7a34",
           "title": "Create MCLI Own Kanban System",
@@ -77,10 +77,19 @@
       "title": "Doing",
       "cards": [
         {
-          "id": "5c5c1a66-4cd0-4a41-8f11-68e9cc956b91",
+          "id": "ec6e5511-f9af-4377-a792-96d0f064c51a",
           "listId": "3d766476-da51-484c-99a0-bc213a7ce5ba",
-          "title": "Support quick deletion",
-          "description": "\nallowable in configuration, default is off.\n\nWhen writting the user input (answer) \"!!\" (careful that ! is the command to quit the session, !! if detected should not quit the study session ) it should add into a to-remove queue which will be ignored when studying. Then create a js queue which if if not empty whenever running maid ses should indicate the absolute path to find and review for true removal. (Also remind that maid cleanp command) it should also remind if exists any term with feedback in it\n\nfrom the options when removing:\n\nContinue to next question\nTry the question again\nProvide feedback about this term\n[new: move to deletion queue]\n[new: force remove] #this would force removing it from the things\nRate this flashcard\nReset deck progress\nQuit the entire session\n\n\n\nThere should be also a maid cleanup for removing all the terms that are on that to be deleted queue if running like maid cleanup --backup will remove them but move them to backup folder\n\nAlso create a logs.txt file in data where each time that the user removes or completes a deck, provides feedback then the actionis logged, also usage stats (useful for future improvement) this should be configurable in settings.json\n",
+          "title": "deck wide and prompt wide descriptions",
+          "description": "",
+          "labels": [],
+          "checkboxes": [],
+          "comments": []
+        },
+        {
+          "id": "10aef170-61ee-4231-9f4a-1b802e9b215b",
+          "listId": "3d766476-da51-484c-99a0-bc213a7ce5ba",
+          "title": "Refactoring plugins because the settings it too much?",
+          "description": "",
           "labels": [],
           "checkboxes": [],
           "comments": []
@@ -91,6 +100,15 @@
       "id": "5969e69c-fe41-4634-85b5-3cd8c9380974",
       "title": "Done",
       "cards": [
+        {
+          "id": "5c5c1a66-4cd0-4a41-8f11-68e9cc956b91",
+          "listId": "5969e69c-fe41-4634-85b5-3cd8c9380974",
+          "title": "Support quick deletion",
+          "description": "\nallowable in configuration, default is off.\n\nWhen writting the user input (answer) \"!!\" (careful that ! is the command to quit the session, !! if detected should not quit the study session ) it should add into a to-remove queue which will be ignored when studying. Then create a js queue which if if not empty whenever running maid ses should indicate the absolute path to find and review for true removal. (Also remind that maid cleanp command) it should also remind if exists any term with feedback in it\n\nfrom the options when removing:\n\nContinue to next question\nTry the question again\nProvide feedback about this term\n[new: move to deletion queue]\n[new: force remove] #this would force removing it from the things\nRate this flashcard\nReset deck progress\nQuit the entire session\n\n\n\nThere should be also a maid cleanup for removing all the terms that are on that to be deleted queue if running like maid cleanup --backup will remove them but move them to backup folder\n\nAlso create a logs.txt file in data where each time that the user removes or completes a deck, provides feedback then the actionis logged, also usage stats (useful for future improvement) this should be configurable in settings.json\n",
+          "labels": [],
+          "checkboxes": [],
+          "comments": []
+        },
         {
           "id": "10eb0e8d-4e25-4bc9-8676-bd6b2ec51aec",
           "listId": "5969e69c-fe41-4634-85b5-3cd8c9380974",
