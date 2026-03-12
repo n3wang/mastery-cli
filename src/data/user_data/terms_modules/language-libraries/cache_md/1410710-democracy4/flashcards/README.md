@@ -1,0 +1,165 @@
+# Democracy 4 Modding Flashcards
+
+Comprehensive flashcards for learning Democracy 4 mod development, organized by topic.
+
+## Files Overview
+
+### 1. **democracy4-mod-basics.md** (7 cards)
+Foundation concepts for getting started:
+- Mod configuration file structure
+- Primary data formats (CSV)
+- Standard directory structure
+- INI override system
+- Mission configuration
+- Layered architecture model
+
+**Start here if you're new to Democracy 4 modding**
+
+### 2. **democracy4-policy-system.md** (7 cards)
+Deep dive into the policy system:
+- Policy CSV column structure
+- Policy effect format and calculation
+- Cost and income functions
+- Opposite policies constraint
+- Prerequisite system
+- Slider types and policy groups
+- Policy flags (MULTIPLYINCOME, UNCANCELLABLE, etc.)
+
+**Essential for creating and modifying policies**
+
+### 3. **democracy4-situations-events.md** (7 cards)
+Dynamic gameplay elements:
+- Situation CSV structure and mechanics
+- Event TXT file structure
+- CreateGrudge command system
+- Dilemma structure and player choices
+- Influence trigger system
+- Situation success and difficulty
+- How triggers create emergent gameplay
+
+**Learn how to create reactive, dynamic content**
+
+### 4. **democracy4-equations-math.md** (9 cards)
+Mathematical modeling system:
+- Equation variable 'x' and normalization
+- Linear effect equations (base + coefficient*x)
+- Polynomial equations (x^2, x^3)
+- Negative effects for reductions
+- Interaction effects (policy × policy)
+- Cost function scaling
+- Inertia and momentum
+- Demographic frequency variables
+
+**Master the math that drives the simulation**
+
+### 5. **democracy4-advanced-techniques.md** (7 cards)
+Professional modding patterns:
+- Mission-specific override strategy
+- Complex event trigger probability curves
+- Simulation variable specialization
+- Script-based mission initialization
+- Opposite policies for strategic balance
+- Inertia-based momentum systems
+- Multi-language translation architecture
+- Compositional override stacking
+
+**Advanced techniques for sophisticated mods**
+
+## Total Cards: 37
+
+## Study Recommendations
+
+### Beginner Path
+1. Start with **mod-basics.md** (understand structure)
+2. Move to **policy-system.md** (learn to create policies)
+3. Study **equations-math.md** (understand the formulas)
+4. Practice modifying existing mods
+
+### Intermediate Path
+1. Review basics if needed
+2. Deep dive **situations-events.md** (dynamic content)
+3. Explore **equations-math.md** (master mathematical modeling)
+4. Create your first original policy or situation
+
+### Advanced Path
+1. Master all equation types
+2. Study **advanced-techniques.md** (professional patterns)
+3. Create interconnected systems (simulation variable specialization)
+4. Build complete mission or comprehensive overhaul mod
+
+## Key Concepts by Complexity
+
+### Level 1 - Fundamentals
+- File formats (CSV, TXT, INI)
+- Directory structure
+- Config files
+- Basic policy effects
+
+### Level 2 - Mechanics
+- Equation types (linear, polynomial)
+- Policy costs and income
+- Situations and their influences
+- Events and dilemmas
+
+### Level 3 - Advanced
+- Override stacking
+- Custom simulation variables
+- Mission-specific customization
+- Complex trigger probability curves
+
+## Quick Reference
+
+### Common Equation Patterns
+```
+Linear:        0.02+(0.1*x)
+Polynomial:    0.5*(x^2)
+Negative:      0-(0.05*x)
+Interaction:   (0.22*x)*PolicyName
+```
+
+### Inertia Guidelines
+```
+0     - Immediate
+0.3   - Fast (economic changes)
+0.5   - Medium (mixed effects)
+0.8   - Slow (infrastructure, culture)
+0.95  - Very slow (generational change)
+```
+
+### File Types Quick Guide
+```
+.csv  - Data definitions (policies, situations, simulation variables)
+.txt  - Configs, events, dilemmas, mission settings
+.ini  - Override files (modify relationships)
+.svg  - Vector graphics (icons, maps)
+.jpg/.png - Raster images (events, flags)
+```
+
+## Learning Tips
+
+1. **Context over memorization**: Focus on understanding WHY systems work this way
+2. **Experiment**: Modify existing mods to see effects
+3. **Compare mods**: Look at different mods to see various techniques
+4. **Start small**: Modify one policy before creating entire systems
+5. **Use pseudocode**: The flashcards include pseudocode to understand logic flow
+
+## Architecture Principles
+
+Democracy 4 uses:
+- **Declarative design**: Mechanics defined in data, not code
+- **Compositional overrides**: Multiple files stack together
+- **Equation-based simulation**: Math formulas for all effects
+- **Layered architecture**: Base game + mod layers
+- **Separation of concerns**: Mechanics separate from text/localization
+
+## Next Steps After Studying
+
+1. **Analyze existing mods**: Use your knowledge to reverse-engineer successful mods
+2. **Create simple mod**: Start with one policy or situation
+3. **Test and iterate**: Use Democracy 4's built-in mod tools
+4. **Build complexity**: Gradually add interconnected systems
+5. **Share and learn**: Join Democracy 4 modding community
+
+---
+
+*These flashcards were generated by analyzing 14 Steam Workshop mods with thousands of files to identify common patterns, techniques, and best practices.*

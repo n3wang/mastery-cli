@@ -88,5 +88,17 @@
         "prompt": "英格兰国教会是谁建立的？出于什么原因？"
       }
     ]
+  },
+  "2026-03-12": {
+    "revised": false,
+    "decks": [
+      {
+        "term": "17 - frappe.msgprint() vs frappe.throw()",
+        "category": "erpnextcoreconcepts > 3-1-erpnext",
+        "description": ":m Two ways to communicate with users, but with different purposes and behaviors:\n\n**frappe.msgprint()**: Shows informational message, execution continues\n**frappe.throw()**: Shows error message, stops execution\n\n```python\n# msgprint - informational, non-blocking\ndef validate(self):\n    if self.total_amount > 10000:\n        frappe.msgprint(\"Large order detected. Please review carefully.\")\n        # Execution continues here\n        self.high_value = 1\n\n# throw - error, blocking\ndef validate(self):\n    if not self.customer:\n        frappe.throw(\"Customer is mandatory\")\n        # Code after this never executes\n```\n\n**msgprint with indicators**:\n```python\nfrappe.msgprint(\n    msg=\"Order saved successfully\",\n    title=\"Success\",\n    indicator=\"green\"  # red, yellow, green, blue\n)\n```\n\nWhen to use:\n- **msgprint**: Warnings, info, success messages\n- **throw**: Validation errors, blocking conditions\n",
+        "example": ":m Different purposes and behaviors:\n\n\n\n\n**frappe.msgprint()**: Info message, execution CONTINUES\n```python\nfrappe.msgprint(\"This is a warning\")\nprint(\"This code runs\")  # Executes\n\n\n\n\nfrappe.msgprint(\n    msg=\"Success!\",\n    title=\"Done\",\n    indicator=\"green\"  # red/yellow/green/blue\n)\n```\n\n\n\n\n**frappe.throw()**: Error message, execution STOPS\n```python\nif error_condition:\n    frappe.throw(\"Critical error\")\n    print(\"Never executes\")  # Won't run\n```\n\n\n\n\n**Use msgprint for**:\n- Warnings\n- Success notifications\n- Informational alerts\n\n\n\n\n**Use throw for**:\n- Validation failures\n- Required field errors\n- Business rule violations\n\n\n\n\nThink: msgprint = alert, throw = exception",
+        "prompt": "What's the difference between frappe.msgprint() and frappe.throw()?"
+      }
+    ]
   }
 }
