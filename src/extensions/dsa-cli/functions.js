@@ -236,30 +236,10 @@ const openEditorPlatformAgnostic = async (
 	const os = require('os');
 
 	if (os.platform() === 'win32') {
-		if (editor_instruction === 'code') {
-			openEditorWithCommand(
-				`${editor_instruction} ${absolute_temp_file_path}`
-			);
-		} else {
-			console.log(
-				`Windows | start ${editor_instruction} ${absolute_temp_file_path}`
-			);
-			await openEditorWithCommand(
-				`start ${editor_instruction} ${absolute_temp_file_path}`
-			);
-		}
-	} else if (os.platform() === 'linux') {
-		console.log('Linux');
 		await openEditorWithCommand(
-			`${editor_instruction} ${absolute_temp_file_path}`
-		);
-	} else if (os.platform() === 'darwin') {
-		console.log('macOS');
-		await openEditorWithCommand(
-			`${editor_instruction} ${absolute_temp_file_path}`
+			`start ${editor_instruction} ${absolute_temp_file_path}`
 		);
 	} else {
-		console.log('Unknown operating system');
 		await openEditorWithCommand(
 			`${editor_instruction} ${absolute_temp_file_path}`
 		);

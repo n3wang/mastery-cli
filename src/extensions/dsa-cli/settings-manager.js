@@ -19,7 +19,9 @@ class SettingsManager {
 	editSettings() {
 		// Opens the settings.json file in the default editor
 		const { exec } = require('node:child_process');
-		exec(`start ${this.settings_path}`, (error, stdout, stderr) => {
+		const os = require('os');
+		const openCmd = os.platform() === 'win32' ? 'start' : os.platform() === 'darwin' ? 'open' : 'xdg-open';
+		exec(`${openCmd} ${this.settings_path}`, (error, stdout, stderr) => {
 			if (error) {
 				console.error(`exec error: ${error}`);
 				return;

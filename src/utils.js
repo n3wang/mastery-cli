@@ -148,7 +148,7 @@ const { reverse } = require('node:dns');
 function withOnlineCheck(fn) {
 	return async function (...args) {
 		if (!Settings?.online) {
-			console.log('Offline, modify in data\\settings.json');
+			console.log('Offline, modify in data/settings.json');
 			return {};
 		}
 		return await fn.apply(this, args);
@@ -515,7 +515,11 @@ class Mastery {
 	tellCurrentDirectory = () => {
 		const projectDirectory = getMaidDirectory();
 		this.say(projectDirectory);
-		clipboard.copy(projectDirectory);
+		try {
+			clipboard.copy(projectDirectory);
+		} catch (err) {
+			// clipboard may be unavailable on Linux without xclip/xsel
+		}
 	};
 	displaySettingsPaths = () => {
 		const path = require('path');
@@ -1052,12 +1056,6 @@ class Mastery {
 			};
 
 			// Collect module information
-			const titleInput = new Input({
-				name: 'title',
-				message: 'Enter module title (e.g., "Data Science Fundamentals"):',
-				validate: (input) => input.trim() ? true : 'Title is required'
-			});
-
 			const authorInput = new Input({
 				name: 'author',
 				message: 'Enter author name:',
@@ -1080,47 +1078,42 @@ class Mastery {
 				initial: false
 			});
 
-			const externalFolderInput = new Input({
-				name: 'externalFolder',
-				message: 'Enter external content folder path (optional, press Enter to skip):',
-				validate: (input) => {
-					if (!input || input.trim() === '') {
-						return true; // Optional field
-					}
-					
-					// Check if path exists (with original single backslashes for validation)
-					const originalPath = input.trim();
-					if (!fs.existsSync(originalPath)) {
-						return `Path does not exist: ${originalPath}`;
-					}
-					
-					// Check if it's a directory
-					if (!fs.statSync(originalPath).isDirectory()) {
-						return 'Path must be a directory, not a file';
-					}
-					
-					return true;
-				},
-				format: (input) => {
-					// Automatically escape single backslashes to double backslashes for Windows paths
-					if (input && input.includes('\\')) {
-						return input.replace(/\\/g, '\\\\');
-					}
-					return input;
-				}
-			});
-
-			// Run prompts
-			const title = await titleInput.run();
+			// Run prompts — validate after run to avoid enquirer re-render
+			// input accumulation bug on Linux terminals
+			let title = '';
+			while (!title.trim()) {
+				const titleInput = new Input({
+					name: 'title',
+					message: 'Enter module title (e.g., "Data Science Fundamentals"):',
+				});
+				title = await titleInput.run();
+				if (!title.trim()) console.log('Title is required');
+			}
 			const author = await authorInput.run();
 			const cacheContent = await cacheContentToggle.run();
 			const useFileAsModule = await useFileAsModuleToggle.run();
-			let externalFolder = await externalFolderInput.run();
 
-			// Additional path processing for Windows paths
-			if (externalFolder && externalFolder.trim()) {
-				// Ensure proper escaping for JavaScript strings
-				externalFolder = externalFolder.replace(/\\/g, '\\\\');
+			// External folder prompt: validate after run to avoid enquirer re-render
+			// input accumulation bug on Linux terminals
+			let externalFolder = '';
+			let externalPathValid = false;
+			while (!externalPathValid) {
+				const externalFolderInput = new Input({
+					name: 'externalFolder',
+					message: 'Enter external content folder path (optional, press Enter to skip):',
+				});
+				const rawInput = await externalFolderInput.run();
+
+				if (!rawInput || rawInput.trim() === '') {
+					externalPathValid = true;
+				} else if (!fs.existsSync(rawInput.trim())) {
+					console.log(`Path does not exist: ${rawInput.trim()}`);
+				} else if (!fs.statSync(rawInput.trim()).isDirectory()) {
+					console.log('Path must be a directory, not a file');
+				} else {
+					externalFolder = rawInput.trim().replace(/\\/g, '\\\\');
+					externalPathValid = true;
+				}
 			}
 
 			// Derive module path and skill category from title
@@ -1400,12 +1393,15 @@ class Mastery {
 				return;
 			}
 
-			const maskNamePrompt = new Input({
-				name: 'maskName',
-				message: 'Enter a name for this mask:',
-				validate: input => input.trim().length > 0 || 'Mask name cannot be empty'
-			});
-			const maskName = await maskNamePrompt.run();
+			let maskName = '';
+			while (!maskName.trim()) {
+				const maskNamePrompt = new Input({
+					name: 'maskName',
+					message: 'Enter a name for this mask:',
+				});
+				maskName = await maskNamePrompt.run();
+				if (!maskName.trim()) console.log('Mask name cannot be empty');
+			}
 
 			// Save the mask
 			const settings = JSON.parse(fs.readFileSync(settingsPath, 'utf8'));
@@ -1783,19 +1779,19 @@ class Mastery {
 		const { Input, MultiSelect } = require('enquirer');
 
 		try {
-			const namePrompt = new Input({
-				name: 'name',
-				message: 'Mask name:',
-				validate: input => input.trim().length > 0 || 'Name cannot be empty'
-			});
-			const maskName = await namePrompt.run();
+			let maskName = '';
+			while (!maskName.trim()) {
+				const namePrompt = new Input({ name: 'name', message: 'Mask name:' });
+				maskName = await namePrompt.run();
+				if (!maskName.trim()) console.log('Name cannot be empty');
+			}
 
-			const decksPrompt = new Input({
-				name: 'decks',
-				message: 'Deck names (comma-separated):',
-				validate: input => input.trim().length > 0 || 'At least one deck required'
-			});
-			const decksInput = await decksPrompt.run();
+			let decksInput = '';
+			while (!decksInput.trim()) {
+				const decksPrompt = new Input({ name: 'decks', message: 'Deck names (comma-separated):' });
+				decksInput = await decksPrompt.run();
+				if (!decksInput.trim()) console.log('At least one deck required');
+			}
 			const decks = decksInput.split(',').map(d => d.trim()).filter(d => d.length > 0);
 
 			settingsManager.createMask(maskName, decks);
