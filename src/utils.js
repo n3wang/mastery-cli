@@ -46,6 +46,15 @@ const {
 const { getMaidDirectory } = require('./utils_functions.js');
 
 const Settings = require('./settings.js');
+const {
+	DEFAULT_LLM_CONFIG,
+	normalizeLlmConfig,
+	normalizeLlmRoot,
+	listLLMProfiles,
+	resolveRuntimeLLMConfig,
+	LLMService
+} = require('./llm/LLMService');
+const { runLLMWizard, printLLMStatus } = require('./llm/wizard');
 
 const { Quizzer: FlashQuizzer } = require('./Quizzer.js');
 
@@ -442,6 +451,9 @@ class Mastery {
 			'mask-status': () => {
 				this.showMaskStatus();
 			},
+			llm: async () => {
+				await this.handleLLMCommand();
+			},
 			'prepare-week': async () => {
 				await this.prepareWeeklyDecks();
 			}
@@ -568,6 +580,121 @@ class Mastery {
 
 		console.log('\nUse these paths to modify application and extension settings.');
 	};
+
+	getSettingsManager() {
+		const SettingsManager = require('./SettingsManager');
+		return new SettingsManager();
+	}
+
+	updateRuntimeSettings(newSettings) {
+		this.Settings = newSettings;
+		Object.assign(Settings, newSettings);
+	}
+
+	async handleLLMCommand() {
+		const subcommand = (process.argv[3] || 'setup').toLowerCase();
+		const settingsManager = this.getSettingsManager();
+		const settings = settingsManager.getSettings();
+		const persistedRootConfig = normalizeLlmRoot(settings.llm || DEFAULT_LLM_CONFIG);
+
+		const saveLlmConfig = rootConfig => {
+			const nextSettings = {
+				...settingsManager.getSettings(),
+				llm: normalizeLlmRoot(rootConfig)
+			};
+			settingsManager.saveSettings(nextSettings);
+			this.updateRuntimeSettings(nextSettings);
+		};
+
+		if (subcommand === 'setup') {
+			const nextRootConfig = await runLLMWizard(persistedRootConfig);
+			saveLlmConfig(nextRootConfig);
+			const runtimeConfig = resolveRuntimeLLMConfig({ settings: { llm: nextRootConfig } });
+			printLLMStatus(runtimeConfig);
+			return;
+		}
+
+		if (subcommand === 'on') {
+			saveLlmConfig({ ...persistedRootConfig, enabled: true });
+			console.log('Local LLM enabled.');
+			return;
+		}
+
+		if (subcommand === 'off') {
+			saveLlmConfig({ ...persistedRootConfig, enabled: false });
+			console.log('Local LLM disabled.');
+			return;
+		}
+
+		if (subcommand === 'profiles') {
+			const profiles = listLLMProfiles(settingsManager.getSettings());
+			if (profiles.length === 0) {
+				console.log('No LLM profiles configured. Run "mastery llm setup".');
+				return;
+			}
+
+			console.log('\nLLM Profiles:\n');
+			profiles.forEach(profile => {
+				const active = profile.isActive ? ' (active)' : '';
+				console.log(`- ${profile.name}${active}`);
+				console.log(`  provider=${profile.config.provider} model=${profile.config.model}`);
+				console.log(`  baseUrl=${profile.config.baseUrl}`);
+			});
+			console.log('');
+			return;
+		}
+
+		if (subcommand === 'use') {
+			const targetProfile = process.argv[4];
+			if (!targetProfile) {
+				console.log('Usage: mastery llm use <profile-name>');
+				return;
+			}
+
+			if (!persistedRootConfig.profiles[targetProfile]) {
+				console.log(`Profile not found: ${targetProfile}`);
+				return;
+			}
+
+			saveLlmConfig({
+				...persistedRootConfig,
+				activeProfile: targetProfile
+			});
+			console.log(`Active LLM profile set to: ${targetProfile}`);
+			return;
+		}
+
+		if (subcommand === 'status') {
+			const runtimeConfig = resolveRuntimeLLMConfig({ settings: settingsManager.getSettings() });
+			printLLMStatus(runtimeConfig);
+			return;
+		}
+
+		if (subcommand === 'test') {
+			const targetProfile = process.argv[4] || null;
+			const runtimeConfig = resolveRuntimeLLMConfig({
+				settings: settingsManager.getSettings(),
+				profileName: targetProfile
+			});
+			if (!runtimeConfig.enabled) {
+				console.log('Local LLM is currently disabled. Run "mastery llm on" first.');
+				return;
+			}
+
+			try {
+				const service = new LLMService(runtimeConfig);
+				await service.testConnection();
+				console.log(
+					`Local LLM connection test successful${runtimeConfig.profileName ? ` (${runtimeConfig.profileName})` : ''}.`
+				);
+			} catch (error) {
+				console.log(`Local LLM test failed: ${error.message}`);
+			}
+			return;
+		}
+
+		console.log('Unknown llm command. Use one of: setup, on, off, status, test, profiles, use');
+	}
 
 	runServer = () => {
 		const projectDirectory = getMaidDirectory();

@@ -1,8 +1,13 @@
 {
   "lists": [
     {
+      "id": "dd639e5a-f155-46d7-918d-d937c951d61c",
+      "title": "Backlog",
+      "cards": []
+    },
+    {
       "id": "c83cefdc-13d7-4ce8-b338-0a7aa7eb7a34",
-      "title": "TODO",
+      "title": "Todo",
       "cards": [
         {
           "id": "36711e1d-b04b-49e0-be3a-cd0121d2f4c0",
@@ -77,19 +82,10 @@
       "title": "Doing",
       "cards": [
         {
-          "id": "ec6e5511-f9af-4377-a792-96d0f064c51a",
-          "listId": "3d766476-da51-484c-99a0-bc213a7ce5ba",
-          "title": "deck wide and prompt wide descriptions",
-          "description": "",
-          "labels": [],
-          "checkboxes": [],
-          "comments": []
-        },
-        {
           "id": "10aef170-61ee-4231-9f4a-1b802e9b215b",
           "listId": "3d766476-da51-484c-99a0-bc213a7ce5ba",
           "title": "Refactoring plugins because the settings it too much?",
-          "description": "",
+          "description": "there are lots of data user_data folders, I think they should be refactored so that all user data related items should be in one place, work on that",
           "labels": [],
           "checkboxes": [],
           "comments": []
@@ -100,6 +96,15 @@
       "id": "5969e69c-fe41-4634-85b5-3cd8c9380974",
       "title": "Done",
       "cards": [
+        {
+          "id": "90aaf801-a3d4-4605-a405-da3085b96c75",
+          "listId": "5969e69c-fe41-4634-85b5-3cd8c9380974",
+          "title": "have the option to place either a local or connected llm api to ask questions regarding the card on the moment",
+          "description": "",
+          "labels": [],
+          "checkboxes": [],
+          "comments": []
+        },
         {
           "id": "5c5c1a66-4cd0-4a41-8f11-68e9cc956b91",
           "listId": "5969e69c-fe41-4634-85b5-3cd8c9380974",
@@ -302,7 +307,17 @@
   ],
   "archive": {
     "lists": [],
-    "cards": []
+    "cards": [
+      {
+        "id": "ec6e5511-f9af-4377-a792-96d0f064c51a",
+        "listId": "3d766476-da51-484c-99a0-bc213a7ce5ba",
+        "title": "deck wide and prompt wide descriptions",
+        "description": "Create a markdown design for deck wide and prompt wide descriptions in which can be configurable in the index.js and also add into the loop of \"? What would you like to do? ... \nContinue to next question\nTry the question again\nOpen local LLM topic chat (qwen)\" options to edit that decks common insturctions\n\nThose common isntructions shoudl appear before the problem description everytime\n\ncan be none, empty, unconfigured",
+        "labels": [],
+        "checkboxes": [],
+        "comments": []
+      }
+    ]
   },
   "settings": {
     "labels": []

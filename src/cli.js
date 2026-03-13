@@ -47,6 +47,14 @@ const flags = {
 		default: false,
 		alias: 'b',
 		desc: 'Backup files before cleanup'
+	},
+	llm: {
+		type: 'boolean',
+		desc: 'Enable local LLM for this run (or use --no-llm)'
+	},
+	llmFollowup: {
+		type: 'boolean',
+		desc: 'Enable local LLM follow-up helper for incorrect answers (or use --no-llm-followup)'
 	}
 };
 
@@ -146,6 +154,10 @@ class CommandsInformation {
 			'mask-status': new Command(
 				'Show currently active masks and their filtered decks',
 				'mask-status'
+			),
+			llm: new Command(
+				'Configure and control local LLM integration (setup/on/off/status/test/profiles/use)',
+				'llm'
 			),
 			'prepare-week': new Command(
 				'Prepare daily study decks for the upcoming week',

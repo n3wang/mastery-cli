@@ -146,5 +146,32 @@
     "logging": {
       "enabled": true,
       "log_file": "logs.txt"
+    },
+    "llm": {
+      "enabled": false,
+      "followupEnabled": true,
+      "activeProfile": "qwen",
+      "profiles": {
+        "qwen": {
+          "provider": "ollama",
+          "baseUrl": "http://127.0.0.1:11434/api",
+          "model": "qwen2.5:latest",
+          "timeoutMs": 120000,
+          "promptProfile": "coach",
+          "maxFollowupTokens": 300,
+          "temperature": 0.3,
+          "apiKey": ""
+        },
+        "llama2": {
+          "provider": "ollama",
+          "baseUrl": "http://127.0.0.1:11434/api",
+          "model": "llama2:latest",
+          "timeoutMs": 120000,
+          "promptProfile": "coach",
+          "maxFollowupTokens": 300,
+          "temperature": 0.3,
+          "apiKey": ""
+        }
+      }
     }
   }

@@ -51,6 +51,7 @@ const { ReviewDecksStorage } = require('./ReviewDecksStorage');
 const { DeletionQueueStorage } = require('./DeletionQueueStorage');
 const { ActionLogger } = require('./ActionLogger');
 const crypto = require('crypto');
+const { LLMService, resolveRuntimeLLMConfig } = require('./llm/LLMService');
 
 // const DEBUG = true
 const DEBUG = false;
@@ -85,6 +86,44 @@ class Quizzer {
 		// Initialize action logger (check if logging is enabled in settings)
 		const loggingEnabled = Settings?.logging?.enabled ?? true;
 		this.actionLogger = new ActionLogger('logs.txt', loggingEnabled);
+
+		// Temporary in-memory session counter (!c) for focused bursts.
+		this.tempCounter = {
+			active: false,
+			attempts: 0,
+			learned: 0
+		};
+	}
+
+	activateOrResetTempCounter() {
+		if (!this.tempCounter.active) {
+			this.tempCounter.active = true;
+			this.tempCounter.attempts = 0;
+			this.tempCounter.learned = 0;
+			console.log('Temporary counter enabled and reset to zero.');
+			return;
+		}
+
+		this.tempCounter.attempts = 0;
+		this.tempCounter.learned = 0;
+		console.log('Temporary counter reset to zero.');
+	}
+
+	increaseTempCounter({ attempts = 0, learned = 0 } = {}) {
+		if (!this.tempCounter.active) {
+			return;
+		}
+
+		this.tempCounter.attempts += attempts;
+		this.tempCounter.learned += learned;
+	}
+
+	getTempCounterSuffix() {
+		if (!this.tempCounter.active) {
+			return '';
+		}
+
+		return ` ( catt: ${this.tempCounter.attempts}, clrn: ${this.tempCounter.learned} )`;
 	}
 
 	/**
@@ -703,8 +742,9 @@ class Quizzer {
 
 		const printCardsLeft = async (cardsLeft, cardsLearnt) => {
 			const todayTotal = await getTodayLearnedCount();
+			const tempCounterSuffix = this.getTempCounterSuffix();
 			console.log(
-				`\nCards left: ${cardsLeft} || Cards completed: ${cardsLearnt} || Today: ${todayTotal}\n`
+				`\nCards left: ${cardsLeft} || Cards completed: ${cardsLearnt} || Today: ${todayTotal}${tempCounterSuffix}\n`
 			);
 		};
 
@@ -720,8 +760,9 @@ class Quizzer {
 				learning,
 				working
 			) => {
+				const tempCounterSuffix = this.getTempCounterSuffix();
 				console.log(
-					`Cards left: ${cardsLeft} || Cards completed: ${cardsCompleted} || learning ${learning} || workingset: ${working}`
+					`Cards left: ${cardsLeft} || Cards completed: ${cardsCompleted} || learning ${learning} || workingset: ${working}${tempCounterSuffix}`
 				);
 			};
 
@@ -785,11 +826,13 @@ class Quizzer {
 			if (shouldReset) {
 				const resetCount = await this.resetCurrentDeckProgress();
 				console.log(`✓ Reset progress for ${resetCount} terms in "${deck_name}"\n`);
+				console.log('Restarting deck...\n');
+				await this.runStudySession(this.currentDeckTerms, deck_name, { resetScheduler: true });
+				return;
 			}
 
-			// Restart the deck regardless of reset choice (always reset scheduler to reload cards)
-			console.log('Restarting deck...\n');
-			await this.runStudySession(this.currentDeckTerms, deck_name, { resetScheduler: true });
+			console.log('Session complete. Exiting deck.\n');
+			return;
 		}
 	}
 
@@ -1383,7 +1426,7 @@ class Quizzer {
 
 			// Display progress stats at the top if provided
 			if (progressStats) {
-				const statsText = `Cards left: ${progressStats.cardsLeft} || Cards completed: ${progressStats.cardsCompleted} || Today: ${progressStats.todayTotal}`;
+				const statsText = `Cards left: ${progressStats.cardsLeft} || Cards completed: ${progressStats.cardsCompleted} || Today: ${progressStats.todayTotal}${this.getTempCounterSuffix()}`;
 				if (Settings?.minimal_colors) {
 					console.log(statsText);
 				} else {
@@ -1460,6 +1503,16 @@ class Quizzer {
 
 			const user_res = await question.run();
 
+			if ((user_res || '').trim() === '!c') {
+				this.activateOrResetTempCounter();
+				return await this.ask_term_question(term_selected, {
+					ask_if_correct,
+					exitMethod,
+					is_try_questin_again: is_try_question_again,
+					progressStats
+				});
+			}
+
 			// Check for escape methods
 
 			if (user_requests_calc(user_res)) {
@@ -1508,6 +1561,11 @@ class Quizzer {
 				ISANSWERCORRECT = response;
 
 				// Track flashcard attempts and learned counts
+				this.increaseTempCounter({
+					attempts: 1,
+					learned: response ? 1 : 0
+				});
+
 				if (!is_try_question_again) {
 					this.masteryManager.increasePerformance('flashcard_attempts', 'feat', 1);
 					if (response) {
@@ -1529,147 +1587,154 @@ class Quizzer {
 						}
 					);
 				} else {
-					const options = new AutoComplete({
-						name: 'incorrectAnswerOption',
-						message: 'What would you like to do?',
-						choices: [
-							{
-								name: 'next',
-								message: 'Continue to next question'
-							},
-							{
-								name: 'repractice',
-								message: 'Try the question again'
-							},
-							{
-								name: 'providefeedback',
-								message: 'Provide feedback about this term'
-							},
-							{
-								name: 'movetodeletionqueue',
-								message: 'Move to deletion queue'
-							},
-							{
-								name: 'rateflashcard',
-								message: 'Rate this flashcard'
-							},
-							{
-								name: 'resetdeck',
-								message: 'Reset deck progress'
-							},
-							{
-								name: 'quit',
-								message: 'Quit the entire session'
-							}
-						]
-					});
+					let shouldExitIncorrectMenu = false;
+					while (!shouldExitIncorrectMenu) {
+						const llmProfileChoices = this.getAvailableLLMProfiles().map(profileName => ({
+							name: `askllmfollowup:${profileName}`,
+							message: `Open local LLM topic chat (${profileName})`
+						}));
 
-					const selectedOption = await options.run();
-
-					if (selectedOption === 'repractice') {
-						return await this.ask_term_question(term_selected, {
-							ask_if_correct,
-							exitMethod,
-							try_question_again: true
-						});
-					} else if (selectedOption === 'quit') {
-						exitMethod();
-						return false;
-					} else if (selectedOption === 'providefeedback') {
-						// Check if there's existing feedback
-						const existingFeedback = this.feedbackStorage.getFeedbackByTerm(term_selected);
-						let initialValue = '';
-						if (existingFeedback && existingFeedback.feedback) {
-							console.log('\n📝 Existing feedback/corrections:');
-							console.log(existingFeedback.feedback);
-							console.log(`(Added on ${new Date(existingFeedback.timestamp).toLocaleDateString()})\n`);
-							initialValue = existingFeedback.feedback;
-						}
-
-						const feedbackPrompt = new Input({
-							name: 'feedback',
-							message: 'Add/edit your feedback/corrections:',
-							initial: initialValue
-						});
-
-						const feedback = await feedbackPrompt.run();
-						if (feedback && feedback.trim()) {
-							// Save to persistent storage
-							this.feedbackStorage.addFeedbackByTerm(term_selected, feedback);
-							console.log('✓ Feedback saved and will appear with this term in future reviews');
-
-							// Log feedback action
-							this.actionLogger.logFeedback(term_selected, feedback);
-
-							// Also create annotation file for daily record
-							await this.createAnnotation(
-								term_selected,
-								user_res,
-								feedback
-							);
-						}
-					} else if (selectedOption === 'movetodeletionqueue') {
-						const added = this.deletionQueueStorage.addToQueue(term_selected, this.feedbackStorage);
-						if (added) {
-							console.log('✓ Term added to deletion queue. It will be ignored in future study sessions.');
-							console.log(`   Deletion queue JSON: ${this.deletionQueueStorage.getFilePath()}`);
-							this.actionLogger.logDeletionQueueAdd(term_selected);
-						} else {
-							console.log('Term is already in deletion queue.');
-						}
-						return false; // Skip this term
-					} else if (selectedOption === 'rateflashcard') {
-						// Show existing ratings for this term
-						const existingRatings = this.ratingStorage.getRatingsByTerm(term_selected);
-						if (existingRatings.length > 0) {
-							console.log('\nPrevious ratings for this term:');
-							existingRatings.forEach(r => {
-								const date = new Date(r.timestamp).toLocaleDateString();
-								const stars = '⭐'.repeat(r.rating);
-								console.log(`  ${stars} (${r.rating}/5) - ${date}`);
-							});
-							const avgRating = this.ratingStorage.getAverageRating(term_selected);
-							console.log(`Average: ${avgRating.toFixed(1)}/5\n`);
-						}
-
-						// Prompt for rating
-						const ratingPrompt = new AutoComplete({
-							name: 'rating',
-							message: 'Rate this flashcard (1-5):',
+						const options = new AutoComplete({
+							name: 'incorrectAnswerOption',
+							message: 'What would you like to do?',
 							choices: [
-								{ name: '5', message: '5 - Excellent' },
-								{ name: '4', message: '4 - Good' },
-								{ name: '3', message: '3 - Average' },
-								{ name: '2', message: '2 - Poor' },
-								{ name: '1', message: '1 - Very Poor' }
+								{ name: 'next', message: 'Continue to next question' },
+								{ name: 'repractice', message: 'Try the question again' },
+								...llmProfileChoices,
+								{ name: 'providefeedback', message: 'Provide feedback about this term' },
+								{ name: 'movetodeletionqueue', message: 'Move to deletion queue' },
+								{ name: 'rateflashcard', message: 'Rate this flashcard' },
+								{ name: 'togglecounter', message: 'Reset temporary counter (!c)' },
+								{ name: 'resetdeck', message: 'Reset deck progress' },
+								{ name: 'quit', message: 'Quit the entire session' }
 							]
 						});
 
-						const rating = await ratingPrompt.run();
-						if (rating) {
-							const ratingValue = parseInt(rating);
-							const hasFeedback = this.feedbackStorage.getFeedbackByTerm(term_selected) !== null;
-							const wasCorrect = ISANSWERCORRECT;
+						const selectedOption = await options.run();
 
-							// Save rating to CSV
-							const success = this.ratingStorage.addRating(
-								term_selected,
-								ratingValue,
-								wasCorrect,
-								hasFeedback
-							);
-
-							if (success) {
-								console.log(`✓ Rating saved: ${'⭐'.repeat(ratingValue)} (${ratingValue}/5)`);
-							}
+						if (selectedOption === 'next') {
+							shouldExitIncorrectMenu = true;
+							continue;
 						}
-					} else if (selectedOption === 'resetdeck') {
-						const resetCount = await this.resetCurrentDeckProgress();
-						console.log(`✓ Reset progress for ${resetCount} terms\n`);
-						console.log('Restarting deck...\n');
-						this.shouldResetAndRestart = true;
-						exitMethod();
-						return false;
+
+						if (selectedOption === 'repractice') {
+							return await this.ask_term_question(term_selected, {
+								ask_if_correct,
+								exitMethod,
+								try_question_again: true
+							});
+						}
+
+						if (selectedOption === 'quit') {
+							exitMethod();
+							return false;
+						}
+
+						if (selectedOption.startsWith('askllmfollowup:')) {
+							const selectedProfile = selectedOption.split(':')[1] || null;
+							await this.runLocalLLMFollowup(
+								term_selected,
+								user_res,
+								selectedProfile
+							);
+							continue;
+						}
+
+						if (selectedOption === 'togglecounter') {
+							this.activateOrResetTempCounter();
+							continue;
+						}
+
+						if (selectedOption === 'providefeedback') {
+							const existingFeedback = this.feedbackStorage.getFeedbackByTerm(term_selected);
+							let initialValue = '';
+							if (existingFeedback && existingFeedback.feedback) {
+								console.log('\nExisting feedback/corrections:');
+								console.log(existingFeedback.feedback);
+								console.log(`(Added on ${new Date(existingFeedback.timestamp).toLocaleDateString()})\n`);
+								initialValue = existingFeedback.feedback;
+							}
+
+							const feedbackPrompt = new Input({
+								name: 'feedback',
+								message: 'Add/edit your feedback/corrections:',
+								initial: initialValue
+							});
+
+							const feedback = await feedbackPrompt.run();
+							if (feedback && feedback.trim()) {
+								this.feedbackStorage.addFeedbackByTerm(term_selected, feedback);
+								console.log('Feedback saved and will appear with this term in future reviews');
+								this.actionLogger.logFeedback(term_selected, feedback);
+								await this.createAnnotation(term_selected, user_res, feedback);
+							}
+							continue;
+						}
+
+						if (selectedOption === 'movetodeletionqueue') {
+							const added = this.deletionQueueStorage.addToQueue(term_selected, this.feedbackStorage);
+							if (added) {
+								console.log('Term added to deletion queue. It will be ignored in future study sessions.');
+								console.log(`Deletion queue JSON: ${this.deletionQueueStorage.getFilePath()}`);
+								this.actionLogger.logDeletionQueueAdd(term_selected);
+							} else {
+								console.log('Term is already in deletion queue.');
+							}
+							return false;
+						}
+
+						if (selectedOption === 'rateflashcard') {
+							const existingRatings = this.ratingStorage.getRatingsByTerm(term_selected);
+							if (existingRatings.length > 0) {
+								console.log('\nPrevious ratings for this term:');
+								existingRatings.forEach(r => {
+									const date = new Date(r.timestamp).toLocaleDateString();
+									const stars = '*'.repeat(r.rating);
+									console.log(`  ${stars} (${r.rating}/5) - ${date}`);
+								});
+								const avgRating = this.ratingStorage.getAverageRating(term_selected);
+								console.log(`Average: ${avgRating.toFixed(1)}/5\n`);
+							}
+
+							const ratingPrompt = new AutoComplete({
+								name: 'rating',
+								message: 'Rate this flashcard (1-5):',
+								choices: [
+									{ name: '5', message: '5 - Excellent' },
+									{ name: '4', message: '4 - Good' },
+									{ name: '3', message: '3 - Average' },
+									{ name: '2', message: '2 - Poor' },
+									{ name: '1', message: '1 - Very Poor' }
+								]
+							});
+
+							const rating = await ratingPrompt.run();
+							if (rating) {
+								const ratingValue = parseInt(rating);
+								const hasFeedback = this.feedbackStorage.getFeedbackByTerm(term_selected) !== null;
+								const wasCorrect = ISANSWERCORRECT;
+								const success = this.ratingStorage.addRating(
+									term_selected,
+									ratingValue,
+									wasCorrect,
+									hasFeedback
+								);
+
+								if (success) {
+									console.log(`Rating saved: ${'*'.repeat(ratingValue)} (${ratingValue}/5)`);
+								}
+							}
+							continue;
+						}
+
+						if (selectedOption === 'resetdeck') {
+							const resetCount = await this.resetCurrentDeckProgress();
+							console.log(`Reset progress for ${resetCount} terms\n`);
+							console.log('Restarting deck...\n');
+							this.shouldResetAndRestart = true;
+							exitMethod();
+							return false;
+						}
 					}
 				}
 
@@ -1689,6 +1754,81 @@ class Quizzer {
 			);
 			console.log(err);
 			return false; // if in a session, this will skip the card because this is improperly made.
+		}
+	}
+
+	getResolvedLLMConfig() {
+		const settingsSource = this.masteryManager?.Settings || Settings || {};
+		return resolveRuntimeLLMConfig({ settings: settingsSource });
+	}
+
+	getAvailableLLMProfiles() {
+		const settingsSource = this.masteryManager?.Settings || Settings || {};
+		const runtimeConfig = resolveRuntimeLLMConfig({ settings: settingsSource });
+		return runtimeConfig.availableProfiles || [runtimeConfig.profileName || 'default'];
+	}
+
+	async runLocalLLMFollowup(term_selected, user_res, profileName = null) {
+		const settingsSource = this.masteryManager?.Settings || Settings || {};
+		const config = resolveRuntimeLLMConfig({
+			settings: settingsSource,
+			profileName
+		});
+
+		if (!config.enabled) {
+			console.log('Local LLM is disabled. Run "mastery llm on" or use --llm for this run.');
+			return;
+		}
+
+		if (!config.followupEnabled) {
+			console.log('LLM follow-up helper is disabled. Use --llm-followup or update settings.');
+			return;
+		}
+
+		try {
+			const service = new LLMService(config);
+
+			console.log(
+				`\nLocal LLM Topic Chat started${config.profileName ? ` (${config.profileName})` : ''}.`
+			);
+			console.log('Ask follow-up questions about this flashcard topic.');
+			console.log('Type ! to exit chat and return to options.\n');
+
+			const history = [];
+			while (true) {
+				const chatPrompt = new Input({
+					name: 'topic_chat_message',
+					message: 'You: '
+				});
+				const userMessageRaw = await chatPrompt.run();
+				const userMessage = (userMessageRaw || '').trim();
+
+				if (userMessage === '!') {
+					console.log('Exited local LLM topic chat.');
+					break;
+				}
+
+				if (!userMessage) {
+					continue;
+				}
+
+				const assistantReply = await service.askTopicChatTurn({
+					term: term_selected,
+					userAnswer: user_res,
+					history,
+					userMessage
+				});
+
+				history.push({ role: 'user', content: userMessage });
+				history.push({ role: 'assistant', content: assistantReply });
+
+				console.log('\nLLM:');
+				printMarked(assistantReply, { use_markdown: true });
+				console.log('');
+			}
+		} catch (error) {
+			console.log(`Local LLM follow-up unavailable: ${error.message}`);
+			console.log('Continuing with the normal review flow.');
 		}
 	}
 

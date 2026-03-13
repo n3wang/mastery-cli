@@ -113,6 +113,10 @@ class QuizzerWithDSA extends Quizzer {
 			while (!answerIsCorrect && !exit) {
 				const { answered_correctly, type_of_problem } =
 					await askQuestionRandom({ exitMethod });
+				this.increaseTempCounter({
+					attempts: 1,
+					learned: answered_correctly ? 1 : 0
+				});
 				answerIsCorrect = answered_correctly;
 
 				// Track consecutive failures to prevent infinite loops when no terms are available
@@ -134,7 +138,11 @@ class QuizzerWithDSA extends Quizzer {
 				}
 			}
 		} else {
-			await askQuestionRandom({ exitMethod });
+			const { answered_correctly } = await askQuestionRandom({ exitMethod });
+			this.increaseTempCounter({
+				attempts: 1,
+				learned: answered_correctly ? 1 : 0
+			});
 		}
 
 		return { success: answerIsCorrect, exited: exit };
@@ -152,7 +160,9 @@ class QuizzerWithDSA extends Quizzer {
 		};
 
 		while (remaining > 0 && loops > 0 && !exit) {
-			console.log(`Remaining correct answers needed: ${remaining} | attempts left: ${loops}`);
+			console.log(
+				`Remaining correct answers needed: ${remaining} | attempts left: ${loops}${this.getTempCounterSuffix()}`
+			);
 			
 			const { answered_correctly, exited } = await this.askQuestion({
 				ask_until_one_is_correct: false,
@@ -219,7 +229,7 @@ class QuizzerWithDSA extends Quizzer {
 
 		const printCardsLeft = (cardsLeft, cardsLearnt) => {
 			console.log(
-				`\nAlgorithms left: ${cardsLeft} || Algorithms completed: ${cardsLearnt}\n`
+				`\nAlgorithms left: ${cardsLeft} || Algorithms completed: ${cardsLearnt}${this.getTempCounterSuffix()}\n`
 			);
 		};
 
@@ -287,7 +297,7 @@ class QuizzerWithDSA extends Quizzer {
 
 		const printCardsLeft = (cardsLeft, cardsLearnt) => {
 			console.log(
-				`\nAlgorithms left: ${cardsLeft} || Algorithms completed: ${cardsLearnt}\n`
+				`\nAlgorithms left: ${cardsLeft} || Algorithms completed: ${cardsLearnt}${this.getTempCounterSuffix()}\n`
 			);
 		};
 
