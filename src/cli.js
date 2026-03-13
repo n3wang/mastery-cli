@@ -132,7 +132,7 @@ class CommandsInformation {
 				'help'
 			),
 			'create-module': new Command(
-				'Create a new terms module with guided setup',
+				'Create a new terms module with guided setup, including common instructions and markdown design placeholders',
 				'create-module'
 			),
 			masks: new Command(

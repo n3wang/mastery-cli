@@ -18,7 +18,11 @@ class Term {
 			auto_newline = true,
 			reference_page = '',
 			reference_line = -1,
-			module_name = ''
+			module_name = '',
+			module_path = '',
+			common_instructions = undefined,
+			deck_description = '',
+			prompt_description = ''
 		} = {}
 	) {
 		/**
@@ -50,6 +54,10 @@ class Term {
 		this.reference_page = reference_page;
 		this.reference_line = reference_line;
 		this.module_name = module_name;
+		this.module_path = module_path;
+		this.common_instructions = common_instructions;
+		this.deck_description = deck_description;
+		this.prompt_description = prompt_description;
 
 		// if(term=="definition2"){
 		//     console.log("Term is definition2, this is a bug, please report it.");
@@ -92,7 +100,12 @@ class Term {
 			prompt: this.prompt,
 			formula_name: this.slug,
 			attachment: this.attachment,
-			attachment_is_url: this.attachment_is_url
+			attachment_is_url: this.attachment_is_url,
+			module_name: this.module_name,
+			module_path: this.module_path,
+			common_instructions: this.common_instructions,
+			deck_description: this.deck_description,
+			prompt_description: this.prompt_description
 		};
 	}
 }
@@ -317,6 +330,10 @@ class TermStorage {
 							reference_line: obj?.reference_line ?? -1,
 							reference_page: obj?.reference_page ?? '',
 							module_name: obj?.module_name ?? '',
+							module_path: obj?.module_path ?? '',
+							common_instructions: obj?.common_instructions,
+							deck_description: obj?.deck_description ?? '',
+							prompt_description: obj?.prompt_description ?? '',
 							priority: this.priority ?? 5,
 							auto_newline: obj?.auto_newline ?? true
 						}

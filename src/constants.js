@@ -139,6 +139,10 @@ function populateTerms(termJson) {
 					reference_line: obj?.reference_line ?? -1,
 					reference_page: obj?.reference_page ?? '',
 					module_name: obj?.module_name ?? '',
+					module_path: obj?.module_path ?? '',
+					common_instructions: obj?.common_instructions,
+					deck_description: obj?.deck_description ?? '',
+					prompt_description: obj?.prompt_description ?? '',
 					priority: obj?.priority ?? 5,
 					auto_newline: obj?.auto_newline ?? true
 				}

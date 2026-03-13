@@ -74,12 +74,47 @@ const EXTERNAL_CONTENT_FOLDERS = [
 
 module.exports = {
     module_path: 'your-module-name',
+    common_instructions: 'Optional markdown shown before every term description',
     ABOUT: ABOUT,
     CACHE_CONTENT: false,
+    MARKDOWN_DESIGN: {
+        deck_description_file: 'deck-description.md',
+        prompt_descriptions_file: 'prompt-descriptions.md'
+    },
     EXTERNAL_CONTENT_FOLDERS: EXTERNAL_CONTENT_FOLDERS,
     USE_FILE_AS_MODULE: true,
 };
 ```
+
+**Common instruction states:**
+- Omit `common_instructions` entirely for unconfigured
+- Set `common_instructions: ''` for an empty value
+- Set `common_instructions: null` for explicit none
+
+**Deck-wide description markdown:**
+- Point `MARKDOWN_DESIGN.deck_description_file` to any markdown file
+- That full file is rendered before each term description
+
+**Prompt-wide description markdown:**
+- Point `MARKDOWN_DESIGN.prompt_descriptions_file` to a markdown file with prompt sections
+- Use exact prompt text after the heading
+
+```markdown
+## Prompt: Just write the pseudocode, 1 per session is enough
+
+Keep the answer high level.
+Do not include final code.
+
+## Prompt: Explain the tradeoffs
+
+Cover both benefits and drawbacks.
+```
+
+**Display order during study sessions:**
+1. `common_instructions`
+2. Deck-wide markdown description
+3. Prompt-wide markdown description
+4. Term description from the card itself
 
 **Content Files:**
 - Add markdown files with terms following the same format as Method 2

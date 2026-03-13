@@ -10,7 +10,12 @@ const EXTERNAL_CONTENT_FOLDERS = [
 
 module.exports = {
 	module_path: '7-introduccion-programacion',
+	common_instructions: `Just write the pseudocode, 1 per session is enough`,
 	ABOUT: ABOUT,
 	CACHE_CONTENT: true,
+	MARKDOWN_DESIGN: {
+		deck_description_file: null,
+		prompt_descriptions_file: null
+	},
 	EXTERNAL_CONTENT_FOLDERS: EXTERNAL_CONTENT_FOLDERS
 };

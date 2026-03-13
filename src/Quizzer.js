@@ -29,7 +29,8 @@ const {
 	user_requests_skip,
 	user_requests_calc,
 	printMarked,
-	openEditorPlatformAgnostic
+	openEditorPlatformAgnostic,
+	getDirAbsoluteUri
 } = require('./utils_functions');
 
 const {
@@ -1382,6 +1383,196 @@ class Quizzer {
 		});
 	}
 
+	hasRenderableMarkdownContent(content) {
+		return typeof content === 'string' && content.trim().length > 0;
+	}
+
+	formatContextSection(title, content) {
+		if (!this.hasRenderableMarkdownContent(content)) {
+			return '';
+		}
+
+		return `## ${title}\n\n${content.trim()}`;
+	}
+
+	getSharedTermContextMarkdown(term_selected) {
+		const sections = [
+			this.formatContextSection(
+				'Common Instructions',
+				term_selected?.common_instructions
+			),
+			this.formatContextSection(
+				'Deck Description',
+				term_selected?.deck_description
+			),
+			this.formatContextSection(
+				'Prompt Description',
+				term_selected?.prompt_description
+			)
+		].filter(Boolean);
+
+		return sections.join('\n\n');
+	}
+
+	getRenderedTermDescription(term_selected) {
+		const sections = [
+			this.getSharedTermContextMarkdown(term_selected),
+			term_selected?.description ?? ''
+		].filter(section => this.hasRenderableMarkdownContent(section));
+
+		return sections.join('\n\n');
+	}
+
+	describeCommonInstructionsState(value) {
+		if (typeof value === 'undefined') {
+			return 'unconfigured';
+		}
+
+		if (value === null) {
+			return 'none';
+		}
+
+		if (value === '') {
+			return 'empty';
+		}
+
+		return 'configured';
+	}
+
+	updateLoadedModuleCommonInstructions(modulePath, nextValue) {
+		const syncTerms = terms => {
+			if (!Array.isArray(terms)) {
+				return;
+			}
+
+			for (const term of terms) {
+				if (term?.module_path === modulePath) {
+					term.common_instructions = nextValue;
+				}
+			}
+		};
+
+		syncTerms(this.terms);
+		syncTerms(this.currentDeckTerms);
+	}
+
+	writeModuleCommonInstructions(modulePath, mode, nextValue) {
+		const moduleIndexPath = getDirAbsoluteUri(
+			`user_data/terms_modules/${modulePath}/index.js`
+		);
+
+		if (!fs.existsSync(moduleIndexPath)) {
+			throw new Error(`Module index.js not found for ${modulePath}`);
+		}
+
+		let fileContent = fs.readFileSync(moduleIndexPath, 'utf-8');
+		const lineEnding = fileContent.includes('\r\n') ? '\r\n' : '\n';
+		const propertyLineRegex = /^\s*common_instructions\s*:\s*.*?,\s*(?:\r?\n)?/m;
+
+		if (mode === 'remove') {
+			if (propertyLineRegex.test(fileContent)) {
+				fileContent = fileContent.replace(propertyLineRegex, '');
+			}
+		} else {
+			const serializedValue =
+				mode === 'null' ? 'null' : JSON.stringify(nextValue);
+			const replacementLine = `\tcommon_instructions: ${serializedValue},${lineEnding}`;
+
+			if (propertyLineRegex.test(fileContent)) {
+				fileContent = fileContent.replace(propertyLineRegex, replacementLine);
+			} else {
+				const modulePathLineRegex = /^(\s*module_path\s*:\s*.*?,\s*(?:\r?\n))/m;
+
+				if (!modulePathLineRegex.test(fileContent)) {
+					throw new Error('Could not locate module_path in module index.js');
+				}
+
+				fileContent = fileContent.replace(
+					modulePathLineRegex,
+					`$1${replacementLine}`
+				);
+			}
+		}
+
+		fs.writeFileSync(moduleIndexPath, fileContent);
+		return moduleIndexPath;
+	}
+
+	async editDeckCommonInstructions(term_selected) {
+		if (!term_selected?.module_path) {
+			console.log(
+				'Common instructions can only be edited for terms loaded from a terms module.'
+			);
+			return;
+		}
+
+		const currentState = this.describeCommonInstructionsState(
+			term_selected.common_instructions
+		);
+		console.log(`Current common instructions state: ${currentState}`);
+
+		if (typeof term_selected.common_instructions === 'string' && term_selected.common_instructions.length > 0) {
+			printMarked(term_selected.common_instructions, { use_markdown: true });
+			console.log('');
+		}
+
+		const editModePrompt = new AutoComplete({
+			name: 'editCommonInstructionsMode',
+			message: 'How would you like to update common instructions?',
+			choices: [
+				{ name: 'set', message: 'Set or replace common instructions' },
+				{ name: 'empty', message: 'Set to empty string' },
+				{ name: 'none', message: 'Set to null (none)' },
+				{ name: 'remove', message: 'Remove from index.js (unconfigured)' },
+				{ name: 'cancel', message: 'Cancel' }
+			]
+		});
+
+		const editMode = await editModePrompt.run();
+
+		if (editMode === 'cancel') {
+			return;
+		}
+
+		let nextValue = term_selected.common_instructions;
+		let mode = editMode;
+
+		if (editMode === 'set') {
+			const inputPrompt = new Input({
+				name: 'commonInstructionsValue',
+				message:
+					'Enter markdown for common instructions. Use \\n for line breaks:',
+				initial:
+					typeof term_selected.common_instructions === 'string'
+						? term_selected.common_instructions.replace(/\n/g, '\\n')
+						: ''
+			});
+
+			const rawValue = await inputPrompt.run();
+			nextValue = rawValue.replace(/\\n/g, '\n');
+			mode = 'set';
+		} else if (editMode === 'empty') {
+			nextValue = '';
+			mode = 'set';
+		} else if (editMode === 'none') {
+			nextValue = null;
+			mode = 'null';
+		} else if (editMode === 'remove') {
+			nextValue = undefined;
+			mode = 'remove';
+		}
+
+		const moduleIndexPath = this.writeModuleCommonInstructions(
+			term_selected.module_path,
+			mode,
+			nextValue
+		);
+		this.updateLoadedModuleCommonInstructions(term_selected.module_path, nextValue);
+		term_selected.common_instructions = nextValue;
+
+		console.log(`Updated common instructions in ${moduleIndexPath}`);
+	}
+
 	async ask_term_question(
 		term_selected,
 		{ ask_if_correct = true, exitMethod = () => {}, is_try_questin_again: is_try_question_again=false, progressStats = null } = {}
@@ -1473,7 +1664,7 @@ class Quizzer {
 				console.log(`attachment: ${image_file}`);
 			}
 
-			printMarked(term_selected?.description ?? '', {
+			printMarked(this.getRenderedTermDescription(term_selected), {
 				use_markdown: true
 			});
 
@@ -1600,6 +1791,7 @@ class Quizzer {
 							choices: [
 								{ name: 'next', message: 'Continue to next question' },
 								{ name: 'repractice', message: 'Try the question again' },
+								{ name: 'editcommoninstructions', message: 'Edit this deck common instructions' },
 								...llmProfileChoices,
 								{ name: 'providefeedback', message: 'Provide feedback about this term' },
 								{ name: 'movetodeletionqueue', message: 'Move to deletion queue' },
@@ -1623,6 +1815,11 @@ class Quizzer {
 								exitMethod,
 								try_question_again: true
 							});
+						}
+
+						if (selectedOption === 'editcommoninstructions') {
+							await this.editDeckCommonInstructions(term_selected);
+							continue;
 						}
 
 						if (selectedOption === 'quit') {
@@ -2015,8 +2212,9 @@ class Quizzer {
 			markdownContent += `**Category:** ${term_selected.category}\n\n`;
 			
 			// Always show description and prompt
-			if (term_selected.description) {
-				markdownContent += `## Description\n\n${removeMarkers(term_selected.description)}\n\n`;
+			const renderedDescription = this.getRenderedTermDescription(term_selected);
+			if (renderedDescription) {
+				markdownContent += `## Description\n\n${removeMarkers(renderedDescription)}\n\n`;
 			}
 
 			// Show stored feedback/corrections after description

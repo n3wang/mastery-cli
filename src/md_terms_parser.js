@@ -4,6 +4,114 @@ const { getDirAbsoluteUri } = require('./utils_functions.js');
 
 const path = require('path');
 
+function normalizePromptKey(prompt) {
+	return String(prompt || '').replace(/\r\n/g, '\n').trim();
+}
+
+function resolveModuleResourcePath(module, configuredPath) {
+	if (!configuredPath || typeof configuredPath !== 'string') {
+		return null;
+	}
+
+	if (path.isAbsolute(configuredPath)) {
+		return configuredPath;
+	}
+
+	return getDirAbsoluteUri(
+		`user_data/terms_modules/${module.module_path}/${configuredPath}`
+	);
+}
+
+function readMarkdownFileIfExists(filePath) {
+	if (!filePath || !fs.existsSync(filePath) || !fs.statSync(filePath).isFile()) {
+		return '';
+	}
+
+	return fs.readFileSync(filePath, 'utf-8').trim();
+}
+
+function parsePromptDescriptionsMarkdown(filePath) {
+	const promptDescriptions = {};
+
+	if (!filePath || !fs.existsSync(filePath) || !fs.statSync(filePath).isFile()) {
+		return promptDescriptions;
+	}
+
+	const lines = fs.readFileSync(filePath, 'utf-8').split(/\r?\n/);
+	let currentPrompt = '';
+	let buffer = [];
+
+	const flushBuffer = () => {
+		if (!currentPrompt) {
+			buffer = [];
+			return;
+		}
+
+		promptDescriptions[currentPrompt] = buffer.join('\n').trim();
+		buffer = [];
+	};
+
+	for (const line of lines) {
+		const promptHeading = line.match(/^#{2,}\s*Prompt\s*:\s*(.+)$/i);
+
+		if (promptHeading) {
+			flushBuffer();
+			currentPrompt = normalizePromptKey(promptHeading[1]);
+			continue;
+		}
+
+		if (currentPrompt) {
+			buffer.push(line);
+		}
+	}
+
+	flushBuffer();
+	return promptDescriptions;
+}
+
+function getModuleDescriptionMetadata(module) {
+	const markdownDesign = module.MARKDOWN_DESIGN || {};
+	const deckDescriptionPath = resolveModuleResourcePath(
+		module,
+		markdownDesign.deck_description_file
+	);
+	const promptDescriptionsPath = resolveModuleResourcePath(
+		module,
+		markdownDesign.prompt_descriptions_file
+	);
+
+	return {
+		module_path: module.module_path,
+		common_instructions: module.common_instructions,
+		deck_description: readMarkdownFileIfExists(deckDescriptionPath),
+		prompt_descriptions: parsePromptDescriptionsMarkdown(promptDescriptionsPath)
+	};
+}
+
+function applyModuleDescriptionMetadataToTerm(term, moduleMetadata) {
+	if (!term) {
+		return term;
+	}
+
+	term.module_path = moduleMetadata.module_path;
+	term.common_instructions = moduleMetadata.common_instructions;
+	term.deck_description = moduleMetadata.deck_description;
+	term.prompt_description =
+		moduleMetadata.prompt_descriptions[normalizePromptKey(term.prompt)] || '';
+
+	return term;
+}
+
+function applyModuleDescriptionMetadata(terms, nestedDecks, moduleMetadata) {
+	for (const term of terms) {
+		applyModuleDescriptionMetadataToTerm(term, moduleMetadata);
+	}
+
+	for (const deck of nestedDecks) {
+		applyModuleDescriptionMetadata(deck.terms || [], deck.decks || [], moduleMetadata);
+	}
+}
+
 function parseMarkdownCards(filePath) {
 	const lines = fs.readFileSync(filePath, 'utf-8').split(/\r?\n/);
 
@@ -470,6 +578,7 @@ function parseMarkdownCardsFromTermsModules(
 		}
 		const terms = [];
 		const nestedDecks = [];
+		const moduleDescriptionMetadata = getModuleDescriptionMetadata(module);
 		const moduleCacheDir = getDirAbsoluteUri(
 			`user_data/terms_modules/${module.module_path}/cache_md`
 		); // Cache directory for markdown files
@@ -684,6 +793,12 @@ function parseMarkdownCardsFromTermsModules(
 			}
 		}
 		if (module) {
+			applyModuleDescriptionMetadata(
+				terms,
+				nestedDecks,
+				moduleDescriptionMetadata
+			);
+
 			// If using recursive mode and we have no direct terms but exactly one nested deck,
 			// flatten the structure to avoid empty wrapper decks
 			let finalTerms = terms;

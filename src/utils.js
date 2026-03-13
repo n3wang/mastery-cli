@@ -1197,6 +1197,12 @@ class Mastery {
 				initial: true
 			});
 
+			const commonInstructionsInput = new Input({
+				name: 'commonInstructions',
+				message: 'Enter deck common instructions (optional, use \\n for line breaks):',
+				initial: ''
+			});
+
 			const useFileAsModuleToggle = new Toggle({
 				name: 'useFileAsModule',
 				message: 'Use each file as separate module?',
@@ -1218,6 +1224,7 @@ class Mastery {
 			}
 			const author = await authorInput.run();
 			const cacheContent = await cacheContentToggle.run();
+			const commonInstructions = await commonInstructionsInput.run();
 			const useFileAsModule = await useFileAsModuleToggle.run();
 
 			// External folder prompt: validate after run to avoid enquirer re-render
@@ -1297,8 +1304,13 @@ class Mastery {
 
 			indexContent += `module.exports = {
 	module_path: '${modulePath}',
+	common_instructions: ${JSON.stringify(commonInstructions.replace(/\\n/g, '\n'))},
 	ABOUT: ABOUT,
-	CACHE_CONTENT: ${cacheContent}`;
+	CACHE_CONTENT: ${cacheContent},
+	MARKDOWN_DESIGN: {
+		deck_description_file: null,
+		prompt_descriptions_file: null
+	}`;
 
 			if (externalFolder.trim()) {
 				indexContent += `,
