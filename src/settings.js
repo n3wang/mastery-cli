@@ -11,29 +11,21 @@
  * The settings.json file is created automatically when you first run the app!
  */
 
-const path = require('path');
+const fs = require('fs');
+const {
+	ensureCanonicalUserDataLayout,
+	ensureUserDataParentDir,
+	migrateLegacyUserDataPath
+} = require('./userDataPaths');
 
-/**
- * Helper function to get absolute file paths
- * For beginners: This just figures out the full path to files on your computer
- * @param {string} fileimage - The file you want to find
- * @returns {string} - The complete path to that file
- */
-const getDirAbsoluteUri = (
-	fileimage = './img/unicorn.png',
-	subdirectory = './terms_data/'
-) => {
-	// Build the complete path from the current directory
-	const absolutePath = path.resolve(path.join(__dirname, './', fileimage));
-	return absolutePath.toString();
-};
+ensureCanonicalUserDataLayout();
+migrateLegacyUserDataPath('_settings.json');
 
 // Get the path to your personal settings file
-const absolute_settings_uri = getDirAbsoluteUri(`user_data/settings.json`);
-const absolute_template_uri = getDirAbsoluteUri(`user_data/_settings.json`);
+const absolute_settings_uri = ensureUserDataParentDir('settings.json');
+const absolute_template_uri = ensureUserDataParentDir('_settings.json');
 
 // If settings.json doesn't exist, copy from _settings.json
-const fs = require('fs');
 if (!fs.existsSync(absolute_settings_uri)) {
 	if (fs.existsSync(absolute_template_uri)) {
 		try {

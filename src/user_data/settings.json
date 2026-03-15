@@ -1,0 +1,183 @@
+{
+  "show_http_errors": false,
+  "online": false,
+  "quiz_enabled": [
+    "term"
+  ],
+  "external_term_modules": [],
+  "dsa_language_mode": "PSEUDOCODE",
+  "terms_force_mode_cards": 3,
+  "queue_configurations": {
+    "quizzer_repetitive_limit": 3,
+    "quizzer_force_learn_limit": 2,
+    "quizzer_force_learn_last_three": 3,
+    "term_scheduler_working_set_length": 5,
+    "mini_term_scheduler_working_set_length": 3,
+    "quiz_allow_reattempts": 3,
+    "hash_based_selection": {
+      "enabled": true,
+      "sample_size": 15,
+      "hash_length": 8
+    }
+  },
+  "blog_special_commits": true,
+  "commit_categories": [
+    {
+      "code": "feat",
+      "description": "Personal Projects Feature Label",
+      "icon_list": [
+        ":hammer:",
+        ":shipit:",
+        ":ambulance:"
+      ],
+      "feature_name": "feat"
+    },
+    {
+      "code": "pro",
+      "description": "Professional Projects Feature Label",
+      "icon_list": [],
+      "feature_name": "pro"
+    }
+  ],
+  "ask_quiz_when_commit": true,
+  "ask_if_algo_missing_when_commit": true,
+  "show_past_commits_features_after_quiz": true,
+  "journal_notes": "Focus on continuous learning and skill improvement. Master your current projects before taking on new ones.",
+  "report_show": {
+    "performance_summary": true,
+    "weather": false,
+    "missing_report": true,
+    "obj_ournal": true,
+    "ask_if_algo_missing": true
+  },
+  "week_is_since_today": true,
+  "table_feat_show": [
+    "commits",
+    "feat",
+    "algo_w",
+    "pro",
+    "math_ss",
+    "terms"
+  ],
+  "objectives_features": [
+    {
+      "feature_key": "commits",
+      "description": "The number of git commits to be done",
+      "req_type": "day",
+      "requirement": 3
+    },
+    {
+      "feature_key": "feat",
+      "description": "The amount of Personal Project Features to be released",
+      "req_type": "week",
+      "requirement": 11
+    },
+    {
+      "feature_key": "math_ss",
+      "description": "The number of math problems to be solved",
+      "req_type": "day",
+      "requirement": 1
+    },
+    {
+      "feature_key": "algo_w",
+      "description": "The number of algorithm Weight Score to be solved in a week \n1 - Cloze with comments\n1 - Easy \n2 - Medium \n3 - Hard",
+      "req_type": "week",
+      "requirement": 10
+    },
+    {
+      "feature_key": "pro",
+      "description": "The number of professional projects done in a day",
+      "req_type": "week",
+      "requirement": 14
+    },
+    {
+      "feature_key": "terms",
+      "description": "The number of terms to be learned",
+      "req_type": "week",
+      "requirement": 100
+    }
+  ],
+  "quiz_decks_configuration": {
+    "masks": [
+      {
+        "title": "cert-focus",
+        "decks_to_enable": [
+          "cfa",
+          "datascience-statistics"
+        ]
+      },
+      {
+        "title": "school-focus",
+        "decks_to_enable": [
+          "college-algebra",
+          "college-engineering",
+          "college-digital-systems",
+          "college-quimica",
+          "college-math-analysis",
+          "college-programming"
+        ]
+      },
+      {
+        "title": "current_booknotes",
+        "decks_to_enable": [
+          "language-libraries",
+          "Operating-Systems_-Three-Easy-Pieces",
+          "Game-Engine-Architecture",
+          "Parallel-and-High-Performance-Computing"
+        ]
+      }
+    ],
+    "use_masks": [
+      "school-focus",
+      "current_booknotes"
+    ]
+  },
+  "flashcard_markdown_file": "current-quiz.md",
+  "minimal_colors": true,
+  "daily_deck_configuration": {
+    "enabled": true,
+    "cards_per_deck": 5,
+    "max_total_cards": 20,
+    "auto_prepare_week": true,
+    "days_to_keep": 30
+  },
+  "deletion_queue": {
+    "enabled": true,
+    "default": false
+  },
+  "logging": {
+    "enabled": true,
+    "log_file": "logs.txt"
+  },
+  "llm": {
+    "enabled": true,
+    "followupEnabled": true,
+    "activeProfile": "qwen",
+    "profiles": {
+      "qwen": {
+        "enabled": false,
+        "provider": "ollama",
+        "baseUrl": "http://localhost:11434/api",
+        "model": "qwen2.5:latest",
+        "timeoutMs": 120000,
+        "followupEnabled": true,
+        "promptProfile": "coach",
+        "maxFollowupTokens": 300,
+        "temperature": 0.3,
+        "apiKey": ""
+      },
+      "llama2": {
+        "enabled": false,
+        "provider": "ollama",
+        "baseUrl": "http://localhost:11434/api",
+        "model": "llama2:latest",
+        "timeoutMs": 120000,
+        "followupEnabled": true,
+        "promptProfile": "coach",
+        "maxFollowupTokens": 300,
+        "temperature": 0.3,
+        "apiKey": ""
+      }
+    }
+  }
+}

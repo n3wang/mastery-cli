@@ -14,7 +14,7 @@ utils/dsa-cli/user_files/*
 # User-specific local progress and settings #
 ##############################################
 # Personal settings - contains user preferences, deck masks, objectives
-src/user_data/settings.json
+src/data/user_data/settings.json
 
 # Daily deck tracking - user's daily study progress
 src/data/user_data/daily_decks.json

@@ -537,11 +537,14 @@ class Mastery {
 		const path = require('path');
 		const fs = require('fs');
 		const { ExtensionManager } = require('./extensions/ExtensionManager');
+		const { getUserDataAbsolutePath } = require('./userDataPaths');
 
 		console.log('\n=== Available Settings Files ===\n');
 
 		// Main settings file
-		const mainSettingsPath = path.resolve(__dirname, 'user_data', 'settings.json');
+		const mainSettingsPath = getUserDataAbsolutePath('settings.json', {
+			preferExisting: false
+		});
 		if (fs.existsSync(mainSettingsPath)) {
 			console.log(`📁 Main Settings: ${mainSettingsPath}`);
 		} else {
@@ -1354,9 +1357,9 @@ class Mastery {
 
 	async manageMasks() {
 		const fs = require('fs');
-		const path = require('path');
+		const { ensureUserDataParentDir } = require('./userDataPaths');
 
-		const settingsPath = path.join(__dirname, 'user_data', 'settings.json');
+		const settingsPath = ensureUserDataParentDir('settings.json');
 
 		try {
 			console.log('\n=== Quiz Deck Masks Manager ===\n');

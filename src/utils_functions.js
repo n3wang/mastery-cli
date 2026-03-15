@@ -14,6 +14,7 @@ const DEBUG = false;
 const { marked } = require('marked'); //Formats into html
 var TerminalRenderer = require('marked-terminal'); //Formats into terminal
 const { exec } = require('child_process');
+const { getUserDataAbsolutePath } = require('./userDataPaths');
 
 marked.setOptions({
 	renderer: new TerminalRenderer()
@@ -28,6 +29,19 @@ const getAbsoluteUri = (
 	fileimage = './img/unicorn.png',
 	subdirectory = './data/'
 ) => {
+	const normalizedFilePath = String(fileimage || '')
+		.replace(/\\/g, '/')
+		.replace(/^\.\//, '');
+	if (
+		normalizedFilePath === 'user_data' ||
+		normalizedFilePath.startsWith('user_data/')
+	) {
+		const fileUrl = url.pathToFileURL(
+			getUserDataAbsolutePath(normalizedFilePath)
+		);
+		return fileUrl.toString();
+	}
+
 	// Note it should take from the root.
 	const absolutePath = path.resolve(
 		path.join(__dirname, './data/', fileimage)
@@ -45,6 +59,16 @@ const getDirAbsoluteUri = (
 	fileimage = './img/unicorn.png',
 	subdirectory = './data/'
 ) => {
+	const normalizedFilePath = String(fileimage || '')
+		.replace(/\\/g, '/')
+		.replace(/^\.\//, '');
+	if (
+		normalizedFilePath === 'user_data' ||
+		normalizedFilePath.startsWith('user_data/')
+	) {
+		return getUserDataAbsolutePath(normalizedFilePath);
+	}
+
 	// Note it should take from the root.
 	const absolutePath = path.resolve(
 		path.join(__dirname, './data/', fileimage)

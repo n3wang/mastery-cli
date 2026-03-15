@@ -1,12 +1,18 @@
 const fs = require('fs');
-const path = require('path');
-const { getDirAbsoluteUri } = require('./utils_functions');
 const { APIDICT } = require('./constants');
+const {
+	ensureCanonicalUserDataLayout,
+	ensureUserDataParentDir,
+	migrateLegacyUserDataPath
+} = require('./userDataPaths');
 
 class SettingsManager {
 	constructor({} = {}) {
-		this.settings_path = path.join(__dirname, 'user_data', 'settings.json');
-		this._settings_path = path.join(__dirname, 'user_data', '_settings.json');
+		ensureCanonicalUserDataLayout();
+		migrateLegacyUserDataPath('_settings.json');
+		migrateLegacyUserDataPath('settings.json');
+		this.settings_path = ensureUserDataParentDir('settings.json');
+		this._settings_path = ensureUserDataParentDir('_settings.json');
 		
 		// If settings.json doesn't exist, copy from _settings.json
 		if (!fs.existsSync(this.settings_path)) {

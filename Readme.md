@@ -112,7 +112,7 @@ The system uses content-based hashing to track your practice history:
 
 1. **Unique Term Identification**: Each flashcard gets a unique 8-character hash based on its content (term + description + example)
 2. **Completion Tracking**: Every time you successfully complete a flashcard, the system increments its completion count
-3. **Smart Selection**: When selecting terms for study, the system prioritizes cards with fewer completions by randomnly choosing a sample of `sample_size` cards (configurale at `src/user_data/settings.json`) and selecting the one with the least completions. Can be enabled/disabled
+3. **Smart Selection**: When selecting terms for study, the system prioritizes cards with fewer completions by randomnly choosing a sample of `sample_size` cards (configurale at `src/data/user_data/settings.json`) and selecting the one with the least completions. Can be enabled/disabled
 
 
  Run the tests:
@@ -385,8 +385,9 @@ git update-index --assume-unchanged src\extensions\dsa-cli\user_files\
 src/
 ├── extensions/          # Feature modules
 │   └── dsa-cli/        # Algorithm practice features
+├── data/
+│   └── user_data/      # Personal settings, modules, queues, logs, and study state
 ├── terms_data/         # Built-in flashcard content
-├── user_data/          # Your personal settings and progress
 └── utils/              # Helper functions
 ```
 
@@ -394,11 +395,11 @@ src/
 - `index.js` - Main entry point
 - `src/constants.js` - Configuration constants
 - `src/extensions/dsa-cli/` - All algorithm-related code
-- `src/user_data/settings.json` - User preferences
+- `src/data/user_data/settings.json` - User preferences
 
 ### Queue Configuration
 
-You can customize queue lengths and behavior for various core features by modifying `src/user_data/settings.json`:
+You can customize queue lengths and behavior for various core features by modifying `src/data/user_data/settings.json`:
 
 ```json
 {

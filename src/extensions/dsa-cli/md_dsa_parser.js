@@ -1,7 +1,25 @@
 const fs = require('fs');
 const path = require('path');
 const { ProblemMetadata } = require('./structures.js');
-const { getDirAbsoluteUri } = require('./functions.js');
+const {
+	ensureCanonicalUserDataLayout,
+	getUserDataAbsolutePath,
+	migrateLegacyUserDataPath
+} = require('../../userDataPaths');
+
+ensureCanonicalUserDataLayout();
+migrateLegacyUserDataPath('dsa_modules');
+
+function getDsaModulePath(relativePath = '', { preferExisting = true } = {}) {
+	const normalizedRelativePath = String(relativePath || '')
+		.replace(/\\/g, '/')
+		.replace(/^user_data\/?/, '')
+		.replace(/^dsa_modules\/?/, '');
+
+	return getUserDataAbsolutePath(`dsa_modules/${normalizedRelativePath}`, {
+		preferExisting
+	});
+}
 
 /**
  * Parses a markdown file containing DSA problems
@@ -185,13 +203,13 @@ function parseMarkdownProblemsFromModules(
 
 	for (const module of dsaModules) {
 		const problems = [];
-		const moduleCacheDir = getDirAbsoluteUri(
-			`user_data/dsa_modules/${module.module_path}/cache_md`,
-			'../../../'
+		const moduleCacheDir = getDsaModulePath(
+			`${module.module_path}/cache_md`,
+			{ preferExisting: false }
 		);
-		const moduleCacheJson = getDirAbsoluteUri(
-			`user_data/dsa_modules/${module.module_path}/cache.json`,
-			'../../../'
+		const moduleCacheJson = getDsaModulePath(
+			`${module.module_path}/cache.json`,
+			{ preferExisting: false }
 		);
 
 		const shouldCacheContent = module.CACHE_CONTENT !== false;
@@ -204,9 +222,8 @@ function parseMarkdownProblemsFromModules(
 		// Parse problems from CONTENT_FOLDERS
 		if (module.CONTENT_FOLDERS) {
 			for (const folder of module.CONTENT_FOLDERS) {
-				const folderPath = getDirAbsoluteUri(
-					`user_data/dsa_modules/${module.module_path}/${folder}`,
-					'../../../'
+				const folderPath = getDsaModulePath(
+					`${module.module_path}/${folder}`
 				);
 				const parsedProblems =
 					parseMarkdownProblemsFromFolder(folderPath);
@@ -334,10 +351,7 @@ function parseMarkdownProblemsFromModules(
 		// Parse problems from CONTENT_FILES
 		if (module.CONTENT_FILES) {
 			for (const file of module.CONTENT_FILES) {
-				const filePath = getDirAbsoluteUri(
-					`user_data/dsa_modules/${module.module_path}/${file}`,
-					'../../../'
-				);
+				const filePath = getDsaModulePath(`${module.module_path}/${file}`);
 				const parsedProblems = parseMarkdownProblems(filePath);
 				const problemMetadata = convertToProblemsMetadata(
 					parsedProblems,
@@ -366,10 +380,7 @@ function parseMarkdownProblemsFromModules(
  */
 function retrieve_dsa_modules() {
 	const dsaModules = {};
-	const dsaModulesPath = getDirAbsoluteUri(
-		'user_data/dsa_modules',
-		'../../../'
-	);
+	const dsaModulesPath = getDsaModulePath('');
 
 	if (!fs.existsSync(dsaModulesPath)) {
 		console.warn(`DSA modules path ${dsaModulesPath} does not exist`);

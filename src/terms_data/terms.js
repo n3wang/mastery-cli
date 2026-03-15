@@ -6,6 +6,7 @@
  */
 
 const { TermStorage, DeckMask } = require('../structures.js');
+const { getUserDataAbsolutePath } = require('../userDataPaths');
 
 /**
  * Helper function to create a new mask configuration object
@@ -32,7 +33,7 @@ function createMaskConfig(title, decks_to_enable) {
 function getMasksByAlgorithm() {
 	try {
 		// Load settings dynamically
-		const settings = require('../user_data/settings.json');
+		const settings = require(getUserDataAbsolutePath('settings.json'));
 		const quizDecksConfig = settings.quiz_decks_configuration || {};
 		const masks = quizDecksConfig.masks || [];
 		const useMasks = quizDecksConfig.use_masks || [];
