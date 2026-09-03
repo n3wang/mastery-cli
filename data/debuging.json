@@ -1,5 +1,0 @@
-{
-  "assumption": "| --------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------ |",
-  "answer": "| **Assumptions**             | Assume data comes from a specific distribution (often normal). | Make few or no assumptions about the distribution.                       |",
-  "nextLine": "| **Parameters**              | Concerned with population parameters (mean, variance, etc.).   | Do not estimate parameters; focus on ranks, medians, or orderings.       |"
-}
