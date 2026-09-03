@@ -627,17 +627,17 @@ function parseMarkdownCardsFromTermsModules(
 
 				if (likelyHasNested) {
 					console.log(
-						`📦 Loading ${module.ABOUT.title} (checking for nested decks)`
+						`Loading ${module.ABOUT.title} (checking for nested decks)`
 					);
 				} else {
 					console.log(
-						`⏭ Skipping module (no nested deck indicators): ${module.ABOUT.title}`
+						`Skipping module (no nested deck indicators): ${module.ABOUT.title}`
 					);
 					continue;
 				}
 			} else if (!directMatch) {
 				console.log(
-					`⏭ Skipping module (not in filter): ${module.ABOUT.title}`
+					`Skipping module (not in filter): ${module.ABOUT.title}`
 				);
 				continue;
 			}

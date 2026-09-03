@@ -662,7 +662,7 @@ class Quizzer {
 
 		if (filteredCount > 0) {
 			console.log(
-				`\n⚠ ${filteredCount} term(s) filtered out (in deletion queue)`
+				`\nWarning: ${filteredCount} term(s) filtered out (in deletion queue)`
 			);
 		}
 
@@ -676,23 +676,23 @@ class Quizzer {
 			const filePaths = Object.keys(itemsByFile);
 
 			console.log(
-				`\n📋 Deletion Queue: ${queueCount} term(s) being ignored`
+				`\nDeletion Queue: ${queueCount} term(s) being ignored`
 			);
-			console.log(`📁 JSON File: ${jsonFilePath}`);
+			console.log(`JSON File: ${jsonFilePath}`);
 			if (itemsWithFeedback.length > 0) {
 				console.log(
-					`⚠ ${itemsWithFeedback.length} term(s) have feedback`
+					`Warning: ${itemsWithFeedback.length} term(s) have feedback`
 				);
 			}
 			if (filePaths.length > 0) {
-				console.log(`📁 Terms grouped by file:`);
+				console.log(`Terms grouped by file:`);
 				filePaths.forEach(filePath => {
 					const items = itemsByFile[filePath];
 					console.log(`   ${filePath} (${items.length} term(s))`);
 				});
 			}
 			console.log(
-				`💡 Use "maid cleanup" to view deletion queue details\n`
+				`Use "maid cleanup" to view deletion queue details\n`
 			);
 		}
 
@@ -712,11 +712,11 @@ class Quizzer {
 		if (termsWithFeedbackCount > 0) {
 			const feedbackFilePath = this.feedbackStorage.getFilePath();
 			console.log(
-				`\n📝 Feedback Available: ${termsWithFeedbackCount} term(s) in this session have feedback/corrections`
+				`\nFeedback Available: ${termsWithFeedbackCount} term(s) in this session have feedback/corrections`
 			);
-			console.log(`📁 Feedback JSON File: ${feedbackFilePath}`);
+			console.log(`Feedback JSON File: ${feedbackFilePath}`);
 			console.log(
-				`💡 Feedback will be displayed when reviewing each term\n`
+				`Feedback will be displayed when reviewing each term\n`
 			);
 		}
 
@@ -848,7 +848,7 @@ class Quizzer {
 
 		// If deck completed (not exited early), offer to reset progress
 		if (!exit && studyScheduler.is_completed) {
-			console.log('\n✓ Deck completed!');
+			console.log('\nDeck completed!');
 
 			// Log deck completion
 			this.actionLogger.logDeckCompletion(
@@ -868,7 +868,7 @@ class Quizzer {
 			if (shouldReset) {
 				const resetCount = await this.resetCurrentDeckProgress();
 				console.log(
-					`✓ Reset progress for ${resetCount} terms in "${deck_name}"\n`
+					`Reset progress for ${resetCount} terms in "${deck_name}"\n`
 				);
 				console.log('Restarting deck...\n');
 				await this.runStudySession(this.currentDeckTerms, deck_name, {
@@ -963,7 +963,7 @@ class Quizzer {
 			if (todayDeck) {
 				const status = dailyDeckManager.getCompletionStatus(todayDeck);
 				if (status.isComplete) {
-					deckChoices.unshift(`Today's Deck (Completed ✓)`);
+					deckChoices.unshift(`Today's Deck (Completed)`);
 				} else {
 					deckChoices.unshift(
 						`Today's Deck (${status.completed}/${status.total} cards)`
@@ -1004,7 +1004,7 @@ class Quizzer {
 				for (const day of weekSummary) {
 					if (day.exists) {
 						const statusStr = day.isComplete
-							? 'Completed ✓'
+							? 'Completed'
 							: `${day.completed}/${day.total}`;
 						console.log(
 							`  ${day.dayName} (${day.date}): ${statusStr}`
@@ -1241,23 +1241,23 @@ class Quizzer {
 			const filePaths = Object.keys(itemsByFile);
 
 			console.log(
-				`\n📋 Deletion Queue: ${queueCount} term(s) being ignored`
+				`\nDeletion Queue: ${queueCount} term(s) being ignored`
 			);
-			console.log(`📁 JSON File: ${jsonFilePath}`);
+			console.log(`JSON File: ${jsonFilePath}`);
 			if (itemsWithFeedback.length > 0) {
 				console.log(
-					`⚠ ${itemsWithFeedback.length} term(s) have feedback`
+					`Warning: ${itemsWithFeedback.length} term(s) have feedback`
 				);
 			}
 			if (filePaths.length > 0) {
-				console.log(`📁 Terms grouped by file:`);
+				console.log(`Terms grouped by file:`);
 				filePaths.forEach(filePath => {
 					const items = itemsByFile[filePath];
 					console.log(`   ${filePath} (${items.length} term(s))`);
 				});
 			}
 			console.log(
-				`💡 Use "maid cleanup" to view deletion queue details\n`
+				`Use "maid cleanup" to view deletion queue details\n`
 			);
 		}
 
@@ -1363,7 +1363,7 @@ class Quizzer {
 			if (todayDeck) {
 				const status = dailyDeckManager.getCompletionStatus(todayDeck);
 				if (status.isComplete) {
-					deckChoices.unshift(`Today's Deck (Completed ✓)`);
+					deckChoices.unshift(`Today's Deck (Completed)`);
 				} else {
 					deckChoices.unshift(
 						`Today's Deck (${status.completed}/${status.total} cards)`
@@ -1428,7 +1428,7 @@ class Quizzer {
 				for (const day of weekSummary) {
 					if (day.exists) {
 						const statusStr = day.isComplete
-							? 'Completed ✓'
+							? 'Completed'
 							: `${day.completed}/${day.total}`;
 						console.log(
 							`  ${day.dayName} (${day.date}): ${statusStr}`
@@ -2579,13 +2579,13 @@ class Quizzer {
 		const queue = this.deletionQueueStorage.getQueue();
 		const jsonFilePath = this.deletionQueueStorage.getFilePath();
 
-		console.log(`\n📋 Deletion Queue Information`);
-		console.log(`📁 JSON File Location: ${jsonFilePath}`);
-		console.log(`📊 Total terms in ignore list: ${queue.length}\n`);
+		console.log(`\nDeletion Queue Information`);
+		console.log(`JSON File Location: ${jsonFilePath}`);
+		console.log(`Total terms in ignore list: ${queue.length}\n`);
 
 		if (queue.length === 0) {
 			console.log(
-				'✓ Deletion queue is empty. No terms are being ignored.\n'
+				'Deletion queue is empty. No terms are being ignored.\n'
 			);
 			return;
 		}
@@ -2597,11 +2597,11 @@ class Quizzer {
 
 		if (itemsWithFeedback.length > 0) {
 			console.log(
-				`⚠ ${itemsWithFeedback.length} term(s) have feedback - review carefully!\n`
+				`Warning: ${itemsWithFeedback.length} term(s) have feedback - review carefully!\n`
 			);
 		}
 
-		console.log(`📁 Terms grouped by file path:`);
+		console.log(`Terms grouped by file path:`);
 		filePaths.forEach(filePath => {
 			const items = itemsByFile[filePath];
 			console.log(`\n   ${filePath} (${items.length} term(s))`);
@@ -2613,14 +2613,14 @@ class Quizzer {
 
 		if (backup) {
 			console.log(
-				`\n💾 Backup mode: Would backup files before manual removal`
+				`\nBackup mode: Would backup files before manual removal`
 			);
 			console.log(
 				`   Note: Terms are not automatically removed. Edit the JSON file manually or remove from source files.\n`
 			);
 		} else {
 			console.log(
-				`\n💡 Note: This JSON file is an ignore list. Terms listed here are filtered out during study sessions.`
+				`\nNote: This JSON file is an ignore list. Terms listed here are filtered out during study sessions.`
 			);
 			console.log(
 				`   To permanently remove terms, edit the source markdown files manually.`

@@ -109,7 +109,7 @@ async function populateMasterDeck({ deckFilter = null } = {}) {
 		// Skip non-array data like CURRENCY_SIMBOLS
 		if (!Array.isArray(termData)) {
 			if (verboseLogsEnabled()) {
-				console.log(`⏭ Skipping non-array export: ${termKey}`);
+				console.log(`Skipping non-array export: ${termKey}`);
 			}
 			return;
 		}
@@ -129,7 +129,7 @@ async function populateMasterDeck({ deckFilter = null } = {}) {
 			if (!matches) {
 				if (verboseLogsEnabled()) {
 					console.log(
-						`⏭ Skipping deck (not in filter): "${deckDisplayName}"`
+						`Skipping deck (not in filter): "${deckDisplayName}"`
 					);
 				}
 				return;
@@ -138,7 +138,7 @@ async function populateMasterDeck({ deckFilter = null } = {}) {
 
 		if (verboseLogsEnabled()) {
 			console.log(
-				`➕ Adding deck: "${deckDisplayName}" with ${termData.length} terms`
+				`Adding deck: "${deckDisplayName}" with ${termData.length} terms`
 			);
 		}
 		decks.addDeck(new TermStorage(termData, deckDisplayName));
@@ -152,7 +152,7 @@ async function populateMasterDeck({ deckFilter = null } = {}) {
 			decks.addDeck(termsModules[key]);
 		}
 	} catch (error) {
-		console.warn('⚠ Failed to load terms modules:', error.message);
+		console.warn('Failed to load terms modules:', error.message);
 	}
 
 	// decks.applyMasks([engineerMask]);

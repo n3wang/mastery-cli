@@ -577,9 +577,9 @@ class Mastery {
 		// The single config file, in the vault.
 		const mainSettingsPath = getSettingsManager().getSettingsPath();
 		if (fs.existsSync(mainSettingsPath)) {
-			console.log(`📁 Main Settings: ${mainSettingsPath}`);
+			console.log(`Main Settings: ${mainSettingsPath}`);
 		} else {
-			console.log(`📁 Main Settings: ${mainSettingsPath} (not found)`);
+			console.log(`Main Settings: ${mainSettingsPath} (not found)`);
 		}
 
 		// Feature settings
@@ -592,7 +592,7 @@ class Mastery {
 			console.log('No features registered.');
 		} else {
 			for (const name of featureNames) {
-				console.log(`\u{1F4C4} ${name}: uses the main settings file`);
+				console.log(`${name}: uses the main settings file`);
 			}
 		}
 
@@ -858,9 +858,9 @@ class Mastery {
 				Object.keys(week_scores).length > 0;
 
 			if (!hasRecentActivity) {
-				console.log('\n⚠️  No recent activity found.');
+				console.log('\nNo recent activity found.');
 				console.log(
-					'💡 Try running some quizzes to generate report data.'
+					'Try running some quizzes to generate report data.'
 				);
 
 				// Show available data dates for reference
@@ -869,9 +869,9 @@ class Mastery {
 				).sort();
 				if (availableDates.length > 0) {
 					console.log(
-						`📅 Latest activity: ${availableDates[availableDates.length - 1]}`
+						`Latest activity: ${availableDates[availableDates.length - 1]}`
 					);
-					console.log(`📅 First activity: ${availableDates[0]}`);
+					console.log(`First activity: ${availableDates[0]}`);
 				}
 
 				// Still show flashcard report even if no other activity
@@ -920,7 +920,7 @@ class Mastery {
 						userPerformanceData.today[requirement_key] ?? 0;
 					const diff = settings.day - actual;
 					features_accomplished_today[`d: ${requirement_key}`] = {
-						miss: diff < 0 ? '✅' : diff,
+						miss: diff < 0 ? 'OK' : diff,
 						type: 'day',
 						req: settings.day
 					};
@@ -930,7 +930,7 @@ class Mastery {
 						userPerformanceData.week_sum[requirement_key] ?? 0;
 					const diff = settings.week - actual;
 					features_accomplished_today[`w: ${requirement_key}`] = {
-						miss: diff < 0 ? '✅' : diff,
+						miss: diff < 0 ? 'OK' : diff,
 						type: 'week',
 						req: settings.week
 					};
@@ -1331,7 +1331,7 @@ class Mastery {
 			const modulePath = titleToModulePath(title);
 			const skillCategory = titleToSkillCategory(title);
 
-			console.log(`\n📋 Generated configuration:`);
+			console.log(`\nGenerated configuration:`);
 			console.log(`   Module path: ${modulePath}`);
 			console.log(`   Skill category: ${skillCategory}`);
 			if (externalFolder && externalFolder.trim()) {
@@ -1417,9 +1417,9 @@ class Mastery {
 				console.log(`Created cache directory: ${cacheDir}`);
 			}
 
-			console.log(`\n✅ Successfully created term module: ${modulePath}`);
-			console.log(`📁 Location: ${moduleDir}`);
-			console.log(`\n📝 Next steps:`);
+			console.log(`\nSuccessfully created term module: ${modulePath}`);
+			console.log(`Location: ${moduleDir}`);
+			console.log(`\nNext steps:`);
 			console.log(
 				`   1. Add your markdown files to the module directory`
 			);
@@ -1505,7 +1505,7 @@ class Mastery {
 	}
 
 	displayCurrentMasks(quizConfig) {
-		console.log('\n📋 Current Masks Configuration:\n');
+		console.log('\nCurrent Masks Configuration:\n');
 
 		if (quizConfig.masks.length === 0) {
 			console.log('No masks configured yet.');
@@ -1514,7 +1514,7 @@ class Mastery {
 
 		quizConfig.masks.forEach((mask, index) => {
 			const isActive = quizConfig.use_masks.includes(mask.title);
-			const status = isActive ? '✅ ACTIVE' : '❌ INACTIVE';
+			const status = isActive ? 'ACTIVE' : 'INACTIVE';
 			console.log(`${index + 1}. ${mask.title} - ${status}`);
 			console.log(`   Decks: ${mask.decks_to_enable.join(', ')}`);
 		});
@@ -1529,7 +1529,7 @@ class Mastery {
 		const { retrieve_terms_as_decks } = require('./md-terms-parser');
 
 		try {
-			console.log('\n🔍 Loading available modules and categories...\n');
+			console.log('\nLoading available modules and categories...\n');
 
 			// Get available modules and their categories
 			const termsModules = retrieve_terms_as_decks();
@@ -1584,13 +1584,13 @@ class Mastery {
 					message: 'Select a module:',
 					choices: [
 						...moduleChoices.map(choice => choice.name),
-						'✅ Done selecting'
+						'Done selecting'
 					]
 				});
 				const selectedModuleResult = await modulePrompt.run();
 				// Convert display name back to value
 				let selectedModule = selectedModuleResult;
-				if (selectedModuleResult === '✅ Done selecting') {
+				if (selectedModuleResult === 'Done selecting') {
 					selectedModule = 'done';
 				} else {
 					const foundChoice = moduleChoices.find(
@@ -1679,9 +1679,9 @@ class Mastery {
 				JSON.stringify(settings, null, '\t')
 			);
 
-			console.log(`\n✅ Mask "${maskName}" created successfully!`);
-			console.log(`📦 Contains: ${selectedDecks.join(', ')}`);
-			console.log(`💡 Use "Toggle mask usage" to activate it.\n`);
+			console.log(`\nMask "${maskName}" created successfully!`);
+			console.log(`Contains: ${selectedDecks.join(', ')}`);
+			console.log(`Use "Toggle mask usage" to activate it.\n`);
 		} catch (error) {
 			console.error('Error adding mask:', error.message);
 		}
@@ -1729,7 +1729,7 @@ class Mastery {
 				JSON.stringify(settings, null, '\t')
 			);
 
-			console.log(`\n✅ Mask "${maskToDelete}" deleted successfully!\n`);
+			console.log(`\nMask "${maskToDelete}" deleted successfully!\n`);
 		} catch (error) {
 			console.error('Error deleting mask:', error.message);
 		}
@@ -1739,7 +1739,7 @@ class Mastery {
 		const fs = require('fs');
 
 		try {
-			console.log('\n🔄 Toggle Mask Usage Mode\n');
+			console.log('\nToggle Mask Usage Mode\n');
 
 			while (true) {
 				const settings = JSON.parse(
@@ -1758,7 +1758,7 @@ class Mastery {
 				console.log('Current status:');
 				quizConfig.masks.forEach(mask => {
 					const isActive = quizConfig.use_masks.includes(mask.title);
-					const status = isActive ? '✅ ACTIVE' : '❌ INACTIVE';
+					const status = isActive ? 'ACTIVE' : 'INACTIVE';
 					console.log(`  ${mask.title}: ${status}`);
 				});
 
@@ -1780,7 +1780,7 @@ class Mastery {
 				const action = actionMap[actionResult] || actionResult;
 
 				if (action === 'finish') {
-					console.log('✅ Finished toggling mask usage.\n');
+					console.log('Finished toggling mask usage.\n');
 					break;
 				}
 
@@ -1793,8 +1793,8 @@ class Mastery {
 								mask.title
 							);
 							const status = isActive
-								? '✅ ACTIVE'
-								: '❌ INACTIVE';
+								? 'ACTIVE'
+								: 'INACTIVE';
 							return `${mask.title} - ${status}`;
 						})
 					});
@@ -1807,11 +1807,11 @@ class Mastery {
 						quizConfig.use_masks = quizConfig.use_masks.filter(
 							title => title !== maskToToggle
 						);
-						console.log(`❌ Deactivated: ${maskToToggle}`);
+						console.log(`Deactivated: ${maskToToggle}`);
 					} else {
 						// Add to active masks
 						quizConfig.use_masks.push(maskToToggle);
-						console.log(`✅ Activated: ${maskToToggle}`);
+						console.log(`Activated: ${maskToToggle}`);
 					}
 
 					settings.quiz_decks_configuration = quizConfig;
@@ -1843,7 +1843,7 @@ class Mastery {
 						JSON.stringify(settings, null, '\t')
 					);
 
-					console.log(`\n✅ Mask usage updated!`);
+					console.log(`\nMask usage updated!`);
 					console.log(
 						`Active masks: ${selectedMasks.join(', ') || 'None'}\n`
 					);
@@ -1886,13 +1886,13 @@ class Mastery {
 			);
 			const currentMask = quizConfig.masks[maskIndex];
 
-			console.log(`\n📝 Editing mask: ${currentMask.title}`);
+			console.log(`\nEditing mask: ${currentMask.title}`);
 			console.log(
 				`Current decks: ${currentMask.decks_to_enable.join(', ')}\n`
 			);
 
 			// Get available modules and their categories
-			console.log('🔍 Loading available modules and categories...\n');
+			console.log('Loading available modules and categories...\n');
 			const termsModules = retrieve_terms_as_decks();
 			const moduleChoices = [];
 			const moduleCategories = {};
@@ -1949,10 +1949,10 @@ class Mastery {
 			if (editAction === 'replace') {
 				newDecks = [];
 				console.log(
-					'\n🔄 Starting fresh - select new decks for this mask:'
+					'\nStarting fresh - select new decks for this mask:'
 				);
 			} else if (editAction === 'add') {
-				console.log('\n➕ Adding more decks to the existing ones:');
+				console.log('\nAdding more decks to the existing ones:');
 			} else if (editAction === 'remove') {
 				const decksToRemovePrompt = new Survey({
 					name: 'decksToRemove',
@@ -1972,7 +1972,7 @@ class Mastery {
 					deck => !decksToRemove.includes(deck)
 				);
 				console.log(
-					`\n✅ Removed ${decksToRemove.length} decks from mask.`
+					`\nRemoved ${decksToRemove.length} decks from mask.`
 				);
 			}
 
@@ -1984,13 +1984,13 @@ class Mastery {
 						message: 'Select a module to add:',
 						choices: [
 							...moduleChoices.map(choice => choice.name),
-							'✅ Done selecting'
+							'Done selecting'
 						]
 					});
 					const selectedModuleResult = await moduleAddPrompt.run();
 					// Convert display name back to value
 					let selectedModule = selectedModuleResult;
-					if (selectedModuleResult === '✅ Done selecting') {
+					if (selectedModuleResult === 'Done selecting') {
 						selectedModule = 'done';
 					} else {
 						const foundChoice = moduleChoices.find(
@@ -2059,9 +2059,9 @@ class Mastery {
 			);
 
 			console.log(
-				`\n✅ Mask "${currentMask.title}" updated successfully!`
+				`\nMask "${currentMask.title}" updated successfully!`
 			);
-			console.log(`📦 Now contains: ${newDecks.join(', ')}\n`);
+			console.log(`Now contains: ${newDecks.join(', ')}\n`);
 		} catch (error) {
 			console.error('Error editing mask:', error.message);
 		}
@@ -2083,7 +2083,7 @@ class Mastery {
 
 		masks.forEach((mask, index) => {
 			const isActive = activeMasks.includes(mask.title);
-			const status = isActive ? '✅ ACTIVE' : '❌ INACTIVE';
+			const status = isActive ? 'ACTIVE' : 'INACTIVE';
 			console.log(`${index + 1}. ${mask.title} - ${status}`);
 			console.log(`   Decks: ${mask.decks_to_enable.join(', ')}`);
 		});
@@ -2099,7 +2099,7 @@ class Mastery {
 
 		try {
 			const enabled = settingsManager.toggleMask(maskName);
-			const status = enabled ? '✅ ENABLED' : '❌ DISABLED';
+			const status = enabled ? 'ENABLED' : 'DISABLED';
 			console.log(`\n${status}: ${maskName}\n`);
 
 			const activeMasks = settingsManager.getActiveMasks();
@@ -2144,8 +2144,8 @@ class Mastery {
 				.filter(d => d.length > 0);
 
 			settingsManager.createMask(maskName, decks);
-			console.log(`\n✅ Created mask: ${maskName}`);
-			console.log(`📦 Decks: ${decks.join(', ')}`);
+			console.log(`\nCreated mask: ${maskName}`);
+			console.log(`Decks: ${decks.join(', ')}`);
 			console.log(
 				`\nUse "mastery mask-toggle ${maskName}" to enable it.\n`
 			);

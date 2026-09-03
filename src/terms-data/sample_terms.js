@@ -48,13 +48,13 @@ function loadTermsLazy() {
 				// Merge all exports from this file into our consolidated exports
 				Object.assign(consolidatedExports, moduleExports);
 			} catch (error) {
-				console.warn(`⚠ Failed to load ${file}:`, error.message);
+				console.warn(`Failed to load ${file}:`, error.message);
 			}
 		});
 
 		if (verboseLogsEnabled()) {
 			console.log(
-				`📦 Consolidated ${Object.keys(consolidatedExports).length} total exports from ${files.length} files`
+				`Consolidated ${Object.keys(consolidatedExports).length} total exports from ${files.length} files`
 			);
 		}
 	} finally {

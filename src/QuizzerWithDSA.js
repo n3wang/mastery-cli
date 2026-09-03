@@ -184,9 +184,9 @@ class QuizzerWithDSA extends Quizzer {
 
 			if (answered_correctly) {
 				remaining--;
-				console.log(`✓ Correct answer! Remaining: ${remaining}`);
+				console.log(`Correct answer! Remaining: ${remaining}`);
 			} else {
-				console.log(`✗ Incorrect answer. Keep trying!`);
+				console.log(`Incorrect answer. Keep trying!`);
 			}
 
 			loops--;
@@ -194,17 +194,17 @@ class QuizzerWithDSA extends Quizzer {
 
 		if (remaining === 0) {
 			console.log(
-				`🎉 Session complete! All ${to_answer_correctly} terms answered correctly.`
+				`Session complete! All ${to_answer_correctly} terms answered correctly.`
 			);
 			return true;
 		} else if (loops === 0) {
 			console.log(
-				`⏰ Session ended. Maximum attempts reached. Terms remaining: ${remaining}`
+				`Session ended. Maximum attempts reached. Terms remaining: ${remaining}`
 			);
 			return false;
 		} else {
 			console.log(
-				`👋 Session ended by user. Terms remaining: ${remaining}`
+				`Session ended by user. Terms remaining: ${remaining}`
 			);
 			return false;
 		}

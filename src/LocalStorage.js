@@ -129,7 +129,7 @@ class LocalStorage {
 		if (celebrate_new_level) {
 			if (current_level > previous_level) {
 				console.log(
-					`\n🎉 ${skill_level} leveled up from ${previous_level} -> ${current_level} 🎉\n`
+					`\n${skill_level} leveled up from ${previous_level} -> ${current_level}\n`
 				);
 			}
 		}

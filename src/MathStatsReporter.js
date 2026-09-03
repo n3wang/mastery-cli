@@ -77,7 +77,7 @@ class MathStatsReporter {
 		const stats = await this.loadStats();
 
 		console.log('\n' + '='.repeat(70));
-		console.log(chalk.bold.cyan('📊 MATH SESSION STATISTICS'));
+		console.log(chalk.bold.cyan('MATH SESSION STATISTICS'));
 		console.log('='.repeat(70));
 
 		// Find all session types
@@ -258,7 +258,7 @@ class MathStatsReporter {
 		}
 
 		console.log('\n' + '='.repeat(70));
-		console.log(chalk.bold.cyan('📈 MATH SESSIONS SUMMARY'));
+		console.log(chalk.bold.cyan('MATH SESSIONS SUMMARY'));
 		console.log('='.repeat(70));
 		console.log(
 			`Total Sessions: ${chalk.bold(totalSessions)}`

@@ -214,7 +214,7 @@ class MathSessionManager {
 				} else if (i < quiz_allow_reattempts - 1) {
 					console.log(
 						chalk.red(
-							`✗ Incorrect. Try again.`
+							`Incorrect. Try again.`
 						)
 					);
 				}
@@ -223,7 +223,7 @@ class MathSessionManager {
 			if (!answerIsCorrect) {
 				console.log(
 					chalk.yellow(
-						`✗ Incorrect. Expected: ${question_prompt.expectedAnswer}`
+						`Incorrect. Expected: ${question_prompt.expectedAnswer}`
 					)
 				);
 			}
