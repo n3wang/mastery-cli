@@ -40,19 +40,21 @@ const COMMANDS = [
 		aliases: ['ses'],
 		group: 'study',
 		desc: 'Start a study session',
-		usage: 'mastery session [--n=<count>]',
-		examples: ['mastery session', 'mastery session --n=20'],
-		flags: { '--n': 'Number of terms to run from selected deck' }
+		usage: 'mastery session [-n <count>]',
+		examples: ['mastery session', 'mastery session -n 20'],
+		flags: {
+			'--number, -n': 'Number of terms to run from selected deck'
+		}
 	},
 	{
 		name: 'session-filtered',
 		aliases: ['fses'],
 		group: 'study',
 		desc: 'Study session limited to the decks your active masks enable',
-		usage: 'mastery fses [--n=<count>]',
-		examples: ['mastery fses', 'mastery fses --n=20'],
+		usage: 'mastery fses [-n <count>]',
+		examples: ['mastery fses', 'mastery fses -n 20'],
 		flags: {
-			'--n': 'Number of terms to run from selected filtered deck'
+			'--number, -n': 'Number of terms to run from selected filtered deck'
 		}
 	},
 	{
@@ -60,9 +62,9 @@ const COMMANDS = [
 		aliases: ['lastses'],
 		group: 'study',
 		desc: 'Study session in reverse order',
-		usage: 'mastery lastses [--n=<count>]',
-		examples: ['mastery lastses', 'mastery lastses --n=20'],
-		flags: { '--n': 'Number of terms to run from selected deck' }
+		usage: 'mastery lastses [-n <count>]',
+		examples: ['mastery lastses', 'mastery lastses -n 20'],
+		flags: { '--number, -n': 'Number of terms to run from selected deck' }
 	},
 	{
 		name: 'quiz',
@@ -76,15 +78,15 @@ const COMMANDS = [
 		aliases: [],
 		group: 'study',
 		desc: 'Study a single flashcard (or run session mode)',
-		usage: 'mastery term [--session]',
+		usage: 'mastery term [--session|-s] [-n <count>]',
 		examples: [
 			'mastery term',
 			'mastery term --session',
-			'mastery term --session --n=20'
+			'mastery term -s -n 20'
 		],
 		flags: {
-			'--session': 'Run full term study session',
-			'--n': 'Number of terms to run in session mode (default: 10)'
+			'--session, -s': 'Run full term study session',
+			'--number, -n': 'Number of terms to run in session mode'
 		}
 	},
 	{
@@ -92,16 +94,16 @@ const COMMANDS = [
 		aliases: [],
 		group: 'study',
 		desc: 'Answer a mathematics prompt (or run session mode)',
-		usage: 'mastery math [--session] [--n=<count>]',
+		usage: 'mastery math [--session|-s] [-n <count>]',
 		examples: [
 			'mastery math',
 			'mastery math --session',
-			'mastery math --session --n=20',
-			'mastery math --session --n=5'
+			'mastery math -s -n 20',
+			'mastery math -s -n 5'
 		],
 		flags: {
-			'--session': 'Run tracked multi-problem math session',
-			'--n': 'Number of problems to solve in session mode (default: 10)'
+			'--session, -s': 'Run tracked multi-problem math session',
+			'--number, -n': 'Number of problems to solve in session mode (default: 10)'
 		}
 	},
 	{
@@ -123,12 +125,12 @@ const COMMANDS = [
 			'mastery dsa',
 			'mastery dsa --all',
 			'mastery dsa --session',
-			'mastery dsa --session --n=20'
+			'mastery dsa -s -n 20'
 		],
 		flags: {
 			'--all': 'Show every problem instead of the recommended ones',
-			'--session': 'Run algorithm challenge session mode',
-			'--n': 'Number of problems to run in session mode (default: 10)'
+			'--session, -s': 'Run algorithm challenge session mode',
+			'--number, -n': 'Number of problems to run in session mode (default: 10)'
 		}
 	},
 	{
@@ -141,12 +143,12 @@ const COMMANDS = [
 			'mastery mdsa',
 			'mastery mdsa --all',
 			'mastery mdsa --session',
-			'mastery mdsa --session --n=20'
+			'mastery mdsa -s -n 20'
 		],
 		flags: {
 			'--all': 'Show every problem instead of the recommended ones',
-			'--session': 'Run markdown algorithm challenge session mode',
-			'--n': 'Number of problems to run in session mode (default: 10)'
+			'--session, -s': 'Run markdown algorithm challenge session mode',
+			'--number, -n': 'Number of problems to run in session mode (default: 10)'
 		}
 	},
 	{
@@ -154,15 +156,15 @@ const COMMANDS = [
 		aliases: [],
 		group: 'practice',
 		desc: 'Fill-in-the-blank coding exercises (or run cloze session mode)',
-		usage: 'mastery cloze [--session]',
+		usage: 'mastery cloze [--session|-s] [-n <count>]',
 		examples: [
 			'mastery cloze',
 			'mastery cloze --session',
-			'mastery cloze --session --n=20'
+			'mastery cloze -s -n 20'
 		],
 		flags: {
-			'--session': 'Run cloze study session mode',
-			'--n': 'Number of cloze problems to run in session mode (default: 10)'
+			'--session, -s': 'Run cloze study session mode',
+			'--number, -n': 'Number of cloze problems to run in session mode (default: 10)'
 		}
 	},
 

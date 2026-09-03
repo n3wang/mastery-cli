@@ -229,6 +229,11 @@ class QuizzerWithDSA extends Quizzer {
 		md_pseudo_mode = false,
 		session_size = 10
 	} = {}) => {
+		const targetSessionSize =
+			Number.isFinite(Number(session_size)) && Number(session_size) > 0
+				? Number(session_size)
+				: 10;
+
 		// Pick all the available string keys.
 
 		await this.dsaTrainer.ensureProblemsLoaded();
@@ -242,9 +247,10 @@ class QuizzerWithDSA extends Quizzer {
 		});
 		let exit = false;
 
-		const printCardsLeft = (cardsLeft, cardsLearnt) => {
+		const printCardsLeft = completed => {
+			const cardsLeft = Math.max(targetSessionSize - completed, 0);
 			console.log(
-				`\nAlgorithms left: ${cardsLeft} || Algorithms completed: ${cardsLearnt}${this.getTempCounterSuffix()}\n`
+				`\nAlgorithms left: ${cardsLeft} || Algorithms completed: ${completed}${this.getTempCounterSuffix()}\n`
 			);
 		};
 		let sessionCount = 0;
@@ -252,13 +258,8 @@ class QuizzerWithDSA extends Quizzer {
 		while (
 			!clozeScheduler.is_completed &&
 			!exit &&
-			sessionCount < session_size
+			sessionCount < targetSessionSize
 		) {
-			const [cardsLeft, cardsLearnt] = [
-				clozeScheduler.getCardsToLearn(),
-				clozeScheduler.getCardsLearnt()
-			];
-
 			const card = await clozeScheduler.getCard();
 			let problem = this.dsaTrainer.problems_manager.getProblem(
 				card.problem_slug
@@ -287,8 +288,8 @@ class QuizzerWithDSA extends Quizzer {
 				solution_metadata.status == DSAConstants.ProblemStatus.solved;
 			clozeScheduler.solveCard(answerIsCorrect);
 			await clozeScheduler.saveCards();
-			printCardsLeft(cardsLeft, cardsLearnt);
 			sessionCount++;
+			printCardsLeft(sessionCount);
 		}
 	};
 
@@ -302,6 +303,11 @@ class QuizzerWithDSA extends Quizzer {
 		md_pseudo_mode = false,
 		session_size = 10
 	} = {}) => {
+		const targetSessionSize =
+			Number.isFinite(Number(session_size)) && Number(session_size) > 0
+				? Number(session_size)
+				: 10;
+
 		// Pick all the available string keys.
 
 		await this.dsaTrainer.ensureProblemsLoaded();
@@ -317,9 +323,10 @@ class QuizzerWithDSA extends Quizzer {
 		});
 		let exit = false;
 
-		const printCardsLeft = (cardsLeft, cardsLearnt) => {
+		const printCardsLeft = completed => {
+			const cardsLeft = Math.max(targetSessionSize - completed, 0);
 			console.log(
-				`\nAlgorithms left: ${cardsLeft} || Algorithms completed: ${cardsLearnt}${this.getTempCounterSuffix()}\n`
+				`\nAlgorithms left: ${cardsLeft} || Algorithms completed: ${completed}${this.getTempCounterSuffix()}\n`
 			);
 		};
 		let sessionCount = 0;
@@ -327,13 +334,8 @@ class QuizzerWithDSA extends Quizzer {
 		while (
 			!dsaScheduler.is_completed &&
 			!exit &&
-			sessionCount < session_size
+			sessionCount < targetSessionSize
 		) {
-			const [cardsLeft, cardsLearnt] = [
-				dsaScheduler.getCardsToLearn(),
-				dsaScheduler.getCardsLearnt()
-			];
-
 			const card = await dsaScheduler.getCard();
 
 			const solution_metadata = await this.dsaTrainer.solveProblem(card, {
@@ -353,8 +355,8 @@ class QuizzerWithDSA extends Quizzer {
 				solution_metadata.status == DSAConstants.ProblemStatus.solved;
 			dsaScheduler.solveCard(answerIsCorrect);
 			await dsaScheduler.saveCards();
-			printCardsLeft(cardsLeft, cardsLearnt);
 			sessionCount++;
+			printCardsLeft(sessionCount);
 		}
 	};
 }

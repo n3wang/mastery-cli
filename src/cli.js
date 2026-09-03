@@ -55,12 +55,20 @@ const flags = {
 	},
 	session: {
 		type: 'boolean',
+		alias: 's',
 		default: false,
 		desc: 'Run command in session mode when supported (e.g., term, math, dsa, mdsa, cloze)'
 	},
+	// Preferred: --number / -n
+	number: {
+		type: 'number',
+		alias: 'n',
+		desc: 'For --session commands: number of items to solve'
+	},
+	// Backward-compatible legacy flag: --n
 	n: {
 		type: 'number',
-		desc: 'For --session commands: number of items to solve (default: 10)'
+		desc: 'Legacy alias for --number'
 	}
 };
 

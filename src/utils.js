@@ -307,7 +307,7 @@ class Mastery {
 			},
 			math: async (flags = {}) => {
 				if (flags?.session) {
-					const sessionCount = flags?.n ?? 10;
+					const sessionCount = flags?.number ?? flags?.n ?? 10;
 					const mathSessionManager = new MathSessionManager(
 						this.mQuizer
 					);
@@ -330,7 +330,7 @@ class Mastery {
 			term: async (flags = {}) => {
 				if (flags?.session) {
 					await this.ensureTermsLoaded();
-					const size_study_deck = flags?.n ?? 10;
+					const size_study_deck = flags?.number ?? flags?.n ?? -1;
 					return this.mQuizer.studySession(this.masterDeck, {
 						size_study_deck
 					});
@@ -345,7 +345,7 @@ class Mastery {
 			ses: async (flags = {}) => {
 				await this.ensureTermsLoaded();
 				return this.mQuizer.studySession(this.masterDeck, {
-					size_study_deck: flags?.n ?? -1
+					size_study_deck: flags?.number ?? flags?.n ?? -1
 				});
 			}, // Study session
 			lastses: async (flags = {}) => {
@@ -353,7 +353,7 @@ class Mastery {
 				await this.ensureTermsLoaded();
 				return this.mQuizer.studySession(this.masterDeck, {
 					reverse: true,
-					size_study_deck: flags?.n ?? -1
+					size_study_deck: flags?.number ?? flags?.n ?? -1
 				});
 			},
 			fses: async (flags = {}) => {
@@ -377,7 +377,7 @@ class Mastery {
 
 				await this.ensureTermsLoaded({ deckFilter: enabledDecks });
 				return this.mQuizer.filteredStudySession(this.masterDeck, {
-					size_study_deck: flags?.n ?? -1
+					size_study_deck: flags?.number ?? flags?.n ?? -1
 				});
 			},
 			'reset-queues': async () => {

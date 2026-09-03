@@ -121,7 +121,7 @@ function getHandlers({ flags = {}, masteryManager = null } = {}) {
 	return {
 		dsa: async () => {
 			if (flags.session) {
-				const session_size = flags?.n ?? 10;
+				const session_size = flags?.number ?? flags?.n ?? 10;
 				if (masteryManager) {
 					await masteryManager.ensureTermsLoaded();
 					return masteryManager.mQuizer.algorithmicStudySession({
@@ -140,7 +140,7 @@ function getHandlers({ flags = {}, masteryManager = null } = {}) {
 		},
 		mdsa: async () => {
 			if (flags.session) {
-				const session_size = flags?.n ?? 10;
+				const session_size = flags?.number ?? flags?.n ?? 10;
 				if (masteryManager) {
 					await masteryManager.ensureTermsLoaded();
 					return masteryManager.mQuizer.algorithmicStudySession({
@@ -160,7 +160,7 @@ function getHandlers({ flags = {}, masteryManager = null } = {}) {
 		},
 		cloze: async () => {
 			if (flags.session) {
-				const session_size = flags?.n ?? 10;
+				const session_size = flags?.number ?? flags?.n ?? 10;
 				if (masteryManager) {
 					await masteryManager.ensureTermsLoaded();
 					return masteryManager.mQuizer.clozeStudySession({
