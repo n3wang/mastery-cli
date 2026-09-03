@@ -1,78 +1,139 @@
 /**
- * Local CLI Help Generator
+ * CLI help generator.
  *
- * This is a local replacement for the cli-meow-help package to avoid npm dependency issues
- * in corporate environments. It generates formatted help text for CLI commands and flags.
+ * Renders help from the command registry, so what is documented and what
+ * actually dispatches can no longer drift apart. Commands are grouped, aliases
+ * are shown next to the canonical name, and per-command usage/examples/flags
+ * are rendered for `mastery help <command>`.
+ *
+ * Local replacement for cli-meow-help, to avoid an npm dependency in
+ * restricted environments.
  */
 
 /**
- * Generate CLI help text
- * @param {Object} options - Configuration object
- * @param {string} options.name - CLI name
- * @param {Object} options.flags - Flag definitions
- * @param {Object} options.commands - Command definitions
- * @returns {string} Formatted help text
+ * Format one command line: "  session (ses)      Start a study session"
  */
-function generateHelp({ name = 'cli', flags = {}, commands = {} }) {
-	let helpText = `
-Usage: ${name} [command] [flags]
+function formatCommand(command, width) {
+	const aliases =
+		command.aliases && command.aliases.length > 0
+			? ` (${command.aliases.join(', ')})`
+			: '';
+	const label = `${command.name}${aliases}`;
+	const padding = ' '.repeat(Math.max(2, width - label.length + 2));
+	return `  ${label}${padding}${command.desc}`;
+}
 
-Commands:
-`;
-
-	// Add commands section
-	const commandEntries = Object.entries(commands);
-	if (commandEntries.length > 0) {
-		const maxCommandLength = Math.max(
-			...commandEntries.map(([cmd]) => cmd.length)
-		);
-
-		for (const [command, info] of commandEntries) {
-			const description = typeof info === 'object' ? info.desc : info;
-			const padding = ' '.repeat(maxCommandLength - command.length + 4);
-			helpText += `  ${command}${padding}${description}\n`;
-		}
-	} else {
-		helpText += '  (No commands available)\n';
+/**
+ * Format the flags block.
+ */
+function formatFlags(flags) {
+	const entries = Object.entries(flags || {});
+	if (entries.length === 0) {
+		return '  (No flags available)\n';
 	}
 
-	helpText += '\nFlags:\n';
+	const width = Math.max(
+		...entries.map(([flag, info]) => {
+			const alias = info.alias ? `, -${info.alias}` : '';
+			return `--${flag}${alias}`.length;
+		})
+	);
 
-	// Add flags section
-	const flagEntries = Object.entries(flags);
-	if (flagEntries.length > 0) {
-		const maxFlagLength = Math.max(
-			...flagEntries.map(([flag]) => {
-				const flagInfo = flags[flag];
-				const alias = flagInfo.alias ? `, -${flagInfo.alias}` : '';
-				return `--${flag}${alias}`.length;
-			})
-		);
+	let out = '';
+	for (const [flag, info] of entries) {
+		const alias = info.alias ? `, -${info.alias}` : '';
+		const label = `--${flag}${alias}`;
+		const padding = ' '.repeat(width - label.length + 4);
+		const type = info.type ? ` [${info.type}]` : '';
+		const defaultValue =
+			info.default !== undefined ? ` (default: ${info.default})` : '';
+		out += `  ${label}${padding}${info.desc || 'No description'}${type}${defaultValue}\n`;
+	}
+	return out;
+}
 
-		for (const [flag, flagInfo] of flagEntries) {
-			const alias = flagInfo.alias ? `, -${flagInfo.alias}` : '';
-			const flagName = `--${flag}${alias}`;
-			const padding = ' '.repeat(maxFlagLength - flagName.length + 4);
-			const description = flagInfo.desc || 'No description';
-			const type = flagInfo.type ? ` [${flagInfo.type}]` : '';
-			const defaultValue =
-				flagInfo.default !== undefined
-					? ` (default: ${flagInfo.default})`
-					: '';
+/**
+ * Detailed help for one command — `mastery help <command>`.
+ * @param {Object} command registry entry
+ * @param {String} name CLI name
+ * @returns {String}
+ */
+function generateCommandHelp(command, name = 'mastery') {
+	let out = `\n${command.name}`;
 
-			helpText += `  ${flagName}${padding}${description}${type}${defaultValue}\n`;
-		}
-	} else {
-		helpText += '  (No flags available)\n';
+	if (command.aliases && command.aliases.length > 0) {
+		out += `  (also: ${command.aliases.join(', ')})`;
+	}
+	out += `\n\n  ${command.desc}\n`;
+
+	if (command.usage) {
+		out += `\nUsage:\n  ${command.usage}\n`;
 	}
 
-	helpText += `
+	if (command.examples && command.examples.length > 0) {
+		out += '\nExamples:\n';
+		for (const example of command.examples) {
+			out += `  ${example}\n`;
+		}
+	}
+
+	if (command.flags && Object.keys(command.flags).length > 0) {
+		out += '\nFlags:\n';
+		for (const [flag, description] of Object.entries(command.flags)) {
+			out += `  ${flag}  ${description}\n`;
+		}
+	}
+
+	return out.trimEnd();
+}
+
+/**
+ * The full help listing.
+ *
+ * @param {Object} options
+ * @param {String} options.name CLI name
+ * @param {Object} options.flags global flag definitions
+ * @param {Array} options.groups from registry.getVisibleGroups()
+ * @returns {String}
+ */
+function generateHelp({ name = 'cli', flags = {}, groups = [] }) {
+	let out = `\nUsage: ${name} <command> [flags]\n`;
+
+	const allCommands = groups.flatMap(group => group.commands);
+	const width =
+		allCommands.length > 0
+			? Math.max(
+					...allCommands.map(command => {
+						const aliases =
+							command.aliases && command.aliases.length > 0
+								? ` (${command.aliases.join(', ')})`
+								: '';
+						return `${command.name}${aliases}`.length;
+					})
+				)
+			: 0;
+
+	for (const group of groups) {
+		out += `\n${group.title}:\n`;
+		for (const command of group.commands) {
+			out += `${formatCommand(command, width)}\n`;
+		}
+	}
+
+	out += '\nFlags:\n';
+	out += formatFlags(flags);
+
+	out += `
 Examples:
-  ${name} help          Show this help message
-  ${name} --version     Show version information
+  ${name} session              Study your decks
+  ${name} dsa                  Practice a coding problem
+  ${name} vault status         See where your data lives
+  ${name} help <command>       Details for one command
 `;
 
-	return helpText.trim();
+	return out.trimEnd();
 }
 
 module.exports = generateHelp;
+module.exports.generateHelp = generateHelp;
+module.exports.generateCommandHelp = generateCommandHelp;

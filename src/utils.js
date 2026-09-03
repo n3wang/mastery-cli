@@ -251,9 +251,6 @@ class Mastery {
 		// Command handlers - these map command names to their functions
 		// For beginners: When you type 'mastery quiz', it calls the 'quiz' handler
 		this.commandHandlers = {
-			hello: () => {
-				this.say('Hello!');
-			},
 			code: () => {
 				this.tellCurrentDirectory();
 			},
@@ -296,10 +293,6 @@ class Mastery {
 					}
 				};
 				run();
-			},
-			log: () => {
-				// Log work session (like a pomodoro timer)
-				this.say('Logging 30 minutes of work');
 			},
 			skill: () => {
 				// Show skill progress reports
