@@ -21,10 +21,9 @@
  *       ├── queues/         live session state
  *       └── scratch/        temp problem/solution files
  *
- * Resolution order: $MASTERY_HOME, then the OS data directory. Never a path
- * inside the package — the old silent fallback to a bundled directory is what
- * let a fresh clone bind to committed sample state and diverge from the
- * user's real data.
+ * Resolution order: $MASTERY_HOME, then a workspace-local directory at
+ * src/data/user_data. This keeps all user data local to the repository by
+ * default while still allowing an explicit override.
  */
 
 const fs = require('fs');
@@ -34,6 +33,7 @@ const path = require('path');
 const APP_DIR_NAME = 'mastery-cli';
 const ENV_VAR = 'MASTERY_HOME';
 const MIGRATION_MARKER = '.migrated-from-package';
+const LOCAL_VAULT_ROOT = path.resolve(__dirname, './data/user_data');
 
 /** Directories created inside every vault. */
 const VAULT_DIRS = [
@@ -55,6 +55,7 @@ const VAULT_DIRS = [
 const CONTENT_DIR = path.resolve(__dirname, '../content');
 
 const LEGACY_ROOTS = [
+	path.join(getOsDataDir(), APP_DIR_NAME),
 	path.resolve(__dirname, './data/user_data'),
 	path.resolve(__dirname, './user_data'),
 	path.resolve(__dirname, '../user_data')
@@ -77,7 +78,7 @@ function getOsDataDir() {
 }
 
 /**
- * The vault root. $MASTERY_HOME wins; otherwise the OS data directory.
+ * The vault root. $MASTERY_HOME wins; otherwise use workspace-local storage.
  * @returns {String} absolute path
  */
 function getVaultRoot() {
@@ -85,7 +86,7 @@ function getVaultRoot() {
 	if (override && override.trim() !== '') {
 		return path.resolve(override.trim());
 	}
-	return path.join(getOsDataDir(), APP_DIR_NAME);
+	return LOCAL_VAULT_ROOT;
 }
 
 /**
