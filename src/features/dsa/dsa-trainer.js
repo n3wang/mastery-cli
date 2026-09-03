@@ -1,4 +1,5 @@
-const SettingsManager = require('./settings-manager');
+const { getSettingsManager } = require('../../SettingsManager');
+const { COMMON_EDITORS } = require('./editors');
 const ProblemsManager = require('./problems-manager');
 const StorableReport = require('./StorableReport');
 
@@ -35,11 +36,11 @@ class DSATrainer {
 	 */
 	constructor({ skip_problems = ['hello-world', 'simple-sum'] } = {}) {
 		/**
-		 * @property {SettingsManager} settings_manager - Configurations management such as which code editor to use.
+		 * @property {SettingsManager} settings_manager - the shared settings manager (editor choice etc).
 		 * @property {ProblemsManager} problems_manager - management of DSA Problems
 		 *
 		 * @property {ProblemsManager} loaded_problem_manager - management of DSA Problems once it finishes loading.
-		 * @property {Object} user_settings - User settings configured on `settings.json`
+		 * @property {Object} user_settings - the live config object from the vault
 		 * @property {string[]} skip_problems - A list of problems to skip (problems slug names)
 		 *
 		 * @property {StorableReport} problemReport - A report of the problems solved by the user
@@ -50,13 +51,13 @@ class DSATrainer {
 		 * @property {ProblemMetaData[]} first_non_only_hard_left_category_non_hard_problems - A list of problems that are not completed yet, and are not hard
 		 * @property {ProblemMetaData[]} completed_problems_sorted_by_times_completed - A list of problems that are not completed yet, sorted by the number of times they have been completed
 		 */
-		this.settings_manager = new SettingsManager();
+		this.settings_manager = getSettingsManager();
 		this.problems_manager = new ProblemsManager({
 			skip_problems: skip_problems
 		});
 
 		this.loaded_problem_manager = null; // Will be lazily loaded
-		this.user_settings = this.settings_manager.settings;
+		this.user_settings = this.settings_manager.getSettings();
 		this.skip_problems = skip_problems;
 
 		this.problemReport = new StorableReport({ filename: 'problem_report' });
@@ -466,7 +467,7 @@ class DSATrainer {
 		});
 
 		const editor_instruction =
-			this.user_settings.common_editors[this.user_settings.editor];
+			COMMON_EDITORS[this.user_settings.editor] ?? COMMON_EDITORS.default;
 
 		if (copy_to_clipboard) {
 			// Copy base problem

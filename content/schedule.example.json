@@ -1,0 +1,113 @@
+{
+	"COMMON": {
+		"fields": {
+			"COMMON": {
+				"DESCRIPTION": "Fields are mandatory; they appear at the top of the page",
+				"blocks-completed": {
+					"TYPE": "BLOCKS",
+					"DESCRIPTION": "Focused work blocks completed today (pomodoros, or +3 for a Focusmate session)"
+				}
+			},
+			"system": {
+				"DESCRIPTION": "Systems are the habits you want to hold every day",
+				"reading": {
+					"TYPE": "CHECKBOX",
+					"DESCRIPTION": "Read at least one chapter, or 20 pages"
+				},
+				"exercise": {
+					"TYPE": "CHECKBOX",
+					"DESCRIPTION": "Any deliberate exercise counts, including a short workout at home"
+				},
+				"review-flashcards": {
+					"TYPE": "CHECKBOX",
+					"DESCRIPTION": "Run at least one study session: mastery ses"
+				}
+			},
+			"achievements": {
+				"DESCRIPTION": "Achievements are optional extras, not daily requirements",
+				"side-project": {
+					"TYPE": "CHECKBOX",
+					"DESCRIPTION": "Moved a side project forward, however small"
+				},
+				"write-notes": {
+					"TYPE": "CHECKBOX",
+					"DESCRIPTION": "Turned something you learned today into a flashcard"
+				}
+			}
+		}
+	},
+	"MONDAY": {
+		"fields": {
+			"system": {
+				"deep-work": {
+					"TYPE": "BLOCKS",
+					"DESCRIPTION": "2 blocks on your main learning goal"
+				}
+			}
+		}
+	},
+	"TUESDAY": {
+		"fields": {
+			"system": {
+				"catch-up": {
+					"TYPE": "BLOCKS",
+					"DESCRIPTION": "2 blocks to clear whatever slipped"
+				}
+			}
+		}
+	},
+	"WEDNESDAY": {
+		"fields": {
+			"system": {
+				"deep-work": {
+					"TYPE": "BLOCKS",
+					"DESCRIPTION": "2 blocks on your main learning goal"
+				}
+			}
+		}
+	},
+	"THURSDAY": {
+		"fields": {
+			"system": {
+				"algorithms": {
+					"TYPE": "BLOCKS",
+					"DESCRIPTION": "2 blocks of practice: mastery dsa"
+				}
+			}
+		}
+	},
+	"FRIDAY": {
+		"fields": {
+			"system": {
+				"project": {
+					"TYPE": "BLOCKS",
+					"DESCRIPTION": "4 blocks on a project of your choosing"
+				}
+			}
+		}
+	},
+	"SATURDAY": {
+		"fields": {
+			"system": {
+				"project": {
+					"TYPE": "BLOCKS",
+					"DESCRIPTION": "3 blocks on a project of your choosing"
+				}
+			}
+		}
+	},
+	"SUNDAY": {
+		"fields": {
+			"system": {
+				"review-week": {
+					"TYPE": "CHECKBOX",
+					"DESCRIPTION": "Look back at the week: mastery report"
+				},
+				"plan-week": {
+					"TYPE": "CHECKBOX",
+					"DESCRIPTION": "Set up next week's decks: mastery prepare-week"
+				}
+			}
+		}
+	}
+}

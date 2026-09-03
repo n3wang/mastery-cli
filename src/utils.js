@@ -339,8 +339,8 @@ class Mastery {
 			},
 			fses: async () => {
 				// Filtered study session based on active masks
-				const SettingsManager = require('./SettingsManager');
-				const settingsManager = new SettingsManager();
+				const { getSettingsManager } = require('./SettingsManager');
+				const settingsManager = getSettingsManager();
 				const enabledDecks = settingsManager.getEnabledDecksFromMasks();
 
 				if (enabledDecks.length === 0) {
@@ -543,14 +543,12 @@ class Mastery {
 	displaySettingsPaths = () => {
 		const path = require('path');
 		const fs = require('fs');
-		const { getUserDataAbsolutePath } = require('./userDataPaths');
+		const { getSettingsManager } = require('./SettingsManager');
 
 		console.log('\n=== Available Settings Files ===\n');
 
-		// Main settings file
-		const mainSettingsPath = getUserDataAbsolutePath('settings.json', {
-			preferExisting: false
-		});
+		// The single config file, in the vault.
+		const mainSettingsPath = getSettingsManager().getSettingsPath();
 		if (fs.existsSync(mainSettingsPath)) {
 			console.log(`📁 Main Settings: ${mainSettingsPath}`);
 		} else {
@@ -575,8 +573,8 @@ class Mastery {
 	};
 
 	getSettingsManager() {
-		const SettingsManager = require('./SettingsManager');
-		return new SettingsManager();
+		const { getSettingsManager } = require('./SettingsManager');
+		return getSettingsManager();
 	}
 
 	updateRuntimeSettings(newSettings) {
@@ -1347,9 +1345,9 @@ class Mastery {
 
 	async manageMasks() {
 		const fs = require('fs');
-		const { ensureUserDataParentDir } = require('./userDataPaths');
+		const { getSettingsManager } = require('./SettingsManager');
 
-		const settingsPath = ensureUserDataParentDir('settings.json');
+		const settingsPath = getSettingsManager().getSettingsPath();
 
 		try {
 			console.log('\n=== Quiz Deck Masks Manager ===\n');
@@ -1865,8 +1863,8 @@ class Mastery {
 	}
 
 	listMasks() {
-		const SettingsManager = require('./SettingsManager');
-		const settingsManager = new SettingsManager();
+		const { getSettingsManager } = require('./SettingsManager');
+		const settingsManager = getSettingsManager();
 		const masks = settingsManager.getAllMasks();
 		const activeMasks = settingsManager.getActiveMasks();
 
@@ -1889,8 +1887,8 @@ class Mastery {
 	}
 
 	quickToggleMask(maskName) {
-		const SettingsManager = require('./SettingsManager');
-		const settingsManager = new SettingsManager();
+		const { getSettingsManager } = require('./SettingsManager');
+		const settingsManager = getSettingsManager();
 
 		try {
 			const enabled = settingsManager.toggleMask(maskName);
@@ -1906,8 +1904,8 @@ class Mastery {
 	}
 
 	async quickCreateMask() {
-		const SettingsManager = require('./SettingsManager');
-		const settingsManager = new SettingsManager();
+		const { getSettingsManager } = require('./SettingsManager');
+		const settingsManager = getSettingsManager();
 		const { Input, MultiSelect } = require('enquirer');
 
 		try {
@@ -1936,8 +1934,8 @@ class Mastery {
 	}
 
 	showMaskStatus() {
-		const SettingsManager = require('./SettingsManager');
-		const settingsManager = new SettingsManager();
+		const { getSettingsManager } = require('./SettingsManager');
+		const settingsManager = getSettingsManager();
 		const activeMasks = settingsManager.getActiveMasks();
 		const enabledDecks = settingsManager.getEnabledDecksFromMasks();
 

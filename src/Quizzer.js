@@ -1114,8 +1114,8 @@ class Quizzer {
 		masterDeck = this.masterDeck,
 		{ reverse = false, size_study_deck = -1 } = {}
 	) => {
-		const SettingsManager = require('./SettingsManager');
-		const settingsManager = new SettingsManager();
+		const { getSettingsManager } = require('./SettingsManager');
+		const settingsManager = getSettingsManager();
 		const enabledDecks = settingsManager.getEnabledDecksFromMasks();
 
 		if (enabledDecks.length === 0) {

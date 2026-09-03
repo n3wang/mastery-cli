@@ -34,6 +34,13 @@ function normalizeLlmConfig(rawConfig = {}) {
 		? Math.max(1000, Math.min(120000, timeoutMs))
 		: DEFAULT_LLM_CONFIG.timeoutMs;
 
+	// An API key is a secret, and the vault config is meant to be committed to
+	// the user's own repo. Prefer the environment so the key never has to be
+	// written into a tracked file.
+	if (process.env.MASTERY_LLM_API_KEY) {
+		merged.apiKey = process.env.MASTERY_LLM_API_KEY;
+	}
+
 	merged.enabled = Boolean(merged.enabled);
 	merged.followupEnabled = Boolean(merged.followupEnabled);
 	merged.provider = String(merged.provider || DEFAULT_LLM_CONFIG.provider);

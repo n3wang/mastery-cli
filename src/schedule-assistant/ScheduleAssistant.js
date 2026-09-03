@@ -1,4 +1,5 @@
 const StorableReport = require('./StorableReport');
+const { loadScheduleSettings } = require('./schedule-settings');
 const Functions = require('./functions');
 const { Scale, NumberPrompt } = require('enquirer');
 
@@ -7,8 +8,10 @@ class ScheduleAssistant {
 	// Creates the mock prompts and stores that.
 
 	constructor() {
-		// Loads the schedule-settings.json
-		this.scheduleSettings = require('./data/schedule-settings.json');
+		// The user's own schedule lives in the vault; the shipped example is
+		// used until they write one. (The file that used to sit here held one
+		// person's gym routine, Trello boards and course links.)
+		this.scheduleSettings = loadScheduleSettings();
 		this.reportAnswers = new StorableReport();
 		this.updateReportAnswer();
 		this.reportPrompt = this.createReportPrompt();
