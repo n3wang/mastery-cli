@@ -8,7 +8,7 @@ const {
 	convertToProblemsMetadata,
 	retrieve_dsa_modules,
 	retrieve_dsa_problems_as_decks
-} = require('../src/extensions/dsa-cli/md_dsa_parser.js');
+} = require('../src/features/dsa/md_dsa_parser.js');
 
 describe('DSA Markdown Parser', () => {
 	describe('parseMarkdownProblems', () => {

@@ -1,5 +1,5 @@
 const assert = require('assert');
-const SettingsManager = require('../settings-manager');
+const SettingsManager = require('../../src/features/dsa/settings-manager');
 
 describe('SettingsManager', function () {
 	describe('#settings', function () {

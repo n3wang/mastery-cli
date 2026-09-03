@@ -1,4 +1,4 @@
-const ProblemsManager = require('../problems-manager');
+const ProblemsManager = require('../../src/features/dsa/problems-manager');
 const assert = require('assert');
 
 describe('Cloze Tests', function () {

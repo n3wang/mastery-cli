@@ -3,7 +3,7 @@ const path = require('path');
 const {
 	parseMarkdownProblemsFromFolder,
 	parseMarkdownProblemsFromModules
-} = require('../src/extensions/dsa-cli/md_dsa_parser.js');
+} = require('../src/features/dsa/md_dsa_parser.js');
 
 describe('parseMarkdownProblemsFromFolder', () => {
 	it('should parse Two Sum correctly', () => {

@@ -1,8 +1,8 @@
 const assert = require('assert');
 const fs = require('fs');
 
-const { ProblemsManager } = require('../problems-manager');
-const { ProblemMetadata } = require('../structures');
+const ProblemsManager = require('../../src/features/dsa/problems-manager');
+const { ProblemMetadata } = require('../../src/features/dsa/structures');
 
 describe('ProblemsManager', function () {
 	// Define a mock problem with a file path
@@ -40,8 +40,8 @@ describe('ProblemsManager', function () {
 		console.log(problems);
 	});
 
-	it('Tests if the autoPopulateUsingTestDictionary works ', function () {
-		manager.autoPopulateUsingTestDictionary();
+	it('Tests if the autoPopulateUsingTestDictionary works ', async function () {
+		await manager.autoPopulateUsingTestDictionary();
 		var problems = [
 			manager.getRandomProblem(),
 			manager.getRandomProblem(),
@@ -51,7 +51,7 @@ describe('ProblemsManager', function () {
 		assert(problems.length === 3);
 		//   Test if there is variation
 		let didTestChange = false;
-		for (var i = 0; i < problems.length; i++) {
+		for (var i = 0; i < problems.length - 1; i++) {
 			if (problems[i].slug !== problems[i + 1].slug) {
 				didTestChange = true;
 				break;

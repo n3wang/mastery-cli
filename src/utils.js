@@ -536,7 +536,6 @@ class Mastery {
 	displaySettingsPaths = () => {
 		const path = require('path');
 		const fs = require('fs');
-		const { ExtensionManager } = require('./extensions/ExtensionManager');
 		const { getUserDataAbsolutePath } = require('./userDataPaths');
 
 		console.log('\n=== Available Settings Files ===\n');
@@ -551,37 +550,21 @@ class Mastery {
 			console.log(`📁 Main Settings: ${mainSettingsPath} (not found)`);
 		}
 
-		// Extension settings
-		console.log('\n--- Extension Settings ---');
-		try {
-			const extensionManager = new ExtensionManager(
-				path.join(__dirname, 'extensions'),
-				{ info: () => { }, error: () => { }, warn: () => { } }
-			);
-
-			const context = { flags: {}, masteryManager: this, settings: this.Settings };
-			extensionManager.loadAllExtensions(context);
-
-			const extensions = extensionManager.getStatus().extensions;
-
-			if (extensions.length === 0) {
-				console.log('No extensions found.');
-			} else {
-				extensions.forEach(ext => {
-					if (ext.settingsPath) {
-						const fullPath = path.resolve(__dirname, ext.settingsPath);
-						const exists = fs.existsSync(fullPath);
-						console.log(`📄 ${ext.name}: ${fullPath}${exists ? '' : ' (not found)'}`);
-					} else {
-						console.log(`📄 ${ext.name}: No settings file configured`);
-					}
-				});
+		// Feature settings
+		console.log('\n--- Feature Settings ---');
+		const { getFeatureCommands } = require('./features');
+		const featureNames = new Set(
+			Object.values(getFeatureCommands()).map(c => c.feature)
+		);
+		if (featureNames.size === 0) {
+			console.log('No features registered.');
+		} else {
+			for (const name of featureNames) {
+				console.log(`\u{1F4C4} ${name}: uses the main settings file`);
 			}
-		} catch (error) {
-			console.log('Error loading extensions:', error.message);
 		}
 
-		console.log('\nUse these paths to modify application and extension settings.');
+		console.log('\nUse these paths to modify application settings.');
 	};
 
 	getSettingsManager() {

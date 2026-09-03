@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const clipboard = require('copy-paste');
-const { TEST_DICTIONARY } = require('./tests');
+const { TEST_DICTIONARY } = require('./problem-sets');
 const { ProblemMetadata } = require('./structures');
 const { getPromptDict } = require('./prompt');
 const constants = require('./constants');
@@ -44,7 +44,7 @@ class ProblemsManager {
 		this.solution_filepath = './solutions/';
 		this.markdown_filepath = './prompt/';
 		this.base_code_filepath = './base_code/';
-		this.tests_filepath = './tests/';
+		this.tests_filepath = './problem-sets/';
 		this.cloze_problem_base_filepath = './cloze/base_cloze/';
 	}
 
