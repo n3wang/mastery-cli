@@ -17,7 +17,10 @@ function printLLMStatus(config) {
 	console.log(`Model: ${config.model}`);
 	console.log(`Follow-up helper: ${config.followupEnabled ? 'ON' : 'OFF'}`);
 	console.log(`Timeout: ${config.timeoutMs}ms`);
-	if (Array.isArray(config.availableProfiles) && config.availableProfiles.length > 0) {
+	if (
+		Array.isArray(config.availableProfiles) &&
+		config.availableProfiles.length > 0
+	) {
 		console.log(`Profiles: ${config.availableProfiles.join(', ')}`);
 	}
 	console.log('');
@@ -107,7 +110,8 @@ async function runLLMWizard(existingConfig = {}) {
 
 	const followupEnabled = await new Confirm({
 		name: 'followupEnabled',
-		message: 'Enable flashcard follow-up helper when answers are incorrect?',
+		message:
+			'Enable flashcard follow-up helper when answers are incorrect?',
 		initial: merged.followupEnabled
 	}).run();
 
@@ -163,7 +167,9 @@ async function runLLMWizard(existingConfig = {}) {
 	return {
 		...root,
 		enabled: true,
-		activeProfile: shouldSetActive ? selectedProfileName : root.activeProfile,
+		activeProfile: shouldSetActive
+			? selectedProfileName
+			: root.activeProfile,
 		profiles: {
 			...root.profiles,
 			[selectedProfileName]: nextProfileConfig

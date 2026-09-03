@@ -15,7 +15,10 @@ const cli = require('./src/cli');
 const utils = require('./src/utils');
 const Settings = require('./src/settings');
 const registry = require('./src/commands/registry');
-const { buildHandlers, findRequestedCommand } = require('./src/commands/dispatch');
+const {
+	buildHandlers,
+	findRequestedCommand
+} = require('./src/commands/dispatch');
 const { getFeatureHandlers } = require('./src/features');
 const { generateCommandHelp } = require('./src/local-modules/cli-help');
 
@@ -31,7 +34,9 @@ const { Mastery } = utils;
 		if (input[0] === 'help') {
 			const requested = registry.resolveName(input[1]);
 			if (requested) {
-				console.log(generateCommandHelp(registry.getCommand(requested)));
+				console.log(
+					generateCommandHelp(registry.getCommand(requested))
+				);
 				return;
 			}
 			if (input[1]) {

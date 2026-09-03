@@ -28,7 +28,10 @@ class DeletionQueueStorage {
 				this.data = [];
 			}
 		} catch (error) {
-			console.error('Error loading deletion queue storage:', error.message);
+			console.error(
+				'Error loading deletion queue storage:',
+				error.message
+			);
 			this.data = [];
 		}
 	}
@@ -39,9 +42,16 @@ class DeletionQueueStorage {
 			if (!fs.existsSync(dir)) {
 				fs.mkdirSync(dir, { recursive: true });
 			}
-			fs.writeFileSync(this.filepath, JSON.stringify(this.data, null, 2), 'utf-8');
+			fs.writeFileSync(
+				this.filepath,
+				JSON.stringify(this.data, null, 2),
+				'utf-8'
+			);
 		} catch (error) {
-			console.error('Error saving deletion queue storage:', error.message);
+			console.error(
+				'Error saving deletion queue storage:',
+				error.message
+			);
 		}
 	}
 
@@ -65,9 +75,8 @@ class DeletionQueueStorage {
 		const folderPath = term.reference_page || '';
 
 		// Match by term name and folder path
-		return this.data.some(item => 
-			item.termName === termName && 
-			item.folderPath === folderPath
+		return this.data.some(
+			item => item.termName === termName && item.folderPath === folderPath
 		);
 	}
 
@@ -92,7 +101,10 @@ class DeletionQueueStorage {
 		let hasFeedback = false;
 		if (feedbackStorage) {
 			const feedback = feedbackStorage.getFeedbackByTerm(term);
-			hasFeedback = feedback !== null && feedback.feedback && feedback.feedback.trim() !== '';
+			hasFeedback =
+				feedback !== null &&
+				feedback.feedback &&
+				feedback.feedback.trim() !== '';
 		}
 
 		const queueItem = {

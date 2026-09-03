@@ -116,7 +116,9 @@ const renderPromptDescription = (
 			`${chalk.hex(constants.CONSTANTS.CUTEBLUE).inverse(` ${title} `)} ${
 				is_cloze
 					? '| ' +
-					  chalk.hex(constants.CONSTANTS.CUTEPINK).inverse(` Cloze `)
+						chalk
+							.hex(constants.CONSTANTS.CUTEPINK)
+							.inverse(` Cloze `)
 					: ''
 			}`
 		);

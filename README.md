@@ -1,444 +1,156 @@
 # Mastery CLI
 
-![](https://media.giphy.com/media/eveBk0ptKzjqUe0iTg/giphy.gif)
+**Continuous learning for engineers — flashcards, algorithm practice and habit hooks, in your terminal.**
 
-Docs: https://nenewang.github.io/mastery-cli/
-compiled build: https://k00.fr/lak37m7l
+Mastery CLI turns your markdown notes into flashcards, ships 300+ offline coding
+problems with a built-in runner, and hooks study into habits you already have —
+every commit can prompt a card or a problem.
 
-Mastery CLI: Your Command Line Assistant for Programmer Development"
+It runs **offline by default**: no account, no telemetry, nothing leaves your
+machine unless you deliberately configure a language model endpoint.
 
-Mastery CLI is a ghost tool* designed to boost your programming/engineering skills. It features flashcards, DSA practice, statistics, and habit hooks. For instance, every commit now triggers a random flashcard or suggests a DSA problem to solve, fostering continuous learning.
-
-
-
-
-| features                                                                | img                                   |
-| ----------------------------------------------------------------------- | ------------------------------------- |
-| Convert your Markdown Notes into Flashcards                             | ![alt text](img/markdown-toimage.png) |
-| Upgrade your skills, and keep record of your progress with Mastery CLI. | ![alt text](img/progress-record.png)      |
-| Auto flashcards deck sort algorithm that prioritizes the ones you need to study most using "least practiced first" algorithm | add image |
-| Pushing Code and Flashcards Hook - Taking a page from cd ci pipelines, upgrade your skills by doing 2-3 flashcards after every commit or push with `mcli coa "message"` (git add --all, git commit -m "message" ) or `mcli poh` (push origin HEAD)  | ![](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzYzYzU5NWJiMjNhNThkYzBkNTJlM2MxNjFjZjdiNzJiMTZhMGVmOSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/JavdJQ8YjfQyOq0Cfy/giphy.gif) | 
-`mcli dsa --all` - checkout over more than 150+ offline data structures and algorithms problems, with a built-in compiler and offline tests. | ![alt text](img/dsa-problems.png) |
-`cli dsa` - Use our algorithmic path to learn and master neetcode 150 problems one b one | ![alt text](img/dsa-path.png) |
-`mcli ses` - Create a session for mastery an entire flashcards decks. (useful for studying for exams) | ![alt text](img/sessions.png) |
-
-
-Key Highlights:
-
-- Easily track personal project goals, such as daily commits.
-- Access over 150 offline programming problems with accompanying offline tests and a built-in compiler.
-- Utilize an offline algorithm that identifies weaknesses and generates quick flashcards for memory refresh.
-- Preloaded with flascard decks from Computer Science Architecture, Networking, AWS, System Design, Design Patterns classes.
-
-
-## Install and Test.
-```
+```sh
 npm install -g mastery-cli
-mcli report
-mcli quiz
-mcli report
+mastery vault init     # create your data directory
+mastery session        # study
+mastery dsa            # practise a coding problem
+mastery report         # see how you are doing
 ```
 
-- You need to install nvim for the dsa option to work
-- Eventually you would be able to select your own editor.
+---
 
+## What it does
 
-Currently under development.
-- We are cleaning up the codebase, and adding more features.
-- Currently 100% offline. So that this can be used in corporate environments. (not sending any data to the cloud, and all is local)
-- We are removing unused libraries to keep it as clean as possible, some libraries use local ones that you might need to install using:
+| | |
+| --- | --- |
+| **Markdown flashcards** | Write notes the way you already do; `?p:` marks a prompt and `?x` an answer. Nothing proprietary. |
+| **Least-practiced-first** | Cards you keep getting wrong come back sooner. No manual scheduling. |
+| **300+ offline problems** | Data structures and algorithms with tests and a built-in runner. No network. |
+| **Cloze exercises** | Fill-in-the-blank versions of the same problems, for recall rather than typing. |
+| **Deck masks** | Study only what matters this week — exam prep, a new language, one book. |
+| **Commit hooks** | `mastery commit "msg"` stages, commits, and quizzes you afterwards. |
+| **Your data is yours** | Everything lives in one directory you can `git init` and push to a private repo. |
 
-```
-npm install file:custom_modules/node-json-db-1.0.1
-npm install file:custom_modules/terminal-charter-master
-```
+## Requirements
 
+- Node.js 16 or newer
+- An editor on your `PATH` for DSA problems (`nano` by default; set `editor` in your config)
 
-Setup your editor in `utils/dsa-cli/user_files/temp_settings.json` to use your preferred editor for DSA problems.
+## Your vault
 
-
-## Help
-
-We support multiple ways to call the cli, for instance, you can use `mastery-cli`, `mastery`, or `mcli` to access the tool. 
-
-Supported calls:
-
-```
-mcli
-mastery
-m-cli
-```
-
-### Settings.
-
-Change the editor in 
+Everything Mastery CLI knows about you lives in one directory, outside the
+installed package:
 
 ```
-utils/dsa-cli/user_files/temp_settings.json
+$MASTERY_HOME/          # default: <OS data dir>/mastery-cli
+├── config.json         # your settings
+├── decks/              # your flashcard markdown
+├── problems/           # your own DSA problems
+├── progress/           # ratings, completion history, review state
+├── stats/              # append-only activity log
+└── .cache/             # derived; gitignored, safe to delete
 ```
 
-## Usage
+Because it is one directory, versioning it is ordinary git:
 
-TODO: Add more usage examples
-
-
-Commiting a code and pushing it to HEAD
-
-
-## Skills Integration
-
-Now you can track locally the type of cards you are studying, and the type of problems you are solving.
-You will be able to see the progress of your skills, and the type of problems you are solving.
-
-```
-mcli skill
-```
-TODO Explain the skill system and the skill leveling up system, as well as how the skills report distributes by dates and the type of problems you are solving.
-
-
-TODO add images of skill report with arrows explaining.
-
-
-TODO Add the 
-
-
-## Smart Term Selection - Train cards and distribute them based on practice history
-
-an intelligent term selection system that remembers which flashcards you've practiced and prioritizes the ones you need to study most.
-
-How It Works:
-
-The system uses content-based hashing to track your practice history:
-
-1. **Unique Term Identification**: Each flashcard gets a unique 8-character hash based on its content (term + description + example)
-2. **Completion Tracking**: Every time you successfully complete a flashcard, the system increments its completion count
-3. **Smart Selection**: When selecting terms for study, the system prioritizes cards with fewer completions by randomnly choosing a sample of `sample_size` cards (configurale at `src/data/user_data/settings.json`) and selecting the one with the least completions. Can be enabled/disabled
-
-
- Run the tests:
-
-```bash
-npx mocha tests/test_hash_storage.test.js          
-#  Hash storage tests
-
-npx mocha tests/test_quizzler.test.js              
-# Quizzer integration tests
+```sh
+cd "$(mastery vault path)"
+git init && git add -A && git commit -m "my decks"
+git remote add origin git@github.com:you/my-study-vault.git && git push -u origin main
 ```
 
-### Flashcards
+`.cache/` is already ignored, so your diffs stay readable. `mastery vault status`
+tells you what is in the vault and whether you have uncommitted study progress.
 
-TODO Explain the process of adding flashcards individually, or using the modules to add flashcards in bulk. (or even automatically)
+Move it anywhere by setting `MASTERY_HOME`.
 
-```
-mcli term
-```
+## Writing a deck
 
-## Creating Custom Term Modules
-
-Term modules allow you to organize flashcards into reusable decks. Each module is a folder in `src/data/user_data/terms_modules/` with an `index.js` configuration file.
-
-### Module Structure
+A deck is a directory with an `index.js` and some markdown:
 
 ```
-src/data/user_data/terms_modules/
-└── your-module-name/
-    ├── index.js           # Module configuration
-    ├── cache.json         # Cached terms (auto-generated)
-    └── cache_md/          # Cached markdown files (auto-generated)
-        └── *.md
+decks/my-deck/
+├── index.js
+└── cards/
+    └── 01-basics.md
 ```
 
-### Basic Module Configuration
-
-Create an `index.js` file with the following structure:
-
-```javascript
-const ABOUT = {
-	title: 'Your Module Title',
-	skill_category: 'category-name',
-	author: 'your-name'
-};
-
+```js
+// decks/my-deck/index.js
 module.exports = {
-	module_path: 'your-module-name',
-	ABOUT: ABOUT,
-	CACHE_CONTENT: true,
-	EXTERNAL_CONTENT_FOLDERS: [
-		'path/to/your/markdown/files'
-	]
+	module_path: 'my-deck',
+	ABOUT: { title: 'My Deck', skill_category: 'general', author: 'you' },
+	CONTENT_FOLDERS: ['cards']
 };
 ```
-
-### Configuration Options
-
-#### Required Fields
-
-- **`module_path`** - Unique identifier for the module (must match folder name)
-- **`ABOUT.title`** - Display name shown in deck selection
-- **`ABOUT.skill_category`** - Category for filtering and organization
-- **`ABOUT.author`** - Module author name
-
-#### Optional Fields
-
-- **`CACHE_CONTENT`** - Whether to cache markdown files locally (default: `true`)
-- **`EXTERNAL_CONTENT_FOLDERS`** - Array of paths to external markdown folders
-- **`CONTENT_FOLDERS`** - Array of relative paths within the module folder
-- **`CONTENT_FILES`** - Array of specific markdown files to include
-- **`USE_FILE_AS_MODULE`** - Treat module as single deck (default: `false`)
-- **`SORT_OPTION`** - Control term order during study sessions (default: `'reversed'`)
-
-### Sort Options
-
-The `SORT_OPTION` controls how terms are presented during study sessions:
-
-- **`'reversed'`** (default) - Terms in reverse order (newest first, best for reviewing recent additions)
-- **`'ordered'`** - Terms in original order (oldest first, best for sequential learning)
-- **`'random'`** - Terms shuffled randomly (best for testing knowledge without patterns)
-- **`'duplicate'`** - Terms appear twice: first ordered, then reversed (best for intensive practice)
-
-#### Example with Sort Option
-
-```javascript
-module.exports = {
-	module_path: 'exam-prep',
-	ABOUT: {
-		title: 'Exam Preparation',
-		skill_category: 'exam',
-		author: 'student'
-	},
-	SORT_OPTION: 'random', // Randomize for better testing
-	EXTERNAL_CONTENT_FOLDERS: [
-		'E:\\Documents\\study-notes\\exam-review'
-	]
-};
-```
-
-### Nested Deck Support
-
-Modules support hierarchical organization through folder structures:
-
-```
-your-module-name/
-└── cache_md/
-    ├── chapter1.md
-    ├── chapter2.md
-    └── advanced/
-        ├── topic1.md
-        └── topic2.md
-            └── subtopic/
-                └── details.md
-```
-
-Each folder level creates a nested deck, allowing you to:
-- Organize content by topic/chapter
-- Select entire sections or individual sub-topics
-- See nested deck count in selection UI (e.g., "Module - 100 cards - 3N")
-
-### Markdown Format
-
-Flashcards use a specific markdown format:
 
 ```markdown
-# Module Title
+# My Deck
 
-## Category Header
-
-Description paragraph
-
-:p Question or prompt
-
-??x
-Multi-line answer
-x??
-
-## Another Term
-
-term::short answer
-
-#### Titled Entry
-
-Description here
-
-:p What is this?
-
+#### Idempotence
+An operation you can apply repeatedly without changing the result past the first time.
+?p: Why does idempotence matter for a retry policy?
 ?x
-Single line answer
+Because a retry is only safe if repeating the call cannot compound its effect.
+
+#### Backpressure
+?p: What is backpressure?
+??x
+A signal from a slow consumer telling a fast producer to slow down.
+
+Without it the producer's work piles up in a queue until something runs out of
+memory.
+x??
 ```
 
-Format elements:
-- `##` - Section headers
-- `####` - Creates titled flashcard entries
-- `:p` - Question/prompt marker
-- `??x...x??` - Multi-line answer block
-- `?x` - Single-line answer
-- `::` - Inline format (term::answer)
+- `?p:` a prompt, `?x` a single answer, `??x` … `x??` a multi-line answer
+- `mastery create-module` scaffolds this for you
 
-### Complete Example
+The two decks in `content/decks/` are seeded into a new vault as working examples.
 
-```javascript
-const ABOUT = {
-	title: 'Computer Science Fundamentals',
-	skill_category: 'cs-fundamentals',
-	author: 'n3wang'
-};
+## Commands
 
-const EXTERNAL_CONTENT_FOLDERS = [
-	'E:\\Documents\\obsidian\\cs-notes\\algorithms',
-	'E:\\Documents\\obsidian\\cs-notes\\data-structures'
-];
+Run `mastery --help` for the full grouped listing, or `mastery help <command>`
+for one command. Every short form is kept as an alias, so `ses`, `coa`, `poh`
+and friends still work.
 
-module.exports = {
-	module_path: 'cs-fundamentals',
-	ABOUT: ABOUT,
-	CACHE_CONTENT: true,
-	EXTERNAL_CONTENT_FOLDERS: EXTERNAL_CONTENT_FOLDERS,
-	SORT_OPTION: 'reversed', // Show newest terms first
-	USE_FILE_AS_MODULE: false
-};
+| Group | Commands |
+| --- | --- |
+| Study | `session` (`ses`), `session-filtered` (`fses`), `quiz`, `term`, `math` |
+| Practice | `dsa`, `mdsa`, `cloze`, `cloze-session` (`cses`), `algo-session` (`amses`) |
+| Decks | `mask`, `mask-list`, `mask-toggle`, `create-module`, `prepare-week` |
+| Git | `commit` (`co`, `coa`), `push` (`poh`) |
+| Vault | `vault path|init|status|migrate`, `config`, `llm` |
+| Reports | `report`, `skill`, `entries` |
+
+## Optional: local language model
+
+Off by default. When enabled, Mastery can explain an answer you got wrong.
+
+```sh
+mastery llm setup     # walks through it
+mastery llm status
 ```
 
-### Using Your Module
+It talks to whatever `baseUrl` you configure — by default a local
+[Ollama](https://ollama.com) instance at `http://127.0.0.1:11434`. Card content
+is sent to that endpoint, so point it somewhere you trust. If you configure a
+remote OpenAI-compatible endpoint, pass the key through `MASTERY_LLM_API_KEY`
+rather than writing it into a config file you might commit.
 
-Once created, your module will automatically appear in:
-- `mcli ses` - Study session deck selection
-- Daily deck generation
-- Quiz selection
+## Development
 
-The system will:
-1. Load markdown files from specified folders
-2. Parse them into flashcard terms
-3. Cache them for faster subsequent loads
-4. Apply your configured sort option during study sessions
-
-Math Problems:
-
-```
-mcli math
+```sh
+git clone https://github.com/n3wang/mastery-cli.git
+cd mastery-cli
+npm install
+npm test
+npm link          # puts `mastery` on your PATH from this checkout
 ```
 
+Tests run against a throwaway vault, never your real one. See
+[CONTRIBUTING.md](CONTRIBUTING.md) for conventions and layout.
 
-### Data Structures and Algorithms 
+## License
 
-By default we include a datastructure algorithms module with over 150+ problems, and a built-in compiler to test your code. For more information about how to use it please refer to `EXTERNAL_DSA_PROBLEMS.md`
-
-
-TODO Explain in depth the dsa system. And how to add new problems to the collection.
-
-TODO Explain the Cloze Demo, Cloze Sessions and others. 
-
-
-We have a collection of DSA problems that you can solve.
-
-View DSA problems:
-```
-mcli dsa
-```
-
-- We keep track of solved problems, as well as new problems.
-
-
-View all DSA Problems
-
-```
-mcli dsa --all
-```
-
-
-### Masks Lists
-
-#### Test mask management
-mastery mask-list
-mastery mask-toggle cert-focus
-mastery mask-status
-
-#### Test filtered study session
-mastery fses
-
-#### Test creating a new mask
-mastery mask-create
-
-#### Test full interactive mask manager
-mastery masks
-
-
-
-
-## Need Help?
-
-- Run `mastery --help` for all commands
-- Each command has detailed prompts to guide you
-- Settings are explained when you first run the tool
-
-
-## For Developers
-
-Feel free to take a card at: https://github.com/users/n3wang/projects/3/views/2
-And contribute
-
-
-```
-git update-index --assume-unchanged src\extensions\dsa-cli\user_files\
-```
-
-### Project Structure
-```
-src/
-├── extensions/          # Feature modules
-│   └── dsa-cli/        # Algorithm practice features
-├── data/
-│   └── user_data/      # Personal settings, modules, queues, logs, and study state
-├── terms_data/         # Built-in flashcard content
-└── utils/              # Helper functions
-```
-
-### Key Files
-- `index.js` - Main entry point
-- `src/constants.js` - Configuration constants
-- `src/extensions/dsa-cli/` - All algorithm-related code
-- `src/data/user_data/settings.json` - User preferences
-
-### Queue Configuration
-
-You can customize queue lengths and behavior for various core features by modifying `src/data/user_data/settings.json`:
-
-```json
-{
-  "queue_configurations": {
-    "quizzer_repetitive_limit": 3,           // Max repetitive questions in Quizzer
-    "quizzer_force_learn_limit": 2,          // Force learn limit in Quizzer  
-    "quizzer_force_learn_last_three": 3,     // Last items to process in force learn mode
-    "term_scheduler_working_set_length": 5,  // Working set size for Terms Scheduler
-    "mini_term_scheduler_working_set_length": 3, // Working set size for Mini Term Scheduler
-    "quiz_allow_reattempts": 3,              // Number of allowed reattempts for quiz questions
-    "hash_based_selection": {
-      "enabled": true,                       // Enable smart term selection
-      "sample_size": 15,                     // Terms to sample for selection (10-20 recommended)
-      "hash_length": 8                       // Hash length for term identification
-    }
-  }
-}
-```
-
-These settings control the behavior of:
-- **Quizzer.js** (`src/Quizzer.js`): Controls repetitive questions, force learning modes, and smart term selection
-- **HashStorage** (`src/HashStorage.js`): Manages hash-based term completion tracking and intelligent selection
-- **TermScheduler** (`src/termScheduler.js`): Manages working set length for term learning
-- **MiniTermScheduler** (`src/MiniTermScheduler.js`): Controls working set for mini term sessions
-
-### Adding New Features
-1. Create a new extension in `src/extensions/`
-2. Export your commands from the extension
-3. The main CLI will automatically discover them
-
-
-
-### Adding Extensions
-
-TODO Explain this part better
-
-1. Create a new directory in `src/extensions/` for your extension
-2. Add your code files to this directory
-3. Export your commands from the extension
-4. The main CLI will automatically discover them
-
-
+MIT — see [LICENSE](LICENSE).

@@ -1,9 +1,7 @@
 {
 	"show_http_errors": false,
 	"online": false,
-	"quiz_enabled": [
-		"term"
-	],
+	"quiz_enabled": ["term"],
 	"external_term_modules": [],
 	"dsa_language_mode": "PSEUDOCODE",
 	"terms_force_mode_cards": 3,
@@ -25,11 +23,7 @@
 		{
 			"code": "feat",
 			"description": "Personal Projects Feature Label",
-			"icon_list": [
-				":hammer:",
-				":shipit:",
-				":ambulance:"
-			],
+			"icon_list": [":hammer:", ":shipit:", ":ambulance:"],
 			"feature_name": "feat"
 		},
 		{
@@ -51,14 +45,7 @@
 		"ask_if_algo_missing": true
 	},
 	"week_is_since_today": true,
-	"table_feat_show": [
-		"commits",
-		"feat",
-		"algo_w",
-		"pro",
-		"math_ss",
-		"terms"
-	],
+	"table_feat_show": ["commits", "feat", "algo_w", "pro", "math_ss", "terms"],
 	"objectives_features": [
 		{
 			"feature_key": "commits",
@@ -101,10 +88,7 @@
 		"masks": [
 			{
 				"title": "sample",
-				"decks_to_enable": [
-					"computer-science",
-					"tooling"
-				]
+				"decks_to_enable": ["computer-science", "tooling"]
 			}
 		],
 		"use_masks": []

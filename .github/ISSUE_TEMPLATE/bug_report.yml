@@ -1,0 +1,54 @@
+name: Bug report
+description: Something does not work the way it should
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what happened instead.
+      placeholder: |
+        I ran `mastery session` and ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. mastery vault init
+        2. mastery session
+        3. ...
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: "Output of `mastery --version`"
+    validations:
+      required: true
+
+  - type: input
+    id: node
+    attributes:
+      label: Node and OS
+      description: "Output of `node -v`, plus your operating system"
+    validations:
+      required: true
+
+  - type: textarea
+    id: vault
+    attributes:
+      label: Vault status
+      description: "Output of `mastery vault status` — redact anything you would rather not share"
+      render: text
+
+  - type: textarea
+    id: deck
+    attributes:
+      label: Minimal deck that reproduces it
+      description: If the problem involves your own cards, the smallest markdown that triggers it.
+      render: markdown

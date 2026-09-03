@@ -20,9 +20,10 @@ if (terms.length > 0) {
 	console.log(JSON.stringify(term.example, null, 2));
 
 	// Check if indentation is preserved
-	const hasIndentation = term.example.includes('    indented') &&
-	                       term.example.includes('    is') &&
-	                       term.example.includes('        indented');
+	const hasIndentation =
+		term.example.includes('    indented') &&
+		term.example.includes('    is') &&
+		term.example.includes('        indented');
 
 	console.log('\n--- Verification ---');
 	if (hasIndentation) {

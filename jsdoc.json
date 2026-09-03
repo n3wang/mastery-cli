@@ -1,22 +1,17 @@
 {
 	"source": {
-		"include": [
-			"src",
-			"index.js"
-		],
+		"include": ["src", "index.js"],
 		"exclude": [
 			"src/data",
-			"src/extensions/dsa-cli/cloze",
-			"src/extensions/dsa-cli/solutions",
-			"src/extensions/dsa-cli/base_code",
-			"src/extensions/dsa-cli/tests"
+			"src/features/dsa/cloze",
+			"src/features/dsa/solutions",
+			"src/features/dsa/base_code",
+			"src/features/dsa/problem-sets"
 		],
 		"includePattern": ".js$",
 		"excludePattern": "(node_modules/|docs/)"
 	},
-	"plugins": [
-		"plugins/markdown"
-	],
+	"plugins": ["plugins/markdown"],
 	"templates": {
 		"cleverLinks": true,
 		"monospaceLinks": true

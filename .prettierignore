@@ -1,0 +1,18 @@
+node_modules/
+custom_modules/
+docs/
+package-lock.json
+yarn.lock
+
+# Problem sets, solutions and generated base code are data, not source we style.
+src/features/dsa/solutions/
+src/features/dsa/problem-sets/
+src/features/dsa/base_code/
+src/features/dsa/cloze/
+src/features/dsa/prompt/prompt.json
+src/terms-data/sample_terms/
+tests/fixtures/
+tests/fixtures-problems/
+
+# Runtime artefact used as a test fixture.
+src/schedule-assistant/tests/report.json

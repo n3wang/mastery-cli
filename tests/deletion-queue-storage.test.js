@@ -13,7 +13,7 @@ describe('DeletionQueueStorage', () => {
 		const testFilename = `test_deletion_queue_${Date.now()}.json`;
 		storage = new DeletionQueueStorage(testFilename);
 		testFilePath = storage.getFilePath();
-		
+
 		// Clean up any existing test file
 		if (fs.existsSync(testFilePath)) {
 			fs.unlinkSync(testFilePath);
@@ -51,7 +51,9 @@ describe('DeletionQueueStorage', () => {
 			fs.writeFileSync(testFilePath, JSON.stringify(testData, null, 2));
 
 			// Create new storage instance to load the file
-			const newStorage = new DeletionQueueStorage(path.basename(testFilePath, '.json'));
+			const newStorage = new DeletionQueueStorage(
+				path.basename(testFilePath, '.json')
+			);
 			assert.strictEqual(newStorage.getCount(), 1);
 			assert.strictEqual(newStorage.getQueue()[0].termName, 'Test Term');
 		});
@@ -116,10 +118,12 @@ describe('DeletionQueueStorage', () => {
 			};
 
 			storage.addToQueue(term);
-			
+
 			// Verify file exists and contains data
 			assert.strictEqual(fs.existsSync(testFilePath), true);
-			const fileContent = JSON.parse(fs.readFileSync(testFilePath, 'utf-8'));
+			const fileContent = JSON.parse(
+				fs.readFileSync(testFilePath, 'utf-8')
+			);
 			assert.strictEqual(fileContent.length, 1);
 			assert.strictEqual(fileContent[0].termName, 'Test Term');
 			assert.strictEqual(fileContent[0].folderPath, '/test/path.md');
@@ -127,7 +131,7 @@ describe('DeletionQueueStorage', () => {
 
 		it('should check for feedback when provided', () => {
 			const mockFeedbackStorage = {
-				getFeedbackByTerm: (term) => ({
+				getFeedbackByTerm: term => ({
 					feedback: 'Test feedback',
 					timestamp: '2026-01-23T00:00:00.000Z'
 				})
@@ -235,18 +239,24 @@ describe('DeletionQueueStorage', () => {
 			storage.addToQueue(term);
 
 			// Term appears in deck1
-			assert.strictEqual(storage.isInQueue({
-				term: 'Ignored Term',
-				reference_page: '/test/path.md',
-				category: 'deck1'
-			}), true);
+			assert.strictEqual(
+				storage.isInQueue({
+					term: 'Ignored Term',
+					reference_page: '/test/path.md',
+					category: 'deck1'
+				}),
+				true
+			);
 
 			// Same term appears in deck2 (different category, but same name/path)
-			assert.strictEqual(storage.isInQueue({
-				term: 'Ignored Term',
-				reference_page: '/test/path.md',
-				category: 'deck2'
-			}), true);
+			assert.strictEqual(
+				storage.isInQueue({
+					term: 'Ignored Term',
+					reference_page: '/test/path.md',
+					category: 'deck2'
+				}),
+				true
+			);
 		});
 	});
 
@@ -282,9 +292,12 @@ describe('DeletionQueueStorage', () => {
 	describe('Items with feedback', () => {
 		it('should identify items with feedback', () => {
 			const mockFeedbackStorage = {
-				getFeedbackByTerm: (term) => {
+				getFeedbackByTerm: term => {
 					if (term.term === 'With Feedback') {
-						return { feedback: 'Test feedback', timestamp: '2026-01-23T00:00:00.000Z' };
+						return {
+							feedback: 'Test feedback',
+							timestamp: '2026-01-23T00:00:00.000Z'
+						};
 					}
 					return null;
 				}

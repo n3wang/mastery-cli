@@ -365,12 +365,18 @@ class Quizzer {
      * @returns {TermStructure} term_selected
      */
 	pickTermQuestion = async () => {
-		console.log('Picking terms from:', this.terms?.length || 0, 'total terms');
+		console.log(
+			'Picking terms from:',
+			this.terms?.length || 0,
+			'total terms'
+		);
 		if (!this.terms || this.terms.length === 0) {
-			console.error('No terms available for quiz. Terms array is empty or undefined.');
+			console.error(
+				'No terms available for quiz. Terms array is empty or undefined.'
+			);
 			return null;
 		}
-		
+
 		let potential_questions = this.terms;
 		potential_questions = await this.getYoungest(potential_questions, {
 			randomOffline: true
@@ -417,9 +423,8 @@ class Quizzer {
 				Settings?.queue_configurations
 					?.quizzer_force_learn_last_three ?? 3;
 			if (lgtermScheduler.length >= lastThreeCount) {
-				const lastThree = lgtermScheduler.elements.slice(
-					-lastThreeCount
-				);
+				const lastThree =
+					lgtermScheduler.elements.slice(-lastThreeCount);
 				// Remove the last three from the queue
 				lgtermScheduler.elements = lgtermScheduler.elements.slice(
 					0,
@@ -645,25 +650,34 @@ class Quizzer {
 
 		// Filter out terms in deletion queue
 		const originalCount = selected_terms.length;
-		selected_terms = selected_terms.filter(term => !this.deletionQueueStorage.isInQueue(term));
+		selected_terms = selected_terms.filter(
+			term => !this.deletionQueueStorage.isInQueue(term)
+		);
 		const filteredCount = originalCount - selected_terms.length;
-		
+
 		if (filteredCount > 0) {
-			console.log(`\n⚠ ${filteredCount} term(s) filtered out (in deletion queue)`);
+			console.log(
+				`\n⚠ ${filteredCount} term(s) filtered out (in deletion queue)`
+			);
 		}
 
 		// Check deletion queue and show reminder
 		const queueCount = this.deletionQueueStorage.getCount();
 		if (queueCount > 0) {
 			const jsonFilePath = this.deletionQueueStorage.getFilePath();
-			const itemsWithFeedback = this.deletionQueueStorage.getItemsWithFeedback();
+			const itemsWithFeedback =
+				this.deletionQueueStorage.getItemsWithFeedback();
 			const itemsByFile = this.deletionQueueStorage.getItemsByFilePath();
 			const filePaths = Object.keys(itemsByFile);
-			
-			console.log(`\n📋 Deletion Queue: ${queueCount} term(s) being ignored`);
+
+			console.log(
+				`\n📋 Deletion Queue: ${queueCount} term(s) being ignored`
+			);
 			console.log(`📁 JSON File: ${jsonFilePath}`);
 			if (itemsWithFeedback.length > 0) {
-				console.log(`⚠ ${itemsWithFeedback.length} term(s) have feedback`);
+				console.log(
+					`⚠ ${itemsWithFeedback.length} term(s) have feedback`
+				);
 			}
 			if (filePaths.length > 0) {
 				console.log(`📁 Terms grouped by file:`);
@@ -672,23 +686,33 @@ class Quizzer {
 					console.log(`   ${filePath} (${items.length} term(s))`);
 				});
 			}
-			console.log(`💡 Use "maid cleanup" to view deletion queue details\n`);
+			console.log(
+				`💡 Use "maid cleanup" to view deletion queue details\n`
+			);
 		}
 
 		// Check for feedback availability in selected terms
 		let termsWithFeedbackCount = 0;
 		for (const term of selected_terms) {
 			const feedback = this.feedbackStorage.getFeedbackByTerm(term);
-			if (feedback && feedback.feedback && feedback.feedback.trim() !== '') {
+			if (
+				feedback &&
+				feedback.feedback &&
+				feedback.feedback.trim() !== ''
+			) {
 				termsWithFeedbackCount++;
 			}
 		}
 
 		if (termsWithFeedbackCount > 0) {
 			const feedbackFilePath = this.feedbackStorage.getFilePath();
-			console.log(`\n📝 Feedback Available: ${termsWithFeedbackCount} term(s) in this session have feedback/corrections`);
+			console.log(
+				`\n📝 Feedback Available: ${termsWithFeedbackCount} term(s) in this session have feedback/corrections`
+			);
 			console.log(`📁 Feedback JSON File: ${feedbackFilePath}`);
-			console.log(`💡 Feedback will be displayed when reviewing each term\n`);
+			console.log(
+				`💡 Feedback will be displayed when reviewing each term\n`
+			);
 		}
 
 		// Log session start
@@ -786,10 +810,10 @@ class Quizzer {
 				todayTotal: todayTotal
 			};
 
-			const answered_correctly = await this.askTermQuestion(
-				card_to_ask,
-				{ exitMethod: exitMethod, progressStats: progressStats }
-			);
+			const answered_correctly = await this.askTermQuestion(card_to_ask, {
+				exitMethod: exitMethod,
+				progressStats: progressStats
+			});
 
 			studyScheduler.solveCard(answered_correctly);
 			await studyScheduler.saveCards();
@@ -802,34 +826,49 @@ class Quizzer {
 
 		// Log session end
 		const completedCount = studyScheduler.getCardsLearnt();
-		this.actionLogger.logSessionEnd(deck_name, completedCount, selected_terms.length);
+		this.actionLogger.logSessionEnd(
+			deck_name,
+			completedCount,
+			selected_terms.length
+		);
 
 		// Check if reset was triggered during the session
 		if (this.shouldResetAndRestart) {
 			console.log('Reloading deck with reset progress...\n');
-			await this.runStudySession(this.currentDeckTerms, deck_name, { resetScheduler: true });
+			await this.runStudySession(this.currentDeckTerms, deck_name, {
+				resetScheduler: true
+			});
 			return;
 		}
 
 		// If deck completed (not exited early), offer to reset progress
 		if (!exit && studyScheduler.is_completed) {
 			console.log('\n✓ Deck completed!');
-			
+
 			// Log deck completion
-			this.actionLogger.logDeckCompletion(deck_name, selected_terms.length, completedCount);
-			
+			this.actionLogger.logDeckCompletion(
+				deck_name,
+				selected_terms.length,
+				completedCount
+			);
+
 			const resetPrompt = new Confirm({
 				name: 'resetProgress',
-				message: 'Would you like to reset this deck\'s progress and restart?',
+				message:
+					"Would you like to reset this deck's progress and restart?",
 				initial: false
 			});
 
 			const shouldReset = await resetPrompt.run();
 			if (shouldReset) {
 				const resetCount = await this.resetCurrentDeckProgress();
-				console.log(`✓ Reset progress for ${resetCount} terms in "${deck_name}"\n`);
+				console.log(
+					`✓ Reset progress for ${resetCount} terms in "${deck_name}"\n`
+				);
 				console.log('Restarting deck...\n');
-				await this.runStudySession(this.currentDeckTerms, deck_name, { resetScheduler: true });
+				await this.runStudySession(this.currentDeckTerms, deck_name, {
+					resetScheduler: true
+				});
 				return;
 			}
 
@@ -837,7 +876,6 @@ class Quizzer {
 			return;
 		}
 	}
-
 
 	/**
 	 * Count how many terms in a deck have been studied (completion count > 0)
@@ -869,9 +907,7 @@ class Quizzer {
 		let titles = [...Object.keys(dictOptions)];
 
 		// Sort by count(from dict Options)
-		titles.sort(
-			(a, b) => dictOptions[b].count - dictOptions[a].count
-		);
+		titles.sort((a, b) => dictOptions[b].count - dictOptions[a].count);
 
 		// Add Today's Deck option if enabled
 		const { DailyDeckManager } = require('./DailyDeckManager');
@@ -883,31 +919,34 @@ class Quizzer {
 		let deckChoices = titles.map(title => {
 			const deckInfo = dictOptions[title];
 			const deckName = deckInfo.name;
-			
+
 			// Get all terms for this deck to calculate completion
 			const deckTerms = masterDeck.listTerms({ get_only: [deckName] });
 			const studiedCount = this.countStudiedTerms(deckTerms);
 			const totalCount = deckTerms.length;
-			
+
 			// Build display string with completion count
 			let displayTitle = title;
 			if (totalCount > 0) {
 				// Insert completion count before " - X cards"
 				const cardsMatch = title.match(/ - \d+ cards$/);
 				if (cardsMatch) {
-					const baseTitle = title.substring(0, title.length - cardsMatch[0].length);
+					const baseTitle = title.substring(
+						0,
+						title.length - cardsMatch[0].length
+					);
 					displayTitle = `${baseTitle} (${studiedCount}/${totalCount})${cardsMatch[0]}`;
 				}
 			}
-			
+
 			// Add nested deck indicator if present
 			if (deckInfo.nested_count > 0) {
 				displayTitle = `${displayTitle} - ${deckInfo.nested_count}N`;
 			}
-			
+
 			// Store mapping from display title to original title
 			displayToOriginalMapping[displayTitle] = title;
-			
+
 			return displayTitle;
 		});
 		if (dailyDeckEnabled) {
@@ -918,15 +957,18 @@ class Quizzer {
 				if (status.isComplete) {
 					deckChoices.unshift(`Today's Deck (Completed ✓)`);
 				} else {
-					deckChoices.unshift(`Today's Deck (${status.completed}/${status.total} cards)`);
+					deckChoices.unshift(
+						`Today's Deck (${status.completed}/${status.total} cards)`
+					);
 				}
 			} else {
-				deckChoices.unshift('Today\'s Deck (Generate now)');
+				deckChoices.unshift("Today's Deck (Generate now)");
 			}
 		}
 
 		// Add review deck options (today's learned cards and last session)
-		const availableReviewDecks = this.reviewDecksStorage.getAvailableReviewDecks();
+		const availableReviewDecks =
+			this.reviewDecksStorage.getAvailableReviewDecks();
 		const reviewDeckMapping = {};
 		for (const reviewDeck of availableReviewDecks) {
 			const revisedMark = reviewDeck.revised ? ' [Revised]' : '';
@@ -943,7 +985,7 @@ class Quizzer {
 
 		let deck_selected_key = await ms_deck.run();
 		// Handle Today's Deck selection
-		if (deck_selected_key.startsWith('Today\'s Deck')) {
+		if (deck_selected_key.startsWith("Today's Deck")) {
 			const dailyDeckManager = new DailyDeckManager(Settings);
 			let todayDeck = dailyDeckManager.getTodayDeck();
 
@@ -953,10 +995,16 @@ class Quizzer {
 				console.log('\n=== Week Ahead Summary ===');
 				for (const day of weekSummary) {
 					if (day.exists) {
-						const statusStr = day.isComplete ? 'Completed ✓' : `${day.completed}/${day.total}`;
-						console.log(`  ${day.dayName} (${day.date}): ${statusStr}`);
+						const statusStr = day.isComplete
+							? 'Completed ✓'
+							: `${day.completed}/${day.total}`;
+						console.log(
+							`  ${day.dayName} (${day.date}): ${statusStr}`
+						);
 					} else {
-						console.log(`  ${day.dayName} (${day.date}): Not generated`);
+						console.log(
+							`  ${day.dayName} (${day.date}): Not generated`
+						);
 					}
 				}
 				console.log('');
@@ -967,7 +1015,7 @@ class Quizzer {
 					name: 'action',
 					message: 'What would you like to do?',
 					choices: [
-						'Generate today\'s deck only',
+						"Generate today's deck only",
 						'Generate week ahead (7 days)',
 						'Configure and generate today',
 						'Cancel'
@@ -986,11 +1034,14 @@ class Quizzer {
 
 				if (action === 'Generate week ahead (7 days)') {
 					console.log('\nGenerating decks for the next 7 days...');
-					const generatedDecks = await dailyDeckManager.prepareWeekAhead(masterDeck, {
-						cardsPerDeck,
-						maxTotalCards
-					});
-					console.log(`Generated ${generatedDecks.length} daily decks successfully!\n`);
+					const generatedDecks =
+						await dailyDeckManager.prepareWeekAhead(masterDeck, {
+							cardsPerDeck,
+							maxTotalCards
+						});
+					console.log(
+						`Generated ${generatedDecks.length} daily decks successfully!\n`
+					);
 					todayDeck = dailyDeckManager.getTodayDeck();
 				} else if (action === 'Configure and generate today') {
 					// Ask for custom configuration
@@ -1010,31 +1061,42 @@ class Quizzer {
 					});
 					const customMaxTotal = await totalPrompt.run();
 
-					console.log(`\nGenerating deck with ${customCardsPerDeck} cards per deck, ${customMaxTotal} total...`);
-					todayDeck = await dailyDeckManager.generateDailyDeck(masterDeck, {
-						cardsPerDeck: customCardsPerDeck,
-						maxTotalCards: customMaxTotal
-					});
+					console.log(
+						`\nGenerating deck with ${customCardsPerDeck} cards per deck, ${customMaxTotal} total...`
+					);
+					todayDeck = await dailyDeckManager.generateDailyDeck(
+						masterDeck,
+						{
+							cardsPerDeck: customCardsPerDeck,
+							maxTotalCards: customMaxTotal
+						}
+					);
 				} else {
 					// Generate today only
-					console.log('Generating today\'s deck...');
-					todayDeck = await dailyDeckManager.generateDailyDeck(masterDeck, {
-						cardsPerDeck,
-						maxTotalCards
-					});
+					console.log("Generating today's deck...");
+					todayDeck = await dailyDeckManager.generateDailyDeck(
+						masterDeck,
+						{
+							cardsPerDeck,
+							maxTotalCards
+						}
+					);
 				}
 
 				if (!todayDeck) {
-					console.log('Failed to generate daily deck. Please try another deck.');
+					console.log(
+						'Failed to generate daily deck. Please try another deck.'
+					);
 					return;
 				}
 
 				console.log('\n' + dailyDeckManager.getTodaySummary());
 			}
 
-			const allTerms = dailyDeckManager.getAllTermsFromDailyDeck(todayDeck);
+			const allTerms =
+				dailyDeckManager.getAllTermsFromDailyDeck(todayDeck);
 			if (allTerms.length === 0) {
-				console.log('No terms available in today\'s deck.');
+				console.log("No terms available in today's deck.");
 				return;
 			}
 			return this.runStudySession(allTerms, 'daily_deck');
@@ -1048,8 +1110,12 @@ class Quizzer {
 				return;
 			}
 
-			console.log(`\nStarting review session for ${selectedReviewDeck.date}...`);
-			console.log(`Cards to review: ${selectedReviewDeck.cards.length}\n`);
+			console.log(
+				`\nStarting review session for ${selectedReviewDeck.date}...`
+			);
+			console.log(
+				`Cards to review: ${selectedReviewDeck.cards.length}\n`
+			);
 
 			// Mark the deck as revised after starting the session
 			this.reviewDecksStorage.markAsRevised(selectedReviewDeck.date);
@@ -1059,7 +1125,8 @@ class Quizzer {
 		}
 
 		// Convert display title back to original title for dictionary lookup
-		const originalKey = displayToOriginalMapping[deck_selected_key] || deck_selected_key;
+		const originalKey =
+			displayToOriginalMapping[deck_selected_key] || deck_selected_key;
 		let deck_selected = dictOptions[originalKey].name;
 
 		let selected_terms = masterDeck.listTerms({
@@ -1076,7 +1143,8 @@ class Quizzer {
 		const categoryCounts = {};
 		selected_terms.forEach(term => {
 			if (term.category) {
-				categoryCounts[term.category] = (categoryCounts[term.category] || 0) + 1;
+				categoryCounts[term.category] =
+					(categoryCounts[term.category] || 0) + 1;
 			}
 		});
 
@@ -1087,7 +1155,9 @@ class Quizzer {
 				`all (${totalCards})`,
 				...Object.keys(categoryCounts)
 					.sort()
-					.map(category => `${category} (${categoryCounts[category]})`)
+					.map(
+						category => `${category} (${categoryCounts[category]})`
+					)
 			];
 
 			const ms_category = new AutoComplete({
@@ -1097,13 +1167,15 @@ class Quizzer {
 			});
 
 			let category_selected_with_count = await ms_category.run();
-			
+
 			// Extract category name without count
 			let category_selected = category_selected_with_count.split(' (')[0];
 
 			// Filter terms by selected category if not 'all'
 			if (category_selected !== 'all') {
-				selected_terms = selected_terms.filter(term => term.category === category_selected);
+				selected_terms = selected_terms.filter(
+					term => term.category === category_selected
+				);
 			}
 		}
 
@@ -1121,7 +1193,9 @@ class Quizzer {
 		if (enabledDecks.length === 0) {
 			console.log('\nNo masks are currently active or configured.');
 			console.log('Use "mastery mask-list" to see available masks.');
-			console.log('Use "mastery mask-toggle <mask-name>" to enable a mask.\n');
+			console.log(
+				'Use "mastery mask-toggle <mask-name>" to enable a mask.\n'
+			);
 			return;
 		}
 
@@ -1129,14 +1203,19 @@ class Quizzer {
 		const queueCount = this.deletionQueueStorage.getCount();
 		if (queueCount > 0) {
 			const jsonFilePath = this.deletionQueueStorage.getFilePath();
-			const itemsWithFeedback = this.deletionQueueStorage.getItemsWithFeedback();
+			const itemsWithFeedback =
+				this.deletionQueueStorage.getItemsWithFeedback();
 			const itemsByFile = this.deletionQueueStorage.getItemsByFilePath();
 			const filePaths = Object.keys(itemsByFile);
-			
-			console.log(`\n📋 Deletion Queue: ${queueCount} term(s) being ignored`);
+
+			console.log(
+				`\n📋 Deletion Queue: ${queueCount} term(s) being ignored`
+			);
 			console.log(`📁 JSON File: ${jsonFilePath}`);
 			if (itemsWithFeedback.length > 0) {
-				console.log(`⚠ ${itemsWithFeedback.length} term(s) have feedback`);
+				console.log(
+					`⚠ ${itemsWithFeedback.length} term(s) have feedback`
+				);
 			}
 			if (filePaths.length > 0) {
 				console.log(`📁 Terms grouped by file:`);
@@ -1145,10 +1224,14 @@ class Quizzer {
 					console.log(`   ${filePath} (${items.length} term(s))`);
 				});
 			}
-			console.log(`💡 Use "maid cleanup" to view deletion queue details\n`);
+			console.log(
+				`💡 Use "maid cleanup" to view deletion queue details\n`
+			);
 		}
 
-		console.log(`\nFiltered by active masks: ${settingsManager.getActiveMasks().join(', ')}\n`);
+		console.log(
+			`\nFiltered by active masks: ${settingsManager.getActiveMasks().join(', ')}\n`
+		);
 
 		const dictOptions = masterDeck.deck_titles_with_count;
 		let titles = [...Object.keys(dictOptions)];
@@ -1167,8 +1250,10 @@ class Quizzer {
 				}
 
 				// Substring match (both directions)
-				if (deckNameLower.includes(enabledDeckLower) ||
-					enabledDeckLower.includes(deckNameLower)) {
+				if (
+					deckNameLower.includes(enabledDeckLower) ||
+					enabledDeckLower.includes(deckNameLower)
+				) {
 					return true;
 				}
 
@@ -1176,8 +1261,10 @@ class Quizzer {
 				const normalizedDeckName = deckNameLower.replace(/[-_]/g, ' ');
 				const normalizedFilter = enabledDeckLower.replace(/[-_]/g, ' ');
 
-				if (normalizedDeckName.includes(normalizedFilter) ||
-					normalizedFilter.includes(normalizedDeckName)) {
+				if (
+					normalizedDeckName.includes(normalizedFilter) ||
+					normalizedFilter.includes(normalizedDeckName)
+				) {
 					return true;
 				}
 
@@ -1189,8 +1276,12 @@ class Quizzer {
 			console.log('\nNo decks match the enabled filters.');
 			console.log('Filters from masks:', enabledDecks.join(', '));
 			console.log('\nLoaded deck names:');
-			const allDeckNames = Object.keys(dictOptions).map(key => dictOptions[key].name);
-			allDeckNames.slice(0, 20).forEach(name => console.log(`  - ${name}`));
+			const allDeckNames = Object.keys(dictOptions).map(
+				key => dictOptions[key].name
+			);
+			allDeckNames
+				.slice(0, 20)
+				.forEach(name => console.log(`  - ${name}`));
 			if (allDeckNames.length > 20) {
 				console.log(`  ... and ${allDeckNames.length - 20} more`);
 			}
@@ -1217,7 +1308,10 @@ class Quizzer {
 			if (totalCount > 0) {
 				const cardsMatch = title.match(/ - \d+ cards$/);
 				if (cardsMatch) {
-					const baseTitle = title.substring(0, title.length - cardsMatch[0].length);
+					const baseTitle = title.substring(
+						0,
+						title.length - cardsMatch[0].length
+					);
 					displayTitle = `${baseTitle} (${studiedCount}/${totalCount})${cardsMatch[0]}`;
 				}
 			}
@@ -1239,15 +1333,18 @@ class Quizzer {
 				if (status.isComplete) {
 					deckChoices.unshift(`Today's Deck (Completed ✓)`);
 				} else {
-					deckChoices.unshift(`Today's Deck (${status.completed}/${status.total} cards)`);
+					deckChoices.unshift(
+						`Today's Deck (${status.completed}/${status.total} cards)`
+					);
 				}
 			} else {
-				deckChoices.unshift('Today\'s Deck (Generate now)');
+				deckChoices.unshift("Today's Deck (Generate now)");
 			}
 		}
 
 		// Add review deck options (today's learned cards and last session)
-		const availableReviewDecks = this.reviewDecksStorage.getAvailableReviewDecks();
+		const availableReviewDecks =
+			this.reviewDecksStorage.getAvailableReviewDecks();
 		const reviewDeckMapping = {};
 		for (const reviewDeck of availableReviewDecks) {
 			const revisedMark = reviewDeck.revised ? ' [Revised]' : '';
@@ -1273,8 +1370,12 @@ class Quizzer {
 				return;
 			}
 
-			console.log(`\nStarting review session for ${selectedReviewDeck.date}...`);
-			console.log(`Cards to review: ${selectedReviewDeck.cards.length}\n`);
+			console.log(
+				`\nStarting review session for ${selectedReviewDeck.date}...`
+			);
+			console.log(
+				`Cards to review: ${selectedReviewDeck.cards.length}\n`
+			);
 
 			// Mark the deck as revised after starting the session
 			this.reviewDecksStorage.markAsRevised(selectedReviewDeck.date);
@@ -1283,7 +1384,7 @@ class Quizzer {
 			return this.runStudySession(selectedReviewDeck.cards, deckName);
 		}
 
-		if (deck_selected_key.startsWith('Today\'s Deck')) {
+		if (deck_selected_key.startsWith("Today's Deck")) {
 			const dailyDeckManager = new DailyDeckManager(Settings);
 			let todayDeck = dailyDeckManager.getTodayDeck();
 
@@ -1292,10 +1393,16 @@ class Quizzer {
 				console.log('\n=== Week Ahead Summary ===');
 				for (const day of weekSummary) {
 					if (day.exists) {
-						const statusStr = day.isComplete ? 'Completed ✓' : `${day.completed}/${day.total}`;
-						console.log(`  ${day.dayName} (${day.date}): ${statusStr}`);
+						const statusStr = day.isComplete
+							? 'Completed ✓'
+							: `${day.completed}/${day.total}`;
+						console.log(
+							`  ${day.dayName} (${day.date}): ${statusStr}`
+						);
 					} else {
-						console.log(`  ${day.dayName} (${day.date}): Not generated`);
+						console.log(
+							`  ${day.dayName} (${day.date}): Not generated`
+						);
 					}
 				}
 				console.log('');
@@ -1304,7 +1411,7 @@ class Quizzer {
 					name: 'action',
 					message: 'What would you like to do?',
 					choices: [
-						'Generate today\'s deck',
+						"Generate today's deck",
 						'Prepare full week ahead',
 						'Go back to deck selection'
 					]
@@ -1312,23 +1419,29 @@ class Quizzer {
 
 				const action = await actionPrompt.run();
 
-				if (action === 'Generate today\'s deck') {
+				if (action === "Generate today's deck") {
 					todayDeck = dailyDeckManager.generateTodayDeck(masterDeck);
-					console.log(`\nGenerated today's deck with ${todayDeck.terms.length} cards\n`);
+					console.log(
+						`\nGenerated today's deck with ${todayDeck.terms.length} cards\n`
+					);
 				} else if (action === 'Prepare full week ahead') {
 					dailyDeckManager.prepareWeekAhead(masterDeck);
 					console.log('\nWeek ahead prepared!\n');
 					todayDeck = dailyDeckManager.getTodayDeck();
 				} else {
-					return this.filteredStudySession(masterDeck, { reverse, size_study_deck });
+					return this.filteredStudySession(masterDeck, {
+						reverse,
+						size_study_deck
+					});
 				}
 			}
 
 			const selected_terms = todayDeck.terms;
-			return this.runStudySession(selected_terms, 'Today\'s Deck');
+			return this.runStudySession(selected_terms, "Today's Deck");
 		}
 
-		const originalKey = displayToOriginalMapping[deck_selected_key] || deck_selected_key;
+		const originalKey =
+			displayToOriginalMapping[deck_selected_key] || deck_selected_key;
 		const deck_selected = dictOptions[originalKey].name;
 
 		let selected_terms = masterDeck.listTerms({
@@ -1343,7 +1456,9 @@ class Quizzer {
 			selected_terms = selected_terms.reverse();
 		}
 
-		const categories = [...new Set(selected_terms.map(term => term.category))];
+		const categories = [
+			...new Set(selected_terms.map(term => term.category))
+		];
 
 		if (categories.length > 1) {
 			const { AutoComplete } = require('enquirer');
@@ -1356,7 +1471,9 @@ class Quizzer {
 			const category_selected = await ms_category.run();
 
 			if (category_selected !== 'all') {
-				selected_terms = selected_terms.filter(term => term.category === category_selected);
+				selected_terms = selected_terms.filter(
+					term => term.category === category_selected
+				);
 			}
 		}
 
@@ -1373,12 +1490,14 @@ class Quizzer {
 
 		const term_selected = await this.pickTermQuestion();
 		if (DEBUG) console.log('term_selected', term_selected);
-		
+
 		if (!term_selected) {
-			console.error('No term could be selected for quiz. Check if terms are loaded properly.');
+			console.error(
+				'No term could be selected for quiz. Check if terms are loaded properly.'
+			);
 			return false;
 		}
-		
+
 		return await this.askTermQuestion(term_selected, {
 			exitMethod: exitMethod
 		});
@@ -1458,9 +1577,7 @@ class Quizzer {
 	}
 
 	writeModuleCommonInstructions(modulePath, mode, nextValue) {
-		const moduleIndexPath = vaultPath(
-			`decks/${modulePath}/index.js`
-		);
+		const moduleIndexPath = vaultPath(`decks/${modulePath}/index.js`);
 
 		if (!fs.existsSync(moduleIndexPath)) {
 			throw new Error(`Module index.js not found for ${modulePath}`);
@@ -1468,7 +1585,8 @@ class Quizzer {
 
 		let fileContent = fs.readFileSync(moduleIndexPath, 'utf-8');
 		const lineEnding = fileContent.includes('\r\n') ? '\r\n' : '\n';
-		const propertyLineRegex = /^\s*common_instructions\s*:\s*.*?,\s*(?:\r?\n)?/m;
+		const propertyLineRegex =
+			/^\s*common_instructions\s*:\s*.*?,\s*(?:\r?\n)?/m;
 
 		if (mode === 'remove') {
 			if (propertyLineRegex.test(fileContent)) {
@@ -1480,12 +1598,18 @@ class Quizzer {
 			const replacementLine = `\tcommon_instructions: ${serializedValue},${lineEnding}`;
 
 			if (propertyLineRegex.test(fileContent)) {
-				fileContent = fileContent.replace(propertyLineRegex, replacementLine);
+				fileContent = fileContent.replace(
+					propertyLineRegex,
+					replacementLine
+				);
 			} else {
-				const modulePathLineRegex = /^(\s*module_path\s*:\s*.*?,\s*(?:\r?\n))/m;
+				const modulePathLineRegex =
+					/^(\s*module_path\s*:\s*.*?,\s*(?:\r?\n))/m;
 
 				if (!modulePathLineRegex.test(fileContent)) {
-					throw new Error('Could not locate module_path in module index.js');
+					throw new Error(
+						'Could not locate module_path in module index.js'
+					);
 				}
 
 				fileContent = fileContent.replace(
@@ -1512,8 +1636,13 @@ class Quizzer {
 		);
 		console.log(`Current common instructions state: ${currentState}`);
 
-		if (typeof term_selected.common_instructions === 'string' && term_selected.common_instructions.length > 0) {
-			printMarked(term_selected.common_instructions, { use_markdown: true });
+		if (
+			typeof term_selected.common_instructions === 'string' &&
+			term_selected.common_instructions.length > 0
+		) {
+			printMarked(term_selected.common_instructions, {
+				use_markdown: true
+			});
 			console.log('');
 		}
 
@@ -1524,7 +1653,10 @@ class Quizzer {
 				{ name: 'set', message: 'Set or replace common instructions' },
 				{ name: 'empty', message: 'Set to empty string' },
 				{ name: 'none', message: 'Set to null (none)' },
-				{ name: 'remove', message: 'Remove from index.js (unconfigured)' },
+				{
+					name: 'remove',
+					message: 'Remove from index.js (unconfigured)'
+				},
 				{ name: 'cancel', message: 'Cancel' }
 			]
 		});
@@ -1545,7 +1677,10 @@ class Quizzer {
 					'Enter markdown for common instructions. Use \\n for line breaks:',
 				initial:
 					typeof term_selected.common_instructions === 'string'
-						? term_selected.common_instructions.replace(/\n/g, '\\n')
+						? term_selected.common_instructions.replace(
+								/\n/g,
+								'\\n'
+							)
 						: ''
 			});
 
@@ -1568,7 +1703,10 @@ class Quizzer {
 			mode,
 			nextValue
 		);
-		this.updateLoadedModuleCommonInstructions(term_selected.module_path, nextValue);
+		this.updateLoadedModuleCommonInstructions(
+			term_selected.module_path,
+			nextValue
+		);
 		term_selected.common_instructions = nextValue;
 
 		console.log(`Updated common instructions in ${moduleIndexPath}`);
@@ -1576,7 +1714,12 @@ class Quizzer {
 
 	async askTermQuestion(
 		term_selected,
-		{ ask_if_correct = true, exitMethod = () => {}, is_try_questin_again: is_try_question_again=false, progressStats = null } = {}
+		{
+			ask_if_correct = true,
+			exitMethod = () => {},
+			is_try_questin_again: is_try_question_again = false,
+			progressStats = null
+		} = {}
 	) {
 		try {
 			// Start running the question_attempt
@@ -1649,14 +1792,18 @@ class Quizzer {
 
 			// Display term and category with or without colors based on setting
 			if (Settings?.minimal_colors) {
-				console.log(`${term_selected.term} | ${term_selected.category}${isOfflineMessage}`);
+				console.log(
+					`${term_selected.term} | ${term_selected.category}${isOfflineMessage}`
+				);
 			} else {
 				console.log(
 					`${chalk
 						.hex(CONSTANTS.CUTEBLUE)
 						.inverse(` ${term_selected.term} `)}|${chalk
 						.hex(CONSTANTS.PUNCHPINK)
-						.inverse(` ${term_selected.category} `)}${isOfflineMessage}`
+						.inverse(
+							` ${term_selected.category} `
+						)}${isOfflineMessage}`
 				);
 			}
 
@@ -1670,16 +1817,21 @@ class Quizzer {
 			});
 
 			// Display stored feedback/corrections after description
-			const storedFeedback = this.feedbackStorage.getFeedbackByTerm(term_selected);
+			const storedFeedback =
+				this.feedbackStorage.getFeedbackByTerm(term_selected);
 			if (storedFeedback && storedFeedback.feedback) {
 				console.log(''); // Add spacing
 				if (Settings?.minimal_colors) {
 					console.log('Corrections:');
 				} else {
-					console.log(chalk.hex(CONSTANTS.CUTEYELLOW).bold('Corrections:'));
+					console.log(
+						chalk.hex(CONSTANTS.CUTEYELLOW).bold('Corrections:')
+					);
 				}
 				printMarked(storedFeedback.feedback, { use_markdown: true });
-				const feedbackDate = new Date(storedFeedback.timestamp).toLocaleDateString();
+				const feedbackDate = new Date(
+					storedFeedback.timestamp
+				).toLocaleDateString();
 				if (Settings?.minimal_colors) {
 					console.log(`(Added on ${feedbackDate})`);
 				} else {
@@ -1715,9 +1867,14 @@ class Quizzer {
 
 			// Check for deletion queue marker "!!" (before exit check to prevent quitting)
 			if (user_res === '!!') {
-				const added = this.deletionQueueStorage.addToQueue(term_selected, this.feedbackStorage);
+				const added = this.deletionQueueStorage.addToQueue(
+					term_selected,
+					this.feedbackStorage
+				);
 				if (added) {
-					console.log('Term added to deletion queue. It will be ignored in future study sessions.');
+					console.log(
+						'Term added to deletion queue. It will be ignored in future study sessions.'
+					);
 					this.actionLogger.logDeletionQueueAdd(term_selected);
 				} else {
 					console.log('Term is already in deletion queue.');
@@ -1735,7 +1892,7 @@ class Quizzer {
 				// Update markdown with example after skipping
 				return false;
 			}
-			
+
 			await this.createFlashcardMarkdown(term_selected, true);
 			let ISANSWERCORRECT = true;
 			// Print the correct example term if exists
@@ -1759,9 +1916,17 @@ class Quizzer {
 				});
 
 				if (!is_try_question_again) {
-					this.masteryManager.increasePerformance('flashcard_attempts', 'feat', 1);
+					this.masteryManager.increasePerformance(
+						'flashcard_attempts',
+						'feat',
+						1
+					);
 					if (response) {
-						this.masteryManager.increasePerformance('flashcard_learned', 'feat', 1);
+						this.masteryManager.increasePerformance(
+							'flashcard_learned',
+							'feat',
+							1
+						);
 					}
 				}
 
@@ -1770,7 +1935,10 @@ class Quizzer {
 					const _ = await this.masteryManager.logSkillExperience(
 						term_selected.category,
 						{
-							score: ISANSWERCORRECT && !is_try_question_again ? 1 : 0,
+							score:
+								ISANSWERCORRECT && !is_try_question_again
+									? 1
+									: 0,
 							deck_id: term_selected.category,
 							deck_term: term_selected.term,
 							comment: user_res,
@@ -1781,25 +1949,54 @@ class Quizzer {
 				} else {
 					let shouldExitIncorrectMenu = false;
 					while (!shouldExitIncorrectMenu) {
-						const llmProfileChoices = this.getAvailableLLMProfiles().map(profileName => ({
-							name: `askllmfollowup:${profileName}`,
-							message: `Open local LLM topic chat (${profileName})`
-						}));
+						const llmProfileChoices =
+							this.getAvailableLLMProfiles().map(profileName => ({
+								name: `askllmfollowup:${profileName}`,
+								message: `Open local LLM topic chat (${profileName})`
+							}));
 
 						const options = new AutoComplete({
 							name: 'incorrectAnswerOption',
 							message: 'What would you like to do?',
 							choices: [
-								{ name: 'next', message: 'Continue to next question' },
-								{ name: 'repractice', message: 'Try the question again' },
-								{ name: 'editcommoninstructions', message: 'Edit this deck common instructions' },
+								{
+									name: 'next',
+									message: 'Continue to next question'
+								},
+								{
+									name: 'repractice',
+									message: 'Try the question again'
+								},
+								{
+									name: 'editcommoninstructions',
+									message:
+										'Edit this deck common instructions'
+								},
 								...llmProfileChoices,
-								{ name: 'providefeedback', message: 'Provide feedback about this term' },
-								{ name: 'movetodeletionqueue', message: 'Move to deletion queue' },
-								{ name: 'rateflashcard', message: 'Rate this flashcard' },
-								{ name: 'togglecounter', message: 'Reset temporary counter (!c)' },
-								{ name: 'resetdeck', message: 'Reset deck progress' },
-								{ name: 'quit', message: 'Quit the entire session' }
+								{
+									name: 'providefeedback',
+									message: 'Provide feedback about this term'
+								},
+								{
+									name: 'movetodeletionqueue',
+									message: 'Move to deletion queue'
+								},
+								{
+									name: 'rateflashcard',
+									message: 'Rate this flashcard'
+								},
+								{
+									name: 'togglecounter',
+									message: 'Reset temporary counter (!c)'
+								},
+								{
+									name: 'resetdeck',
+									message: 'Reset deck progress'
+								},
+								{
+									name: 'quit',
+									message: 'Quit the entire session'
+								}
 							]
 						});
 
@@ -1819,7 +2016,9 @@ class Quizzer {
 						}
 
 						if (selectedOption === 'editcommoninstructions') {
-							await this.editDeckCommonInstructions(term_selected);
+							await this.editDeckCommonInstructions(
+								term_selected
+							);
 							continue;
 						}
 
@@ -1829,7 +2028,8 @@ class Quizzer {
 						}
 
 						if (selectedOption.startsWith('askllmfollowup:')) {
-							const selectedProfile = selectedOption.split(':')[1] || null;
+							const selectedProfile =
+								selectedOption.split(':')[1] || null;
 							await this.runLocalLLMFollowup(
 								term_selected,
 								user_res,
@@ -1844,12 +2044,17 @@ class Quizzer {
 						}
 
 						if (selectedOption === 'providefeedback') {
-							const existingFeedback = this.feedbackStorage.getFeedbackByTerm(term_selected);
+							const existingFeedback =
+								this.feedbackStorage.getFeedbackByTerm(
+									term_selected
+								);
 							let initialValue = '';
 							if (existingFeedback && existingFeedback.feedback) {
 								console.log('\nExisting feedback/corrections:');
 								console.log(existingFeedback.feedback);
-								console.log(`(Added on ${new Date(existingFeedback.timestamp).toLocaleDateString()})\n`);
+								console.log(
+									`(Added on ${new Date(existingFeedback.timestamp).toLocaleDateString()})\n`
+								);
 								initialValue = existingFeedback.feedback;
 							}
 
@@ -1861,37 +2066,74 @@ class Quizzer {
 
 							const feedback = await feedbackPrompt.run();
 							if (feedback && feedback.trim()) {
-								this.feedbackStorage.addFeedbackByTerm(term_selected, feedback);
-								console.log('Feedback saved and will appear with this term in future reviews');
-								this.actionLogger.logFeedback(term_selected, feedback);
-								await this.createAnnotation(term_selected, user_res, feedback);
+								this.feedbackStorage.addFeedbackByTerm(
+									term_selected,
+									feedback
+								);
+								console.log(
+									'Feedback saved and will appear with this term in future reviews'
+								);
+								this.actionLogger.logFeedback(
+									term_selected,
+									feedback
+								);
+								await this.createAnnotation(
+									term_selected,
+									user_res,
+									feedback
+								);
 							}
 							continue;
 						}
 
 						if (selectedOption === 'movetodeletionqueue') {
-							const added = this.deletionQueueStorage.addToQueue(term_selected, this.feedbackStorage);
+							const added = this.deletionQueueStorage.addToQueue(
+								term_selected,
+								this.feedbackStorage
+							);
 							if (added) {
-								console.log('Term added to deletion queue. It will be ignored in future study sessions.');
-								console.log(`Deletion queue JSON: ${this.deletionQueueStorage.getFilePath()}`);
-								this.actionLogger.logDeletionQueueAdd(term_selected);
+								console.log(
+									'Term added to deletion queue. It will be ignored in future study sessions.'
+								);
+								console.log(
+									`Deletion queue JSON: ${this.deletionQueueStorage.getFilePath()}`
+								);
+								this.actionLogger.logDeletionQueueAdd(
+									term_selected
+								);
 							} else {
-								console.log('Term is already in deletion queue.');
+								console.log(
+									'Term is already in deletion queue.'
+								);
 							}
 							return false;
 						}
 
 						if (selectedOption === 'rateflashcard') {
-							const existingRatings = this.ratingStorage.getRatingsByTerm(term_selected);
+							const existingRatings =
+								this.ratingStorage.getRatingsByTerm(
+									term_selected
+								);
 							if (existingRatings.length > 0) {
-								console.log('\nPrevious ratings for this term:');
+								console.log(
+									'\nPrevious ratings for this term:'
+								);
 								existingRatings.forEach(r => {
-									const date = new Date(r.timestamp).toLocaleDateString();
+									const date = new Date(
+										r.timestamp
+									).toLocaleDateString();
 									const stars = '*'.repeat(r.rating);
-									console.log(`  ${stars} (${r.rating}/5) - ${date}`);
+									console.log(
+										`  ${stars} (${r.rating}/5) - ${date}`
+									);
 								});
-								const avgRating = this.ratingStorage.getAverageRating(term_selected);
-								console.log(`Average: ${avgRating.toFixed(1)}/5\n`);
+								const avgRating =
+									this.ratingStorage.getAverageRating(
+										term_selected
+									);
+								console.log(
+									`Average: ${avgRating.toFixed(1)}/5\n`
+								);
 							}
 
 							const ratingPrompt = new AutoComplete({
@@ -1909,7 +2151,10 @@ class Quizzer {
 							const rating = await ratingPrompt.run();
 							if (rating) {
 								const ratingValue = parseInt(rating);
-								const hasFeedback = this.feedbackStorage.getFeedbackByTerm(term_selected) !== null;
+								const hasFeedback =
+									this.feedbackStorage.getFeedbackByTerm(
+										term_selected
+									) !== null;
 								const wasCorrect = ISANSWERCORRECT;
 								const success = this.ratingStorage.addRating(
 									term_selected,
@@ -1919,15 +2164,20 @@ class Quizzer {
 								);
 
 								if (success) {
-									console.log(`Rating saved: ${'*'.repeat(ratingValue)} (${ratingValue}/5)`);
+									console.log(
+										`Rating saved: ${'*'.repeat(ratingValue)} (${ratingValue}/5)`
+									);
 								}
 							}
 							continue;
 						}
 
 						if (selectedOption === 'resetdeck') {
-							const resetCount = await this.resetCurrentDeckProgress();
-							console.log(`Reset progress for ${resetCount} terms\n`);
+							const resetCount =
+								await this.resetCurrentDeckProgress();
+							console.log(
+								`Reset progress for ${resetCount} terms\n`
+							);
 							console.log('Restarting deck...\n');
 							this.shouldResetAndRestart = true;
 							exitMethod();
@@ -1937,7 +2187,7 @@ class Quizzer {
 				}
 
 				// Record term completion for hash-based tracking if answer is correct
-				if (ISANSWERCORRECT && !is_try_question_again ) {
+				if (ISANSWERCORRECT && !is_try_question_again) {
 					await this.recordTermCompletion(term_selected);
 					// Add to review deck for spaced repetition
 					this.reviewDecksStorage.addLearnedCard(term_selected);
@@ -1962,8 +2212,14 @@ class Quizzer {
 
 	getAvailableLLMProfiles() {
 		const settingsSource = this.masteryManager?.Settings || Settings || {};
-		const runtimeConfig = resolveRuntimeLLMConfig({ settings: settingsSource });
-		return runtimeConfig.availableProfiles || [runtimeConfig.profileName || 'default'];
+		const runtimeConfig = resolveRuntimeLLMConfig({
+			settings: settingsSource
+		});
+		return (
+			runtimeConfig.availableProfiles || [
+				runtimeConfig.profileName || 'default'
+			]
+		);
 	}
 
 	async runLocalLLMFollowup(term_selected, user_res, profileName = null) {
@@ -1974,12 +2230,16 @@ class Quizzer {
 		});
 
 		if (!config.enabled) {
-			console.log('Local LLM is disabled. Run "mastery llm on" or use --llm for this run.');
+			console.log(
+				'Local LLM is disabled. Run "mastery llm on" or use --llm for this run.'
+			);
 			return;
 		}
 
 		if (!config.followupEnabled) {
-			console.log('LLM follow-up helper is disabled. Use --llm-followup or update settings.');
+			console.log(
+				'LLM follow-up helper is disabled. Use --llm-followup or update settings.'
+			);
 			return;
 		}
 
@@ -2200,30 +2460,34 @@ class Quizzer {
 	 */
 	async createFlashcardMarkdown(term_selected, showAnswer = false) {
 		try {
-
-			const removeMarkers = (text) =>{
+			const removeMarkers = text => {
 				// remove :m, ??, and other markers
 				return text.replace(/(:m|\?\?|:p)/g, '').trim();
-			}
-			const markdownFileName = Settings?.flashcard_markdown_file || 'current-quiz.md';
+			};
+			const markdownFileName =
+				Settings?.flashcard_markdown_file || 'current-quiz.md';
 			const fullPath = path.resolve(__dirname, '../', markdownFileName);
 
 			// Create markdown content based on whether answer should be shown
 			let markdownContent = `# ${term_selected.term}\n\n`;
 			markdownContent += `**Category:** ${term_selected.category}\n\n`;
-			
+
 			// Always show description and prompt
-			const renderedDescription = this.getRenderedTermDescription(term_selected);
+			const renderedDescription =
+				this.getRenderedTermDescription(term_selected);
 			if (renderedDescription) {
 				markdownContent += `## Description\n\n${removeMarkers(renderedDescription)}\n\n`;
 			}
 
 			// Show stored feedback/corrections after description
-			const storedFeedback = this.feedbackStorage.getFeedbackByTerm(term_selected);
+			const storedFeedback =
+				this.feedbackStorage.getFeedbackByTerm(term_selected);
 			if (storedFeedback && storedFeedback.feedback) {
 				markdownContent += `### Corrections\n\n`;
 				markdownContent += `${storedFeedback.feedback}\n\n`;
-				const feedbackDate = new Date(storedFeedback.timestamp).toLocaleDateString();
+				const feedbackDate = new Date(
+					storedFeedback.timestamp
+				).toLocaleDateString();
 				markdownContent += `*Added on ${feedbackDate}*\n\n`;
 			}
 
@@ -2232,7 +2496,7 @@ class Quizzer {
 			}
 
 			// Show answer only if requested
-			
+
 			if (showAnswer && term_selected.example) {
 				markdownContent += `## Answer\n\n${removeMarkers(term_selected.example)}\n\n`;
 			} else if (!showAnswer) {
@@ -2261,7 +2525,10 @@ class Quizzer {
 				console.log(`Flashcard markdown updated: ${fullPath}`);
 			}
 		} catch (error) {
-			console.error('Failed to create flashcard markdown:', error.message);
+			console.error(
+				'Failed to create flashcard markdown:',
+				error.message
+			);
 		}
 	}
 
@@ -2272,22 +2539,27 @@ class Quizzer {
 	async cleanupDeletionQueue(backup = false) {
 		const queue = this.deletionQueueStorage.getQueue();
 		const jsonFilePath = this.deletionQueueStorage.getFilePath();
-		
+
 		console.log(`\n📋 Deletion Queue Information`);
 		console.log(`📁 JSON File Location: ${jsonFilePath}`);
 		console.log(`📊 Total terms in ignore list: ${queue.length}\n`);
 
 		if (queue.length === 0) {
-			console.log('✓ Deletion queue is empty. No terms are being ignored.\n');
+			console.log(
+				'✓ Deletion queue is empty. No terms are being ignored.\n'
+			);
 			return;
 		}
 
 		const itemsByFile = this.deletionQueueStorage.getItemsByFilePath();
 		const filePaths = Object.keys(itemsByFile);
-		const itemsWithFeedback = this.deletionQueueStorage.getItemsWithFeedback();
+		const itemsWithFeedback =
+			this.deletionQueueStorage.getItemsWithFeedback();
 
 		if (itemsWithFeedback.length > 0) {
-			console.log(`⚠ ${itemsWithFeedback.length} term(s) have feedback - review carefully!\n`);
+			console.log(
+				`⚠ ${itemsWithFeedback.length} term(s) have feedback - review carefully!\n`
+			);
 		}
 
 		console.log(`📁 Terms grouped by file path:`);
@@ -2301,12 +2573,22 @@ class Quizzer {
 		});
 
 		if (backup) {
-			console.log(`\n💾 Backup mode: Would backup files before manual removal`);
-			console.log(`   Note: Terms are not automatically removed. Edit the JSON file manually or remove from source files.\n`);
+			console.log(
+				`\n💾 Backup mode: Would backup files before manual removal`
+			);
+			console.log(
+				`   Note: Terms are not automatically removed. Edit the JSON file manually or remove from source files.\n`
+			);
 		} else {
-			console.log(`\n💡 Note: This JSON file is an ignore list. Terms listed here are filtered out during study sessions.`);
-			console.log(`   To permanently remove terms, edit the source markdown files manually.`);
-			console.log(`   The JSON file location is shown above for your reference.\n`);
+			console.log(
+				`\n💡 Note: This JSON file is an ignore list. Terms listed here are filtered out during study sessions.`
+			);
+			console.log(
+				`   To permanently remove terms, edit the source markdown files manually.`
+			);
+			console.log(
+				`   The JSON file location is shown above for your reference.\n`
+			);
 		}
 	}
 
@@ -2322,7 +2604,7 @@ class Quizzer {
 
 		const resetCount = this.termCompletionTracker.resetTerms(
 			this.currentDeckTerms,
-			(term) => this.generateTermHash(term)
+			term => this.generateTermHash(term)
 		);
 
 		await this.termCompletionTracker.save();

@@ -72,7 +72,9 @@ function normalizeLlmRoot(rawLlm = {}) {
 	const normalizedProfiles = {};
 
 	if (hasProfiles) {
-		for (const [profileName, profileConfig] of Object.entries(source.profiles)) {
+		for (const [profileName, profileConfig] of Object.entries(
+			source.profiles
+		)) {
 			normalizedProfiles[profileName] = normalizeLlmConfig(profileConfig);
 		}
 	} else {
@@ -80,7 +82,8 @@ function normalizeLlmRoot(rawLlm = {}) {
 	}
 
 	const activeProfile =
-		typeof source.activeProfile === 'string' && normalizedProfiles[source.activeProfile]
+		typeof source.activeProfile === 'string' &&
+		normalizedProfiles[source.activeProfile]
 			? source.activeProfile
 			: Object.keys(normalizedProfiles)[0] || DEFAULT_PROFILE_KEY;
 
@@ -88,12 +91,13 @@ function normalizeLlmRoot(rawLlm = {}) {
 		enabled:
 			typeof source.enabled === 'boolean'
 				? source.enabled
-				: normalizedProfiles[activeProfile]?.enabled ?? DEFAULT_LLM_CONFIG.enabled,
+				: (normalizedProfiles[activeProfile]?.enabled ??
+					DEFAULT_LLM_CONFIG.enabled),
 		followupEnabled:
 			typeof source.followupEnabled === 'boolean'
 				? source.followupEnabled
-				: normalizedProfiles[activeProfile]?.followupEnabled ??
-				  DEFAULT_LLM_CONFIG.followupEnabled,
+				: (normalizedProfiles[activeProfile]?.followupEnabled ??
+					DEFAULT_LLM_CONFIG.followupEnabled),
 		activeProfile,
 		profiles: normalizedProfiles
 	};
@@ -130,14 +134,18 @@ function resolveRuntimeLLMConfig({
 	const envEnabled = env.MCLI_LLM_ENABLED;
 	const envFollowup = env.MCLI_LLM_FOLLOWUP_ENABLED;
 	if (envEnabled === '1' || envEnabled === 'true') normalized.enabled = true;
-	if (envEnabled === '0' || envEnabled === 'false') normalized.enabled = false;
-	if (envFollowup === '1' || envFollowup === 'true') normalized.followupEnabled = true;
-	if (envFollowup === '0' || envFollowup === 'false') normalized.followupEnabled = false;
+	if (envEnabled === '0' || envEnabled === 'false')
+		normalized.enabled = false;
+	if (envFollowup === '1' || envFollowup === 'true')
+		normalized.followupEnabled = true;
+	if (envFollowup === '0' || envFollowup === 'false')
+		normalized.followupEnabled = false;
 
 	const cliLlm = parseCliBooleanFlag(argv, 'llm');
 	const cliFollowup = parseCliBooleanFlag(argv, 'llm-followup');
 	if (typeof cliLlm === 'boolean') normalized.enabled = cliLlm;
-	if (typeof cliFollowup === 'boolean') normalized.followupEnabled = cliFollowup;
+	if (typeof cliFollowup === 'boolean')
+		normalized.followupEnabled = cliFollowup;
 
 	return normalized;
 }
@@ -158,7 +166,10 @@ function createProvider(config) {
 	if (config.provider === 'ollama') {
 		return new OllamaProvider(config);
 	}
-	if (config.provider === 'openai-compatible-local' || config.provider === 'custom-http') {
+	if (
+		config.provider === 'openai-compatible-local' ||
+		config.provider === 'custom-http'
+	) {
 		return new OpenAICompatProvider(config);
 	}
 	throw new Error(`Unknown LLM provider: ${config.provider}`);
@@ -182,7 +193,11 @@ class LLMService {
 		return this.provider.testConnection();
 	}
 
-	async askFollowup({ term = {}, userAnswer = '', followupInstruction = '' }) {
+	async askFollowup({
+		term = {},
+		userAnswer = '',
+		followupInstruction = ''
+	}) {
 		const prompt = buildTopicChatPrompt({
 			term: term.term || '',
 			question: term.prompt || '',
@@ -200,7 +215,12 @@ class LLMService {
 		});
 	}
 
-	async askTopicChatTurn({ term = {}, userAnswer = '', history = [], userMessage = '' }) {
+	async askTopicChatTurn({
+		term = {},
+		userAnswer = '',
+		history = [],
+		userMessage = ''
+	}) {
 		const prompt = buildTopicChatPrompt({
 			term: term.term || '',
 			question: term.prompt || '',

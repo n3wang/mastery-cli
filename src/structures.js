@@ -146,7 +146,12 @@ class TermStorage {
 	constructor(
 		terms = [],
 		deck_name = '',
-		{ decks = [], is_active = false, module_name = '', sort_option = 'reversed' } = {}
+		{
+			decks = [],
+			is_active = false,
+			module_name = '',
+			sort_option = 'reversed'
+		} = {}
 	) {
 		this.terms = terms;
 		this.deck_name = deck_name;
@@ -179,18 +184,21 @@ class TermStorage {
 	applyMasks(masks) {
 		for (const mask of masks) {
 			if (!mask.enabled) continue;
-			
+
 			// Collect all allowed categories for this deck/module
 			const allowedCategories = [];
 			let enableFullDeck = false;
-			
+
 			for (const deckSpec of mask.decksToEnable) {
 				if (deckSpec.includes(':')) {
 					// Handle module:category syntax (e.g., "cfa:MInterestRatesandReturnMeasurement")
 					const [moduleFilter, categoryFilter] = deckSpec.split(':');
-					
+
 					// Check if this deck matches the module
-					if (this.module_name === moduleFilter || this.deck_name === moduleFilter) {
+					if (
+						this.module_name === moduleFilter ||
+						this.deck_name === moduleFilter
+					) {
 						if (categoryFilter) {
 							allowedCategories.push(categoryFilter);
 						} else {
@@ -200,17 +208,20 @@ class TermStorage {
 					}
 				} else {
 					// Handle exact deck name matches (existing behavior)
-					if (deckSpec === this.deck_name || deckSpec === this.module_name) {
+					if (
+						deckSpec === this.deck_name ||
+						deckSpec === this.module_name
+					) {
 						enableFullDeck = true;
 					}
 				}
 			}
-			
+
 			// If we have category filters for this deck, remove terms that don't match
 			if (allowedCategories.length > 0 && !enableFullDeck) {
 				this.terms = this.terms.filter(term => {
 					if (!term.category) return false;
-					return allowedCategories.some(allowedCategory => 
+					return allowedCategories.some(allowedCategory =>
 						term.category.includes(allowedCategory)
 					);
 				});
@@ -219,7 +230,7 @@ class TermStorage {
 				this.is_active = true;
 			}
 		}
-		
+
 		for (const deck of this.decks) {
 			deck.applyMasks(masks);
 		}
@@ -308,14 +319,19 @@ class TermStorage {
 		const termsList = [];
 
 		// Check if this specific deck is in the get_only list
-		const isThisDeckExplicitlyRequested = get_only.length > 0 && get_only.includes(this.deck_name);
+		const isThisDeckExplicitlyRequested =
+			get_only.length > 0 && get_only.includes(this.deck_name);
 		const noFilter = get_only.length === 0;
 
 		// Include this deck's own terms if:
 		// - _includeAll flag is set (parent was requested), OR
 		// - No filter and this deck is active, OR
 		// - This deck is explicitly requested
-		if (_includeAll || (noFilter && this.is_active) || isThisDeckExplicitlyRequested) {
+		if (
+			_includeAll ||
+			(noFilter && this.is_active) ||
+			isThisDeckExplicitlyRequested
+		) {
 			termsList.push(
 				...this.terms.map(obj => {
 					const newterm = new Term(
@@ -354,19 +370,29 @@ class TermStorage {
 
 			if (_includeAll) {
 				// Parent was requested, include everything
-				termsList.push(...deck.listTerms({ get_only: [], _includeAll: true }));
+				termsList.push(
+					...deck.listTerms({ get_only: [], _includeAll: true })
+				);
 			} else if (noFilter && this.is_active) {
 				// Parent is active, include all children
-				termsList.push(...deck.listTerms({ get_only: [], _includeAll: true }));
+				termsList.push(
+					...deck.listTerms({ get_only: [], _includeAll: true })
+				);
 			} else if (isThisDeckExplicitlyRequested) {
 				// This deck was explicitly requested, include all nested decks
-				termsList.push(...deck.listTerms({ get_only: [], _includeAll: true }));
+				termsList.push(
+					...deck.listTerms({ get_only: [], _includeAll: true })
+				);
 			} else if (noFilter && deck.is_active) {
 				// No filter but this specific child is active
-				termsList.push(...deck.listTerms({ get_only: [], _includeAll: true }));
+				termsList.push(
+					...deck.listTerms({ get_only: [], _includeAll: true })
+				);
 			} else if (get_only.length > 0) {
 				// There's a filter, pass it down to search recursively
-				termsList.push(...deck.listTerms({ get_only, _includeAll: false }));
+				termsList.push(
+					...deck.listTerms({ get_only, _includeAll: false })
+				);
 			}
 		}
 

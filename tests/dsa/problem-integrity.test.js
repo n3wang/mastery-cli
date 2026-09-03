@@ -63,7 +63,9 @@ describe('Problem integrity', function () {
 		await problemManager.autoPopulateUsingTestDictionary();
 
 		const { getPromptDict } = require('../../src/features/dsa/prompt');
-		const { renderPromptDescription } = require('../../src/features/dsa/functions');
+		const {
+			renderPromptDescription
+		} = require('../../src/features/dsa/functions');
 
 		const allProblemsMetadata = problemManager.problems;
 		for (let problemMetadata of Object.values(allProblemsMetadata)) {
@@ -97,9 +99,7 @@ describe('Problem integrity', function () {
 		await problemManager.autoPopulateUsingTestDictionary();
 		// if this test fails, make sure you can run create-empty-base-codes to populate with a basic template of them all.
 		// Or just run it here just in case everytime this test is run:
-		const {
-			createEmptyBaseCodes
-		} = require('./create-empty-base-codes');
+		const { createEmptyBaseCodes } = require('./create-empty-base-codes');
 		await createEmptyBaseCodes();
 
 		const allProblemsMetadata = problemManager.problems;
@@ -159,7 +159,9 @@ describe('Problem integrity', function () {
 		const allProblemsMetadata = problemManager.problems;
 
 		// Fetch the expected count using the tests index count of problems.
-		const { PROBLEM_COUNT_PER_CATEGORY_TEST_NAME } = require('../../src/features/dsa/problem-sets');
+		const {
+			PROBLEM_COUNT_PER_CATEGORY_TEST_NAME
+		} = require('../../src/features/dsa/problem-sets');
 
 		const problems_per_category_slug = {};
 
@@ -221,7 +223,9 @@ describe('Problem integrity', function () {
 		const allProblemsMetadata = problemManager.problems;
 
 		// Fetch the expected count using the tests index count of problems.
-		const { PROBLEM_COUNT_PER_CATEGORY_TEST_NAME } = require('../../src/features/dsa/problem-sets');
+		const {
+			PROBLEM_COUNT_PER_CATEGORY_TEST_NAME
+		} = require('../../src/features/dsa/problem-sets');
 
 		const problems_per_category_slug = {};
 

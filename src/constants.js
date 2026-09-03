@@ -13,7 +13,6 @@ const { qmathformulas } = require('./terms-data/math_formulas.js');
 const { termJson } = require('./terms-data/terms.js');
 const { Term, Terminology, TermStorage } = require('./structures.js');
 
-
 const path = require('path');
 const url = require('url');
 

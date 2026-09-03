@@ -1,7 +1,10 @@
 const assert = require('assert');
 
 const registry = require('../src/commands/registry');
-const { buildHandlers, findRequestedCommand } = require('../src/commands/dispatch');
+const {
+	buildHandlers,
+	findRequestedCommand
+} = require('../src/commands/dispatch');
 const { getFeatureHandlers, getFeatureCommands } = require('../src/features');
 const { generateCommandHelp } = require('../src/local-modules/cli-help');
 
@@ -57,7 +60,10 @@ describe('command registry', () => {
 
 	it('resolves each alias to exactly one canonical name', () => {
 		for (const command of registry.COMMANDS) {
-			assert.strictEqual(registry.resolveName(command.name), command.name);
+			assert.strictEqual(
+				registry.resolveName(command.name),
+				command.name
+			);
 			for (const alias of command.aliases || []) {
 				assert.strictEqual(registry.resolveName(alias), command.name);
 			}
@@ -77,12 +83,39 @@ describe('command registry', () => {
 	it('keeps every historical command name working', () => {
 		// The short forms users already have in their fingers and scripts.
 		const legacy = [
-			'ses', 'fses', 'lastses', 'cses', 'mcses', 'amses', 'mamses',
-			'co', 'coa', 'poh', 'masks', 'setting', 'code',
-			'quiz', 'term', 'math', 'clean', 'report', 'skill', 'entries',
-			'dsa', 'mdsa', 'cloze', 'jupyter', 'llm',
-			'mask-list', 'mask-toggle', 'mask-create', 'mask-status',
-			'create-module', 'prepare-week', 'cleanup', 'reset-queues'
+			'ses',
+			'fses',
+			'lastses',
+			'cses',
+			'mcses',
+			'amses',
+			'mamses',
+			'co',
+			'coa',
+			'poh',
+			'masks',
+			'setting',
+			'code',
+			'quiz',
+			'term',
+			'math',
+			'clean',
+			'report',
+			'skill',
+			'entries',
+			'dsa',
+			'mdsa',
+			'cloze',
+			'jupyter',
+			'llm',
+			'mask-list',
+			'mask-toggle',
+			'mask-create',
+			'mask-status',
+			'create-module',
+			'prepare-week',
+			'cleanup',
+			'reset-queues'
 		];
 
 		for (const token of legacy) {

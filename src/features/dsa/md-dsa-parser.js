@@ -87,12 +87,16 @@ function parseMarkdownProblems(filePath) {
 				if (inCodeBlock) {
 					// End of code block
 					if (currentSection === 'pseudocode') {
-						problem.pseudocode = currentCode.replace(/^\n+/, '').replace(/\n+$/, '');
+						problem.pseudocode = currentCode
+							.replace(/^\n+/, '')
+							.replace(/\n+$/, '');
 					} else if (
 						currentSection === 'solution' &&
 						currentLanguage
 					) {
-						problem.solution[currentLanguage] = currentCode.replace(/^\n+/, '').replace(/\n+$/, '');
+						problem.solution[currentLanguage] = currentCode
+							.replace(/^\n+/, '')
+							.replace(/\n+$/, '');
 					}
 					currentCode = '';
 					inCodeBlock = false;
@@ -117,7 +121,9 @@ function parseMarkdownProblems(filePath) {
 		}
 
 		// Clean up excessive whitespace while preserving table formatting
-		problem.description = problem.description.replace(/^\n+/, '').replace(/\n+$/, '');
+		problem.description = problem.description
+			.replace(/^\n+/, '')
+			.replace(/\n+$/, '');
 		problem.theory = problem.theory.replace(/^\n+/, '').replace(/\n+$/, '');
 
 		problems.push(problem);
@@ -342,7 +348,9 @@ function parseMarkdownProblemsFromModules(
 		// Parse problems from CONTENT_FILES
 		if (module.CONTENT_FILES) {
 			for (const file of module.CONTENT_FILES) {
-				const filePath = getDsaModulePath(`${module.module_path}/${file}`);
+				const filePath = getDsaModulePath(
+					`${module.module_path}/${file}`
+				);
 				const parsedProblems = parseMarkdownProblems(filePath);
 				const problemMetadata = convertToProblemsMetadata(
 					parsedProblems,

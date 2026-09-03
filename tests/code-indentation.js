@@ -14,9 +14,10 @@ if (terms.length > 0) {
 	const pythonTerm = terms[0];
 	console.log('\n=== Test 1: Python Function ===');
 
-	const hasCorrectIndent = pythonTerm.example.includes('    left = 0') &&
-	                         pythonTerm.example.includes('        mid = (left + right) // 2') &&
-	                         pythonTerm.example.includes('            return mid');
+	const hasCorrectIndent =
+		pythonTerm.example.includes('    left = 0') &&
+		pythonTerm.example.includes('        mid = (left + right) // 2') &&
+		pythonTerm.example.includes('            return mid');
 
 	if (hasCorrectIndent) {
 		console.log('\u2713 Python function indentation preserved');
@@ -32,9 +33,10 @@ if (terms.length > 1) {
 	const jsTerm = terms[1];
 	console.log('\n=== Test 2: JavaScript Object ===');
 
-	const hasCorrectIndent = jsTerm.example.includes('    server: {') &&
-	                         jsTerm.example.includes('        host: \'localhost\'') &&
-	                         jsTerm.example.includes('            host: \'db.example.com\'');
+	const hasCorrectIndent =
+		jsTerm.example.includes('    server: {') &&
+		jsTerm.example.includes("        host: 'localhost'") &&
+		jsTerm.example.includes("            host: 'db.example.com'");
 
 	if (hasCorrectIndent) {
 		console.log('\u2713 JavaScript object indentation preserved');
@@ -50,10 +52,13 @@ if (terms.length > 2) {
 	const listTerm = terms[2];
 	console.log('\n=== Test 3: Markdown List ===');
 
-	const hasCorrectIndent = listTerm.example.includes('    - Second level item') &&
-	                         listTerm.example.includes('        - Third level item') &&
-	                         listTerm.example.includes('    def indented_code():') &&
-	                         listTerm.example.includes('        return "This is indented with spaces"');
+	const hasCorrectIndent =
+		listTerm.example.includes('    - Second level item') &&
+		listTerm.example.includes('        - Third level item') &&
+		listTerm.example.includes('    def indented_code():') &&
+		listTerm.example.includes(
+			'        return "This is indented with spaces"'
+		);
 
 	if (hasCorrectIndent) {
 		console.log('\u2713 Markdown list indentation preserved');
@@ -66,7 +71,9 @@ if (terms.length > 2) {
 
 console.log('\n=== Final Result ===');
 if (allTestsPassed) {
-	console.log('\u2713 ALL TESTS PASSED - Indentation is correctly preserved!');
+	console.log(
+		'\u2713 ALL TESTS PASSED - Indentation is correctly preserved!'
+	);
 	process.exit(0);
 } else {
 	console.log('\u2717 SOME TESTS FAILED - Check output above');

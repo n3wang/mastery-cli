@@ -13,7 +13,7 @@ const { vaultPath } = require('../vault');
  * @param {string} title - The mask title/identifier
  * @param {string[]} decks_to_enable - Array of deck names to enable
  * @returns {object} Mask configuration object for settings.json
- * 
+ *
  * @example
  * // Usage example for settings.json:
  * // const newMask = createMaskConfig('my-study-plan', ['react terms', 'js advanced']);
@@ -43,9 +43,12 @@ function getMasksByAlgorithm() {
 
 		for (const maskConfig of masks) {
 			const { title, decks_to_enable } = maskConfig;
-			
+
 			if (!title || !decks_to_enable) {
-				console.warn(`Skipping invalid mask configuration:`, maskConfig);
+				console.warn(
+					`Skipping invalid mask configuration:`,
+					maskConfig
+				);
 				continue;
 			}
 
@@ -58,16 +61,17 @@ function getMasksByAlgorithm() {
 			});
 
 			deckMasks.push(deckMask);
-			
-			console.log(`Created mask "${title}" with decks: [${decks_to_enable.join(', ')}], enabled: ${enabled}`);
+
+			console.log(
+				`Created mask "${title}" with decks: [${decks_to_enable.join(', ')}], enabled: ${enabled}`
+			);
 		}
 
 		return deckMasks;
-
 	} catch (error) {
 		console.error('Error loading masks from settings.json:', error.message);
 		console.log('Falling back to default masks');
-		
+
 		// Fallback to default masks if settings can't be loaded
 		const cloudMask = new DeckMask('cloud-prep', {
 			decksToEnableStrings: ['aws cloud practitioner'],
@@ -107,17 +111,24 @@ async function populateMasterDeck({ deckFilter = null } = {}) {
 
 		// If deckFilter is provided, check if this deck matches
 		if (deckFilter && deckFilter.length > 0) {
-			const matches = deckFilter.some(filter =>
-				deckDisplayName.toLowerCase().includes(filter.toLowerCase()) ||
-				filter.toLowerCase().includes(deckDisplayName.toLowerCase())
+			const matches = deckFilter.some(
+				filter =>
+					deckDisplayName
+						.toLowerCase()
+						.includes(filter.toLowerCase()) ||
+					filter.toLowerCase().includes(deckDisplayName.toLowerCase())
 			);
 			if (!matches) {
-				console.log(`⏭ Skipping deck (not in filter): "${deckDisplayName}"`);
+				console.log(
+					`⏭ Skipping deck (not in filter): "${deckDisplayName}"`
+				);
 				return;
 			}
 		}
 
-		console.log(`➕ Adding deck: "${deckDisplayName}" with ${termData.length} terms`);
+		console.log(
+			`➕ Adding deck: "${deckDisplayName}" with ${termData.length} terms`
+		);
 		decks.addDeck(new TermStorage(termData, deckDisplayName));
 	});
 
@@ -141,4 +152,9 @@ async function populateMasterDeck({ deckFilter = null } = {}) {
 
 const termJson = [];
 
-module.exports = { termJson, populateMasterDeck, createMaskConfig, getMasksByAlgorithm };
+module.exports = {
+	termJson,
+	populateMasterDeck,
+	createMaskConfig,
+	getMasksByAlgorithm
+};

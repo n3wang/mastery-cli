@@ -1,0 +1,72 @@
+name: CI
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+
+jobs:
+  test:
+    name: test (node ${{ matrix.node }}, ${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node: ['18', '20', '22']
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+
+      - run: npm ci
+
+      - name: Test
+        run: npm test
+
+  lint:
+    name: format
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - run: npm ci
+      - run: npm run format:check
+
+  package:
+    name: package contents
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - run: npm ci
+
+      - name: Pack and check the tarball runs
+        run: |
+          npm pack --pack-destination /tmp
+          mkdir -p /tmp/unpacked
+          tar -xzf /tmp/mastery-cli-*.tgz -C /tmp/unpacked
+          cd /tmp/unpacked/package
+          cp -r "$GITHUB_WORKSPACE/node_modules" .
+          MASTERY_HOME=/tmp/vault node index.js --help > /dev/null
+          MASTERY_HOME=/tmp/vault node index.js vault init
+
+      - name: Fail if user data leaked into the package
+        run: |
+          cd /tmp/unpacked/package
+          if find . -path ./node_modules -prune -o -type f -print \
+             | grep -iE 'user_data|user_files|review_decks|db\.json'; then
+            echo "::error::user data found in the published package"
+            exit 1
+          fi
+          echo "package is clean"

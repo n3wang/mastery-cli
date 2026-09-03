@@ -11,7 +11,9 @@ class OpenAICompatProvider {
 			temperature: this.config.temperature,
 			max_tokens: this.config.maxFollowupTokens,
 			messages: [
-				...(systemPrompt ? [{ role: 'system', content: systemPrompt }] : []),
+				...(systemPrompt
+					? [{ role: 'system', content: systemPrompt }]
+					: []),
 				{ role: 'user', content: userPrompt }
 			]
 		};

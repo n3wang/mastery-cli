@@ -6,7 +6,9 @@ const { getDirAbsoluteUri } = require('./utils-functions.js');
 const path = require('path');
 
 function normalizePromptKey(prompt) {
-	return String(prompt || '').replace(/\r\n/g, '\n').trim();
+	return String(prompt || '')
+		.replace(/\r\n/g, '\n')
+		.trim();
 }
 
 function resolveModuleResourcePath(module, configuredPath) {
@@ -18,13 +20,15 @@ function resolveModuleResourcePath(module, configuredPath) {
 		return configuredPath;
 	}
 
-	return vaultPath(
-		`decks/${module.module_path}/${configuredPath}`
-	);
+	return vaultPath(`decks/${module.module_path}/${configuredPath}`);
 }
 
 function readMarkdownFileIfExists(filePath) {
-	if (!filePath || !fs.existsSync(filePath) || !fs.statSync(filePath).isFile()) {
+	if (
+		!filePath ||
+		!fs.existsSync(filePath) ||
+		!fs.statSync(filePath).isFile()
+	) {
 		return '';
 	}
 
@@ -34,7 +38,11 @@ function readMarkdownFileIfExists(filePath) {
 function parsePromptDescriptionsMarkdown(filePath) {
 	const promptDescriptions = {};
 
-	if (!filePath || !fs.existsSync(filePath) || !fs.statSync(filePath).isFile()) {
+	if (
+		!filePath ||
+		!fs.existsSync(filePath) ||
+		!fs.statSync(filePath).isFile()
+	) {
 		return promptDescriptions;
 	}
 
@@ -85,7 +93,9 @@ function getModuleDescriptionMetadata(module) {
 		module_path: module.module_path,
 		common_instructions: module.common_instructions,
 		deck_description: readMarkdownFileIfExists(deckDescriptionPath),
-		prompt_descriptions: parsePromptDescriptionsMarkdown(promptDescriptionsPath)
+		prompt_descriptions: parsePromptDescriptionsMarkdown(
+			promptDescriptionsPath
+		)
 	};
 }
 
@@ -98,7 +108,8 @@ function applyModuleDescriptionMetadataToTerm(term, moduleMetadata) {
 	term.common_instructions = moduleMetadata.common_instructions;
 	term.deck_description = moduleMetadata.deck_description;
 	term.prompt_description =
-		moduleMetadata.prompt_descriptions[normalizePromptKey(term.prompt)] || '';
+		moduleMetadata.prompt_descriptions[normalizePromptKey(term.prompt)] ||
+		'';
 
 	return term;
 }
@@ -109,7 +120,11 @@ function applyModuleDescriptionMetadata(terms, nestedDecks, moduleMetadata) {
 	}
 
 	for (const deck of nestedDecks) {
-		applyModuleDescriptionMetadata(deck.terms || [], deck.decks || [], moduleMetadata);
+		applyModuleDescriptionMetadata(
+			deck.terms || [],
+			deck.decks || [],
+			moduleMetadata
+		);
 	}
 }
 
@@ -135,7 +150,7 @@ function parseMarkdownCards(filePath) {
 		const line = lines[i].trim();
 		const originalLine = lines[i]; // Preserve original line for content that needs formatting
 
-		if(line=="---"){
+		if (line == '---') {
 			// clear all variables
 			last_connected_paragraph = '';
 			last_line = '';
@@ -160,7 +175,7 @@ function parseMarkdownCards(filePath) {
 		) {
 			const header = line.replace(/^#+/, '').trim();
 			single_line_last_obtained_description = '';
-			
+
 			if (line.startsWith('####')) {
 				has_header = true;
 			}
@@ -244,28 +259,34 @@ function parseMarkdownCards(filePath) {
 			i++;
 			while (i < lines.length) {
 				let answerLine = lines[i];
-				if (isMultiLine && (answerLine.trim() === 'x??' || answerLine.trim() === '---')) {
+				if (
+					isMultiLine &&
+					(answerLine.trim() === 'x??' || answerLine.trim() === '---')
+				) {
 					i++;
 					break;
 				}
 				if (!isMultiLine && answerLine.trim() === '') break;
 
 				// remove x?? and ??x - but preserve indentation
-				if(isMultiLine){
+				if (isMultiLine) {
 					// remove x?? and ??x but keep the rest of the line as-is
 					answerLine = answerLine.replace(/^\?x\?|\?x\?$/g, '');
 					// Only trim if the line doesn't start with whitespace (preserve indentation)
-					if (answerLine.length > 0 && answerLine[0] !== ' ' && answerLine[0] !== '\t') {
+					if (
+						answerLine.length > 0 &&
+						answerLine[0] !== ' ' &&
+						answerLine[0] !== '\t'
+					) {
 						answerLine = answerLine.trim();
 					}
 				}
-				if(answerLine.trim() === '') {
+				if (answerLine.trim() === '') {
 					if (isMultiLine) {
 						answerLines.push('\n\n');
 					}
 				}
 				answerLines.push(answerLine);
-
 
 				i++;
 			}
@@ -291,7 +312,10 @@ function parseMarkdownCards(filePath) {
 		}
 
 		// if line is empty, finish the connected paragraph
-		if ((line === '' && !has_header) || (line === '' && has_header && count_of_blank_lines >= 2)) {
+		if (
+			(line === '' && !has_header) ||
+			(line === '' && has_header && count_of_blank_lines >= 2)
+		) {
 			if (has_header) {
 				// if we have a header and only one blank line, we can keep the last connected paragraph
 				count_of_blank_lines++;
@@ -320,10 +344,12 @@ function parseMarkdownCards(filePath) {
 	// clean up - but preserve indentation inside code blocks
 	for (const entry of result.entries) {
 		if (entry.description) {
-			entry.description = ":m " + preserveIndentationInCodeBlocks(entry.description);
+			entry.description =
+				':m ' + preserveIndentationInCodeBlocks(entry.description);
 		}
 		if (entry.answer) {
-			entry.answer = ":m " + preserveIndentationInCodeBlocks(entry.answer);
+			entry.answer =
+				':m ' + preserveIndentationInCodeBlocks(entry.answer);
 		}
 	}
 
@@ -462,19 +488,14 @@ function parseMarkdownCardsFromFolderRecursive(
 		return null;
 	}
 
-	const deck = new TermStorage(
-		terms,
-		deckName,
-		{
-			decks: nestedDecks,
-			is_active: false,
-			module_name: module_name
-		}
-	);
+	const deck = new TermStorage(terms, deckName, {
+		decks: nestedDecks,
+		is_active: false,
+		module_name: module_name
+	});
 
 	return deck;
 }
-
 
 /**
  * Recursively cache markdown files while preserving folder structure
@@ -507,7 +528,12 @@ function cacheMarkdownFilesRecursively(sourceFolderPath, targetCachePath) {
 	}
 }
 
-function parseFolderWithOption(folderPath, useRecursive, module_name, category) {
+function parseFolderWithOption(
+	folderPath,
+	useRecursive,
+	module_name,
+	category
+) {
 	if (useRecursive) {
 		const subDeck = parseMarkdownCardsFromFolderRecursive(folderPath, {
 			module_name: module_name,
@@ -541,12 +567,14 @@ function parseMarkdownCardsFromTermsModules(
 			// Check if module name directly matches
 			const directMatch = deckFilter.some(filter => {
 				const filterLower = filter.toLowerCase();
-				return moduleName.includes(filterLower) ||
-					   filterLower.includes(moduleName) ||
-					   skillCategory.includes(filterLower) ||
-					   filterLower.includes(skillCategory) ||
-					   modulePath.includes(filterLower) ||
-					   filterLower.includes(modulePath);
+				return (
+					moduleName.includes(filterLower) ||
+					filterLower.includes(moduleName) ||
+					skillCategory.includes(filterLower) ||
+					filterLower.includes(skillCategory) ||
+					modulePath.includes(filterLower) ||
+					filterLower.includes(modulePath)
+				);
 			});
 
 			// For nested decks: if filter looks like a nested deck name (has hyphens/underscores and multiple parts),
@@ -559,7 +587,8 @@ function parseMarkdownCardsFromTermsModules(
 			// If we have nested deck filters, only load modules likely to contain such structures
 			if (!directMatch && hasNestedDeckFilters) {
 				// Only load modules with book/reading/notes in the name for nested deck filtering
-				const likelyHasNested = moduleName.includes('book') ||
+				const likelyHasNested =
+					moduleName.includes('book') ||
 					moduleName.includes('reading') ||
 					moduleName.includes('note') ||
 					skillCategory.includes('book') ||
@@ -567,13 +596,19 @@ function parseMarkdownCardsFromTermsModules(
 					skillCategory.includes('note');
 
 				if (likelyHasNested) {
-					console.log(`📦 Loading ${module.ABOUT.title} (checking for nested decks)`);
+					console.log(
+						`📦 Loading ${module.ABOUT.title} (checking for nested decks)`
+					);
 				} else {
-					console.log(`⏭ Skipping module (no nested deck indicators): ${module.ABOUT.title}`);
+					console.log(
+						`⏭ Skipping module (no nested deck indicators): ${module.ABOUT.title}`
+					);
 					continue;
 				}
 			} else if (!directMatch) {
-				console.log(`⏭ Skipping module (not in filter): ${module.ABOUT.title}`);
+				console.log(
+					`⏭ Skipping module (not in filter): ${module.ABOUT.title}`
+				);
 				continue;
 			}
 		}
@@ -628,20 +663,23 @@ function parseMarkdownCardsFromTermsModules(
 				}
 
 				const folderPath = folder;
-			const result = parseFolderWithOption(
-				folderPath,
-				useRecursive,
-				module.ABOUT.title,
-				module.ABOUT.skill_category
-			);
-			terms.push(...result.terms);
-			nestedDecks.push(...result.nestedDecks);
+				const result = parseFolderWithOption(
+					folderPath,
+					useRecursive,
+					module.ABOUT.title,
+					module.ABOUT.skill_category
+				);
+				terms.push(...result.terms);
+				nestedDecks.push(...result.nestedDecks);
 
 				// Cache the markdown files with folder structure preservation
 				if (shouldCacheContent && useCacheIfNotFound) {
 					if (useRecursive) {
 						// Recursively cache with folder structure
-						cacheMarkdownFilesRecursively(folderPath, moduleCacheDir);
+						cacheMarkdownFilesRecursively(
+							folderPath,
+							moduleCacheDir
+						);
 					} else {
 						// Flat caching for non-recursive mode
 						const files = fs.readdirSync(folderPath);
@@ -680,7 +718,10 @@ function parseMarkdownCardsFromTermsModules(
 					);
 
 					// Check if cache_md folder exists and has content
-					if (fs.existsSync(moduleCacheDir) && fs.readdirSync(moduleCacheDir).length > 0) {
+					if (
+						fs.existsSync(moduleCacheDir) &&
+						fs.readdirSync(moduleCacheDir).length > 0
+					) {
 						console.warn(
 							`Loading terms from cached markdown files: ${moduleCacheDir}`
 						);
@@ -711,7 +752,8 @@ function parseMarkdownCardsFromTermsModules(
 								termData.prompt || '',
 								{
 									reference_page: termData.reference_page,
-									reference_line: termData.reference_line || -1,
+									reference_line:
+										termData.reference_line || -1,
 									module_name: module.ABOUT.module_name,
 									category: module.ABOUT.category,
 									auto_newline: false
@@ -733,14 +775,16 @@ function parseMarkdownCardsFromTermsModules(
 					let allTerms = [...terms];
 
 					// Flatten nested decks to include all terms in cache.json
-					const flattenNestedDecks = (decks) => {
+					const flattenNestedDecks = decks => {
 						const flattened = [];
 						for (const deck of decks) {
 							if (deck.terms) {
 								flattened.push(...deck.terms);
 							}
 							if (deck.decks && deck.decks.length > 0) {
-								flattened.push(...flattenNestedDecks(deck.decks));
+								flattened.push(
+									...flattenNestedDecks(deck.decks)
+								);
 							}
 						}
 						return flattened;
@@ -805,7 +849,11 @@ function parseMarkdownCardsFromTermsModules(
 			let finalTerms = terms;
 			let finalNestedDecks = nestedDecks;
 
-			if (useRecursive && terms.length === 0 && nestedDecks.length === 1) {
+			if (
+				useRecursive &&
+				terms.length === 0 &&
+				nestedDecks.length === 1
+			) {
 				// Flatten: move the single nested deck's terms and sub-decks up
 				const singleDeck = nestedDecks[0];
 				finalTerms = singleDeck.terms;
@@ -848,7 +896,9 @@ function retrieve_terms_modules() {
 
 function retrieve_terms_as_decks({ deckFilter = null } = {}) {
 	const termsModules = retrieve_terms_modules();
-	return parseMarkdownCardsFromTermsModules(Object.values(termsModules), { deckFilter });
+	return parseMarkdownCardsFromTermsModules(Object.values(termsModules), {
+		deckFilter
+	});
 }
 
 module.exports = {

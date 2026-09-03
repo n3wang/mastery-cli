@@ -935,9 +935,9 @@ ${problemMetadata.description || 'Problem description not available.'}
 
 		if (category_slug_detected === '') {
 			throw (
-				('No category detected, Doesnt open any',
+				'No category detected, Doesnt open any',
 				'categories',
-				categories)
+				categories
 			);
 		}
 

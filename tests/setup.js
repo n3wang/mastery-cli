@@ -10,7 +10,9 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 
-const TEST_VAULT = fs.mkdtempSync(path.join(os.tmpdir(), 'mastery-test-vault-'));
+const TEST_VAULT = fs.mkdtempSync(
+	path.join(os.tmpdir(), 'mastery-test-vault-')
+);
 
 // Set before anything requires src/vault.js — the root hook file is loaded
 // first, but vault.js reads the variable per call, so this is safe either way.

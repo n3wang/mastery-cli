@@ -79,7 +79,10 @@ function updateAlgorithmPerformance(
  * If the daily algorithm work is missing from the report, offer to run it.
  */
 async function requestIfRunTrainer(missingFeatReport) {
-	if (!missingFeatReport || !missingFeatReport.includes(CONSTANTS.algo_name)) {
+	if (
+		!missingFeatReport ||
+		!missingFeatReport.includes(CONSTANTS.algo_name)
+	) {
 		return;
 	}
 

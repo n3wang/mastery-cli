@@ -4,12 +4,12 @@ const path = require('path');
 const assert = require('assert');
 const { vaultPath } = require('../src/vault');
 
-describe('RatingStorage', function() {
+describe('RatingStorage', function () {
 	let storage;
 	const testFilename = 'test_ratings';
 	const testFilepath = vaultPath(`progress/${testFilename}.csv`);
 
-	beforeEach(function() {
+	beforeEach(function () {
 		// Clean up test file if it exists
 		if (fs.existsSync(testFilepath)) {
 			fs.unlinkSync(testFilepath);
@@ -17,26 +17,29 @@ describe('RatingStorage', function() {
 		storage = new RatingStorage(testFilename);
 	});
 
-	afterEach(function() {
+	afterEach(function () {
 		// Clean up after tests
 		if (fs.existsSync(testFilepath)) {
 			fs.unlinkSync(testFilepath);
 		}
 	});
 
-	describe('CSV File Creation', function() {
-		it('should create CSV file with headers on initialization', function() {
+	describe('CSV File Creation', function () {
+		it('should create CSV file with headers on initialization', function () {
 			const exists = fs.existsSync(testFilepath);
 			assert.strictEqual(exists, true);
 
 			const content = fs.readFileSync(testFilepath, 'utf-8');
 			const firstLine = content.split('\n')[0];
-			assert.strictEqual(firstLine, 'term_hash,term_name,category,rating,timestamp,was_correct,has_feedback');
+			assert.strictEqual(
+				firstLine,
+				'term_hash,term_name,category,rating,timestamp,was_correct,has_feedback'
+			);
 		});
 	});
 
-	describe('Adding Ratings', function() {
-		it('should add a rating successfully', function() {
+	describe('Adding Ratings', function () {
+		it('should add a rating successfully', function () {
 			const term = {
 				term: 'Test Term',
 				description: 'Test description',
@@ -54,7 +57,7 @@ describe('RatingStorage', function() {
 			assert.strictEqual(ratings[0].has_feedback, false);
 		});
 
-		it('should handle terms with commas in name', function() {
+		it('should handle terms with commas in name', function () {
 			const term = {
 				term: 'Test, Term',
 				description: 'Test description',
@@ -69,7 +72,7 @@ describe('RatingStorage', function() {
 			assert.strictEqual(ratings[0].term_name, 'Test, Term');
 		});
 
-		it('should reject invalid ratings', function() {
+		it('should reject invalid ratings', function () {
 			const term = {
 				term: 'Test Term',
 				description: 'Test description'
@@ -80,7 +83,7 @@ describe('RatingStorage', function() {
 			assert.strictEqual(storage.addRating(term, -1, true, false), false);
 		});
 
-		it('should allow multiple ratings for same term', function() {
+		it('should allow multiple ratings for same term', function () {
 			const term = {
 				term: 'Test Term',
 				description: 'Test description',
@@ -95,8 +98,8 @@ describe('RatingStorage', function() {
 		});
 	});
 
-	describe('Retrieving Ratings', function() {
-		it('should get all ratings', function() {
+	describe('Retrieving Ratings', function () {
+		it('should get all ratings', function () {
 			const term1 = {
 				term: 'Term 1',
 				description: 'Description 1',
@@ -115,7 +118,7 @@ describe('RatingStorage', function() {
 			assert.strictEqual(ratings.length, 2);
 		});
 
-		it('should get ratings by term', function() {
+		it('should get ratings by term', function () {
 			const term1 = {
 				term: 'Term 1',
 				description: 'Description 1',
@@ -136,7 +139,7 @@ describe('RatingStorage', function() {
 			assert.strictEqual(term1Ratings[0].term_name, 'Term 1');
 		});
 
-		it('should calculate average rating', function() {
+		it('should calculate average rating', function () {
 			const term = {
 				term: 'Test Term',
 				description: 'Test description',
@@ -151,7 +154,7 @@ describe('RatingStorage', function() {
 			assert.strictEqual(avg, 4);
 		});
 
-		it('should return null for average of term with no ratings', function() {
+		it('should return null for average of term with no ratings', function () {
 			const term = {
 				term: 'Test Term',
 				description: 'Test description'
@@ -162,8 +165,8 @@ describe('RatingStorage', function() {
 		});
 	});
 
-	describe('Term Hash', function() {
-		it('should generate consistent hashes for same term', function() {
+	describe('Term Hash', function () {
+		it('should generate consistent hashes for same term', function () {
 			const term = {
 				term: 'Test Term',
 				description: 'Test description',
@@ -177,7 +180,7 @@ describe('RatingStorage', function() {
 			assert.strictEqual(hash1, hash2);
 		});
 
-		it('should generate different hashes for different terms', function() {
+		it('should generate different hashes for different terms', function () {
 			const term1 = {
 				term: 'Term 1',
 				description: 'Description 1'
@@ -194,8 +197,8 @@ describe('RatingStorage', function() {
 		});
 	});
 
-	describe('CSV Handling', function() {
-		it('should handle special characters in CSV', function() {
+	describe('CSV Handling', function () {
+		it('should handle special characters in CSV', function () {
 			const term = {
 				term: 'Test "quoted" term',
 				description: 'Description with\nnewline',
@@ -211,8 +214,8 @@ describe('RatingStorage', function() {
 		});
 	});
 
-	describe('Count and Clear', function() {
-		it('should get correct count', function() {
+	describe('Count and Clear', function () {
+		it('should get correct count', function () {
 			const term = {
 				term: 'Test Term',
 				description: 'Test description'
@@ -224,7 +227,7 @@ describe('RatingStorage', function() {
 			assert.strictEqual(storage.getCount(), 2);
 		});
 
-		it('should clear all ratings', function() {
+		it('should clear all ratings', function () {
 			const term = {
 				term: 'Test Term',
 				description: 'Test description'

@@ -29,12 +29,12 @@ class Demo {
 						key: 'A',
 						value: [i, i],
 						style: fg('red', '*')
-				  })
+					})
 				: scatterData.push({
 						key: 'A',
 						value: [i, 6],
 						style: fg('red', '*')
-				  });
+					});
 		}
 
 		scatterData.push({
@@ -72,12 +72,12 @@ class Demo {
 						key: '1+',
 						value: [i, i],
 						style: bg('red', SIZE_SQUARE)
-				  })
+					})
 				: heatmap_plots.push({
 						key: '1+',
 						value: [i, 6],
 						style: bg('red', SIZE_SQUARE)
-				  });
+					});
 		}
 
 		heatmap_plots.push({

@@ -18,7 +18,9 @@ class OllamaProvider {
 			model: this.config.model,
 			stream: false,
 			messages: [
-				...(systemPrompt ? [{ role: 'system', content: systemPrompt }] : []),
+				...(systemPrompt
+					? [{ role: 'system', content: systemPrompt }]
+					: []),
 				{ role: 'user', content: userPrompt }
 			]
 		};

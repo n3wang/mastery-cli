@@ -428,7 +428,6 @@ class DSATrainer {
 			md_pseudo_mode = false
 		} = {}
 	) {
-		
 		let problem_extension = '';
 
 		let problem_details = this.problems_manager.getProblem(problem.slug);

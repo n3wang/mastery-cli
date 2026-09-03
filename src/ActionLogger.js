@@ -165,8 +165,11 @@ class ActionLogger {
 
 		try {
 			const fileContent = fs.readFileSync(this.filepath, 'utf-8');
-			const lines = fileContent.trim().split('\n').filter(line => line.trim());
-			
+			const lines = fileContent
+				.trim()
+				.split('\n')
+				.filter(line => line.trim());
+
 			let totalRemovals = 0;
 			let totalCompletions = 0;
 			let totalFeedback = 0;
@@ -208,7 +211,10 @@ class ActionLogger {
 				totalSessions
 			};
 		} catch (error) {
-			console.error('Error reading log file for statistics:', error.message);
+			console.error(
+				'Error reading log file for statistics:',
+				error.message
+			);
 			return {
 				totalRemovals: 0,
 				totalCompletions: 0,

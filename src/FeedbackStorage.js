@@ -35,7 +35,11 @@ class FeedbackStorage {
 			if (!fs.existsSync(dir)) {
 				fs.mkdirSync(dir, { recursive: true });
 			}
-			fs.writeFileSync(this.filepath, JSON.stringify(this.data, null, 2), 'utf-8');
+			fs.writeFileSync(
+				this.filepath,
+				JSON.stringify(this.data, null, 2),
+				'utf-8'
+			);
 		} catch (error) {
 			console.error('Error saving feedback storage:', error.message);
 		}

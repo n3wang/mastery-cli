@@ -107,7 +107,9 @@ function showStatus() {
 		const entries = fs.existsSync(full) ? fs.readdirSync(full).length : 0;
 		console.log(`  ${String(entries).padStart(4)} ${label}`);
 	}
-	console.log(`  ${String(countFiles(path.join(root, '.cache'))).padStart(4)} cached files (not tracked)`);
+	console.log(
+		`  ${String(countFiles(path.join(root, '.cache'))).padStart(4)} cached files (not tracked)`
+	);
 
 	const configPath = path.join(root, 'config.json');
 	console.log(
@@ -117,7 +119,9 @@ function showStatus() {
 	const git = getGitState(root);
 	console.log('');
 	if (!git.isRepo) {
-		console.log('Not a git repository. Run "mastery vault init" for how to start one.');
+		console.log(
+			'Not a git repository. Run "mastery vault init" for how to start one.'
+		);
 	} else if (git.dirty) {
 		console.log(
 			`Git: ${git.changes} uncommitted change(s). Worth a commit — this is your study history.`

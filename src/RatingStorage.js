@@ -35,7 +35,11 @@ class RatingStorage {
 
 			if (!fs.existsSync(this.filepath)) {
 				// Create file with headers
-				fs.writeFileSync(this.filepath, this.headers.join(',') + '\n', 'utf-8');
+				fs.writeFileSync(
+					this.filepath,
+					this.headers.join(',') + '\n',
+					'utf-8'
+				);
 			}
 		} catch (error) {
 			console.error('Error creating rating storage file:', error.message);
@@ -70,7 +74,11 @@ class RatingStorage {
 		}
 		const stringValue = String(value);
 		// If value contains comma, quote, or newline, wrap in quotes and escape quotes
-		if (stringValue.includes(',') || stringValue.includes('"') || stringValue.includes('\n')) {
+		if (
+			stringValue.includes(',') ||
+			stringValue.includes('"') ||
+			stringValue.includes('\n')
+		) {
 			return '"' + stringValue.replace(/"/g, '""') + '"';
 		}
 		return stringValue;

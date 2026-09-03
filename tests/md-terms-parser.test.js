@@ -178,5 +178,4 @@ describe('parseMarkdownCards', () => {
 
 		const result = parseMarkdownCardsFromTermsModules([module_exports]);
 	});
-
 });

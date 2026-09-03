@@ -241,7 +241,9 @@ class Mastery {
 			const allTerms = this.masterDeck.listTerms();
 			this.mQuizer.terms.push(...allTerms);
 			this.termsLoaded = true;
-			console.log(`Terms data loaded successfully. Total terms available: ${allTerms.length}`);
+			console.log(
+				`Terms data loaded successfully. Total terms available: ${allTerms.length}`
+			);
 		}
 		return this.masterDeck;
 	}
@@ -337,9 +339,15 @@ class Mastery {
 				const enabledDecks = settingsManager.getEnabledDecksFromMasks();
 
 				if (enabledDecks.length === 0) {
-					console.log('\nNo masks are currently active or configured.');
-					console.log('Use "mastery mask-list" to see available masks.');
-					console.log('Use "mastery mask-toggle <mask-name>" to enable a mask.\n');
+					console.log(
+						'\nNo masks are currently active or configured.'
+					);
+					console.log(
+						'Use "mastery mask-list" to see available masks.'
+					);
+					console.log(
+						'Use "mastery mask-toggle <mask-name>" to enable a mask.\n'
+					);
 					return;
 				}
 
@@ -480,8 +488,12 @@ class Mastery {
 
 			const dailyDeckManager = new DailyDeckManager(Settings);
 
-			console.log(`Preparing daily decks for the next ${daysAhead} days...`);
-			console.log(`Configuration: ${cardsPerDeck} cards per deck, ${maxTotalCards} cards total per day\n`);
+			console.log(
+				`Preparing daily decks for the next ${daysAhead} days...`
+			);
+			console.log(
+				`Configuration: ${cardsPerDeck} cards per deck, ${maxTotalCards} cards total per day\n`
+			);
 
 			const generatedDecks = dailyDeckManager.prepareWeekAhead(
 				this.masterDeck,
@@ -492,21 +504,28 @@ class Mastery {
 				}
 			);
 
-			console.log(`\nSuccessfully prepared ${generatedDecks.length} daily decks:\n`);
+			console.log(
+				`\nSuccessfully prepared ${generatedDecks.length} daily decks:\n`
+			);
 
 			for (const deck of generatedDecks) {
-				console.log(`${deck.date}: ${deck.total_cards} cards from ${deck.decks.length} decks`);
+				console.log(
+					`${deck.date}: ${deck.total_cards} cards from ${deck.decks.length} decks`
+				);
 			}
 
 			console.log('\nDaily decks are now ready for the week!');
-			console.log('Run "mastery ses" and select "Today\'s Deck" to start studying.');
+			console.log(
+				'Run "mastery ses" and select "Today\'s Deck" to start studying.'
+			);
 
 			const cleanOld = dailyDeckConfig.days_to_keep || 30;
 			const removed = dailyDeckManager.cleanOldDecks(cleanOld);
 			if (removed > 0) {
-				console.log(`\nCleaned up ${removed} old daily decks (older than ${cleanOld} days)`);
+				console.log(
+					`\nCleaned up ${removed} old daily decks (older than ${cleanOld} days)`
+				);
 			}
-
 		} catch (error) {
 			console.error('Error preparing weekly decks:', error.message);
 		}
@@ -579,7 +598,9 @@ class Mastery {
 		const subcommand = (process.argv[3] || 'setup').toLowerCase();
 		const settingsManager = this.getSettingsManager();
 		const settings = settingsManager.getSettings();
-		const persistedRootConfig = normalizeLlmRoot(settings.llm || DEFAULT_LLM_CONFIG);
+		const persistedRootConfig = normalizeLlmRoot(
+			settings.llm || DEFAULT_LLM_CONFIG
+		);
 
 		const saveLlmConfig = rootConfig => {
 			const nextSettings = {
@@ -593,7 +614,9 @@ class Mastery {
 		if (subcommand === 'setup') {
 			const nextRootConfig = await runLLMWizard(persistedRootConfig);
 			saveLlmConfig(nextRootConfig);
-			const runtimeConfig = resolveRuntimeLLMConfig({ settings: { llm: nextRootConfig } });
+			const runtimeConfig = resolveRuntimeLLMConfig({
+				settings: { llm: nextRootConfig }
+			});
 			printLLMStatus(runtimeConfig);
 			return;
 		}
@@ -613,7 +636,9 @@ class Mastery {
 		if (subcommand === 'profiles') {
 			const profiles = listLLMProfiles(settingsManager.getSettings());
 			if (profiles.length === 0) {
-				console.log('No LLM profiles configured. Run "mastery llm setup".');
+				console.log(
+					'No LLM profiles configured. Run "mastery llm setup".'
+				);
 				return;
 			}
 
@@ -621,7 +646,9 @@ class Mastery {
 			profiles.forEach(profile => {
 				const active = profile.isActive ? ' (active)' : '';
 				console.log(`- ${profile.name}${active}`);
-				console.log(`  provider=${profile.config.provider} model=${profile.config.model}`);
+				console.log(
+					`  provider=${profile.config.provider} model=${profile.config.model}`
+				);
 				console.log(`  baseUrl=${profile.config.baseUrl}`);
 			});
 			console.log('');
@@ -649,7 +676,9 @@ class Mastery {
 		}
 
 		if (subcommand === 'status') {
-			const runtimeConfig = resolveRuntimeLLMConfig({ settings: settingsManager.getSettings() });
+			const runtimeConfig = resolveRuntimeLLMConfig({
+				settings: settingsManager.getSettings()
+			});
 			printLLMStatus(runtimeConfig);
 			return;
 		}
@@ -661,7 +690,9 @@ class Mastery {
 				profileName: targetProfile
 			});
 			if (!runtimeConfig.enabled) {
-				console.log('Local LLM is currently disabled. Run "mastery llm on" first.');
+				console.log(
+					'Local LLM is currently disabled. Run "mastery llm on" first.'
+				);
 				return;
 			}
 
@@ -677,7 +708,9 @@ class Mastery {
 			return;
 		}
 
-		console.log('Unknown llm command. Use one of: setup, on, off, status, test, profiles, use');
+		console.log(
+			'Unknown llm command. Use one of: setup, on, off, status, test, profiles, use'
+		);
 	}
 
 	runServer = () => {
@@ -783,7 +816,7 @@ class Mastery {
 	/**
 	 *  precalculated asynchronous at the start, since usually the missing Feat report is to be shown at the end of the math thing.
 	 *  */
-	populateMissingReport = async () => { };
+	populateMissingReport = async () => {};
 
 	async generateOfflinePerformanceReport({
 		localStorageInstance,
@@ -813,16 +846,24 @@ class Mastery {
 			console.log('Week Scores', week_scores);
 
 			// Check if there's any recent activity
-			const hasRecentActivity = Object.keys(today_scores).length > 0 || Object.keys(week_scores).length > 0;
+			const hasRecentActivity =
+				Object.keys(today_scores).length > 0 ||
+				Object.keys(week_scores).length > 0;
 
 			if (!hasRecentActivity) {
 				console.log('\n⚠️  No recent activity found.');
-				console.log('💡 Try running some quizzes to generate report data.');
+				console.log(
+					'💡 Try running some quizzes to generate report data.'
+				);
 
 				// Show available data dates for reference
-				const availableDates = Object.keys(localStorageInstance.date_based_stats).sort();
+				const availableDates = Object.keys(
+					localStorageInstance.date_based_stats
+				).sort();
 				if (availableDates.length > 0) {
-					console.log(`📅 Latest activity: ${availableDates[availableDates.length - 1]}`);
+					console.log(
+						`📅 Latest activity: ${availableDates[availableDates.length - 1]}`
+					);
 					console.log(`📅 First activity: ${availableDates[0]}`);
 				}
 
@@ -854,8 +895,9 @@ class Mastery {
 				const total = week_scores[feat].value;
 				const today = userPerformanceData.today[feat] ?? 0;
 				userPerformanceData.today[feat] = today;
-				userPerformanceData.week_sum[feat] = `${total - today
-					} -> ${total}`;
+				userPerformanceData.week_sum[feat] = `${
+					total - today
+				} -> ${total}`;
 				userPerformanceData.week_average[feat] = `${roundDec(
 					(total - today) / 6
 				)} -> ${roundDec(total / 7)}`;
@@ -915,10 +957,14 @@ class Mastery {
 				date.setDate(date.getDate() - i);
 				const dateString = date.toISOString().split('T')[0];
 
-				const dayData = localStorageInstance.date_based_stats[dateString] || {};
+				const dayData =
+					localStorageInstance.date_based_stats[dateString] || {};
 				const attempts = dayData.flashcard_attempts?.value || 0;
 				const learned = dayData.flashcard_learned?.value || 0;
-				const successRate = attempts > 0 ? `${Math.round((learned / attempts) * 100)}%` : 'N/A';
+				const successRate =
+					attempts > 0
+						? `${Math.round((learned / attempts) * 100)}%`
+						: 'N/A';
 
 				// Format date as MM/DD
 				const formattedDate = `${date.getMonth() + 1}/${date.getDate()}`;
@@ -941,7 +987,10 @@ class Mastery {
 				totalLearned += flashcardData[day].Learned;
 			}
 
-			const weeklySuccessRate = totalAttempts > 0 ? Math.round((totalLearned / totalAttempts) * 100) : 0;
+			const weeklySuccessRate =
+				totalAttempts > 0
+					? Math.round((totalLearned / totalAttempts) * 100)
+					: 0;
 
 			console.log(`\nWeekly Summary:`);
 			console.log(`Total Attempts: ${totalAttempts}`);
@@ -952,7 +1001,7 @@ class Mastery {
 		}
 	}
 
-	performanceReport = async ({ version = 'tables' } = {}) => { };
+	performanceReport = async ({ version = 'tables' } = {}) => {};
 
 	printUserPerformanceDataSummary(userPerformanceData) {
 		// Print this month
@@ -1050,7 +1099,6 @@ class Mastery {
 		}
 	};
 
-
 	increasePerformance(feature_name, feature_key = 'feat', value = 1) {
 		/**
 		 * Increases the performance of a feature by the value specified.
@@ -1139,7 +1187,7 @@ class Mastery {
 
 		try {
 			// Helper function to convert title to module path
-			const titleToModulePath = (title) => {
+			const titleToModulePath = title => {
 				return title
 					.toLowerCase()
 					.replace(/[^a-z0-9\s-]/g, '') // Remove special characters except spaces and hyphens
@@ -1149,20 +1197,55 @@ class Mastery {
 			};
 
 			// Helper function to derive skill category from title
-			const titleToSkillCategory = (title) => {
+			const titleToSkillCategory = title => {
 				const lowerTitle = title.toLowerCase();
-				
+
 				// Common category mappings
-				if (lowerTitle.includes('data') && lowerTitle.includes('science')) return 'datascience';
-				if (lowerTitle.includes('math') || lowerTitle.includes('calculus') || lowerTitle.includes('algebra')) return 'mathematics';
-				if (lowerTitle.includes('programming') || lowerTitle.includes('code') || lowerTitle.includes('software')) return 'programming';
-				if (lowerTitle.includes('business') || lowerTitle.includes('finance') || lowerTitle.includes('economics')) return 'business';
-				if (lowerTitle.includes('science') || lowerTitle.includes('chemistry') || lowerTitle.includes('physics')) return 'science';
-				if (lowerTitle.includes('language') || lowerTitle.includes('english') || lowerTitle.includes('spanish')) return 'language';
-				if (lowerTitle.includes('history') || lowerTitle.includes('geography')) return 'humanities';
-				
+				if (
+					lowerTitle.includes('data') &&
+					lowerTitle.includes('science')
+				)
+					return 'datascience';
+				if (
+					lowerTitle.includes('math') ||
+					lowerTitle.includes('calculus') ||
+					lowerTitle.includes('algebra')
+				)
+					return 'mathematics';
+				if (
+					lowerTitle.includes('programming') ||
+					lowerTitle.includes('code') ||
+					lowerTitle.includes('software')
+				)
+					return 'programming';
+				if (
+					lowerTitle.includes('business') ||
+					lowerTitle.includes('finance') ||
+					lowerTitle.includes('economics')
+				)
+					return 'business';
+				if (
+					lowerTitle.includes('science') ||
+					lowerTitle.includes('chemistry') ||
+					lowerTitle.includes('physics')
+				)
+					return 'science';
+				if (
+					lowerTitle.includes('language') ||
+					lowerTitle.includes('english') ||
+					lowerTitle.includes('spanish')
+				)
+					return 'language';
+				if (
+					lowerTitle.includes('history') ||
+					lowerTitle.includes('geography')
+				)
+					return 'humanities';
+
 				// Default: use first word or generic category
-				const firstWord = lowerTitle.split(' ')[0].replace(/[^a-z0-9]/g, '');
+				const firstWord = lowerTitle
+					.split(' ')[0]
+					.replace(/[^a-z0-9]/g, '');
 				return firstWord || 'general';
 			};
 
@@ -1183,7 +1266,8 @@ class Mastery {
 
 			const commonInstructionsInput = new Input({
 				name: 'commonInstructions',
-				message: 'Enter deck common instructions (optional, use \\n for line breaks):',
+				message:
+					'Enter deck common instructions (optional, use \\n for line breaks):',
 				initial: ''
 			});
 
@@ -1201,7 +1285,8 @@ class Mastery {
 			while (!title.trim()) {
 				const titleInput = new Input({
 					name: 'title',
-					message: 'Enter module title (e.g., "Data Science Fundamentals"):',
+					message:
+						'Enter module title (e.g., "Data Science Fundamentals"):'
 				});
 				title = await titleInput.run();
 				if (!title.trim()) console.log('Title is required');
@@ -1218,7 +1303,8 @@ class Mastery {
 			while (!externalPathValid) {
 				const externalFolderInput = new Input({
 					name: 'externalFolder',
-					message: 'Enter external content folder path (optional, press Enter to skip):',
+					message:
+						'Enter external content folder path (optional, press Enter to skip):'
 				});
 				const rawInput = await externalFolderInput.run();
 
@@ -1260,9 +1346,11 @@ class Mastery {
 
 			// Create module directory
 			const moduleDir = vaultPath(`decks/${modulePath}`);
-			
+
 			if (fs.existsSync(moduleDir)) {
-				console.log(`\nError: Module directory already exists at ${moduleDir}`);
+				console.log(
+					`\nError: Module directory already exists at ${moduleDir}`
+				);
 				return;
 			}
 
@@ -1325,12 +1413,17 @@ class Mastery {
 			console.log(`\n✅ Successfully created term module: ${modulePath}`);
 			console.log(`📁 Location: ${moduleDir}`);
 			console.log(`\n📝 Next steps:`);
-			console.log(`   1. Add your markdown files to the module directory`);
+			console.log(
+				`   1. Add your markdown files to the module directory`
+			);
 			if (externalFolder.trim()) {
-				console.log(`   2. Ensure your external folder contains markdown files: ${externalFolder}`);
+				console.log(
+					`   2. Ensure your external folder contains markdown files: ${externalFolder}`
+				);
 			}
-			console.log(`   3. Run 'mastery ses' to start studying your new module`);
-
+			console.log(
+				`   3. Run 'mastery ses' to start studying your new module`
+			);
 		} catch (error) {
 			console.error('Error creating term module:', error.message);
 		}
@@ -1346,8 +1439,13 @@ class Mastery {
 			console.log('\n=== Quiz Deck Masks Manager ===\n');
 
 			while (true) {
-				const settings = JSON.parse(fs.readFileSync(settingsPath, 'utf8'));
-				const quizConfig = settings.quiz_decks_configuration || { masks: [], use_masks: [] };
+				const settings = JSON.parse(
+					fs.readFileSync(settingsPath, 'utf8')
+				);
+				const quizConfig = settings.quiz_decks_configuration || {
+					masks: [],
+					use_masks: []
+				};
 
 				const actionPrompt = new AutoComplete({
 					name: 'action',
@@ -1368,12 +1466,14 @@ class Mastery {
 					'Delete existing mask': 'delete',
 					'Toggle mask usage': 'toggle',
 					'View current masks': 'view',
-					'Exit': 'exit'
+					Exit: 'exit'
 				};
 				const action = actionMap[actionResult] || actionResult;
 
 				if (action === 'exit') {
-					console.log('Now running quiz or coa will use the selected masks.');
+					console.log(
+						'Now running quiz or coa will use the selected masks.'
+					);
 					break;
 				}
 
@@ -1399,7 +1499,7 @@ class Mastery {
 
 	displayCurrentMasks(quizConfig) {
 		console.log('\n📋 Current Masks Configuration:\n');
-		
+
 		if (quizConfig.masks.length === 0) {
 			console.log('No masks configured yet.');
 			return;
@@ -1412,7 +1512,9 @@ class Mastery {
 			console.log(`   Decks: ${mask.decks_to_enable.join(', ')}`);
 		});
 
-		console.log(`\nCurrently active masks: ${quizConfig.use_masks.join(', ') || 'None'}\n`);
+		console.log(
+			`\nCurrently active masks: ${quizConfig.use_masks.join(', ') || 'None'}\n`
+		);
 	}
 
 	async addNewMask(settingsPath) {
@@ -1432,7 +1534,10 @@ class Mastery {
 			Object.keys(sampleTerms).forEach(key => {
 				if (Array.isArray(sampleTerms[key])) {
 					const displayName = key.replace(/_/g, ' ').toLowerCase();
-					moduleChoices.push({ name: displayName, value: displayName });
+					moduleChoices.push({
+						name: displayName,
+						value: displayName
+					});
 					moduleCategories[displayName] = ['all'];
 				}
 			});
@@ -1454,13 +1559,17 @@ class Mastery {
 			});
 
 			if (moduleChoices.length === 0) {
-				console.log('No modules found. Please create some term modules first.');
+				console.log(
+					'No modules found. Please create some term modules first.'
+				);
 				return;
 			}
 
 			const selectedDecks = [];
-			
-			console.log('Select modules and categories to include in your mask.\n');
+
+			console.log(
+				'Select modules and categories to include in your mask.\n'
+			);
 
 			while (true) {
 				const modulePrompt = new AutoComplete({
@@ -1477,16 +1586,22 @@ class Mastery {
 				if (selectedModuleResult === '✅ Done selecting') {
 					selectedModule = 'done';
 				} else {
-					const foundChoice = moduleChoices.find(choice => choice.name === selectedModuleResult);
-					selectedModule = foundChoice ? foundChoice.value : selectedModuleResult;
+					const foundChoice = moduleChoices.find(
+						choice => choice.name === selectedModuleResult
+					);
+					selectedModule = foundChoice
+						? foundChoice.value
+						: selectedModuleResult;
 				}
 
 				if (selectedModule === 'done') {
 					break;
 				}
 
-				const availableCategories = moduleCategories[selectedModule] || ['all'];
-				
+				const availableCategories = moduleCategories[
+					selectedModule
+				] || ['all'];
+
 				if (availableCategories.length === 1) {
 					// Only 'all' is available
 					selectedDecks.push(selectedModule);
@@ -1495,18 +1610,29 @@ class Mastery {
 					const categoryPrompt = new AutoComplete({
 						name: 'selectedCategory',
 						message: `Select category for ${selectedModule}:`,
-						choices: availableCategories.map(cat => cat === 'all' ? 'All categories' : cat)
+						choices: availableCategories.map(cat =>
+							cat === 'all' ? 'All categories' : cat
+						)
 					});
 					const selectedCategoryResult = await categoryPrompt.run();
 					// Convert display name back to value
-					const selectedCategory = selectedCategoryResult === 'All categories' ? 'all' : selectedCategoryResult;
+					const selectedCategory =
+						selectedCategoryResult === 'All categories'
+							? 'all'
+							: selectedCategoryResult;
 
 					if (selectedCategory === 'all') {
 						selectedDecks.push(selectedModule);
-						console.log(`Added: ${selectedModule} (all categories)`);
+						console.log(
+							`Added: ${selectedModule} (all categories)`
+						);
 					} else {
-						selectedDecks.push(`${selectedModule}:${selectedCategory}`);
-						console.log(`Added: ${selectedModule}:${selectedCategory}`);
+						selectedDecks.push(
+							`${selectedModule}:${selectedCategory}`
+						);
+						console.log(
+							`Added: ${selectedModule}:${selectedCategory}`
+						);
 					}
 				}
 			}
@@ -1520,7 +1646,7 @@ class Mastery {
 			while (!maskName.trim()) {
 				const maskNamePrompt = new Input({
 					name: 'maskName',
-					message: 'Enter a name for this mask:',
+					message: 'Enter a name for this mask:'
 				});
 				maskName = await maskNamePrompt.run();
 				if (!maskName.trim()) console.log('Mask name cannot be empty');
@@ -1529,7 +1655,10 @@ class Mastery {
 			// Save the mask
 			const settings = JSON.parse(fs.readFileSync(settingsPath, 'utf8'));
 			if (!settings.quiz_decks_configuration) {
-				settings.quiz_decks_configuration = { masks: [], use_masks: [] };
+				settings.quiz_decks_configuration = {
+					masks: [],
+					use_masks: []
+				};
 			}
 
 			const newMask = {
@@ -1538,12 +1667,14 @@ class Mastery {
 			};
 
 			settings.quiz_decks_configuration.masks.push(newMask);
-			fs.writeFileSync(settingsPath, JSON.stringify(settings, null, '\t'));
+			fs.writeFileSync(
+				settingsPath,
+				JSON.stringify(settings, null, '\t')
+			);
 
 			console.log(`\n✅ Mask "${maskName}" created successfully!`);
 			console.log(`📦 Contains: ${selectedDecks.join(', ')}`);
 			console.log(`💡 Use "Toggle mask usage" to activate it.\n`);
-
 		} catch (error) {
 			console.error('Error adding mask:', error.message);
 		}
@@ -1554,7 +1685,10 @@ class Mastery {
 
 		try {
 			const settings = JSON.parse(fs.readFileSync(settingsPath, 'utf8'));
-			const quizConfig = settings.quiz_decks_configuration || { masks: [], use_masks: [] };
+			const quizConfig = settings.quiz_decks_configuration || {
+				masks: [],
+				use_masks: []
+			};
 
 			if (quizConfig.masks.length === 0) {
 				console.log('No masks to delete.');
@@ -1564,23 +1698,31 @@ class Mastery {
 			const maskDeletePrompt = new AutoComplete({
 				name: 'maskToDelete',
 				message: 'Select mask to delete:',
-				choices: quizConfig.masks.map(mask => `${mask.title} (${mask.decks_to_enable.join(', ')})`)
+				choices: quizConfig.masks.map(
+					mask => `${mask.title} (${mask.decks_to_enable.join(', ')})`
+				)
 			});
 			const maskToDeleteResult = await maskDeletePrompt.run();
 			// Extract the mask title from the display string (everything before the first ' (')
 			const maskToDelete = maskToDeleteResult.split(' (')[0];
 
 			// Remove from masks array
-			quizConfig.masks = quizConfig.masks.filter(mask => mask.title !== maskToDelete);
+			quizConfig.masks = quizConfig.masks.filter(
+				mask => mask.title !== maskToDelete
+			);
 
 			// Remove from use_masks array if present
-			quizConfig.use_masks = quizConfig.use_masks.filter(title => title !== maskToDelete);
+			quizConfig.use_masks = quizConfig.use_masks.filter(
+				title => title !== maskToDelete
+			);
 
 			settings.quiz_decks_configuration = quizConfig;
-			fs.writeFileSync(settingsPath, JSON.stringify(settings, null, '\t'));
+			fs.writeFileSync(
+				settingsPath,
+				JSON.stringify(settings, null, '\t')
+			);
 
 			console.log(`\n✅ Mask "${maskToDelete}" deleted successfully!\n`);
-
 		} catch (error) {
 			console.error('Error deleting mask:', error.message);
 		}
@@ -1593,8 +1735,13 @@ class Mastery {
 			console.log('\n🔄 Toggle Mask Usage Mode\n');
 
 			while (true) {
-				const settings = JSON.parse(fs.readFileSync(settingsPath, 'utf8'));
-				const quizConfig = settings.quiz_decks_configuration || { masks: [], use_masks: [] };
+				const settings = JSON.parse(
+					fs.readFileSync(settingsPath, 'utf8')
+				);
+				const quizConfig = settings.quiz_decks_configuration || {
+					masks: [],
+					use_masks: []
+				};
 
 				if (quizConfig.masks.length === 0) {
 					console.log('No masks available to toggle.');
@@ -1635,8 +1782,12 @@ class Mastery {
 						name: 'maskToToggle',
 						message: 'Select mask to toggle:',
 						choices: quizConfig.masks.map(mask => {
-							const isActive = quizConfig.use_masks.includes(mask.title);
-							const status = isActive ? '✅ ACTIVE' : '❌ INACTIVE';
+							const isActive = quizConfig.use_masks.includes(
+								mask.title
+							);
+							const status = isActive
+								? '✅ ACTIVE'
+								: '❌ INACTIVE';
 							return `${mask.title} - ${status}`;
 						})
 					});
@@ -1646,7 +1797,9 @@ class Mastery {
 
 					if (quizConfig.use_masks.includes(maskToToggle)) {
 						// Remove from active masks
-						quizConfig.use_masks = quizConfig.use_masks.filter(title => title !== maskToToggle);
+						quizConfig.use_masks = quizConfig.use_masks.filter(
+							title => title !== maskToToggle
+						);
 						console.log(`❌ Deactivated: ${maskToToggle}`);
 					} else {
 						// Add to active masks
@@ -1655,11 +1808,15 @@ class Mastery {
 					}
 
 					settings.quiz_decks_configuration = quizConfig;
-					fs.writeFileSync(settingsPath, JSON.stringify(settings, null, '\t'));
+					fs.writeFileSync(
+						settingsPath,
+						JSON.stringify(settings, null, '\t')
+					);
 				} else if (action === 'select_all') {
 					const selectedMasksPrompt = new Survey({
 						name: 'selectedMasks',
-						message: 'Select which masks should be ACTIVE (uncheck to deactivate):',
+						message:
+							'Select which masks should be ACTIVE (uncheck to deactivate):',
 						choices: quizConfig.masks.map(mask => ({
 							name: mask.title,
 							message: `${mask.title} (${mask.decks_to_enable.join(', ')})`,
@@ -1668,17 +1825,23 @@ class Mastery {
 					});
 					const surveyResult = await selectedMasksPrompt.run();
 					// Extract selected mask titles from survey result
-					const selectedMasks = Object.keys(surveyResult).filter(key => surveyResult[key]);
+					const selectedMasks = Object.keys(surveyResult).filter(
+						key => surveyResult[key]
+					);
 
 					quizConfig.use_masks = selectedMasks;
 					settings.quiz_decks_configuration = quizConfig;
-					fs.writeFileSync(settingsPath, JSON.stringify(settings, null, '\t'));
+					fs.writeFileSync(
+						settingsPath,
+						JSON.stringify(settings, null, '\t')
+					);
 
 					console.log(`\n✅ Mask usage updated!`);
-					console.log(`Active masks: ${selectedMasks.join(', ') || 'None'}\n`);
+					console.log(
+						`Active masks: ${selectedMasks.join(', ') || 'None'}\n`
+					);
 				}
 			}
-
 		} catch (error) {
 			console.error('Error toggling mask usage:', error.message);
 		}
@@ -1690,7 +1853,10 @@ class Mastery {
 
 		try {
 			const settings = JSON.parse(fs.readFileSync(settingsPath, 'utf8'));
-			const quizConfig = settings.quiz_decks_configuration || { masks: [], use_masks: [] };
+			const quizConfig = settings.quiz_decks_configuration || {
+				masks: [],
+				use_masks: []
+			};
 
 			if (quizConfig.masks.length === 0) {
 				console.log('No masks available to edit.');
@@ -1700,17 +1866,23 @@ class Mastery {
 			const maskEditPrompt = new AutoComplete({
 				name: 'maskToEdit',
 				message: 'Select mask to edit:',
-				choices: quizConfig.masks.map(mask => `${mask.title} (${mask.decks_to_enable.join(', ')})`)
+				choices: quizConfig.masks.map(
+					mask => `${mask.title} (${mask.decks_to_enable.join(', ')})`
+				)
 			});
 			const maskToEditResult = await maskEditPrompt.run();
 			// Extract the mask title from the display string (everything before the first ' (')
 			const maskToEdit = maskToEditResult.split(' (')[0];
 
-			const maskIndex = quizConfig.masks.findIndex(mask => mask.title === maskToEdit);
+			const maskIndex = quizConfig.masks.findIndex(
+				mask => mask.title === maskToEdit
+			);
 			const currentMask = quizConfig.masks[maskIndex];
 
 			console.log(`\n📝 Editing mask: ${currentMask.title}`);
-			console.log(`Current decks: ${currentMask.decks_to_enable.join(', ')}\n`);
+			console.log(
+				`Current decks: ${currentMask.decks_to_enable.join(', ')}\n`
+			);
 
 			// Get available modules and their categories
 			console.log('🔍 Loading available modules and categories...\n');
@@ -1723,7 +1895,10 @@ class Mastery {
 			Object.keys(sampleTerms).forEach(key => {
 				if (Array.isArray(sampleTerms[key])) {
 					const displayName = key.replace(/_/g, ' ').toLowerCase();
-					moduleChoices.push({ name: displayName, value: displayName });
+					moduleChoices.push({
+						name: displayName,
+						value: displayName
+					});
 					moduleCategories[displayName] = ['all'];
 				}
 			});
@@ -1759,13 +1934,16 @@ class Mastery {
 				'Add more decks to existing ones': 'add',
 				'Remove specific decks': 'remove'
 			};
-			const editAction = editActionMap[editActionResult] || editActionResult;
+			const editAction =
+				editActionMap[editActionResult] || editActionResult;
 
 			let newDecks = [...currentMask.decks_to_enable];
 
 			if (editAction === 'replace') {
 				newDecks = [];
-				console.log('\n🔄 Starting fresh - select new decks for this mask:');
+				console.log(
+					'\n🔄 Starting fresh - select new decks for this mask:'
+				);
 			} else if (editAction === 'add') {
 				console.log('\n➕ Adding more decks to the existing ones:');
 			} else if (editAction === 'remove') {
@@ -1779,10 +1957,16 @@ class Mastery {
 				});
 				const removeResult = await decksToRemovePrompt.run();
 				// Extract selected deck names from survey result
-				const decksToRemove = Object.keys(removeResult).filter(key => removeResult[key]);
+				const decksToRemove = Object.keys(removeResult).filter(
+					key => removeResult[key]
+				);
 
-				newDecks = newDecks.filter(deck => !decksToRemove.includes(deck));
-				console.log(`\n✅ Removed ${decksToRemove.length} decks from mask.`);
+				newDecks = newDecks.filter(
+					deck => !decksToRemove.includes(deck)
+				);
+				console.log(
+					`\n✅ Removed ${decksToRemove.length} decks from mask.`
+				);
 			}
 
 			if (editAction === 'replace' || editAction === 'add') {
@@ -1802,21 +1986,29 @@ class Mastery {
 					if (selectedModuleResult === '✅ Done selecting') {
 						selectedModule = 'done';
 					} else {
-						const foundChoice = moduleChoices.find(choice => choice.name === selectedModuleResult);
-						selectedModule = foundChoice ? foundChoice.value : selectedModuleResult;
+						const foundChoice = moduleChoices.find(
+							choice => choice.name === selectedModuleResult
+						);
+						selectedModule = foundChoice
+							? foundChoice.value
+							: selectedModuleResult;
 					}
 
 					if (selectedModule === 'done') {
 						break;
 					}
 
-					const availableCategories = moduleCategories[selectedModule] || ['all'];
-					
+					const availableCategories = moduleCategories[
+						selectedModule
+					] || ['all'];
+
 					if (availableCategories.length === 1) {
 						// Only 'all' is available
 						if (!newDecks.includes(selectedModule)) {
 							newDecks.push(selectedModule);
-							console.log(`Added: ${selectedModule} (all categories)`);
+							console.log(
+								`Added: ${selectedModule} (all categories)`
+							);
 						} else {
 							console.log(`Already included: ${selectedModule}`);
 						}
@@ -1824,14 +2016,23 @@ class Mastery {
 						const categoryAddPrompt = new AutoComplete({
 							name: 'selectedCategory',
 							message: `Select category for ${selectedModule}:`,
-							choices: availableCategories.map(cat => cat === 'all' ? 'All categories' : cat)
+							choices: availableCategories.map(cat =>
+								cat === 'all' ? 'All categories' : cat
+							)
 						});
-						const selectedCategoryResult = await categoryAddPrompt.run();
+						const selectedCategoryResult =
+							await categoryAddPrompt.run();
 						// Convert display name back to value
-						const selectedCategory = selectedCategoryResult === 'All categories' ? 'all' : selectedCategoryResult;
+						const selectedCategory =
+							selectedCategoryResult === 'All categories'
+								? 'all'
+								: selectedCategoryResult;
 
-						const deckSpec = selectedCategory === 'all' ? selectedModule : `${selectedModule}:${selectedCategory}`;
-						
+						const deckSpec =
+							selectedCategory === 'all'
+								? selectedModule
+								: `${selectedModule}:${selectedCategory}`;
+
 						if (!newDecks.includes(deckSpec)) {
 							newDecks.push(deckSpec);
 							console.log(`Added: ${deckSpec}`);
@@ -1845,11 +2046,15 @@ class Mastery {
 			// Update the mask
 			currentMask.decks_to_enable = newDecks;
 			settings.quiz_decks_configuration = quizConfig;
-			fs.writeFileSync(settingsPath, JSON.stringify(settings, null, '\t'));
+			fs.writeFileSync(
+				settingsPath,
+				JSON.stringify(settings, null, '\t')
+			);
 
-			console.log(`\n✅ Mask "${currentMask.title}" updated successfully!`);
+			console.log(
+				`\n✅ Mask "${currentMask.title}" updated successfully!`
+			);
 			console.log(`📦 Now contains: ${newDecks.join(', ')}\n`);
-
 		} catch (error) {
 			console.error('Error editing mask:', error.message);
 		}
@@ -1876,7 +2081,9 @@ class Mastery {
 			console.log(`   Decks: ${mask.decks_to_enable.join(', ')}`);
 		});
 
-		console.log(`\nCurrently active: ${activeMasks.join(', ') || 'None'}\n`);
+		console.log(
+			`\nCurrently active: ${activeMasks.join(', ') || 'None'}\n`
+		);
 	}
 
 	quickToggleMask(maskName) {
@@ -1889,7 +2096,9 @@ class Mastery {
 			console.log(`\n${status}: ${maskName}\n`);
 
 			const activeMasks = settingsManager.getActiveMasks();
-			console.log(`Currently active masks: ${activeMasks.join(', ') || 'None'}\n`);
+			console.log(
+				`Currently active masks: ${activeMasks.join(', ') || 'None'}\n`
+			);
 		} catch (error) {
 			console.error(`Error: ${error.message}\n`);
 			console.log('Use "mastery mask-list" to see available masks.\n');
@@ -1904,23 +2113,35 @@ class Mastery {
 		try {
 			let maskName = '';
 			while (!maskName.trim()) {
-				const namePrompt = new Input({ name: 'name', message: 'Mask name:' });
+				const namePrompt = new Input({
+					name: 'name',
+					message: 'Mask name:'
+				});
 				maskName = await namePrompt.run();
 				if (!maskName.trim()) console.log('Name cannot be empty');
 			}
 
 			let decksInput = '';
 			while (!decksInput.trim()) {
-				const decksPrompt = new Input({ name: 'decks', message: 'Deck names (comma-separated):' });
+				const decksPrompt = new Input({
+					name: 'decks',
+					message: 'Deck names (comma-separated):'
+				});
 				decksInput = await decksPrompt.run();
-				if (!decksInput.trim()) console.log('At least one deck required');
+				if (!decksInput.trim())
+					console.log('At least one deck required');
 			}
-			const decks = decksInput.split(',').map(d => d.trim()).filter(d => d.length > 0);
+			const decks = decksInput
+				.split(',')
+				.map(d => d.trim())
+				.filter(d => d.length > 0);
 
 			settingsManager.createMask(maskName, decks);
 			console.log(`\n✅ Created mask: ${maskName}`);
 			console.log(`📦 Decks: ${decks.join(', ')}`);
-			console.log(`\nUse "mastery mask-toggle ${maskName}" to enable it.\n`);
+			console.log(
+				`\nUse "mastery mask-toggle ${maskName}" to enable it.\n`
+			);
 		} catch (error) {
 			console.error(`Error: ${error.message}\n`);
 		}
@@ -1997,7 +2218,7 @@ updateConcept = withOnlineCheck(
 		problem_name,
 		success = true,
 		account_id = Settings.account_id ?? 1
-	) => { }
+	) => {}
 );
 
 /**
@@ -2053,7 +2274,6 @@ function getObjectiveFeatures() {
 
 	return feat_map;
 }
-
 
 const getCredentialNames = credentialDict => {
 	return credentialDict.map(cred => {
@@ -2173,7 +2393,8 @@ const printComments = comments => {
 		console.log(
 			`${chalk
 				.hex(CONSTANTS.CUTEBLUE)
-				.inverse(`${Object.keys(obj)?.[0]} ` ?? 'date')} ${Object.values(obj)?.[0] ?? '1'
+				.inverse(`${Object.keys(obj)?.[0]} ` ?? 'date')} ${
+				Object.values(obj)?.[0] ?? '1'
 			}`
 		);
 	}
@@ -2211,7 +2432,7 @@ const autorelease = () => {
 	}
 };
 
-const inreasePerformanceOffline = (feature_name, increaseBY = 1) => { };
+const inreasePerformanceOffline = (feature_name, increaseBY = 1) => {};
 
 module.exports = {
 	commitpush,

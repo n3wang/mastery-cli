@@ -123,12 +123,18 @@ class QuizzerWithDSA extends Quizzer {
 				if (!answered_correctly) {
 					consecutiveFailures++;
 					if (type_of_problem === 'term') {
-						console.log(`Attempt failed - no terms available (${consecutiveFailures}/${maxConsecutiveFailures})`);
+						console.log(
+							`Attempt failed - no terms available (${consecutiveFailures}/${maxConsecutiveFailures})`
+						);
 					}
-					
+
 					if (consecutiveFailures >= maxConsecutiveFailures) {
-						console.error('Maximum consecutive failures reached. Exiting quiz to prevent infinite loop.');
-						console.error('Please check your term configuration and masks in settings.json');
+						console.error(
+							'Maximum consecutive failures reached. Exiting quiz to prevent infinite loop.'
+						);
+						console.error(
+							'Please check your term configuration and masks in settings.json'
+						);
 						exit = true;
 						break;
 					}
@@ -138,7 +144,9 @@ class QuizzerWithDSA extends Quizzer {
 				}
 			}
 		} else {
-			const { answered_correctly } = await askQuestionRandom({ exitMethod });
+			const { answered_correctly } = await askQuestionRandom({
+				exitMethod
+			});
 			this.increaseTempCounter({
 				attempts: 1,
 				learned: answered_correctly ? 1 : 0
@@ -148,11 +156,11 @@ class QuizzerWithDSA extends Quizzer {
 		return { success: answerIsCorrect, exited: exit };
 	}
 
-	async smallTermsSession({to_answer_correctly = 3, loop_max = 20} = {}) {
+	async smallTermsSession({ to_answer_correctly = 3, loop_max = 20 } = {}) {
 		let remaining = to_answer_correctly;
 		let loops = loop_max;
 		let exit = false;
-		
+
 		const exitMethod = () => {
 			if (DEBUG) console.log('Exit method requested');
 			exit = true;
@@ -163,17 +171,17 @@ class QuizzerWithDSA extends Quizzer {
 			console.log(
 				`Remaining correct answers needed: ${remaining} | attempts left: ${loops}${this.getTempCounterSuffix()}`
 			);
-			
+
 			const { answered_correctly, exited } = await this.askQuestion({
 				ask_until_one_is_correct: false,
 				exitMethod
 			});
-			
+
 			if (exited || exit) {
 				console.log('Session exited by user.');
 				break;
 			}
-			
+
 			if (answered_correctly) {
 				remaining--;
 				console.log(`✓ Correct answer! Remaining: ${remaining}`);
@@ -185,13 +193,19 @@ class QuizzerWithDSA extends Quizzer {
 		}
 
 		if (remaining === 0) {
-			console.log(`🎉 Session complete! All ${to_answer_correctly} terms answered correctly.`);
+			console.log(
+				`🎉 Session complete! All ${to_answer_correctly} terms answered correctly.`
+			);
 			return true;
 		} else if (loops === 0) {
-			console.log(`⏰ Session ended. Maximum attempts reached. Terms remaining: ${remaining}`);
+			console.log(
+				`⏰ Session ended. Maximum attempts reached. Terms remaining: ${remaining}`
+			);
 			return false;
 		} else {
-			console.log(`👋 Session ended by user. Terms remaining: ${remaining}`);
+			console.log(
+				`👋 Session ended by user. Terms remaining: ${remaining}`
+			);
 			return false;
 		}
 	}

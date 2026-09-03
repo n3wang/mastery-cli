@@ -1,7 +1,13 @@
 const http = require('http');
 const https = require('https');
 
-function requestJson({ method = 'GET', url, headers = {}, body = null, timeoutMs = 12000 }) {
+function requestJson({
+	method = 'GET',
+	url,
+	headers = {},
+	body = null,
+	timeoutMs = 12000
+}) {
 	return new Promise((resolve, reject) => {
 		let parsedUrl;
 		try {
@@ -21,7 +27,9 @@ function requestJson({ method = 'GET', url, headers = {}, body = null, timeoutMs
 				headers: {
 					'Content-Type': 'application/json',
 					...headers,
-					...(payload ? { 'Content-Length': Buffer.byteLength(payload) } : {})
+					...(payload
+						? { 'Content-Length': Buffer.byteLength(payload) }
+						: {})
 				},
 				timeout: timeoutMs
 			},
@@ -34,7 +42,11 @@ function requestJson({ method = 'GET', url, headers = {}, body = null, timeoutMs
 				res.on('end', () => {
 					const statusCode = res.statusCode || 0;
 					if (statusCode < 200 || statusCode >= 300) {
-						reject(new Error(`HTTP ${statusCode}: ${chunks.slice(0, 300)}`));
+						reject(
+							new Error(
+								`HTTP ${statusCode}: ${chunks.slice(0, 300)}`
+							)
+						);
 						return;
 					}
 
@@ -46,7 +58,11 @@ function requestJson({ method = 'GET', url, headers = {}, body = null, timeoutMs
 					try {
 						resolve(JSON.parse(chunks));
 					} catch (error) {
-						reject(new Error('Invalid JSON response from local LLM endpoint'));
+						reject(
+							new Error(
+								'Invalid JSON response from local LLM endpoint'
+							)
+						);
 					}
 				});
 			}

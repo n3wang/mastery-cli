@@ -7,7 +7,10 @@ function buildTopicChatPrompt({
 	latestUserMessage = ''
 }) {
 	const formattedHistory = history
-		.map(turn => `${turn.role === 'assistant' ? 'Assistant' : 'User'}: ${turn.content}`)
+		.map(
+			turn =>
+				`${turn.role === 'assistant' ? 'Assistant' : 'User'}: ${turn.content}`
+		)
 		.join('\n');
 
 	const sections = [

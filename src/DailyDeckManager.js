@@ -100,7 +100,9 @@ class DailyDeckManager {
 		const availableDecks = this.getAllAvailableDecks(masterDeck);
 
 		if (availableDecks.length === 0) {
-			console.log('No decks with 10+ cards available to generate daily deck');
+			console.log(
+				'No decks with 10+ cards available to generate daily deck'
+			);
 			return null;
 		}
 
@@ -109,10 +111,15 @@ class DailyDeckManager {
 		if (interactive && dateOffset === 0) {
 			const { Survey } = require('enquirer');
 
-			const shuffledDecks = availableDecks.sort(() => Math.random() - 0.5);
-			const randomThree = shuffledDecks.slice(0, Math.min(3, shuffledDecks.length));
+			const shuffledDecks = availableDecks.sort(
+				() => Math.random() - 0.5
+			);
+			const randomThree = shuffledDecks.slice(
+				0,
+				Math.min(3, shuffledDecks.length)
+			);
 
-			console.log('\nSelect decks for today\'s study session:');
+			console.log("\nSelect decks for today's study session:");
 			console.log('(Choose decks to include in your daily deck)\n');
 
 			const deckChoices = randomThree.map(deck => ({
@@ -141,8 +148,13 @@ class DailyDeckManager {
 				);
 			}
 		} else {
-			const shuffledDecks = availableDecks.sort(() => Math.random() - 0.5);
-			decksToUse = shuffledDecks.slice(0, Math.min(3, shuffledDecks.length));
+			const shuffledDecks = availableDecks.sort(
+				() => Math.random() - 0.5
+			);
+			decksToUse = shuffledDecks.slice(
+				0,
+				Math.min(3, shuffledDecks.length)
+			);
 		}
 
 		const selectedCards = [];
@@ -187,11 +199,7 @@ class DailyDeckManager {
 	}
 
 	async prepareWeekAhead(masterDeck, options = {}) {
-		const {
-			cardsPerDeck = 5,
-			maxTotalCards = 20,
-			daysAhead = 7
-		} = options;
+		const { cardsPerDeck = 5, maxTotalCards = 20, daysAhead = 7 } = options;
 
 		const generatedDecks = [];
 
@@ -327,7 +335,9 @@ class DailyDeckManager {
 				const status = this.getCompletionStatus(deck);
 				summary.push({
 					date: dateKey,
-					dayName: date.toLocaleDateString('en-US', { weekday: 'short' }),
+					dayName: date.toLocaleDateString('en-US', {
+						weekday: 'short'
+					}),
 					exists: true,
 					completed: status.completed,
 					total: status.total,
@@ -336,7 +346,9 @@ class DailyDeckManager {
 			} else {
 				summary.push({
 					date: dateKey,
-					dayName: date.toLocaleDateString('en-US', { weekday: 'short' }),
+					dayName: date.toLocaleDateString('en-US', {
+						weekday: 'short'
+					}),
 					exists: false,
 					completed: 0,
 					total: 0,

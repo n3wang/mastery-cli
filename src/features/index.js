@@ -25,7 +25,9 @@ function getFeatureCommands() {
 	const commands = {};
 
 	for (const feature of FEATURES) {
-		for (const [name, descriptor] of Object.entries(feature.getCommands())) {
+		for (const [name, descriptor] of Object.entries(
+			feature.getCommands()
+		)) {
 			if (commands[name]) {
 				console.warn(
 					`Command conflict: '${name}' is defined by both ` +
