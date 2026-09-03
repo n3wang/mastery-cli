@@ -450,9 +450,29 @@ function parseMarkdownCardsFromFolder(
 	return terms;
 }
 
+/**
+ * Parse a folder tree into a deck, one nested deck per subdirectory.
+ *
+ * Deck names are qualified by their parent path (`4-1-nodejs/flashcards`, not
+ * `flashcards`). A bare folder name is not unique: several modules keep a
+ * `flashcards/` subfolder, which produced one indistinguishable picker row per
+ * folder, and — because `listTerms` matches on deck name — selecting any one of
+ * them studied the union of all of them.
+ *
+ * @param {String} folderPath directory to read
+ * @param {Object} options
+ * @param {String} options.module_name owning module
+ * @param {String} options.category term category
+ * @param {String} options.deckName name for this deck; defaults to the folder name
+ * @param {String|null} options.parentPath qualified name of the parent deck.
+ *        null means "this is the content-folder root": its own name is not
+ *        prefixed onto its children, so decks read as `4-1-nodejs/flashcards`
+ *        rather than `cache_md/4-1-nodejs/flashcards`.
+ * @returns {TermStorage|null} null when the tree holds no cards
+ */
 function parseMarkdownCardsFromFolderRecursive(
 	folderPath,
-	{ module_name = '', category = '', deckName = '' } = {}
+	{ module_name = '', category = '', deckName = '', parentPath = '' } = {}
 ) {
 	const files = fs.readdirSync(folderPath);
 	const terms = [];
@@ -462,6 +482,13 @@ function parseMarkdownCardsFromFolderRecursive(
 		deckName = path.basename(folderPath);
 	}
 
+	// Qualify with the parent so sibling trees cannot collide. A null
+	// parentPath marks the content-folder root, whose name is noise to the
+	// reader and is left out of its children's names.
+	const isRoot = parentPath === null;
+	const qualifiedName = parentPath ? `${parentPath}/${deckName}` : deckName;
+	const childParentPath = isRoot ? '' : qualifiedName;
+
 	for (const file of files) {
 		const filePath = path.join(folderPath, file);
 		const stat = fs.statSync(filePath);
@@ -470,7 +497,8 @@ function parseMarkdownCardsFromFolderRecursive(
 			const subDeck = parseMarkdownCardsFromFolderRecursive(filePath, {
 				module_name: module_name,
 				category: category,
-				deckName: file
+				deckName: file,
+				parentPath: childParentPath
 			});
 			if (subDeck) {
 				nestedDecks.push(subDeck);
@@ -488,7 +516,7 @@ function parseMarkdownCardsFromFolderRecursive(
 		return null;
 	}
 
-	const deck = new TermStorage(terms, deckName, {
+	const deck = new TermStorage(terms, qualifiedName, {
 		decks: nestedDecks,
 		is_active: false,
 		module_name: module_name
@@ -538,7 +566,9 @@ function parseFolderWithOption(
 		const subDeck = parseMarkdownCardsFromFolderRecursive(folderPath, {
 			module_name: module_name,
 			category: category,
-			deckName: path.basename(folderPath)
+			deckName: path.basename(folderPath),
+			// Content-folder root: keep its own name out of its children's.
+			parentPath: null
 		});
 		return { nestedDecks: subDeck ? [subDeck] : [], terms: [] };
 	} else {

@@ -158,24 +158,155 @@ describe('parseMarkdownCards', () => {
 		const result = parseMarkdownIntoDeck(filePath, 'botanic');
 	});
 
-	it('attempt parse module', () => {
-		const ABOUT = {
-			title: 'Flowers',
-			skill_category: 'botany',
-			author: 'n3wang'
+	it('parses a module into a deck', () => {
+		// Uses a shipped sample deck, seeded into the test vault by
+		// tests/setup.js. This used to hardcode a personal module
+		// (b01-flowers) that only existed on one machine, and asserted
+		// nothing about the result.
+		const { vaultPath } = require('../src/vault');
+		const modulePath = vaultPath('decks/sample-git/index.js');
+		const module_exports = require(modulePath);
+
+		const decks = parseMarkdownCardsFromTermsModules([module_exports]);
+		const deck = decks['sample-git'];
+
+		assert.ok(deck, 'expected a deck for sample-git');
+		assert.ok(deck.terms.length > 0 || deck.decks.length > 0);
+	});
+});
+
+describe('deck naming', () => {
+	// A bare folder name is not unique: several modules keep a `flashcards/`
+	// subfolder. That produced one indistinguishable picker row per folder,
+	// and because listTerms matches on deck name, selecting any one of them
+	// studied the union of all of them.
+	const {
+		parseMarkdownCardsFromFolderRecursive
+	} = require('../src/md-terms-parser');
+
+	it('qualifies nested deck names with their parent path', () => {
+		const root = parseMarkdownCardsFromFolderRecursive(
+			path.join(__dirname, 'fixtures-decks'),
+			{ module_name: 'fixture', parentPath: null }
+		);
+
+		assert.ok(root, 'expected a deck tree');
+
+		const names = [];
+		const walk = deck => {
+			names.push(deck.deck_name);
+			deck.decks.forEach(walk);
 		};
+		walk(root);
 
-		const CONTENT_FOLDERS = ['wiki'];
+		assert.ok(
+			names.includes('alpha/flashcards'),
+			`expected alpha/flashcards in ${names.join(', ')}`
+		);
+		assert.ok(
+			names.includes('beta/flashcards'),
+			`expected beta/flashcards in ${names.join(', ')}`
+		);
+	});
 
-		const CONTENT_FILES = ['00-languages_definitions.md'];
+	it('gives every deck in a tree a distinct name', () => {
+		const root = parseMarkdownCardsFromFolderRecursive(
+			path.join(__dirname, 'fixtures-decks'),
+			{ module_name: 'fixture', parentPath: null }
+		);
 
-		const module_exports = {
-			module_path: 'b01-flowers',
-			ABOUT: ABOUT,
-			CONTENT_FOLDERS: CONTENT_FOLDERS,
-			CONTENT_FILES: CONTENT_FILES
+		const names = [];
+		const walk = deck => {
+			names.push(deck.deck_name);
+			deck.decks.forEach(walk);
 		};
+		walk(root);
 
-		const result = parseMarkdownCardsFromTermsModules([module_exports]);
+		assert.strictEqual(
+			new Set(names).size,
+			names.length,
+			`duplicate deck names: ${names.join(', ')}`
+		);
+	});
+
+	it('selects only the chosen deck, not every same-named sibling', () => {
+		const root = parseMarkdownCardsFromFolderRecursive(
+			path.join(__dirname, 'fixtures-decks'),
+			{ module_name: 'fixture', parentPath: null }
+		);
+
+		const alpha = root.listTerms({ get_only: ['alpha/flashcards'] });
+		const beta = root.listTerms({ get_only: ['beta/flashcards'] });
+
+		assert.strictEqual(alpha.length, 1);
+		assert.strictEqual(beta.length, 2);
+	});
+
+	it('keeps the leaf name available for mask matching', () => {
+		const { TermStorage } = require('../src/structures');
+
+		assert.strictEqual(
+			new TermStorage([], 'alpha/flashcards', {}).deck_leaf_name,
+			'flashcards'
+		);
+		assert.strictEqual(
+			new TermStorage([], 'cfa', {}).deck_leaf_name,
+			'cfa'
+		);
+	});
+});
+
+describe('picker labels', () => {
+	const {
+		buildUniqueLabels,
+		formatTwoPartLabel,
+		cropTail,
+		TermStorage
+	} = require('../src/structures');
+
+	it('keeps the tail, which is what distinguishes these names', () => {
+		// Every card in one book shares a long prefix; cropping from the front
+		// would leave every row identical.
+		assert.strictEqual(cropTail('abcdefghij', 4), 'ghij');
+		assert.strictEqual(cropTail('abc', 10), 'abc');
+	});
+
+	it('crops a two-part label to 15 and 10 characters', () => {
+		assert.strictEqual(
+			formatTwoPartLabel(
+				'ACSoftwareDesignKlausIglbergerprocessedhqpartWhoThisBookIsFor',
+				'10A005-C-Software'
+			),
+			'hoThisBookIsFor > C-Software'
+		);
+	});
+
+	it('leaves short names alone', () => {
+		assert.strictEqual(TermStorage.formatDeckLabel('cfa'), 'cfa');
+		assert.strictEqual(
+			TermStorage.formatDeckLabel('4-1-nodejs/flashcards'),
+			'4-1-nodejs > flashcards'
+		);
+	});
+
+	it('widens the crop rather than showing two identical rows', () => {
+		const values = [
+			'AlphaPrefixSomething_SAME_TAIL_XY > deckone',
+			'BetaOtherThing_SAME_TAIL_XY > deckone'
+		];
+		const labels = buildUniqueLabels(values);
+
+		assert.strictEqual(new Set([...labels.values()]).size, values.length);
+	});
+
+	it('never loses an entry to a collision', () => {
+		// Worst case: identical strings cannot be separated, but every input
+		// must still map to something.
+		const values = ['same > deck', 'same > deck', 'other > deck'];
+		const labels = buildUniqueLabels(values);
+
+		for (const value of values) {
+			assert.ok(labels.get(value));
+		}
 	});
 });

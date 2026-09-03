@@ -43,6 +43,7 @@ const {
 	retrieve_terms_as_decks
 } = require('./md-terms-parser');
 
+const { buildUniqueLabels } = require('./structures');
 const { TermScheduler } = require('./term-scheduler');
 const { MiniTermScheduler } = require('./MiniTermScheduler');
 const { StorableQueue } = require('./StorableQueue');
@@ -925,18 +926,13 @@ class Quizzer {
 			const studiedCount = this.countStudiedTerms(deckTerms);
 			const totalCount = deckTerms.length;
 
-			// Build display string with completion count
-			let displayTitle = title;
+			// Build display string with completion count.
+			// deckInfo.display is the cropped label; `title` stays the unique
+			// key, so two decks that crop alike are still told apart below.
+			const shortName = deckInfo.display ?? deckName;
+			let displayTitle = `${shortName} - ${totalCount} cards`;
 			if (totalCount > 0) {
-				// Insert completion count before " - X cards"
-				const cardsMatch = title.match(/ - \d+ cards$/);
-				if (cardsMatch) {
-					const baseTitle = title.substring(
-						0,
-						title.length - cardsMatch[0].length
-					);
-					displayTitle = `${baseTitle} (${studiedCount}/${totalCount})${cardsMatch[0]}`;
-				}
+				displayTitle = `${shortName} (${studiedCount}/${totalCount}) - ${totalCount} cards`;
 			}
 
 			// Add nested deck indicator if present
@@ -944,10 +940,18 @@ class Quizzer {
 				displayTitle = `${displayTitle} - ${deckInfo.nested_count}N`;
 			}
 
-			// Store mapping from display title to original title
-			displayToOriginalMapping[displayTitle] = title;
+			// Two decks can crop to the same label; keep the rows distinct so
+			// the mapping back to the real deck stays unambiguous.
+			let uniqueTitle = displayTitle;
+			let suffix = 2;
+			while (displayToOriginalMapping[uniqueTitle] !== undefined) {
+				uniqueTitle = `${displayTitle} #${suffix}`;
+				suffix += 1;
+			}
 
-			return displayTitle;
+			displayToOriginalMapping[uniqueTitle] = title;
+
+			return uniqueTitle;
 		});
 		if (dailyDeckEnabled) {
 			const dailyDeckManager = new DailyDeckManager(Settings);
@@ -1151,14 +1155,22 @@ class Quizzer {
 		// If there are multiple categories, ask user to choose
 		if (Object.keys(categoryCounts).length > 1) {
 			const totalCards = selected_terms.length;
-			const categoryChoices = [
-				`all (${totalCards})`,
-				...Object.keys(categoryCounts)
-					.sort()
-					.map(
-						category => `${category} (${categoryCounts[category]})`
-					)
-			];
+
+			// Categories read `<source file> > <deck>`, and the file names in a
+			// book deck share a long common prefix, so the full string is
+			// unreadable in a list. Crop to the distinguishing tail, but keep a
+			// map back to the real category for filtering.
+			const categories = Object.keys(categoryCounts).sort();
+			const labels = buildUniqueLabels(categories);
+			const labelToCategory = {};
+
+			const categoryChoices = [`all (${totalCards})`];
+			for (const category of categories) {
+				const label = labels.get(category) ?? category;
+				const choice = `${label} (${categoryCounts[category]})`;
+				labelToCategory[choice] = category;
+				categoryChoices.push(choice);
+			}
 
 			const ms_category = new AutoComplete({
 				name: 'CategoryOption',
@@ -1166,13 +1178,11 @@ class Quizzer {
 				choices: categoryChoices
 			});
 
-			let category_selected_with_count = await ms_category.run();
-
-			// Extract category name without count
-			let category_selected = category_selected_with_count.split(' (')[0];
+			const chosen = await ms_category.run();
+			const category_selected = labelToCategory[chosen] ?? 'all';
 
 			// Filter terms by selected category if not 'all'
-			if (category_selected !== 'all') {
+			if (!chosen.startsWith('all (')) {
 				selected_terms = selected_terms.filter(
 					term => term.category === category_selected
 				);

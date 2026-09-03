@@ -131,6 +131,91 @@ class Terminology extends Term {
 	}
 }
 
+/** Deck and category label budgets: see formatTwoPartLabel. */
+const DIFFERENTIATOR_MAX_LENGTH = 15;
+const LEAF_MAX_LENGTH = 10;
+
+/**
+ * Keep the tail of a string.
+ *
+ * These names share long common prefixes — every card in one book is called
+ * `ACSoftwareDesignKlausIglbergerprocessedhqpart<something>` — so the end is
+ * what tells them apart. Cropping from the front would leave every row
+ * identical.
+ *
+ * @param {String} value
+ * @param {Number} max
+ * @returns {String}
+ */
+function cropTail(value, max) {
+	const text = String(value || '');
+	return text.length <= max ? text : text.slice(-max);
+}
+
+/**
+ * Render `<differentiator> > <deckinfo>` within the label budget.
+ *
+ * @param {String} differentiator the part that distinguishes siblings
+ * @param {String} deckinfo the deck or folder the item belongs to
+ * @param {Object} [options]
+ * @param {Number} [options.differentiatorMax]
+ * @returns {String}
+ */
+function formatTwoPartLabel(
+	differentiator,
+	deckinfo,
+	{ differentiatorMax = DIFFERENTIATOR_MAX_LENGTH } = {}
+) {
+	const left = cropTail(differentiator, differentiatorMax);
+	const right = cropTail(deckinfo, LEAF_MAX_LENGTH);
+
+	return right ? `${left} > ${right}` : left;
+}
+
+/**
+ * Build display labels that stay unique after cropping.
+ *
+ * Two different entries can crop to the same text. That would put two
+ * indistinguishable rows in the picker and make the display-to-original map
+ * ambiguous — the exact bug the qualified deck names fixed. So when labels
+ * collide, the differentiator is widened until they separate.
+ *
+ * @param {String[]} values full `a > b` strings
+ * @returns {Map<String, String>} original -> unique label
+ */
+function buildUniqueLabels(values) {
+	const widths = [DIFFERENTIATOR_MAX_LENGTH, 25, 40, 60, Infinity];
+
+	for (const width of widths) {
+		const labels = new Map();
+		const seen = new Set();
+		let collision = false;
+
+		for (const value of values) {
+			const parts = String(value || '').split(' > ');
+			const label =
+				parts.length < 2
+					? cropTail(parts[0], width)
+					: formatTwoPartLabel(parts[0], parts[parts.length - 1], {
+							differentiatorMax: width
+						});
+
+			if (seen.has(label)) {
+				collision = true;
+				break;
+			}
+			seen.add(label);
+			labels.set(value, label);
+		}
+
+		if (!collision) {
+			return labels;
+		}
+	}
+
+	return new Map(values.map(value => [value, value]));
+}
+
 /**
  * Follows Composition Pattern, it should be able to store other Term Storages, turn them on and off
  */
@@ -207,10 +292,16 @@ class TermStorage {
 						}
 					}
 				} else {
-					// Handle exact deck name matches (existing behavior)
+					// Exact deck name, module name, or the deck's own leaf
+					// segment. Deck names are path-qualified
+					// (`4-1-nodejs/flashcards`), so a mask written against the
+					// bare folder name keeps working -- masks are a coarse
+					// filter, and matching every `flashcards` deck is the
+					// reasonable reading there.
 					if (
 						deckSpec === this.deck_name ||
-						deckSpec === this.module_name
+						deckSpec === this.module_name ||
+						deckSpec === this.deck_leaf_name
 					) {
 						enableFullDeck = true;
 					}
@@ -237,6 +328,56 @@ class TermStorage {
 	}
 
 	/**
+	 * The last segment of a path-qualified deck name.
+	 * `4-1-nodejs/flashcards` -> `flashcards`.
+	 * @returns {String}
+	 */
+	get deck_leaf_name() {
+		const name = String(this.deck_name || '');
+		const index = name.lastIndexOf('/');
+		return index === -1 ? name : name.slice(index + 1);
+	}
+
+	/**
+	 * A short label for the deck picker.
+	 *
+	 * Deck names are path-qualified so they are unique (`2-3-scikitlearn/flashcards`),
+	 * but a full path is too long to scan in a list. The label keeps the part
+	 * that actually distinguishes one deck from its same-named siblings:
+	 *
+	 *   2-3-scikitlearn/flashcards    -> "2-3-scikitlearn > flashcards"
+	 *   1410710-democracy4/flashcards -> "0710-democracy4 > flashcards"
+	 *   cfa                           -> "cfa"
+	 *
+	 * The differentiator keeps its LAST 15 characters, because what separates
+	 * `2-3-scikitlearn` from `2-4-surprise` is at the end, not the start. The
+	 * leaf keeps its first 10.
+	 *
+	 * @returns {String}
+	 */
+	get deck_display_name() {
+		return TermStorage.formatDeckLabel(this.deck_name);
+	}
+
+	/**
+	 * @param {String} deckName a possibly path-qualified deck name
+	 * @returns {String} the short label
+	 */
+	static formatDeckLabel(deckName) {
+		const name = String(deckName || '');
+		const segments = name.split('/').filter(Boolean);
+
+		if (segments.length < 2) {
+			return name;
+		}
+
+		return formatTwoPartLabel(
+			segments[segments.length - 2],
+			segments[segments.length - 1]
+		);
+	}
+
+	/**
 	 * Returns list of deck title. e.g.
 	 * [kotlin, java, javascript...]
 	 */
@@ -259,8 +400,11 @@ class TermStorage {
 	 */
 	get deck_titles_with_count() {
 		const deck_names = {
+			// Keyed by the full qualified name so entries stay unique; `display`
+			// is what the picker shows.
 			[`${this.deck_name} - ${this.terms.length} cards`]: {
 				name: this.deck_name,
+				display: this.deck_display_name,
 				count: this.terms.length,
 				nested_count: this.decks ? this.decks.length : 0
 			}
@@ -537,4 +681,13 @@ class DeckMask {
 	}
 }
 
-module.exports = { Term, Terminology, TermStorage, Queue, DeckMask };
+module.exports = {
+	buildUniqueLabels,
+	formatTwoPartLabel,
+	cropTail,
+	Term,
+	Terminology,
+	TermStorage,
+	Queue,
+	DeckMask
+};
