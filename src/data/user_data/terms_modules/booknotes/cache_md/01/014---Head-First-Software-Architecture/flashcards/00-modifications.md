@@ -1,1 +1,0 @@
-Attempt to reduce every chapter into 3
