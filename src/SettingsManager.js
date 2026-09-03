@@ -84,6 +84,16 @@ function migrate(config) {
 		changed = true;
 	}
 
+	// External DSA problem folders used to be looked for in
+	// features/dsa/user_files/temp_settings.json, which never held them.
+	if (config.dsa === undefined) {
+		config.dsa = {
+			external_problems_folders: [],
+			log_external_loading: false
+		};
+		changed = true;
+	}
+
 	return { config, changed };
 }
 

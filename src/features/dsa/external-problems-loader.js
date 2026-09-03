@@ -5,46 +5,48 @@ const {
 	convertToProblemsMetadata
 } = require('./md-dsa-parser.js');
 const { getDirAbsoluteUri } = require('./functions.js');
+const { getSettingsManager } = require('../../SettingsManager');
 
 /**
- * Loads and manages external DSA problems from temp_settings.json
+ * Loads and manages external DSA problems from folders the user configures.
+ *
+ * This used to read `user_files/temp_settings.json` for an
+ * `external_problems_folders` key. That file only ever held editor settings, so
+ * the lookup always missed, warned, and returned an empty list — external
+ * problems have never actually loaded. The configuration now lives with
+ * everything else, under `dsa` in the vault config.
  */
 class ExternalProblemsLoader {
 	constructor() {
-		this.tempSettingsPath = getDirAbsoluteUri(
-			'./user_files/temp_settings.json',
-			'./'
-		);
 		this.externalProblems = [];
 		this.loadedFolders = new Set();
 	}
 
 	/**
-	 * Loads the temp_settings.json configuration
-	 * @returns {Object} The configuration object
+	 * Read the external-problems configuration from the vault config.
+	 *
+	 * Shape, under the top-level `dsa` key:
+	 *   "dsa": {
+	 *     "external_problems_folders": ["/path/to/your/problems"],
+	 *     "log_external_loading": false
+	 *   }
+	 *
+	 * @returns {Object} { external_problems_folders, settings }
 	 */
 	loadTempSettings() {
 		try {
-			if (!fs.existsSync(this.tempSettingsPath)) {
-				console.warn(
-					`temp_settings.json not found at ${this.tempSettingsPath}`
-				);
-				return { external_problems_folders: [], settings: {} };
-			}
-
-			const settingsContent = fs.readFileSync(
-				this.tempSettingsPath,
-				'utf-8'
-			);
-			const settings = JSON.parse(settingsContent);
+			const dsaConfig = getSettingsManager().getSettings().dsa || {};
 
 			return {
 				external_problems_folders:
-					settings.external_problems_folders || [],
-				settings: settings.settings || {}
+					dsaConfig.external_problems_folders || [],
+				settings: dsaConfig
 			};
 		} catch (error) {
-			console.error('Error loading temp_settings.json:', error.message);
+			console.error(
+				'Could not read the DSA configuration:',
+				error.message
+			);
 			return { external_problems_folders: [], settings: {} };
 		}
 	}

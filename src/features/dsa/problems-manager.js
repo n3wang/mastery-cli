@@ -625,7 +625,10 @@ ${problemMetadata.description || 'Problem description not available.'}
 				getDirAbsoluteUri(this.temp_problem_filepath, './') +
 				'.' +
 				extension;
-			const stash_directory = path.join(__dirname, 'user_files', 'stash'); // Adjusted path joining
+			const stash_directory = getDirAbsoluteUri(
+				'./user_files/stash',
+				'./'
+			);
 			const target_file_name = `stash_${timestamp_date}.md`; // The target file where all data will be appended
 			const target_file_path = path.join(
 				stash_directory,

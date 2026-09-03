@@ -21,8 +21,6 @@ dist/
 # be verified before deleting. Nothing here is tracked any more.
 src/data/user_data/
 /user_data/
-src/features/dsa/data/
-src/features/dsa/user_files/
 **/db.json
 **/db.json.*
 current-quiz.md

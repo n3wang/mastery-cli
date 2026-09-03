@@ -1,4 +1,5 @@
 const path = require('path');
+const { vaultPath } = require('../../vault');
 const url = require('url');
 const fs = require('fs');
 const { marked } = require('marked');
@@ -33,12 +34,24 @@ const getDirAbsoluteUri = (
 	fileimage = './img/unicor1n.png',
 	subdirectory = './'
 ) => {
-	// Note it should take from the root.
+	const normalized = String(fileimage || '')
+		.replace(/\\/g, '/')
+		.replace(/^\.\//, '');
+
+	// Scratch files -- the problem you are working on, its solution, the stash --
+	// are user state, so they live in the vault. They used to be written into
+	// the installed package, where an npm upgrade would discard them.
+	if (normalized === 'user_files' || normalized.startsWith('user_files/')) {
+		return vaultPath(
+			`.cache/scratch/${normalized.replace(/^user_files\/?/, '')}`
+		);
+	}
+
+	// Everything else is package content: problems, solutions, prompts.
 	const absolutePath = path.resolve(
 		path.join(__dirname, subdirectory, fileimage)
-	); // Note the '../' because it is inside of constants
+	);
 
-	// const fileUrl = url.pathToFileURL(absolutePath);
 	return absolutePath.toString();
 };
 

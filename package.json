@@ -40,9 +40,7 @@
 		"README.md",
 		"LICENSE",
 		"!src/data/",
-		"!src/terms_data/img/",
-		"!src/features/dsa/user_files/",
-		"!src/features/dsa/data/",
+		"!src/terms-data/img/",
 		"!src/features/dsa/solutions/md/",
 		"!**/*.map",
 		"!**/db.json*"

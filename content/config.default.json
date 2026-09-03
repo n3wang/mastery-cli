@@ -138,5 +138,9 @@
 		}
 	},
 	"version": 1,
-	"editor": "nano"
+	"editor": "nano",
+	"dsa": {
+		"external_problems_folders": [],
+		"log_external_loading": false
+	}
 }
