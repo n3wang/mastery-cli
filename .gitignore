@@ -32,6 +32,9 @@ src/features/dsa/user_files/
 **/db.json
 **/db.json.*
 current-quiz.md
+# StorableReport defaults to a bare relative filename, so it writes ./report into
+# whatever directory the CLI was launched from. Fixed when it moves to the vault.
+/report
 
 # Logs and databases
 *.log

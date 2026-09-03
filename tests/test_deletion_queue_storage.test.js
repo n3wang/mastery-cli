@@ -1,3 +1,4 @@
+const assert = require('assert');
 const { DeletionQueueStorage } = require('../src/DeletionQueueStorage');
 const fs = require('fs');
 const path = require('path');
@@ -31,12 +32,12 @@ describe('DeletionQueueStorage', () => {
 	});
 
 	describe('Initialization', () => {
-		test('should create empty queue if file does not exist', () => {
-			expect(storage.getCount()).toBe(0);
-			expect(storage.getQueue()).toEqual([]);
+		it('should create empty queue if file does not exist', () => {
+			assert.strictEqual(storage.getCount(), 0);
+			assert.deepStrictEqual(storage.getQueue(), []);
 		});
 
-		test('should load existing queue from file', () => {
+		it('should load existing queue from file', () => {
 			// Create a test file with data
 			const testData = [
 				{
@@ -50,21 +51,21 @@ describe('DeletionQueueStorage', () => {
 			fs.writeFileSync(testFilePath, JSON.stringify(testData, null, 2));
 
 			// Create new storage instance to load the file
-			const newStorage = new DeletionQueueStorage(path.basename(testFilePath));
-			expect(newStorage.getCount()).toBe(1);
-			expect(newStorage.getQueue()[0].termName).toBe('Test Term');
+			const newStorage = new DeletionQueueStorage(path.basename(testFilePath, '.json'));
+			assert.strictEqual(newStorage.getCount(), 1);
+			assert.strictEqual(newStorage.getQueue()[0].termName, 'Test Term');
 		});
 
-		test('should return correct file path', () => {
+		it('should return correct file path', () => {
 			const filePath = storage.getFilePath();
-			expect(filePath).toBeTruthy();
-			expect(typeof filePath).toBe('string');
-			expect(filePath.endsWith('.json')).toBe(true);
+			assert.ok(filePath);
+			assert.strictEqual(typeof filePath, 'string');
+			assert.strictEqual(filePath.endsWith('.json'), true);
 		});
 	});
 
 	describe('Adding terms to queue', () => {
-		test('should add term to queue', () => {
+		it('should add term to queue', () => {
 			const term = {
 				term: 'Test Term',
 				reference_page: '/test/path.md',
@@ -72,11 +73,11 @@ describe('DeletionQueueStorage', () => {
 			};
 
 			const added = storage.addToQueue(term);
-			expect(added).toBe(true);
-			expect(storage.getCount()).toBe(1);
+			assert.strictEqual(added, true);
+			assert.strictEqual(storage.getCount(), 1);
 		});
 
-		test('should not add duplicate term (same name and path)', () => {
+		it('should not add duplicate term (same name and path)', () => {
 			const term = {
 				term: 'Test Term',
 				reference_page: '/test/path.md',
@@ -85,11 +86,11 @@ describe('DeletionQueueStorage', () => {
 
 			storage.addToQueue(term);
 			const addedAgain = storage.addToQueue(term);
-			expect(addedAgain).toBe(false);
-			expect(storage.getCount()).toBe(1);
+			assert.strictEqual(addedAgain, false);
+			assert.strictEqual(storage.getCount(), 1);
 		});
 
-		test('should allow same term name from different paths', () => {
+		it('should allow same term name from different paths', () => {
 			const term1 = {
 				term: 'Test Term',
 				reference_page: '/test/path1.md',
@@ -103,11 +104,11 @@ describe('DeletionQueueStorage', () => {
 
 			storage.addToQueue(term1);
 			const added = storage.addToQueue(term2);
-			expect(added).toBe(true);
-			expect(storage.getCount()).toBe(2);
+			assert.strictEqual(added, true);
+			assert.strictEqual(storage.getCount(), 2);
 		});
 
-		test('should persist to file when adding', () => {
+		it('should persist to file when adding', () => {
 			const term = {
 				term: 'Test Term',
 				reference_page: '/test/path.md',
@@ -117,19 +118,19 @@ describe('DeletionQueueStorage', () => {
 			storage.addToQueue(term);
 			
 			// Verify file exists and contains data
-			expect(fs.existsSync(testFilePath)).toBe(true);
+			assert.strictEqual(fs.existsSync(testFilePath), true);
 			const fileContent = JSON.parse(fs.readFileSync(testFilePath, 'utf-8'));
-			expect(fileContent.length).toBe(1);
-			expect(fileContent[0].termName).toBe('Test Term');
-			expect(fileContent[0].folderPath).toBe('/test/path.md');
+			assert.strictEqual(fileContent.length, 1);
+			assert.strictEqual(fileContent[0].termName, 'Test Term');
+			assert.strictEqual(fileContent[0].folderPath, '/test/path.md');
 		});
 
-		test('should check for feedback when provided', () => {
+		it('should check for feedback when provided', () => {
 			const mockFeedbackStorage = {
-				getFeedbackByTerm: jest.fn((term) => ({
+				getFeedbackByTerm: (term) => ({
 					feedback: 'Test feedback',
 					timestamp: '2026-01-23T00:00:00.000Z'
-				}))
+				})
 			};
 
 			const term = {
@@ -140,12 +141,12 @@ describe('DeletionQueueStorage', () => {
 
 			storage.addToQueue(term, mockFeedbackStorage);
 			const queue = storage.getQueue();
-			expect(queue[0].hasFeedback).toBe(true);
+			assert.strictEqual(queue[0].hasFeedback, true);
 		});
 	});
 
 	describe('Checking if term is in queue', () => {
-		test('should return true if term matches name and path', () => {
+		it('should return true if term matches name and path', () => {
 			const term = {
 				term: 'Test Term',
 				reference_page: '/test/path.md',
@@ -153,10 +154,10 @@ describe('DeletionQueueStorage', () => {
 			};
 
 			storage.addToQueue(term);
-			expect(storage.isInQueue(term)).toBe(true);
+			assert.strictEqual(storage.isInQueue(term), true);
 		});
 
-		test('should return false if term name matches but path differs', () => {
+		it('should return false if term name matches but path differs', () => {
 			const term1 = {
 				term: 'Test Term',
 				reference_page: '/test/path1.md',
@@ -169,10 +170,10 @@ describe('DeletionQueueStorage', () => {
 			};
 
 			storage.addToQueue(term1);
-			expect(storage.isInQueue(term2)).toBe(false);
+			assert.strictEqual(storage.isInQueue(term2), false);
 		});
 
-		test('should return false if path matches but name differs', () => {
+		it('should return false if path matches but name differs', () => {
 			const term1 = {
 				term: 'Test Term 1',
 				reference_page: '/test/path.md',
@@ -185,22 +186,22 @@ describe('DeletionQueueStorage', () => {
 			};
 
 			storage.addToQueue(term1);
-			expect(storage.isInQueue(term2)).toBe(false);
+			assert.strictEqual(storage.isInQueue(term2), false);
 		});
 
-		test('should return false for empty queue', () => {
+		it('should return false for empty queue', () => {
 			const term = {
 				term: 'Test Term',
 				reference_page: '/test/path.md',
 				category: 'test'
 			};
 
-			expect(storage.isInQueue(term)).toBe(false);
+			assert.strictEqual(storage.isInQueue(term), false);
 		});
 	});
 
 	describe('Term persists across decks', () => {
-		test('should keep term in queue even if it appears in multiple decks', () => {
+		it('should keep term in queue even if it appears in multiple decks', () => {
 			const term = {
 				term: 'Shared Term',
 				reference_page: '/shared/path.md',
@@ -209,7 +210,7 @@ describe('DeletionQueueStorage', () => {
 
 			// Add term to queue
 			storage.addToQueue(term);
-			expect(storage.getCount()).toBe(1);
+			assert.strictEqual(storage.getCount(), 1);
 
 			// Simulate term appearing in different deck (same name and path)
 			const termInDifferentDeck = {
@@ -220,11 +221,11 @@ describe('DeletionQueueStorage', () => {
 			};
 
 			// Should still be in queue (matched by name + path)
-			expect(storage.isInQueue(termInDifferentDeck)).toBe(true);
-			expect(storage.getCount()).toBe(1); // Still only one entry
+			assert.strictEqual(storage.isInQueue(termInDifferentDeck), true);
+			assert.strictEqual(storage.getCount(), 1); // Still only one entry
 		});
 
-		test('should filter out term from study session regardless of deck', () => {
+		it('should filter out term from study session regardless of deck', () => {
 			const term = {
 				term: 'Ignored Term',
 				reference_page: '/test/path.md',
@@ -234,23 +235,23 @@ describe('DeletionQueueStorage', () => {
 			storage.addToQueue(term);
 
 			// Term appears in deck1
-			expect(storage.isInQueue({
+			assert.strictEqual(storage.isInQueue({
 				term: 'Ignored Term',
 				reference_page: '/test/path.md',
 				category: 'deck1'
-			})).toBe(true);
+			}), true);
 
 			// Same term appears in deck2 (different category, but same name/path)
-			expect(storage.isInQueue({
+			assert.strictEqual(storage.isInQueue({
 				term: 'Ignored Term',
 				reference_page: '/test/path.md',
 				category: 'deck2'
-			})).toBe(true);
+			}), true);
 		});
 	});
 
 	describe('Grouping by file path', () => {
-		test('should group items by folder path', () => {
+		it('should group items by folder path', () => {
 			const term1 = {
 				term: 'Term 1',
 				reference_page: '/test/path1.md',
@@ -272,21 +273,21 @@ describe('DeletionQueueStorage', () => {
 			storage.addToQueue(term3);
 
 			const grouped = storage.getItemsByFilePath();
-			expect(Object.keys(grouped).length).toBe(2);
-			expect(grouped['/test/path1.md'].length).toBe(2);
-			expect(grouped['/test/path2.md'].length).toBe(1);
+			assert.strictEqual(Object.keys(grouped).length, 2);
+			assert.strictEqual(grouped['/test/path1.md'].length, 2);
+			assert.strictEqual(grouped['/test/path2.md'].length, 1);
 		});
 	});
 
 	describe('Items with feedback', () => {
-		test('should identify items with feedback', () => {
+		it('should identify items with feedback', () => {
 			const mockFeedbackStorage = {
-				getFeedbackByTerm: jest.fn((term) => {
+				getFeedbackByTerm: (term) => {
 					if (term.term === 'With Feedback') {
 						return { feedback: 'Test feedback', timestamp: '2026-01-23T00:00:00.000Z' };
 					}
 					return null;
-				})
+				}
 			};
 
 			const term1 = {
@@ -304,24 +305,24 @@ describe('DeletionQueueStorage', () => {
 			storage.addToQueue(term2, mockFeedbackStorage);
 
 			const itemsWithFeedback = storage.getItemsWithFeedback();
-			expect(itemsWithFeedback.length).toBe(1);
-			expect(itemsWithFeedback[0].termName).toBe('With Feedback');
+			assert.strictEqual(itemsWithFeedback.length, 1);
+			assert.strictEqual(itemsWithFeedback[0].termName, 'With Feedback');
 		});
 	});
 
 	describe('Edge cases', () => {
-		test('should handle term with missing properties', () => {
+		it('should handle term with missing properties', () => {
 			const term = {
 				term: 'Test Term'
 				// Missing reference_page
 			};
 
 			const added = storage.addToQueue(term);
-			expect(added).toBe(true);
-			expect(storage.getQueue()[0].folderPath).toBe('');
+			assert.strictEqual(added, true);
+			assert.strictEqual(storage.getQueue()[0].folderPath, '');
 		});
 
-		test('should handle empty term name', () => {
+		it('should handle empty term name', () => {
 			const term = {
 				term: '',
 				reference_page: '/test/path.md',
@@ -329,14 +330,14 @@ describe('DeletionQueueStorage', () => {
 			};
 
 			const added = storage.addToQueue(term);
-			expect(added).toBe(true);
-			expect(storage.getQueue()[0].termName).toBe('');
+			assert.strictEqual(added, true);
+			assert.strictEqual(storage.getQueue()[0].termName, '');
 		});
 
-		test('should not add null or undefined term', () => {
-			expect(storage.addToQueue(null)).toBe(false);
-			expect(storage.addToQueue(undefined)).toBe(false);
-			expect(storage.getCount()).toBe(0);
+		it('should not add null or undefined term', () => {
+			assert.strictEqual(storage.addToQueue(null), false);
+			assert.strictEqual(storage.addToQueue(undefined), false);
+			assert.strictEqual(storage.getCount(), 0);
 		});
 	});
 });

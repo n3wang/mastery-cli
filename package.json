@@ -23,8 +23,9 @@
 	],
 	"scripts": {
 		"format": "prettier --write \"./**/*.{js,json}\"",
-		"tests": "mocha tests/*",
-		"doc": "jsdoc -c jsdoc.json"
+		"tests": "mocha",
+		"doc": "jsdoc -c jsdoc.json",
+		"test": "mocha"
 	},
 	"dependencies": {
 		"chalk": "^4.1.2",

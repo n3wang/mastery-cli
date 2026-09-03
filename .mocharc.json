@@ -1,0 +1,8 @@
+{
+	"spec": [
+		"tests/**/*.test.js",
+		"src/schedule-assistant/tests/**/*.test.js"
+	],
+	"timeout": 10000,
+	"reporter": "spec"
+}

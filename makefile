@@ -12,7 +12,7 @@ save:
 
 
 tests:
-	jest tests
+	npm test
 
 new:
 	npm version patch -m "${m}"
