@@ -33,8 +33,8 @@ This file is the resume point. If the session dies, read this first, then
 | Phase | Description | Status | Commit |
 | --- | --- | --- | --- |
 | 0 | Decisions | done | — |
-| 1 | Prune | pending | |
-| 2 | Tests green | pending | |
+| 1 | Prune | **done** | `06fce93` |
+| 2 | Tests green | **done** | `d44b5b0` |
 | 3 | Flatten extensions | pending | |
 | 4 | User data vault | pending | |
 | 5 | Settings consolidation | pending | |
@@ -47,3 +47,22 @@ This file is the resume point. If the session dies, read this first, then
 ## Log
 
 - Created branch `oss-prep` off `master`, tagged `pre-oss-prep-archive`.
+- **Phase 1** `06fce93`: 2654 -> 2485 tracked files. Removed docs/, 8 dist/ dirs,
+  vendored JSDoc template, src/user_data/ duplicate, dead modules. jsdoc.json still
+  pointed at the long-gone `utils/` dir; repointed at `src/`. .gitignore rewritten.
+- **Phase 2** `d44b5b0`: suite runs. 129 passing, 3 pending.
+
+### Carried forward from phase 2
+
+- `src/schedule-assistant/StorableReport.js:7` defaults to the bare filename
+  `'report'`, so JsonDB resolves it against `process.cwd()` and the CLI drops a
+  `report` file into whatever directory it was run from. Gitignored for now;
+  **fix in phase 4** when it moves to the vault.
+- `src/extensions/dsa-cli/dsa_tests/` has 4 pre-existing failures, at least two of
+  which are path-resolution bugs from the duplicate `getDirAbsoluteUri`
+  (one resolves to `E:/projects-git/solutions/...`, a level too high).
+  **Fold into the suite in phase 3** once that resolver is gone.
+- 3 pending tests, each with a TODO in place:
+  - 2x `parseMarkdownCards` trailing-entry at EOF - needs a product decision
+    (spec says emit, code has it commented out with a duplicate-prevention note)
+  - 1x `parseMarkdownProblemsFromModules` - needs $MASTERY_HOME from phase 4
