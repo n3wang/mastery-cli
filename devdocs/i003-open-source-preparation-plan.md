@@ -985,7 +985,9 @@ extensions first**, so the vault migration has one path resolver to change inste
    discoverable is a real trade here.
 10. **Session state across machines** — see §5.5. Keeping queues in `.cache/` means a
     session started on one machine cannot be resumed on another. Probably right, but confirm.
-11. **`data-science-cli`** — 86 lines exposing a single `jupyter` command. With the extension
-    wrapper gone, is this a feature worth keeping in core, or does it go?
+11. ~~**`data-science-cli`**~~ — **RESOLVED: removed.** The feature never worked:
+    `openJupyter` only asked whether a notebook had been solved without opening one,
+    `openRandomJupyter` was a stub, and `runServer` pointed at a directory that did
+    not exist. Deleted along with the `jupyter` command.
 12. **Plugin API later?** — §6.4 defers it. Worth stating a position in `CONTRIBUTING.md` so
     the removal reads as a decision, not an oversight.

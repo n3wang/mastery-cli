@@ -13,9 +13,8 @@
  */
 
 const dsa = require('./dsa');
-const dataScience = require('./data-science');
 
-const FEATURES = [dsa, dataScience];
+const FEATURES = [dsa];
 
 /**
  * Command metadata for every feature, keyed by command name.
@@ -73,6 +72,5 @@ module.exports = {
 	FEATURES,
 	getFeatureCommands,
 	getFeatureHandlers,
-	dsa,
-	dataScience
+	dsa
 };

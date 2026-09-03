@@ -64,7 +64,7 @@ function buildHandlers({ mastery, featureHandlers = {} }) {
 		services: core.services,
 		imath: core.imath,
 
-		// Features (dsa, mdsa, cloze, jupyter) register under their own names
+		// Features (dsa, mdsa, cloze) register under their own names
 		...featureHandlers
 	};
 

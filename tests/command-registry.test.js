@@ -106,7 +106,6 @@ describe('command registry', () => {
 			'dsa',
 			'mdsa',
 			'cloze',
-			'jupyter',
 			'llm',
 			'mask-list',
 			'mask-toggle',

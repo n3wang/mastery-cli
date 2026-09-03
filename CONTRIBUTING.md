@@ -34,7 +34,7 @@ src/
 ├── commands/
 │   ├── registry.js       every command: name, aliases, group, help
 │   └── dispatch.js       canonical name -> handler
-├── features/             dsa, data-science — plain modules, listed explicitly
+├── features/             dsa — plain modules, listed explicitly
 ├── local-modules/        vendored small helpers, to avoid npm in locked-down setups
 └── ...                   storage classes, parsers, the Quizzer
 content/                  what ships: default config and sample decks

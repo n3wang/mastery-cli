@@ -30,7 +30,7 @@ still works under its original name.
   `config`, `where`. **Every previous name is kept as an alias.**
 - Commands come from a single registry that drives both dispatch and help.
 - One settings file, read and written through one `SettingsManager`.
-- Features (`dsa`, `data-science`) are plain modules rather than plugins.
+- The `dsa` feature is a plain module rather than a plugin.
 - File and method naming standardised; see `CONTRIBUTING.md`.
 - Binaries trimmed to `mastery` and `mcli`.
 
@@ -55,8 +55,12 @@ still works under its original name.
 ### Removed
 
 - The extension system (~530 lines): no third-party load path existed, and its
-  hooks, unload and dependency validation were never called. The DSA and data
-  science features are unaffected.
+  hooks, unload and dependency validation were never called. The DSA feature is
+  unaffected.
+- The `data-science` feature and its `jupyter` command. It never worked:
+  `openJupyter` asked whether a notebook had been solved without opening one,
+  `openRandomJupyter` printed "not implemented yet", and `runServer` pointed at
+  a directory that did not exist.
 - `m-cli` and `maid` binaries; `hello` and `log` placeholder commands; the
   `--type` flag left over from the project scaffold.
 

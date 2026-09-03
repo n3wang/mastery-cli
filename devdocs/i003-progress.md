@@ -24,7 +24,7 @@ This file is the resume point. If the session dies, read this first, then
 | History strategy | **deferred** | destructive; needs explicit go-ahead |
 | npm publish | **deferred** | outward-facing; needs explicit go-ahead |
 | Vault default | `<OS data dir>/mastery-cli`, `$MASTERY_HOME` override | §12 Q9 |
-| `data-science-cli` | kept, flattened to `src/features/data-science/` | reversible later |
+| `data-science-cli` | **removed** — non-functional stub | recoverable from `pre-oss-prep-archive` |
 | `schedule-assistant` | kept, personal data replaced with an example | §12 Q5 |
 | Test runner | Mocha | already the declared devDependency |
 
@@ -51,7 +51,7 @@ This file is the resume point. If the session dies, read this first, then
   vendored JSDoc template, src/user_data/ duplicate, dead modules. jsdoc.json still
   pointed at the long-gone `utils/` dir; repointed at `src/`. .gitignore rewritten.
 - **Phase 2** `d44b5b0`: suite runs. 129 passing, 3 pending.
-- **Phase 3** `6d1c2d2`: extension system gone. `src/features/{dsa,data-science}`
+- **Phase 3** `6d1c2d2`: extension system gone. `src/features/dsa`
   are plain modules; `dsa_tests` folded into `tests/dsa`. Fixed the `co`
   dead-command bug in index.js along the way.
 - **Phase 4** `3e07c5c`: vault live at `$MASTERY_HOME` (default
@@ -123,9 +123,10 @@ outward-facing, so it needs an explicit decision:
 
 - **14 of 319 DSA problems have no solution file.** Three integrity tests
   are pending on it. Authoring them is content work.
-- **`data-science` feature is a stub.** `openJupyter` never opens a
-  notebook, it only asks whether one was solved. Carried over as-is;
-  finish it or drop it.
+- ~~**`data-science` feature is a stub.**~~ **Resolved: removed.** `openJupyter`
+  never opened a notebook, `openRandomJupyter` printed "not implemented yet",
+  and `runServer` pointed at a directory that did not exist. Recoverable from
+  the `pre-oss-prep-archive` tag if it is ever finished.
 
 ### Safe to delete once you have checked the vault
 

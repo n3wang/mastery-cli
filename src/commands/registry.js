@@ -138,13 +138,6 @@ const COMMANDS = [
 		desc: 'Pseudocode algorithm session of ten random math challenges',
 		usage: 'mastery mamses'
 	},
-	{
-		name: 'jupyter',
-		aliases: [],
-		group: 'practice',
-		desc: 'Open and practice Jupyter notebook exercises',
-		usage: 'mastery jupyter'
-	},
 
 	// --- Decks & masks -----------------------------------------------------
 	{
