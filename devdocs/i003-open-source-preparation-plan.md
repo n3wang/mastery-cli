@@ -942,18 +942,6 @@ extensions first**, so the vault migration has one path resolver to change inste
 - [ ] Add ESLint (`camelcase` rule on, matching §4.4), `.editorconfig`, `.nvmrc`
 - [ ] Add CI workflow; add JSDoc → Pages workflow
 
-**Phase 10 — History & publish**
-- [ ] Tag `pre-oss-archive` on the private repo
-- [ ] Rewrite/reset history
-- [ ] Delete stale branches
-- [ ] Audit the final tree for personal paths and leftover local state
-- [ ] Push public; publish to npm
-
-**Phase 11 — Post-publish (not blocking)**
-- [ ] Split `utils.js` and `Quizzer.js` (§9.1)
-- [ ] Structured logging wired to `--debug` (§9.2)
-- [ ] `mastery vault status` nudges to commit progress, mirroring the study-on-commit hook
-- [ ] Retire the `*ses` aliases once `session --flags` is established
 
 ---
 
