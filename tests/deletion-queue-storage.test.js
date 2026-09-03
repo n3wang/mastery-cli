@@ -2,7 +2,7 @@ const assert = require('assert');
 const { DeletionQueueStorage } = require('../src/DeletionQueueStorage');
 const fs = require('fs');
 const path = require('path');
-const { getDirAbsoluteUri } = require('../src/utils_functions');
+const { getDirAbsoluteUri } = require('../src/utils-functions');
 
 describe('DeletionQueueStorage', () => {
 	let storage;

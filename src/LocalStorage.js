@@ -78,7 +78,7 @@ class LocalStorage {
 		this.skill_based_stats = {};
 	}
 
-	log_feat(feature, { score = 1 } = {}) {
+	logFeat(feature, { score = 1 } = {}) {
 		const date = new Date().toISOString().split('T')[0]; // YYYY-MM-DD format
 		if (!this.date_based_stats[date]) {
 			this.date_based_stats[date] = {};
@@ -90,7 +90,7 @@ class LocalStorage {
 		this.save();
 	}
 
-	calculate_level_based_on_experience(
+	calculateLevelBasedOnExperience(
 		experience,
 		{
 			previous_level = 0,
@@ -137,7 +137,7 @@ class LocalStorage {
 		return current_level;
 	}
 
-	log_skill_experience(
+	logSkillExperience(
 		skill_name,
 		{
 			score = 1,
@@ -183,7 +183,7 @@ class LocalStorage {
 
 		//  // Check if the skill level needs to be updated
 		this.skill_based_stats[skill_name].skill_level =
-			this.calculate_level_based_on_experience(
+			this.calculateLevelBasedOnExperience(
 				this.skill_based_stats[skill_name].skill_exp,
 				{
 					previous_level: previousLevel,
@@ -203,7 +203,7 @@ class LocalStorage {
 		this.save();
 	}
 
-	get_skills_reports({
+	getSkillsReports({
 		windows_n = 7,
 		filter = [],
 		compare_prev = true,
@@ -311,7 +311,7 @@ class LocalStorage {
 		}
 	}
 
-	get_day_logs({ windows_n = 0, filter = [], compare_prev = false } = {}) {
+	getDayLogs({ windows_n = 0, filter = [], compare_prev = false } = {}) {
 		/**
 		 * Returns as sum of each stat by their agregate score:
 		 * {
@@ -338,7 +338,7 @@ class LocalStorage {
 		const selected_date = new Date();
 		selected_date.setDate(selected_date.getDate() - windows_n);
 		const selectedDateString = selected_date.toISOString().split('T')[0];
-		const selected_scores = this.get_date_logs_auxiliary({
+		const selected_scores = this.getDateLogsAuxiliary({
 			selected_date: selectedDateString,
 			filter
 		});
@@ -354,7 +354,7 @@ class LocalStorage {
 			const previousDateString = previous_date
 				.toISOString()
 				.split('T')[0];
-			const previous_scores = this.get_date_logs_auxiliary({
+			const previous_scores = this.getDateLogsAuxiliary({
 				selected_date: previousDateString,
 				filter
 			});
@@ -377,7 +377,7 @@ class LocalStorage {
 		return returnValues;
 	}
 
-	get_date_logs_auxiliary({ selected_date, filter = [] } = {}) {
+	getDateLogsAuxiliary({ selected_date, filter = [] } = {}) {
 		const scores = this.date_based_stats[selected_date] || {};
 
 		if (filter.length === 0) {
@@ -394,7 +394,7 @@ class LocalStorage {
 		return filteredScores;
 	}
 
-	get_week_logs({ windows_n = 0, filter = [], compare_prev = false } = {}) {
+	getWeekLogs({ windows_n = 0, filter = [], compare_prev = false } = {}) {
 		/**
 		 * Returns as sum of each stat by their agregate score:
 		 * {
@@ -425,7 +425,7 @@ class LocalStorage {
 			}
 		}
 	}
-	get_aggregate_logs_auxiliary({
+	getAggregateLogsAuxiliary({
 		selected_date,
 		filter = [],
 		compare_prev = false,
@@ -455,12 +455,12 @@ class LocalStorage {
 		return aggregatedScores;
 	}
 
-	get_week_log(n = 0, filter = [], compare_prev = false) {
+	getWeekLog(n = 0, filter = [], compare_prev = false) {
 		const today = new Date();
 		const weekStart = new Date(today);
 		weekStart.setDate(weekStart.getDate() - weekStart.getDay() - n * 7); // Adjust for the week offset
 
-		const weekScores = this.get_aggregate_logs_auxiliary({
+		const weekScores = this.getAggregateLogsAuxiliary({
 			selected_date: weekStart.toISOString().split('T')[0],
 			filter: filter,
 			compare_prev: compare_prev,
@@ -470,14 +470,14 @@ class LocalStorage {
 		return weekScores;
 	}
 
-	get_month_log(n = 0, filter = [], compare_prev = false) {
+	getMonthLog(n = 0, filter = [], compare_prev = false) {
 		const selected_date = new Date();
 		const monthStart = new Date(selected_date);
 		monthStart.setDate(
 			monthStart.getDate() - (monthStart.getDate() - 1) - n * 30 // Adjust for the month offset
 		);
 
-		const monthScores = this.get_aggregate_logs_auxiliary({
+		const monthScores = this.getAggregateLogsAuxiliary({
 			selected_date: monthStart.toISOString().split('T')[0],
 			filter: filter,
 			compare_prev: compare_prev,
@@ -499,7 +499,7 @@ class LocalStorage {
 		return str.substring(0, n);
 	}
 
-	get_entries({ head = 5, skill_name = '', deck_term = '' } = {}) {
+	getEntries({ head = 5, skill_name = '', deck_term = '' } = {}) {
 		/**
 		 * Fetch from skill based stats on that specific skill
 		 */

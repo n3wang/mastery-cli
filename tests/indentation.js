@@ -1,7 +1,7 @@
-const { parseMarkdownCards } = require('../src/md_terms_parser.js');
+const { parseMarkdownCards } = require('../src/md-terms-parser.js');
 const path = require('path');
 
-const filePath = path.join(__dirname, 'test_data', 'indentation_test.md');
+const filePath = path.join(__dirname, 'fixtures', 'indentation_test.md');
 const result = parseMarkdownCards(filePath);
 
 console.log('=== Parsed Result ===');

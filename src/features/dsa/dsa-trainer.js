@@ -553,7 +553,7 @@ class DSATrainer {
 			md_pseudo_mode: md_pseudo_mode
 		});
 
-		const stash_current_temp = res => {
+		const stashCurrentTemp = res => {
 			let extension = 'md';
 			// get the extension of the problem file
 			if (res.problem_details.file_path) {
@@ -615,7 +615,7 @@ class DSATrainer {
 					problem_details: problem_details,
 					is_pseudocode: md_pseudo_mode
 				};
-				stash_current_temp(res);
+				stashCurrentTemp(res);
 				this.last_test_results = null; // Reset last test results
 
 				return res;

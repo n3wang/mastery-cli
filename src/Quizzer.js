@@ -32,7 +32,7 @@ const {
 	printMarked,
 	openEditorPlatformAgnostic,
 	getDirAbsoluteUri
-} = require('./utils_functions');
+} = require('./utils-functions');
 
 const {
 	parseMarkdownCards,
@@ -41,9 +41,9 @@ const {
 	parseMarkdownCardsFromTermsModules,
 	retrieve_terms_modules,
 	retrieve_terms_as_decks
-} = require('./md_terms_parser');
+} = require('./md-terms-parser');
 
-const { TermScheduler } = require('./termScheduler');
+const { TermScheduler } = require('./term-scheduler');
 const { MiniTermScheduler } = require('./MiniTermScheduler');
 const { StorableQueue } = require('./StorableQueue');
 const { HashStorage } = require('./HashStorage');
@@ -221,7 +221,7 @@ class Quizzer {
 		const { glob } = require('glob');
 		const fs = require('fs');
 		const path = require('path');
-		const { getDirAbsoluteUri } = require('./utils_functions');
+		const { getDirAbsoluteUri } = require('./utils-functions');
 
 		try {
 			const tempDir = vaultPath('.cache/queues/');
@@ -341,7 +341,7 @@ class Quizzer {
 	 * 1-15-2021: It will just shuffle the list and pick the first one. No internet required. This is done to accelerate the process.
 	 * @returns {QuestionStructure} question_selected
 	 */
-	pick_math_question = async () => {
+	pickMathQuestion = async () => {
 		let potential_questions = this.enabledqmathformulas;
 		potential_questions = await this.getYoungest(potential_questions, {
 			randomOffline: true
@@ -364,7 +364,7 @@ class Quizzer {
             }
      * @returns {TermStructure} term_selected
      */
-	pick_term_question = async () => {
+	pickTermQuestion = async () => {
 		console.log('Picking terms from:', this.terms?.length || 0, 'total terms');
 		if (!this.terms || this.terms.length === 0) {
 			console.error('No terms available for quiz. Terms array is empty or undefined.');
@@ -448,7 +448,7 @@ class Quizzer {
 			);
 			const card = miniTermScheduler.getCard();
 			// console.log("card", card);
-			const response = await this.ask_term_question(card, {
+			const response = await this.askTermQuestion(card, {
 				exitMethod: wrappedExitMethod
 			});
 			if (response == true) {
@@ -521,7 +521,7 @@ class Quizzer {
 	 * OUT:
 	 * - {  question_prompt (with replace replaced with numbers) , expectedAnswer}
 	 */
-	compile_question(question) {
+	compileQuestion(question) {
 		// if (DEBUG) console.log("Compile question received", question)
 		const form = question?.form;
 		const replace = question?.replace ?? [];
@@ -608,7 +608,7 @@ class Quizzer {
 
 			switch (questionType) {
 				case 'math':
-					return await this.ask_math_question({
+					return await this.askMathQuestion({
 						exitMethod: exitMethod
 					});
 				case 'term':
@@ -617,7 +617,7 @@ class Quizzer {
 					});
 
 				default:
-					return await this.ask_math_question({
+					return await this.askMathQuestion({
 						exitMethod: exitMethod
 					});
 			}
@@ -636,7 +636,7 @@ class Quizzer {
 	}
 
 	// Returns the term deck name (key), in which is stored the term's deck.
-	async pick_terms_deck() {
+	async pickTermsDeck() {
 		return '';
 	}
 
@@ -786,7 +786,7 @@ class Quizzer {
 				todayTotal: todayTotal
 			};
 
-			const answered_correctly = await this.ask_term_question(
+			const answered_correctly = await this.askTermQuestion(
 				card_to_ask,
 				{ exitMethod: exitMethod, progressStats: progressStats }
 			);
@@ -856,7 +856,7 @@ class Quizzer {
 		return studiedCount;
 	}
 
-	study_session = async (
+	studySession = async (
 		masterDeck = this.masterDeck,
 		{ reverse = false, size_study_deck = -1 } = {}
 	) => {
@@ -1110,7 +1110,7 @@ class Quizzer {
 		return this.runStudySession(selected_terms, deck_selected);
 	};
 
-	filtered_study_session = async (
+	filteredStudySession = async (
 		masterDeck = this.masterDeck,
 		{ reverse = false, size_study_deck = -1 } = {}
 	) => {
@@ -1320,7 +1320,7 @@ class Quizzer {
 					console.log('\nWeek ahead prepared!\n');
 					todayDeck = dailyDeckManager.getTodayDeck();
 				} else {
-					return this.filtered_study_session(masterDeck, { reverse, size_study_deck });
+					return this.filteredStudySession(masterDeck, { reverse, size_study_deck });
 				}
 			}
 
@@ -1368,10 +1368,10 @@ class Quizzer {
 	 * @param {method} param0
 	 * @returns
 	 */
-	async pick_and_ask_term_question({ exitMethod = () => {} } = {}) {
+	async pickAndAskTermQuestion({ exitMethod = () => {} } = {}) {
 		// Fetches a random term form with the youngest one, unless there is no internet
 
-		const term_selected = await this.pick_term_question();
+		const term_selected = await this.pickTermQuestion();
 		if (DEBUG) console.log('term_selected', term_selected);
 		
 		if (!term_selected) {
@@ -1379,7 +1379,7 @@ class Quizzer {
 			return false;
 		}
 		
-		return await this.ask_term_question(term_selected, {
+		return await this.askTermQuestion(term_selected, {
 			exitMethod: exitMethod
 		});
 	}
@@ -1574,7 +1574,7 @@ class Quizzer {
 		console.log(`Updated common instructions in ${moduleIndexPath}`);
 	}
 
-	async ask_term_question(
+	async askTermQuestion(
 		term_selected,
 		{ ask_if_correct = true, exitMethod = () => {}, is_try_questin_again: is_try_question_again=false, progressStats = null } = {}
 	) {
@@ -1697,7 +1697,7 @@ class Quizzer {
 
 			if ((user_res || '').trim() === '!c') {
 				this.activateOrResetTempCounter();
-				return await this.ask_term_question(term_selected, {
+				return await this.askTermQuestion(term_selected, {
 					ask_if_correct,
 					exitMethod,
 					is_try_questin_again: is_try_question_again,
@@ -1811,7 +1811,7 @@ class Quizzer {
 						}
 
 						if (selectedOption === 'repractice') {
-							return await this.ask_term_question(term_selected, {
+							return await this.askTermQuestion(term_selected, {
 								ask_if_correct,
 								exitMethod,
 								try_question_again: true
@@ -1947,7 +1947,7 @@ class Quizzer {
 			return ISANSWERCORRECT && !is_try_question_again;
 		} catch (err) {
 			console.log(
-				'Failed at: ask_term_question |  term_selected',
+				'Failed at: askTermQuestion |  term_selected',
 				term_selected
 			);
 			console.log(err);
@@ -2043,8 +2043,8 @@ class Quizzer {
 		}
 	};
 
-	async ask_math_question({ exitMethod = () => {} } = {}) {
-		const question_form = await this.pick_math_question();
+	async askMathQuestion({ exitMethod = () => {} } = {}) {
+		const question_form = await this.pickMathQuestion();
 		try {
 			if (DEBUG) console.log('question_form', question_form);
 			const ans_constraint = question_form?.ans_constraint;
@@ -2052,14 +2052,14 @@ class Quizzer {
 			if (ans_constraint == undefined) {
 				// Because we dont need to verify the constraints,
 
-				question_prompt = this.compile_question(question_form);
+				question_prompt = this.compileQuestion(question_form);
 				if (DEBUG)
 					console.log(
 						'ask question question_prompt',
 						question_prompt
 					);
 			} else {
-				question_prompt = this.compile_valid_question(
+				question_prompt = this.compileValidQuestion(
 					question_form,
 					ans_constraint
 				);
@@ -2132,7 +2132,7 @@ class Quizzer {
 	 * .2 -> with two decimals
 	 * +.0 -> Positive Integer
 	 */
-	compile_valid_question(question_form, constraint) {
+	compileValidQuestion(question_form, constraint) {
 		// Basically loops until a a result fullfillls the specified constraint.
 
 		const format_reg = /(\W?).(\d)/;
@@ -2141,7 +2141,7 @@ class Quizzer {
 		let foundProper = false;
 		let questionPrompt = {};
 		while (!foundProper) {
-			questionPrompt = this.compile_question(question_form);
+			questionPrompt = this.compileQuestion(question_form);
 			const expectedAnswer = questionPrompt.expectedAnswer;
 			const decimalCounts = countDecimals(expectedAnswer);
 
@@ -2173,7 +2173,7 @@ class Quizzer {
 				`terms-annotation-${dateStr}.md`
 			);
 
-			const { getDirAbsoluteUri } = require('./utils_functions');
+			const { getDirAbsoluteUri } = require('./utils-functions');
 			const fullPath = vaultPath(annotationFile);
 
 			// Ensure the directory exists

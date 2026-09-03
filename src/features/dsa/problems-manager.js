@@ -12,7 +12,7 @@ const {
 	openEditorPlatformAgnostic,
 	get_random
 } = require('./functions');
-const { retrieve_dsa_problems_as_decks } = require('./md_dsa_parser');
+const { retrieve_dsa_problems_as_decks } = require('./md-dsa-parser');
 const { externalProblemsLoader } = require('./external-problems-loader');
 
 /**
@@ -262,7 +262,7 @@ class ProblemsManager {
 			// Load the external problem data from the markdown source
 			const {
 				parseMarkdownProblemsFromFolder
-			} = require('./md_dsa_parser');
+			} = require('./md-dsa-parser');
 			const path = require('path');
 
 			let problemData = null;

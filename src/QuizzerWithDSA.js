@@ -5,7 +5,7 @@ const DEBUG = false;
 const { cloze_problems_list } = require('./features/dsa/cloze');
 const DSAConstants = require('./features/dsa/constants');
 
-const { TermScheduler } = require('./termScheduler');
+const { TermScheduler } = require('./term-scheduler');
 const settings = require('./settings');
 const utils = require('./local-modules/terminal-charts').lib.utils;
 /**
@@ -60,7 +60,7 @@ class QuizzerWithDSA extends Quizzer {
 
 			switch (problem_type_selected) {
 				case 'math': {
-					const answered = await this.ask_math_question({
+					const answered = await this.askMathQuestion({
 						exitMethod
 					});
 					return {
@@ -71,7 +71,7 @@ class QuizzerWithDSA extends Quizzer {
 				case 'term': {
 					const method = force_mode
 						? this.forceLearnTermQuestions
-						: this.pick_and_ask_term_question;
+						: this.pickAndAskTermQuestion;
 
 					const answered = await method.call(this, { exitMethod });
 					return {
@@ -80,7 +80,7 @@ class QuizzerWithDSA extends Quizzer {
 					};
 				}
 				case 'algorithm': {
-					const answered = await this.ask_algorithm_question({
+					const answered = await this.askAlgorithmQuestion({
 						exitMethod
 					});
 					return {
@@ -89,7 +89,7 @@ class QuizzerWithDSA extends Quizzer {
 					};
 				}
 				case 'cloze-algo': {
-					const answered = await this.ask_cloze_algorithm_question({
+					const answered = await this.askClozeAlgorithmQuestion({
 						exitMethod
 					});
 					return {
@@ -196,13 +196,13 @@ class QuizzerWithDSA extends Quizzer {
 		}
 	}
 
-	ask_algorithm_question = async () => {
+	askAlgorithmQuestion = async () => {
 		await this.dsaTrainer.ensureProblemsLoaded();
 		const problem_status = this.dsaTrainer.openRandomProblem();
 		return problem_status;
 	};
 
-	ask_cloze_algorithm_question = async ({ exitMethod = () => {} } = {}) => {
+	askClozeAlgorithmQuestion = async ({ exitMethod = () => {} } = {}) => {
 		// TODO, create an openRandomProblem where it cleans and loads for you.
 
 		await this.dsaTrainer.ensureProblemsLoaded();
@@ -210,7 +210,7 @@ class QuizzerWithDSA extends Quizzer {
 		return problem_status;
 	};
 
-	cloze_study_session = async ({
+	clozeStudySession = async ({
 		reset_scheduler = false,
 		md_pseudo_mode = false
 	} = {}) => {
@@ -271,7 +271,7 @@ class QuizzerWithDSA extends Quizzer {
 		}
 	};
 
-	algorithmic_study_session = async ({
+	algorithmicStudySession = async ({
 		reset_scheduler = false,
 		filter = {
 			easy: true,

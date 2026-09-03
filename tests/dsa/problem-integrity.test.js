@@ -95,11 +95,11 @@ describe('Problem integrity', function () {
 		if (!to_test.basic) return;
 		const problemManager = new ProblemsManager();
 		await problemManager.autoPopulateUsingTestDictionary();
-		// if this test fails, make sure you can run func_create_empty_base_codes to populate with a basic template of them all.
+		// if this test fails, make sure you can run create-empty-base-codes to populate with a basic template of them all.
 		// Or just run it here just in case everytime this test is run:
 		const {
 			createEmptyBaseCodes
-		} = require('./func_create_empty_base_codes');
+		} = require('./create-empty-base-codes');
 		await createEmptyBaseCodes();
 
 		const allProblemsMetadata = problemManager.problems;

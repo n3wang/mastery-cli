@@ -44,7 +44,7 @@ const {
 	formatObjectFeatures,
 	countDecimals
 } = constants;
-const { getMaidDirectory } = require('./utils_functions.js');
+const { getMaidDirectory } = require('./utils-functions.js');
 
 const Settings = require('./settings.js');
 const {
@@ -233,7 +233,7 @@ class Mastery {
 			if (deckFilter && deckFilter.length > 0) {
 				console.log(`Filtering to decks: ${deckFilter.join(', ')}`);
 			}
-			const { populateMasterDeck } = require('./terms_data/terms');
+			const { populateMasterDeck } = require('./terms-data/terms');
 			this.masterDeck = await populateMasterDeck({ deckFilter });
 			this.mQuizer.masterDeck = this.masterDeck;
 			// Update the terms array in the quizzer
@@ -302,7 +302,7 @@ class Mastery {
 				this.services();
 			},
 			math: () => {
-				this.mQuizer.ask_math_question();
+				this.mQuizer.askMathQuestion();
 			}, // Practice math problems
 			quiz: async () => {
 				await this.ensureTermsLoaded();
@@ -316,19 +316,19 @@ class Mastery {
 			}, // Increase math score
 			term: async () => {
 				await this.ensureTermsLoaded();
-				return this.mQuizer.pick_and_ask_term_question();
+				return this.mQuizer.pickAndAskTermQuestion();
 			}, // Flashcard study
 			clean: () => {
 				this.askToClean();
 			}, // Clear terminal screen
 			ses: async () => {
 				await this.ensureTermsLoaded();
-				return this.mQuizer.study_session();
+				return this.mQuizer.studySession();
 			}, // Study session
 			lastses: async () => {
 				// Study session in reverse order
 				await this.ensureTermsLoaded();
-				return this.mQuizer.study_session({ reverse: true });
+				return this.mQuizer.studySession({ reverse: true });
 			},
 			fses: async () => {
 				// Filtered study session based on active masks
@@ -344,7 +344,7 @@ class Mastery {
 				}
 
 				await this.ensureTermsLoaded({ deckFilter: enabledDecks });
-				return this.mQuizer.filtered_study_session();
+				return this.mQuizer.filteredStudySession();
 			},
 			'reset-queues': async () => {
 				// Reset study session queues while preserving hash data
@@ -382,23 +382,23 @@ class Mastery {
 			},
 			cses: async () => {
 				await this.ensureTermsLoaded();
-				return this.mQuizer.cloze_study_session();
+				return this.mQuizer.clozeStudySession();
 			}, // Fill-in-the-blank session
 			mcses: async () => {
 				// Markdown cloze session (pseudocode mode)
 				await this.ensureTermsLoaded();
-				return this.mQuizer.cloze_study_session({
+				return this.mQuizer.clozeStudySession({
 					md_pseudo_mode: true
 				});
 			},
 			amses: async () => {
 				await this.ensureTermsLoaded();
-				return this.mQuizer.algorithmic_study_session();
+				return this.mQuizer.algorithmicStudySession();
 			}, // Algorithm session
 			mamses: async () => {
 				// Markdown algorithm session (pseudocode mode)
 				await this.ensureTermsLoaded();
-				return this.mQuizer.algorithmic_study_session({
+				return this.mQuizer.algorithmicStudySession({
 					md_pseudo_mode: true
 				});
 			},
@@ -423,7 +423,7 @@ class Mastery {
 					return;
 				}
 
-				this.get_entries({
+				this.getEntries({
 					skill_name: skill_name,
 					deck_term: deck_term
 				});
@@ -710,7 +710,7 @@ class Mastery {
 		}
 	};
 
-	get_entries = ({ head = 5, skill_name = '', deck_term = '' }) => {
+	getEntries = ({ head = 5, skill_name = '', deck_term = '' }) => {
 		localStorageInstance.load().then(() => {
 			/**
 			 * Returns the entries of the skill_name in the deck_term
@@ -718,7 +718,7 @@ class Mastery {
 			 * @param {string} skill_name - The name of the skill to search for
 			 * @param {string} deck_term - The term of the deck to search for
 			 */
-			const entries = localStorageInstance.get_entries({
+			const entries = localStorageInstance.getEntries({
 				head,
 				skill_name,
 				deck_term
@@ -801,13 +801,13 @@ class Mastery {
 			const feat_rules = getObjectiveFeatures();
 
 			// Use built-in day and week methods
-			const today_scores = localStorageInstance.get_day_logs({
+			const today_scores = localStorageInstance.getDayLogs({
 				windows_n: 0
 			}).selected_date;
-			const yesterday_scores = localStorageInstance.get_day_logs({
+			const yesterday_scores = localStorageInstance.getDayLogs({
 				windows_n: 1
 			}).selected_date;
-			const week_scores = localStorageInstance.get_week_log();
+			const week_scores = localStorageInstance.getWeekLog();
 			console.log('Today Scores', today_scores);
 			console.log('Yesterday Scores', yesterday_scores);
 			console.log('Week Scores', week_scores);
@@ -1062,14 +1062,14 @@ class Mastery {
 		localStorageInstance
 			.load()
 			.then(() => {
-				localStorageInstance.log_feat(feature_name, { score: value });
+				localStorageInstance.logFeat(feature_name, { score: value });
 			})
 			.catch(err => {
 				console.error('Error increasing performance', err);
 			});
 	}
 
-	// log_skill_experience(skill_name, { score = 1, deck_id ='', deck_term = "", comment="", reattempts=0 } = {}) {
+	// logSkillExperience(skill_name, { score = 1, deck_id ='', deck_term = "", comment="", reattempts=0 } = {}) {
 	logSkillExperience(
 		skill_name,
 		{
@@ -1085,7 +1085,7 @@ class Mastery {
 		localStorageInstance
 			.load()
 			.then(() => {
-				localStorageInstance.log_skill_experience(skill_name, {
+				localStorageInstance.logSkillExperience(skill_name, {
 					score: score,
 					deck_id: deck_id,
 					deck_term: deck_term,
@@ -1093,7 +1093,7 @@ class Mastery {
 					reattempts: reattempts
 				});
 				if (increase_performance) {
-					localStorageInstance.log_feat(performance_feature, {
+					localStorageInstance.logFeat(performance_feature, {
 						score: score
 					});
 				}
@@ -1124,7 +1124,7 @@ class Mastery {
 							`Skill Reports from ${windows_days_ago_str} -> ${today}\n`
 						);
 					}
-					localStorageInstance.get_skills_reports({
+					localStorageInstance.getSkillsReports({
 						windows_n: windows_n
 					});
 				})
@@ -1417,7 +1417,7 @@ class Mastery {
 
 	async addNewMask(settingsPath) {
 		const fs = require('fs');
-		const { retrieve_terms_as_decks } = require('./md_terms_parser');
+		const { retrieve_terms_as_decks } = require('./md-terms-parser');
 
 		try {
 			console.log('\n🔍 Loading available modules and categories...\n');
@@ -1428,7 +1428,7 @@ class Mastery {
 			const moduleCategories = {};
 
 			// Add sample terms modules
-			const sampleTerms = require('./terms_data/sample_terms.js');
+			const sampleTerms = require('./terms-data/sample_terms.js');
 			Object.keys(sampleTerms).forEach(key => {
 				if (Array.isArray(sampleTerms[key])) {
 					const displayName = key.replace(/_/g, ' ').toLowerCase();
@@ -1686,7 +1686,7 @@ class Mastery {
 
 	async editExistingMask(settingsPath) {
 		const fs = require('fs');
-		const { retrieve_terms_as_decks } = require('./md_terms_parser');
+		const { retrieve_terms_as_decks } = require('./md-terms-parser');
 
 		try {
 			const settings = JSON.parse(fs.readFileSync(settingsPath, 'utf8'));
@@ -1719,7 +1719,7 @@ class Mastery {
 			const moduleCategories = {};
 
 			// Add sample terms modules
-			const sampleTerms = require('./terms_data/sample_terms.js');
+			const sampleTerms = require('./terms-data/sample_terms.js');
 			Object.keys(sampleTerms).forEach(key => {
 				if (Array.isArray(sampleTerms[key])) {
 					const displayName = key.replace(/_/g, ' ').toLowerCase();

@@ -1,7 +1,7 @@
 const {
 	TermScheduler,
 	TermCardsOfflineStrategy
-} = require('../src/termScheduler');
+} = require('../src/term-scheduler');
 const { StorableQueue } = require('../src/StorableQueue');
 const assert = require('assert');
 const { termsEnabled } = require('../src/constants');

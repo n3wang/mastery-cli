@@ -3,7 +3,7 @@ const {
 	parseMarkdownCards,
 	parseMarkdownIntoDeck,
 	parseMarkdownCardsFromTermsModules
-} = require('../src/md_terms_parser.js');
+} = require('../src/md-terms-parser.js');
 // const fs = require('fs');
 const path = require('path');
 
@@ -16,7 +16,7 @@ describe('parseMarkdownCards', () => {
 	// deliberately, probably to fix duplicates. Re-enabling it needs a product decision,
 	// not a guess. Skipped until then.
 	it.skip('should parse a simple markdown file', () => {
-		const filePath = path.join(__dirname, 'test_data', 'simple.md');
+		const filePath = path.join(__dirname, 'fixtures', 'simple.md');
 		const result = parseMarkdownCards(filePath);
 		assert.strictEqual(result.title, 'Simple Terms');
 		assert.strictEqual(result.entries.length, 2);
@@ -30,7 +30,7 @@ describe('parseMarkdownCards', () => {
 	});
 
 	it('should handle multi-line descriptions and answers', () => {
-		const filePath = path.join(__dirname, 'test_data', 'multiline.md');
+		const filePath = path.join(__dirname, 'fixtures', 'multiline.md');
 		const result = parseMarkdownCards(filePath);
 		assert.strictEqual(
 			result.entries[0].description,
@@ -40,21 +40,21 @@ describe('parseMarkdownCards', () => {
 	});
 
 	it('should handle files with no title', () => {
-		const filePath = path.join(__dirname, 'test_data', 'no_title.md');
+		const filePath = path.join(__dirname, 'fixtures', 'no_title.md');
 		const result = parseMarkdownCards(filePath);
 		assert.strictEqual(result.title, '');
 		assert.strictEqual(result.entries.length, 1);
 	});
 
 	it('should handle files with no entries', () => {
-		const filePath = path.join(__dirname, 'test_data', 'empty.md');
+		const filePath = path.join(__dirname, 'fixtures', 'empty.md');
 		const result = parseMarkdownCards(filePath);
 		assert.strictEqual(result.title, '');
 		assert.strictEqual(result.entries.length, 0);
 	});
 
 	it('should handle files with only a title', () => {
-		const filePath = path.join(__dirname, 'test_data', 'only_title.md');
+		const filePath = path.join(__dirname, 'fixtures', 'only_title.md');
 		const result = parseMarkdownCards(filePath);
 		assert.strictEqual(result.title, 'Only Title');
 		assert.strictEqual(result.entries.length, 0);
@@ -63,7 +63,7 @@ describe('parseMarkdownCards', () => {
 	it('should handle multiline answer with ??x x??', () => {
 		const filePath = path.join(
 			__dirname,
-			'test_data',
+			'fixtures',
 			'multiline_answer_2.md'
 		);
 		const result = parseMarkdownCards(filePath);
@@ -80,7 +80,7 @@ describe('parseMarkdownCards', () => {
 	it.skip('should parse multiple entries correctly', () => {
 		const filePath = path.join(
 			__dirname,
-			'test_data',
+			'fixtures',
 			'multiple_entries.md'
 		);
 		const result = parseMarkdownCards(filePath);
@@ -122,7 +122,7 @@ describe('parseMarkdownCards', () => {
 	});
 
 	it(' should parse one-line entries and fallback to previous line as header', () => {
-		const filePath = path.join(__dirname, 'test_data', 'one_liners.md');
+		const filePath = path.join(__dirname, 'fixtures', 'one_liners.md');
 		const result = parseMarkdownCards(filePath);
 		assert.strictEqual(result.entries.length, 3);
 
@@ -154,7 +154,7 @@ describe('parseMarkdownCards', () => {
 	});
 
 	it('handle wiki sample', () => {
-		const filePath = path.join(__dirname, 'test_data', 'wiki_sample.md');
+		const filePath = path.join(__dirname, 'fixtures', 'wiki_sample.md');
 		const result = parseMarkdownIntoDeck(filePath, 'botanic');
 	});
 

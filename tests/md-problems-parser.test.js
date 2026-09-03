@@ -3,11 +3,11 @@ const path = require('path');
 const {
 	parseMarkdownProblemsFromFolder,
 	parseMarkdownProblemsFromModules
-} = require('../src/features/dsa/md_dsa_parser.js');
+} = require('../src/features/dsa/md-dsa-parser.js');
 
 describe('parseMarkdownProblemsFromFolder', () => {
 	it('should parse Two Sum correctly', () => {
-		const folderPath = path.join(__dirname, 'test_data_problems');
+		const folderPath = path.join(__dirname, 'fixtures-problems');
 		const problems = parseMarkdownProblemsFromFolder(folderPath);
 		const twoSum = problems.find(p => p.title === 'Two Sum');
 
@@ -23,7 +23,7 @@ describe('parseMarkdownProblemsFromFolder', () => {
 	});
 
 	it('should parse Reverse String correctly', () => {
-		const folderPath = path.join(__dirname, 'test_data_problems');
+		const folderPath = path.join(__dirname, 'fixtures-problems');
 		const problems = parseMarkdownProblemsFromFolder(folderPath);
 		const reverseString = problems.find(p => p.title === 'Reverse String');
 
@@ -53,7 +53,7 @@ describe('parseMarkdownProblemsFromModules', () => {
 				title: 'DSA Basic',
 				skill_category: 'algorithms'
 			},
-			CONTENT_FOLDERS: ['test_data_problems']
+			CONTENT_FOLDERS: ['fixtures-problems']
 		};
 
 		const decks = parseMarkdownProblemsFromModules([module_exports]);

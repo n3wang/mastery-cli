@@ -24,10 +24,10 @@ describe('LocalStorage Tests', () => {
 		return { storage, restore };
 	}
 
-	it('log_feat stores values correctly', () => {
+	it('logFeat stores values correctly', () => {
 		const { storage, restore } = setupStorageWithDate('2023-10-01');
-		storage.log_feat('algo', { score: 1 });
-		storage.log_feat('math', { score: 2 });
+		storage.logFeat('algo', { score: 1 });
+		storage.logFeat('math', { score: 2 });
 		assert.deepStrictEqual(storage.date_based_stats['2023-10-01'], {
 			algo: { value: 1 },
 			math: { value: 2 }
@@ -35,7 +35,7 @@ describe('LocalStorage Tests', () => {
 		restore();
 	});
 
-	it("get_day_logs returns today's stats", () => {
+	it("getDayLogs returns today's stats", () => {
 		const { storage, restore } = setupStorageWithDate('2023-10-04');
 		storage.date_based_stats = {
 			'2023-10-04': {
@@ -43,7 +43,7 @@ describe('LocalStorage Tests', () => {
 				math: { value: 1 }
 			}
 		};
-		const result = storage.get_day_logs();
+		const result = storage.getDayLogs();
 		assert.deepStrictEqual(result.selected_date, {
 			algo: { value: 3 },
 			math: { value: 1 }
@@ -51,13 +51,13 @@ describe('LocalStorage Tests', () => {
 		restore();
 	});
 
-	it('get_day_logs compares with previous day', () => {
+	it('getDayLogs compares with previous day', () => {
 		const { storage, restore } = setupStorageWithDate('2023-10-05');
 		storage.date_based_stats = {
 			'2023-10-05': { algo: { value: 2 } },
 			'2023-10-04': { algo: { value: 3 } }
 		};
-		const result = storage.get_day_logs({
+		const result = storage.getDayLogs({
 			windows_n: 0,
 			compare_prev: true
 		});
@@ -68,7 +68,7 @@ describe('LocalStorage Tests', () => {
 		restore();
 	});
 
-	it('get_week_log aggregates 7 days', () => {
+	it('getWeekLog aggregates 7 days', () => {
 		const { storage, restore } = setupStorageWithDate('2023-10-08'); // Sunday
 		for (let i = 0; i < 7; i++) {
 			const date = new Date();
@@ -79,12 +79,12 @@ describe('LocalStorage Tests', () => {
 			};
 		}
 
-		const weekLog = storage.get_week_log();
+		const weekLog = storage.getWeekLog();
 		assert.deepStrictEqual(weekLog, { math: { value: 7 } });
 		restore();
 	});
 
-	it('get_month_log aggregates 30 days', () => {
+	it('getMonthLog aggregates 30 days', () => {
 		const { storage, restore } = setupStorageWithDate('2023-10-30');
 		for (let i = 0; i < 30; i++) {
 			const date = new Date();
@@ -94,7 +94,7 @@ describe('LocalStorage Tests', () => {
 				algo: { value: 1 }
 			};
 		}
-		const monthLog = storage.get_month_log();
+		const monthLog = storage.getMonthLog();
 		let algoValues = monthLog.algo.value;
 		// assert is greater
 		assert(
@@ -104,13 +104,13 @@ describe('LocalStorage Tests', () => {
 		restore();
 	});
 
-	it('get_date_logs_auxiliary filters terms correctly', () => {
+	it('getDateLogsAuxiliary filters terms correctly', () => {
 		const { storage, restore } = setupStorageWithDate('2023-10-01');
 		storage.date_based_stats['2023-10-01'] = {
 			algo: { value: 1 },
 			math: { value: 2 }
 		};
-		const filtered = storage.get_date_logs_auxiliary({
+		const filtered = storage.getDateLogsAuxiliary({
 			selected_date: '2023-10-01',
 			filter: ['algo']
 		});
@@ -119,7 +119,7 @@ describe('LocalStorage Tests', () => {
 	});
 });
 
-describe('LocalStorage.log_skill_experience()', () => {
+describe('LocalStorage.logSkillExperience()', () => {
 	function setupStorageWithDate(dateString) {
 		const restore = mockDate(dateString);
 		const storage = new LocalStorage('test_store_skill');
@@ -132,7 +132,7 @@ describe('LocalStorage.log_skill_experience()', () => {
 
 	it('initializes skill and logs experience', () => {
 		const { storage, restore } = setupStorageWithDate('2023-10-01');
-		storage.log_skill_experience('math');
+		storage.logSkillExperience('math');
 
 		const stats = storage.skill_based_stats['math'];
 		assert.ok(stats);
@@ -147,7 +147,7 @@ describe('LocalStorage.log_skill_experience()', () => {
 
 	it('accumulates skill experience and updates level', () => {
 		const { storage, restore } = setupStorageWithDate('2023-10-02');
-		storage.log_skill_experience('algo', { score: 15 });
+		storage.logSkillExperience('algo', { score: 15 });
 
 		const stats = storage.skill_based_stats['algo'];
 		assert.strictEqual(stats.skill_exp, 15);
@@ -161,7 +161,7 @@ describe('LocalStorage.log_skill_experience()', () => {
 
 	it('allows logging reattempts, comment, deck_id and deck_term', () => {
 		const { storage, restore } = setupStorageWithDate('2023-10-03');
-		storage.log_skill_experience('term', {
+		storage.logSkillExperience('term', {
 			score: 5,
 			reattempts: 3,
 			comment: 'reviewed twice',
@@ -180,14 +180,14 @@ describe('LocalStorage.log_skill_experience()', () => {
 
 	it('appends journal entry without overwriting', () => {
 		const { storage, restore } = setupStorageWithDate('2023-10-04');
-		storage.log_skill_experience('review');
-		storage.log_skill_experience('review', {
+		storage.logSkillExperience('review');
+		storage.logSkillExperience('review', {
 			deck_id: 'deckX',
 			deck_term: 'unit X',
 			comment: 'second round'
 		});
 
-		storage.log_skill_experience('review', {
+		storage.logSkillExperience('review', {
 			deck_id: 'deckY',
 			deck_term: 'unit Y',
 			comment: 'third round'
@@ -201,7 +201,7 @@ describe('LocalStorage.log_skill_experience()', () => {
 
 	it('uses default deck_id and deck_term when not provided', () => {
 		const { storage, restore } = setupStorageWithDate('2023-10-05');
-		storage.log_skill_experience('science', { comment: 'default deck' });
+		storage.logSkillExperience('science', { comment: 'default deck' });
 
 		const entry =
 			storage.skill_based_stats['science'].journal['2023-10-05'][0];
@@ -211,7 +211,7 @@ describe('LocalStorage.log_skill_experience()', () => {
 	});
 });
 
-describe('LocalStorage.get_skills_reports()', () => {
+describe('LocalStorage.getSkillsReports()', () => {
 	function setupStorageWithDate(dateString) {
 		const restore = mockDate(dateString);
 		const storage = new LocalStorage('test_store');
@@ -224,13 +224,13 @@ describe('LocalStorage.get_skills_reports()', () => {
 	it('tracks skill progress and prints report if console_report=true', () => {
 		const { storage, restore } = setupStorageWithDate('2023-10-05');
 		// Simulate history
-		storage.log_skill_experience('math', { score: 5 });
+		storage.logSkillExperience('math', { score: 5 });
 		restore();
 
 		const { storage: storage2, restore: restore2 } =
 			setupStorageWithDate('2023-10-08');
 		storage2.skill_based_stats = storage.skill_based_stats;
-		storage2.log_skill_experience('math', { score: 10 });
+		storage2.logSkillExperience('math', { score: 10 });
 
 		let consoleOutput = '';
 		const originalLog = console.log;
@@ -238,7 +238,7 @@ describe('LocalStorage.get_skills_reports()', () => {
 			consoleOutput += msg + '\n';
 		};
 
-		storage2.get_skills_reports({ windows_n: 3, console_report: true });
+		storage2.getSkillsReports({ windows_n: 3, console_report: true });
 
 		console.log = originalLog;
 
@@ -249,7 +249,7 @@ describe('LocalStorage.get_skills_reports()', () => {
 
 	it('hides skills with no progress by default', () => {
 		const { storage, restore } = setupStorageWithDate('2023-10-01');
-		storage.log_skill_experience('algo', { score: 5 });
+		storage.logSkillExperience('algo', { score: 5 });
 		restore();
 
 		const { storage: storage2, restore: restore2 } =
@@ -258,7 +258,7 @@ describe('LocalStorage.get_skills_reports()', () => {
 
 		// Capture old state
 		const before = Object.keys(storage2.skill_based_stats).length;
-		storage2.get_skills_reports({ windows_n: 7 });
+		storage2.getSkillsReports({ windows_n: 7 });
 
 		const after = Object.keys(storage2.skill_based_stats).length;
 
@@ -268,7 +268,7 @@ describe('LocalStorage.get_skills_reports()', () => {
 
 	it('shows no progress skills if hide_no_progress is false', () => {
 		const { storage, restore } = setupStorageWithDate('2023-10-01');
-		storage.log_skill_experience('term', { score: 1 });
+		storage.logSkillExperience('term', { score: 1 });
 		restore();
 
 		const { storage: storage2, restore: restore2 } =
@@ -277,7 +277,7 @@ describe('LocalStorage.get_skills_reports()', () => {
 
 		let resultBefore = Object.keys(storage2.skill_based_stats).length;
 
-		storage2.get_skills_reports({ windows_n: 7, hide_no_progress: false });
+		storage2.getSkillsReports({ windows_n: 7, hide_no_progress: false });
 
 		let resultAfter = Object.keys(storage2.skill_based_stats).length;
 
@@ -287,15 +287,15 @@ describe('LocalStorage.get_skills_reports()', () => {
 
 	it('handles multiple skills and multiple levels', () => {
 		const { storage, restore } = setupStorageWithDate('2023-10-01');
-		storage.log_skill_experience('dsa', { score: 10 });
-		storage.log_skill_experience('algo', { score: 15 });
+		storage.logSkillExperience('dsa', { score: 10 });
+		storage.logSkillExperience('algo', { score: 15 });
 		restore();
 
 		const { storage: storage2, restore: restore2 } =
 			setupStorageWithDate('2023-10-08');
 		storage2.skill_based_stats = storage.skill_based_stats;
-		storage2.log_skill_experience('dsa', { score: 5 });
-		storage2.log_skill_experience('algo', { score: 10 });
+		storage2.logSkillExperience('dsa', { score: 5 });
+		storage2.logSkillExperience('algo', { score: 10 });
 
 		let output = '';
 		const originalLog = console.log;
@@ -303,7 +303,7 @@ describe('LocalStorage.get_skills_reports()', () => {
 			output += msg + '\n';
 		};
 
-		storage2.get_skills_reports({ windows_n: 7, console_report: true });
+		storage2.getSkillsReports({ windows_n: 7, console_report: true });
 
 		console.log = originalLog;
 

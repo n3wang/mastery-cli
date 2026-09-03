@@ -1,7 +1,7 @@
 const { vaultPath } = require('./vault');
 const fs = require('fs');
 const { Term, DeckMask, TermStorage } = require('./structures.js');
-const { getDirAbsoluteUri } = require('./utils_functions.js');
+const { getDirAbsoluteUri } = require('./utils-functions.js');
 
 const path = require('path');
 

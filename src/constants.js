@@ -9,8 +9,8 @@
  * - Built-in study content (math formulas, terminology, etc.)
  */
 
-const { qmathformulas } = require('./terms_data/math_formulas.js');
-const { termJson } = require('./terms_data/terms.js');
+const { qmathformulas } = require('./terms-data/math_formulas.js');
+const { termJson } = require('./terms-data/terms.js');
 const { Term, Terminology, TermStorage } = require('./structures.js');
 
 

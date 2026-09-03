@@ -14,7 +14,7 @@
 
 const { exec } = require('node:child_process');
 const { Confirm } = require('enquirer');
-const { getMaidDirectory } = require('../../utils_functions');
+const { getMaidDirectory } = require('../../utils-functions');
 
 const NAME = 'data-science';
 

@@ -123,7 +123,7 @@ async function populateMasterDeck({ deckFilter = null } = {}) {
 
 	// Add terms_modules (like cfa, datascience, etc.)
 	try {
-		const { retrieve_terms_as_decks } = require('../md_terms_parser');
+		const { retrieve_terms_as_decks } = require('../md-terms-parser');
 		const termsModules = retrieve_terms_as_decks({ deckFilter });
 		for (const key of Object.keys(termsModules)) {
 			decks.addDeck(termsModules[key]);

@@ -3,7 +3,7 @@ const path = require('path');
 const {
 	parseMarkdownProblemsFromFolder,
 	convertToProblemsMetadata
-} = require('./md_dsa_parser.js');
+} = require('./md-dsa-parser.js');
 const { getDirAbsoluteUri } = require('./functions.js');
 
 /**

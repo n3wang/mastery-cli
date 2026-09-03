@@ -1,7 +1,7 @@
-const { parseMarkdownIntoDeck } = require('../src/md_terms_parser.js');
+const { parseMarkdownIntoDeck } = require('../src/md-terms-parser.js');
 const path = require('path');
 
-const filePath = path.join(__dirname, 'test_data', 'code_indentation_test.md');
+const filePath = path.join(__dirname, 'fixtures', 'code_indentation_test.md');
 const terms = parseMarkdownIntoDeck(filePath);
 
 console.log('=== Code Indentation Test ===');
