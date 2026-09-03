@@ -72,7 +72,7 @@ the other ten test files are Mocha + `assert`, and `makefile` invokes a third ru
 | Path | Size / count | Rationale |
 | --- | --- | --- |
 | `docs/` | 66 files, ~1 MB | Generated JSDoc HTML. Regenerate via `npm run doc`; publish to GitHub Pages from CI instead of committing. Also contains a file literally named `global.html#ProblemsManager` and a URL-encoded `to%20manage%20the%20settings.json%20file.html`, both hostile to non-Windows checkouts. |
-| `**/dist/` (10 directories) | — | Committed Babel `*.dev.js` output: `src/terms_data/dist`, `src/extensions/dsa-cli/dist`, `.../dsa_tests/dist`, `.../tests/dist`, `.../solutions/dist`, `.../base_code/dist`, `src/schedule-assistant/tests/dist`, `tests/dist`, and `tests/dist/dist` (nested duplicate). No build step produces or consumes these any more. |
+| `**/dist/` (10 directories) | — | Committed Babel `*.dev.js` output: `src/terms_data/dist`, `src/extensions/dsa-cli/dist`, `.../dsa_tests/dist`, `.../tests/dist`, `.../solutions/dist`, `.../base_code/dist`, `tests/dist`, and `tests/dist/dist` (nested duplicate). No build step produces or consumes these any more. |
 | `custom_modules/custom-template/` | ~90 font/asset files | A vendored copy of the default JSDoc template. Replace `jsdoc.json`'s `"template"` with the stock template or a published theme (`docdash`, `clean-jsdoc-theme`). |
 | `src/md_module.js` | 216 B | Dead: requires six symbols from `md_terms_parser.js` and exports nothing. Zero importers. |
 | `src/md_problems_parser.js` | 6.5 KB | Stale fork of `src/extensions/dsa-cli/md_problems_parser.js`; the extension copy has diverged (adds `USE_FILE_AS_MODULE`, preserves internal whitespace). Only importer is `tests/test_md_problems_parser.test.js`, which should be repointed at the extension copy. |
@@ -80,7 +80,6 @@ the other ten test files are Mocha + `assert`, and `makefile` invokes a third ru
 | `data/debuging.json` | — | Already deleted in the working tree (see `git status`); commit the deletion. Also note the typo in the name. |
 | `src/extensions/dsa-cli/data/db.json*` | 3 files | Runtime database + backups; already in `.gitignore`, needs untracking. |
 | `src/extensions/dsa-cli/user_files/*` | 6 files | Scratch files; already in `.gitignore`, needs untracking. |
-| `src/schedule-assistant/report.json` | 29 B | Runtime artifact (`{}`-shaped stub). |
 | `src/extensions/dsa-cli/dsa_tests/problem_report.json` | — | Runtime artifact. |
 | `src/extensions/dsa-cli/dsa_tests/temp.js` | — | Scratch. |
 | `demo/bruh.gif` | 649 KB | Unreferenced by `Readme.md`. |
@@ -169,7 +168,7 @@ will not survive the history rewrite anyway; deleting them explicitly avoids con
 | --- | --- | --- |
 | Modules that export a single class | `PascalCase.js` | `Quizzer.js`, `LocalStorage.js` |
 | All other modules | `kebab-case.js` | `term-scheduler.js`, `md-terms-parser.js` |
-| Directories | `kebab-case` | `schedule-assistant/`, `terms-data/` |
+| Directories | `kebab-case` | `terms-data/` |
 | Test files | `<subject>.test.js`, kebab-case | `local-storage.test.js` |
 | JSON config / data | `kebab-case.json` | `daily-decks.json` |
 | Functions / variables | `camelCase` | `parseMarkdownCards` |
@@ -519,7 +518,6 @@ git while holding live user state.
 | 3 | `src/user_data/settings.json` | **yes** | Legacy duplicate of (1) — byte-identical | legacy path in `userDataPaths.js` |
 | 4 | `src/user_data/_settings.json` | **yes** | Legacy duplicate of (2) — byte-identical | same |
 | 5 | `src/extensions/dsa-cli/user_files/temp_settings.json` | **yes** | DSA editor preference (`{"editor": "nano"}`) | `src/extensions/dsa-cli/settings-manager.js` |
-| 6 | `src/schedule-assistant/data/schedule-settings.json` | **yes** | Weekly schedule definition | `ScheduleAssistant.js` |
 
 Two more paths reference settings without being settings:
 `docs/dsa-cli_settings-manager.js.html` and
@@ -568,16 +566,9 @@ config, but the `temp_` prefix and the `user_files/` location put it inside a di
 extension model hardcodes the path:
 `settingsPath: 'extensions/dsa-cli/user_files/temp_settings.json'`.
 
-**(h) `schedule-settings.json` is personal data, not configuration.** It contains the
-author's gym routine, accent-practice habit, Trello board URLs
-(`trello.com/b/OcpjKQNZ/todo-board`), and enrolled EdX/MIT course links, shipped as if they
-were the product default. Whatever happens to the `schedule-assistant` feature (see §12),
-this file needs a neutral replacement.
-
 ### 7.3 Target design
 
-One config file, one schema, one loader. It lives at the root of the vault (§5.2), so it is
-tracked by the user alongside their decks:
+One config file, one schema, one loader. It lives at the root of the vault (§5.2), so it is tracked by the user alongside their decks:
 
 ```
 $MASTERY_HOME/config.json                    # the ONLY live settings file
@@ -876,7 +867,7 @@ extensions first**, so the vault migration has one path resolver to change inste
 - [ ] Fix `makefile`'s `jest tests` target
 - [ ] Repoint `test_md_problems_parser.test.js` at the surviving parser
 - [ ] Add `.mocharc.json`; make `npm test` (not `npm run tests`) the entry point
-- [ ] Fold `src/extensions/dsa-cli/dsa_tests/` and `src/schedule-assistant/tests/` into the run
+- [ ] Fold `src/extensions/dsa-cli/dsa_tests/` into the test run
 - [ ] Add characterization tests for the storage classes before they are moved in Phase 4
 
 **Phase 3 — Flatten the extensions (§6)**
@@ -965,29 +956,26 @@ extensions first**, so the vault migration has one path resolver to change inste
 
 4. **npm name** — `mastery-cli@1.0.33` is already published under the placeholder author
    metadata. Continue that line, or publish fresh under a scoped name (`@n3wang/mastery-cli`)? -> `@n3wang/mastery-cli`
-5. **`schedule-assistant`** — is this feature live? It has no CLI command in `cli.js` and
-   its only output is a 29-byte `report.json` stub. Ship, or cut for v1? -> remove it entirely, is not live, no even sure what it does
-
-6. **Config location** — moving to the OS config dir (§7.3 rule 5) is correct for a
+5. **Config location** — moving to the OS config dir (§7.3 rule 5) is correct for a
    globally installed CLI, but it breaks the current `mastery code`/`setting` workflow of
    "open the settings file inside the repo". Confirm the move, and whether a
    `MASTERY_CONFIG_DIR` env override is wanted for portable/corporate installs.
-7. **Breaking the `*ses` commands** — the alias plan (§8.5) keeps every short form working
+6. **Breaking the `*ses` commands** — the alias plan (§8.5) keeps every short form working
    indefinitely. Is that permanent, or should aliases be deprecated with a warning and
    removed at 2.0? Only affects the existing single user today. -> remove entirely, i am the only user
-8. **Undocumented commands** — `skill`, `entries`, `lastses`, `imath`, and `poh` are live
+7. **Undocumented commands** — `skill`, `entries`, `lastses`, `imath`, and `poh` are live
    handlers that never appear in `--help`. Which are real features to document, and which
    are experiments to delete? `hello`, `log`, and `sample` look clearly droppable; the
    others need your call. -> remove hello, log, sample, document what are not documented
-9. **Vault default location** — `<OS data dir>/mastery-cli` is the conventional answer, but
+8. **Vault default location** — `<OS data dir>/mastery-cli` is the conventional answer, but
    a vault the user is meant to `git init` and look at might belong somewhere more visible
    (`~/mastery`, or a path they pick at `vault init`). Buried-and-correct vs. visible-and-
    discoverable is a real trade here.
-10. **Session state across machines** — see §5.5. Keeping queues in `.cache/` means a
-    session started on one machine cannot be resumed on another. Probably right, but confirm.
-11. ~~**`data-science-cli`**~~ — **RESOLVED: removed.** The feature never worked:
+9. **Session state across machines** — see §5.5. Keeping queues in `.cache/` means a
+   session started on one machine cannot be resumed on another. Probably right, but confirm.
+10. ~~**`data-science-cli`**~~ — **RESOLVED: removed.** The feature never worked:
     `openJupyter` only asked whether a notebook had been solved without opening one,
     `openRandomJupyter` was a stub, and `runServer` pointed at a directory that did
     not exist. Deleted along with the `jupyter` command.
-12. **Plugin API later?** — §6.4 defers it. Worth stating a position in `CONTRIBUTING.md` so
+11. **Plugin API later?** — §6.4 defers it. Worth stating a position in `CONTRIBUTING.md` so
     the removal reads as a decision, not an oversight.

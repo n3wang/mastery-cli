@@ -25,7 +25,7 @@ This file is the resume point. If the session dies, read this first, then
 | npm publish | **deferred** | outward-facing; needs explicit go-ahead |
 | Vault default | `<OS data dir>/mastery-cli`, `$MASTERY_HOME` override | §12 Q9 |
 | `data-science-cli` | **removed** — non-functional stub | recoverable from `pre-oss-prep-archive` |
-| `schedule-assistant` | kept, personal data replaced with an example | §12 Q5 |
+| `schedule-assistant` | **removed** — unused feature with no CLI entry point | had no active users |
 | Test runner | Mocha | already the declared devDependency |
 
 ## Phase status
@@ -84,10 +84,6 @@ Final: 2654 -> 1784 tracked files. 152 passing, 6 pending.
 
 ### Carried forward
 
-- `src/schedule-assistant/StorableReport.js:7` defaults to the bare filename
-  `'report'`, so JsonDB resolves it against `process.cwd()` and the CLI drops a
-  `report` file into whatever directory it was run from. Gitignored for now;
-  **fix in phase 4** when it moves to the vault.
 - `src/extensions/dsa-cli/dsa_tests/` has 4 pre-existing failures, at least two of
   which are path-resolution bugs from the duplicate `getDirAbsoluteUri`
   (one resolves to `E:/projects-git/solutions/...`, a level too high).

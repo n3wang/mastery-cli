@@ -59,8 +59,7 @@ const KNOWN_KEYS = new Set([
 	'logging',
 	'llm',
 	'editor',
-	'dsa',
-	'schedule'
+	'dsa'
 ]);
 
 /**

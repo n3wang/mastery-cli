@@ -1,5 +1,4 @@
 const path = require('path');
-const { vaultPath } = require('../../vault');
 const url = require('url');
 const fs = require('fs');
 const { marked } = require('marked');
@@ -39,12 +38,12 @@ const getDirAbsoluteUri = (
 		.replace(/^\.\//, '');
 
 	// Scratch files -- the problem you are working on, its solution, the stash --
-	// are user state, so they live in the vault. They used to be written into
-	// the installed package, where an npm upgrade would discard them.
+	// are user state, so they live in user_data for consistency with project structure.
 	if (normalized === 'user_files' || normalized.startsWith('user_files/')) {
-		return vaultPath(
-			`.cache/scratch/${normalized.replace(/^user_files\/?/, '')}`
+		const userDataPath = path.resolve(
+			path.join(__dirname, '../../data/user_data/', normalized.replace(/^user_files\/?/, ''))
 		);
+		return userDataPath;
 	}
 
 	// Everything else is package content: problems, solutions, prompts.
@@ -230,12 +229,16 @@ function getCurrentDateTimeIso() {
 }
 
 const openEditorWithCommand = async instruction => {
-	await exec(`${instruction}`, (error, stdout, stderr) => {
-		if (error) {
-			console.error(`exec error: ${error}`);
-			return;
-		}
-		console.log(`Continue running`);
+	return new Promise((resolve, reject) => {
+		exec(`${instruction}`, (error, stdout, stderr) => {
+			if (error) {
+				console.error(`exec error: ${error}`);
+				reject(error);
+				return;
+			}
+			console.log(`Continue running`);
+			resolve();
+		});
 	});
 };
 

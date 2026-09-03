@@ -76,7 +76,7 @@ array in `src/features/index.js`. There is no discovery step and no plugin API
 | --- | --- | --- |
 | Module exporting one class | `PascalCase.js` | `Quizzer.js` |
 | Any other module | `kebab-case.js` | `md-terms-parser.js` |
-| Directories | `kebab-case` | `schedule-assistant/` |
+| Directories | `kebab-case` | `terms-data/` |
 | Tests | `<subject>.test.js` | `local-storage.test.js` |
 | Functions, variables, methods | `camelCase` | `parseMarkdownCards` |
 | Classes | `PascalCase` | `DeckMask` |

@@ -583,6 +583,10 @@ ${problemMetadata.description || 'Problem description not available.'}
 						}
 					}
 
+					// Ensure the directory exists before writing
+					const dir = path.dirname(absolute_temp_file_path);
+					fs.mkdirSync(dir, { recursive: true });
+
 					fs.writeFile(
 						absolute_temp_file_path,
 						wrappedContent,
@@ -822,6 +826,10 @@ ${problemMetadata.description || 'Problem description not available.'}
 						console.log(err);
 						return false;
 					}
+
+					// Ensure the directory exists before writing
+					const dir = path.dirname(absolute_temp_problem_file_path);
+					fs.mkdirSync(dir, { recursive: true });
 
 					fs.writeFile(
 						absolute_temp_problem_file_path,
