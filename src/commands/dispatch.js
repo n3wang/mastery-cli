@@ -26,14 +26,10 @@ function buildHandlers({ mastery, featureHandlers = {} }) {
 		quiz: core.quiz,
 		term: core.term,
 		math: core.math,
-		'math-session': core['math-session'],
 		'reset-queues': core['reset-queues'],
 
 		// Practice
-		'cloze-session': core.cses,
-		'cloze-math-session': core.mcses,
-		'algo-session': core.amses,
-		'algo-math-session': core.mamses,
+		// dsa, mdsa and cloze come from feature handlers
 
 		// Decks & masks
 		mask: core.masks,

@@ -226,7 +226,8 @@ class QuizzerWithDSA extends Quizzer {
 
 	clozeStudySession = async ({
 		reset_scheduler = false,
-		md_pseudo_mode = false
+		md_pseudo_mode = false,
+		session_size = 10
 	} = {}) => {
 		// Pick all the available string keys.
 
@@ -246,8 +247,13 @@ class QuizzerWithDSA extends Quizzer {
 				`\nAlgorithms left: ${cardsLeft} || Algorithms completed: ${cardsLearnt}${this.getTempCounterSuffix()}\n`
 			);
 		};
+		let sessionCount = 0;
 
-		while (!clozeScheduler.is_completed && !exit) {
+		while (
+			!clozeScheduler.is_completed &&
+			!exit &&
+			sessionCount < session_size
+		) {
 			const [cardsLeft, cardsLearnt] = [
 				clozeScheduler.getCardsToLearn(),
 				clozeScheduler.getCardsLearnt()
@@ -282,6 +288,7 @@ class QuizzerWithDSA extends Quizzer {
 			clozeScheduler.solveCard(answerIsCorrect);
 			await clozeScheduler.saveCards();
 			printCardsLeft(cardsLeft, cardsLearnt);
+			sessionCount++;
 		}
 	};
 
@@ -292,7 +299,8 @@ class QuizzerWithDSA extends Quizzer {
 			medium: false,
 			hard: false
 		},
-		md_pseudo_mode = false
+		md_pseudo_mode = false,
+		session_size = 10
 	} = {}) => {
 		// Pick all the available string keys.
 
@@ -314,8 +322,13 @@ class QuizzerWithDSA extends Quizzer {
 				`\nAlgorithms left: ${cardsLeft} || Algorithms completed: ${cardsLearnt}${this.getTempCounterSuffix()}\n`
 			);
 		};
+		let sessionCount = 0;
 
-		while (!dsaScheduler.is_completed && !exit) {
+		while (
+			!dsaScheduler.is_completed &&
+			!exit &&
+			sessionCount < session_size
+		) {
 			const [cardsLeft, cardsLearnt] = [
 				dsaScheduler.getCardsToLearn(),
 				dsaScheduler.getCardsLearnt()
@@ -341,6 +354,7 @@ class QuizzerWithDSA extends Quizzer {
 			dsaScheduler.solveCard(answerIsCorrect);
 			await dsaScheduler.saveCards();
 			printCardsLeft(cardsLeft, cardsLearnt);
+			sessionCount++;
 		}
 	};
 }

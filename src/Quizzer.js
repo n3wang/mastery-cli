@@ -1107,7 +1107,11 @@ class Quizzer {
 				console.log("No terms available in today's deck.");
 				return;
 			}
-			return this.runStudySession(allTerms, 'daily_deck');
+			const selectedTerms =
+				size_study_deck > 0
+					? allTerms.slice(0, size_study_deck)
+					: allTerms;
+			return this.runStudySession(selectedTerms, 'daily_deck');
 		}
 
 		// Handle Review Deck selection
@@ -1129,7 +1133,11 @@ class Quizzer {
 			this.reviewDecksStorage.markAsRevised(selectedReviewDeck.date);
 
 			const deckName = `review_${selectedReviewDeck.date}`;
-			return this.runStudySession(selectedReviewDeck.cards, deckName);
+			const reviewTerms =
+				size_study_deck > 0
+					? selectedReviewDeck.cards.slice(0, size_study_deck)
+					: selectedReviewDeck.cards;
+			return this.runStudySession(reviewTerms, deckName);
 		}
 
 		// Convert display title back to original title for dictionary lookup
@@ -1191,6 +1199,10 @@ class Quizzer {
 					term => term.category === category_selected
 				);
 			}
+		}
+
+		if (size_study_deck > 0) {
+			selected_terms = selected_terms.slice(0, size_study_deck);
 		}
 
 		return this.runStudySession(selected_terms, deck_selected);

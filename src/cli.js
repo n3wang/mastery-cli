@@ -53,10 +53,14 @@ const flags = {
 		type: 'boolean',
 		desc: 'Enable LLM follow-up on wrong answers (--llm-followup / --no-llm-followup)'
 	},
+	session: {
+		type: 'boolean',
+		default: false,
+		desc: 'Run command in session mode when supported (e.g., term, math, dsa, mdsa, cloze)'
+	},
 	n: {
 		type: 'number',
-		default: 10,
-		desc: 'For math-session: number of problems to solve (default: 10)'
+		desc: 'For --session commands: number of items to solve (default: 10)'
 	}
 };
 

@@ -64,6 +64,15 @@ tells you what is in the vault and whether you have uncommitted study progress.
 
 Move it anywhere by setting `MASTERY_HOME`.
 
+## Sessions
+
+mastery term --session
+mastery math --session --n 20
+mastery dsa --session
+mastery mdsa --session
+mastery cloze --session
+
+
 ## Writing a deck
 
 A deck is a directory with an `index.js` and some markdown:

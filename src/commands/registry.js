@@ -40,22 +40,29 @@ const COMMANDS = [
 		aliases: ['ses'],
 		group: 'study',
 		desc: 'Start a study session',
-		usage: 'mastery session',
-		examples: ['mastery session']
+		usage: 'mastery session [--n=<count>]',
+		examples: ['mastery session', 'mastery session --n=20'],
+		flags: { '--n': 'Number of terms to run from selected deck' }
 	},
 	{
 		name: 'session-filtered',
 		aliases: ['fses'],
 		group: 'study',
 		desc: 'Study session limited to the decks your active masks enable',
-		usage: 'mastery fses'
+		usage: 'mastery fses [--n=<count>]',
+		examples: ['mastery fses', 'mastery fses --n=20'],
+		flags: {
+			'--n': 'Number of terms to run from selected filtered deck'
+		}
 	},
 	{
 		name: 'session-reverse',
 		aliases: ['lastses'],
 		group: 'study',
 		desc: 'Study session in reverse order',
-		usage: 'mastery lastses'
+		usage: 'mastery lastses [--n=<count>]',
+		examples: ['mastery lastses', 'mastery lastses --n=20'],
+		flags: { '--n': 'Number of terms to run from selected deck' }
 	},
 	{
 		name: 'quiz',
@@ -68,28 +75,34 @@ const COMMANDS = [
 		name: 'term',
 		aliases: [],
 		group: 'study',
-		desc: 'Study a single flashcard',
-		usage: 'mastery term'
+		desc: 'Study a single flashcard (or run session mode)',
+		usage: 'mastery term [--session]',
+		examples: [
+			'mastery term',
+			'mastery term --session',
+			'mastery term --session --n=20'
+		],
+		flags: {
+			'--session': 'Run full term study session',
+			'--n': 'Number of terms to run in session mode (default: 10)'
+		}
 	},
 	{
 		name: 'math',
 		aliases: [],
 		group: 'study',
-		desc: 'Answer a mathematics prompt',
-		usage: 'mastery math'
-	},
-	{
-		name: 'math-session',
-		aliases: ['math-ses'],
-		group: 'study',
-		desc: 'Math session with multiple problems and accuracy tracking',
-		usage: 'mastery math-session [--n=<count>]',
+		desc: 'Answer a mathematics prompt (or run session mode)',
+		usage: 'mastery math [--session] [--n=<count>]',
 		examples: [
-			'mastery math-session',
-			'mastery math-ses --n=20',
-			'mastery math-ses --n=5'
+			'mastery math',
+			'mastery math --session',
+			'mastery math --session --n=20',
+			'mastery math --session --n=5'
 		],
-		flags: { '--n': 'Number of problems to solve (default: 10)' }
+		flags: {
+			'--session': 'Run tracked multi-problem math session',
+			'--n': 'Number of problems to solve in session mode (default: 10)'
+		}
 	},
 	{
 		name: 'reset-queues',
@@ -104,52 +117,53 @@ const COMMANDS = [
 		name: 'dsa',
 		aliases: [],
 		group: 'practice',
-		desc: 'Practice data structures and algorithms problems',
-		usage: 'mastery dsa [--all]',
-		examples: ['mastery dsa', 'mastery dsa --all'],
-		flags: { '--all': 'Show every problem instead of the recommended ones' }
+		desc: 'Practice DSA problems (or run algorithm session mode)',
+		usage: 'mastery dsa [--all] [--session]',
+		examples: [
+			'mastery dsa',
+			'mastery dsa --all',
+			'mastery dsa --session',
+			'mastery dsa --session --n=20'
+		],
+		flags: {
+			'--all': 'Show every problem instead of the recommended ones',
+			'--session': 'Run algorithm challenge session mode',
+			'--n': 'Number of problems to run in session mode (default: 10)'
+		}
 	},
 	{
 		name: 'mdsa',
 		aliases: [],
 		group: 'practice',
-		desc: 'Practice DSA problems in markdown/pseudocode mode',
-		usage: 'mastery mdsa [--all]'
+		desc: 'Practice DSA in markdown mode (or run markdown session mode)',
+		usage: 'mastery mdsa [--all] [--session]',
+		examples: [
+			'mastery mdsa',
+			'mastery mdsa --all',
+			'mastery mdsa --session',
+			'mastery mdsa --session --n=20'
+		],
+		flags: {
+			'--all': 'Show every problem instead of the recommended ones',
+			'--session': 'Run markdown algorithm challenge session mode',
+			'--n': 'Number of problems to run in session mode (default: 10)'
+		}
 	},
 	{
 		name: 'cloze',
 		aliases: [],
 		group: 'practice',
-		desc: 'Fill-in-the-blank coding exercises',
-		usage: 'mastery cloze'
-	},
-	{
-		name: 'cloze-session',
-		aliases: ['cses'],
-		group: 'practice',
-		desc: 'A session of cloze exercises',
-		usage: 'mastery cses'
-	},
-	{
-		name: 'cloze-math-session',
-		aliases: ['mcses'],
-		group: 'practice',
-		desc: 'Cloze pseudocode session of ten random math challenges',
-		usage: 'mastery mcses'
-	},
-	{
-		name: 'algo-session',
-		aliases: ['amses'],
-		group: 'practice',
-		desc: 'Session of ten random algorithm challenges',
-		usage: 'mastery amses'
-	},
-	{
-		name: 'algo-math-session',
-		aliases: ['mamses'],
-		group: 'practice',
-		desc: 'Pseudocode algorithm session of ten random math challenges',
-		usage: 'mastery mamses'
+		desc: 'Fill-in-the-blank coding exercises (or run cloze session mode)',
+		usage: 'mastery cloze [--session]',
+		examples: [
+			'mastery cloze',
+			'mastery cloze --session',
+			'mastery cloze --session --n=20'
+		],
+		flags: {
+			'--session': 'Run cloze study session mode',
+			'--n': 'Number of cloze problems to run in session mode (default: 10)'
+		}
 	},
 
 	// --- Decks & masks -----------------------------------------------------

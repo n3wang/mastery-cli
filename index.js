@@ -61,12 +61,7 @@ const { Mastery } = utils;
 
 		const requested = findRequestedCommand(input);
 		if (requested && typeof handlers[requested] === 'function') {
-			// Pass flags to handlers that need them (e.g., math-session)
-			if (requested === 'math-session' || requested === 'math-ses') {
-				await handlers[requested](flags);
-			} else {
-				await handlers[requested]();
-			}
+			await handlers[requested](flags);
 			return;
 		}
 

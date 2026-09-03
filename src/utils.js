@@ -305,16 +305,18 @@ class Mastery {
 			services: () => {
 				this.services();
 			},
-			math: () => {
+			math: async (flags = {}) => {
+				if (flags?.session) {
+					const sessionCount = flags?.n ?? 10;
+					const mathSessionManager = new MathSessionManager(
+						this.mQuizer
+					);
+					await mathSessionManager.runSession(sessionCount);
+					return;
+				}
+
 				this.mQuizer.askMathQuestion();
-			}, // Practice math problems
-			'math-session': async (flags = {}) => {
-				const sessionCount = flags?.n ?? 10;
-				const mathSessionManager = new MathSessionManager(
-					this.mQuizer
-				);
-				await mathSessionManager.runSession(sessionCount);
-			}, // Math session with tracking
+			}, // Practice math problems (or session mode)
 			quiz: async () => {
 				await this.ensureTermsLoaded();
 				return this.mQuizer.smallTermsSession({
@@ -325,23 +327,36 @@ class Mastery {
 			imath: () => {
 				this.increasePerformance('math_ss');
 			}, // Increase math score
-			term: async () => {
+			term: async (flags = {}) => {
+				if (flags?.session) {
+					await this.ensureTermsLoaded();
+					const size_study_deck = flags?.n ?? 10;
+					return this.mQuizer.studySession(this.masterDeck, {
+						size_study_deck
+					});
+				}
+
 				await this.ensureTermsLoaded();
 				return this.mQuizer.pickAndAskTermQuestion();
-			}, // Flashcard study
+			}, // Flashcard study (or session mode)
 			clean: () => {
 				this.askToClean();
 			}, // Clear terminal screen
-			ses: async () => {
+			ses: async (flags = {}) => {
 				await this.ensureTermsLoaded();
-				return this.mQuizer.studySession();
+				return this.mQuizer.studySession(this.masterDeck, {
+					size_study_deck: flags?.n ?? -1
+				});
 			}, // Study session
-			lastses: async () => {
+			lastses: async (flags = {}) => {
 				// Study session in reverse order
 				await this.ensureTermsLoaded();
-				return this.mQuizer.studySession({ reverse: true });
+				return this.mQuizer.studySession(this.masterDeck, {
+					reverse: true,
+					size_study_deck: flags?.n ?? -1
+				});
 			},
-			fses: async () => {
+			fses: async (flags = {}) => {
 				// Filtered study session based on active masks
 				const { getSettingsManager } = require('./SettingsManager');
 				const settingsManager = getSettingsManager();
@@ -361,7 +376,9 @@ class Mastery {
 				}
 
 				await this.ensureTermsLoaded({ deckFilter: enabledDecks });
-				return this.mQuizer.filteredStudySession();
+				return this.mQuizer.filteredStudySession(this.masterDeck, {
+					size_study_deck: flags?.n ?? -1
+				});
 			},
 			'reset-queues': async () => {
 				// Reset study session queues while preserving hash data
@@ -396,28 +413,6 @@ class Mastery {
 				// Display deletion queue information and JSON file location
 				await this.ensureTermsLoaded();
 				await this.mQuizer.cleanupDeletionQueue(flags.backup || false);
-			},
-			cses: async () => {
-				await this.ensureTermsLoaded();
-				return this.mQuizer.clozeStudySession();
-			}, // Fill-in-the-blank session
-			mcses: async () => {
-				// Markdown cloze session (pseudocode mode)
-				await this.ensureTermsLoaded();
-				return this.mQuizer.clozeStudySession({
-					md_pseudo_mode: true
-				});
-			},
-			amses: async () => {
-				await this.ensureTermsLoaded();
-				return this.mQuizer.algorithmicStudySession();
-			}, // Algorithm session
-			mamses: async () => {
-				// Markdown algorithm session (pseudocode mode)
-				await this.ensureTermsLoaded();
-				return this.mQuizer.algorithmicStudySession({
-					md_pseudo_mode: true
-				});
 			},
 			report: () => {
 				// Generate comprehensive progress report

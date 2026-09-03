@@ -119,9 +119,60 @@ function getHandlers({ flags = {}, masteryManager = null } = {}) {
 	};
 
 	return {
-		dsa: () => run({ md_pseudo_mode: false }),
-		mdsa: () => run({ md_pseudo_mode: true }),
+		dsa: async () => {
+			if (flags.session) {
+				const session_size = flags?.n ?? 10;
+				if (masteryManager) {
+					await masteryManager.ensureTermsLoaded();
+					return masteryManager.mQuizer.algorithmicStudySession({
+						session_size
+					});
+				}
+
+				const dsaTrainer = getTrainer();
+				await dsaTrainer.ensureProblemsLoaded();
+				return dsaTrainer.showRecommendedProblems({
+					md_pseudo_mode: false
+				});
+			}
+
+			return run({ md_pseudo_mode: false });
+		},
+		mdsa: async () => {
+			if (flags.session) {
+				const session_size = flags?.n ?? 10;
+				if (masteryManager) {
+					await masteryManager.ensureTermsLoaded();
+					return masteryManager.mQuizer.algorithmicStudySession({
+						session_size,
+						md_pseudo_mode: true
+					});
+				}
+
+				const dsaTrainer = getTrainer();
+				await dsaTrainer.ensureProblemsLoaded();
+				return dsaTrainer.showRecommendedProblems({
+					md_pseudo_mode: true
+				});
+			}
+
+			return run({ md_pseudo_mode: true });
+		},
 		cloze: async () => {
+			if (flags.session) {
+				const session_size = flags?.n ?? 10;
+				if (masteryManager) {
+					await masteryManager.ensureTermsLoaded();
+					return masteryManager.mQuizer.clozeStudySession({
+						session_size
+					});
+				}
+
+				const dsaTrainer = getTrainer();
+				await dsaTrainer.ensureProblemsLoaded();
+				return dsaTrainer.openRandomClozeDSAProblem();
+			}
+
 			const dsaTrainer = getTrainer();
 			await dsaTrainer.ensureProblemsLoaded();
 			return dsaTrainer.openRandomClozeDSAProblem();
