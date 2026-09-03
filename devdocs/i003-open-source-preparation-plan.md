@@ -15,7 +15,6 @@
 | Commits on `master` | 1,672 |
 | Stale remote branches | 8 (excluding `master`/`HEAD`) |
 | Tracked files under `src/data/user_data/terms_modules` | 626 (~17 MB working tree) |
-| Tracked files under `docs/` (generated JSDoc HTML) | 66 |
 | `console.log` calls in `src/*.js` | ~370 (150 in `Quizzer.js`, 160 in `utils.js`) |
 | Settings files | 6, across 3 independent loaders (§7) |
 | User-state write sites outside `user_data/` | DSA extension writes into the installed package (§5.1) |
@@ -71,9 +70,11 @@ the other ten test files are Mocha + `assert`, and `makefile` invokes a third ru
 
 | Path | Size / count | Rationale |
 | --- | --- | --- |
-| `docs/` | 66 files, ~1 MB | Generated JSDoc HTML. Regenerate via `npm run doc`; publish to GitHub Pages from CI instead of committing. Also contains a file literally named `global.html#ProblemsManager` and a URL-encoded `to%20manage%20the%20settings.json%20file.html`, both hostile to non-Windows checkouts. |
+| `docs/` | 66 files, ~1 MB | **Already deleted.** Generated JSDoc HTML. Should be regenerated from CI and published to GitHub Pages, not committed. |
 | `**/dist/` (10 directories) | — | Committed Babel `*.dev.js` output: `src/terms_data/dist`, `src/extensions/dsa-cli/dist`, `.../dsa_tests/dist`, `.../tests/dist`, `.../solutions/dist`, `.../base_code/dist`, `tests/dist`, and `tests/dist/dist` (nested duplicate). No build step produces or consumes these any more. |
-| `custom_modules/custom-template/` | ~90 font/asset files | A vendored copy of the default JSDoc template. Replace `jsdoc.json`'s `"template"` with the stock template or a published theme (`docdash`, `clean-jsdoc-theme`). |
+| `custom_modules/custom-template/` | ~90 font/asset files | **Already deleted.** Was a vendored copy of the default JSDoc template. |
+| `jsdoc.json` | — | **Deleted.** JSDoc configuration. If docs are needed in the future, regenerate from CI instead. |
+| `report` | 29 B | **Deleted.** Stale runtime artifact at root. `StorableReport` now correctly writes to vault. |
 | `src/md_module.js` | 216 B | Dead: requires six symbols from `md_terms_parser.js` and exports nothing. Zero importers. |
 | `src/md_problems_parser.js` | 6.5 KB | Stale fork of `src/extensions/dsa-cli/md_problems_parser.js`; the extension copy has diverged (adds `USE_FILE_AS_MODULE`, preserves internal whitespace). Only importer is `tests/test_md_problems_parser.test.js`, which should be repointed at the extension copy. |
 | `src/user_data/` | 2 files | Byte-identical duplicate of `src/data/user_data/settings.json` and `_settings.json`. `src/userDataPaths.js` already treats `src/data/user_data` as canonical and has migration logic for the legacy path. |

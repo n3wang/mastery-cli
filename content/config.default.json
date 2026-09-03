@@ -11,7 +11,7 @@
 		"quizzer_force_learn_last_three": 3,
 		"term_scheduler_working_set_length": 5,
 		"mini_term_scheduler_working_set_length": 3,
-		"quiz_allow_reattempts": 3,
+		"quiz_allow_reattempts": 2,
 		"hash_based_selection": {
 			"enabled": true,
 			"sample_size": 15,

@@ -49,8 +49,7 @@
 		"test": "mocha",
 		"tests": "mocha",
 		"format": "prettier --write \"./**/*.{js,json}\"",
-		"format:check": "prettier --check \"./**/*.{js,json}\"",
-		"doc": "jsdoc -c jsdoc.json"
+		"format:check": "prettier --check \"./**/*.{js,json}\""
 	},
 	"dependencies": {
 		"chalk": "^4.1.2",

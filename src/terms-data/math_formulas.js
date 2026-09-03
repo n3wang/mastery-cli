@@ -7,6 +7,14 @@ const dtypes = {
 	sd_5: 'sd_5',
 	sd_6: 'sd_6',
 
+	// 4-9 (multiplication range)
+	m_1: 'm_1',
+	m_2: 'm_2',
+	m_3: 'm_3',
+	m_4: 'm_4',
+	m_5: 'm_5',
+	m_6: 'm_6',
+
 	// 2-50
 	md_1: 'md_1',
 	md_2: 'md_2',
@@ -36,31 +44,37 @@ const dtypes = {
 
 const mathSimple = [
 	{
-		formula_name: 'sum_simple',
+		formula_name: 'sum large numbers',
 		form: 'y = ld_1 + ld_2 ',
 		replace: ['ld_1', 'ld_2'],
 		calculates: ['y']
 	},
 	{
-		formula_name: 'subs_simple',
+		formula_name: 'subtraction large-medium',
 		form: 'y = ld_1 - md_2 ',
 		replace: ['ld_1', 'md_2'],
 		calculates: ['y']
 	},
 	{
-		formula_name: 'sub_simple',
+		formula_name: 'subtraction large numbers',
 		form: 'y = ld_1 - ld_2 ',
 		replace: ['ld_1', 'ld_2'],
 		calculates: ['y']
 	},
 	{
-		formula_name: 'mult_simple',
+		formula_name: 'multiplication 4-19',
 		form: 'y = sd_1 * sd_2',
 		replace: ['sd_1', 'sd_2'],
 		calculates: ['y']
 	},
 	{
-		formula_name: 'div_simple',
+		formula_name: 'multiplication 4-9',
+		form: 'y = m_1 * m_2',
+		replace: ['m_1', 'm_2'],
+		calculates: ['y']
+	},
+	{
+		formula_name: 'division 4-20',
 		form: 'y = sd_1 / sd_2 ',
 		replace: ['sd_1', 'sd_2'],
 		calculates: ['y'],

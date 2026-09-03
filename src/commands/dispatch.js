@@ -26,6 +26,7 @@ function buildHandlers({ mastery, featureHandlers = {} }) {
 		quiz: core.quiz,
 		term: core.term,
 		math: core.math,
+		'math-session': core['math-session'],
 		'reset-queues': core['reset-queues'],
 
 		// Practice

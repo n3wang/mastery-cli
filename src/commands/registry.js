@@ -79,6 +79,19 @@ const COMMANDS = [
 		usage: 'mastery math'
 	},
 	{
+		name: 'math-session',
+		aliases: ['math-ses'],
+		group: 'study',
+		desc: 'Math session with multiple problems and accuracy tracking',
+		usage: 'mastery math-session [--n=<count>]',
+		examples: [
+			'mastery math-session',
+			'mastery math-ses --n=20',
+			'mastery math-ses --n=5'
+		],
+		flags: { '--n': 'Number of problems to solve (default: 10)' }
+	},
+	{
 		name: 'reset-queues',
 		aliases: [],
 		group: 'study',

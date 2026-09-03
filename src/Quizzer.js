@@ -496,12 +496,13 @@ class Quizzer {
 
 	/**
 	 * Depending on the random type, it will return a random number from different ranges:
-	 * - d: 2- 100
+	 * - d: 2-100
 	 * - sd: 2-20
+	 * - m: 4-9 (multiplication table range)
 	 * - md: 2-50
 	 * - ld: 2-10000
 	 *
-	 * @param {Enumerator: String} type "d | sd | md | ld"
+	 * @param {Enumerator: String} type "d | sd | m | md | ld"
 	 * @returns
 	 */
 	getRandomFromType(type) {
@@ -512,6 +513,9 @@ class Quizzer {
 			return constants.getRandomInt(100 - ATLEAST) + ATLEAST;
 		} else if (type == 'sd') {
 			return constants.getRandomInt(20 - ATLEAST) + ATLEAST;
+		} else if (type == 'm') {
+			// 4-9 (multiplication table range)
+			return constants.getRandomInt(6) + 4;
 		} else if (type == 'md') {
 			return constants.getRandomInt(50 - ATLEAST) + ATLEAST;
 		} else if (type == 'ld') {
@@ -2337,7 +2341,7 @@ class Quizzer {
 			}
 
 			const quiz_allow_reattempts =
-				Settings?.queue_configurations?.quiz_allow_reattempts ?? 3;
+				Settings?.queue_configurations?.quiz_allow_reattempts ?? 2;
 			let answerIsCorrect = false;
 
 			for (let i = 0; i < quiz_allow_reattempts; i++) {

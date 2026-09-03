@@ -52,6 +52,11 @@ const flags = {
 	llmFollowup: {
 		type: 'boolean',
 		desc: 'Enable LLM follow-up on wrong answers (--llm-followup / --no-llm-followup)'
+	},
+	n: {
+		type: 'number',
+		default: 10,
+		desc: 'For math-session: number of problems to solve (default: 10)'
 	}
 };
 

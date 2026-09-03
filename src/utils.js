@@ -61,6 +61,8 @@ const { Quizzer: FlashQuizzer } = require('./Quizzer.js');
 
 const { LocalStorage } = require('./LocalStorage.js');
 
+const { MathSessionManager } = require('./MathSessionManager.js');
+
 const localStorageInstance = new LocalStorage();
 localStorageInstance.load();
 
@@ -306,6 +308,13 @@ class Mastery {
 			math: () => {
 				this.mQuizer.askMathQuestion();
 			}, // Practice math problems
+			'math-session': async (flags = {}) => {
+				const sessionCount = flags?.n ?? 10;
+				const mathSessionManager = new MathSessionManager(
+					this.mQuizer
+				);
+				await mathSessionManager.runSession(sessionCount);
+			}, // Math session with tracking
 			quiz: async () => {
 				await this.ensureTermsLoaded();
 				return this.mQuizer.smallTermsSession({
