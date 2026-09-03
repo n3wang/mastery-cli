@@ -37,12 +37,12 @@ This file is the resume point. If the session dies, read this first, then
 | 2 | Tests green | **done** | `d44b5b0` |
 | 3 | Flatten extensions | **done** | `6d1c2d2` |
 | 4 | User data vault | **done** | `3e07c5c` |
-| 5 | Settings consolidation | pending | |
-| 6 | Command & help unification | pending | |
-| 7 | Metadata & packaging | pending | |
-| 8 | Naming | pending | |
-| 9 | Docs & CI | pending | |
-| 10 | History & publish | **deferred — needs confirmation** | |
+| 5 | Settings consolidation | **done** | `1036398` |
+| 6 | Command & help unification | **done** | `a71353d` |
+| 7 | Metadata & packaging | **done** | `b10742d` |
+| 8 | Naming | **done** | `24ef0e5` |
+| 9 | Docs & CI | **done** | `d053a7d` |
+| 10 | History & publish | **NOT DONE — needs your go-ahead** | |
 
 ## Log
 
@@ -57,6 +57,24 @@ This file is the resume point. If the session dies, read this first, then
 - **Phase 4** `3e07c5c`: vault live at `$MASTERY_HOME` (default
   `<OS data dir>/mastery-cli`). Personal decks migrated out of the repo;
   2485 -> 1860 tracked files. 140 passing, 6 pending.
+
+- **Phase 5** `1036398`: six settings files and three loaders -> one file,
+  one singleton loader. Deleted userDataPaths.js and the second
+  SettingsManager. Replaced the personal schedule with an example.
+- **Phase 6** `a71353d`: one command registry drives dispatch and help.
+  Feature commands appear in --help for the first time. Snapshot-style
+  tests stop the two halves drifting again.
+- **Phase 7** `b10742d`: package was broken (files pointed at a directory
+  renamed long ago) and shipped personal data. 37.1 MB -> 2.1 MB.
+  MIT LICENSE, real metadata, bins trimmed to mastery + mcli.
+- **Phase 8** `24ef0e5`: file and method naming standardised;
+  26 snake_case methods -> camelCase.
+- **Phase 9** `d053a7d`: README rewritten, CONTRIBUTING / SECURITY /
+  CHANGELOG added, CI on node 18/20/22 x ubuntu/windows including a job
+  that unpacks the tarball and fails if user data leaked into it.
+  Deleted custom_modules/ (superseded by src/local-modules).
+
+Final: 2654 -> 1784 tracked files. 152 passing, 6 pending.
 
 ### Resolved since
 
@@ -86,3 +104,31 @@ This file is the resume point. If the session dies, read this first, then
   - 2x `parseMarkdownCards` trailing-entry at EOF - needs a product decision
     (spec says emit, code has it commented out with a duplicate-prevention note)
   - 1x `parseMarkdownProblemsFromModules` - needs $MASTERY_HOME from phase 4
+
+## What is left, and why
+
+Phase 10 was deliberately not run. Each item is destructive or
+outward-facing, so it needs an explicit decision:
+
+1. **History rewrite.** `.git` is still 197 MB and every earlier commit
+   still contains the personal decks and book-derived notes. Untracking
+   them (phase 4) does not remove them from history — a clone still gets
+   them. Options are a clean orphan history or `git filter-repo`.
+2. **Deleting stale branches** (8 on origin).
+3. **Pushing to a public repo.**
+4. **Publishing to npm.** The tarball is verified working and clean, but
+   publishing is irreversible for a given version number.
+
+### Two content decisions still open
+
+- **14 of 319 DSA problems have no solution file.** Three integrity tests
+  are pending on it. Authoring them is content work.
+- **`data-science` feature is a stub.** `openJupyter` never opens a
+  notebook, it only asks whether one was solved. Carried over as-is;
+  finish it or drop it.
+
+### Safe to delete once you have checked the vault
+
+`src/data/user_data/` is untracked but still on disk. Everything in it was
+copied into the vault — run `mastery vault status` to confirm, then remove
+it yourself.
