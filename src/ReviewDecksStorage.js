@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { getDirAbsoluteUri } = require('./utils_functions');
+const { vaultPath } = require('./vault');
 
 /**
  * Manages storage of review decks for spaced repetition
@@ -12,9 +12,9 @@ const { getDirAbsoluteUri } = require('./utils_functions');
  * }
  */
 class ReviewDecksStorage {
-	constructor(filename = 'review_decks') {
+	constructor(filename = 'review-decks') {
 		this.filename = filename;
-		this.filepath = getDirAbsoluteUri(`user_data/${this.filename}.json`);
+		this.filepath = vaultPath(`progress/${this.filename}.json`);
 		this.data = {};
 		this.maxDates = 5; // Store up to 5 different dates
 		this.load();

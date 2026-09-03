@@ -1,14 +1,17 @@
 const { JsonDB, Config } = require('../local-modules/json-db');
+const { ensureVaultPath } = require('../vault');
 const Functions = require('./functions');
 
 const DEBUG = false;
 
 class StorableReport {
-	constructor({ filename = 'report', autosave = true } = {}) {
-		this.filename = filename;
+	constructor({ filename = 'schedule-report', autosave = true } = {}) {
+		// Resolve inside the vault. A bare relative name here made JsonDB write
+		// ./report into whatever directory the CLI happened to be launched from.
+		this.filename = ensureVaultPath(`progress/${filename}`);
 		this.autosave = autosave;
 
-		this.db = new JsonDB(new Config(filename, true, false, '/'));
+		this.db = new JsonDB(new Config(this.filename, true, false, '/'));
 		this.getReport().then(reportData => {
 			this.report = reportData;
 		});

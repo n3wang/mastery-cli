@@ -1,5 +1,6 @@
 const { JsonDB, Config } = require('../../local-modules/json-db');
 const { getCurrentDate, getDirAbsoluteUri } = require('./functions');
+const { ensureVaultPath } = require('../../vault');
 const path = require('path');
 const fs = require('fs');
 const DEBUG = false;
@@ -17,7 +18,9 @@ class StorableReport {
 		if (DEBUG) console.log('Filename being used', this.filename);
 		this.autosave = autosave;
 
-		const fullPath = path.join(__dirname, 'data', 'db.json'); // assuming the file should be stored in a "data" subdirectory
+		// The DSA progress database is user data: it belongs in the vault,
+		// not in the installed package.
+		const fullPath = ensureVaultPath('progress/dsa-progress.json');
 		this.fullPath = fullPath;
 		try {
 			this.db = new JsonDB(new Config(fullPath, true, false, '/'));

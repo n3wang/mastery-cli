@@ -1,16 +1,16 @@
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
-const { getDirAbsoluteUri } = require('./utils_functions');
+const { vaultPath } = require('./vault');
 
 /**
  * Manages persistent storage of term ratings in CSV format
  * Uses term hash as unique identifier
  */
 class RatingStorage {
-	constructor(filename = 'term_ratings') {
+	constructor(filename = 'term-ratings') {
 		this.filename = filename;
-		this.filepath = getDirAbsoluteUri(`user_data/temp/${this.filename}.csv`);
+		this.filepath = vaultPath(`progress/${this.filename}.csv`);
 		this.headers = [
 			'term_hash',
 			'term_name',

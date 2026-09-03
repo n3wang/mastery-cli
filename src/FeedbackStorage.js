@@ -1,16 +1,16 @@
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
-const { getDirAbsoluteUri } = require('./utils_functions');
+const { vaultPath } = require('./vault');
 
 /**
  * Manages persistent storage of term feedback/corrections
  * Uses term hash as unique identifier
  */
 class FeedbackStorage {
-	constructor(filename = 'term_feedback') {
+	constructor(filename = 'term-feedback') {
 		this.filename = filename;
-		this.filepath = getDirAbsoluteUri(`user_data/temp/${this.filename}.json`);
+		this.filepath = vaultPath(`.cache/${this.filename}.json`);
 		this.data = {}; // { hash: { feedback: string, timestamp: string, history: [] } }
 		this.load();
 	}

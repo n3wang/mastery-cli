@@ -119,6 +119,10 @@ class CommandsInformation {
 				'Generate a report that includes weather data',
 				'report'
 			),
+			vault: new Command(
+				'Manage your data vault: path | init | status | migrate',
+				'vault'
+			),
 			code: new Command(
 				'Output the root directory of the mastery CLI and copy the path to clipboard',
 				'code'

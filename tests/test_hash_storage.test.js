@@ -34,7 +34,7 @@ describe('HashStorage', function () {
 		it('should use default filename when none provided', function () {
 			const defaultStorage = new HashStorage();
 			assert(
-				defaultStorage.filepath.includes('term_completion_hashes.json')
+				defaultStorage.filepath.includes('term-completion-hashes.json')
 			);
 		});
 	});

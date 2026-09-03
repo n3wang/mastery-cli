@@ -13,7 +13,7 @@ describe('Quizzer Hash-Based Selection Tests', () => {
 	let mockMasteryManager;
 	let testTerms;
 
-	beforeEach(function () {
+	beforeEach(async function () {
 		// Setup test terms with varied characteristics
 		testTerms = [
 			{
@@ -70,7 +70,7 @@ describe('Quizzer Hash-Based Selection Tests', () => {
 		quizzer.termCompletionTracker = new HashStorage(
 			`test_quizzer_${testId}`
 		);
-		quizzer.termCompletionTracker.load();
+		await quizzer.termCompletionTracker.load();
 	});
 
 	afterEach(function () {

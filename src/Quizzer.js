@@ -1,3 +1,4 @@
+const { vaultPath } = require('./vault');
 const chalk = require('chalk');
 const Settings = require('./settings');
 const fs = require('fs');
@@ -223,7 +224,7 @@ class Quizzer {
 		const { getDirAbsoluteUri } = require('./utils_functions');
 
 		try {
-			const tempDir = getDirAbsoluteUri('./user_data/temp/');
+			const tempDir = vaultPath('.cache/queues/');
 
 			// Define patterns for queue files (but not hash files)
 			const queuePatterns = [
@@ -1457,8 +1458,8 @@ class Quizzer {
 	}
 
 	writeModuleCommonInstructions(modulePath, mode, nextValue) {
-		const moduleIndexPath = getDirAbsoluteUri(
-			`user_data/terms_modules/${modulePath}/index.js`
+		const moduleIndexPath = vaultPath(
+			`decks/${modulePath}/index.js`
 		);
 
 		if (!fs.existsSync(moduleIndexPath)) {
@@ -2168,12 +2169,12 @@ class Quizzer {
 			const today = new Date();
 			const dateStr = today.toISOString().split('T')[0]; // YYYY-MM-DD format
 			const annotationFile = path.join(
-				'user_data',
+				'stats',
 				`terms-annotation-${dateStr}.md`
 			);
 
 			const { getDirAbsoluteUri } = require('./utils_functions');
-			const fullPath = getDirAbsoluteUri(annotationFile);
+			const fullPath = vaultPath(annotationFile);
 
 			// Ensure the directory exists
 			const dir = path.dirname(fullPath);

@@ -1,10 +1,10 @@
-const { getDirAbsoluteUri } = require('./utils_functions');
+const { vaultPath } = require('./vault');
 /**
  * Used for storing user data in a local storage.
  */
 
 class LocalStorage {
-	constructor(name = 'local_storage', base_dir = 'user_data/temp/') {
+	constructor(name = 'local_storage', base_dir = '.cache/queues/') {
 		/**
 		 * Structure of date based stats:
 		 *
@@ -15,7 +15,7 @@ class LocalStorage {
 		 */
 
 		this.name = name;
-		this.absolute_uri = getDirAbsoluteUri(`${base_dir}${this.name}.json`);
+		this.absolute_uri = vaultPath(`${base_dir}${this.name}.json`);
 		this.date_based_stats = {};
 		/**
 		 * [date]: {

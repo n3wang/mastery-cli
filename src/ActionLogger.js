@@ -1,15 +1,15 @@
 const fs = require('fs');
 const path = require('path');
-const { getDirAbsoluteUri } = require('./utils_functions');
+const { vaultPath } = require('./vault');
 
 /**
  * Manages logging of user actions and usage statistics
  * Logs removals, completions, feedback, and other study session events
  */
 class ActionLogger {
-	constructor(filename = 'logs.txt', enabled = true) {
+	constructor(filename = 'actions.log', enabled = true) {
 		this.filename = filename;
-		this.filepath = getDirAbsoluteUri(`user_data/data/${this.filename}`);
+		this.filepath = vaultPath(`stats/${this.filename}`);
 		this.enabled = enabled;
 		this.ensureDirectory();
 	}

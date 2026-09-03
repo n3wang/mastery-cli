@@ -4,10 +4,15 @@ const assert = require('assert');
 describe('StorableReport', function () {
 	describe('#getDate()', function () {
 		it('should return the date of the report', async function () {
+			// Seed a report first. This used to rely on a ./report file left
+			// behind by an earlier run, which is why it passed by accident.
+			const seed = new StorableReport();
+			seed.cleanReport();
+			seed.saveReport();
+
 			const report = new StorableReport();
 			await report.getReport();
 			const date = report.getDate();
-			console.log('date', date);
 			assert(typeof date === 'string');
 		});
 

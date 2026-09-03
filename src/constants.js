@@ -35,14 +35,35 @@ function get_random(list) {
  * @param {number} options.count - How many random items to pick (default: 1)
  * @returns {Array} - An array of random items from the original list
  */
+/**
+ * Take a random sample of a list, WITHOUT replacement.
+ *
+ * This used to pick `count` indices independently, so the result routinely
+ * contained duplicates and missed other entries entirely -- drawing 6 of 6
+ * items returned all 6 only ~1.5% of the time. That quietly defeated the
+ * least-practiced-first selection, which relies on this to see every
+ * candidate term.
+ *
+ * @param {Array} list source list (not mutated)
+ * @param {Object} options
+ * @param {Number} options.count how many items to draw
+ * @returns {Array} up to `count` distinct items in random order
+ */
 function get_random_of_size(list, { count = 1 } = {}) {
-	const listOfRandomProblems = [];
-	for (let i = 0; i < count; i++) {
-		listOfRandomProblems.push(
-			list[Math.floor(Math.random() * list.length)]
-		);
+	if (!Array.isArray(list) || list.length === 0) {
+		return [];
 	}
-	return listOfRandomProblems;
+
+	// Partial Fisher-Yates: shuffle only as far as we need.
+	const pool = [...list];
+	const take = Math.min(count, pool.length);
+
+	for (let i = 0; i < take; i++) {
+		const j = i + Math.floor(Math.random() * (pool.length - i));
+		[pool[i], pool[j]] = [pool[j], pool[i]];
+	}
+
+	return pool.slice(0, take);
 }
 const MASTERY_MANAGER_NAME = 'MCLI';
 

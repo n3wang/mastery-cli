@@ -1,3 +1,4 @@
+const { vaultPath } = require('./vault');
 /**
  * Core Utilities for Mastery CLI
  *
@@ -255,6 +256,12 @@ class Mastery {
 			},
 			code: () => {
 				this.tellCurrentDirectory();
+			},
+			vault: () => {
+				const {
+					handleVaultCommand
+				} = require('./commands/vault-command');
+				return handleVaultCommand();
 			},
 			setting: () => {
 				this.displaySettingsPaths();
@@ -1261,7 +1268,7 @@ class Mastery {
 			}
 
 			// Create module directory
-			const moduleDir = path.join(__dirname, 'data', 'user_data', 'terms_modules', modulePath);
+			const moduleDir = vaultPath(`decks/${modulePath}`);
 			
 			if (fs.existsSync(moduleDir)) {
 				console.log(`\nError: Module directory already exists at ${moduleDir}`);

@@ -1,11 +1,11 @@
 const fs = require('fs');
 const path = require('path');
-const { getDirAbsoluteUri } = require('./utils_functions');
+const { vaultPath } = require('./vault');
 
 class DailyDeckManager {
 	constructor(settings = {}) {
 		this.settings = settings;
-		this.storageFile = getDirAbsoluteUri('./user_data/daily_decks.json');
+		this.storageFile = vaultPath('progress/daily-decks.json');
 		this.dailyDecks = {};
 		this.load();
 	}

@@ -1,10 +1,10 @@
-const { getDirAbsoluteUri } = require('./utils_functions');
+const { vaultPath } = require('./vault');
 
 class StorableQueue {
 	constructor({ name = '' } = {}) {
 		this.elements = [];
 		this.name = name;
-		this.absolute_uri = getDirAbsoluteUri(`./user_data/temp/${this.name}`);
+		this.absolute_uri = vaultPath(`.cache/queues/${this.name}`);
 	}
 
 	async load() {

@@ -16,17 +16,10 @@ docs/
 dist/
 **/dist/
 
-# Legacy in-repo user state (removed in the vault migration; kept here so a
-# pre-migration working copy does not re-commit it)
-src/data/user_data/settings.json
-src/data/user_data/daily_decks.json
-src/data/user_data/review_decks.json
-src/data/user_data/temp/
-src/data/user_data/data/
-src/data/user_data/terms_modules/**/cache.json
-src/data/user_data/terms_modules/**/cache_problems.json
-src/extensions/dsa-cli/data/
-src/extensions/dsa-cli/user_files/
+# Legacy in-package user data. Migrated into the vault
+# ($MASTERY_HOME, default <OS data dir>/mastery-cli) and left on disk so it can
+# be verified before deleting. Nothing here is tracked any more.
+src/data/user_data/
 src/features/dsa/data/
 src/features/dsa/user_files/
 **/db.json

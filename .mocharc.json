@@ -1,4 +1,5 @@
 {
+	"require": ["tests/setup.js"],
 	"spec": [
 		"tests/**/*.test.js",
 		"src/schedule-assistant/tests/**/*.test.js"

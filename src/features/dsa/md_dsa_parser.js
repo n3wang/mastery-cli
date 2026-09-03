@@ -1,24 +1,17 @@
 const fs = require('fs');
 const path = require('path');
 const { ProblemMetadata } = require('./structures.js');
-const {
-	ensureCanonicalUserDataLayout,
-	getUserDataAbsolutePath,
-	migrateLegacyUserDataPath
-} = require('../../userDataPaths');
+const { vaultPath, ensureVault } = require('../../vault');
 
-ensureCanonicalUserDataLayout();
-migrateLegacyUserDataPath('dsa_modules');
+ensureVault();
 
-function getDsaModulePath(relativePath = '', { preferExisting = true } = {}) {
+function getDsaModulePath(relativePath = '') {
 	const normalizedRelativePath = String(relativePath || '')
 		.replace(/\\/g, '/')
 		.replace(/^user_data\/?/, '')
 		.replace(/^dsa_modules\/?/, '');
 
-	return getUserDataAbsolutePath(`dsa_modules/${normalizedRelativePath}`, {
-		preferExisting
-	});
+	return vaultPath(`problems/${normalizedRelativePath}`);
 }
 
 /**
@@ -204,12 +197,10 @@ function parseMarkdownProblemsFromModules(
 	for (const module of dsaModules) {
 		const problems = [];
 		const moduleCacheDir = getDsaModulePath(
-			`${module.module_path}/cache_md`,
-			{ preferExisting: false }
+			`${module.module_path}/cache_md`
 		);
-		const moduleCacheJson = getDsaModulePath(
-			`${module.module_path}/cache.json`,
-			{ preferExisting: false }
+		const moduleCacheJson = vaultPath(
+			`.cache/parsed/problems-${module.module_path}.json`
 		);
 
 		const shouldCacheContent = module.CACHE_CONTENT !== false;

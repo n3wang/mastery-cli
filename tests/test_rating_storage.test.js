@@ -2,12 +2,12 @@ const { RatingStorage } = require('../src/RatingStorage');
 const fs = require('fs');
 const path = require('path');
 const assert = require('assert');
-const { getDirAbsoluteUri } = require('../src/utils_functions');
+const { vaultPath } = require('../src/vault');
 
 describe('RatingStorage', function() {
 	let storage;
 	const testFilename = 'test_ratings';
-	const testFilepath = getDirAbsoluteUri(`user_data/temp/${testFilename}.csv`);
+	const testFilepath = vaultPath(`progress/${testFilename}.csv`);
 
 	beforeEach(function() {
 		// Clean up test file if it exists

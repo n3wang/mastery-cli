@@ -1,3 +1,4 @@
+const { vaultPath } = require('./vault');
 const fs = require('fs');
 const { Term, DeckMask, TermStorage } = require('./structures.js');
 const { getDirAbsoluteUri } = require('./utils_functions.js');
@@ -17,8 +18,8 @@ function resolveModuleResourcePath(module, configuredPath) {
 		return configuredPath;
 	}
 
-	return getDirAbsoluteUri(
-		`user_data/terms_modules/${module.module_path}/${configuredPath}`
+	return vaultPath(
+		`decks/${module.module_path}/${configuredPath}`
 	);
 }
 
@@ -579,11 +580,11 @@ function parseMarkdownCardsFromTermsModules(
 		const terms = [];
 		const nestedDecks = [];
 		const moduleDescriptionMetadata = getModuleDescriptionMetadata(module);
-		const moduleCacheDir = getDirAbsoluteUri(
-			`user_data/terms_modules/${module.module_path}/cache_md`
+		const moduleCacheDir = vaultPath(
+			`decks/${module.module_path}/cache_md`
 		); // Cache directory for markdown files
-		const moduleCacheJson = getDirAbsoluteUri(
-			`user_data/terms_modules/${module.module_path}/cache.json`
+		const moduleCacheJson = vaultPath(
+			`.cache/parsed/${module.module_path}.json`
 		); // Cache file for terms
 
 		const shouldCacheContent = module.CACHE_CONTENT !== false; // Default to true if not explicitly false
@@ -595,8 +596,8 @@ function parseMarkdownCardsFromTermsModules(
 
 		if (module.CONTENT_FOLDERS) {
 			for (const folder of module.CONTENT_FOLDERS) {
-				const folderPath = getDirAbsoluteUri(
-					`user_data/terms_modules/${module.module_path}/${folder}`
+				const folderPath = vaultPath(
+					`decks/${module.module_path}/${folder}`
 				);
 				const result = parseFolderWithOption(
 					folderPath,
@@ -670,8 +671,8 @@ function parseMarkdownCardsFromTermsModules(
 			}
 
 			if (useCacheIfNotFound) {
-				let targetCacheLocation = getDirAbsoluteUri(
-					`user_data/terms_modules/${module.module_path}/cache.json`
+				let targetCacheLocation = vaultPath(
+					`.cache/parsed/${module.module_path}.json`
 				);
 				if (!folderExists) {
 					console.warn(
@@ -778,8 +779,8 @@ function parseMarkdownCardsFromTermsModules(
 
 		if (module.CONTENT_FILES) {
 			for (const file of module.CONTENT_FILES) {
-				const filePath = getDirAbsoluteUri(
-					`user_data/terms_modules/${module.module_path}/${file}`
+				const filePath = vaultPath(
+					`decks/${module.module_path}/${file}`
 				);
 
 				// Check if the markdown file is cached
@@ -828,7 +829,7 @@ function parseMarkdownCardsFromTermsModules(
 
 function retrieve_terms_modules() {
 	const termsModules = {};
-	const termsModulesPath = getDirAbsoluteUri('user_data/terms_modules');
+	const termsModulesPath = vaultPath('decks');
 	const moduleFolders = fs
 		.readdirSync(termsModulesPath)
 		.filter(file =>

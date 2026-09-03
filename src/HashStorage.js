@@ -1,17 +1,15 @@
 const fs = require('fs');
 const path = require('path');
-const { getDirAbsoluteUri } = require('./utils_functions');
+const { vaultPath } = require('./vault');
 
 /**
  * Simple storage system for term completion hashes and counts
  * Stores data as: { "hash1": count1, "hash2": count2, ... }
  */
 class HashStorage {
-	constructor(filename = 'term_completion_hashes') {
+	constructor(filename = 'term-completion-hashes') {
 		this.filename = filename;
-		this.filepath = getDirAbsoluteUri(
-			`user_data/temp/${this.filename}.json`
-		);
+		this.filepath = vaultPath(`progress/${this.filename}.json`);
 		this.data = {}; // Root dictionary: { hash: count }
 	}
 

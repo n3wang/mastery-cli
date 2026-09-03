@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { getDirAbsoluteUri } = require('./utils_functions');
+const { vaultPath } = require('./vault');
 
 /**
  * Manages persistent storage of terms to ignore during study sessions
@@ -8,9 +8,9 @@ const { getDirAbsoluteUri } = require('./utils_functions');
  * The JSON file persists all ignored terms regardless of which deck they appear in
  */
 class DeletionQueueStorage {
-	constructor(filename = 'deletion_queue') {
+	constructor(filename = 'deletion-queue') {
 		this.filename = filename;
-		this.filepath = getDirAbsoluteUri(`user_data/temp/${this.filename}.json`);
+		this.filepath = vaultPath(`.cache/${this.filename}.json`);
 		this.data = []; // Array of { termName, folderPath, category, timestamp, hasFeedback }
 		this.load();
 	}

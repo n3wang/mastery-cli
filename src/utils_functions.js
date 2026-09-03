@@ -14,7 +14,7 @@ const DEBUG = false;
 const { marked } = require('marked'); //Formats into html
 var TerminalRenderer = require('marked-terminal'); //Formats into terminal
 const { exec } = require('child_process');
-const { getUserDataAbsolutePath } = require('./userDataPaths');
+const { vaultPath } = require('./vault');
 
 marked.setOptions({
 	renderer: new TerminalRenderer()
@@ -66,7 +66,8 @@ const getDirAbsoluteUri = (
 		normalizedFilePath === 'user_data' ||
 		normalizedFilePath.startsWith('user_data/')
 	) {
-		return getUserDataAbsolutePath(normalizedFilePath);
+		// Legacy call shape: everything under user_data/ lives in the vault now.
+		return vaultPath(normalizedFilePath);
 	}
 
 	// Note it should take from the root.
