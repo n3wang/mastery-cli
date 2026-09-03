@@ -20,6 +20,7 @@ dist/
 # ($MASTERY_HOME, default <OS data dir>/mastery-cli) and left on disk so it can
 # be verified before deleting. Nothing here is tracked any more.
 src/data/user_data/
+/user_data/
 src/features/dsa/data/
 src/features/dsa/user_files/
 **/db.json
