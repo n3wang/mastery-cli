@@ -1,40 +1,48 @@
-!**/cache.json
-nul
-*/archive/*
-.claude/**
-**/user_data/*.md
-**/user_files/**
-src\extensions\dsa-cli\user_files\temp_problem.js
-claude.md
-current-quiz.md
+# ---------------------------------------------------------------------------
+# Mastery CLI
+#
+# User data lives in the vault ($MASTERY_HOME, default <OS data dir>/mastery-cli),
+# outside this repository. Nothing user-generated should ever need a rule here.
+# See devdocs/i003-open-source-preparation-plan.md section 5.
+# ---------------------------------------------------------------------------
 
-utils/dsa-cli/user_files/temp_settings.json
-utils/dsa-cli/user_files/*
-
-# User-specific local progress and settings #
-##############################################
-# Personal settings - contains user preferences, deck masks, objectives
-src/data/user_data/settings.json
-
-# Daily deck tracking - user's daily study progress
-src/data/user_data/daily_decks.json
-
-# All temp files - study sessions, queues, hashes, feedback
-src/data/user_data/temp/
-
-# Cache files - parsed binary data (but NOT the markdown content)
-src/data/user_data/terms_modules/**/cache.json
-
-# NPM #
-##########
-# Ignore all directories called node_modules in current folder and any subfolders.
+# Dependencies
 node_modules/
-/node_modules/
-temp/
-*/db.json
+
+# Generated documentation (published to Pages from CI, never committed)
+docs/
+
+# Build output
+dist/
+**/dist/
+
+# Legacy in-repo user state (removed in the vault migration; kept here so a
+# pre-migration working copy does not re-commit it)
+src/data/user_data/settings.json
+src/data/user_data/daily_decks.json
+src/data/user_data/review_decks.json
+src/data/user_data/temp/
+src/data/user_data/data/
+src/data/user_data/terms_modules/**/cache.json
+src/data/user_data/terms_modules/**/cache_problems.json
+src/extensions/dsa-cli/data/
+src/extensions/dsa-cli/user_files/
+src/features/dsa/data/
+src/features/dsa/user_files/
+**/db.json
+**/db.json.*
 current-quiz.md
-# Packages #
-############
+
+# Logs and databases
+*.log
+*.sql
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Archives
 *.7z
 *.dmg
 *.gz
@@ -45,68 +53,22 @@ current-quiz.md
 *.tar
 *.zip
 *.tgz
-*.map
 
-# Logs and databases #
-######################
-*.log
-*.sql
-*.env
-
-# OS generated files #
-######################
-**.DS_Store*
+# OS generated files
+.DS_Store
+**/.DS_Store
 ehthumbs.db
 Icon?
 Thumbs.db
 ._*
-**settings.dat*
 
-# Vim generated files #
-######################
-*.un~
-
-# SASS #
-##########
-**/.sass-cache
-**/.sass-cache/*
-**/.map
-
-# Composer #
-##########
-!assets/js/vendor/
-wpcs/
-/vendor/
-
-# Bower #
-##########
-assets/bower_components/*
-
-# Codekit #
-##########
-/codekit-config.json
-*.codekit
-**.codekit-cache/*
-
-# Compiled Files and Build Dirs #
-##########
-/README.html
-
-# PhpStrom Project Files #
+# Editors
 .idea/
-library/vendors/composer
-assets/img/.DS_Store
+.vscode/
+*.un~
+*.swp
 
-# VSCode related files #
-# .vscode
-**/stash/**
-utils/dsa-cli/data/db.json
-utils/dsa-cli/user_files/temp_problem.js
-utils/dsa-cli/user_files/temp_settings.json
-utils/dsa-cli/user_files/temp_problem.js
-.gitignore/*
-.vscode/*
-src/extensions/dsa-cli/data/db.json
-**/db.json
-**/db.json.*
-
+# Agent / assistant scratch
+.claude/
+CLAUDE.md
+claude.md
