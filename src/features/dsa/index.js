@@ -122,10 +122,12 @@ function getHandlers({ flags = {}, masteryManager = null } = {}) {
 		dsa: async () => {
 			if (flags.session) {
 				const session_size = flags?.number ?? flags?.n ?? 10;
+				const reset_scheduler = flags?.reset ?? false;
 				if (masteryManager) {
 					await masteryManager.ensureTermsLoaded();
 					return masteryManager.mQuizer.algorithmicStudySession({
-						session_size
+						session_size,
+						reset_scheduler
 					});
 				}
 
@@ -141,10 +143,12 @@ function getHandlers({ flags = {}, masteryManager = null } = {}) {
 		mdsa: async () => {
 			if (flags.session) {
 				const session_size = flags?.number ?? flags?.n ?? 10;
+				const reset_scheduler = flags?.reset ?? false;
 				if (masteryManager) {
 					await masteryManager.ensureTermsLoaded();
 					return masteryManager.mQuizer.algorithmicStudySession({
 						session_size,
+						reset_scheduler,
 						md_pseudo_mode: true
 					});
 				}
@@ -161,10 +165,12 @@ function getHandlers({ flags = {}, masteryManager = null } = {}) {
 		cloze: async () => {
 			if (flags.session) {
 				const session_size = flags?.number ?? flags?.n ?? 10;
+				const reset_scheduler = flags?.reset ?? false;
 				if (masteryManager) {
 					await masteryManager.ensureTermsLoaded();
 					return masteryManager.mQuizer.clozeStudySession({
-						session_size
+						session_size,
+						reset_scheduler
 					});
 				}
 

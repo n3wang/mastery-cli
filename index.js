@@ -26,6 +26,8 @@ const cli_meow = cli[0];
 const flags = cli_meow.flags;
 const input = cli_meow.input;
 
+process.env.MASTERY_VERBOSE_LOGS = flags?.logs ? '1' : '0';
+
 const { Mastery } = utils;
 
 (async () => {

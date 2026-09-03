@@ -332,8 +332,18 @@ class MathSessionManager {
 	/**
 	 * Run a complete math session
 	 * @param {number} sessionCount - Number of problems to solve (default: 10)
+	 * @param {Object} options
+	 * @param {boolean} options.resetSession - Reset in-memory session state before starting
 	 */
-	async runSession(sessionCount = 10) {
+	async runSession(sessionCount = 10, { resetSession = false } = {}) {
+		if (resetSession) {
+			this.sessionStats.correct_answers = 0;
+			this.sessionStats.wrong_answers = 0;
+			this.sessionStats.attempts = [];
+			this.sessionStats.start_time = null;
+			this.sessionStats.end_time = null;
+		}
+
 		this.sessionStats.total_problems = sessionCount;
 
 		// Load existing stats

@@ -901,7 +901,7 @@ class Quizzer {
 
 	studySession = async (
 		masterDeck = this.masterDeck,
-		{ reverse = false, size_study_deck = -1 } = {}
+		{ reverse = false, size_study_deck = -1, resetScheduler = false } = {}
 	) => {
 		//Pick a term deck Suppose is given
 
@@ -1111,7 +1111,9 @@ class Quizzer {
 				size_study_deck > 0
 					? allTerms.slice(0, size_study_deck)
 					: allTerms;
-			return this.runStudySession(selectedTerms, 'daily_deck');
+			return this.runStudySession(selectedTerms, 'daily_deck', {
+				resetScheduler
+			});
 		}
 
 		// Handle Review Deck selection
@@ -1137,7 +1139,9 @@ class Quizzer {
 				size_study_deck > 0
 					? selectedReviewDeck.cards.slice(0, size_study_deck)
 					: selectedReviewDeck.cards;
-			return this.runStudySession(reviewTerms, deckName);
+			return this.runStudySession(reviewTerms, deckName, {
+				resetScheduler
+			});
 		}
 
 		// Convert display title back to original title for dictionary lookup
@@ -1205,12 +1209,14 @@ class Quizzer {
 			selected_terms = selected_terms.slice(0, size_study_deck);
 		}
 
-		return this.runStudySession(selected_terms, deck_selected);
+		return this.runStudySession(selected_terms, deck_selected, {
+			resetScheduler
+		});
 	};
 
 	filteredStudySession = async (
 		masterDeck = this.masterDeck,
-		{ reverse = false, size_study_deck = -1 } = {}
+		{ reverse = false, size_study_deck = -1, resetScheduler = false } = {}
 	) => {
 		const { getSettingsManager } = require('./SettingsManager');
 		const settingsManager = getSettingsManager();
@@ -1407,7 +1413,9 @@ class Quizzer {
 			this.reviewDecksStorage.markAsRevised(selectedReviewDeck.date);
 
 			const deckName = `review_${selectedReviewDeck.date}`;
-			return this.runStudySession(selectedReviewDeck.cards, deckName);
+			return this.runStudySession(selectedReviewDeck.cards, deckName, {
+				resetScheduler
+			});
 		}
 
 		if (deck_selected_key.startsWith("Today's Deck")) {
@@ -1457,13 +1465,16 @@ class Quizzer {
 				} else {
 					return this.filteredStudySession(masterDeck, {
 						reverse,
-						size_study_deck
+						size_study_deck,
+						resetScheduler
 					});
 				}
 			}
 
 			const selected_terms = todayDeck.terms;
-			return this.runStudySession(selected_terms, "Today's Deck");
+			return this.runStudySession(selected_terms, "Today's Deck", {
+				resetScheduler
+			});
 		}
 
 		const originalKey =
@@ -1503,7 +1514,9 @@ class Quizzer {
 			}
 		}
 
-		return this.runStudySession(selected_terms, deck_selected);
+		return this.runStudySession(selected_terms, deck_selected, {
+			resetScheduler
+		});
 	};
 
 	/**

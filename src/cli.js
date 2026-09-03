@@ -53,6 +53,12 @@ const flags = {
 		type: 'boolean',
 		desc: 'Enable LLM follow-up on wrong answers (--llm-followup / --no-llm-followup)'
 	},
+	logs: {
+		type: 'boolean',
+		alias: 'l',
+		default: false,
+		desc: 'Show verbose startup/session loading logs'
+	},
 	session: {
 		type: 'boolean',
 		alias: 's',

@@ -8,6 +8,10 @@
 const { TermStorage, DeckMask } = require('../structures.js');
 const { vaultPath } = require('../vault');
 
+function verboseLogsEnabled() {
+	return process.env.MASTERY_VERBOSE_LOGS === '1';
+}
+
 /**
  * Helper function to create a new mask configuration object
  * @param {string} title - The mask title/identifier
@@ -62,9 +66,11 @@ function getMasksByAlgorithm() {
 
 			deckMasks.push(deckMask);
 
-			console.log(
-				`Created mask "${title}" with decks: [${decks_to_enable.join(', ')}], enabled: ${enabled}`
-			);
+			if (verboseLogsEnabled()) {
+				console.log(
+					`Created mask "${title}" with decks: [${decks_to_enable.join(', ')}], enabled: ${enabled}`
+				);
+			}
 		}
 
 		return deckMasks;
@@ -102,7 +108,9 @@ async function populateMasterDeck({ deckFilter = null } = {}) {
 	Object.entries(allSampleTerms).forEach(([termKey, termData]) => {
 		// Skip non-array data like CURRENCY_SIMBOLS
 		if (!Array.isArray(termData)) {
-			console.log(`⏭ Skipping non-array export: ${termKey}`);
+			if (verboseLogsEnabled()) {
+				console.log(`⏭ Skipping non-array export: ${termKey}`);
+			}
 			return;
 		}
 
@@ -119,16 +127,20 @@ async function populateMasterDeck({ deckFilter = null } = {}) {
 					filter.toLowerCase().includes(deckDisplayName.toLowerCase())
 			);
 			if (!matches) {
-				console.log(
-					`⏭ Skipping deck (not in filter): "${deckDisplayName}"`
-				);
+				if (verboseLogsEnabled()) {
+					console.log(
+						`⏭ Skipping deck (not in filter): "${deckDisplayName}"`
+					);
+				}
 				return;
 			}
 		}
 
-		console.log(
-			`➕ Adding deck: "${deckDisplayName}" with ${termData.length} terms`
-		);
+		if (verboseLogsEnabled()) {
+			console.log(
+				`➕ Adding deck: "${deckDisplayName}" with ${termData.length} terms`
+			);
+		}
 		decks.addDeck(new TermStorage(termData, deckDisplayName));
 	});
 

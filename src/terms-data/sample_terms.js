@@ -12,6 +12,10 @@ const path = require('path');
 let consolidatedExports = null;
 let isLoading = false;
 
+function verboseLogsEnabled() {
+	return process.env.MASTERY_VERBOSE_LOGS === '1';
+}
+
 /**
  * Lazy load all terms from the sample_terms directory
  * @returns {Object} Consolidated exports from all term files
@@ -48,9 +52,11 @@ function loadTermsLazy() {
 			}
 		});
 
-		console.log(
-			`📦 Consolidated ${Object.keys(consolidatedExports).length} total exports from ${files.length} files`
-		);
+		if (verboseLogsEnabled()) {
+			console.log(
+				`📦 Consolidated ${Object.keys(consolidatedExports).length} total exports from ${files.length} files`
+			);
+		}
 	} finally {
 		isLoading = false;
 	}

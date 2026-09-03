@@ -41,9 +41,14 @@ const COMMANDS = [
 		group: 'study',
 		desc: 'Start a study session',
 		usage: 'mastery session [-n <count>]',
-		examples: ['mastery session', 'mastery session -n 20'],
+		examples: [
+			'mastery session',
+			'mastery session -n 20',
+			'mastery session -r'
+		],
 		flags: {
-			'--number, -n': 'Number of terms to run from selected deck'
+			'--number, -n': 'Number of terms to run from selected deck',
+			'--reset, -r': 'Reset scheduler queue before starting'
 		}
 	},
 	{
@@ -52,9 +57,14 @@ const COMMANDS = [
 		group: 'study',
 		desc: 'Study session limited to the decks your active masks enable',
 		usage: 'mastery fses [-n <count>]',
-		examples: ['mastery fses', 'mastery fses -n 20'],
+		examples: [
+			'mastery fses',
+			'mastery fses -n 20',
+			'mastery fses -r'
+		],
 		flags: {
-			'--number, -n': 'Number of terms to run from selected filtered deck'
+			'--number, -n': 'Number of terms to run from selected filtered deck',
+			'--reset, -r': 'Reset scheduler queue before starting'
 		}
 	},
 	{
@@ -63,8 +73,15 @@ const COMMANDS = [
 		group: 'study',
 		desc: 'Study session in reverse order',
 		usage: 'mastery lastses [-n <count>]',
-		examples: ['mastery lastses', 'mastery lastses -n 20'],
-		flags: { '--number, -n': 'Number of terms to run from selected deck' }
+		examples: [
+			'mastery lastses',
+			'mastery lastses -n 20',
+			'mastery lastses -r'
+		],
+		flags: {
+			'--number, -n': 'Number of terms to run from selected deck',
+			'--reset, -r': 'Reset scheduler queue before starting'
+		}
 	},
 	{
 		name: 'quiz',
@@ -86,7 +103,8 @@ const COMMANDS = [
 		],
 		flags: {
 			'--session, -s': 'Run full term study session',
-			'--number, -n': 'Number of terms to run in session mode'
+			'--number, -n': 'Number of terms to run in session mode',
+			'--reset, -r': 'Reset scheduler queue before starting session mode'
 		}
 	},
 	{
@@ -103,7 +121,8 @@ const COMMANDS = [
 		],
 		flags: {
 			'--session, -s': 'Run tracked multi-problem math session',
-			'--number, -n': 'Number of problems to solve in session mode (default: 10)'
+			'--number, -n': 'Number of problems to solve in session mode (default: 10)',
+			'--reset, -r': 'Reset in-memory session state before starting'
 		}
 	},
 	{
@@ -130,7 +149,8 @@ const COMMANDS = [
 		flags: {
 			'--all': 'Show every problem instead of the recommended ones',
 			'--session, -s': 'Run algorithm challenge session mode',
-			'--number, -n': 'Number of problems to run in session mode (default: 10)'
+			'--number, -n': 'Number of problems to run in session mode (default: 10)',
+			'--reset, -r': 'Reset scheduler queue before starting session mode'
 		}
 	},
 	{
@@ -148,7 +168,8 @@ const COMMANDS = [
 		flags: {
 			'--all': 'Show every problem instead of the recommended ones',
 			'--session, -s': 'Run markdown algorithm challenge session mode',
-			'--number, -n': 'Number of problems to run in session mode (default: 10)'
+			'--number, -n': 'Number of problems to run in session mode (default: 10)',
+			'--reset, -r': 'Reset scheduler queue before starting session mode'
 		}
 	},
 	{
@@ -164,7 +185,8 @@ const COMMANDS = [
 		],
 		flags: {
 			'--session, -s': 'Run cloze study session mode',
-			'--number, -n': 'Number of cloze problems to run in session mode (default: 10)'
+			'--number, -n': 'Number of cloze problems to run in session mode (default: 10)',
+			'--reset, -r': 'Reset scheduler queue before starting session mode'
 		}
 	},
 
