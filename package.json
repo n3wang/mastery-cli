@@ -1,31 +1,58 @@
 {
 	"name": "mastery-cli",
-	"description": "Continuous learning for engineers",
+	"description": "Continuous learning for engineers: flashcards, DSA practice and habit hooks, offline and in your terminal",
 	"version": "1.0.33",
-	"license": "UNLICENSED",
+	"license": "MIT",
 	"bin": {
-		"m-cli": "index.js",
-		"maid": "index.js",
 		"mastery": "index.js",
 		"mcli": "index.js"
 	},
 	"author": {
-		"name": "mastery-cli",
-		"email": "info@example.com",
-		"url": "https://github.com/mastery-cli/mastery-cli"
+		"name": "n3wang",
+		"url": "https://github.com/n3wang"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/n3wang/mastery-cli.git"
+	},
+	"bugs": {
+		"url": "https://github.com/n3wang/mastery-cli/issues"
+	},
+	"homepage": "https://github.com/n3wang/mastery-cli#readme",
+	"engines": {
+		"node": ">=16"
 	},
 	"keywords": [
-		"mastery-cli"
+		"cli",
+		"flashcards",
+		"spaced-repetition",
+		"study",
+		"dsa",
+		"algorithms",
+		"leetcode",
+		"learning",
+		"offline"
 	],
 	"files": [
 		"index.js",
-		"utils"
+		"src/",
+		"content/",
+		"README.md",
+		"LICENSE",
+		"!src/data/",
+		"!src/terms_data/img/",
+		"!src/features/dsa/user_files/",
+		"!src/features/dsa/data/",
+		"!src/features/dsa/solutions/md/",
+		"!**/*.map",
+		"!**/db.json*"
 	],
 	"scripts": {
-		"format": "prettier --write \"./**/*.{js,json}\"",
+		"test": "mocha",
 		"tests": "mocha",
-		"doc": "jsdoc -c jsdoc.json",
-		"test": "mocha"
+		"format": "prettier --write \"./**/*.{js,json}\"",
+		"format:check": "prettier --check \"./**/*.{js,json}\"",
+		"doc": "jsdoc -c jsdoc.json"
 	},
 	"dependencies": {
 		"chalk": "^4.1.2",
@@ -40,6 +67,7 @@
 		"meow": "^9.0.0"
 	},
 	"devDependencies": {
-		"mocha": "^10.2.0"
+		"mocha": "^10.2.0",
+		"prettier": "^3.0.0"
 	}
 }
